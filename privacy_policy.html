@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CodeMenu - Extiri</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="description" content="Home page of Extiri">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      body {
+        color: white;
+        background-color: black;
+      }
+
+      .main {
+        display: block;
+        height: 130vh;
+        width: 100%;
+        top: 70px;
+        z-index: 2;
+      }
+
+      .section {
+        display: block;
+        width: 100%;
+        z-index: 3;
+      }
+
+      .action-button {
+        width: 223px;
+        height: 52px;
+        text-align: center;
+        line-height: 50px;
+
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+
+        background: linear-gradient(180deg, #FEBF1F 0%, #FE9C28 100%);
+        border-radius: 100px;
+      }
+
+      h1 {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 48px;
+        line-height: 52px;
+      }
+
+      .paragraph {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 39px;
+        text-align: justify;
+      }
+
+      .left {
+        position: relative;
+        left: 50px;
+        flex: left;
+        width: 45%;
+      }
+
+      .right {
+        position: relative;
+        right: 10px;
+        flex: right;
+        width: 45%;
+      }
+
+      .paragraph-small {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 27px;
+        line-height: 39px;
+        text-align: justify;
+      }
+
+      .utilities_grid {
+        display: grid;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+        width: 90%;
+        grid-template-columns: repeat(auto-fit, 800px);
+	      grid-template-rows: repeat(auto-fit, minmax(400px, 1fr));
+	      grid-auto-flow: row dense;
+	      gap: 30px;
+        justify-items: center;
+      }
+
+      .utility_element {
+        width: 800px;
+      }
+    </style>
+    <script>
+      function goToHome() {
+        window.open("./index.html#home")
+      }
+
+      function goToApps() {
+        window.open("./index.html#apps")
+      }
+
+      function goToAbout() {
+        window.open("./index.html#about")
+      }
+
+       function goToContact() {
+        window.open("./index.html#contact")
+       }
+    </script>
+    <script src="scripts.js"></script>
+  </head>
+  <body>
+    <div class="navbar">
+        <div class="navbar-content">
+          <img src="images/extiri-white-logo.png" width="110px" class="navbar-logo"></img>
+  
+          <span class="big_screen">
+            <p class="navbar-item" onclick="goToHome()">Home</p>
+            <p class="navbar-item" onclick="goToApps()">Apps</p>
+            <p class="navbar-item" onclick="goToAbout()">About</p>
+            <p class="navbar-item" onclick="goToContact()">Contact</p>
+          </span>
+
+          <span class="small_screen">
+            <img src="images/hamburger-icon.png" class="navbar-item" style="position: absolute; top: 11px; width: 30px !important;" onclick="toggleHamburger()">
+
+            <div id="hamburger_menu" class="hamburger_menu">
+              <div class="hamburger_menu_content">
+                <p class="navbar-item" onclick="goToHome()">Home</p>
+                <p class="navbar-item" onclick="goToApps()">Apps</p>
+                <p class="navbar-item" onclick="goToAbout()">About</p>
+                <p class="navbar-item" onclick="goToContact()">Contact</p>
+                </div>
+            </div>
+          </span>
+        </div>
+    </div>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="section" style="width: 70%; margin-left: auto; margin-right: auto; font-size: 1.5em;">
+      <h2>What launguages does Editor support?</h2>
+			<p>At this moment Editor supports JavaScript by default. But you can any other language that has CLI utility.</p>
+			
+			<p>You can do this by placing language's command line utility in Application Scripts of CodeMenu (to open click "Open Application Scripts" in Languages settings section).</p>
+			
+			<p>You can do this by creating symlink (shortcut to file, but accessible by CodeMenu) to command line utility by opening your terminal and then entering<br><br><code>cd /Users/(your username)/Library/Application\ Scripts/id.thedev.marcin.CodeMenu</code><br><br> and then <br><br><code>ln -s /usr/bin/(utilities shell command) .</code><br><br> You might need to restart CodeMenu for language to show up.</p>
+			
+			<br>
+      <br>
+			
+			<h2>What launguages does syntax highlighting support?</h2>
+			<p>All laungauges <a class="secondary_link" href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md">supported by default in highlight.js</a> are supported by CodeMenu.</p>
+			
+			<br>
+      <br>
+			
+			<h2>What launguages does library generator support?</h2>
+			<p>At this moment library generator supports Swift, XML/HTML and JavaScript.</p>
+			
+			<br>
+      <br>
+			
+			<h2>Are snippets from Snippets Store copyrighted?</h2>
+			<p>No. Snippets from Snippets Store have <a class="secondary_link" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 license</a>. You can copy, modify and distribute snippets, even for commercial purposes, all without asking permission. However, there are no warranties, and liability is disclaimed for all uses, to the fullest extent permitted by applicable law.</p>
+			
+			<br>
+      <br>
+			
+			<h2>Can I import snippets from other snippets manager?</h2>
+			<p>Currently no, but support is planned. If you know about snippets manager with export/backup capabilities, then you can send me example exported file, so if demand is met, I will be able to support it.</p>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p style="color: white; padding-bottom: 10px; text-align: center;"><a href="privacy_policy.html" class="secondary_link">Privacy Policy</a> | <a href="codemenu_eula.html" class="secondary_link">Terms of Use</a></p>
+    <p style="color: #505050; padding-bottom: 50px; text-align: center;">Mac is a trademark of Apple Inc., registered in the U.S. and other countries and regions.</p>
+  </body>
+</html>
