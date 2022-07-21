@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CodeMenu - Extiri</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="description" content="Home page of Extiri">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      body {
+        color: white;
+        background-color: black;
+      }
+
+      .main {
+        display: block;
+        height: 130vh;
+        width: 100%;
+        top: 70px;
+        z-index: 2;
+      }
+
+      .section {
+        display: block;
+        width: 100%;
+        z-index: 3;
+      }
+
+      .action-button {
+        width: 223px;
+        height: 52px;
+        text-align: center;
+        line-height: 50px;
+
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+
+        background: linear-gradient(180deg, #FEBF1F 0%, #FE9C28 100%);
+        border-radius: 100px;
+      }
+
+      h1 {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 48px;
+        line-height: 52px;
+      }
+
+      .paragraph {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 39px;
+        text-align: justify;
+      }
+
+      .left {
+        position: relative;
+        left: 50px;
+        flex: left;
+        width: 45%;
+      }
+
+      .right {
+        position: relative;
+        right: 10px;
+        flex: right;
+        width: 45%;
+      }
+
+      .paragraph-small {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 27px;
+        line-height: 39px;
+        text-align: justify;
+      }
+
+      .utilities_grid {
+        display: grid;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+        width: 90%;
+        grid-template-columns: repeat(auto-fit, 800px);
+	      grid-template-rows: repeat(auto-fit, minmax(400px, 1fr));
+	      grid-auto-flow: row dense;
+	      gap: 30px;
+        justify-items: center;
+      }
+
+      .utility_element {
+        width: 800px;
+      }
+    </style>
+    <script>
+      function goToHome() {
+        window.open("./index.html#home")
+      }
+
+      function goToApps() {
+        window.open("./index.html#apps")
+      }
+
+      function goToAbout() {
+        window.open("./index.html#about")
+      }
+
+       function goToContact() {
+        window.open("./index.html#contact")
+       }
+    </script>
+    <script src="scripts.js"></script>
+  </head>
+  <body>
+    <div class="navbar">
+        <div class="navbar-content">
+          <img src="images/extiri-white-logo.png" width="110px" class="navbar-logo"></img>
+  
+          <span class="big_screen">
+            <p class="navbar-item" onclick="goToHome()">Home</p>
+            <p class="navbar-item" onclick="goToApps()">Apps</p>
+            <p class="navbar-item" onclick="goToAbout()">About</p>
+            <p class="navbar-item" onclick="goToContact()">Contact</p>
+          </span>
+
+          <span class="small_screen">
+            <img src="images/hamburger-icon.png" class="navbar-item" style="position: absolute; top: 11px; width: 30px !important;" onclick="toggleHamburger()">
+
+            <div id="hamburger_menu" class="hamburger_menu">
+              <div class="hamburger_menu_content">
+                <p class="navbar-item" onclick="goToHome()">Home</p>
+                <p class="navbar-item" onclick="goToApps()">Apps</p>
+                <p class="navbar-item" onclick="goToAbout()">About</p>
+                <p class="navbar-item" onclick="goToContact()">Contact</p>
+                </div>
+            </div>
+          </span>
+        </div>
+    </div>
+
+    <img style="display: block; position: absolute; top: 60px; left: 0px;" src="images/codemenu_background.png" width="100%"></img>
+
+    <div class="main big_screen">
+      <div style="position: absolute;">
+        <div style="position: relative; top: 200px; left: 200px;">
+          <img src="images/codemenu-icon.png" width="200px">
+          <h1 style="position: relative; left: 50px; top: -30px; display: inline-block; font-weight: normal; font-size: 5em;">CodeMenu</h1>
+        </div>
+  
+        <p style="position: relative; top: 140px; left: 220px; font-size: 2em; color: #D6D6D6;">Snippets manager with super powers.</p>
+  
+        <p style="position: relative; left: 440px; top: 260px; font-style: normal; font-weight: 400; font-size: 24px; color: #616161;">macOS only</p>
+        <div class="action-button" style="position: relative; left: 600px; top: 200px;">
+          <a href="https://forms.gle/aTuwEuV21b3YwWa17" style="all: unset; cursor: pointer;">
+           Apply for beta
+          </a>
+        </div>
+      </div>
+
+      <img src="images/macbook_pro_16_bezel.png" width="40%" style="position: absolute; top: 280px; right: 10%;">
+    </div>
+
+    <div class="main small_screen">
+      <div style="display: block; position: relative; top: 200px; width: 90%; text-align: center; margin-left: auto; margin-right: auto;">
+        <img src="images/codemenu-icon.png" width="200px">
+        <h1 style="position: relative; left: 50px; top: -30px; display: inline-block; font-weight: normal; font-size: 5em;">CodeMenu</h1>
+      </div>
+
+      <p style="position: relative; top: 140px; font-size: 2em; color: #D6D6D6; text-align: center;">Snippets manager with super powers.</p>
+
+      <p style="position: relative; top: 200px; font-style: normal; font-weight: 400; font-size: 24px; text-align: center; color: #616161;">macOS only</p>
+      <div class="action-button" style="position: relative; top: 200px; margin-left: auto; margin-right: auto;">
+        <a href="https://forms.gle/aTuwEuV21b3YwWa17" style="all: unset; cursor: pointer;">
+          Apply for beta
+        </a>
+      </div>
+    </div>
+
+    <div class="section big_screen">
+      <div style="display: flex; z-index: 2; width: 100%; overflow: hidden; flex-wrap: wrap; height: 1280px;">
+        <div class="left" style="position: relative;">
+          <h1>Manage your snippet</h1>
+          <p class="paragraph">
+            CodeMenu provides you the functionalities that you would expect from a snippets manager, like tags, groups and sorting by language.
+          </p>
+  
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          
+          <img src="images/arrow.png" width="50px" style="position: absolute; left: 105%; top: 650px;">
+          <img src="images/arrow.png" width="50px" style="position: absolute; left: 105%; top: 820px;">
+          <img src="images/arrow.png" width="50px" style="position: absolute; left: 105%; top: 1050px;">
+  
+          <h1>Groups</h1>
+          <p class="paragraph">
+            Snippets in groups appear only in group’s special view. This allows you to seperate non-related snippets.
+          </p>
+  
+          <div class="divider" style="width: 90%;"></div>
+  
+          <h1>Tags</h1>
+          <p class="paragraph">
+            Snippets with tags appear alongside other snippets, but you can access them using tags view.
+          </p>
+  
+          <div class="divider" style="width: 90%"></div>
+  
+          <h1>Languages</h1>
+          <p class="paragraph">
+            In the sidebar you can see list of languages that have been used in snippets. This allows you to access snippets of specified language easier.
+          </p>
+        </div>
+  
+        <img src="images/snippets-screenshot.png" width="1600px" style="position: relative; top: -1280px; left: calc(1600px / 2 + 205px);">
+      </div>
+    </div>
+
+    <div class="section small_screen" style="text-align: center; width: 700px; margin-left: auto; margin-right: auto;">
+      <h1>Manage your snippets</h1>
+          <p class="paragraph">
+            CodeMenu provides you the functionalities that you would expect from a snippets manager, like tags, groups and sorting by language.
+          </p>
+  
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+  
+          <h1>Groups</h1>
+          <p class="paragraph">
+            Snippets in groups appear only in group’s special view. This allows you to seperate non-related snippets.
+          </p>
+  
+          <div class="divider" style="width: 90%;"></div>
+  
+          <h1>Tags</h1>
+          <p class="paragraph">
+            Snippets with tags appear alongside other snippets, but you can access them using tags view.
+          </p>
+  
+          <div class="divider" style="width: 90%"></div>
+  
+          <h1>Languages</h1>
+          <p class="paragraph">
+            In the sidebar you can see list of languages that have been used in snippets. This allows you to access snippets of specified language easier.
+          </p>
+
+          <img src="images/snippets-screenshot.png" width="100%">
+        </div>
+    </div>
+
+    <div class="big_screen">
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <div class="divider" style="width: 20%; margin-left: auto; margin-right: auto;"></div>
+
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+      
+    <div class="section big_screen">
+      <div style="display: flex; z-index: 2; width: 100%; overflow: hidden; flex-wrap: wrap; height: 1280px;">
+        <div class="left">
+          <img src="images/snippets-screenshot.png" width="1600px" style="position: relative; top: -40px; left: calc(1600px / 2 - 190%);">
+        </div>
+
+        <div class="right" style="position: relative;">
+          <h1>Edit snippets</h1>
+          <p class="paragraph">
+            CodeMenu’s snippets editor<sup>1</sup> has many features including basic ones like syntax highlighting and advanced like previewing HTML and Markdown, running snippets directly and generating libraries.
+          </p>
+  
+          <br>
+          <br>
+          <br>
+  
+          <h1>Previewing</h1>
+          <p class="paragraph">
+            You can see Markdown formatting directly in editor and by clicking eye icon in toolbar, you can open split window showing rendered HTML.
+          </p>
+  
+          <div class="divider" style="width: 90%;"></div>
+  
+          <h1>Running snippets</h1>
+          <p class="paragraph">
+            By clicking arrow icon you can run snippet’s code<sup>2</sup> directly from CodeMenu allowing you to test snippets more easily.
+          </p>
+  
+          <div class="divider" style="width: 90%"></div>
+  
+          <h1>Library generation</h1>
+          <p class="paragraph">
+            Library generation is a feature that allows you to quickly create files, that depending on your code editor can be shared and automatically updated, from many or one snippet allowing easier acces.
+          </p>
+
+          <br>
+
+          <p style="color: #616161;">
+            1. <a href="https://github.com/ZeeZide/CodeEditor" class="secondary_link" style="color: #616161 !important">Code editor by ZeeZide.</a>
+            <br>
+            <br>
+            2. JavaScript running and HTML preview are available by default. Other languages need to be added manually by linking to their tools.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section small_screen" style="text-align: center; width: 700px; margin-left: auto; margin-right: auto;">
+      <h1>Edit snippets</h1>
+          <p class="paragraph">
+            CodeMenu’s snippets editor<sup>1</sup> has many features including basic ones like syntax highlighting and advanced like previewing HTML and Markdown, running snippets directly and generating libraries.
+          </p>
+  
+          <br>
+          <br>
+          <br>
+  
+          <h1>Previewing</h1>
+          <p class="paragraph">
+            You can see Markdown formatting directly in editor and by clicking eye icon in toolbar, you can open split window showing rendered HTML.
+          </p>
+  
+          <div class="divider" style="width: 90%;"></div>
+  
+          <h1>Running snippets</h1>
+          <p class="paragraph">
+            By clicking arrow icon you can run snippet’s code<sup>2</sup> directly from CodeMenu allowing you to test snippets more easily.
+          </p>
+  
+          <div class="divider" style="width: 90%"></div>
+  
+          <h1>Library generation</h1>
+          <p class="paragraph">
+            Library generation is a feature that allows you to quickly create files, that depending on your code editor can be shared and automatically updated, from many or one snippet allowing easier acces.
+          </p>
+
+          <br>
+
+          <p style="color: #616161;">
+            1. <a href="https://github.com/ZeeZide/CodeEditor" class="secondary_link" style="color: #616161 !important">Code editor by ZeeZide.</a>
+            <br>
+            <br>
+            2. JavaScript running and HTML preview are available by default. Other languages need to be added manually by linking to their tools.
+          </p>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="divider" style="width: 20%; margin-left: auto; margin-right: auto;"></div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="section big_screen" style="width: 80%; margin-left: auto; margin-right: auto;">
+      <h1 style="text-align: center;">Access snippets</h1>
+      <p class="paragraph-small" style="width: 60%; margin-left: auto; margin-right: auto;">
+        CodeMenu’s goal is to improve your snippets management, therefore it includes new ways to access snippets directly from your code editor. Whether you are a touch typer and want a suggestions window to appear immediately or you want a organized window is to your choosing.
+      </p>
+
+      <br>
+      <br>
+      <br>
+
+      <div style="display: flex; margin-left: auto; margin-right: auto; width: 98%;">
+        <div class="left">
+          <img src="images/suggestions-screenshot.png" width="500px">
+          <h1>Suggestions</h1>
+          <p class="paragraph-small" style="width: 500px;">
+            Using suggestions you can quickly search for snippets directly from your editor. Just type §§, and a window will appear. Continue typing to search for snippet and use ⌥  and V keybind to choose snippet, and it will appear in pleace of your prompt. This function requires additional helper app - CodeMenu Suggestions.
+          </p>
+        </div>
+  
+        <div class="right" style="left: -120px;">
+          <div style="display: flex;">
+            <div class="left">
+              <img src="images/side-window-screenshot.png" width="500px">
+            </div>
+
+            <div class="right" style="left: 270px;">
+              <h1>Suggestions</h1>
+              <p class="paragraph-small" style="width: 500px;">
+                Using suggestions you can quickly search for snippets directly from your editor. Just type §§, and a window will appear. Continue typing to search for snippet and use ⌥  and V keybind to choose snippet, and it will appear in pleace of your prompt. This function requires additional helper app - CodeMenu Suggestions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section small_screen" style="width: 100%; margin-left: auto; margin-right: auto;">
+      <h1 style="text-align: center;">Access snippets</h1>
+      <p class="paragraph-small" style="width: 60%; margin-left: auto; margin-right: auto;">
+        CodeMenu’s goal is to improve your snippets management, therefore it includes new ways to access snippets directly from your code editor. Whether you are a touch typer and want a suggestions window to appear immediately or you want a organized window is to your choosing.
+      </p>
+
+      <br>
+      <br>
+      <br>
+
+      <div style="width: 90%; text-align: center; margin-left: auto; margin-right: auto; text-align: center;">
+        <div>
+          <img src="images/suggestions-screenshot.png" width="500px">
+          <h1>Suggestions</h1>
+          <p class="paragraph-small" style="width: 500px; margin-left: auto; margin-right: auto;">
+            Using suggestions you can quickly search for snippets directly from your editor. Just type §§, and a window will appear. Continue typing to search for snippet and use ⌥  and V keybind to choose snippet, and it will appear in pleace of your prompt. This function requires additional helper app - CodeMenu Suggestions.
+          </p>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+  
+        <div>
+          <div>
+            <img src="images/side-window-screenshot.png" width="500px">
+            <h1>Suggestions</h1>
+            <p class="paragraph-small" style="width: 500px; margin-left: auto; margin-right: auto;">
+              Using suggestions you can quickly search for snippets directly from your editor. Just type §§, and a window will appear. Continue typing to search for snippet and use ⌥  and V keybind to choose snippet, and it will appear in pleace of your prompt. This function requires additional helper app - CodeMenu Suggestions.
+            </p>
+         </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="divider" style="width: 20%; margin-left: auto; margin-right: auto;"></div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="section" style="margin-left: auto; margin-right: auto; text-align: center;">
+      <img src="images/snippets-store-screenshot.png" width="70%" style="margin-left: auto; margin-right: auto;">
+      <h1>Database of snippets</h1>
+      <p class="paragraph-small" style="width: 60%; margin-left: auto; margin-right: auto;">
+        Snippets Store is a online database of snippets shared by other people, including you. You can also add them to your library. With Snippets Store, you will no longer need to go to a search engine to find a generic code snippet. Just search snippets in Snippets Store using handy side window or Dashboard.
+      </p>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="divider" style="width: 20%; margin-left: auto; margin-right: auto;"></div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="section" style="margin-left: auto; margin-right: auto; text-align: center;">
+      <h1>Useful tools in 1 place</h1>
+      <p class="paragraph-small" style="width: 60%; margin-left: auto; margin-right: auto;">
+        CodeMenu not only does allow you to manage your code snippets, but also includes useful tools like RegEx tester, converters (between binary, hexadecimal and octal), generators (e.g. UUID) and coders (hashing using SHA256 and MD5, Base64 and URL encoding/decoding).
+      </p>
+
+      <br>
+      <br>
+
+      <div class="utilities_grid">
+        <div class="utility_element">
+          <img src="images/converter-screenshot.png" width="80%">
+          <h1>Converters</h1>
+        </div>
+
+        <div class="utility_element">
+          <img src="images/regex-tester-screenshot.png" width="80%">
+          <h1>RegEx tester</h1>
+        </div>
+
+        <div class="utility_element">
+          <img src="images/generator-screenshot.png" width="80%">
+          <h1>Generators</h1>
+        </div>
+
+        <div class="utility_element">
+          <img src="images/coder-screenshot.png" width="80%">
+          <h1>Coders</h1>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="divider" style="width: 20%; margin-left: auto; margin-right: auto;"></div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="section big_screen">
+      <div style="margin-left: auto; margin-right: auto; width: 90%;">
+        <img src="images/codemenu-icon.png" width="200px" style="position: relative; left: 160px;">
+        <h1 style="position: relative; left: 200px; top: -30px; display: inline-block; font-weight: normal; font-size: 5em;">CodeMenu</h1>
+      </div>
+  
+      <p style="position: relative; top: -50px; left: 260px; font-size: 2em; color: #D6D6D6;">Snippets manager with super powers.</p>
+  
+      <p style="position: relative; font-style: normal; top: -200px; font-weight: 400; right: -500px; font-size: 24px; text-align: center; color: #616161;">macOS only</p>
+      <div class="action-button" style="position: relative; top: -200px; right: -500px; margin-left: auto; margin-right: auto;">
+        <a href="https://forms.gle/aTuwEuV21b3YwWa17" style="all: unset; cursor: pointer;">
+          Apply for beta
+        </a>
+      </div>
+    </div>
+  
+    <div class="section small_screen">
+      <div style="display: block; position: relative; top: -20px; width: 90%; text-align: center; margin-left: auto; margin-right: auto;">
+        <img src="images/codemenu-icon.png" width="200px">
+        <h1 style="position: relative; top: -20px; display: inline-block; font-weight: normal; font-size: 5em; padding: 30px;">CodeMenu</h1>
+      </div>
+  
+      <p style="position: relative; top: -100px; font-size: 2em; color: #D6D6D6; text-align: center;">Snippets manager with super powers.</p>
+  
+      <p style="position: relative; top: -20px; font-style: normal; font-weight: 400; font-size: 24px; text-align: center; color: #616161;">macOS only</p>
+      <div class="action-button" style="position: relative; top: -20px; margin-left: auto; margin-right: auto;">
+        <a href="https://forms.gle/aTuwEuV21b3YwWa17" style="all: unset; cursor: pointer;">
+          Apply for beta
+        </a>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="divider" style="width: 20%; margin-left: auto; margin-right: auto;"></div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="section" style="width: 70%; margin-left: auto; margin-right: auto; font-size: 1.5em;">
+      <h2>What launguages does Editor support?</h2>
+			<p>At this moment Editor supports JavaScript by default. But you can any other language that has CLI utility.</p>
+			
+			<p>You can do this by placing language's command line utility in Application Scripts of CodeMenu (to open click "Open Application Scripts" in Languages settings section).</p>
+			
+			<p>You can do this by creating symlink (shortcut to file, but accessible by CodeMenu) to command line utility by opening your terminal and then entering<br><br><code>cd /Users/(your username)/Library/Application\ Scripts/id.thedev.marcin.CodeMenu</code><br><br> and then <br><br><code>ln -s /usr/bin/(utilities shell command) .</code><br><br> You might need to restart CodeMenu for language to show up.</p>
+			
+			<br>
+      <br>
+			
+			<h2>What launguages does syntax highlighting support?</h2>
+			<p>All laungauges <a class="secondary_link" href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md">supported by default in highlight.js</a> are supported by CodeMenu.</p>
+			
+			<br>
+      <br>
+			
+			<h2>What launguages does library generator support?</h2>
+			<p>At this moment library generator supports Swift, XML/HTML and JavaScript.</p>
+			
+			<br>
+      <br>
+			
+			<h2>Are snippets from Snippets Store copyrighted?</h2>
+			<p>No. Snippets from Snippets Store have <a class="secondary_link" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 license</a>. You can copy, modify and distribute snippets, even for commercial purposes, all without asking permission. However, there are no warranties, and liability is disclaimed for all uses, to the fullest extent permitted by applicable law.</p>
+			
+			<br>
+      <br>
+			
+			<h2>Can I import snippets from other snippets manager?</h2>
+			<p>Currently no, but support is planned. If you know about snippets manager with export/backup capabilities, then you can send us example exported file, so if demand is met, We will be able to support it.</p>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p style="color: white; padding-bottom: 10px; text-align: center;"><a href="privacy_policy.html" class="secondary_link">Privacy Policy</a> | <a href="codemenu_eula.html" class="secondary_link">EULA</a></p>
+    <p style="color: #505050; padding-bottom: 50px; text-align: center;">Mac is a trademark of Apple Inc., registered in the U.S. and other countries and regions.</p>
+  </body>
+</html>
