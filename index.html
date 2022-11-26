@@ -1,203 +1,269 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Extiri</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="description" content="Home page of Extiri">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">	
-    <link rel="stylesheet" href="styles.css">
-    <style>
-      body {
-        background-color: black;
-      }
 
-      .apps-container {
-        position: absolute;
-        top: 890px;
-        z-index: 2;
-        width: 100%;
-        border: 5px #DA1919;
-        height: 500px;
-      }
+<head>
+  <title>Extiri</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="description" content="Home page of Extiri">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background-color: black;
+    }
 
-      .app-card {
-        position: relative;
-        width: 300px;
-        height: 420px;
-        box-sizing: border-box;
-        background: rgba(0, 0, 0, 0.23);
-        border: 2px solid #000000;
-        box-shadow: 0px 0px 46px 21px rgba(255, 255, 255, 0.25);
-        backdrop-filter: blur(141px);
-        -webkit-backdrop-filter: blur(141px);
-        -moz-backdrop-filter: blur(141px);
-        border-radius: 39px;
-      }
+    .apps-container {
+      position: absolute;
+      top: 890px;
+      z-index: 2;
+      width: 100%;
+      border: 5px #DA1919;
+      height: 500px;
+    }
 
-      .beta-badge {
-        text-align: center;
-        color: white;
-        height: 30px;
-        width: 70px;
-        font-size: 1.5em;
-        border-radius: 20px;
-        background-color: red;
-      }
+    .app-card {
+      position: relative;
+      width: 300px;
+      height: 420px;
+      box-sizing: border-box;
+      background: rgba(0, 0, 0, 0.23);
+      border: 2px solid #000000;
+      box-shadow: 0px 0px 46px 21px rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(141px);
+      -webkit-backdrop-filter: blur(141px);
+      -moz-backdrop-filter: blur(141px);
+      border-radius: 39px;
+    }
 
-      .learn-more-button {
-        background: #FFFFFF;
-        border: 1px solid #000000;
-        border-radius: 39px;
-        font-size: 1.5em;
-        text-align: center;
-        width: 150px;
-      }
+    .beta-badge {
+      text-align: center;
+      color: white;
+      height: 30px;
+      width: 70px;
+      font-size: 1.5em;
+      border-radius: 20px;
+      background-color: red;
+    }
 
-      .info {
-        position: absolute;
-        top: 1700px;
-        height: 900px;
-      }
-    </style>
-    <script>
-      function goToHome() {
-        location.href = "#home"
-      }
+    .learn-more-button {
+      background: #FFFFFF;
+      border: 1px solid #000000;
+      border-radius: 39px;
+      font-size: 1.5em;
+      text-align: center;
+      width: 150px;
+    }
 
-      function goToApps() {
-        location.href = "#apps"
-      }
+    .info {
+      position: absolute;
+      top: 1700px;
+      height: 900px;
+    }
+  </style>
+  <script>
+    function goToHome() {
+      location.href = "#home"
+    }
 
-      function goToAbout() {
-        location.href = "#about"
-      }
+    function goToApps() {
+      location.href = "#apps"
+    }
 
-       function goToContact() {
-        location.href = "#contact"
-       }
-    </script>
-  </head>
-  <body>
-    <div class="navbar">
-      <div class="navbar-content">
-        <img src="images/extiri-white-logo.png" width="110px" class="navbar-logo"></img>
+    function goToAbout() {
+      location.href = "#about"
+    }
 
-        <span class="big_screen">
-          <p class="navbar-item" onclick="goToHome()">Home</p>
-          <p class="navbar-item" onclick="goToApps()">Apps</p>
-          <p class="navbar-item" onclick="goToAbout()">About</p>
-          <p class="navbar-item" onclick="goToContact()">Contact</p>
-        </span>
+    function goToContact() {
+      location.href = "#contact"
+    }
+  </script>
+  <script src="scripts.js"></script>
+</head>
 
-        <span class="small_screen">
-          <img src="images/hamburger-icon.png" class="navbar-item" style="position: absolute; top: 11px; width: 30px !important;" onclick="toggleHamburger()">
+<body>
+  <div class="navbar">
+    <div class="navbar-content">
+      <img src="images/extiri-white-logo.webp" width="110px" class="navbar-logo"></img>
 
-          <div id="hamburger_menu" class="hamburger_menu">
-            <div class="hamburger_menu_content">
-              <p class="navbar-item" onclick="goToHome()">Home</p>
-              <p class="navbar-item" onclick="goToApps()">Apps</p>
-              <p class="navbar-item" onclick="goToAbout()">About</p>
-              <p class="navbar-item" onclick="goToContact()">Contact</p>
-              </div>
+      <span class="big_screen">
+        <p class="navbar-item" onclick="goToHome()">Home</p>
+        <p class="navbar-item" onclick="goToApps()">Apps</p>
+        <p class="navbar-item" onclick="goToAbout()">About</p>
+        <p class="navbar-item" onclick="goToContact()">Contact</p>
+      </span>
+
+      <span class="small_screen">
+        <img src="images/hamburger-icon.webp" class="navbar-item"
+          style="position: absolute; top: 11px; width: 30px !important;" onclick="toggleHamburger()">
+
+        <div id="hamburger_menu" class="hamburger_menu">
+          <div class="hamburger_menu_content">
+            <p class="navbar-item" onclick="goToHome()">Home</p>
+            <p class="navbar-item" onclick="goToApps()">Apps</p>
+            <p class="navbar-item" onclick="goToAbout()">About</p>
+            <p class="navbar-item" onclick="goToContact()">Contact</p>
           </div>
-        </span>
+        </div>
+      </span>
+    </div>
+  </div>
+
+  <img style="position: absolute; top: 60px; left: 0px;" src="images/background-curve.webp" width="100%">
+
+  <div class="main" id="home">
+    <img
+      style="position: absolute; left: calc(50% - (400px / 2)); top: 30vw; margin-left: auto; margin-right: auto; z-index: 2;"
+      src="images/extiri-white-logo.webp" width="400px">
+    <h1
+      style="position: absolute; top: calc(140px + 30vw); left: calc(50% - (550px / 2)); z-index: 2; font-weight: normal; color: white">
+      Apps that will help you make your apps</h1>
+  </div>
+
+  <div class="apps" id="apps">
+    <h1
+      style="position: absolute; top: calc(250px + 30vw);; left: calc(50% - (115px / 2)); z-index: 2; font-size: 3em; color: white;">
+      Apps</h1>
+    <div class="apps-container">
+      <div class="center big_screen">
+        <div class="app-card" style="left: calc(40% - (325px / 2)); top: calc(-500px + 30vw);">
+          <div class="beta-badge" style="position: relative; top: 10px; left: 35%;">
+            Beta
+          </div>
+
+          <img src="images/codemenu-icon.webp" width="200px" style="position: absolute; left: 15%;"></img>
+
+          <div style="position: absolute; top: 210px; color: white; text-align: center; width: 100%;">
+            <h1>CodeMenu</h1>
+            <p>Snippets manager</p>
+          </div>
+
+          <div class="learn-more-button no-select" style="position: absolute; top: 340px; left: 24%;">
+            <a href="codemenu.html" style="all: unset; text-decoration: none; cursor: pointer;">Learn more</a>
+          </div>
+
+          <p style="position: absolute; top: 375px; color: white; text-align: center; width: 100%; font-size: 0.5em;">
+            macOS only</p>
+        </div>
+
+        <div class="app-card" style="left: calc(60% - (325px / 2)); top: calc(-920px + 30vw);">
+          <div class="beta-badge" style="position: relative; top: 10px; left: 35%;">
+            Beta
+          </div>
+
+          <img src="images/snippets-store-icon.webp" width="200px" style="position: absolute; left: 15%;"></img>
+
+          <div style="position: absolute; top: 210px; color: white; text-align: center; width: 100%;">
+            <h1>Snippets Store</h1>
+            <p>Online database of code snippets</p>
+          </div>
+
+          <div class="learn-more-button no-select" style="position: absolute; top: 340px; left: 24%;">
+            <a href="https://web.extiri.com" style="all: unset; text-decoration: none; cursor: pointer;">Open</a>
+          </div>
+
+          <p style="position: absolute; top: 375px; color: white; text-align: center; width: 100%; font-size: 0.5em;">
+            Web app</p>
+        </div>
       </div>
-    </div>
+      <div class="center small_screen">
+        <div class="app-card" style="left: calc(50% - (325px / 2)); top: calc(-20px + 30vw);">
+          <div class="beta-badge" style="position: relative; top: 10px; left: 35%;">
+            Beta
+          </div>
 
-    <img style="position: absolute; top: 60px; left: 0px;" src="images/background-curve.png" width="100%">
+          <img src="images/codemenu-icon.webp" width="200px" style="position: absolute; left: 15%;"></img>
 
-    <div class="main" id="home">
-      <img style="position: absolute; left: calc(50% - (400px / 2)); top: 30vw; margin-left: auto; margin-right: auto; z-index: 2;" src="images/extiri-black-logo.png" width="400px">
-      <h1 style="position: absolute; top: calc(140px + 30vw); left: calc(50% - (550px / 2)); z-index: 2; font-weight: normal;">Apps that will help you make your apps</h1>
-    </div>
+          <div style="position: absolute; top: 210px; color: white; text-align: center; width: 100%;">
+            <h1>CodeMenu</h1>
+            <p>Snippets manager</p>
+          </div>
 
-    <div class="apps" id="apps">
-      <h1 style="position: absolute; top: calc(250px + 30vw);; left: calc(50% - (115px / 2)); z-index: 2; font-size: 3em;">Apps</h1>
-      <div class="apps-container">
-          <div class="center">
-            <div class="app-card" style="left: calc(40% - (325px / 2)); top: calc(-500px + 30vw);">
-              <div class="beta-badge" style="position: relative; top: 10px; left: 35%;">
-                Beta
-              </div>
+          <div class="learn-more-button no-select" style="position: absolute; top: 340px; left: 24%;">
+            <a href="codemenu.html" style="all: unset; text-decoration: none; cursor: pointer;">Learn more</a>
+          </div>
 
-              <img src="images/codemenu-icon.png" width="200px" style="position: absolute; left: 15%;"></img>
-              
-              <div style="position: absolute; top: 210px; color: white; text-align: center; width: 100%;">
-                <h1>CodeMenu</h1>
-                <p>Snippets manager</p>
-              </div>
+          <p style="position: absolute; top: 375px; color: white; text-align: center; width: 100%; font-size: 0.5em;">
+            macOS only</p>
+        </div>
 
-              <div class="learn-more-button no-select" style="position: absolute; top: 340px; left: 24%;">
-                <a href="codemenu.html" style="all: unset; text-decoration: none; cursor: pointer;">Learn more</a>
-              </div>
+        <div class="app-card" style="left: calc(50% - (325px / 2)); top: calc(-920px + 30vw);">
+          <div class="beta-badge" style="position: relative; top: 10px; left: 35%;">
+            Beta
+          </div>
 
-              <p style="position: absolute; top: 375px; color: white; text-align: center; width: 100%; font-size: 0.5em;">macOS only</p>
-            </div>
+          <img src="images/snippets-store-icon.webp" width="200px" style="position: absolute; left: 15%;"></img>
 
-            <div class="app-card" style="left: calc(60% - (325px / 2)); top: calc(-920px + 30vw);">
-              <div class="beta-badge" style="position: relative; top: 10px; left: 35%;">
-                Beta
-              </div>
+          <div style="position: absolute; top: 210px; color: white; text-align: center; width: 100%;">
+            <h1>Snippets Store</h1>
+            <p>Online database of code snippets</p>
+          </div>
 
-              <img src="images/snippets-store-icon.webp" width="200px" style="position: absolute; left: 15%;"></img>
-              
-              <div style="position: absolute; top: 210px; color: white; text-align: center; width: 100%;">
-                <h1>Snippets Store</h1>
-                <p>Online database of code snippets</p>
-              </div>
+          <div class="learn-more-button no-select" style="position: absolute; top: 340px; left: 24%;">
+            <a href="https://web.extiri.com" style="all: unset; text-decoration: none; cursor: pointer;">Open</a>
+          </div>
 
-              <div class="learn-more-button no-select" style="position: absolute; top: 340px; left: 24%;">
-                <a href="https://web.extiri.com" style="all: unset; text-decoration: none; cursor: pointer;">Open</a>
-              </div>
-
-              <p style="position: absolute; top: 375px; color: white; text-align: center; width: 100%; font-size: 0.5em;">Web app</p>
-            </div>
+          <p style="position: absolute; top: 375px; color: white; text-align: center; width: 100%; font-size: 0.5em;">
+            Web app</p>
+        </div>
       </div>
     </div>
 
     <div class="info big_screen">
-      <img src="images/guy.png" width="600px">
+      <img src="images/guy.webp" width="600px">
 
       <div style="position: relative; left: 30%; top: -800px; color: white; text-align: center;">
-          <div id="about">
-            <h1 style="font-size: 2.4em;">About</h1>
-            <p style="position: relative; font-size: 1.9em; width: 50%; left: 25%;">Extiri has started on 7th of February 2022 with intentions to create apps that will help developers work on their amazing apps.</p>
-          </div>
-
-          <br>
-          <br>
-
-          <div class="divider" style="position: absolute; width: 200px; left: 44%;"></div>
-
-          <div id="contact"></div>
-            <h1 style="font-size: 2.4em;">Contact</h1>
-            <p style="position: relative; font-size: 1.9em; width: 50%; left: 25%;">Wiktor Wójcik <a href="mailto:wiktor.wojcik@extiri.com" class="secondary_link" style="position: relative; left: 20px;">wiktor.wojcik@extiri.com</a></p>
-          </div>
-      </div>
-    </div>
-
-    <div class="info small_screen" style="top: 1400px; color: white;">
-      <img src="images/guy.png" width="500px" style="position: relative; left: calc(50% - (500px / 2));">
-
-      <div style="width: 100%; margin-left: auto; margin-right: auto; text-align: center;">
         <div id="about">
           <h1 style="font-size: 2.4em;">About</h1>
-          <p style="position: relative; font-size: 1.9em; width: 50%; text-align: center; margin-left: auto; margin-right: auto;">Extiri has started on 7th of February 2022 with intentions to create apps that will help developers work on their amazing apps.</p>
+          <p style="position: relative; font-size: 1.9em; width: 50%; left: 25%;">Extiri has started on 7th of February
+            2022 with intentions to create apps that will help developers work on their amazing apps.</p>
         </div>
+
         <br>
         <br>
-  
-        <div class="divider" style="position: absolute; width: 200px; margin-left: auto; margin-right: auto; left: calc(50% - (200px / 2));"></div>
-  
-         <div id="contact"></div>
-          <h1 style="font-size: 2.4em;">Contact</h1>
-          <p style="position: relative; font-size: 1.9em; width: 50%; left: 25%;">Wiktor Wójcik <a href="mailto:wiktor.wojcik@extiri.com" class="secondary_link" style="position: relative; left: 20px;">wiktor.wojcik@extiri.com</a></p>
-        </div>
+
+        <div class="divider" style="position: absolute; width: 200px; left: 44%;"></div>
+
+        <div id="contact"></div>
+        <h1 style="font-size: 2.4em;">Contact</h1>
+        <p style="position: relative; font-size: 1.9em; width: 50%; left: 25%;">Wiktor Wójcik <a
+            href="mailto:wiktor.wojcik@extiri.com" class="secondary_link"
+            style="position: relative; left: 20px;">wiktor.wojcik@extiri.com</a></p>
       </div>
     </div>
+  </div>
 
-    <p class="big_screen" style="position: absolute; top: 2600px; color: white; padding-bottom: 50px; left: 45%;"><a href="privacy_policy.html" class="secondary_link">Privacy Policy</a></p>
-    <p class="small_screen" style="position: absolute; top: 2900px; color: white; padding-bottom: 50px; left: 45%;"><a href="privacy_policy.html" class="secondary_link">Privacy Policy</a></p>
-  </body>
+  <div class="info small_screen" style="top: 1400px; color: white;">
+    <img src="images/guy.webp" width="500px" style="position: relative; left: calc(50% - (500px / 2));">
+
+    <div style="width: 100%; margin-left: auto; margin-right: auto; text-align: center;">
+      <div id="about">
+        <h1 style="font-size: 2.4em;">About</h1>
+        <p
+          style="position: relative; font-size: 1.9em; width: 50%; text-align: center; margin-left: auto; margin-right: auto;">
+          Extiri has started on 7th of February 2022 with intentions to create apps that will help developers work on
+          their amazing apps.</p>
+      </div>
+      <br>
+      <br>
+
+      <div class="divider"
+        style="position: absolute; width: 200px; margin-left: auto; margin-right: auto; left: calc(50% - (200px / 2));">
+      </div>
+
+      <div id="contact"></div>
+      <h1 style="font-size: 2.4em;">Contact</h1>
+      <p style="position: relative; font-size: 1.9em; width: 50%; left: 25%;">Wiktor Wójcik <a
+          href="mailto:wiktor.wojcik@extiri.com" class="secondary_link"
+          style="position: relative; left: 20px;">wiktor.wojcik@extiri.com</a></p>
+    </div>
+  </div>
+  </div>
+
+  <p class="big_screen" style="position: absolute; top: 2600px; color: white; padding-bottom: 50px; left: 45%;"><a
+      href="privacy_policy.html" class="secondary_link">Privacy Policy</a></p>
+  <p class="small_screen" style="position: absolute; top: 2900px; color: white; padding-bottom: 50px; left: 45%;"><a
+      href="privacy_policy.html" class="secondary_link">Privacy Policy</a></p>
+</body>
+
 </html>
