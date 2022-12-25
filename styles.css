@@ -84,7 +84,7 @@ html {
   user-select: none;
 }
 
-@media only screen and (min-width: 1878px) {
+@media only screen and (min-width: 1548px) {
   .small_screen {
     display: none !important;
     visibility: hidden;
@@ -95,7 +95,7 @@ html {
   }
 }
 
-@media only screen and (max-width: 1877px) {
+@media only screen and (max-width: 1547px) {
   .small_screen {
     visibility: visible;
   }
