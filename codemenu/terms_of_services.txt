@@ -1,12 +1,7 @@
-Version: 2 | Last change date: 29.08.2023
+Version: 3 | Last change date: 29.08.2023
 
-Terms of Service
 
-Terms of Service may change from time to time. We reserve the right to change these Terms at any time, to improve clarity or to reflect changes in our product or business. When we do, we will post an updated version on our website, including the date that these Terms were last updated. By continuing to use our Services, you consent to the revised Terms.
-Consent
-
-Terms apply to usage of Services. You agree to Terms of Service by downloading, installing, accessing and using CodeMenu and/or Snippets Store. This consent is required for usage of Services.
-Termination
+EULA
 
 Apps made available through the App Store are licensed, not sold, to you. Your license to each App is subject to your prior acceptance of either this Licensed Application End User License Agreement (“Standard EULA”), or a custom end user license agreement between you and the Application Provider (“Custom EULA”), if one is provided. Your license to any Apple App under this Standard EULA or Custom EULA is granted by Apple, and your license to any Third Party App under this Standard EULA or Custom EULA is granted by the Application Provider of that Third Party App. Any App that is subject to this Standard EULA is referred to herein as the “Licensed Application.” The Application Provider or Apple as applicable (“Licensor”) reserves all rights in and to the Licensed Application not expressly granted to you under this Standard EULA.
 
@@ -32,5 +27,13 @@ If you are a citizen of any European Union country or Switzerland, Norway or Ice
 
 Specifically excluded from application to this Agreement is that law known as the United Nations Convention on the International Sale of Goods.
 
+
+Terms of Services
+
+Terms of Services may change from time to time. We reserve the right to change these Terms at any time, to improve clarity or to reflect changes in our product or business. When we do, we will post an updated version on our website, including the date that these Terms were last updated. By continuing to use our Services, you consent to the revised Terms.
+Consent
+
+Terms apply to usage of Services. You agree to Terms of Service by downloading, installing, accessing and using CodeMenu and/or Snippets Store. This consent is required for usage of Services.
+Termination
+
 You agree to behave in a respectful way on Snippets Store (this won’t be penalised, unless associated with violation of penalised rule, but you are expected). Even if you argue with someone, do it in a respectful way. The person arguing with you is also expected to be respectful. Keep a constructive dialog with others so you can find a solution or a compromise to a disagreement. Remember that there is a person like you on the other side of the screen. You can present your opinion (although avoid controversial ones, like politics, and use different communicators and social media to discuss them to avoid unneeded issues) although you are expected to respect (but not required to agree) someone others opinion. If you want to discuss such an opinion, please, contact each other directly instead of doing it on Snippets Store. Remember, Snippets Store is a place only for sharing useful snippets of code and is not supposed to be a place for anything else. All discussions are expected to be about code. All snippets are shared under CC0 license (https://creativecommons.org/share-your-work/public-domain/cc0/, copy at the end of Terms of Service) and their sharers acknowledge that they solely own the rights to snippets and consent to wave all these rights to snippets by sharing them (although sharer of the snippet that violates the rules can be penalised). Extiri takes no responsibility for any damage caused by snippets to the fullest extend allowed by law. These are the rules that will be penalised. You consent to follow them. Share only code in a programming language, markup language or an AI prompt. Snippets must be directly related to programming. Death threats, blackmailing, stalking and abuse are disallowed. Things such as nudity and pornography are disallowed. Gore and drastic things are disallowed. NSFW are disallowed. Planning or doing illegal activities and crimes such as, but not limited to, pedophilia, pirating and murder are disallowed. Topics related to alcohol, drugs, cigarettes are disallowed. No spamming. Snippets must not do any malicious activities such as, but not limited to, accessing data without snippet's user knowledge, being/installing a virus, creating/deleting files without snippets user knowledge. All snippets must be under CC0 license. Snippets must not be copyrighted before sharing. Snippets with sole purpose of advertising are disallowed. You agree and know the risk that if you break any of these rules, you may face penalties, which depend on severity of broken rule. You will be informed of any effective reports and their reasons and you will be able to object to the report and penalty. These are all the possible penalties: Snippet deletion - all penalties include deletion of snippet that violated the rule. A warning - your account will receive a warning. This has no effect on your usage, except deletion of snippet, which violated a rule. A strike - your account will receive a strike. 5 strikes mean losing access to Snippets Store, but not deletion of Extiri account. Snippets Store blockade - your account will lose access to Snippets Store and all your snippets will be deleted, if blocked permamently. This can be permanent or temporary. You can and should report any occurrences of violation of rules. Extiri reserves all rights to penalise any violation in a way that it decides to be valid.
-CC0 license (same as original)
