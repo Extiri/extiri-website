@@ -10,12 +10,36 @@
   <link rel="icon" type="image/x-icon" href="./images/favicon.png">
   <link rel="stylesheet" href="styles.css">
   <style>
-    body {
-      background: url("images/cards.webp") no-repeat center top;
-      background-size: cover;
-      background-color: black;
+    @font-face {
+      font-family: FiraCoda;
+      src: url("./FiraCode-Regular.ttf");
     }
 
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: white;
+      font-family: FiraCoda;
+    }
+    
+    .navbar {
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background-color: rgba(217, 217, 217, 0.23);
+      border-bottom: 2px solid rgba(0, 0, 0, 1);
+      box-shadow: 0px 0px 0px black;
+      color: black;
+    }
+    
+    .main {
+      background: url("images/main/mesh.png") no-repeat;
+      background-size: cover;
+      background-color: black;
+      height: 1000px;
+      width: 100vw;
+      margin-top: 0px;
+    }
+    
     .app-card {
       position: relative;
       width: 300px;
@@ -29,7 +53,7 @@
       -moz-backdrop-filter: blur(141px);
       border-radius: 39px;
     }
-
+    
     .beta-badge {
       text-align: center;
       color: white;
@@ -39,7 +63,7 @@
       border-radius: 20px;
       background-color: red;
     }
-
+    
     .learn-more-button {
       background: orange;
       box-shadow: 0px 0px 46px 21px rgba(0, 0, 0, 0.25);
@@ -50,20 +74,24 @@
       height: 30px;
       vertical-align: middle;
     }
+
+    .section {
+      text-align: center;
+    }
   </style>
   <script>
     function goToHome() {
       location.href = "#home"
     }
-
+    
     function goToApps() {
       location.href = "#apps"
     }
-
+    
     function goToAbout() {
       location.href = "#about"
     }
-
+    
     function goToContact() {
       location.href = "#contact"
     }
@@ -74,19 +102,19 @@
 <body>
   <div class="navbar">
     <div class="navbar-content">
-      <img src="images/extiri-white-logo.webp" alt="Extiri logo" width="110px" class="navbar-logo"></img>
-
+      <img src="images/extiri-black-logo.webp" alt="Extiri logo" width="110px" class="navbar-logo"></img>
+      
       <span class="big_screen">
         <p class="navbar-item" onclick="goToHome()">Home</p>
         <p class="navbar-item" onclick="goToApps()">Apps</p>
         <p class="navbar-item" onclick="goToAbout()">About</p>
         <p class="navbar-item" onclick="goToContact()">Contact</p>
       </span>
-
+      
       <span class="small_screen">
         <img src="images/hamburger-icon.webp" class="navbar-item"
-          style="position: absolute; top: 11px; width: 30px !important;" onclick="toggleHamburger()">
-
+        style="position: absolute; top: 11px; width: 30px !important;" onclick="toggleHamburger()">
+        
         <div id="hamburger_menu" class="hamburger_menu">
           <div class="hamburger_menu_content">
             <p class="navbar-item" onclick="goToHome()">Home</p>
@@ -98,95 +126,50 @@
       </span>
     </div>
   </div>
-  <div class="main" id="home" style="width: 100%; height: 300px;">
-    <img
-      style="display: block; margin-top: 30vw; margin-left: auto; margin-right: auto;"
-      src="images/extiri-white-logo.webp" width="400px">
-  </div>
-
-  <div class="apps" id="apps" style="text-align: center; width: 100%;">
-    <h1 style="display: block; margin-left: auto; margin-right: auto; z-index: 2; font-size: 3em; color: white;">
-      Apps
-    </h1>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, 320px); gap: 90px; justify-items: center; justify-content: center; text-align: center;">
-      <div class="app-card">
-        <img src="images/codemenu-icon.webp" width="200px" style="position: absolute; left: 15%;"></img>
-
-        <div style="position: absolute; top: 210px; color: white; text-align: center; width: 100%;">
-          <h1>CodeMenu</h1>
-          <p>Snippets manager</p>
-        </div>
-
-        <div class="learn-more-button no-select" style="position: absolute; top: 340px; left: 24%;">
-          <a href="codemenu.html" style="all: unset; text-decoration: none; cursor: pointer;">Learn more</a>
-        </div>
-
-        <p style="position: absolute; top: 370px; color: white; text-align: center; width: 100%; font-size: 0.9em;">
-          macOS only</p>
-      </div>
-
-      <div class="app-card">
-        <div class="beta-badge" style="position: relative; top: 10px; left: 35%;">
-          Beta
-        </div>
-
-        <img src="images/snippets-store-icon.webp" width="200px" style="position: absolute; left: 15%;"></img>
-
-        <div style="position: absolute; top: 210px; color: white; text-align: center; width: 100%;">
-          <h1>Snippets Store</h1>
-          <p>Online database of code snippets</p>
-        </div>
-
-        <div class="learn-more-button no-select" style="position: absolute; top: 340px; left: 24%;">
-          <a href="https://web.extiri.com" style="all: unset; text-decoration: none; cursor: pointer;">Open</a>
-        </div>
-
-        <p style="position: absolute; top: 370px; color: white; text-align: center; width: 100%; font-size: 0.9em;">
-          Web app</p>
-      </div>
-    </div>
-
-  <div class="info" style="color: white; margin-top: 100px;">
-     <div style="width: 100%; margin-left: auto; margin-right: auto; text-align: center;">
-      <div id="about">
-        <h1 style="font-size: 2.4em;">About</h1>
-        <p
-          class="small_screen"
-          style="position: relative; font-size: 1.9em; width: 90%; text-align: center; margin-left: auto; margin-right: auto;">
-          Extiri has started on 7th of February 2022 with intentions to create apps that will help developers work on
-          their amazing apps.</p>
-        <p
-          class="big_screen"
-          style="position: relative; font-size: 1.9em; width: 40%; text-align: center; margin-left: auto; margin-right: auto;">
-          Extiri has started on 7th of February 2022 with intentions to create apps that will help developers work on
-          their amazing apps.</p>
-      </div>
-      <br>
-      <br>
-
-      <div id="contact">
-      <h1 style="font-size: 2.4em;">Contact</h1>
-      <p style="position: relative; font-size: 1.9em; width: 50%; left: 25%;">Wiktor Wójcik</p>
-      <br>
-      <a href="mailto:wiktor.wojcik@extiri.com" class="secondary_link" style="font-size: 1.9em;">wiktor.wojcik@extiri.com</a>
-    </div>
-
-      <div style="width: 100%; text-align: center; display: block; position: relative; margin-top: 100px;">
-        <p style="padding-bottom: 50px; font-size: 2em; ">
-          <a href="https://github.com/Extiri" style="color: white;"><img src="./images/github-mark-white.svg" width="25px" style="padding-right: 5px;"> GitHub</a>
-             |   
-          <a href="https://docs.extiri.com" style="color: white;">Documentation</a>
-        </p>
-      </div>
+  
+  <div class="main" id="home">
+    <div style="position: relative; display: block; top: 30vh; margin-left: auto; margin-right: auto; width: 450px; text-align: center;">
+      <img style="position: relative; left: 15px;"" src="images/extiri-black-logo.webp" width="400px">
+      <p style="color: black; font-size: 1.5em; text-align: center;">Apps that will help you create your apps</p>
     </div>
   </div>
+</div>
 
-  <div style="width: 100%; text-align: center; display: block; position: relative; margin-top: 100px;">
-    <p class="big_screen" style="color: white; padding-bottom: 50px;"><a
-      href="privacy_policy.html" class="secondary_link">Privacy Policy</a></p>
-    <p class="small_screen" style="color: white; padding-bottom: 50px;"><a
-      href="privacy_policy.html" class="secondary_link">Privacy Policy</a></p>
+<div class="section" id="apps">
+  <br>
+  <br>
+  <br>
+
+  <h1>Apps</h1>
+
+  <div class="app">
+    <h2>CodeMenu (macOS)</h2>
+    <p>An advanced snippets manager. Store code (60+ languages), colors, RegEx and Markdown. Made to assist you at every point of a snippet's life. It has many features like spaces, stashes, code image recognition, semantic search, integrated AI, placeholders and MUCH more.</p>
   </div>
+
+  <div class="app">
+    <h2>Suggestions (macOS)</h2>
+    <p>An open source app that allows you to see "suggestions" directly in your IDE/editor. Currently it only supports CodeMenu. With CodeMenu provider, Suggestions allows you to search and use snippets and also use abbreviations.</p>
+  </div>
+
+  <div class="app">
+    <h2>Snippets Store (web)</h2>
+    <p>An online database of code snippets. It is open source and can be self-hosted.</p>
+  </div>
+
+  <div class="app">
+    <h2>natsearch (cli, macOS)</h2>
+    <p>A simple open source command line utility that allows you to search through text files (including code) using natural language.</p>
+  </div>
+</div>
+
+<div class="section" id="about">
+  <br>
+  <br>
+  <br>
+
+  <h1>About</h1>
+  <p style="width: 80vw; margin-left: auto; margin-right: auto;">Hi! This is Extiri, the place where I (<a href="http://wiktor.thedev.id">Wiktor Wójcik</a>) publish my proffesional apps.</p>
+</div>
 </body>
-
 </html>
