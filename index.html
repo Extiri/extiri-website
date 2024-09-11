@@ -21,10 +21,6 @@
     function goToAbout() {
       location.href = "#about"
     }
-    
-    function goToContact() {
-      location.href = "#contact"
-    }
   </script>
   <script src="scripts.js"></script>
 </head>
@@ -38,7 +34,6 @@
         <p class="navbar-item" onclick="goToHome()">Home</p>
         <p class="navbar-item" onclick="goToApps()">Apps</p>
         <p class="navbar-item" onclick="goToAbout()">About</p>
-        <p class="navbar-item" onclick="goToContact()">Contact</p>
       </span>
       
       <span class="small_screen">
@@ -50,7 +45,6 @@
             <p class="navbar-item" onclick="goToHome()">Home</p>
             <p class="navbar-item" onclick="goToApps()">Apps</p>
             <p class="navbar-item" onclick="goToAbout()">About</p>
-            <p class="navbar-item" onclick="goToContact()">Contact</p>
           </div>
         </div>
       </span>
@@ -58,9 +52,9 @@
   </div>
   
   <div class="main">
-    <div style="position: relative; display: block; top: 30%; margin-left: auto; margin-right: auto; width: 450px; text-align: center;">
-      <img style="position: relative; left: 15px;"" src="images/extiri-black-logo.webp" width="400px">
-      <p style="color: black; font-size: 1.5em; text-align: center; line-height: 1.2em;">Simply useful and cool apps</p>
+    <div style="position: relative; display: block; top: 30%; margin-left: auto; margin-right: auto; width: min(450px, 90%); text-align: center;">
+      <img style="position: relative; left: 15px; width: min(400px, 100%)" src="images/extiri-black-logo.webp">
+      <p style="color: black; font-size: 1.5em; text-align: center; line-height: 1.2em; width: min(400px, 100%); margin-left: auto; margin-right: auto;">Simply useful and cool apps</p>
     </div>
   </div>
 </div>
@@ -76,7 +70,7 @@
     <table>
       <tr>
         <td colspan="2" rowspan="2">
-          <img src="images/codemenu-icon.webp" width="200px" style="position: relative; top: 10px" alt="CodeMenu icon">
+          <img src="images/codemenu-icon.webp" style="position: relative; top: 10px; width: min(200px, 90%)" alt="CodeMenu icon">
         </td>
         <td>
           <h2>CodeMenu</h2>
@@ -100,102 +94,102 @@
         </td>
       </tr>
     </table>
-
-    <img loading="lazy" src="./images/codemenu/dashboard_screenshot.jpeg" width="585px" class="preview-image">
-
+    
+    <img loading="lazy" src="./images/codemenu/dashboard_screenshot.jpeg" class="preview-image" style="width: min(585px, 99%)">
+    
     <p>An advanced data snippets organizer. Store code (55 languages), color palettes and images. Made to assist you at every point of a snippet's life. It has many features like spaces, stashes, code image recognition, semantic search, integrated AI, placeholders and MUCH more.</p>
   </div>
-
+  
   <hr>
-
+  
   <div class="app">
-      <table>
-        <tr>
-          <td colspan="2" rowspan="2">
-            <img loading="lazy" src="images/Suggestions_icon.png" width="200px" style="position: relative; top: 10px">
-          </td>
-          <td>
-            <h2>Suggestions</h2>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h3>MacOS app</h3>
-            <p>open-source</p>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="3">
-            <a href="./codemenu.html">Visit GitHub repository</a>
-          </td>
-        </tr>
-      </table>
-  
-      <img loading="lazy" src="./images/suggestions_example_in_xcode.png" width="585px" class="preview-image">
-  
-      <p>An open source app that allows you to see list of "suggestions" directly in your IDE/editor. You can either search by typing a defined by  Currently it only supports CodeMenu. With CodeMenu provider, Suggestions allows you to search and use snippets.</p>
-    </div>
-  
-    <hr>
-
-    <div class="app">
-        <table>
-          <tr>
-            <td colspan="2" rowspan="2">
-              <img loading="lazy" src="images/snippets-store-icon.webp" width="200px" style="position: relative; top: 10px">
-            </td>
-            <td>
-              <h2>Snippets Store</h2>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <h3>web app</h3>
-              <p>open-source</p>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="1">
-              <a href="https://github.com/Extiri/ExtiriServer">Visit server's GitHub repository</a>
-            </td>
-            <td colspan="1">
-              <a href="https://github.com/Extiri/extiri-web">Visit web app's GitHub repository</a>
-            </td>
-            <td colspan="1">
-              <a href="https://web.extiri.com">Visit Extiri Snippets Store</a>
-            </td>
-          </tr>
-        </table>
+    <table>
+      <tr>
+        <td colspan="2" rowspan="2">
+          <img loading="lazy" src="images/Suggestions_icon.webp" style="position: relative; top: 10px; width: min(200px, 90%)">
+        </td>
+        <td>
+          <h2>Suggestions</h2>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>MacOS app</h3>
+          <p>open-source</p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <a href="./codemenu.html">Visit GitHub repository</a>
+        </td>
+      </tr>
+    </table>
     
-        <img loading="lazy" src="./images/snippets_store_web_app.png" width="585px" class="preview-image">
+    <img loading="lazy" src="./images/suggestions_example_in_xcode.webp" class="preview-image"  style="width: min(585px, 99%)">
     
-        <p>An online database of code and prompt snippets. It can be self-hosted. For example, it can be used as a teams shared database. Extiri has its own official public database.</p>
-      </div>
-
-      <hr>
-
-    <div class="app">
-        <table>
-          <tr>
-            <td>
-              <h2>natsearch</h2>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <h3>macOS cli app</h3>
-              <p>open-source</p>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <a href="https://github.com/Extiri/natsearch">Visit GitHub repository</a>
-            </td>
-          </tr>
-        </table>
-
-        <p>A simple open source command line utility that allows you to search through text files (including code) using natural language.</p>
-      </div>
+    <p>An open source app that allows you to see list of "suggestions" directly in your IDE/editor. You can either search by typing a defined by  Currently it only supports CodeMenu. With CodeMenu provider, Suggestions allows you to search and use snippets.</p>
+  </div>
+  
+  <hr>
+  
+  <div class="app">
+    <table>
+      <tr>
+        <td colspan="2" rowspan="2">
+          <img loading="lazy" src="images/snippets-store-icon.webp" style="position: relative; top: 10px; width: min(200px, 90%)">
+        </td>
+        <td>
+          <h2>Snippets Store</h2>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>web app</h3>
+          <p>open-source</p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          <a href="https://github.com/Extiri/ExtiriServer">Visit server's GitHub repository</a>
+        </td>
+        <td colspan="1">
+          <a href="https://github.com/Extiri/extiri-web">Visit web app's GitHub repository</a>
+        </td>
+        <td colspan="1">
+          <a href="https://web.extiri.com">Visit Extiri Snippets Store</a>
+        </td>
+      </tr>
+    </table>
+    
+    <img loading="lazy" src="./images/snippets_store_web_app.webp" class="preview-image" style="width: min(585px, 99%)">
+    
+    <p>An online database of code and prompt snippets. It can be self-hosted. For example, it can be used as a teams shared database. Extiri has its own official public database.</p>
+  </div>
+  
+  <hr>
+  
+  <div class="app">
+    <table>
+      <tr>
+        <td>
+          <h2>natsearch</h2>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>macOS cli app</h3>
+          <p>open-source</p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <a href="https://github.com/Extiri/natsearch">Visit GitHub repository</a>
+        </td>
+      </tr>
+    </table>
+    
+    <p>A simple open source command line utility that allows you to search through text files (including code) using natural language.</p>
+  </div>
 </div>
 
 <br>
