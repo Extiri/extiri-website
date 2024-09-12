@@ -308,6 +308,7 @@ th {
   font-size: 1em;
   border-radius: 8px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .button-cta {
@@ -316,4 +317,4 @@ th {
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-}
+} 
