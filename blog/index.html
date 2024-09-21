@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Extiri Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=5.0">
+  <script async="" src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script defer="">let theme=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");"dark"==theme?(document.body.classList.add("theme-dark"),document.body.classList.remove("theme-light")):(document.body.classList.add("theme-light"),document.body.classList.remove("theme-dark")),window.innerWidth<480?document.body.classList.add("is-phone"):window.innerWidth<768?document.body.classList.add("is-tablet"):window.innerWidth<1024?document.body.classList.add("is-small-screen"):document.body.classList.add("is-large-screen")</script>
+  <div class="markdown-preview-view markdown-rendered allow-fold-headings allow-fold-lists is-readable-line-width"><style id="MJX-CHTML-styles"></style>
+    <div class="markdown-preview-sizer markdown-preview-section">
+      <h1>extiri blog</h1>
+      <p><a href="index.html">Blog</a> - <a href="../../index.html">Extiri homepage</a></p>
+      <br>
+      <br>
+      <p>This blog is about everything related to software engineering, programming and computers. Here you will find many guides, tutorials and general posts.</p>
+      <h2>Posts</h2>
+      <ul>
+        <li style="margin-bottom: 20px;"><a href="posts/2024-21-09_image_of_part_of_screen_swift_cocoa.html">[2024-21-09] Taking an image of a part of the screen in a Cocoa app</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

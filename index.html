@@ -28,7 +28,7 @@
 <body>
   <div class="navbar">
     <div class="navbar-content">
-      <img src="images/extiri-white-logo.webp" alt="Extiri logo" width="110px" class="navbar-logo"></img>
+      <img src="images/extiri-white-logo.webp" alt="Extiri logo" width="110px" class="navbar-logo" alt="Extiri logo"></img>
       
       <span class="big_screen">
         <p class="navbar-item" onclick="goToHome()">Home</p>
@@ -38,7 +38,7 @@
       
       <span class="small_screen">
         <img src="images/hamburger-icon.webp" class="navbar-item"
-        style="position: absolute; top: 11px; width: 30px !important;" onclick="toggleHamburger()">
+        style="position: absolute; top: 11px; width: 30px !important;" onclick="toggleHamburger()" alt="Menu button">
         
         <div id="hamburger_menu" class="hamburger_menu">
           <div class="hamburger_menu_content">
@@ -53,10 +53,23 @@
   
   <div class="main">
     <div style="position: relative; display: block; top: 30%; margin-left: auto; margin-right: auto; width: min(450px, 90%); text-align: center;">
-      <img style="position: relative; left: 15px; width: min(400px, 100%)" src="images/extiri-black-logo.webp">
+      <img style="position: relative; left: 15px; width: min(400px, 100%)" src="images/extiri-black-logo.webp" alt="Extiri logo">
       <p style="color: black; font-size: 1.5em; text-align: center; line-height: 1.2em; width: min(400px, 100%); margin-left: auto; margin-right: auto;">Simply useful and cool apps</p>
     </div>
   </div>
+</div>
+
+<div class="section">
+  <br>
+  <br>
+  <br>
+  <h1>Blog</h1>
+  <a href="blog/index.html">visit blog</a>
+  <p>Extiri's blog takes up the topics of general software engineering and programming. Here you will find tutorials, guides and more.</p>
+  <h2>Latest posts</h2>
+  <ul>
+    <li style="margin-bottom: 20px;"><a href="blog/posts/2024-21-09_image_of_part_of_screen_swift_cocoa.html">[2024-21-09] Taking an image of a part of the screen in a Cocoa app</a></li>
+  </ul>
 </div>
 
 <div class="section" id="apps">
@@ -65,8 +78,14 @@
   <br>
   
   <h1>Apps</h1>
-  
-  <div class="app">
+  <ul>
+    <li style="margin-bottom: 20px;"><a href="#codemenu">CodeMenu (macOS) - advanced snippets manager</a></li>
+    <li style="margin-bottom: 20px;"><a href="#suggestions">Suggestions (macOS) - access code/text snippets directly in a editor</a></li>
+    <li style="margin-bottom: 20px;"><a href="#snippets-store">Snippets Store (web) - an online database of code snippets, also self-hostable</a></li>
+    <li style="margin-bottom: 20px;"><a href="#natsearch">natsearch (macOS) - a small CLI utility for searching text and code using natural language</a></li>
+  </ul>
+
+  <div class="app" id="codemenu">
     <table>
       <tr>
         <td colspan="2" rowspan="2">
@@ -81,6 +100,7 @@
           <h3>MacOS app</h3>
           <ul>
             <li>one time purchase</li>
+            or
             <li>monthly subscription with a 7-day free trial</li>
           </ul>
         </td>
@@ -95,18 +115,18 @@
       </tr>
     </table>
     
-    <img loading="lazy" src="./images/codemenu/dashboard_screenshot.webp" class="preview-image" style="width: min(585px, 99%)">
+    <img loading="lazy" src="./images/codemenu/dashboard_screenshot.webp" class="preview-image" style="width: min(585px, 99%)" alt="Screenshot of CodeMenu's dashboard">
     
     <p>An advanced data snippet manager and organizer. Store code (55 languages), color palettes, prompts, text and images. Made to assist you at every point of a snippet's life. It has many features like spaces, stashes, code image recognition, semantic search, integrated AI, placeholders and much more.</p>
   </div>
   
   <hr>
   
-  <div class="app">
+  <div class="app" id="suggestions">
     <table>
       <tr>
         <td colspan="2" rowspan="2">
-          <img loading="lazy" src="images/Suggestions_icon.webp" style="position: relative; top: 10px; width: min(200px, 90%)">
+          <img loading="lazy" src="images/Suggestions_icon.webp" style="position: relative; top: 10px; width: min(200px, 90%)" alt="Suggestions icon">
         </td>
         <td>
           <h2>Suggestions</h2>
@@ -125,18 +145,18 @@
       </tr>
     </table>
     
-    <img loading="lazy" src="./images/suggestions_example_in_xcode.webp" class="preview-image"  style="width: min(585px, 99%)">
+    <img loading="lazy" src="./images/suggestions_example_in_xcode.webp" class="preview-image"  style="width: min(585px, 99%)" alt="Suggestions app running in Xcode with a list of snippets for a provided query">
     
     <p>An open source app that allows you to see list of "suggestions" directly in your IDE/editor. You can either search by typing a defined by  Currently it only supports CodeMenu. With CodeMenu provider, Suggestions allows you to search and use snippets.</p>
   </div>
   
   <hr>
   
-  <div class="app">
+  <div class="app" id="snippets-store">
     <table>
       <tr>
         <td colspan="2" rowspan="2">
-          <img loading="lazy" src="images/snippets-store-icon.webp" style="position: relative; top: 10px; width: min(200px, 90%)">
+          <img loading="lazy" src="images/snippets-store-icon.webp" style="position: relative; top: 10px; width: min(200px, 90%)" alt="Snippets Store icon">
         </td>
         <td>
           <h2>Snippets Store</h2>
@@ -161,14 +181,14 @@
       </tr>
     </table>
     
-    <img loading="lazy" src="./images/snippets_store_web_app.webp" class="preview-image" style="width: min(585px, 99%)">
+    <img loading="lazy" src="./images/snippets_store_web_app.webp" class="preview-image" style="width: min(585px, 99%)" alt="Screenshot of the mainpage of Snippets Store web app with a list of snippets">
     
     <p>An online database of code and prompt snippets. It can be self-hosted. For example, it can be used as a teams shared database. Extiri has its own official public database.</p>
   </div>
   
   <hr>
   
-  <div class="app">
+  <div class="app" id="natsearch">
     <table>
       <tr>
         <td>
@@ -198,7 +218,7 @@
 
 <div class="section" id="about">
   <h1>About</h1>
-  <p>Hi! This is Extiri, the place where I (<a href="http://wiktor.thedev.id">Wiktor Wójcik</a>) publish my proffesional apps.</p>
+  <p>Hi! This is Extiri, the place where I (<a href="http://wiktor.thedev.id">Wiktor Wójcik</a>) publish my proffesional apps. You can contact me at wiktor.wojcik<span>@</span>extiri.com</span>.</p>
 </div>
 </body>
 </html>
