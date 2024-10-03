@@ -105,26 +105,21 @@
         window.open("../index.html#apps")
       }
 
-      function goToAbout() {
-        window.open("../index.html#about")
+      function goToBlog() {
+        window.open("../blog/index.html")
       }
-
-       function goToContact() {
-        window.open("../index.html#contact")
-       }
     </script>
     <script src="../scripts.js"></script>
   </head>
   <body>
     <div class="navbar">
         <div class="navbar-content">
-          <img src="../images/extiri-white-logo.webp" width="110px" class="navbar-logo"></img>
+          <a href="../index.html"><img src="../images/extiri-white-logo.webp" width="110px" class="navbar-logo"></img></a>
   
           <span class="big_screen">
             <p class="navbar-item" onclick="goToHome()">Home</p>
             <p class="navbar-item" onclick="goToApps()">Apps</p>
-            <p class="navbar-item" onclick="goToAbout()">About</p>
-            <p class="navbar-item" onclick="goToContact()">Contact</p>
+            <p class="navbar-item" onclick="goToBlog()">Blog</p>
           </span>
 
           <span class="small_screen">
@@ -134,8 +129,7 @@
               <div class="hamburger_menu_content">
                 <p class="navbar-item" onclick="goToHome()">Home</p>
                 <p class="navbar-item" onclick="goToApps()">Apps</p>
-                <p class="navbar-item" onclick="goToAbout()">About</p>
-                <p class="navbar-item" onclick="goToContact()">Contact</p>
+                <p class="navbar-item" onclick="goToBlog()">Blog</p>
                 </div>
             </div>
           </span>

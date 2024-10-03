@@ -18,8 +18,8 @@
       location.href = "#apps"
     }
     
-    function goToAbout() {
-      location.href = "#about"
+    function goToBlog() {
+      location.href = "blog/index.html"
     }
   </script>
   <script src="scripts.js"></script>
@@ -28,12 +28,12 @@
 <body>
   <div class="navbar">
     <div class="navbar-content">
-      <img src="images/extiri-white-logo.webp" alt="Extiri logo" width="110px" class="navbar-logo" alt="Extiri logo"></img>
+      <a href="./index.html"><img src="images/extiri-white-logo.webp" width="110px" class="navbar-logo"></img></a>
       
       <span class="big_screen">
         <p class="navbar-item" onclick="goToHome()">Home</p>
         <p class="navbar-item" onclick="goToApps()">Apps</p>
-        <p class="navbar-item" onclick="goToAbout()">About</p>
+        <p class="navbar-item" onclick="goToBlog()">Blog</p>
       </span>
       
       <span class="small_screen">
@@ -44,7 +44,7 @@
           <div class="hamburger_menu_content">
             <p class="navbar-item" onclick="goToHome()">Home</p>
             <p class="navbar-item" onclick="goToApps()">Apps</p>
-            <p class="navbar-item" onclick="goToAbout()">About</p>
+            <p class="navbar-item" onclick="goToBlog()">Blog</p>
           </div>
         </div>
       </span>
@@ -68,6 +68,7 @@
   <p>Extiri's blog takes up the topics of general software engineering and programming. Here you will find tutorials, guides and more.</p>
   <h2>Latest posts</h2>
   <ul>
+    <li style="margin-bottom: 20px;"><a href="blog/posts/2024-03-10_some_snippets_of_code_for_your_swift_apps.html">[2024-03-10] Some snippets of code for your Swift apps</a></li>
     <li style="margin-bottom: 20px;"><a href="blog/posts/2024-21-09_image_of_part_of_screen_swift_cocoa.html">[2024-21-09] Taking an image of a part of the screen in a Cocoa app</a></li>
   </ul>
 </div>

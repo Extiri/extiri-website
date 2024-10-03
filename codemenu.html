@@ -18,8 +18,8 @@
       location.href = "./index.html#apps"
     }
     
-    function goToAbout() {
-      location.href = "./index.html#about"
+    function goToBlog() {
+      location.href = "./blog/index.html"
     }
   </script>
   <script src="scripts.js"></script>
@@ -28,12 +28,12 @@
 <body>
   <div class="navbar">
     <div class="navbar-content">
-      <img src="images/extiri-white-logo.webp" alt="Extiri logo" width="110px" class="navbar-logo"></img>
+      <a href="./index.html"><img src="images/extiri-white-logo.webp" width="110px" class="navbar-logo"></img></a>
       
       <span class="big_screen">
         <p class="navbar-item" onclick="goToHome()">Home</p>
         <p class="navbar-item" onclick="goToApps()">Apps</p>
-        <p class="navbar-item" onclick="goToAbout()">About</p>
+        <p class="navbar-item" onclick="goToBlog()">Blog</p>
       </span>
       
       <span class="small_screen">
@@ -43,7 +43,7 @@
           <div class="hamburger_menu_content">
             <p class="navbar-item" onclick="goToHome()">Home</p>
             <p class="navbar-item" onclick="goToApps()">Apps</p>
-            <p class="navbar-item" onclick="goToAbout()">About</p>
+            <p class="navbar-item" onclick="goToBlog()">Blog</p>
           </div>
         </div>
       </span>
