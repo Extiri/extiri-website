@@ -18,13 +18,15 @@ html {
   user-select: none;
   z-index: 5;
   position: fixed;
-  top: 0px;
-  left: 0px;
+  top: 20px;
   display: block;
   height: 60px;
-  width: 100%;
+  width: 643px;
+  left: 50%;
+  transform: translateX(-50%);
   box-shadow: 0px 0px 20px black;
-  background-color: rgb(10, 10, 10);;
+  background-color: #101b26;
+  border-radius: 20px;  /*rgb(10, 10, 10);*/
   color: white;
 }
 
@@ -34,7 +36,7 @@ html {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
+  width: 100%;
   height: 50px;
 }
 
@@ -44,6 +46,7 @@ html {
   top: 2px;
   padding: 10px;
   width: 110px;
+  padding-right: 100px;
 }
 
 .navbar-item {
@@ -101,16 +104,29 @@ html {
   .navbar-item {
     width: 70px !important;
   }
+
+  .navbar {
+    width: 100% !important;
+  }
+
+  .navbar-logo {
+    padding-right: 0px !important;
+  }
+
+  .navbar {
+    top: 0px !important;
+    border-radius: 0px;
+  }
 }
 
 .hamburger_menu {
   top: 70px;
   visibility: hidden;
-  height: 40px;
+  height: 50px;
   margin-left: auto;
   margin-right: auto;
   width: 99%;
-  background-color: #252525;
+  background-color: #101b26;
   border-radius: 15px;
   box-shadow: 0px 0px 20px black;
 }
@@ -156,7 +172,7 @@ html, body {
   background-size: cover;
   background-color: black;
   height: 500px;
-  width: 653px;
+  width: 80%; /*6 53px */
   margin: auto;
   margin-top: 8%;
   border-radius: 40px;
@@ -198,14 +214,14 @@ html, body {
 }
 
 .section {
-  width: 653px;
+  width: 70%;
   margin: auto;
 }
 
 h1 {
   font-weight: 1000;
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: 2.5rem;
   line-height: 2.2rem;
   margin-bottom: 2.40rem;
 }
@@ -213,23 +229,23 @@ h1 {
 h2 {
   font-weight: 1000;
   text-transform: uppercase;
-  font-size: 1.2rem;
-  line-height: 1.20rem;
+  font-size: 1.7rem;
+  line-height: 1.90rem;
   margin-bottom: 1.20rem;
 }
 
 h3 {
   font-weight: 300;
   text-transform: uppercase;
-  font-size: 0.9rem;
-  line-height: 1.20rem;
+  font-size: 1.3rem;
+  line-height: 1.50rem;
   margin-bottom: 1.20rem;
 }
 
 p {
-  line-height: 1.20rem;
+  line-height: 1.60rem;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1em;
   margin-bottom: 3rem;
   word-break: break-word;
   word-wrap: break-word;
@@ -296,6 +312,7 @@ th {
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
+  box-shadow: black 0px 0px 30px;
 }
 
 .button-primary {
@@ -303,9 +320,9 @@ th {
   background: rgb(235,114,89);
   background: linear-gradient(90deg, rgba(235,114,89,1) 0%, rgba(238,139,62,1) 42%, rgba(240,162,66,1) 100%);
   color: black;
-  padding: 20px 30px;
+  padding: 15px 20px;
   border: none;
-  font-size: 1em;
+  font-size: 0.9em;
   border-radius: 8px;
   cursor: pointer;
   text-decoration: none;
@@ -318,3 +335,66 @@ th {
   margin-left: auto;
   margin-right: auto;
 } 
+
+.app-details-table {
+  width: min(100%, 700px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.note-text {
+  color: grey;
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 100px 100px;
+}
+
+.preview-card {
+  background-color: #101b26;
+  padding: 40px;
+  text-align: center;
+  border-radius: 40px;
+}
+
+.expanding-section {
+  width: 70%;
+  margin: auto;
+}
+
+@media only screen and (max-width: 1350px) {
+  .app-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 868px) {
+  .app-grid {
+    display: block;
+    width: 100%;
+  }
+
+  .preview-card {
+    background-color: #101b26;
+    padding: 40px;
+    text-align: center;
+    width: 92%;
+    border-radius: 0px !important;
+  }
+
+  .expanding-section {
+    width: 100%;
+  }
+}
+
+.button-cta-card {
+  position: relative;
+  top: -22px;
+}
+
+.vertical-center {
+  margin: 0;
+  top: 150%;
+}
