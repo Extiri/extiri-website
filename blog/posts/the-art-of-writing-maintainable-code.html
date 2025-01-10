@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<title>The Art of Writing Maintainable Code - Best Practices &#9642; Extiri Blog</title>
+<!--
+<meta name="description" content="Writing code is easy; writing maintainable code is a craft. As software engineers, we often focus on delivering features and fixing bugs, but maintainable code is the foundation of scalable, long-term success. Code that’s clean, understandable, and adaptable not only saves time and money but also reduces frustration for everyone...">
+-->
+<meta name="description" content="blog about Extiri, programming and cybersecurity
+">
+<meta name="keywords" content="programming, productivity">
+<link rel="canonical" href="http://127.0.0.1/posts/the-art-of-writing-maintainable-code">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="The Art of Writing Maintainable Code - Best Practices" />
+<meta name="twitter:description" content="blog about Extiri, programming and cybersecurity
+" />
+<meta name="twitter:image" content="http://127.0.0.1" />
+<meta name="author" content="">
+<link rel="author" href="">
+<meta property="og:locale" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Art of Writing Maintainable Code - Best Practices">
+<meta property="og:description" content="blog about Extiri, programming and cybersecurity
+">
+<meta property="og:url" content="http://127.0.0.1/posts/the-art-of-writing-maintainable-code">
+<meta property="og:site_name" content="Extiri Blog">
+<link rel="stylesheet" href="/blog/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="/blog/assets/css/main.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,400italic,700,700italic">
+<style>
+    html {
+      font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    }
+</style>
+<link rel="stylesheet" href="/blog/assets/css/bf.css">
+   <body>
+       <div class="wrapper" id="blep">
+          <header>
+   <div class="menu">
+     <div class="logo">
+        <object type="image/svg+xml" data="/blog/assets/img/guy.svg" class="logosvg">Your browser does not support svg images</object>
+        <a href="/blog/">Extiri Blog</a>
+     </div>
+       <ul>
+           <li><a href="/blog/about">about</a>
+           <li><a href="/blog/archive">archive</a>
+           <li><a href="https://extiri.com">apps</a>
+       </ul>
+   </div>
+   <div class="social">
+     <ul>
+       <li>
+            <a href="https://youtube.com/@wiktorwojcik3678" target="_blank" class="smaller">
+              <span class="icon-youtube"></span>
+            </a>
+       <li>
+            <a href="https://twitter.com/WiktorW2" target="_blank" class="smaller">
+              <span class="icon-twitter"></span>
+            </a>
+       <li>
+            <a href="https://github.com/Extiri" target="_blank" class="smaller">
+              <span class="icon-github"></span>
+            </a>
+       <li>
+            <a href="mailto:wiktor.wojcik@extiri.com" target="_blank">
+              <span class="icon-mail_outline"></span>
+            </a>
+       <li>
+            <a href="/blog/feed.xml" target="_blank">
+                <span class="icon-rss_feed"></span>
+            </a>
+       <li>
+            <a href="#" onclick="switchTheme()" title="Switch theme?">
+              <span class="icon-invert_colors" id="theme-switcher"></span>
+            </a>
+     </ul>
+   </div>
+</header>
+<article class="post">
+<style>
+  .the-art-of-writing-maintainable-code {
+    margin-bottom: 2em;
+  }
+  .the-art-of-writing-maintainable-code::before {
+    background-size: cover;
+    -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5);
+    content:'';
+    position:absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: -2;
+  }
+  .the-art-of-writing-maintainable-code::after {
+    content:'';
+    position:absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(100,0,255,0.8);
+    /*mix-blend-mode: darken;
+    mix-blend-mode: color-burn;
+    mix-blend-mode: hard-light;*/
+    mix-blend-mode: overlay;
+    z-index: -1;
+  }
+  .the-art-of-writing-maintainable-code-container,
+  .the-art-of-writing-maintainable-code-container::before,
+  .the-art-of-writing-maintainable-code-container::after {
+    height: 25rem;
+  }
+  .the-art-of-writing-maintainable-code-bleed-container,
+  .the-art-of-writing-maintainable-code-bleed-container::before,
+  .the-art-of-writing-maintainable-code-bleed-container::after {
+    height: 35rem;
+  }
+    @media (max-width: 48rem) {
+        .the-art-of-writing-maintainable-code-container,
+        .the-art-of-writing-maintainable-code-container::before,
+        .the-art-of-writing-maintainable-code-container::after{
+            height: 20rem;
+            margin-bottom: 3rem;
+        }
+    }
+</style>
+ <div class="post-title-container
+  the-art-of-writing-maintainable-code the-art-of-writing-maintainable-code-bleed-container bleed-hero-container
+    ">
+    <!--Post hero image source-->
+   <div class="heading-container hero-heading hero-heading-post">
+     <h1>
+          The Art of Writing Maintainable Code - Best Practices
+     </h1>
+     <div class="post-meta">
+        <span>10/01/2025</span>
+        <span>
+              <a href="/blog/tag/programming">#programming</a>
+              <a href="/blog/tag/productivity">#productivity</a>
+        </span>
+     </div>
+   </div>
+ </div>
+   <p class="lead">Writing code is easy; writing maintainable code is a craft. As software engineers, we often focus on delivering features and fixing bugs, but maintainable code is the foundation of scalable, long-term success. Code that’s clean, understandable, and adaptable not only saves time and money but also reduces frustration for everyone working with it, including your future self.
+<p>
+<p>Here’s how you can master the art of writing maintainable code:
+<hr />
+<h3 id="1-name-things-well-its-hard-but-worth-it"><strong>1. Name Things Well (It’s Hard but Worth It)</strong></h3>
+<p>Variable, function, and class names should clearly reflect their purpose. Avoid vague or overly clever names like <code class="language-plaintext highlighter-rouge">data123</code> or <code class="language-plaintext highlighter-rouge">doMagic()</code>. Opt for descriptive, meaningful names such as <code class="language-plaintext highlighter-rouge">userEmail</code> or <code class="language-plaintext highlighter-rouge">calculateTotalPrice()</code>.
+<p><strong>Tips:</strong>
+<ul>
+ <li>Use consistent naming conventions, like camelCase for variables or PascalCase for classes.
+ <li>Avoid abbreviations unless they’re widely understood (e.g., <code class="language-plaintext highlighter-rouge">HTMLParser</code> is fine, but <code class="language-plaintext highlighter-rouge">usrDtls</code> is not).
+ <li>Name booleans as affirmative statements, e.g., <code class="language-plaintext highlighter-rouge">isActive</code> or <code class="language-plaintext highlighter-rouge">hasPermission</code>.
+</ul>
+<p>Well-named code is self-documenting, reducing the need for excessive comments.
+<hr />
+<h3 id="2-follow-the-dry-principle-but-dont-overdo-it"><strong>2. Follow the DRY Principle (But Don’t Overdo It)</strong></h3>
+<p>The DRY principle—Don’t Repeat Yourself—encourages reusing code to reduce redundancy. If you find yourself copying and pasting, ask whether the logic can be abstracted into a function, class, or module.
+<p>However, avoid making code overly abstract or reusable when it’s not necessary. Overzealous DRYing can lead to tightly coupled code that’s hard to change.
+<p><strong>Ask Yourself:</strong>
+<ul>
+ <li>Is this repetition likely to change together in the future? If yes, refactor.
+ <li>Is abstracting this logic adding unnecessary complexity? If yes, keep it simple.
+</ul>
+<hr />
+<h3 id="3-write-modular-small-functions"><strong>3. Write Modular, Small Functions</strong></h3>
+<p>Functions should do one thing and do it well. Avoid massive, multipurpose functions that span dozens of lines and handle unrelated tasks.
+<p><strong>Best Practices:</strong>
+<ul>
+ <li>Limit functions to ~10–20 lines when possible.
+ <li>Break large functions into smaller helper functions.
+ <li>Ensure each function has a clear and single responsibility.
+</ul>
+<p>Small, modular functions are easier to test, debug, and reuse.
+<hr />
+<h3 id="4-comment-with-purpose"><strong>4. Comment with Purpose</strong></h3>
+<p>Comments are for context, not redundancy. Good comments explain the <em>why</em> behind a decision, not the <em>what</em>, which should already be clear from the code.
+<p><strong>Avoid:</strong>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// Increment x by 1</span>
+</pre></table>
+</div>
+</div>
+<p><strong>Write Instead:</strong>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre><td class="code"><pre><span class="c1">// Adjusting the index to match zero-based arrays</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</pre></table>
+</div>
+</div>
+<p>When in doubt, focus on writing clearer code rather than relying on comments to explain bad code.
+<hr />
+<h3 id="5-use-consistent-formatting"><strong>5. Use Consistent Formatting</strong></h3>
+<p>Consistency makes your code easier to read, both for you and your collaborators. Tools like Prettier, ESLint, and Black can enforce consistent formatting in languages like JavaScript, Python, and more.
+<p><strong>Key Areas for Consistency:</strong>
+<ul>
+ <li>Indentation and spacing.
+ <li>Bracket placement (e.g., K&amp;R vs. Allman style).
+ <li>Line breaks and maximum line length.
+ <li>File organization (e.g., grouping imports, separating functions logically).
+</ul>
+<p>Adopting a shared style guide (e.g., Google’s or Airbnb’s) can also help teams stay aligned.
+<hr />
+<h3 id="6-refactor-regularly"><strong>6. Refactor Regularly</strong></h3>
+<p>Codebases evolve over time, and so should your code. Regular refactoring helps reduce technical debt and ensures your code remains clean and efficient.
+<p><strong>Refactoring Goals:</strong>
+<ul>
+ <li>Remove dead code or unused variables.
+ <li>Simplify overly complex logic.
+ <li>Consolidate similar patterns into reusable functions or classes.
+</ul>
+<p>Treat refactoring as an ongoing process, not a one-time event.
+<hr />
+<h3 id="7-write-tests-and-test-often"><strong>7. Write Tests and Test Often</strong></h3>
+<p>Tests ensure your code behaves as expected, even as the codebase changes. Unit tests, integration tests, and end-to-end tests all play a role in making your code maintainable.
+<p><strong>Why It’s Crucial:</strong>
+<ul>
+ <li>Prevent bugs when refactoring.
+ <li>Serve as a safety net for future changes.
+ <li>Document expected behavior for others (and your future self).
+</ul>
+<p>Aim for a balance: test the critical paths thoroughly without overloading your suite with unnecessary tests.
+<hr />
+<h3 id="8-understand-your-audience"><strong>8. Understand Your Audience</strong></h3>
+<p>Write code for humans, not just machines. This means considering the next person who will read your code — whether it’s a teammate, a junior developer, or you six months later.
+<p><strong>Ask Yourself:</strong>
+<ul>
+ <li>Would someone unfamiliar with this project understand what’s happening?
+ <li>Does this code follow the conventions of the language and framework I’m using?
+</ul>
+<p>Readable, maintainable code makes life easier for everyone involved.
+<hr />
+<h3 id="9-dont-be-afraid-of-documentation"><strong>9. Don’t Be Afraid of Documentation</strong></h3>
+<p>While self-documenting code is the goal, some things still require explicit documentation. Write clear and concise README files, API docs, or internal wikis for:
+<ul>
+ <li>Setting up the project.
+ <li>Explaining complex algorithms or edge cases.
+ <li>Outlining the purpose of key components.
+</ul>
+<p>Good documentation doesn’t replace maintainable code but complements it.
+<hr />
+<h3 id="10-balance-simplicity-and-extensibility"><strong>10. Balance Simplicity and Extensibility</strong></h3>
+<p>Code should solve today’s problem without overengineering for an uncertain future. Avoid adding unnecessary complexity just because you <em>might</em> need it later. Instead, focus on writing code that’s simple to extend when new requirements arise.
+<p><strong>Example:</strong><br />
+Instead of creating a full plugin system for a one-off feature, write a modular, clean implementation that can be refactored later if needed.
+<hr />
+<h3 id="11-avoid-cargo-cult-programming"><strong>11. Avoid Cargo Cult Programming</strong></h3>
+<p>Cargo cult programming occurs when developers copy code or patterns without fully understanding their purpose, often because “it worked elsewhere” or “everyone does it this way.” It also happens when, for example, a bug is solved by duct-taping it with an <code class="language-plaintext highlighter-rouge">if</code> without fixing the underlying issue. While this approach may produce functional code in the short term, it can lead to unnecessary complexity, bugs, and a lack of clarity for future maintainers. To write maintainable code, focus on understanding the problem you’re solving and the rationale behind each implementation choice. Avoid blindly replicating code — be intentional, document your reasoning, and strive for simplicity and readability.
+</article>
+<aside class="related">
+<h2>Related posts</h2>
+<ul class="related-posts">
+</aside>
+           <footer>
+    <span>blog about Extiri, programming and cybersecurity
+</span>
+    <span>written by Wiktor Wójcik</span>
+</footer>
+       </div>
+<script type="text/javascript" src="/blog/assets/js/theme.js"></script>
+<script type="text/javascript" src="/blog/assets/js/barefoot.js"></script>
+    
