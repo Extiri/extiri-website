@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<title>Taking an image of a part of the screen in a Cocoa app &#9642; Extiri Blog</title>
+<!--
+<meta name="description" content="This is a tutorial about implementing a system-like screenshot taking view on macOS.
+">
+-->
+<meta name="description" content="This is a tutorial about implementing a system-like screenshot taking view on macOS.">
+<meta name="keywords" content="snippets, tutorial, programming">
+<link rel="canonical" href="http://127.0.0.1/posts/taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Taking an image of a part of the screen in a Cocoa app" />
+<meta name="twitter:description" content="This is a tutorial about implementing a system-like screenshot taking view on macOS.
+" />
+<meta name="twitter:image" content="http://127.0.0.1" />
+<meta name="author" content="">
+<link rel="author" href="">
+<meta property="og:locale" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Taking an image of a part of the screen in a Cocoa app">
+<meta property="og:description" content="This is a tutorial about implementing a system-like screenshot taking view on macOS.
+">
+<meta property="og:url" content="http://127.0.0.1/posts/taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app">
+<meta property="og:site_name" content="Extiri Blog">
+<link rel="stylesheet" href="/blog/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="/blog/assets/css/main.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,400italic,700,700italic">
+<style>
+    html {
+      font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    }
+</style>
+<link rel="stylesheet" href="/blog/assets/css/bf.css">
+   <body>
+       <div class="wrapper" id="blep">
+          <header>
+   <div class="menu">
+     <div class="logo">
+        <object type="image/svg+xml" data="/blog/assets/img/guy.svg" class="logosvg">Your browser does not support svg images</object>
+        <a href="/blog/">Extiri Blog</a>
+     </div>
+       <ul>
+           <li><a href="/blog/about">about</a>
+           <li><a href="/blog/archive">archive</a>
+           <li><a href="https://extiri.com">apps</a>
+       </ul>
+   </div>
+   <div class="social">
+     <ul>
+       <li>
+            <a href="https://youtube.com/@wiktorwojcik3678" target="_blank" class="smaller">
+              <span class="icon-youtube"></span>
+            </a>
+       <li>
+            <a href="https://twitter.com/WiktorW2" target="_blank" class="smaller">
+              <span class="icon-twitter"></span>
+            </a>
+       <li>
+            <a href="https://github.com/Extiri" target="_blank" class="smaller">
+              <span class="icon-github"></span>
+            </a>
+       <li>
+            <a href="mailto:wiktor.wojcik@extiri.com" target="_blank">
+              <span class="icon-mail_outline"></span>
+            </a>
+       <li>
+            <a href="/blog/feed.xml" target="_blank">
+                <span class="icon-rss_feed"></span>
+            </a>
+       <li>
+            <a href="#" onclick="switchTheme()" title="Switch theme?">
+              <span class="icon-invert_colors" id="theme-switcher"></span>
+            </a>
+     </ul>
+   </div>
+</header>
+<article class="post">
+<style>
+  .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app {
+    margin-bottom: 2em;
+  }
+  .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app::before {
+    background-size: cover;
+    -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5);
+    content:'';
+    position:absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: -2;
+  }
+  .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app::after {
+    content:'';
+    position:absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,100,255,0.8);
+    /*mix-blend-mode: darken;
+    mix-blend-mode: color-burn;
+    mix-blend-mode: hard-light;*/
+    mix-blend-mode: overlay;
+    z-index: -1;
+  }
+  .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app-container,
+  .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app-container::before,
+  .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app-container::after {
+    height: 25rem;
+  }
+  .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app-bleed-container,
+  .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app-bleed-container::before,
+  .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app-bleed-container::after {
+    height: 35rem;
+  }
+    @media (max-width: 48rem) {
+        .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app-container,
+        .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app-container::before,
+        .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app-container::after{
+            height: 20rem;
+            margin-bottom: 3rem;
+        }
+    }
+</style>
+ <div class="post-title-container
+  taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app-bleed-container bleed-hero-container
+    ">
+    <!--Post hero image source-->
+   <div class="heading-container hero-heading hero-heading-post">
+     <h1>
+          Taking an image of a part of the screen in a Cocoa app
+     </h1>
+     <div class="post-meta">
+        <span>21/09/2024</span>
+        <span>
+              <a href="/blog/tag/snippets">#snippets</a>
+              <a href="/blog/tag/tutorial">#tutorial</a>
+              <a href="/blog/tag/programming">#programming</a>
+        </span>
+     </div>
+   </div>
+ </div>
+   <p class="lead">Hi! In this post I will show you how to write a “screenshot taker” for a Cocoa app. It will allow the user to select a part of the screen, just like the builtin screenshot taking tool on macOS. It uses <code class="language-plaintext highlighter-rouge">CGWindowListCreateImage</code> (macOS 10.5 - 14.0), so it should work in old codebases although it’s important to note that it’s deprecated in macOS 14.0. In such case you should use ScreenCaptureKit and it’s functions like captureScreenshot. It should work well for most cases. Well, let’s start!
+<p>
+<p>This code will be pretty lengthy so I will split it into two parts: a manager and a view controller. The manager will be the frontend for screenshot taking and the view controller will be responsible for selecting part of the screen. Let’s begin with the manager.
+<h3 id="manager">Manager</h3>
+<div class="language-swift highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13</pre><td class="code"><pre><span class="kd">class</span> <span class="kt">ScreenshotManager</span> <span class="p">{</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">windowController</span><span class="p">:</span> <span class="kt">NSWindowController</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">isRunning</span> <span class="o">=</span> <span class="kc">false</span>
+	<span class="kd">static</span> <span class="k">var</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">NSImage</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span> <span class="o">=</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}</span>
+<span class="err"> </span> 
+	<span class="kd">enum</span> <span class="kt">SMError</span><span class="p">:</span> <span class="kt">Error</span> <span class="p">{</span>
+		<span class="k">case</span> <span class="n">failedToTakeScreenshot</span>
+		<span class="k">case</span> <span class="n">noSelection</span>
+		<span class="k">case</span> <span class="n">alreadyInUse</span>
+		<span class="k">case</span> <span class="n">noPermission</span>
+		<span class="k">case</span> <span class="n">noAccessToScreen</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></table>
+</div>
+</div>
+<p>First we define the ScreenshotManager class in which we define the variables and the error type. <code class="language-plaintext highlighter-rouge">windowController</code> stores the window controller for selection window, <code class="language-plaintext highlighter-rouge">isRunning</code> contains information whether screenshot is already being taken and <code class="language-plaintext highlighter-rouge">completionHandler</code> contains a handler that will be called when the user stops selecting or an error happens while selecting. I will use static functions and variables because only one screenshot-taking can happen at a time. Now we will add a function for taking a screenshot from a part of the screen.
+<div class="language-swift highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15</pre><td class="code"><pre><span class="kd">class</span> <span class="kt">ScreenshotManager</span> <span class="p">{</span>
+<span class="o">...</span>
+	<span class="kd">@MainActor</span>
+	<span class="kd">static</span> <span class="kd">func</span> <span class="nf">take</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="kt">NSRect</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">NSImage</span> <span class="p">{</span>
+		<span class="n">isRunning</span> <span class="o">=</span> <span class="kc">false</span>
+		
+	<span class="err"> </span> <span class="err"> </span> <span class="k">let</span> <span class="nv">cgRect</span> <span class="o">=</span> <span class="kt">CGRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="n">frame</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="n">frame</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="n">frame</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="n">frame</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+	<span class="err"> </span> <span class="err"> </span> <span class="k">guard</span> <span class="k">let</span> <span class="nv">screenshot</span> <span class="o">=</span> <span class="kt">CGWindowListCreateImage</span><span class="p">(</span><span class="n">cgRect</span><span class="p">,</span> <span class="o">.</span><span class="n">optionOnScreenOnly</span><span class="p">,</span> <span class="o">.</span><span class="n">zero</span><span class="p">,</span> <span class="p">[])</span> <span class="k">else</span> <span class="p">{</span>
+	<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="k">throw</span> <span class="kt">SMError</span><span class="o">.</span><span class="n">failedToTakeScreenshot</span>
+
+	<span class="err"> </span> <span class="err"> </span> <span class="p">}</span>
+
+	<span class="err"> </span> <span class="err"> </span> <span class="k">return</span> <span class="kt">NSImage</span><span class="p">(</span><span class="nv">cgImage</span><span class="p">:</span> <span class="n">screenshot</span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">width</span><span class="p">:</span> <span class="n">screenshot</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="n">screenshot</span><span class="o">.</span><span class="n">height</span><span class="p">))</span>
+	<span class="err"> </span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></table>
+</div>
+</div>
+<p>This function receives a frame with the information about the selection’s size and position. Since <a href="https://developer.apple.com/documentation/coregraphics/cgwindowimageoption">CGWindowListCreateImage</a> needs CGRect, we crate cgRect from the frame. <code class="language-plaintext highlighter-rouge">.optionOnScreenOnly</code> means that the image will contain only the visible windows and as the fourth parameter we provide an empty array since we don’t need any additional options. <code class="language-plaintext highlighter-rouge">.zero</code> is used a reference window ID, but I’m not sure what it means, but I works. Then, we convert the resulting image (<code class="language-plaintext highlighter-rouge">screenshot</code>) into an NSImage. Now we need to add the selecting part. We will begin by writing a function that will return the window controller responsible for selecting.
+<div class="language-swift highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15</pre><td class="code"><pre><span class="kd">class</span> <span class="kt">ScreenshotManager</span> <span class="p">{</span>
+<span class="o">...</span>
+<span class="kd">static</span> <span class="kd">func</span> <span class="nf">returnWindowController</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">NSWindowController</span> <span class="p">{</span>
+
+<span class="err"> </span> <span class="err"> </span> <span class="k">let</span> <span class="nv">window</span> <span class="o">=</span> <span class="kt">NSWindow</span><span class="p">(</span><span class="nv">contentRect</span><span class="p">:</span> <span class="o">.</span><span class="n">zero</span><span class="p">,</span> <span class="nv">styleMask</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="n">fullSizeContentView</span><span class="p">],</span> <span class="nv">backing</span><span class="p">:</span> <span class="o">.</span><span class="n">buffered</span><span class="p">,</span> <span class="nv">defer</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+<span class="err"> </span> <span class="err"> </span> <span class="n">window</span><span class="o">.</span><span class="n">isOpaque</span> <span class="o">=</span> <span class="kc">false</span>
+<span class="err"> </span> <span class="err"> </span> <span class="n">window</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="o">.</span><span class="n">clear</span>
+<span class="err"> </span> <span class="err"> </span> <span class="n">window</span><span class="o">.</span><span class="n">titleVisibility</span> <span class="o">=</span> <span class="o">.</span><span class="n">hidden</span>
+<span class="err"> </span> <span class="err"> </span> <span class="n">window</span><span class="o">.</span><span class="n">titlebarAppearsTransparent</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="err"> </span> <span class="err"> </span> <span class="n">window</span><span class="o">.</span><span class="n">hasShadow</span> <span class="o">=</span> <span class="kc">false</span>
+
+<span class="err"> </span> <span class="err"> </span> <span class="k">return</span> <span class="kt">NSWindowController</span><span class="p">(</span><span class="nv">window</span><span class="p">:</span> <span class="n">window</span><span class="p">)</span>
+
+<span class="err"> </span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></table>
+</div>
+</div>
+<p>This function configures the selection window. It makes it transparent using <code class="language-plaintext highlighter-rouge">isOpaque</code> and <code class="language-plaintext highlighter-rouge">backgroundColor</code>. It also removes all decorations (titlebar and shadow). Now let’s add the main function responsible for starting this process.
+<div class="language-swift highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre><td class="code"><pre><span class="kd">class</span> <span class="kt">ScreenshotManager</span> <span class="p">{</span>
+<span class="o">...</span>
+	<span class="kd">@MainActor</span>
+	<span class="kd">static</span> <span class="kd">func</span> <span class="nf">start</span><span class="p">(</span><span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">NSImage</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Error</span><span class="p">?</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="k">self</span><span class="o">.</span><span class="n">isRunning</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="kt">SMError</span><span class="o">.</span><span class="n">alreadyInUse</span>
+	<span class="err"> </span> <span class="err"> </span> <span class="p">}</span>
+	<span class="err"> </span> <span class="err"> </span> 
+	<span class="err"> </span> <span class="err"> </span> <span class="k">guard</span> <span class="k">let</span> <span class="nv">screen</span> <span class="o">=</span> <span class="kt">NSScreen</span><span class="o">.</span><span class="n">main</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kt">SMError</span><span class="o">.</span><span class="n">noAccessToScreen</span> <span class="p">}</span>
+	<span class="err"> </span> <span class="err"> </span> 
+	<span class="err"> </span> <span class="err"> </span> <span class="k">if</span> <span class="o">!</span><span class="kt">CGPreflightScreenCaptureAccess</span><span class="p">()</span> <span class="p">{</span>
+		<span class="err"> </span> <span class="err"> </span><span class="k">return</span> <span class="kt">SMError</span><span class="o">.</span><span class="n">noPermission</span>
+	<span class="err"> </span> <span class="err"> </span> <span class="p">}</span>
+
+	<span class="err"> </span> <span class="err"> </span> <span class="k">Self</span><span class="o">.</span><span class="n">completionHandler</span> <span class="o">=</span> <span class="n">completionHandler</span>
+
+	<span class="err"> </span> <span class="err"> </span> <span class="n">windowController</span> <span class="o">=</span> <span class="nf">returnWindowController</span><span class="p">()</span>
+	<span class="err"> </span> <span class="err"> </span> <span class="n">windowController</span><span class="p">?</span><span class="o">.</span><span class="n">contentViewController</span> <span class="o">=</span> <span class="kt">SelectionWindowViewController</span><span class="p">()</span>
+	<span class="err"> </span> <span class="err"> </span> <span class="n">windowController</span><span class="p">?</span><span class="o">.</span><span class="n">window</span><span class="p">?</span><span class="o">.</span><span class="nf">setFrame</span><span class="p">(</span><span class="kt">NSRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="n">screen</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="n">screen</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">height</span><span class="p">),</span> <span class="nv">display</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+	<span class="err"> </span> <span class="err"> </span> <span class="n">windowController</span><span class="o">!.</span><span class="nf">showWindow</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
+	<span class="err"> </span> <span class="err"> </span> <span class="n">windowController</span><span class="p">?</span><span class="o">.</span><span class="n">window</span><span class="p">?</span><span class="o">.</span><span class="nf">makeKeyAndOrderFront</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
+
+		<span class="k">return</span> <span class="kc">nil</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></table>
+</div>
+</div>
+<p>This function accepts the completionHandler that will run once the selection ends and it also returns an error when there is selection already taking place, <code class="language-plaintext highlighter-rouge">NSScreen.main</code> is nil and if the app doesn’t have a screen capture permission (<code class="language-plaintext highlighter-rouge">CGPreflightScreenCaptureAccess()</code>). The function then configures and shows a window controller from the <code class="language-plaintext highlighter-rouge">returnWindowController()</code> function. The window will appear on the current space and overlay all windows. Now it’s time for the selection window.
+<h3 id="selection-window">Selection window</h3>
+<p>Let’s begin by defining the <code class="language-plaintext highlighter-rouge">SelectionWindowViewController</code> class inheriting from <code class="language-plaintext highlighter-rouge">NSViewController</code>, variables and it’s <code class="language-plaintext highlighter-rouge">viewDidLoad()</code> function.
+<div class="language-swift highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14</pre><td class="code"><pre><span class="kd">class</span> <span class="kt">SelectionWindowViewController</span><span class="p">:</span> <span class="kt">NSViewController</span> <span class="p">{</span>
+<span class="err"> </span> <span class="k">var</span> <span class="nv">selectionView</span><span class="p">:</span> <span class="kt">NSBox</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="err"> </span> <span class="k">var</span> <span class="nv">centerPoint</span><span class="p">:</span> <span class="kt">CGPoint</span> <span class="o">=</span> <span class="o">.</span><span class="n">zero</span>
+<span class="err"> </span> <span class="k">var</span> <span class="nv">overlay</span><span class="p">:</span> <span class="kt">NSView</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span>
+
+<span class="err"> </span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
+
+<span class="err"> </span> <span class="err"> </span> <span class="n">overlay</span> <span class="o">=</span> <span class="kt">NSView</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="n">view</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
+<span class="err"> </span> <span class="err"> </span> <span class="n">overlay</span><span class="o">.</span><span class="n">wantsLayer</span> <span class="o">=</span> <span class="kc">true</span>
+	<span class="n">overlay</span><span class="o">.</span><span class="n">layer</span><span class="p">?</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="kt">NSColor</span><span class="o">.</span><span class="n">black</span><span class="o">.</span><span class="nf">withAlphaComponent</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">cgColor</span>
+
+<span class="err"> </span> <span class="err"> </span> <span class="n">view</span> <span class="o">=</span> <span class="n">overlay</span>
+<span class="p">}</span>
+</pre></table>
+</div>
+</div>
+<p>The view controller defines three variables. <code class="language-plaintext highlighter-rouge">selectionView</code> which will contain the view that selects part of the screen, <code class="language-plaintext highlighter-rouge">overlay</code> view which darkens the screen and the <code class="language-plaintext highlighter-rouge">centerPoint</code> containing position of the mouse click. <code class="language-plaintext highlighter-rouge">viewDidLoad()</code> configures the overlay by making it transparent with a dark tint controlled by <code class="language-plaintext highlighter-rouge">0.5</code> parameter.
+<blockquote>
+ <p>Note: Builtin screenshot app changes the cursor into crosshair. I tried adding it, but it looks like it loses focus and the cursor changes back. If you want to try to implement it, you will probably need to use a function like <code class="language-plaintext highlighter-rouge">self.view.addCursorRect(self.view.bounds, cursor: .crosshair)</code> or <code class="language-plaintext highlighter-rouge">NSCursor.crosshair.push()</code>.
+</blockquote>
+<p>To achieve the effect of transparent cutout within dark overlay we will need to use <code class="language-plaintext highlighter-rouge">CALayer</code> s which is implemented by <code class="language-plaintext highlighter-rouge">setMask()</code> function.
+<div class="language-swift highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre><td class="code"><pre><span class="kd">class</span> <span class="kt">SelectionWindowViewController</span><span class="p">:</span> <span class="kt">NSViewController</span> <span class="p">{</span>
+<span class="o">...</span>
+	<span class="kd">func</span> <span class="nf">setMask</span><span class="p">()</span> <span class="p">{</span>
+	<span class="err"> </span> <span class="err"> </span> <span class="k">guard</span> <span class="k">let</span> <span class="nv">overlayLayer</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="n">layer</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+
+	<span class="err"> </span> <span class="err"> </span> <span class="k">let</span> <span class="nv">maskLayer</span> <span class="o">=</span> <span class="kt">CALayer</span><span class="p">()</span>
+	<span class="err"> </span> <span class="err"> </span> <span class="n">maskLayer</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">overlayLayer</span><span class="o">.</span><span class="n">bounds</span>
+	<span class="err"> </span> <span class="err"> </span> 
+	<span class="err"> </span> <span class="err"> </span> <span class="k">let</span> <span class="nv">path</span> <span class="o">=</span> <span class="kt">CGMutablePath</span><span class="p">()</span>
+	<span class="err"> </span> <span class="err"> </span> <span class="n">path</span><span class="o">.</span><span class="nf">addRect</span><span class="p">(</span><span class="n">overlayLayer</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
+	<span class="err"> </span> <span class="err"> </span> <span class="n">path</span><span class="o">.</span><span class="nf">addRect</span><span class="p">(</span><span class="n">selectionView</span><span class="o">!.</span><span class="n">frame</span><span class="p">)</span>
+	<span class="err"> </span> <span class="err"> </span> 
+	<span class="err"> </span> <span class="err"> </span> <span class="k">let</span> <span class="nv">cutoutLayer</span> <span class="o">=</span> <span class="kt">CAShapeLayer</span><span class="p">()</span>
+	<span class="err"> </span> <span class="err"> </span> <span class="n">cutoutLayer</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">overlayLayer</span><span class="o">.</span><span class="n">bounds</span>
+	<span class="err"> </span> <span class="err"> </span> <span class="n">cutoutLayer</span><span class="o">.</span><span class="n">fillRule</span> <span class="o">=</span> <span class="o">.</span><span class="n">evenOdd</span>
+	<span class="err"> </span> <span class="err"> </span> <span class="n">cutoutLayer</span><span class="o">.</span><span class="n">fillColor</span> <span class="o">=</span> <span class="kt">NSColor</span><span class="o">.</span><span class="n">black</span><span class="o">.</span><span class="n">cgColor</span>
+	<span class="err"> </span> <span class="err"> </span> <span class="n">cutoutLayer</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
+	<span class="err"> </span> <span class="err"> </span> 
+	<span class="err"> </span> <span class="err"> </span> <span class="n">maskLayer</span><span class="o">.</span><span class="nf">addSublayer</span><span class="p">(</span><span class="n">cutoutLayer</span><span class="p">)</span>
+	<span class="err"> </span> <span class="err"> </span> <span class="n">overlayLayer</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="n">maskLayer</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></table>
+</div>
+</div>
+<p>This function will be called after every movement. It cuts out a part of the overlay. The most important part of this snippet is the <code class="language-plaintext highlighter-rouge">.evenOdd</code> fill rule. It is responsible for giving us the cut out effect. How des it work? Claude describes it like this:
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre><td class="code"><pre>1. Imagine drawing a line from any point in the plane to infinity.
+2. Count the number of times this line crosses the path of your shape.
+3. If the number of crossings is odd, the point is inside the shape and gets filled. If the number of crossings is even, the point is outside the shape and doesn't get filled.
+</pre></table>
+</div>
+</div>
+<p>In the context of this function it works like this:
+<ol>
+ <li>The path includes two rectangles: one for the entire view bounds, and another for the selection view.
+ <li>For areas outside both rectangles, the line crosses 0 times (even) - not filled.
+ <li>For areas inside the outer rectangle but outside the inner rectangle, the line crosses 1 time (odd) - filled.
+ <li>For areas inside both rectangles, the line crosses 2 times (even) - not filled.
+</ol>
+<p>Now let’s implement selecting. First we begin with the function detecting first click:
+<div class="language-swift highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre><td class="code"><pre><span class="kd">class</span> <span class="kt">SelectionWindowViewController</span><span class="p">:</span> <span class="kt">NSViewController</span> <span class="p">{</span>
+<span class="o">...</span>
+  <span class="k">override</span> <span class="kd">func</span> <span class="nf">mouseDown</span><span class="p">(</span><span class="n">with</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">NSEvent</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="o">.</span><span class="nf">mouseDown</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">event</span><span class="p">)</span>
+
+    <span class="n">selectionView</span> <span class="o">=</span> <span class="kt">NSBox</span><span class="p">()</span>
+
+    <span class="n">selectionView</span><span class="p">?</span><span class="o">.</span><span class="n">boxType</span> <span class="o">=</span> <span class="o">.</span><span class="n">custom</span>
+    <span class="n">selectionView</span><span class="p">?</span><span class="o">.</span><span class="n">cornerRadius</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">selectionView</span><span class="p">?</span><span class="o">.</span><span class="n">fillColor</span> <span class="o">=</span> <span class="o">.</span><span class="n">lightGray</span>
+    <span class="n">selectionView</span><span class="p">?</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s">""</span>
+
+    <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">selectionView</span><span class="o">!</span><span class="p">)</span>
+
+    <span class="n">selectionView</span><span class="p">?</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">centerPoint</span> <span class="o">=</span> <span class="n">selectionView</span><span class="o">!.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span>
+
+    <span class="nf">setMask</span><span class="p">()</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+</pre></table>
+</div>
+</div>
+<p>This function creates the selection view. <code class="language-plaintext highlighter-rouge">setMask()</code> uses it create the cutout. It’s configuration should be self-explanatory. We also set its origin to the position of the mouse, which is stored in <code class="language-plaintext highlighter-rouge">event.locationInWindow</code>, and run <code class="language-plaintext highlighter-rouge">setMask()</code> to create the cutout. Now it’s time to handle mouse movement.
+<div class="language-swift highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre><td class="code"><pre><span class="kd">class</span> <span class="kt">SelectionWindowViewController</span><span class="p">:</span> <span class="kt">NSViewController</span> <span class="p">{</span>
+<span class="o">...</span>
+<span class="err"> </span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">mouseDragged</span><span class="p">(</span><span class="n">with</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">NSEvent</span><span class="p">)</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="k">super</span><span class="o">.</span><span class="nf">mouseDragged</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">event</span><span class="p">)</span>
+
+<span class="err"> </span> <span class="err"> </span> <span class="k">guard</span> <span class="k">let</span> <span class="nv">selectionView</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+
+<span class="err"> </span> <span class="err"> </span> <span class="k">let</span> <span class="nv">width</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="n">centerPoint</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="err"> </span> <span class="err"> </span> <span class="k">let</span> <span class="nv">height</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="n">centerPoint</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+
+<span class="err"> </span> <span class="err"> </span> <span class="n">selectionView</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">width</span><span class="p">:</span> <span class="n">width</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="n">height</span><span class="p">)</span>
+
+<span class="err"> </span> <span class="err"> </span> <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">centerPoint</span><span class="o">.</span><span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">centerPoint</span><span class="o">.</span><span class="n">y</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="n">selectionView</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<span class="err"> </span> <span class="err"> </span> <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">centerPoint</span><span class="o">.</span><span class="n">x</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="n">selectionView</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="n">centerPoint</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<span class="err"> </span> <span class="err"> </span> <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">centerPoint</span><span class="o">.</span><span class="n">y</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="n">selectionView</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="n">centerPoint</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="n">selectionView</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="n">centerPoint</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="n">centerPoint</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+		<span class="p">}</span>
+
+		<span class="nf">setMask</span><span class="p">()</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></table>
+</div>
+</div>
+<p>Here we need a little bit more work. We first check if the selection view exists, then we calculate and assign the new width and height by taking absolute values of appropriate subtractions. Now we have 4 cases for each possible change of cursor’s position relative to the center point (first mouse click). This is because the origin of the selection view has to always be in the bottom-left corner, so if we move cursor down or left relative to the center point we will need to update selection view’s origin coordinates.
+<img src="/blog/assets/img/screenshot-layout.png" alt="areas relative to the center point" />
+<ol>
+ <li>Cursor is in the bottom-left part - origin point equal to the cursor position.
+ <li>Cursor is in the top-left part - origin point’s x equal to cursor’s x and origin point’s y equal to center point’s y.
+ <li>Cursor is in the bottom-right part - origin point’s x equal to center point’s x and origin point’s y equal to cursor’s y.
+ <li>Cursor is in the top-right part - origin point equal to the center point.
+</ol>
+<p>Now it’s time for the final part - the user finished selecting (mouse up).
+<div class="language-swift highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre><td class="code"><pre><span class="kd">class</span> <span class="kt">SelectionWindowViewController</span><span class="p">:</span> <span class="kt">NSViewController</span> <span class="p">{</span>
+<span class="o">...</span>
+  <span class="k">override</span> <span class="kd">func</span> <span class="nf">mouseUp</span><span class="p">(</span><span class="n">with</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">NSEvent</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="o">.</span><span class="nf">mouseDown</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">event</span><span class="p">)</span>
+
+    <span class="k">guard</span> <span class="k">let</span> <span class="nv">selectionView</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+
+    <span class="k">self</span><span class="o">.</span><span class="n">window</span><span class="p">?</span><span class="o">.</span><span class="nf">close</span><span class="p">()</span>
+
+    <span class="k">var</span> <span class="nv">frame</span> <span class="o">=</span> <span class="n">selectionView</span><span class="o">.</span><span class="n">frame</span>
+    <span class="n">frame</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="kt">NSScreen</span><span class="o">.</span><span class="n">main</span><span class="o">!.</span><span class="n">frame</span><span class="o">.</span><span class="n">maxY</span> <span class="o">-</span> <span class="n">frame</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">height</span> <span class="o">-</span> <span class="n">frame</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">y</span>
+
+    <span class="k">do</span> <span class="p">{</span>
+      <span class="k">let</span> <span class="nv">image</span> <span class="o">=</span> <span class="k">try</span> <span class="kt">ScreenshotManager</span><span class="o">.</span><span class="nf">take</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="n">frame</span><span class="p">)</span>
+      <span class="kt">NSSound</span><span class="o">.</span><span class="nf">beep</span><span class="p">()</span>
+      <span class="kt">ScreenshotManager</span><span class="o">.</span><span class="nf">completionHandler</span><span class="p">(</span><span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="n">image</span><span class="p">))</span>
+      <span class="kt">ScreenshotManager</span><span class="o">.</span><span class="n">completionHandler</span> <span class="o">=</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+      <span class="kt">ScreenshotManager</span><span class="o">.</span><span class="nf">completionHandler</span><span class="p">(</span><span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="n">error</span><span class="p">))</span>
+      <span class="kt">ScreenshotManager</span><span class="o">.</span><span class="n">completionHandler</span> <span class="o">=</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">var</span> <span class="nv">window</span><span class="p">:</span> <span class="kt">NSWindow</span><span class="p">?</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="k">for</span> <span class="n">window</span> <span class="k">in</span> <span class="kt">NSApp</span><span class="o">.</span><span class="n">windows</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="k">if</span> <span class="n">window</span><span class="o">.</span><span class="n">contentViewController</span> <span class="o">==</span> <span class="k">self</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="k">return</span> <span class="n">window</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="p">}</span>
+<span class="err"> </span> <span class="err"> </span> <span class="p">}</span>
+
+<span class="err"> </span> <span class="err"> </span> <span class="k">return</span> <span class="kc">nil</span>
+<span class="err"> </span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></table>
+</div>
+</div>
+<p>First we close the window. Now we need to calculate the frame of the selection. Unfortunately, origin’s y in the window (same size as the screen) doesn’t correspond to the screen’s actual position. That’s because screen’s coordinates are flipped horizontally - y = 0 is on the screen’s top-left corner while in a window it’s the bottom-left corner. I simply calculate it by subtracting selection’s height and origin from screen’s height. There are builtin functions to convert between these two coordinate systems but I tried and none of them worked. If you can make them work, then using them would probably be a better practice, but this calculation should be enough. Now we call the <code class="language-plaintext highlighter-rouge">ScreenManager.take()</code> function which takes the image of the part of the screen described by the converted selection’s frame. For good measure we make a beep. Then we call the currently set completion handler with the image and reset it. In case of an error, we call the completion handler with the error and reset it. I’m also adding a <code class="language-plaintext highlighter-rouge">window</code> variable so that we can access the window from it. It’s not the most efficient way, but it’s enough for this use case.
+<p>Well, that’s it. That will allow you to take a screenshot of part of the screen.
+<div class="language-swift highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179</pre><td class="code"><pre><span class="kd">import</span> <span class="kt">Cocoa</span>
+
+<span class="kd">class</span> <span class="kt">ScreenshotManager</span> <span class="p">{</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">windowController</span><span class="p">:</span> <span class="kt">NSWindowController</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">isRunning</span> <span class="o">=</span> <span class="kc">false</span>
+  <span class="kd">static</span> <span class="k">var</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">NSImage</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span> <span class="o">=</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}</span>
+
+  <span class="kd">enum</span> <span class="kt">SMError</span><span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">LocalizedError</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">failedToTakeScreenshot</span>
+    <span class="k">case</span> <span class="n">noSelection</span>
+    <span class="k">case</span> <span class="n">alreadyInUse</span>
+    <span class="k">case</span> <span class="n">noPermission</span>
+    <span class="k">case</span> <span class="n">noAccessToScreen</span>
+  <span class="p">}</span>
+
+  <span class="kd">@MainActor</span>
+  <span class="kd">static</span> <span class="kd">func</span> <span class="nf">take</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="kt">NSRect</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">NSImage</span> <span class="p">{</span>
+    <span class="n">isRunning</span> <span class="o">=</span> <span class="kc">false</span>
+
+    <span class="k">let</span> <span class="nv">cgRect</span> <span class="o">=</span> <span class="kt">CGRect</span><span class="p">(</span>
+      <span class="nv">x</span><span class="p">:</span> <span class="n">frame</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="n">frame</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="n">frame</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="n">frame</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+    <span class="k">guard</span> <span class="k">let</span> <span class="nv">screenshot</span> <span class="o">=</span> <span class="kt">CGWindowListCreateImage</span><span class="p">(</span><span class="n">cgRect</span><span class="p">,</span> <span class="o">.</span><span class="n">optionOnScreenOnly</span><span class="p">,</span> <span class="o">.</span><span class="n">zero</span><span class="p">,</span> <span class="p">[])</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="kt">SMError</span><span class="o">.</span><span class="n">failedToTakeScreenshot</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="kt">NSImage</span><span class="p">(</span>
+      <span class="nv">cgImage</span><span class="p">:</span> <span class="n">screenshot</span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">width</span><span class="p">:</span> <span class="n">screenshot</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="n">screenshot</span><span class="o">.</span><span class="n">height</span><span class="p">))</span>
+  <span class="p">}</span>
+
+  <span class="kd">static</span> <span class="kd">func</span> <span class="nf">returnWindowController</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">NSWindowController</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">window</span> <span class="o">=</span> <span class="kt">NSWindow</span><span class="p">(</span>
+      <span class="nv">contentRect</span><span class="p">:</span> <span class="o">.</span><span class="n">zero</span><span class="p">,</span> <span class="nv">styleMask</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="n">fullSizeContentView</span><span class="p">],</span> <span class="nv">backing</span><span class="p">:</span> <span class="o">.</span><span class="n">buffered</span><span class="p">,</span> <span class="nv">defer</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+
+    <span class="n">window</span><span class="o">.</span><span class="n">isOpaque</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="o">.</span><span class="n">clear</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">titleVisibility</span> <span class="o">=</span> <span class="o">.</span><span class="n">hidden</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">titlebarAppearsTransparent</span> <span class="o">=</span> <span class="kc">true</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">hasShadow</span> <span class="o">=</span> <span class="kc">false</span>
+
+    <span class="k">return</span> <span class="kt">NSWindowController</span><span class="p">(</span><span class="nv">window</span><span class="p">:</span> <span class="n">window</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="kd">@MainActor</span>
+  <span class="kd">static</span> <span class="kd">func</span> <span class="nf">start</span><span class="p">(</span><span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">NSImage</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Error</span><span class="p">?</span> <span class="p">{</span>
+    <span class="k">guard</span> <span class="k">let</span> <span class="nv">screen</span> <span class="o">=</span> <span class="kt">NSScreen</span><span class="o">.</span><span class="n">main</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kt">SMError</span><span class="o">.</span><span class="n">noAccessToScreen</span> <span class="p">}</span>
+
+    <span class="k">if</span> <span class="o">!</span><span class="kt">CGPreflightScreenCaptureAccess</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kt">SMError</span><span class="o">.</span><span class="n">noPermission</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="k">self</span><span class="o">.</span><span class="n">isRunning</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kt">SMError</span><span class="o">.</span><span class="n">alreadyInUse</span>
+    <span class="p">}</span>
+
+    <span class="k">Self</span><span class="o">.</span><span class="n">completionHandler</span> <span class="o">=</span> <span class="n">completionHandler</span>
+
+    <span class="n">windowController</span> <span class="o">=</span> <span class="nf">returnWindowController</span><span class="p">()</span>
+    <span class="n">windowController</span><span class="p">?</span><span class="o">.</span><span class="n">contentViewController</span> <span class="o">=</span> <span class="kt">SelectionWindowViewController</span><span class="p">()</span>
+    <span class="n">windowController</span><span class="p">?</span><span class="o">.</span><span class="n">window</span><span class="p">?</span><span class="o">.</span><span class="nf">setFrame</span><span class="p">(</span>
+      <span class="kt">NSRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="n">screen</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="n">screen</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">height</span><span class="p">),</span>
+      <span class="nv">display</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+    <span class="n">windowController</span><span class="o">!.</span><span class="nf">showWindow</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
+    <span class="n">windowController</span><span class="p">?</span><span class="o">.</span><span class="n">window</span><span class="p">?</span><span class="o">.</span><span class="nf">makeKeyAndOrderFront</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="kc">nil</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="kt">SelectionWindowViewController</span><span class="p">:</span> <span class="kt">NSViewController</span> <span class="p">{</span>
+  <span class="k">var</span> <span class="nv">selectionView</span><span class="p">:</span> <span class="kt">NSBox</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+  <span class="k">var</span> <span class="nv">centerPoint</span><span class="p">:</span> <span class="kt">CGPoint</span> <span class="o">=</span> <span class="o">.</span><span class="n">zero</span>
+  <span class="k">var</span> <span class="nv">overlay</span><span class="p">:</span> <span class="kt">NSView</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
+
+    <span class="n">overlay</span> <span class="o">=</span> <span class="kt">NSView</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="n">view</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
+    <span class="n">overlay</span><span class="o">.</span><span class="n">wantsLayer</span> <span class="o">=</span> <span class="kc">true</span>
+    <span class="n">overlay</span><span class="o">.</span><span class="n">layer</span><span class="p">?</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="kt">NSColor</span><span class="o">.</span><span class="n">black</span><span class="o">.</span><span class="nf">withAlphaComponent</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">cgColor</span>
+    <span class="n">view</span> <span class="o">=</span> <span class="n">overlay</span>
+
+    <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="nf">addCursorRect</span><span class="p">(</span><span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">bounds</span><span class="p">,</span> <span class="nv">cursor</span><span class="p">:</span> <span class="o">.</span><span class="n">crosshair</span><span class="p">)</span>
+    <span class="kt">NSCursor</span><span class="o">.</span><span class="n">crosshair</span><span class="o">.</span><span class="nf">push</span><span class="p">()</span>
+  <span class="p">}</span>
+
+  <span class="k">override</span> <span class="kd">func</span> <span class="nf">mouseDown</span><span class="p">(</span><span class="n">with</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">NSEvent</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="o">.</span><span class="nf">mouseDown</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">event</span><span class="p">)</span>
+
+    <span class="n">selectionView</span> <span class="o">=</span> <span class="kt">NSBox</span><span class="p">()</span>
+
+    <span class="n">selectionView</span><span class="p">?</span><span class="o">.</span><span class="n">boxType</span> <span class="o">=</span> <span class="o">.</span><span class="n">custom</span>
+    <span class="n">selectionView</span><span class="p">?</span><span class="o">.</span><span class="n">cornerRadius</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">selectionView</span><span class="p">?</span><span class="o">.</span><span class="n">fillColor</span> <span class="o">=</span> <span class="o">.</span><span class="n">lightGray</span>
+    <span class="n">selectionView</span><span class="p">?</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s">""</span>
+
+    <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">selectionView</span><span class="o">!</span><span class="p">)</span>
+
+    <span class="n">selectionView</span><span class="p">?</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">centerPoint</span> <span class="o">=</span> <span class="n">selectionView</span><span class="o">!.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span>
+
+    <span class="nf">setMask</span><span class="p">()</span>
+  <span class="p">}</span>
+
+  <span class="k">override</span> <span class="kd">func</span> <span class="nf">mouseDragged</span><span class="p">(</span><span class="n">with</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">NSEvent</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="o">.</span><span class="nf">mouseDragged</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">event</span><span class="p">)</span>
+
+    <span class="k">guard</span> <span class="k">let</span> <span class="nv">selectionView</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+
+    <span class="k">let</span> <span class="nv">width</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="n">centerPoint</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">let</span> <span class="nv">height</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="n">centerPoint</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="n">selectionView</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">width</span><span class="p">:</span> <span class="n">width</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="n">height</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">centerPoint</span><span class="o">.</span><span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">centerPoint</span><span class="o">.</span><span class="n">y</span> <span class="p">{</span>
+      <span class="n">selectionView</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">centerPoint</span><span class="o">.</span><span class="n">x</span> <span class="p">{</span>
+      <span class="n">selectionView</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="n">centerPoint</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">centerPoint</span><span class="o">.</span><span class="n">y</span> <span class="p">{</span>
+      <span class="n">selectionView</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="n">centerPoint</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">locationInWindow</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="n">selectionView</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="n">centerPoint</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="n">centerPoint</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="nf">setMask</span><span class="p">()</span>
+  <span class="p">}</span>
+
+  <span class="k">override</span> <span class="kd">func</span> <span class="nf">mouseUp</span><span class="p">(</span><span class="n">with</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">NSEvent</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="o">.</span><span class="nf">mouseDown</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">event</span><span class="p">)</span>
+
+    <span class="k">guard</span> <span class="k">let</span> <span class="nv">selectionView</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+
+    <span class="k">self</span><span class="o">.</span><span class="n">window</span><span class="p">?</span><span class="o">.</span><span class="nf">close</span><span class="p">()</span>
+
+    <span class="k">var</span> <span class="nv">frame</span> <span class="o">=</span> <span class="n">selectionView</span><span class="o">.</span><span class="n">frame</span>
+    <span class="n">frame</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="kt">NSScreen</span><span class="o">.</span><span class="n">main</span><span class="o">!.</span><span class="n">frame</span><span class="o">.</span><span class="n">maxY</span> <span class="o">-</span> <span class="n">frame</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">height</span> <span class="o">-</span> <span class="n">frame</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">y</span>
+
+    <span class="k">do</span> <span class="p">{</span>
+      <span class="k">let</span> <span class="nv">image</span> <span class="o">=</span> <span class="k">try</span> <span class="kt">ScreenshotManager</span><span class="o">.</span><span class="nf">take</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="n">frame</span><span class="p">)</span>
+      <span class="kt">NSSound</span><span class="o">.</span><span class="nf">beep</span><span class="p">()</span>
+      <span class="kt">ScreenshotManager</span><span class="o">.</span><span class="nf">completionHandler</span><span class="p">(</span><span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="n">image</span><span class="p">))</span>
+      <span class="kt">ScreenshotManager</span><span class="o">.</span><span class="n">completionHandler</span> <span class="o">=</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+      <span class="kt">ScreenshotManager</span><span class="o">.</span><span class="nf">completionHandler</span><span class="p">(</span><span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="n">error</span><span class="p">))</span>
+      <span class="kt">ScreenshotManager</span><span class="o">.</span><span class="n">completionHandler</span> <span class="o">=</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="kd">func</span> <span class="nf">setMask</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">guard</span> <span class="k">let</span> <span class="nv">overlayLayer</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="n">layer</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+
+    <span class="k">let</span> <span class="nv">maskLayer</span> <span class="o">=</span> <span class="kt">CALayer</span><span class="p">()</span>
+    <span class="n">maskLayer</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">overlayLayer</span><span class="o">.</span><span class="n">bounds</span>
+
+    <span class="k">let</span> <span class="nv">path</span> <span class="o">=</span> <span class="kt">CGMutablePath</span><span class="p">()</span>
+    <span class="n">path</span><span class="o">.</span><span class="nf">addRect</span><span class="p">(</span><span class="n">overlayLayer</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
+    <span class="n">path</span><span class="o">.</span><span class="nf">addRect</span><span class="p">(</span><span class="n">selectionView</span><span class="o">!.</span><span class="n">frame</span><span class="p">)</span>
+
+    <span class="k">let</span> <span class="nv">cutoutLayer</span> <span class="o">=</span> <span class="kt">CAShapeLayer</span><span class="p">()</span>
+    <span class="n">cutoutLayer</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">overlayLayer</span><span class="o">.</span><span class="n">bounds</span>
+    <span class="n">cutoutLayer</span><span class="o">.</span><span class="n">fillRule</span> <span class="o">=</span> <span class="o">.</span><span class="n">evenOdd</span>
+    <span class="n">cutoutLayer</span><span class="o">.</span><span class="n">fillColor</span> <span class="o">=</span> <span class="kt">NSColor</span><span class="o">.</span><span class="n">black</span><span class="o">.</span><span class="n">cgColor</span>
+    <span class="n">cutoutLayer</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
+
+    <span class="n">maskLayer</span><span class="o">.</span><span class="nf">addSublayer</span><span class="p">(</span><span class="n">cutoutLayer</span><span class="p">)</span>
+    <span class="n">overlayLayer</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="n">maskLayer</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">extension</span> <span class="kt">NSViewController</span> <span class="p">{</span>
+  <span class="k">var</span> <span class="nv">window</span><span class="p">:</span> <span class="kt">NSWindow</span><span class="p">?</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="n">window</span> <span class="k">in</span> <span class="kt">NSApp</span><span class="o">.</span><span class="n">windows</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="n">window</span><span class="o">.</span><span class="n">contentViewController</span> <span class="o">==</span> <span class="k">self</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">window</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="kc">nil</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></table>
+</div>
+</div>
+</article>
+<aside class="related">
+<h2>Related posts</h2>
+<ul class="related-posts">
+   <li>
+    <a href="/blog/posts/some-snippets-of-code-for-your-swift-apps">
+        <span>Some snippets of code for your Swift apps</span>
+        <small>03/10</small>
+    </a>
+</aside>
+           <footer>
+    <span>blog about Extiri, programming and cybersecurity
+</span>
+    <span>written by Wiktor Wójcik</span>
+</footer>
+       </div>
+<script type="text/javascript" src="/blog/assets/js/theme.js"></script>
+<script type="text/javascript" src="/blog/assets/js/barefoot.js"></script>
+    

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<title>Some snippets of code for your Swift apps &#9642; Extiri Blog</title>
+<!--
+<meta name="description" content="Hi! While programming in Swift I have accumulated many code snippets. Some of them are mine and some of them come from the internet. Here I’m sharing 5 tiny quality-of-life snippets. Hopefully you will find them useful.
+">
+-->
+<meta name="description" content="blog about Extiri, programming and cybersecurity
+">
+<meta name="keywords" content="snippets, programming">
+<link rel="canonical" href="http://127.0.0.1/posts/some-snippets-of-code-for-your-swift-apps">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Some snippets of code for your Swift apps" />
+<meta name="twitter:description" content="blog about Extiri, programming and cybersecurity
+" />
+<meta name="twitter:image" content="http://127.0.0.1" />
+<meta name="author" content="">
+<link rel="author" href="">
+<meta property="og:locale" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Some snippets of code for your Swift apps">
+<meta property="og:description" content="blog about Extiri, programming and cybersecurity
+">
+<meta property="og:url" content="http://127.0.0.1/posts/some-snippets-of-code-for-your-swift-apps">
+<meta property="og:site_name" content="Extiri Blog">
+<link rel="stylesheet" href="/blog/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="/blog/assets/css/main.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,400italic,700,700italic">
+<style>
+    html {
+      font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    }
+</style>
+<link rel="stylesheet" href="/blog/assets/css/bf.css">
+   <body>
+       <div class="wrapper" id="blep">
+          <header>
+   <div class="menu">
+     <div class="logo">
+        <object type="image/svg+xml" data="/blog/assets/img/guy.svg" class="logosvg">Your browser does not support svg images</object>
+        <a href="/blog/">Extiri Blog</a>
+     </div>
+       <ul>
+           <li><a href="/blog/about">about</a>
+           <li><a href="/blog/archive">archive</a>
+           <li><a href="https://extiri.com">apps</a>
+       </ul>
+   </div>
+   <div class="social">
+     <ul>
+       <li>
+            <a href="https://youtube.com/@wiktorwojcik3678" target="_blank" class="smaller">
+              <span class="icon-youtube"></span>
+            </a>
+       <li>
+            <a href="https://twitter.com/WiktorW2" target="_blank" class="smaller">
+              <span class="icon-twitter"></span>
+            </a>
+       <li>
+            <a href="https://github.com/Extiri" target="_blank" class="smaller">
+              <span class="icon-github"></span>
+            </a>
+       <li>
+            <a href="mailto:wiktor.wojcik@extiri.com" target="_blank">
+              <span class="icon-mail_outline"></span>
+            </a>
+       <li>
+            <a href="/blog/feed.xml" target="_blank">
+                <span class="icon-rss_feed"></span>
+            </a>
+       <li>
+            <a href="#" onclick="switchTheme()" title="Switch theme?">
+              <span class="icon-invert_colors" id="theme-switcher"></span>
+            </a>
+     </ul>
+   </div>
+</header>
+<article class="post">
+<style>
+  .some-snippets-of-code-for-your-swift-apps {
+    margin-bottom: 2em;
+  }
+  .some-snippets-of-code-for-your-swift-apps::before {
+    background-size: cover;
+    -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5);
+    content:'';
+    position:absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: -2;
+  }
+  .some-snippets-of-code-for-your-swift-apps::after {
+    content:'';
+    position:absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(255,0,100,0.8);
+    /*mix-blend-mode: darken;
+    mix-blend-mode: color-burn;
+    mix-blend-mode: hard-light;*/
+    mix-blend-mode: overlay;
+    z-index: -1;
+  }
+  .some-snippets-of-code-for-your-swift-apps-container,
+  .some-snippets-of-code-for-your-swift-apps-container::before,
+  .some-snippets-of-code-for-your-swift-apps-container::after {
+    height: 25rem;
+  }
+  .some-snippets-of-code-for-your-swift-apps-bleed-container,
+  .some-snippets-of-code-for-your-swift-apps-bleed-container::before,
+  .some-snippets-of-code-for-your-swift-apps-bleed-container::after {
+    height: 35rem;
+  }
+    @media (max-width: 48rem) {
+        .some-snippets-of-code-for-your-swift-apps-container,
+        .some-snippets-of-code-for-your-swift-apps-container::before,
+        .some-snippets-of-code-for-your-swift-apps-container::after{
+            height: 20rem;
+            margin-bottom: 3rem;
+        }
+    }
+</style>
+ <div class="post-title-container
+  some-snippets-of-code-for-your-swift-apps some-snippets-of-code-for-your-swift-apps-bleed-container bleed-hero-container
+    ">
+    <!--Post hero image source-->
+   <div class="heading-container hero-heading hero-heading-post">
+     <h1>
+          Some snippets of code for your Swift apps
+     </h1>
+     <div class="post-meta">
+        <span>03/10/2024</span>
+        <span>
+              <a href="/blog/tag/snippets">#snippets</a>
+              <a href="/blog/tag/programming">#programming</a>
+        </span>
+     </div>
+   </div>
+ </div>
+   <p class="lead">Hi! While programming in Swift I have accumulated many code snippets. Some of them are mine and some of them come from the internet. Here I’m sharing 5 tiny quality-of-life snippets. Hopefully you will find them useful.
+<p>
+<h3 id="1-cocoa-accessing-nswindow-from-nsviewcontroller">1. (Cocoa) Accessing NSWindow from NSViewController</h3>
+<div class="language-swift highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre><td class="code"><pre><span class="kd">extension</span> <span class="kt">NSViewController</span> <span class="p">{</span>
+<span class="err"> </span> <span class="k">var</span> <span class="nv">window</span><span class="p">:</span> <span class="kt">NSWindow</span><span class="p">?</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="k">for</span> <span class="n">window</span> <span class="k">in</span> <span class="kt">NSApp</span><span class="o">.</span><span class="n">windows</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="k">if</span> <span class="n">window</span><span class="o">.</span><span class="n">contentViewController</span> <span class="o">==</span> <span class="k">self</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="k">return</span> <span class="n">window</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="p">}</span>
+<span class="err"> </span> <span class="err"> </span> <span class="p">}</span>
+<span class="err"> </span> <span class="err"> </span> <span class="k">return</span> <span class="kc">nil</span>
+<span class="err"> </span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></table>
+</div>
+</div>
+<p>This snippet adds a window variable to NSViewController. It requires the window to exist (eg. be in NSApp.windows, in most cases that will be true) and that there is only one window with the specified view controller. It will return the window with the view controller on which it is called.
+<h3 id="2-checking-if-path-leads-to-a-directory">2. Checking if path leads to a directory</h3>
+<div class="language-swift highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7</pre><td class="code"><pre><span class="kd">extension</span> <span class="kt">FileManager</span> <span class="p">{</span>
+  <span class="kd">func</span> <span class="nf">isDirectory</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">isDirectory</span><span class="p">:</span> <span class="kt">ObjCBool</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="k">self</span><span class="o">.</span><span class="nf">fileExists</span><span class="p">(</span><span class="nv">atPath</span><span class="p">:</span> <span class="n">path</span><span class="p">,</span> <span class="nv">isDirectory</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">isDirectory</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">isDirectory</span><span class="o">.</span><span class="n">boolValue</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></table>
+</div>
+</div>
+<p>This is a simple wrapper around <code class="language-plaintext highlighter-rouge">FileManager.fileExists()</code> as an extension to <code class="language-plaintext highlighter-rouge">FileManager</code> that checks whether a path provided as a string leads to a directory.
+<h3 id="3-safely-accessing-an-array">3. Safely accessing an array</h3>
+<div class="language-swift highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre><td class="code"><pre><span class="kd">extension</span> <span class="kt">Array</span> <span class="p">{</span>
+	<span class="nf">subscript</span><span class="p">(</span><span class="n">safely</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Element</span><span class="p">?</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="k">self</span><span class="o">.</span><span class="n">endIndex</span> <span class="o">&amp;&amp;</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">0</span>  <span class="p">{</span>
+			<span class="k">return</span> <span class="k">self</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="kc">nil</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></table>
+</div>
+</div>
+<p>This snippet adds a subscript to arrays. It checks whether index is within the array’s range then returns an element or nil depending on the check. You can use it like this:
+<div class="language-swift highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre><td class="code"><pre><span class="k">let</span> <span class="nv">array</span> <span class="o">=</span> <span class="p">[</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">]</span>
+<span class="k">let</span> <span class="nv">value</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="nv">safely</span><span class="p">:</span> <span class="mi">2</span><span class="p">]</span> <span class="c1">// returns Optional("c")</span>
+</pre></table>
+</div>
+</div>
+<p>This might save you few lines of code for checking and force you to handle the edge case without crashing the app.
+<h3 id="4-swiftui-web-view-wrapper">4. (SwiftUI) Web view wrapper</h3>
+<div class="language-swift highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63</pre><td class="code"><pre><span class="kd">struct</span> <span class="kt">WebView</span><span class="p">:</span> <span class="kt">NSViewRepresentable</span> <span class="p">{</span>
+	<span class="c1">/// URL of current page. If changed, WebView will change it into the new URL.</span>
+	<span class="kd">@Binding</span> <span class="k">var</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span>
+	
+	<span class="kd">private</span> <span class="k">var</span> <span class="nv">onLoadStart</span><span class="p">:</span> <span class="p">(</span><span class="kt">WKWebView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">()</span>
+	<span class="kd">private</span> <span class="k">var</span> <span class="nv">onLoadFinish</span><span class="p">:</span> <span class="p">(</span><span class="kt">WKWebView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">()</span>
+	
+  <span class="c1">/// A WKWebView instance, which is used to render WebView, and which can be used to control it thanks to classes being passed by reference.</span>
+	<span class="kd">private</span> <span class="k">var</span> <span class="nv">wkWebView</span><span class="p">:</span> <span class="kt">WKWebView</span>
+	
+  <span class="c1">/// Accepts a binding to an URL, WKWebView instance, which can be used to control WebView and onLoadStart and onLoadFinish which will run when WebView starts or finishes loading a webpage.</span>
+	<span class="nf">init</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">Binding</span><span class="o">&lt;</span><span class="kt">URL</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">wkWebView</span><span class="p">:</span> <span class="kt">WKWebView</span> <span class="o">=</span> <span class="kt">WKWebView</span><span class="p">(),</span> <span class="nv">onLoadStart</span><span class="p">:</span> <span class="p">((</span><span class="kt">WKWebView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">onLoadFinish</span><span class="p">:</span> <span class="p">((</span><span class="kt">WKWebView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">self</span><span class="o">.</span><span class="n">wkWebView</span> <span class="o">=</span> <span class="n">wkWebView</span>
+		
+		<span class="k">self</span><span class="o">.</span><span class="n">_url</span> <span class="o">=</span> <span class="n">url</span>
+		
+		<span class="k">if</span> <span class="k">let</span> <span class="nv">onLoadStart</span> <span class="o">=</span> <span class="n">onLoadStart</span> <span class="p">{</span>
+			<span class="k">self</span><span class="o">.</span><span class="n">onLoadStart</span> <span class="o">=</span> <span class="n">onLoadStart</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="k">self</span><span class="o">.</span><span class="n">onLoadStart</span> <span class="o">=</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}</span>
+		<span class="p">}</span>
+		
+		<span class="k">if</span> <span class="k">let</span> <span class="nv">onLoadFinish</span> <span class="o">=</span> <span class="n">onLoadFinish</span> <span class="p">{</span>
+			<span class="k">self</span><span class="o">.</span><span class="n">onLoadFinish</span> <span class="o">=</span> <span class="n">onLoadFinish</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="k">self</span><span class="o">.</span><span class="n">onLoadFinish</span> <span class="o">=</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	
+	<span class="kd">func</span> <span class="nf">makeNSView</span><span class="p">(</span><span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">WKWebView</span> <span class="p">{</span>
+		<span class="n">wkWebView</span><span class="o">.</span><span class="n">navigationDelegate</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">coordinator</span>
+		<span class="n">wkWebView</span><span class="o">.</span><span class="nf">load</span><span class="p">(</span><span class="kt">URLRequest</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="n">url</span><span class="p">))</span>
+		
+		<span class="k">return</span> <span class="n">wkWebView</span>
+	<span class="p">}</span>
+	
+	<span class="kd">func</span> <span class="nf">updateNSView</span><span class="p">(</span><span class="n">_</span> <span class="nv">nsView</span><span class="p">:</span> <span class="kt">WKWebView</span><span class="p">,</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">nsView</span><span class="o">.</span><span class="nf">load</span><span class="p">(</span><span class="kt">URLRequest</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="n">url</span><span class="p">))</span>
+	<span class="p">}</span>
+	
+	<span class="kd">func</span> <span class="nf">makeCoordinator</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Coordinator</span> <span class="p">{</span>
+		<span class="kt">Coordinator</span><span class="p">(</span><span class="nv">onLoadStart</span><span class="p">:</span> <span class="n">onLoadStart</span><span class="p">,</span> <span class="nv">onLoadFinish</span><span class="p">:</span> <span class="n">onLoadFinish</span><span class="p">)</span>
+	<span class="p">}</span>
+	
+	<span class="kd">class</span> <span class="kt">Coordinator</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">WKNavigationDelegate</span> <span class="p">{</span>
+		<span class="k">let</span> <span class="nv">onLoadStart</span><span class="p">:</span> <span class="p">(</span><span class="kt">WKWebView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">()</span>
+		<span class="k">let</span> <span class="nv">onLoadFinish</span><span class="p">:</span> <span class="p">(</span><span class="kt">WKWebView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">()</span>
+		
+		<span class="nf">init</span><span class="p">(</span><span class="nv">onLoadStart</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">WKWebView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(),</span> <span class="nv">onLoadFinish</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">WKWebView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())</span> <span class="p">{</span>
+			<span class="k">self</span><span class="o">.</span><span class="n">onLoadStart</span> <span class="o">=</span> <span class="n">onLoadStart</span>
+			<span class="k">self</span><span class="o">.</span><span class="n">onLoadFinish</span> <span class="o">=</span> <span class="n">onLoadFinish</span>
+		<span class="p">}</span>
+		
+		<span class="kd">func</span> <span class="nf">webView</span><span class="p">(</span><span class="n">_</span> <span class="nv">webView</span><span class="p">:</span> <span class="kt">WKWebView</span><span class="p">,</span> <span class="n">didCommit</span> <span class="nv">navigation</span><span class="p">:</span> <span class="kt">WKNavigation</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nf">onLoadStart</span><span class="p">(</span><span class="n">webView</span><span class="p">)</span>
+		<span class="p">}</span>
+		
+		<span class="kd">func</span> <span class="nf">webView</span><span class="p">(</span><span class="n">_</span> <span class="nv">webView</span><span class="p">:</span> <span class="kt">WKWebView</span><span class="p">,</span> <span class="n">didFinish</span> <span class="nv">navigation</span><span class="p">:</span> <span class="kt">WKNavigation</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nf">onLoadFinish</span><span class="p">(</span><span class="n">webView</span><span class="p">)</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+</pre></table>
+</div>
+</div>
+<p>This pretty lengthy snippet adds a simple SwiftUI wrapper around <code class="language-plaintext highlighter-rouge">WKWebView</code> (which needs to be imported). It only requires a binding to a url, which will be loaded. In more complex cases, you can pass <code class="language-plaintext highlighter-rouge">onLoadStart</code> and <code class="language-plaintext highlighter-rouge">onLoadFinish</code> handlers which will run when the web view starts and finishes loading and a <code class="language-plaintext highlighter-rouge">WKWebView</code> class instance. Since in Swift classes are passed by reference, you can use this instance in your view to control the web view (go back, forward, etc).
+<h3 id="5-cocoa-showing-an-alert">5. (Cocoa) Showing an alert</h3>
+<div class="language-swift highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13</pre><td class="code"><pre><span class="kd">func</span> <span class="nf">showAlert</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">informative</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">buttons</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">NSApplication</span><span class="o">.</span><span class="kt">ModalResponse</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">()</span> <span class="o">=</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">})</span> <span class="p">{</span>
+	<span class="kt">DispatchQueue</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="n">async</span> <span class="p">{</span>
+		<span class="k">let</span> <span class="nv">alert</span> <span class="o">=</span> <span class="kt">NSAlert</span><span class="p">()</span>
+		
+		<span class="n">alert</span><span class="o">.</span><span class="n">messageText</span> <span class="o">=</span> <span class="n">message</span>
+		<span class="n">alert</span><span class="o">.</span><span class="n">informativeText</span> <span class="o">=</span> <span class="n">informative</span>
+		
+		<span class="n">buttons</span><span class="o">.</span><span class="n">forEach</span> <span class="p">{</span> <span class="n">alert</span><span class="o">.</span><span class="nf">addButton</span><span class="p">(</span><span class="nv">withTitle</span><span class="p">:</span> <span class="nv">$0</span><span class="p">)</span> <span class="p">}</span>
+		
+		<span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="n">alert</span><span class="o">.</span><span class="nf">runModal</span><span class="p">()</span>
+		<span class="nf">completionHandler</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></table>
+</div>
+</div>
+<p>Once again, a wrapper. It wraps <code class="language-plaintext highlighter-rouge">NSAlert</code> in one function so that you don’t need to rewrite this code. It accepts a message and informative text which will be used on the alert. It also optionally accepts a list of button titles which will be added to the alert. It also runs asynchronously on the main thread, so it works even when run in another thread. Here I’d like to add that you can use <code class="language-plaintext highlighter-rouge">NSAlert.accessoryView</code> to create alerts with custom views, for example I did something like this:
+<div class="language-swift highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre><td class="code"><pre><span class="kd">func</span> <span class="nf">showChoicePrompt</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">informativeText</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">buttons</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">],</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">{</span>
+<span class="err"> </span> <span class="k">let</span> <span class="nv">alert</span> <span class="o">=</span> <span class="kt">NSAlert</span><span class="p">()</span>
+
+<span class="err"> </span> <span class="n">alert</span><span class="o">.</span><span class="nf">addButton</span><span class="p">(</span><span class="nv">withTitle</span><span class="p">:</span> <span class="s">"OK"</span><span class="p">)</span>
+<span class="err"> </span> <span class="n">alert</span><span class="o">.</span><span class="nf">addButton</span><span class="p">(</span><span class="nv">withTitle</span><span class="p">:</span> <span class="s">"Cancel"</span><span class="p">)</span>
+<span class="err"> </span> 
+<span class="err"> </span> <span class="n">alert</span><span class="o">.</span><span class="n">messageText</span> <span class="o">=</span> <span class="n">message</span>
+<span class="err"> </span> <span class="n">alert</span><span class="o">.</span><span class="n">informativeText</span> <span class="o">=</span> <span class="n">informativeText</span>
+
+<span class="err"> </span> <span class="k">let</span> <span class="nv">popUp</span> <span class="o">=</span> <span class="kt">NSPopUpButton</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="kt">NSRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">24</span><span class="p">))</span>
+<span class="err"> </span> <span class="n">popUp</span><span class="o">.</span><span class="nf">addItems</span><span class="p">(</span><span class="nv">withTitles</span><span class="p">:</span> <span class="n">buttons</span><span class="p">)</span>
+
+<span class="err"> </span> <span class="n">alert</span><span class="o">.</span><span class="n">accessoryView</span> <span class="o">=</span> <span class="n">popUp</span>
+
+<span class="err"> </span> <span class="k">let</span> <span class="nv">response</span><span class="p">:</span> <span class="kt">NSApplication</span><span class="o">.</span><span class="kt">ModalResponse</span> <span class="o">=</span> <span class="n">alert</span><span class="o">.</span><span class="nf">runModal</span><span class="p">()</span>
+
+<span class="err"> </span> <span class="k">if</span> <span class="n">response</span> <span class="o">==</span> <span class="kt">NSApplication</span><span class="o">.</span><span class="kt">ModalResponse</span><span class="o">.</span><span class="n">alertFirstButtonReturn</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="nf">completionHandler</span><span class="p">(</span><span class="n">popUp</span><span class="o">.</span><span class="n">selectedItem</span><span class="p">?</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+<span class="err"> </span> <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="nf">completionHandler</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
+<span class="err"> </span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></table>
+</div>
+</div>
+<p>which creates an alert with a pop up button for selecting a value.
+<p>As a sidenote, if you are dealing with many snippets of various types (like these ones), CodeMenu can help you organize, access and use their full potential.
+</article>
+<aside class="related">
+<h2>Related posts</h2>
+<ul class="related-posts">
+   <li>
+    <a href="/blog/posts/taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app">
+        <span>Taking an image of a part of the screen in a Cocoa app</span>
+        <small>21/09</small>
+    </a>
+</aside>
+           <footer>
+    <span>blog about Extiri, programming and cybersecurity
+</span>
+    <span>written by Wiktor Wójcik</span>
+</footer>
+       </div>
+<script type="text/javascript" src="/blog/assets/js/theme.js"></script>
+<script type="text/javascript" src="/blog/assets/js/barefoot.js"></script>
+    
