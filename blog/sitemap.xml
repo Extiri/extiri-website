@@ -3,6 +3,36 @@
   
     
     <url>
+      <loc>http://127.0.0.1/posts/building-your-personal-knowledge-base/</loc>
+      
+        <lastmod>2025-01-26T00:00:00+01:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.7</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://127.0.0.1/posts/10-reason-to-use-a-snippet-manager-in-the-ai-era/</loc>
+      
+        <lastmod>2025-01-26T00:00:00+01:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.7</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://127.0.0.1/posts/the-power-of-automation-useful-tools-for-automating/</loc>
       
         <lastmod>2025-01-18T00:00:00+01:00</lastmod>
@@ -83,7 +113,7 @@
     <url>
       <loc>http://127.0.0.1/about/</loc>
       
-        <lastmod>2025-01-18T15:51:59+01:00</lastmod>
+        <lastmod>2025-01-26T08:48:36+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -98,7 +128,7 @@
     <url>
       <loc>http://127.0.0.1/archive/</loc>
       
-        <lastmod>2025-01-18T15:51:59+01:00</lastmod>
+        <lastmod>2025-01-26T08:48:36+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -117,7 +147,7 @@
     <url>
       <loc>http://127.0.0.1/</loc>
       
-        <lastmod>2025-01-18T15:51:59+01:00</lastmod>
+        <lastmod>2025-01-26T08:48:36+01:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -132,6 +162,21 @@
   
     
   
+    
+  
+    
+    <url>
+      <loc>http://127.0.0.1/page-2/</loc>
+      
+        <lastmod>2025-01-26T08:48:36+01:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
     
   
 </urlset>
