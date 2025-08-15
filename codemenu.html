@@ -88,7 +88,7 @@
     </div>
   </div>
   
-  <div class="story-section" style="background: linear-gradient(90deg, #181818 0%, #23272e 100%); border-radius: 18px; box-shadow: 0 4px 32px rgba(0,0,0,0.10); padding: 48px 32px 32px 32px; margin-bottom: 48px; color: #f5f5f7; width: 90%; margin-left: auto; margin-right: auto;">
+  <div class="story-section" style="background: #181818; border-radius: 18px; box-shadow: 0 4px 32px rgba(0,0,0,0.10); padding: 48px 32px 32px 32px; margin-bottom: 48px; color: #f5f5f7; width: 90%; margin-left: auto; margin-right: auto;">
     <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 24px;">
       <img src="images/codemenu-icon.webp" alt="CodeMenu icon" style="width: 80px; height: 80px; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.12); background: #222;">
       <div>
@@ -155,10 +155,48 @@
     </div>
     <hr style="margin: 32px 0 24px 0; border: none; border-top: 1px solid #333;">
     <div style="text-align:center;">
-      <p style="font-size:1.2em; color:#ffe082; margin-top:24px; margin-bottom:0; font-weight:600;">CodeMenu isn’t just another app - it’s the invisible assistant arranging your thinking.<br>Creativity, clarity, and productivity become your new standard.</p>
+      <h1 style="font-size:2em; margin-top:24px; margin-bottom:0; font-weight:600; line-height: 2em;"><span style="color:#ffe082;">CodeMenu</span> isn’t just another app - it’s the invisible assistant arranging your thinking.<br>Creativity, clarity, and productivity become your new standard.</h1>
     </div>
   </div>
-  
+
+  <!-- Slideshow Section -->
+  <div class="slideshow-section" style="width:100vw; max-width:100%; padding:0; height: 697px">
+    <div class="slideshow-container" style="position:relative; width:100%; max-width:1100px; margin:0 auto; height: 100%;">
+      <div class="slideshow-images" style="height: 100%;">
+        <img src="./images/codemenu/codemenu-graphs-screenshot.png" alt="Graphs" class="slideshow-img" style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
+        <img src="./images/codemenu/side_window_and_suggestions.webp" alt="Side Window & Suggestions" class="slideshow-img" style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
+        <img src="./images/codemenu/utilities.webp" alt="Utilities" class="slideshow-img" style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
+      </div>
+      <button class="slideshow-btn slideshow-prev" style="position:absolute; top:50%; left:-90px; transform:translateY(-50%); background:#23272e; color:#ffe082; border:none; border-radius:50%; width:44px; height:44px; font-size:2em; cursor:pointer; opacity:0.85; transition:background 0.18s; z-index: 5;">&#8592;</button>
+      <button class="slideshow-btn slideshow-next" style="position:absolute; top:50%; right:-90px; transform:translateY(-50%); background:#23272e; color:#ffe082; border:none; border-radius:50%; width:44px; height:44px; font-size:2em; cursor:pointer; opacity:0.85; transition:background 0.18s; z-index: 5;">&#8594;</button>
+      <div class="slideshow-dots" style="position:absolute; bottom:18px; left:50%; transform:translateX(-50%); display:flex; gap:12px; z-index: 5;">
+        <span class="slideshow-dot" style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
+        <span class="slideshow-dot" style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
+        <span class="slideshow-dot" style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
+      </div>
+    </div>
+  </div>
+  <script>
+  // Slideshow logic
+  (function() {
+    const imgs = document.querySelectorAll('.slideshow-img');
+    const dots = document.querySelectorAll('.slideshow-dot');
+    let idx = 0;
+    function showSlide(i) {
+      imgs.forEach((img, j) => img.style.display = (j === i ? 'block' : 'none'));
+      dots.forEach((dot, j) => dot.style.background = (j === i ? '#ffb300' : '#ffe08244'));
+      idx = i;
+    }
+    function nextSlide() { showSlide((idx+1)%imgs.length); }
+    function prevSlide() { showSlide((idx-1+imgs.length)%imgs.length); }
+    document.querySelector('.slideshow-next').onclick = nextSlide;
+    document.querySelector('.slideshow-prev').onclick = prevSlide;
+    dots.forEach((dot, i) => dot.onclick = () => showSlide(i));
+    showSlide(0);
+    setInterval(nextSlide, 6000);
+  })();
+  </script>
+
   <div class="section">
     <br>
     <br>
@@ -302,7 +340,7 @@
     <br>
     
     <h2>What are the system requirements?</h2>
-    <p>CodeMenu supports macOS 12 and later. Intel and Apple Silicon are supported. To use AI features (generation and chat) good specifications (min. 16 RAM and Apple Silicon) are recommended, altough they're not required so they should work on any Mac with minimum 16 RAM, but possibly slower.</p>
+    <p>CodeMenu supports macOS 12 and later. Intel and Apple Silicon are supported. To use AI features (generation and chat) good specifications (min. 16 GB RAM and Apple Silicon) are recommended, altough they're not required so they should work on any Mac with minimum 16 GB RAM, but possibly slower.</p>
     
     <br>
     <br>
