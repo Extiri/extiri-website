@@ -599,3 +599,135 @@ th {
   width: 100%;
   height: 100%;
 }
+
+/* --- Deduplicated responsive styles for story section and slideshow --- */
+@media (max-width: 900px) {
+  .story-section {
+    max-width: 100vw;
+    padding: 0 0px;
+  }
+  .story-row {
+    flex-direction: column !important;
+    gap: 0 !important;
+    margin-bottom: 38px !important;
+    min-height: unset;
+  }
+  .story-svg {
+    flex: 0 0 100%;
+    min-width: 0;
+    width: 100%;
+    height: 260px !important;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    justify-content: center;
+    align-items: center;
+  }
+  .story-svg img {
+    width: 99vw !important;
+    max-width: 420px !important;
+    height: 220px !important;
+  }
+  .story-row > div:last-child {
+    padding: 28px 12px 28px 12px !important;
+  }
+  .slideshow-section {
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+  }
+  .slideshow-container {
+    max-width: 100vw !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .slideshow-images {
+    height: auto !important;
+    width: 100vw !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .slideshow-images img {
+    max-width: 98vw !important;
+    width: 98vw !important;
+    height: 220px !important;
+    min-height: 160px !important;
+    border-radius: 10px !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+  }
+  .slideshow-btn {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 10px !important;
+    right: auto !important;
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 1.5em !important;
+    z-index: 10 !important;
+    background: #23272e !important;
+    opacity: 0.92 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+  }
+  .slideshow-btn.slideshow-next {
+    left: auto !important;
+    right: 10px !important;
+  }
+  .slideshow-dots {
+    bottom: 12px !important;
+    gap: 10px !important;
+  }
+  .slideshow-dot {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
+@media (max-width: 600px) {
+  .story-section {
+    padding: 0 0px;
+  }
+  .story-svg {
+    height: 180px !important;
+  }
+  .story-svg img {
+    width: 99vw !important;
+    max-width: 99vw !important;
+    height: 140px !important;
+  }
+  .story-row > div:last-child {
+    padding: 18px 6px 18px 6px !important;
+  }
+  .slideshow-section {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  .slideshow-images img {
+    height: 100px !important;
+    max-width: 99vw !important;
+    width: 99vw !important;
+    border-radius: 6px !important;
+  }
+  .slideshow-btn {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 1.1em !important;
+    left: 4px !important;
+    right: auto !important;
+  }
+  .slideshow-btn.slideshow-next {
+    left: auto !important;
+    right: 4px !important;
+  }
+  .slideshow-dots {
+    bottom: 6px !important;
+    gap: 6px !important;
+  }
+  .slideshow-dot {
+    width: 9px !important;
+    height: 9px !important;
+  }
+}
+/* --- End deduplicated responsive styles --- */
