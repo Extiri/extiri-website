@@ -182,8 +182,8 @@
       <img src="./images/codemenu/side_window_and_suggestions.webp" alt="Side Window & Suggestions" class="slideshow-img" style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
       <img src="./images/codemenu/utilities.webp" alt="Utilities" class="slideshow-img" style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
     </div>
-    <button class="slideshow-btn slideshow-prev" style="position:absolute; top:50%; left:-90px; transform:translateY(-50%); background:#23272e; color:#ffe082; border:none; border-radius:50%; width:44px; height:44px; font-size:2em; cursor:pointer; opacity:0.85; transition:background 0.18s; z-index: 5;">&#8592;</button>
-    <button class="slideshow-btn slideshow-next" style="position:absolute; top:50%; right:-90px; transform:translateY(-50%); background:#23272e; color:#ffe082; border:none; border-radius:50%; width:44px; height:44px; font-size:2em; cursor:pointer; opacity:0.85; transition:background 0.18s; z-index: 5;">&#8594;</button>
+    <button class="slideshow-btn slideshow-prev" style="position:absolute; top:50%; left:-90px; transform:translateY(-50%); background:#23272e; color:#ffe082; border:none; border-radius:50%; width:44px; height:44px; font-size:2em; cursor:pointer; opacity:0.85; transition:background 0.18s; z-index: 2;">&#8592;</button>
+    <button class="slideshow-btn slideshow-next" style="position:absolute; top:50%; right:-90px; transform:translateY(-50%); background:#23272e; color:#ffe082; border:none; border-radius:50%; width:44px; height:44px; font-size:2em; cursor:pointer; opacity:0.85; transition:background 0.18s; z-index: 2;">&#8594;</button>
     <div class="slideshow-dots" style="position:absolute; bottom:18px; left:50%; transform:translateX(-50%); display:flex; gap:12px; z-index: 5;">
       <span class="slideshow-dot" style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
       <span class="slideshow-dot" style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
@@ -295,25 +295,25 @@
   <h1>FAQ</h1>
   <div class="faq-list">
     <div class="faq-item">
-      <button class="faq-question">How can I get CodeMenu?</button>
+      <button class="faq-question"><span class="faq-text">How can I get CodeMenu?</span><span class="faq-arrow">&#9654;</span></button>
       <div class="faq-answer">
         <p>CodeMenu is available only in the Mac App Store and using closed TestFlight beta program. All payments are processed by the App Store only. A one-time purhcase or a monthly auto-renewing subscription is required to use it. In case of the subscription, there is a free 7-day trial available when you use it for the first time.</p>
       </div>
     </div>
     <div class="faq-item">
-      <button class="faq-question">Where can I find HTTP server's documentation?</button>
+      <button class="faq-question"><span class="faq-text">Where can I find HTTP server's documentation?</span><span class="faq-arrow">&#9654;</span></button>
       <div class="faq-answer">
         <p>At <a href="https://docs.extiri.com">Extiri's documentation</a> website.</p>
       </div>
     </div>
     <div class="faq-item">
-      <button class="faq-question">Where can I learn more about Suggestions?</button>
+      <button class="faq-question"><span class="faq-text">Where can I learn more about Suggestions?</span><span class="faq-arrow">&#9654;</span></button>
       <div class="faq-answer">
         <p>You can learn more about Suggestions on its <a href="https://github.com/Extiri/Suggestions"> GitHub repository</a>.</p>
       </div>
     </div>
     <div class="faq-item">
-      <button class="faq-question">What languages does Editor support?</button>
+      <button class="faq-question"><span class="faq-text">What languages does Editor support?</span><span class="faq-arrow">&#9654;</span></button>
       <div class="faq-answer">
         <p>At this moment Editor supports JavaScript by default. But you can add any other language that has a CLI utility.</p>
         <p>You can do this by placing language's command line utility in Application Scripts of CodeMenu (to open click "Open Application Scripts" in Languages settings section).</p>
@@ -321,49 +321,49 @@
       </div>
     </div>
     <div class="faq-item">
-      <button class="faq-question">How can I use LaTeX in snippet's description?</button>
+      <button class="faq-question"><span class="faq-text">How can I use LaTeX in snippet's description?</span><span class="faq-arrow">&#9654;</span></button>
       <div class="faq-answer">
         <p>To use LaTeX you just need to wrap an expression in $$ (for example: "Here is some fraction $$\frac{126}{3}$$"). Once in preview mode (eg. not editing) it will render on a separate line.</p>
       </div>
     </div>
     <div class="faq-item">
-      <button class="faq-question">What languages does syntax highlighting support?</button>
+      <button class="faq-question"><span class="faq-text">What languages does syntax highlighting support?</span><span class="faq-arrow">&#9654;</span></button>
       <div class="faq-answer">
         <p>You can find list of all languages supported by Snippets Store (which are the same as CodeMenu's) in Extiri API documentation at <a href="https://docs.extiri.com/ExtiriAPI/data/languages/">docs.extiri.com/ExtiriAPI/data/languages/</a>.</p>
       </div>
     </div>
     <div class="faq-item">
-      <button class="faq-question">What languages does library generator support?</button>
+      <button class="faq-question"><span class="faq-text">What languages does library generator support?</span><span class="faq-arrow">&#9654;</span></button>
       <div class="faq-answer">
         <p>At this moment library generator supports Swift, PHP, HTML and JavaScript.</p>
       </div>
     </div>
     <div class="faq-item">
-      <button class="faq-question">Are snippets from Snippets Store copyrighted?</button>
+      <button class="faq-question"><span class="faq-text">Are snippets from Snippets Store copyrighted?</span><span class="faq-arrow">&#9654;</span></button>
       <div class="faq-answer">
         <p>No. Snippets from Snippets Store have <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 license</a>. You can copy, modify and distribute snippets, even for commercial purposes, all without asking permission. However, there are no warranties, and liability is disclaimed for all uses, to the fullest extent permitted by applicable law.</p>
       </div>
     </div>
     <div class="faq-item">
-      <button class="faq-question">Can I import snippets from other snippet managers?</button>
+      <button class="faq-question"><span class="faq-text">Can I import snippets from other snippet managers?</span><span class="faq-arrow">&#9654;</span></button>
       <div class="faq-answer">
         <p>Currently only importing from massCode is supported. If you need this functionality for other snippets manager, please, contact me.</p>
       </div>
     </div>
     <div class="faq-item">
-      <button class="faq-question">Can I export my snippets?</button>
+      <button class="faq-question"><span class="faq-text">Can I export my snippets?</span><span class="faq-arrow">&#9654;</span></button>
       <div class="faq-answer">
         <p>Yes, CodeMenu supports exporting snippets to a JSON file, so you don't need to worry about being locked in. </p>
       </div>
     </div>
     <div class="faq-item">
-      <button class="faq-question">What are the system requirements?</button>
+      <button class="faq-question"><span class="faq-text">What are the system requirements?</span><span class="faq-arrow">&#9654;</span></button>
       <div class="faq-answer">
         <p>CodeMenu supports macOS 12 and later. Intel and Apple Silicon are supported. To use AI features (generation and chat) good specifications (min. 16 GB RAM and Apple Silicon) are recommended, altough they're not required so they should work on any Mac with minimum 16 GB RAM, but possibly slower.</p>
       </div>
     </div>
     <div class="faq-item">
-      <button class="faq-question">Do my snippets stay on device?</button>
+      <button class="faq-question"><span class="faq-text">Do my snippets stay on device?</span><span class="faq-arrow">&#9654;</span></button>
       <div class="faq-answer">
         <p>Yes, your snippets stay on device and are never shared, unless you choose to share them. Sharing them in Snippets Store or enabling HTTP server is optional and not done automatically.</p>
       </div>
@@ -376,16 +376,21 @@ const faqQuestions = document.querySelectorAll('.faq-question');
 faqQuestions.forEach(btn => {
   btn.onclick = function() {
     const answer = this.nextElementSibling;
+    const arrow = this.querySelector('.faq-arrow');
     if (answer.style.maxHeight) {
       answer.style.maxHeight = null;
       answer.style.opacity = 0;
       this.classList.remove('open');
+      arrow.innerHTML = '&#9654;'; // right arrow
     } else {
       document.querySelectorAll('.faq-answer').forEach(a => {
         a.style.maxHeight = null;
         a.style.opacity = 0;
       });
-      document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('open'));
+      document.querySelectorAll('.faq-question').forEach(q => {
+        q.classList.remove('open');
+        q.querySelector('.faq-arrow').innerHTML = '&#9654;';
+      });
       answer.style.maxHeight = answer.scrollHeight + 'px';
       answer.style.opacity = 1;
       this.classList.add('open');
@@ -393,7 +398,6 @@ faqQuestions.forEach(btn => {
   };
 });
 </script>
-
 
 <p style="color: white; padding-bottom: 10px; text-align: center; margin-top: 100px;"><a href="privacy_policy.html" class="secondary_link">Privacy Policy</a> | <a href="codemenu/terms_of_services.html" class="secondary_link">Terms of Services/EULA</a></p>
 <p style="color: #505050; padding-bottom: 50px; text-align: center;">Mac is a trademark of Apple Inc., registered in the U.S. and other countries and regions.</p>
