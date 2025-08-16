@@ -28,6 +28,7 @@ html {
   background-color: #101b26;
   border-radius: 20px;  /*rgb(10, 10, 10);*/
   color: white;
+  z-index: 999;
 }
 
 .navbar-content {
@@ -616,13 +617,15 @@ th {
   cursor: pointer;
   transition: background 0.18s, color 0.18s;
   border-bottom: 1px solid #ffb30022;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
-
 .faq-question:hover {
   background: rgba(255,179,0,0.09);
   color: #ffb300;
 }
-
 .faq-question.open {
   background: rgba(255,179,0,0.13);
   color: #ffb300;
@@ -652,6 +655,44 @@ th {
   }
 }
 /* --- End FAQ styles --- */
+
+/* --- FAQ arrow styles --- */
+.faq-arrow {
+  display: inline-block;
+  font-size: 1.2em;
+  color: #ffb300;
+  margin-left: auto;
+  margin-right: 0;
+  transition: transform 0.22s cubic-bezier(.4,.2,.2,1);
+}
+
+/* --- End FAQ arrow styles --- */
+
+/* --- FAQ arrow right alignment --- */
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+.faq-text {
+  flex: 1 1 auto;
+  text-align: left;
+}
+.faq-arrow {
+  flex: 0 0 auto;
+  display: inline-block;
+  font-size: 1.2em;
+  color: #ffb300;
+  margin-left: 18px;
+  margin-right: 0;
+  transition: transform 0.22s cubic-bezier(.4,.2,.2,1);
+}
+.faq-question.open .faq-arrow {
+  transform: rotate(90deg);
+}
+/* --- End FAQ arrow right alignment --- */
 
 .grainy:before {
   content: "";
