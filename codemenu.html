@@ -88,38 +88,68 @@
     </div>
   </div>
   
-  <div class="story-section" style="background: #181818; border-radius: 18px; box-shadow: 0 4px 32px rgba(0,0,0,0.10); padding: 48px 32px 32px 32px; margin-bottom: 48px; color: #f5f5f7; width: 90%; margin-left: auto; margin-right: auto;">
-    <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 24px;">
-      <img src="images/codemenu-icon.webp" alt="CodeMenu icon" style="width: 80px; height: 80px; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.12); background: #222;">
-      <div>
-        <h1 style="margin: 0; font-size: 2.3em; font-weight: 700; letter-spacing: -1px; color: #ffb300;">Your Invisible Workflows, Finally Under Control</h1>
-        <span style="font-size: 1.2em; color: #b3b3b3;">Designed to solve everyday challenges</span>
-      </div>
+  <div class="story-section" style="width:100%; max-width:1200px; margin:0px auto 64px auto; position:relative; z-index:1;">
+    <div class="story-bg-full" style="position:absolute; inset:0; width:100vw; left:50%; transform:translateX(-50%); height:100%; z-index:0; pointer-events:none;">
+      <img src="images/background-curve.webp" alt="Background curve" style="width:100vw; height:100%; object-fit:cover; opacity:0.22; filter: grayscale(0) blur(10px);">
     </div>
-    <div style="display: flex; flex-wrap: wrap; gap: 32px; margin-bottom: 24px;">
-      <div style="flex:1; min-width:260px;">
-        <h2 style="color:#ffe082; font-size:1.3em; margin-bottom:10px;">Imagine</h2>
-        <p style="font-size:1.08em;">You’re building, writing, securing, or creating - yet your best ideas, scripts, templates, and notes are scattered across files and apps. Every search, every switch, every lost snippet erodes your focus and momentum.</p>
-        <blockquote style="border-left: 4px solid #ffb300; margin: 18px 0; padding-left: 18px; color: #ffe082; background: rgba(255,179,0,0.04); font-style: italic;">“The moment you corral your chaos, you unlock your creativity.”</blockquote>
-      </div>
-      <div style="flex:1; min-width:260px;">
-        <h2 style="color:#ffe082; font-size:1.3em; margin-bottom:10px;">Transformation</h2>
-        <div style="background:rgba(255,179,0,0.07); border-radius:12px; padding:18px; margin-bottom:10px;">
-          <b style="color:#ffb300;">CodeMenu</b> changes everything. It’s not just a place for your snippets - it’s your personal knowledge ecosystem. Instantly capture, organize, and reuse code, colors, images, prompts, and bookmarks. Group, tag, graph, and stash snippets across <b style="color:#ffe082;">60+ languages</b>, then access them visually, inline, or from a side window - always where you need them, never lost.
+    <div style="position:relative; z-index:2;">
+      <!-- Section 1: Imagine -->
+      <div class="story-row" style="display:flex; align-items:center; gap:0; margin-bottom:56px;">
+        <div class="story-svg" style="flex:0 0 340px; min-width:220px; height:320px; display:flex; align-items:center; justify-content:center;">
+          <!-- Beautiful SVG: Lightbulb/Idea -->
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" style="margin-left:32px; margin-right:32px;">
+            <ellipse cx="60" cy="54" rx="38" ry="38" fill="#ffe082"/>
+            <path d="M60 92V74" stroke="#ffb300" stroke-width="6" stroke-linecap="round"/>
+            <rect x="52" y="92" width="16" height="18" rx="8" fill="#23272e" stroke="#ffb300" stroke-width="3"/>
+            <path d="M60 20 Q70 40 60 54 Q50 40 60 20" stroke="#ffb300" stroke-width="3" fill="none"/>
+          </svg>
         </div>
-        <ul style="margin: 0 0 0 18px;">
-          <li style="margin-bottom: 10px;"><b style="color:#ffb300;">Dynamic placeholders</b> let your snippets adapt on the fly.</li>
-          <li style="margin-bottom: 10px;">Preview Markdown and HTML and even <b style="color:#ffb300;">run code or scripts</b> - right inside CodeMenu.</li>
-          <li style="margin-bottom: 10px;">Test, run, and share with confidence, without jumping between tools.</li>
-          <li style="margin-bottom: 10px;"><b style="color:#ffb300;">Integrated AI</b> finds what you need in plain English, generates documentation, and extracts text from images - private, fast, and offline.</li>
-          <li style="margin-bottom: 10px;">Built-in utilities (<span style="color:#ffe082;">RegEx editor, coders, code image generator, mockup data generators</span>, and more) keep your workflow unified.</li>
-          <li style="margin-bottom: 10px;">Automate, extend, and connect CodeMenu using HTTP or builtin extensions - your creativity, your way.</li>
-        </ul>
+        <div style="flex:1; padding:48px 48px 48px 32px;">
+          <h2 style="color:#ffe082; font-size:2em; margin-bottom:18px;">Imagine</h2>
+          <p style="font-size:1.18em; color:#f5f5f7; margin-bottom:18px;">You’re building, writing, securing, or creating - yet your best ideas, scripts, templates, and notes are scattered across files and apps. Every search, every switch, every lost snippet erodes your focus and momentum.</p>
+          <blockquote style="border-left: 4px solid #ffb300; margin: 18px 0; padding-left: 18px; color: #ffe082; background: rgba(255,179,0,0.04); font-style: italic;">“The moment you corral your chaos, you unlock your creativity.”</blockquote>
+        </div>
       </div>
-    </div>
-    <hr style="margin: 32px 0 24px 0; border: none; border-top: 1px solid #333;">
-    <div style="text-align:center;">
-      <h1 style="font-size:2em; margin-top:24px; margin-bottom:0; font-weight:600; line-height: 2em;"><span style="color:#ffe082;">CodeMenu</span> isn’t just another app - it’s the invisible assistant arranging your thinking.<br>Creativity, clarity, and productivity become your new standard.</h1>
+      <!-- Section 2: Transformation -->
+      <div class="story-row" style="display:flex; align-items:center; gap:0; flex-direction:row-reverse; margin-bottom:56px;">
+        <div class="story-svg" style="flex:0 0 340px; min-width:220px; height:320px; display:flex; align-items:center; justify-content:center;">
+          <!-- Beautiful SVG: Flow/Transformation -->
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" style="margin-left:32px; margin-right:32px;">
+            <rect x="20" y="40" width="80" height="40" rx="20" fill="#ffb300"/>
+            <path d="M40 60 Q60 80 80 60" stroke="#ffe082" stroke-width="6" fill="none"/>
+            <circle cx="40" cy="60" r="12" fill="#23272e" stroke="#ffe082" stroke-width="3"/>
+            <circle cx="80" cy="60" r="12" fill="#23272e" stroke="#ffe082" stroke-width="3"/>
+          </svg>
+        </div>
+        <div style="flex:1; padding:48px 32px 48px 48px;">
+          <h2 style="color:#ffe082; font-size:2em; margin-bottom:18px;">Transformation</h2>
+          <div style="background:rgba(255,179,0,0.07); border-radius:12px; padding:18px; margin-bottom:18px;">
+            <b style="color:#ffb300;">CodeMenu</b> changes everything. It’s not just a place for your snippets - it’s your personal knowledge ecosystem. Instantly capture, organize, and reuse code, colors, images, prompts, and bookmarks. Group, tag, graph, and stash snippets across <b style="color:#ffe082;">60+ languages</b>, then access them visually, inline, or from a side window - always where you need them, never lost.
+          </div>
+          <ul style="margin: 0 0 0 18px;">
+            <li style="margin-bottom: 10px;"><b style="color:#ffb300;">Dynamic placeholders</b> let your snippets adapt on the fly.</li>
+            <li style="margin-bottom: 10px;">Preview Markdown and HTML and even <b style="color:#ffb300;">run code or scripts</b> - right inside CodeMenu.</li>
+            <li style="margin-bottom: 10px;">Test, run, and share with confidence, without jumping between tools.</li>
+            <li style="margin-bottom: 10px;"><b style="color:#ffb300;">Integrated AI</b> finds what you need in plain English, generates documentation, and extracts text from images - private, fast, and offline.</li>
+            <li style="margin-bottom: 10px;">Built-in utilities (<span style="color:#ffe082;">RegEx editor, coders, code image generator, mockup data generators</span>, and more) keep your workflow unified.</li>
+            <li style="margin-bottom: 10px;">Automate, extend, and connect CodeMenu using HTTP or builtin automation scripts - your creativity, your way.</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Section 3: Result -->
+      <div class="story-row" style="display:flex; align-items:center; gap:0; margin-bottom:0;">
+        <div class="story-svg" style="flex:0 0 340px; min-width:220px; height:320px; display:flex; align-items:center; justify-content:center;">
+          <!-- Beautiful SVG: Lightning/Result -->
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" style="margin-left:32px; margin-right:32px;">
+            <circle cx="60" cy="60" r="38" fill="#ffb300"/>
+            <polygon points="60,30 90,60 70,60 70,90 40,70 60,70" fill="#23272e" stroke="#ffe082" stroke-width="5"/>
+          </svg>
+        </div>
+        <div style="flex:1; padding:48px 48px 48px 32px;">
+          <h2 style="color:#ffe082; font-size:2em; margin-bottom:18px;">The Result</h2>
+          <p style="font-size:1.5em; margin-top:0; margin-bottom:0; font-weight:600; line-height: 2em;"><span style="color:#ffe082;">CodeMenu</span> isn’t just another app - it’s the invisible assistant arranging your thinking.<br>Creativity, clarity, and productivity become your new standard.</p>
+        </div>
+      </div>
     </div>
   </div>
   
