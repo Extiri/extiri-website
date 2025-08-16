@@ -89,20 +89,14 @@
   </div>
   
   <div class="story-section" style="width:100%; max-width:1200px; margin:0px auto 64px auto; position:relative; z-index:1;">
-    <div class="story-bg-full" style="position:absolute; inset:0; width:100vw; left:50%; transform:translateX(-50%); height:100%; z-index:0; pointer-events:none;">
-      <img src="images/background-curve.webp" alt="Background curve" style="width:100vw; height:100%; object-fit:cover; opacity:0.22; filter: grayscale(0) blur(10px);">
+    <div class="story-bg-full grainy" style="position:absolute; inset:0; width:100vw; left:50%; transform:translateX(-50%); height:100%; z-index:0; pointer-events:none;">
+      <img src="images/background-curve.webp" alt="Background curve" style="width:100vw; height:100%; object-fit:cover; opacity:0.22; filter: grayscale(0) blur(50px);">
     </div>
     <div style="position:relative; z-index:2;">
       <!-- Section 1: Imagine -->
       <div class="story-row" style="display:flex; align-items:center; gap:0; margin-bottom:56px;">
-        <div class="story-svg" style="flex:0 0 340px; min-width:220px; height:320px; display:flex; align-items:center; justify-content:center;">
-          <!-- Beautiful SVG: Lightbulb/Idea -->
-          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" style="margin-left:32px; margin-right:32px;">
-            <ellipse cx="60" cy="54" rx="38" ry="38" fill="#ffe082"/>
-            <path d="M60 92V74" stroke="#ffb300" stroke-width="6" stroke-linecap="round"/>
-            <rect x="52" y="92" width="16" height="18" rx="8" fill="#23272e" stroke="#ffb300" stroke-width="3"/>
-            <path d="M60 20 Q70 40 60 54 Q50 40 60 20" stroke="#ffb300" stroke-width="3" fill="none"/>
-          </svg>
+        <div class="story-svg" style="flex:0 0 420px; min-width:320px; height:400px; display:flex; align-items:center; justify-content:center;">
+          <img src="images/imagine-image.png" width="400" height="250" aria-label="Imagine – the spark of an idea" style="object-fit: contain;" />
         </div>
         <div style="flex:1; padding:48px 48px 48px 32px;">
           <h2 style="color:#ffe082; font-size:2em; margin-bottom:18px;">Imagine</h2>
@@ -112,14 +106,8 @@
       </div>
       <!-- Section 2: Transformation -->
       <div class="story-row" style="display:flex; align-items:center; gap:0; flex-direction:row-reverse; margin-bottom:56px;">
-        <div class="story-svg" style="flex:0 0 340px; min-width:220px; height:320px; display:flex; align-items:center; justify-content:center;">
-          <!-- Beautiful SVG: Flow/Transformation -->
-          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" style="margin-left:32px; margin-right:32px;">
-            <rect x="20" y="40" width="80" height="40" rx="20" fill="#ffb300"/>
-            <path d="M40 60 Q60 80 80 60" stroke="#ffe082" stroke-width="6" fill="none"/>
-            <circle cx="40" cy="60" r="12" fill="#23272e" stroke="#ffe082" stroke-width="3"/>
-            <circle cx="80" cy="60" r="12" fill="#23272e" stroke="#ffe082" stroke-width="3"/>
-          </svg>
+        <div class="story-svg" style="flex:0 0 420px; min-width:320px; height:400px; display:flex; align-items:center; justify-content:center;">
+          <img src="images/transform-image.png" width="400" height="250" aria-label="Transformation – turning raw ideas into structured actions"  style="object-fit: contain;" />
         </div>
         <div style="flex:1; padding:48px 32px 48px 48px;">
           <h2 style="color:#ffe082; font-size:2em; margin-bottom:18px;">Transformation</h2>
@@ -137,17 +125,13 @@
         </div>
       </div>
       <!-- Section 3: Result -->
-      <div class="story-row" style="display:flex; align-items:center; gap:0; margin-bottom:0;">
-        <div class="story-svg" style="flex:0 0 340px; min-width:220px; height:320px; display:flex; align-items:center; justify-content:center;">
-          <!-- Beautiful SVG: Lightning/Result -->
-          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" style="margin-left:32px; margin-right:32px;">
-            <circle cx="60" cy="60" r="38" fill="#ffb300"/>
-            <polygon points="60,30 90,60 70,60 70,90 40,70 60,70" fill="#23272e" stroke="#ffe082" stroke-width="5"/>
-          </svg>
+      <div class="story-row" style="display:flex; align-items:center; gap:0; margin-bottom:0; padding-bottom: 170px;">
+        <div class="story-svg" style="flex:0 0 420px; min-width:320px; height:400px; display:flex; align-items:center; justify-content:center;">
+          <img src="images/result-image.png" width="400" height="250" aria-label="The Result – a clean, actionable CodeMenu"  style="object-fit: contain;" />
         </div>
         <div style="flex:1; padding:48px 48px 48px 32px;">
           <h2 style="color:#ffe082; font-size:2em; margin-bottom:18px;">The Result</h2>
-          <p style="font-size:1.5em; margin-top:0; margin-bottom:0; font-weight:600; line-height: 2em;"><span style="color:#ffe082;">CodeMenu</span> isn’t just another app - it’s the invisible assistant arranging your thinking.<br>Creativity, clarity, and productivity become your new standard.</p>
+          <p style="margin-top:0; margin-bottom:0; line-height: 2em;"><span style="color:#ffe082; font-weight:600;">CodeMenu</span> isn’t just another app - it’s the invisible assistant arranging your thinking.<br>Creativity, clarity, and productivity become your new standard.</p>
         </div>
       </div>
     </div>
@@ -225,7 +209,7 @@
     document.querySelector('.slideshow-prev').onclick = prevSlide;
     dots.forEach((dot, i) => dot.onclick = () => showSlide(i));
     showSlide(0);
-    setInterval(nextSlide, 6000);
+    setInterval(nextSlide, 3000);
   })();
 </script>
 
