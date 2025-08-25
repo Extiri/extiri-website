@@ -77,6 +77,78 @@
 </header>
 <article class="blog">
 <style>
+  .the-art-of-writing-maintainable-code {
+    margin-bottom: 2em;
+  }
+  .the-art-of-writing-maintainable-code::before {
+    background-size: cover;
+    -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5);
+    content:'';
+    position:absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: -2;
+  }
+  .the-art-of-writing-maintainable-code::after {
+    content:'';
+    position:absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(100,0,255,0.8);
+    /*mix-blend-mode: darken;
+    mix-blend-mode: color-burn;
+    mix-blend-mode: hard-light;*/
+    mix-blend-mode: overlay;
+    z-index: -1;
+  }
+  .the-art-of-writing-maintainable-code-container,
+  .the-art-of-writing-maintainable-code-container::before,
+  .the-art-of-writing-maintainable-code-container::after {
+    height: 25rem;
+  }
+  .the-art-of-writing-maintainable-code-bleed-container,
+  .the-art-of-writing-maintainable-code-bleed-container::before,
+  .the-art-of-writing-maintainable-code-bleed-container::after {
+    height: 35rem;
+  }
+    @media (max-width: 48rem) {
+        .the-art-of-writing-maintainable-code-container,
+        .the-art-of-writing-maintainable-code-container::before,
+        .the-art-of-writing-maintainable-code-container::after{
+            height: 20rem;
+            margin-bottom: 3rem;
+        }
+    }
+</style>
+ <div class="
+    post-title-container
+        the-art-of-writing-maintainable-code the-art-of-writing-maintainable-code-container hero-hov
+  ">
+   <div class="heading-container hero-heading hero-heading-blog">
+     <h1>
+          <a href="/blog/posts/the-art-of-writing-maintainable-code.html" title="The Art of Writing Maintainable Code - Best Practices">The Art of Writing Maintainable Code - Best Practices</a>
+     </h1>
+     <div class="
+        post-meta
+      ">
+      <span>10/01/2025</span>
+        <span>
+              <a href="/blog/tag/programming/index.html">#programming</a>
+              <a href="/blog/tag/productivity/index.html">#productivity</a>
+        </span>
+     </div>
+   </div>
+ </div>
+   <p class="lead">Writing code is easy; writing maintainable code is a craft. As software engineers, we often focus on delivering features and fixing bugs, but maintainable code is the foundation of scalable, long-term success. Code that’s clean, understandable, and adaptable not only saves time and money but also reduces frustration for everyone working with it, including your future self.
+       <div class="readmore">
+          <a href="/blog/posts/the-art-of-writing-maintainable-code.html" role="button">Read more</a>
+       <div>
+</article>
+ <hr>
+<article class="blog">
+<style>
   .some-snippets-of-code-for-your-swift-apps {
     margin-bottom: 2em;
   }
