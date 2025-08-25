@@ -77,6 +77,79 @@
 </header>
 <article class="blog">
 <style>
+  .from-theory-to-practice {
+    margin-bottom: 2em;
+  }
+  .from-theory-to-practice::before {
+    background-size: cover;
+    -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5);
+    content:'';
+    position:absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: -2;
+  }
+  .from-theory-to-practice::after {
+    content:'';
+    position:absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,100,255,0.8);
+    /*mix-blend-mode: darken;
+    mix-blend-mode: color-burn;
+    mix-blend-mode: hard-light;*/
+    mix-blend-mode: overlay;
+    z-index: -1;
+  }
+  .from-theory-to-practice-container,
+  .from-theory-to-practice-container::before,
+  .from-theory-to-practice-container::after {
+    height: 25rem;
+  }
+  .from-theory-to-practice-bleed-container,
+  .from-theory-to-practice-bleed-container::before,
+  .from-theory-to-practice-bleed-container::after {
+    height: 35rem;
+  }
+    @media (max-width: 48rem) {
+        .from-theory-to-practice-container,
+        .from-theory-to-practice-container::before,
+        .from-theory-to-practice-container::after{
+            height: 20rem;
+            margin-bottom: 3rem;
+        }
+    }
+</style>
+ <div class="
+    post-title-container
+        from-theory-to-practice from-theory-to-practice-container hero-hov
+  ">
+   <div class="heading-container hero-heading hero-heading-blog">
+     <h1>
+          <a href="/blog/posts/from-theory-to-practice.html" title="From Theory to Practice: 5 Platforms That Turn Learning Into Doing">From Theory to Practice: 5 Platforms That Turn Learning Into Doing</a>
+     </h1>
+     <div class="
+        post-meta
+      ">
+      <span>25/08/2025</span>
+        <span>
+              <a href="/blog/tag/programming/index.html">#programming</a>
+              <a href="/blog/tag/studying/index.html">#studying</a>
+              <a href="/blog/tag/resources/index.html">#resources</a>
+        </span>
+     </div>
+   </div>
+ </div>
+   <p class="lead">Ever feel stuck in <em>tutorial hell</em> - watching endless videos but never actually applying what you learn? I’ve been there too. Books and courses are fantastic - they give structure, context, and explanations - but real understanding often comes when you <em>actually do it</em>.
+       <div class="readmore">
+          <a href="/blog/posts/from-theory-to-practice.html" role="button">Read more</a>
+       <div>
+</article>
+ <hr>
+<article class="blog">
+<style>
   .ten-reason-to-use-a-snippet-manager-in-the-ai-era {
     margin-bottom: 2em;
   }
@@ -358,78 +431,6 @@
    <p class="lead">In the fast-paced world of software development, efficiency isn’t just nice to have; it’s essential. Code snippets, those handy pieces of reusable code, can significantly boost your productivity, but only if you manage them effectively. Enter <a href="https://extiri.com/codemenu.html">CodeMenu</a> by Extiri, a snippet manager designed not just for storing code but for transforming how you code, design, and even think about your work.
        <div class="readmore">
           <a href="/blog/posts/ultimate-guide-to-snippet-management-with-codemenu.html" role="button">Read more</a>
-       <div>
-</article>
- <hr>
-<article class="blog">
-<style>
-  .the-art-of-writing-maintainable-code {
-    margin-bottom: 2em;
-  }
-  .the-art-of-writing-maintainable-code::before {
-    background-size: cover;
-    -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5);
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    z-index: -2;
-  }
-  .the-art-of-writing-maintainable-code::after {
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    background-color: rgba(100,0,255,0.8);
-    /*mix-blend-mode: darken;
-    mix-blend-mode: color-burn;
-    mix-blend-mode: hard-light;*/
-    mix-blend-mode: overlay;
-    z-index: -1;
-  }
-  .the-art-of-writing-maintainable-code-container,
-  .the-art-of-writing-maintainable-code-container::before,
-  .the-art-of-writing-maintainable-code-container::after {
-    height: 25rem;
-  }
-  .the-art-of-writing-maintainable-code-bleed-container,
-  .the-art-of-writing-maintainable-code-bleed-container::before,
-  .the-art-of-writing-maintainable-code-bleed-container::after {
-    height: 35rem;
-  }
-    @media (max-width: 48rem) {
-        .the-art-of-writing-maintainable-code-container,
-        .the-art-of-writing-maintainable-code-container::before,
-        .the-art-of-writing-maintainable-code-container::after{
-            height: 20rem;
-            margin-bottom: 3rem;
-        }
-    }
-</style>
- <div class="
-    post-title-container
-        the-art-of-writing-maintainable-code the-art-of-writing-maintainable-code-container hero-hov
-  ">
-   <div class="heading-container hero-heading hero-heading-blog">
-     <h1>
-          <a href="/blog/posts/the-art-of-writing-maintainable-code.html" title="The Art of Writing Maintainable Code - Best Practices">The Art of Writing Maintainable Code - Best Practices</a>
-     </h1>
-     <div class="
-        post-meta
-      ">
-      <span>10/01/2025</span>
-        <span>
-              <a href="/blog/tag/programming/index.html">#programming</a>
-              <a href="/blog/tag/productivity/index.html">#productivity</a>
-        </span>
-     </div>
-   </div>
- </div>
-   <p class="lead">Writing code is easy; writing maintainable code is a craft. As software engineers, we often focus on delivering features and fixing bugs, but maintainable code is the foundation of scalable, long-term success. Code that’s clean, understandable, and adaptable not only saves time and money but also reduces frustration for everyone working with it, including your future self.
-       <div class="readmore">
-          <a href="/blog/posts/the-art-of-writing-maintainable-code.html" role="button">Read more</a>
        <div>
 </article>
 <nav class="pagination" role="navigation">

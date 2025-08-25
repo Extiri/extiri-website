@@ -6,9 +6,93 @@
 </description>
     <link>http://127.0.0.1/blog/</link>
     <atom:link href="http://127.0.0.1/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 23 Aug 2025 05:38:17 +0530</pubDate>
-    <lastBuildDate>Sat, 23 Aug 2025 05:38:17 +0530</lastBuildDate>
+    <pubDate>Mon, 25 Aug 2025 18:21:32 +0200</pubDate>
+    <lastBuildDate>Mon, 25 Aug 2025 18:21:32 +0200</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
+    
+      <item>
+        <title>From Theory to Practice: 5 Platforms That Turn Learning Into Doing</title>
+        <description>&lt;p class=&quot;lead&quot;&gt;Ever feel stuck in &lt;em&gt;tutorial hell&lt;/em&gt; - watching endless videos but never actually applying what you learn? I’ve been there too. Books and courses are fantastic - they give structure, context, and explanations - but real understanding often comes when you &lt;em&gt;actually do it&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;Over time, I’ve discovered several platforms that take concepts from theory to hands-on experience. Each one is free and ready to help you practice and internalize what you learn.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;1-cryptohack--experiment-with-cryptography&quot;&gt;1. CryptoHack – Experiment with Cryptography&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/assets/img/cryptohack-screenshot.png&quot; alt=&quot;CryptoHack&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Cryptography has always fascinated me. Recently, I wanted a way to practice it beyond reading theory, and that’s when I found &lt;strong&gt;CryptoHack&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;CryptoHack offers challenges that let you experiment directly with cryptographic algorithms. From XOR operations to RSA attacks, you get to see how the theory works in practice. They also have structured introductory courses if you want guided learning.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://cryptohack.org&quot;&gt;Explore CryptoHack&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;2-iximiuz-labs--hands-on-devops&quot;&gt;2. iximiuz Labs – Hands-On DevOps&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/assets/img/ixizmuz-screenshot.png&quot; alt=&quot;iximiuz Labs&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I often learn Linux or Docker from blogs or books - but the moment it clicks is when I actually spin it up. That’s where &lt;strong&gt;iximiuz Labs&lt;/strong&gt; comes in.&lt;/p&gt;
+
+&lt;p&gt;This platform provides practical challenges in Linux, Docker, and Kubernetes. Each challenge is designed to let you solve real-world tasks, deepening your understanding of the concepts while keeping it safe in a sandboxed environment.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://labs.iximiuz.com/challenges&quot;&gt;Try iximiuz Labs&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;3-deep-ml--understand-machine-learning-from-the-inside&quot;&gt;3. Deep-ML – Understand Machine Learning From the Inside&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/assets/img/deepml-screenshot.png&quot; alt=&quot;Deep-ML&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Reading about PCA, neural networks, or gradient descent is one thing - but implementing them yourself is where understanding solidifies.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Deep-ML&lt;/strong&gt; offers machine learning and deep learning challenges crafted to make you code the algorithms yourself. It’s a structured playground that helps you see how the math and theory translate into real computation.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.deep-ml.com&quot;&gt;Start with Deep-ML&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;4-webgpu-puzzles--feel-parallel-execution&quot;&gt;4. WebGPU Puzzles – Feel Parallel Execution&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/assets/img/wgpupuzzles-screenshot.png&quot; alt=&quot;WebGPU Puzzles&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;GPU programming can feel abstract until you run code yourself. &lt;strong&gt;WebGPU Puzzles&lt;/strong&gt; brings WGSL coding directly to your browser, no installation required.&lt;/p&gt;
+
+&lt;p&gt;Through small compute puzzles, you dispatch GPU threads and see parallel execution in action. It’s a surprisingly intuitive way to get a tactile feel for GPU computing fundamentals.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://gpupuzzles.answer.ai&quot;&gt;Explore WebGPU Puzzles&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;5-project-euler--sharpen-your-mathematical-thinking&quot;&gt;5. Project Euler – Sharpen Your Mathematical Thinking&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/assets/img/projecteuler-screenshot.png&quot; alt=&quot;Project Euler&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Reading about algorithms is useful - but solving them is transformative.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Project Euler&lt;/strong&gt; offers small, elegant math-and-programming problems that make you think algorithmically. I use it especially to train my mathematical thinking, and each solved problem feels like a small victory that reinforces the concepts I’ve learned.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://projecteuler.net&quot;&gt;Try Project Euler&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;hands-on-learning-matters&quot;&gt;Hands-On Learning Matters&lt;/h2&gt;
+
+&lt;p&gt;Books, blogs, and courses give you the foundation. Hands-on practice turns that knowledge into skill. These platforms have helped me solidify concepts, see results instantly, and stay motivated by giving tangible accomplishments along the way.&lt;/p&gt;
+
+&lt;p&gt;I hope they do the same for you. Dive in, experiment, fail, fix, and learn - your brain will thank you.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 25 Aug 2025 00:00:00 +0200</pubDate>
+        <link>http://127.0.0.1/blog/posts/from-theory-to-practice</link>
+        <guid isPermaLink="true">http://127.0.0.1/blog/posts/from-theory-to-practice</guid>
+        
+        <category>programming</category>
+        
+        <category>studying</category>
+        
+        <category>resources</category>
+        
+        
+      </item>
     
       <item>
         <title>10 Reason to Use a Snippet Manager in the AI Era</title>
@@ -86,7 +170,7 @@
 
 &lt;p&gt;By integrating a powerful snippet manager like CodeMenu into your toolkit, you can leverage the strengths of both AI and human organization. CodeMenu’s features—like placeholders, offline AI functions, and support for 55+ languages ensure you’re ready to handle whatever challenges come your way.&lt;/p&gt;
 </description>
-        <pubDate>Sun, 26 Jan 2025 00:00:00 +0530</pubDate>
+        <pubDate>Sun, 26 Jan 2025 00:00:00 +0100</pubDate>
         <link>http://127.0.0.1/blog/posts/ten-reason-to-use-a-snippet-manager-in-the-ai-era</link>
         <guid isPermaLink="true">http://127.0.0.1/blog/posts/ten-reason-to-use-a-snippet-manager-in-the-ai-era</guid>
         
@@ -153,7 +237,7 @@
 
 &lt;p&gt;Building a personal knowledge base isn’t just about hoarding information; it’s about crafting a dynamic, ever-evolving tool that grows with you. Tools like Obsidian, Roam Research and CodeMenu empower you to weave all strands of your digital life into a coherent, powerful tool for personal and professional growth. Whether you’re coding, writing, designing, or learning, your personal database is your ally in mastering the information age.&lt;/p&gt;
 </description>
-        <pubDate>Sun, 26 Jan 2025 00:00:00 +0530</pubDate>
+        <pubDate>Sun, 26 Jan 2025 00:00:00 +0100</pubDate>
         <link>http://127.0.0.1/blog/posts/building-your-personal-knowledge-base</link>
         <guid isPermaLink="true">http://127.0.0.1/blog/posts/building-your-personal-knowledge-base</guid>
         
@@ -340,7 +424,7 @@ Prevents vulnerabilities from slipping into production.&lt;/p&gt;
 
 &lt;hr /&gt;
 </description>
-        <pubDate>Sat, 18 Jan 2025 00:00:00 +0530</pubDate>
+        <pubDate>Sat, 18 Jan 2025 00:00:00 +0100</pubDate>
         <link>http://127.0.0.1/blog/posts/the-power-of-automation-useful-tools-for-automating</link>
         <guid isPermaLink="true">http://127.0.0.1/blog/posts/the-power-of-automation-useful-tools-for-automating</guid>
         
@@ -417,7 +501,7 @@ Prevents vulnerabilities from slipping into production.&lt;/p&gt;
 
 &lt;p&gt;By integrating CodeMenu into your daily coding routine, you’re not just managing snippets; you’re enhancing your entire development process. From centralizing your knowledge base to leveraging AI for smarter work, CodeMenu is more than a tool; it’s a partner in your coding journey. Start today, and watch how your productivity and creativity soar.&lt;/p&gt;
 </description>
-        <pubDate>Fri, 10 Jan 2025 00:00:00 +0530</pubDate>
+        <pubDate>Fri, 10 Jan 2025 00:00:00 +0100</pubDate>
         <link>http://127.0.0.1/blog/posts/ultimate-guide-to-snippet-management-with-codemenu</link>
         <guid isPermaLink="true">http://127.0.0.1/blog/posts/ultimate-guide-to-snippet-management-with-codemenu</guid>
         
@@ -599,7 +683,7 @@ Instead of creating a full plugin system for a one-off feature, write a modular,
 &lt;h3 id=&quot;11-avoid-cargo-cult-programming&quot;&gt;&lt;strong&gt;11. Avoid Cargo Cult Programming&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;Cargo cult programming occurs when developers copy code or patterns without fully understanding their purpose, often because “it worked elsewhere” or “everyone does it this way.” It also happens when, for example, a bug is solved by duct-taping it with an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if&lt;/code&gt; without fixing the underlying issue. While this approach may produce functional code in the short term, it can lead to unnecessary complexity, bugs, and a lack of clarity for future maintainers. To write maintainable code, focus on understanding the problem you’re solving and the rationale behind each implementation choice. Avoid blindly replicating code — be intentional, document your reasoning, and strive for simplicity and readability.&lt;/p&gt;
 </description>
-        <pubDate>Fri, 10 Jan 2025 00:00:00 +0530</pubDate>
+        <pubDate>Fri, 10 Jan 2025 00:00:00 +0100</pubDate>
         <link>http://127.0.0.1/blog/posts/the-art-of-writing-maintainable-code</link>
         <guid isPermaLink="true">http://127.0.0.1/blog/posts/the-art-of-writing-maintainable-code</guid>
         
@@ -901,7 +985,7 @@ Instead of creating a full plugin system for a one-off feature, write a modular,
 
 &lt;p&gt;As a sidenote, if you are dealing with many snippets of various types (like these ones), CodeMenu can help you organize, access and use their full potential.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 03 Oct 2024 00:00:00 +0530</pubDate>
+        <pubDate>Thu, 03 Oct 2024 00:00:00 +0200</pubDate>
         <link>http://127.0.0.1/blog/posts/some-snippets-of-code-for-your-swift-apps</link>
         <guid isPermaLink="true">http://127.0.0.1/blog/posts/some-snippets-of-code-for-your-swift-apps</guid>
         
@@ -1716,7 +1800,7 @@ Instead of creating a full plugin system for a one-off feature, write a modular,
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Sat, 21 Sep 2024 00:00:00 +0530</pubDate>
+        <pubDate>Sat, 21 Sep 2024 00:00:00 +0200</pubDate>
         <link>http://127.0.0.1/blog/posts/taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app</link>
         <guid isPermaLink="true">http://127.0.0.1/blog/posts/taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app</guid>
         
