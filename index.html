@@ -158,45 +158,5 @@
   <h1>About</h1>
   <p>Hi! This is Extiri, the place where I (<a href="http://wiktor.thedev.id">Wiktor Wójcik</a>) publish my proffesional apps. You can contact me at wiktor.wojcik<span>@</span>extiri.com</span>.</p>
 </div>
-
-<div id="cookie-consent-banner" style="position:fixed;bottom:0;left:0;width:100%;background:#222;color:#fff;padding:16px;z-index:9999;text-align:center;display:none;font-size:1em;">
-  This site uses cookies for analytics. <button onclick="acceptCookies()" style="margin:0 8px;padding:6px 18px;border-radius:6px;border:none;background:#4caf50;color:#fff;font-weight:600;cursor:pointer;">Accept</button> <button onclick="declineCookies()" style="margin:0 8px;padding:6px 18px;border-radius:6px;border:none;background:#e53935;color:#fff;font-weight:600;cursor:pointer;">Decline</button>
-  <a href="privacy_policy.html" style="color:#fff;text-decoration:underline;margin-left:12px;">Learn more</a>
-</div>
-<script>
-  function acceptCookies() {
-    localStorage.setItem('cookieConsent', 'accepted');
-    document.getElementById('cookie-consent-banner').style.display = 'none';
-    loadAnalytics();
-  }
-  function declineCookies() {
-    localStorage.setItem('cookieConsent', 'declined');
-    document.getElementById('cookie-consent-banner').style.display = 'none';
-  }
-  function loadAnalytics() {
-    if (!window.gaLoaded) {
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
-      window.gaLoaded = true;
-    }
-  }
-  window.onload = function() {
-    var consent = localStorage.getItem('cookieConsent');
-    if (consent === 'accepted') {
-      loadAnalytics();
-    } else if (consent === 'declined') {
-      // Do nothing
-    } else {
-      document.getElementById('cookie-consent-banner').style.display = 'block';
-    }
-  }
-</script>
 </body>
 </html>
