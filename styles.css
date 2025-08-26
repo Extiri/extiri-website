@@ -883,3 +883,17 @@ th {
 .cookie-consent-buttons .button-secondary:hover {
     background-color: #e0e0e0;
 }
+
+/* Contact form container and fields: ensure box-sizing and equal horizontal padding */
+#contact-form, #contact-form input, #contact-form textarea, #contact-form button {
+    box-sizing: border-box;
+}
+#contact-form {
+    padding-left: 28px;
+    padding-right: 28px;
+}
+#contact-form input,
+#contact-form textarea {
+    padding-left: 14px;
+    padding-right: 14px;
+}
