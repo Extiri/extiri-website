@@ -38,11 +38,6 @@
         }
     </script>
     <script src="scripts.js"></script>
-    <style>
-        #contact-form, #contact-form input, #contact-form textarea, #contact-form button {
-            box-sizing: border-box;
-        }
-    </style>
 </head>
 
 <body>
@@ -173,44 +168,5 @@
         <h1>About</h1>
         <p>Hi! This is Extiri, the place where I (<a href="http://wiktor.thedev.id">Wiktor Wójcik</a>) publish my proffesional apps. You can contact me at wiktor.wojcik<span>@</span>extiri.com</span>.</p>
     </div>
-
-    <div class="section" id="contact">
-        <h1>Contact</h1>
-        <form id="contact-form" style="max-width:420px;margin:0 auto 32px auto;padding:32px 28px;background:rgba(255,255,255,0.08);border-radius:16px;box-shadow:0 2px 16px rgba(0,0,0,0.10);backdrop-filter:blur(2px);">
-            <label for="from-email" style="display:block;margin-bottom:8px;font-weight:500;color:#ffb300;">Your email (optional)</label>
-            <input type="email" id="from-email" name="from-email" style="width:100%;padding:12px 14px 12px 14px;margin-bottom:18px;border-radius:8px;border:1px solid #ffe082;background:#23272e;color:#fff;font-size:1em;">
-            <label for="subject" style="display:block;margin-bottom:8px;font-weight:500;color:#ffb300;">Subject</label>
-            <input type="text" id="subject" name="subject" required style="width:100%;padding:12px 14px 12px 14px;margin-bottom:18px;border-radius:8px;border:1px solid #ffe082;background:#23272e;color:#fff;font-size:1em;">
-            <label for="body" style="display:block;margin-bottom:8px;font-weight:500;color:#ffb300;">Message</label>
-            <textarea id="body" name="body" required rows="5" style="width:100%;padding:12px 14px 12px 14px;margin-bottom:18px;border-radius:8px;border:1px solid #ffe082;background:#23272e;color:#fff;font-size:1em;"></textarea>
-            <button type="submit" class="button-primary" style="width:100%;padding:14px 0;font-size:1.1em;border-radius:8px;background:#ffb300;color:#23272e;font-weight:600;border:none;box-shadow:0 1px 6px rgba(0,0,0,0.07);transition:background 0.18s;">Send</button>
-            <div id="contact-status" style="margin-top:16px;font-size:1em;color:#ffb300;text-align:center;"></div>
-        </form>
-    </div>
-    <script>
-        document.getElementById('contact-form').onsubmit = async function(e) {
-            e.preventDefault();
-            const from = document.getElementById('from-email').value;
-            const subject = document.getElementById('subject').value;
-            const body = document.getElementById('body').value;
-            const status = document.getElementById('contact-status');
-            status.textContent = 'Sending...';
-            try {
-                const res = await fetch('https://n8n.extiri.com/webhook/contact-form', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ from, subject, body })
-                });
-                if (res.ok) {
-                    status.textContent = 'Message sent! Thank you.';
-                    document.getElementById('contact-form').reset();
-                } else {
-                    status.textContent = 'Failed to send. Please try again.';
-                }
-            } catch {
-                status.textContent = 'Failed to send. Please try again.';
-            }
-        };
-    </script>
 </body>
 </html>
