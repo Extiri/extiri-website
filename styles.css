@@ -1004,4 +1004,68 @@ th {
   .czytnik-icon{ width:140px; margin-top:28px; }
 }
 
-/* end Czytnik page styles */
+/* App card description clamp + expander button */
+.preview-card p.card-desc {
+  /* Restrict height to two lines by default and animate changes to max-height */
+  line-height: 1.6rem; /* consistent with site paragraph defaults */
+  max-height: calc(1.6rem * 2);
+  overflow: hidden;
+  transition: max-height 0.36s cubic-bezier(.2,.9,.2,1), opacity 0.26s ease;
+  position: relative;
+  margin-bottom: 0.8rem;
+  -webkit-box-orient: vertical;
+}
+
+/* Use line-clamp for browsers that support it to show an ellipsis */
+.preview-card p.card-desc.clamped {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.preview-card p.card-desc.expanded {
+  /* allow the full content and expand the max-height for animation */
+  max-height: 2000px; /* large enough to contain most descriptions */
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+  display: block;
+}
+
+/* Subtle inline 'More' control appended to card descriptions */
+.card-more {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.72);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0 6px;
+  margin-left: 6px;
+  font-size: 0.98em;
+  vertical-align: baseline;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.14s ease, transform 0.12s ease;
+}
+.card-more:hover {
+  color: var(--accent-soft, #6EDEFC);
+  transform: translateY(-1px);
+}
+.card-more:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(110,222,252,0.12);
+  border-radius: 6px;
+}
+
+/* Ensure preview cards keep good spacing when button is appended */
+.preview-card .card-more-wrapper {
+  display: inline-block;
+}
+
+@media (max-width: 868px) {
+  .preview-card p.card-desc {
+    line-height: 1.5rem;
+    max-height: calc(1.5rem * 2);
+  }
+}
