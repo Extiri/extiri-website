@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Chitneek – Read Anything Aloud</title>
+    <title>Chitneek – Simple, Private Text‑to‑Speech</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Chitneek for iOS – Instantly read PDFs, websites, and text aloud. Beautiful glassmorphism design, CarPlay support, and seamless iOS integration.">
+    <meta name="description" content="Chitneek for iOS – a simple, privacy‑focused text‑to‑speech app that turns PDFs, notes, and web content into clear, natural audio. Works offline with on‑device voices, organized library, and CarPlay.">
     <link rel="icon" type="image/x-icon" href="images/czytnik/czytnik-icon.png">
     <style>
         .czytnik-hero {
@@ -117,7 +117,7 @@
             box-shadow: 0 8px 32px rgba(38,171,236,0.08);
             backdrop-filter: blur(12px);
             border: 1px solid #232B3A;
-            max-width: 600px;
+            max-width: 900px;
             margin: 48px auto;
             padding: 40px 32px;
             color: #eafcff;
@@ -135,6 +135,26 @@
             line-height: 1.7em;
             margin-bottom: 10px;
             opacity: 0.96;
+        }
+        /* Split sections with interleaved imagery */
+        .split-section { display: flex; gap: 28px; align-items: center; }
+        .split-media { flex: 1 1 50%; text-align: center; }
+        .split-media img { width: 100%; max-width: 520px; height: auto; border-radius: 16px; box-shadow: 0 14px 36px rgba(0,0,0,0.45); }
+        .split-content { flex: 1 1 50%; }
+        .split-content h2 { margin-top: 0; }
+
+        /* Compact feature grid with icons */
+        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 18px; margin-top: 12px; }
+        .feature-item { display: grid; grid-template-columns: 42px 1fr; gap: 12px; align-items: start; padding: 8px 6px; border-radius: 12px; }
+        .feature-icon { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: rgba(38,171,236,0.10); border: 1px solid #232B3A; box-shadow: inset 0 1px 0 rgba(255,255,255,0.05); }
+        .feature-icon span { font-size: 1.2em; }
+        .feature-item h3 { margin: 0 0 4px 0; font-size: 1.02em; color: #26ABEC; font-weight: 700; letter-spacing: .2px; }
+        .feature-item p { margin: 0; font-size: 0.98em; opacity: .92; }
+
+        @media (max-width: 980px) {
+          .split-section { flex-direction: column; }
+          .split-media img { max-width: 680px; }
+          .feature-grid { grid-template-columns: 1fr; }
         }
         .section-divider {
             border: none;
@@ -167,6 +187,36 @@
         .footer-apple a:hover {
             text-decoration: underline;
             color: #6EDEFC;
+        }
+        /* Screenshots */
+        .screenshots-section .section-divider { width: 64%; }
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 12px;
+        }
+        .screenshot-card {
+            background: rgba(24,26,28,0.72);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 18px;
+            box-shadow: 0 10px 26px rgba(3,6,10,0.45);
+            padding: 14px;
+        }
+        .screenshot-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+        }
+        .screenshot-caption {
+            margin-top: 8px;
+            color: #cfe9f5;
+            font-size: 0.98em;
+            opacity: 0.9;
+        }
+        @media (max-width: 900px) {
+            .screenshot-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 700px) {
             .section-card {
@@ -235,9 +285,9 @@
     </div>
     <section class="czytnik-hero">
         <div class="czytnik-hero-bg"></div>
-        <img src="images/czytnik/czytnik-icon.png" alt="Czytnik app icon" class="czytnik-icon">
-        <h1 class="czytnik-title">chitneek</h1>
-        <p class="czytnik-subtitle">Let your iPhone read to you.<br>Any text, any time, anywhere.</p>
+        <img src="images/czytnik/czytnik-icon.png" alt="Chitneek app icon" class="czytnik-icon">
+        <h1 class="czytnik-title">Chitneek</h1>
+        <p class="czytnik-subtitle">Simple, privacy‑focused text‑to‑speech for iPhone. Turn PDFs, notes and web pages into natural audio — entirely on‑device.</p>
         <div class="czytnik-actions">
             <a href="#download" class="button-primary" style="background: none; box-shadow: none; padding: 0; min-width: 180px; height: 54px;">
                 <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" style="height:44px; width:auto; display:block; margin:auto;">
@@ -246,17 +296,138 @@
     </section>
     <section class="section-card fade-in" id="features">
         <hr class="section-divider">
-        <h2>Effortless Listening</h2>
-        <p>Just add a file, paste text, or enter a website URL. Czytnik instantly turns it into clear, natural speech. No setup, no fuss - just tap and listen.</p>
-        <h2>Universal Text Support</h2>
-        <p>PDFs, websites, plain text - Czytnik reads them all. Preview your text, adjust playback, and enjoy seamless integration with iOS media controls and CarPlay.</p>
-        <h2>Native iOS Experience</h2>
-        <p>Enjoy smooth playback, background listening, and full support for iOS features. Czytnik feels right at home on your device and in your car.</p>
+        <div class="split-section">
+            <div class="split-content">
+                <h2>Why Chitneek</h2>
+                <p>Chitneek is a straightforward, privacy‑focused text‑to‑speech app. It turns PDFs, notes, and web content into clear, natural audio — all processed on your device.</p>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon"><span>🛡️</span></div>
+                        <div>
+                            <h3>Private & Offline</h3>
+                            <p>Files stay on your device for reliable, private listening without internet.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><span>📚</span></div>
+                        <div>
+                            <h3>Organized Library</h3>
+                            <p>Use named groups to keep content tidy and easy to find.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><span>🔊</span></div>
+                        <div>
+                            <h3>Natural Voices</h3>
+                            <p>Uses Apple’s built‑in iOS voices for a natural experience.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><span>⚡</span></div>
+                        <div>
+                            <h3>Simple by Design</h3>
+                            <p>No accounts, no cloud — just add, tap, and listen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="split-media">
+                <img src="images/czytnik/library-screenshot.png" alt="Library view with groups and items">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-card fade-in">
+        <div class="split-section" style="flex-direction: row-reverse;">
+            <div class="split-content">
+                <h2>Listening, Your Way</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon"><span>🎚️</span></div>
+                        <div>
+                            <h3>Customizable Playback</h3>
+                            <p>Adjust speech rate and pitch to suit your preferences.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><span>🚗</span></div>
+                        <div>
+                            <h3>CarPlay Support</h3>
+                            <p>Integrated playback controls for distraction‑free listening on the road.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><span>🔈</span></div>
+                        <div>
+                            <h3>Clear Audio</h3>
+                            <p>High‑quality, on‑device voices keep narration crisp and consistent.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="split-media">
+                <img src="images/czytnik/book-reader-screenshot.png" alt="Reader screen with playback controls">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-card fade-in">
+        <div class="split-section">
+            <div class="split-content">
+                <h2>Import and Discover</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon"><span>📥</span></div>
+                        <div>
+                            <h3>Easy Import</h3>
+                            <p>Add PDFs from Files or share into Chitneek from other apps.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><span>📄</span></div>
+                        <div>
+                            <h3>Text → PDF</h3>
+                            <p>Paste text or save a web page; Chitneek creates a tidy PDF to listen to.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><span>🌐</span></div>
+                        <div>
+                            <h3>Discovery</h3>
+                            <p>Find books from Project Gutenberg and follow RSS feeds in the app.</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="note-text" style="margin-top: 12px; color:#9db8c6;">A subscription is required to access all features.</p>
+            </div>
+            <div class="split-media">
+                <img src="images/czytnik/additional-functions-screenshot.png" alt="Additional tools like text to PDF and discovery">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-card screenshots-section fade-in" id="screenshots">
+        <hr class="section-divider">
+        <h2>Screenshots</h2>
+        <div class="screenshot-grid">
+            <div class="screenshot-card">
+                <img src="images/czytnik/library-screenshot.png" alt="Chitneek library view with groups and items">
+                <div class="screenshot-caption">Organized Library — browse groups, sort, and find items fast</div>
+            </div>
+            <div class="screenshot-card">
+                <img src="images/czytnik/book-reader-screenshot.png" alt="Book reader screen with playback controls">
+                <div class="screenshot-caption">Reader — natural iOS voices with playback controls</div>
+            </div>
+            <div class="screenshot-card">
+                <img src="images/czytnik/additional-functions-screenshot.png" alt="Additional functions like text to PDF and discovery">
+                <div class="screenshot-caption">More tools — text to PDF, discovery from Gutenberg and RSS</div>
+            </div>
+        </div>
     </section>
     <section class="section-card fade-in" id="download">
         <hr class="section-divider">
         <h2>Get Chitneek</h2>
-        <p>Ready to listen? Download Chitneek from the App Store and start enjoying your texts hands-free.</p>
+        <p>Ready to listen? Download Chitneek from the App Store and turn your documents into audio — privately and offline.</p>
         <a href="#" class="button-primary" style="background: none; box-shadow: none; padding: 0; min-width: 180px; height: 54px;">
             <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" style="height:44px; width:auto; display:block; margin:auto;">
         </a>
@@ -264,12 +435,14 @@
     <section class="section-card fade-in" id="faq">
         <hr class="section-divider">
         <h2>FAQ</h2>
-        <h3>What can Chitneek read?</h3>
-        <p>PDFs, websites, and plain text. Just add, paste, or enter a link.</p>
-        <h3>Can I use Chitneek in my car?</h3>
-        <p>Yes! Chitneek supports CarPlay for safe, hands-free listening.</p>
-        <h3>Does it work offline?</h3>
-        <p>Yes, for files and pasted text. Website reading requires an internet connection.</p>
+        <h3>Does Chitneek work offline?</h3>
+        <p>Yes. Files and pasted text are processed on‑device using iOS voices. Saving a web page to a PDF works offline after you save it.</p>
+        <h3>Which voices does it use?</h3>
+        <p>Chitneek uses Apple’s built‑in voices, so output sounds natural and works system‑wide.</p>
+        <h3>How do I import content?</h3>
+        <p>Add PDFs from Files or share into Chitneek from other apps. You can also paste text or save a web page to a PDF to listen later.</p>
+        <h3>Is there a subscription?</h3>
+        <p>Yes. A subscription is required to access all features.</p>
     </section>
     <footer class="footer-apple">
         <hr class="section-divider">
