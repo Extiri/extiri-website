@@ -53,7 +53,7 @@
     </div>
     <div class="navbar">
         <div class="navbar-content">
-            <a href="./index.html"><img src="images/extiri-white-logo.webp" width="110px" class="navbar-logo"></a>
+            <a href="./index.html"><img src="images/" width="110px" class="navbar-logo"></a>
             
             <span class="big_screen">
                 <p class="navbar-item" onclick="goToHome()">Home</p>
@@ -76,19 +76,30 @@
         </div>
     </div>
     
-    <div class="main">
-        <div style="position: relative; display: block; top: 15%; margin-left: auto; margin-right: auto; width: min(450px, 90%); text-align: center;">
-            <img loading="eager" fetchpriority="high" decoding="async" style="position: relative; left: 15px; margin-left: 20px; width: min(400px, 100%)" src="images/extiri-black-logo.webp" alt="Extiri logo">
-            <p style="color: black; font-size: 1.5em; text-align: center; line-height: 1.2em; width: min(400px, 100%); margin-left: auto; margin-right: auto;">Simply useful and cool apps</p>
+    <!-- Apple-style hero (navbar remains unchanged) -->
+    <section class="home-hero" id="home" aria-label="Extiri home hero">
+        <div class="home-hero-bg"></div>
+        <div class="home-hero-inner">
+            <img
+                class="home-hero-logo"
+                src="images/extiri-text-only-white-light.png"
+                width="760"
+                height="160"
+                alt="Extiri"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+            />
+            <p class="home-hero-subtitle">Simply useful and cool apps.</p>
+            <div class="home-hero-actions">
+                <a href="#apps" class="button-primary home-cta">Explore apps</a>
+                <a href="blog/index.html" class="home-ghost-cta">Read the blog</a>
+            </div>
         </div>
-    </div>
+    </section>
     
     <div class="expanding-section" id="apps">
-        <br>
-        <br>
-        <br>
-        
-        <h1>Apps</h1>
+        <h1 style="margin-top: 56px;">Apps</h1>
         <p class="apps-intro">Save and use your time better — productivity apps, utilities and tools that streamline your work.</p>
 
         <section class="section-card apps-section" aria-labelledby="apps-productivity">
@@ -174,22 +185,24 @@
         </section>
     </div>
     
-    <div class="section">
-        <br>
-        <br>
-        <br>
-        <h1>Blog</h1>
-        <a href="blog/index.html">visit blog</a>
-        <p>Extiri's blog takes up the topics of general software engineering and programming. Here you will find tutorials, guides and more.</p>
-    </div>
+    <section class="section-card" aria-labelledby="blog-heading" style="width:min(90%, 1100px);">
+        <h1 id="blog-heading">Blog</h1>
+        <p>Extiri's blog covers software engineering, practical guides, and insights from building useful tools.</p>
+        <a class="button-primary" href="blog/index.html">Visit the blog</a>
+    </section>
     
     <br>
     <br>
     <br>
     
-    <div class="section" id="about">
-        <h1>About</h1>
-        <p>Hi! This is Extiri, the place where I (<a href="http://wiktor.thedev.id">Wiktor Wójcik</a>) publish my proffesional apps. You can contact me at wiktor.wojcik<span>@</span>extiri.com</span>.</p>
-    </div>
+    <section class="footer-apple" id="about">
+        <h2 style="margin-top:0; margin-bottom: 8px;">About</h2>
+        <p class="footer-note">Extiri is where I (Wiktor Wójcik) publish simple, useful apps. Contact: wiktor.wojcik@extiri.com</p>
+        <div style="margin-top: 8px;">
+            <a href="#apps">Apps</a> ·
+            <a href="blog/index.html">Blog</a> ·
+            <a href="privacy_policy.html">Privacy</a>
+        </div>
+    </section>
 </body>
 </html>
