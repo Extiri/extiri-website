@@ -198,38 +198,10 @@ html, body {
               radial-gradient(1000px 520px at 90% 20%, rgba(255,150,90,0.15) 0%, rgba(10,10,10,0) 50%),
               linear-gradient(180deg, rgba(14,16,18,1) 0%, rgba(8,10,12,1) 100%);
   filter: saturate(1.05);
+  will-change: transform;
 }
 /* Subtle animated gradient blobs for richness */
-.home-hero-bg::before,
-.home-hero-bg::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.22;
-  pointer-events: none;
-}
-.home-hero-bg::before {
-  width: 620px; height: 620px;
-  background: radial-gradient(circle at 50% 50%, rgba(110, 222, 252, 0.55), rgba(110, 222, 252, 0) 60%);
-  top: -120px; left: -160px;
-  animation: float1 22s ease-in-out infinite alternate;
-}
-.home-hero-bg::after {
-  width: 520px; height: 520px;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 179, 0, 0.45), rgba(255, 179, 0, 0) 60%);
-  bottom: -160px; right: -140px;
-  animation: float2 26s ease-in-out infinite alternate;
-}
-
-@keyframes float1 {
-  0%   { transform: translate3d(0,0,0) scale(1); }
-  100% { transform: translate3d(60px, 40px, 0) scale(1.08); }
-}
-@keyframes float2 {
-  0%   { transform: translate3d(0,0,0) scale(1); }
-  100% { transform: translate3d(-60px, -20px, 0) scale(1.05); }
-}
+/* Removed hero floating blobs to keep hero static as requested */
 .home-hero-inner {
   position: relative;
   z-index: 2;
@@ -295,6 +267,49 @@ html, body {
   .home-hero { padding: 100px 16px 56px 16px; min-height: 66vh; }
   .home-hero-actions { gap: 10px; flex-wrap: wrap; }
 }
+
+/* Large, faded logo watermark below the hero (no wrapper needed) */
+.page-watermark {
+  position: fixed;
+  left: 0; right: 0; bottom: 0; top: 0; /* cover full viewport to avoid clipping */
+  pointer-events: none;
+  z-index: 0;
+  background-image: url('images/logo.png');
+  background-repeat: no-repeat;
+  /* anchor to left-top; hide left ~20% by shifting image left so legs can be partially cut off at bottom */
+  background-position: left -15vw bottom -100px;
+  /* slightly smaller so more of the figure fits on screen */
+  background-size: auto 90vh;
+  opacity: 0.06;
+  filter: grayscale(100%);
+}
+@media (max-width: 780px) {
+  .page-watermark { background-size: auto 78vh; background-position: left -16vw top 0; }
+}
+
+/* Ensure content sits above the watermark */
+.expanding-section, .section-card, .footer-apple { position: relative; z-index: 1; }
+
+/* Large, faded logo watermark at bottom-right, relative to hero (below in .site-pattern) */
+.site-pattern::after {
+  content: "";
+  position: absolute;
+  right: 2vw;
+  bottom: 2vh;
+  width: auto;
+  height: 70vh;
+  background-image: url('images/logo.png');
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: right bottom;
+  opacity: 0.06;
+  filter: grayscale(100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure all content sits above the watermark */
+.site-pattern > * { position: relative; z-index: 1; }
 
 /* Scroll-reveal base styles */
 .reveal-up { opacity: 0; transform: translate3d(0, 18px, 0); will-change: opacity, transform; }
