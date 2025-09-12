@@ -147,8 +147,45 @@ function initCardExpanders() {
   });
 }
 
+// App filters — show/hide cards by tag
+function initAppFilters() {
+  const filterBar = document.querySelector('.apps-filters');
+  if (!filterBar) return;
+  const buttons = Array.from(filterBar.querySelectorAll('.apps-filter'));
+  const cards = Array.from(document.querySelectorAll('.app.preview-card'));
+
+  function applyFilter(tag) {
+    cards.forEach(card => {
+      // remove any transitional state
+      card.classList.remove('is-hiding');
+
+      if (tag === 'all') {
+        card.removeAttribute('hidden');
+        return;
+      }
+      const tags = (card.getAttribute('data-tags') || '').toLowerCase().split(/\s+/);
+      if (tags.includes(tag)) {
+        card.removeAttribute('hidden');
+      } else {
+        // quick fade-out before hiding
+        card.classList.add('is-hiding');
+        // after a short delay, hide fully for layout
+        setTimeout(() => card.setAttribute('hidden', ''), 120);
+      }
+    });
+  }
+
+  filterBar.addEventListener('click', (e) => {
+    const btn = e.target.closest('.apps-filter');
+    if (!btn) return;
+    buttons.forEach(b => { b.classList.toggle('is-active', b === btn); b.setAttribute('aria-selected', b === btn ? 'true' : 'false'); });
+    applyFilter(btn.dataset.filter);
+  });
+}
+
 // Run the consent handler when the page loads and initialize card expanders
 document.addEventListener('DOMContentLoaded', function() {
   handleConsent();
   initCardExpanders();
+  initAppFilters();
 });
