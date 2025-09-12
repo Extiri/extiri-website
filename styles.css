@@ -333,7 +333,7 @@ html, body {
   /* slightly smaller so more of the figure fits on screen */
   background-size: auto 90vh;
   opacity: 0.06;
-  filter: grayscale(100%);
+  filter: grayscale(60%);
 }
 @media (max-width: 780px) {
   .page-watermark { background-size: auto 78vh; background-position: left -16vw top 0; }
