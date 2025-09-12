@@ -147,6 +147,50 @@ function initCardExpanders() {
   });
 }
 
+// Scroll reveal animations using IntersectionObserver
+function initScrollReveal() {
+  const revealSelector = [
+    '.home-hero-logo',
+    '.home-hero-subtitle',
+    '.home-hero-actions',
+    '.apps-section-title',
+    '.section-card',
+    '.preview-card'
+  ].join(',');
+
+  const nodes = Array.from(document.querySelectorAll(revealSelector));
+  if (!nodes.length) return;
+
+  // add base class and optional stagger via CSS variable
+  nodes.forEach((el, idx) => {
+    el.classList.add('reveal-up');
+    el.style.transitionDelay = `${Math.min((idx % 6) * 60, 240)}ms`;
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        entry.target.style.transitionDelay = entry.target.style.transitionDelay || '0ms';
+        io.unobserve(entry.target);
+      }
+    });
+  }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+
+  nodes.forEach(el => io.observe(el));
+
+  // On load: give hero a head start reveal
+  const heroOrder = [
+    document.querySelector('.home-hero-logo'),
+    document.querySelector('.home-hero-subtitle'),
+    document.querySelector('.home-hero-actions')
+  ];
+  heroOrder.forEach((el, i) => {
+    if (!el) return;
+    el.style.transitionDelay = `${i * 80}ms`;
+  });
+}
+
 // App filters — show/hide cards by tag
 function initAppFilters() {
   const filterBar = document.querySelector('.apps-filters');
@@ -161,11 +205,20 @@ function initAppFilters() {
 
       if (tag === 'all') {
         card.removeAttribute('hidden');
+        // re-trigger reveal for visible cards
+        requestAnimationFrame(() => {
+          card.classList.add('reveal-up');
+          requestAnimationFrame(() => card.classList.add('is-visible'));
+        });
         return;
       }
       const tags = (card.getAttribute('data-tags') || '').toLowerCase().split(/\s+/);
       if (tags.includes(tag)) {
         card.removeAttribute('hidden');
+        requestAnimationFrame(() => {
+          card.classList.add('reveal-up');
+          requestAnimationFrame(() => card.classList.add('is-visible'));
+        });
       } else {
         // quick fade-out before hiding
         card.classList.add('is-hiding');
@@ -187,5 +240,6 @@ function initAppFilters() {
 document.addEventListener('DOMContentLoaded', function() {
   handleConsent();
   initCardExpanders();
+  initScrollReveal();
   initAppFilters();
 });
