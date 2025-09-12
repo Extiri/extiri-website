@@ -1,10 +1,17 @@
 function toggleHamburger() {
-  let menu = document.getElementById("hamburger_menu")
-
-  if (menu.style.visibility === "hidden" || menu.style.visibility === "") {
-    menu.style.visibility = "visible"
+  const menu = document.getElementById('hamburger_menu');
+  if (!menu) return;
+  const isOpen = menu.classList.contains('open') || menu.style.visibility === 'visible';
+  if (isOpen) {
+    menu.classList.remove('open');
+    menu.style.visibility = 'hidden';
+    document.body.classList.remove('menu-open');
+    document.querySelectorAll('img[onclick*="toggleHamburger"]').forEach(btn => btn.setAttribute('aria-expanded', 'false'));
   } else {
-    menu.style.visibility = "hidden"
+    menu.classList.add('open');
+    menu.style.visibility = 'visible';
+    document.body.classList.add('menu-open');
+    document.querySelectorAll('img[onclick*="toggleHamburger"]').forEach(btn => btn.setAttribute('aria-expanded', 'true'));
   }
 }
 
