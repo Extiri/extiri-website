@@ -53,7 +53,7 @@
     </div>
     <div class="navbar">
         <div class="navbar-content">
-            <a href="./index.html"><img src="images/" width="110px" class="navbar-logo"></a>
+            <a href="./index.html"><img src="images/logo.png" width="110px" class="navbar-logo" alt="Extiri"></a>
             
             <span class="big_screen">
                 <p class="navbar-item" onclick="goToHome()">Home</p>
@@ -102,10 +102,19 @@
         <h1 style="margin-top: 56px;">Apps</h1>
         <p class="apps-intro">Save and use your time better — productivity apps, utilities and tools that streamline your work.</p>
 
+        <!-- Filter pills for richer navigation across many apps -->
+        <div class="apps-filters" role="tablist" aria-label="Filter apps">
+            <button class="apps-filter is-active" role="tab" aria-selected="true" data-filter="all">All</button>
+            <button class="apps-filter" role="tab" aria-selected="false" data-filter="mac">Mac</button>
+            <button class="apps-filter" role="tab" aria-selected="false" data-filter="ios">iOS</button>
+            <button class="apps-filter" role="tab" aria-selected="false" data-filter="web">Web</button>
+            <button class="apps-filter" role="tab" aria-selected="false" data-filter="open-source">Open Source</button>
+        </div>
+
         <section class="section-card apps-section" aria-labelledby="apps-productivity">
             <h2 id="apps-productivity" class="apps-section-title">Save and use your time better</h2>
             <div class="app-grid">
-                <div class="app preview-card">
+                <div class="app preview-card" data-tags="mac productivity">
                     <img loading="lazy" decoding="async" src="images/codemenu-icon.webp" style="position: relative; top: 10px; width: min(200px, 90%)" alt="CodeMenu icon">
                     <h2>CodeMenu</h2>
                     <h3>MacOS app</h3>
@@ -117,7 +126,7 @@
                     <img loading="lazy" decoding="async" src="./images/codemenu/dashboard_screenshot.webp" class="preview-image" style="width: min(585px, 99%)" alt="Screenshot of CodeMenu's dashboard">
                 </div>
 
-                <div class="app preview-card">
+                <div class="app preview-card" data-tags="web desktop">
                     <img loading="lazy" decoding="async" src="images/dashbrand/dashbrand-icon.png" style="position: relative; top: 10px; width: min(200px, 90%)" alt="Dashbrand icon">
                     <h2>Dashbrand</h2>
                     <h3>Web App + Desktop App</h3>
@@ -127,7 +136,7 @@
                     <span style="display: inline-block; margin-top: 24px; padding: 8px 20px; background: #f5f5f5; color: #333; border-radius: 18px; font-weight: 500; font-size: 1.1em; box-shadow: 0 2px 8px rgba(0,0,0,0.04); letter-spacing: 0.5px;">Coming soon</span>
                 </div>
 
-                <div class="app preview-card">
+                <div class="app preview-card" data-tags="mac open-source">
                     <img loading="lazy" decoding="async" src="images/Suggestions_icon.webp" style="position: relative; top: 10px; width: min(200px, 90%)" alt="Suggestions icon">
                     <h2>Suggestions</h2>
                     <h3>MacOS app (open source)</h3>
@@ -140,7 +149,7 @@
                     <img loading="lazy" decoding="async" src="./images/suggestions_example_in_xcode.webp" class="preview-image" style="width: min(585px, 99%)" alt="Screenshot of Suggestions window appearing over Xcode">
                 </div>
 
-                <div class="app preview-card">
+                <div class="app preview-card" data-tags="web open-source">
                     <img loading="lazy" decoding="async" src="images/snippets-store-icon.webp" style="position: relative; top: 10px; width: min(200px, 90%)" alt="Snippets Store icon">
                     <h2>Snippets Store</h2>
                     <h3>Web app (open source)</h3>
@@ -153,7 +162,7 @@
                     <img loading="lazy" decoding="async" src="./images/snippets_store_web_app.webp" class="" style="width: min(585px, 99%)" alt="Screenshot of Snippets Store's mainpage">
                 </div>
 
-                <div class="app preview-card">
+                <div class="app preview-card" data-tags="mac cli open-source">
                     <div class="vertical-center">
                         <h2>natsearch</h2>
                         <h3>MacOS CLI app (open source)</h3>
@@ -171,7 +180,7 @@
         <section class="section-card apps-section apps-section--alt" aria-labelledby="apps-leisure">
             <h2 id="apps-leisure" class="apps-section-title">Things to do in your free time</h2>
             <div class="app-grid">
-                <div class="app preview-card">
+                <div class="app preview-card" data-tags="ios leisure">
                     <img src="images/czytnik/czytnik-icon.png" style="position: relative; top: 10px; width: min(200px, 90%)" alt="Chitneek icon">
                     <h2>Chitneek</h2>
                     <h3>iOS app</h3>
@@ -188,7 +197,7 @@
     <section class="section-card" aria-labelledby="blog-heading" style="width:min(90%, 1100px);">
         <h1 id="blog-heading">Blog</h1>
         <p>Extiri's blog covers software engineering, practical guides, and insights from building useful tools.</p>
-        <a class="button-primary" href="blog/index.html">Visit the blog</a>
+        <a class="button-primary" style="margin-top: 10px;" href="blog/index.html">Visit the blog</a>
     </section>
     
     <br>
