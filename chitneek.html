@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+
+        // Set default consent to 'denied' for all tags
+        gtag('consent', 'default', {
+            'analytics_storage': 'denied'
+        });
+
+        // The rest of your gtag config will be handled by the consent banner
+        gtag('js', new Date());
+        gtag('config', 'G-HLY6ZZMNBQ');
+    </script>
     <title>Chitneek – Simple, Private Text‑to‑Speech</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -289,7 +303,7 @@
         <h1 class="czytnik-title">Chitneek</h1>
         <p class="czytnik-subtitle">Simple, privacy‑focused text‑to‑speech for iPhone. Turn PDFs, notes and web pages into natural audio — entirely on‑device.</p>
         <div class="czytnik-actions">
-            <a href="#download" class="button-primary" style="background: none; box-shadow: none; padding: 0; min-width: 180px; height: 54px;">
+            <a href="#download" class="button-primary disabled" style="background: none; box-shadow: none; padding: 0; min-width: 180px; height: 54px;">
                 <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" style="height:44px; width:auto; display:block; margin:auto;">
             </a>
         </div>
@@ -427,7 +441,7 @@
         <hr class="section-divider">
         <h2>Get Chitneek</h2>
         <p>Ready to listen? Download Chitneek from the App Store and turn your documents into audio — privately and offline.</p>
-        <a href="#" class="button-primary" style="background: none; box-shadow: none; padding: 0; min-width: 180px; height: 54px;">
+        <a href="#" class="button-primary disabled" style="background: none; box-shadow: none; padding: 0; min-width: 180px; height: 54px;">
             <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" style="height:44px; width:auto; display:block; margin:auto;">
         </a>
     </section>
