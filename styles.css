@@ -360,6 +360,11 @@ html, body {
   z-index: 0;
 }
 
+.disabled {
+  filter: grayscale(1) brightness(0.6);
+  cursor: not-allowed !important;
+}
+
 /* Ensure all content sits above the watermark */
 .site-pattern > * { position: relative; z-index: 1; }
 
@@ -1047,7 +1052,8 @@ th {
     bottom: 20px;
     right: 20px;
     max-width: 400px;
-    background-color: #fff;
+    color: white;
+    background-color: #222;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     z-index: 1000;
@@ -1064,7 +1070,7 @@ th {
 
 .cookie-consent-content p {
     font-size: 14px;
-    color: #333;
+    color: white;
     line-height: 1.5;
     margin: 0;
 }
