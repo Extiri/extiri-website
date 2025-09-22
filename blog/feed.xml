@@ -6,9 +6,79 @@
 </description>
     <link>http://127.0.0.1/blog/</link>
     <atom:link href="http://127.0.0.1/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 25 Aug 2025 18:21:32 +0200</pubDate>
-    <lastBuildDate>Mon, 25 Aug 2025 18:21:32 +0200</lastBuildDate>
+    <pubDate>Mon, 22 Sep 2025 13:19:54 +0200</pubDate>
+    <lastBuildDate>Mon, 22 Sep 2025 13:19:54 +0200</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
+    
+      <item>
+        <title>Introducing Chitneek for iOS - Hear Your Documents, Simply and Privately</title>
+        <description>&lt;p&gt;Do you want a reading app that’s clean, reliable, and doesn’t force you to sign up for everything? Meet &lt;strong&gt;Chitneek&lt;/strong&gt;, the iPhone app that turns PDFs, EPUBs, web pages, notes, Gutenberg classics, and RSS feeds into spoken text — without cloud uploads or unnecessary complexity.{: .lead}&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;-what-you-can-do-with-chitneek&quot;&gt;🎧 What You Can Do with Chitneek&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/assets/chitneek-screenshots/Screenshot-1.png&quot; alt=&quot;Read PDFs, EPUBs, websites and text&quot; height=&quot;900&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Listen to PDFs, EPUBs, and notes&lt;/strong&gt; using native iOS text-to-speech voices — nothing fancy needed, just clear and dependable reading.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Convert text or web pages into PDFs&lt;/strong&gt; so you can listen later whenever it suits you.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Access Project Gutenberg right inside the app&lt;/strong&gt; — public domain books are just a tap away.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Subscribe to RSS feeds&lt;/strong&gt; and have the latest posts delivered for you to listen to.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Organize your library&lt;/strong&gt; with named groups, and bookmarks so you can easily find where you left off.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Customize playback&lt;/strong&gt;: adjust speed and pitch per document or book to match your listening style.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;CarPlay integration&lt;/strong&gt; so you can keep your eyes on the road while listening.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Sleep timer&lt;/strong&gt; to stop playback automatically — perfect for nighttime listening.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;All local storage &amp;amp; usage&lt;/strong&gt;: your files remain on your device; you’re in control of your data.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;-what-makes-chitneek-special&quot;&gt;🌟 What Makes Chitneek Special&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/assets/chitneek-screenshots/Screenshot-2.png&quot; alt=&quot;Keep you collection organized&quot; height=&quot;900&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Chitneek isn’t trying to be every kind of reader-app out there — instead, it focuses on doing a few things very well, in a way that feels natural:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Minimal friction, maximum focus&lt;/strong&gt; — no signups, no cloud dependencies, no uploading.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Built-in sources&lt;/strong&gt; like Gutenberg and RSS reduce manual importing and help you access content you care about faster.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Simple yet powerful organization&lt;/strong&gt; with groups and bookmarks — because locating what you want should be quick.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Flexible audio controls&lt;/strong&gt; which can be adapted to your listening pace and preference.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Privacy and peace of mind&lt;/strong&gt; — your documents stay yours, stored locally. No mystery about where your text goes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;-why-youll-want-chitneek&quot;&gt;📲 Why You’ll Want Chitneek&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/assets/chitneek-screenshots/Screenshot-3.png&quot; alt=&quot;Listen to blog feeds&quot; height=&quot;900&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If any of these sound familiar, Chitneek may be exactly what you’ve been looking for:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You read often, but want to rest your eyes — or want to listen during walks, commuting, or chores.&lt;/li&gt;
+  &lt;li&gt;You follow blogs or websites and wish for hands-free listening to new content.&lt;/li&gt;
+  &lt;li&gt;You love classic books or public domain works and want easy access without hunting for files.&lt;/li&gt;
+  &lt;li&gt;You care about privacy, offline reliability, and simplicity.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;-getting-started&quot;&gt;🔑 Getting Started&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/assets/chitneek-screenshots/Screenshot-4.png&quot; alt=&quot;Find interesting books quickly&quot; height=&quot;900&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Download &lt;strong&gt;Chitneek — Read Aloud&lt;/strong&gt; from the App Store.&lt;/li&gt;
+  &lt;li&gt;Open the app.&lt;/li&gt;
+  &lt;li&gt;Browse Gutenberg works or add RSS feeds. Import any PDFs or EPUBs you already have.&lt;/li&gt;
+  &lt;li&gt;Tap to play, adjust speed/pitch, use the sleep timer or CarPlay when needed.&lt;/li&gt;
+  &lt;li&gt;Organize using groups to keep things tidy.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Chitneek is for anyone who believes that reading aloud should be easy, private, and dependable. If you’ve been looking for a calm, uncluttered experience that still covers everything essential — this is it.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 22 Sep 2025 00:00:00 +0200</pubDate>
+        <link>http://127.0.0.1/blog/posts/introducing-chitneek</link>
+        <guid isPermaLink="true">http://127.0.0.1/blog/posts/introducing-chitneek</guid>
+        
+        <category>extiri</category>
+        
+        <category>app-showcase</category>
+        
+        
+      </item>
     
       <item>
         <title>From Theory to Practice: 5 Platforms That Turn Learning Into Doing</title>
