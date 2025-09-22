@@ -6,13 +6,13 @@
 </description>
     <link>http://127.0.0.1/blog/</link>
     <atom:link href="http://127.0.0.1/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 22 Sep 2025 13:19:54 +0200</pubDate>
-    <lastBuildDate>Mon, 22 Sep 2025 13:19:54 +0200</lastBuildDate>
+    <pubDate>Mon, 22 Sep 2025 13:23:48 +0200</pubDate>
+    <lastBuildDate>Mon, 22 Sep 2025 13:23:48 +0200</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
         <title>Introducing Chitneek for iOS - Hear Your Documents, Simply and Privately</title>
-        <description>&lt;p&gt;Do you want a reading app that’s clean, reliable, and doesn’t force you to sign up for everything? Meet &lt;strong&gt;Chitneek&lt;/strong&gt;, the iPhone app that turns PDFs, EPUBs, web pages, notes, Gutenberg classics, and RSS feeds into spoken text — without cloud uploads or unnecessary complexity.{: .lead}&lt;/p&gt;
+        <description>&lt;p class=&quot;lead&quot;&gt;Do you want a reading app that’s clean, reliable, and doesn’t force you to sign up for everything? Meet &lt;strong&gt;Chitneek&lt;/strong&gt;, the iPhone app that turns PDFs, EPUBs, web pages, notes, Gutenberg classics, and RSS feeds into spoken text — without cloud uploads or unnecessary complexity.&lt;/p&gt;
 
 &lt;p&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
 
