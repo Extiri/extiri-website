@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);} 
+
+		gtag('consent', 'default', {
+			'analytics_storage': 'denied'
+		});
+
+		gtag('js', new Date());
+		gtag('config', 'G-HLY6ZZMNBQ');
+	</script>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Space Train is an elegant, fast-paced arcade runner. Drift between lanes, fire smart missiles, and time shields to survive meteors, stations, and cosmic events.">
+	<meta name="keywords" content="space, train, arcade, runner, missiles, shield, meteors, comet, black hole, lanes, swiftui, spritekit">
+	<meta property="og:title" content="Space Train — Arcade Rail Runner in Space">
+	<meta property="og:description" content="Space Train is a fast-paced arcade runner with missiles, shields, and dynamic cosmic events.">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://extiri.com/space-train.html">
+	<meta property="og:image" content="/assets/og/space-train-1200x630.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Space Train — Arcade Rail Runner in Space">
+	<meta name="twitter:description" content="Drift, fire, shield. A clear, satisfying arcade run among stars and stations.">
+	<meta name="twitter:image" content="/assets/og/space-train-1200x630.png">
+
+	<title>Space Train — Arcade Rail Runner in Space</title>
+	<link rel="icon" type="image/png" href="images/space_train/space-train-icon.png">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/fonts/Megrim-Regular.ttf" as="font" type="font/ttf" crossorigin>
+
+	<script>
+		function goToHome() {
+			location.href = "./index.html#home";
+		}
+
+		function goToApps() {
+			location.href = "./index.html#apps";
+		}
+
+		function goToBlog() {
+			location.href = "./blog/index.html";
+		}
+	</script>
+	<script src="scripts.js" defer></script>
+</head>
+
+<body class="space-train-page">
+	<a href="#main" class="skip-link">Skip to content</a>
+	<div id="cookie-consent-banner" class="cookie-consent-banner">
+		<div class="cookie-consent-content">
+			<p>We use cookies and other tracking technologies to improve your browsing experience. By clicking "Accept All," you consent to our use of these technologies. You can learn more in our <a href="game-privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+			<div class="cookie-consent-buttons">
+				<button id="accept-cookies" class="button-primary">Accept All</button>
+				<button id="decline-cookies" class="button-secondary">Decline</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="navbar" role="navigation" aria-label="Main navigation">
+		<div class="navbar-content">
+			<a href="./index.html"><img src="images/logo.png" width="110" class="navbar-logo" alt="Extiri"></a>
+
+			<span class="big_screen">
+				<p class="navbar-item" onclick="goToHome()">Home</p>
+				<p class="navbar-item" onclick="goToApps()">Apps</p>
+				<p class="navbar-item" onclick="goToBlog()">Blog</p>
+			</span>
+
+			<span class="small_screen">
+				<img src="images/hamburger-icon.webp" class="navbar-item" style="position: absolute; top: 11px; width: 30px !important;" onclick="toggleHamburger()" alt="Menu button">
+
+				<div id="hamburger_menu" class="hamburger_menu">
+					<div class="hamburger_menu_content">
+						<p class="navbar-item" onclick="goToHome()">Home</p>
+						<p class="navbar-item" onclick="goToApps()">Apps</p>
+						<p class="navbar-item" onclick="goToBlog()">Blog</p>
+					</div>
+				</div>
+			</span>
+		</div>
+	</div>
+
+	<main id="main" tabindex="-1">
+		<section class="space-hero" aria-labelledby="space-hero-heading">
+			<div class="space-hero-bg" aria-hidden="true">
+				<div class="star-layer star-layer--far"></div>
+				<div class="star-layer star-layer--mid"></div>
+				<div class="star-layer star-layer--near"></div>
+			</div>
+			<div class="space-hero-content">
+				<img src="images/space_train/space-train-icon.png" alt="Space Train app icon" class="space-hero-icon" width="220" height="220" loading="eager" decoding="async">
+				<p class="space-hero-kicker">Arcade Runner</p>
+				<h1 id="space-hero-heading" class="space-hero-title">Ride the rails across the cosmos</h1>
+				<p class="space-hero-tagline">Dodge hazards, thread tight gaps, and launch precise missiles to clear the way.</p>
+				<p class="space-hero-promo">An elegant, fast-paced arcade runner where you drift between lanes, fire smart missiles, and time shields to survive meteors, stations, and cosmic events.</p>
+				<div class="space-hero-ctas">
+					<a class="space-primary-cta" href="https://apps.apple.com/app/space-train" target="_blank" rel="noopener noreferrer">
+						<img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" width="180" height="60" alt="Download on the App Store" loading="eager" decoding="async">
+					</a>
+					<a class="space-ghost-cta" href="#trailer">Watch trailer</a>
+				</div>
+				<div class="space-trust-row" role="list">
+					<span role="listitem">No accounts</span>
+					<span role="listitem">Infinite runs</span>
+					<span role="listitem">One purchase removes ads</span>
+				</div>
+			</div>
+		</section>
+
+		<section class="section-card space-trailer" id="trailer" aria-labelledby="space-trailer-heading">
+			<div class="section-heading-group">
+				<h2 id="space-trailer-heading">Gameplay trailer</h2>
+				<p class="section-subtitle">Built for clarity at speed.</p>
+			</div>
+			<div class="trailer-frame">
+				<iframe 
+					src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=0&mute=1&playsinline=1&rel=0"
+					title="Space Train trailer"
+					loading="lazy"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					referrerpolicy="strict-origin-when-cross-origin"
+					allowfullscreen
+				></iframe>
+			</div>
+		</section>
+
+		<section class="section-card space-features" aria-labelledby="space-features-heading">
+			<h2 id="space-features-heading">Built to keep you in the flow</h2>
+			<div class="feature-grid">
+				<article class="feature-card">
+					<h3>Crisp, readable visuals</h3>
+					<p>Track missiles, shields, and hazards instantly thanks to clean HUD cues tuned for busy screens.</p>
+				</article>
+				<article class="feature-card">
+					<h3>Missiles with intent</h3>
+					<p>Fire smart missiles with a visible reload bar and grab bonus pickups to stack extra ammo.</p>
+				</article>
+				<article class="feature-card">
+					<h3>Tactical shields</h3>
+					<p>Trigger a short, tactical shield with limited charges. Time it perfectly to survive meteor swarms.</p>
+				</article>
+				<article class="feature-card">
+					<h3>Dynamic biomes</h3>
+					<p>Travel through shifting palettes and moods as the track winds past stations, rings, and nebulae.</p>
+				</article>
+				<article class="feature-card">
+					<h3>Screen-filling events</h3>
+					<p>Brace for Comet Flyby or a looming Black Hole that bends incoming debris and the space-time around you.</p>
+				</article>
+				<article class="feature-card">
+					<h3>Responsive sound</h3>
+					<p>Adaptive music and SFX respond to your runs without overwhelming the action.</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="section-card space-controls" aria-labelledby="space-controls-heading">
+			<div class="section-heading-group">
+				<h2 id="space-controls-heading">Controls that feel natural everywhere</h2>
+				<p class="section-subtitle">Designed for touch first, with keyboard precision for iPad and Mac.</p>
+			</div>
+			<div class="controls-grid">
+				<article class="control-card">
+					<h3>Touch controls</h3>
+					<ul>
+						<li>Tap anywhere to fire missiles.</li>
+						<li>Swipe left or right to change lanes instantly.</li>
+						<li>Hold the shield button for a brief window of safety.</li>
+					</ul>
+				</article>
+				<article class="control-card">
+					<h3>Keyboard support</h3>
+					<ul>
+						<li><span class="control-key">WASD</span> to steer across lanes.</li>
+						<li><span class="control-key">K</span> to shoot missiles.</li>
+						<li><span class="control-key">H</span> to activate the shield.</li>
+					</ul>
+				</article>
+			</div>
+		</section>
+
+		<section class="section-card space-events" aria-labelledby="space-events-heading">
+			<h2 id="space-events-heading">Events and biomes</h2>
+			<p class="section-subtitle">Biomes shift the palette and rhythm while events force quick adaptation.</p>
+			<div class="events-grid">
+				<article class="event-card">
+					<h3>Comet Flyby</h3>
+					<p>A streaking comet tears across the lanes, spawning glowing shards that demand fast lane changes.</p>
+				</article>
+				<article class="event-card">
+					<h3>Black Hole</h3>
+					<p>Space warps around an emerging singularity, slowing missiles and bending debris into tight spirals.</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="section-card space-gallery" aria-labelledby="space-gallery-heading">
+			<h2 id="space-gallery-heading">Find your rhythm</h2>
+			<p class="section-subtitle">Snapshot moments from the App Store build.</p>
+			<div class="gallery-grid">
+				<figure>
+					<button type="button" class="gallery-item" data-image="images/space_train/space-train-icon.png" data-alt="Title and Main Menu" data-caption="Title and Main Menu — Tone-setting starfield with quick access to Instructions and Settings.">
+						<span class="screenshot-thumb screenshot-thumb--menu" aria-hidden="true"></span>
+						<span class="screenshot-label">Title &amp; Menu</span>
+					</button>
+					<figcaption>Title &amp; Menu</figcaption>
+				</figure>
+				<figure>
+					<button type="button" class="gallery-item" data-image="images/space_train/space-train-icon.png" data-alt="Core Gameplay" data-caption="Core Gameplay — Clean field with speed HUD, missile count and reload, and shield ready.">
+						<span class="screenshot-thumb screenshot-thumb--core" aria-hidden="true"></span>
+						<span class="screenshot-label">Core Gameplay</span>
+					</button>
+					<figcaption>Core Gameplay</figcaption>
+				</figure>
+				<figure>
+					<button type="button" class="gallery-item" data-image="images/space_train/space-train-icon.png" data-alt="Meteor Event" data-caption="Meteor Event — Irregular meteors, a missile in flight, and a crisp explosion.">
+						<span class="screenshot-thumb screenshot-thumb--meteor" aria-hidden="true"></span>
+						<span class="screenshot-label">Meteor Event</span>
+					</button>
+					<figcaption>Meteor Event</figcaption>
+				</figure>
+				<figure>
+					<button type="button" class="gallery-item" data-image="images/space_train/space-train-icon.png" data-alt="Station Arrival" data-caption="Station Arrival — Glowing platform rim and a breather between segments.">
+						<span class="screenshot-thumb screenshot-thumb--station" aria-hidden="true"></span>
+						<span class="screenshot-label">Station Arrival</span>
+					</button>
+					<figcaption>Station Arrival</figcaption>
+				</figure>
+				<figure>
+					<button type="button" class="gallery-item" data-image="images/space_train/space-train-icon.png" data-alt="Settings &amp; Instructions" data-caption="Settings &amp; Instructions — Difficulty and audio sliders with a simple legend.">
+						<span class="screenshot-thumb screenshot-thumb--settings" aria-hidden="true"></span>
+						<span class="screenshot-label">Settings</span>
+					</button>
+					<figcaption>Settings</figcaption>
+				</figure>
+			</div>
+		</section>
+
+		<section class="section-card space-monetization" aria-labelledby="space-monetization-heading">
+			<h2 id="space-monetization-heading">Monetization &amp; fair play</h2>
+			<p>Banner ads appear on menus and interstitials surface between runs with a cooldown. A one-time in-app purchase removes ads completely. No loot boxes, no pay-to-win, just fair runs.</p>
+		</section>
+
+		<section class="section-card space-faq" aria-labelledby="space-faq-heading">
+			<h2 id="space-faq-heading">Frequently asked questions</h2>
+			<div class="faq-list">
+				<details>
+					<summary>Do I need an account?</summary>
+					<p>No accounts required. Connect to Game Center only if you want leaderboard scoring.</p>
+				</details>
+				<details>
+					<summary>Does it work offline?</summary>
+					<p>Yes. Runs, achievements, and customization are fully offline. Ads require a connection, but gameplay does not.</p>
+				</details>
+				<details>
+					<summary>Does the app support keyboards?</summary>
+					<p>Absolutely. Use WASD to move, K to shoot, and H to shield on both macOS and iPadOS.</p>
+				</details>
+			</div>
+		</section>
+	</main>
+
+	<footer class="space-footer" aria-label="Space Train footer">
+		<div class="space-footer-links">
+			<a href="mailto:support@extiri.com">Support</a>
+			<a href="game-privacy.html">Privacy Policy</a>
+			<a href="mailto:press@extiri.com">Press Kit</a>
+			<a href="https://twitter.com/extiri" rel="noopener noreferrer" target="_blank">Twitter/X</a>
+		</div>
+		<p class="space-footer-note">© <span id="space-year"></span> Extiri. Crafted for players who want clarity at speed.</p>
+	</footer>
+
+	<div class="space-lightbox" role="dialog" aria-modal="true" hidden>
+		<div class="space-lightbox-backdrop" aria-hidden="true"></div>
+		<figure class="space-lightbox-content">
+			<button type="button" class="space-lightbox-close" aria-label="Close gallery">×</button>
+			<img src="" alt="">
+			<figcaption></figcaption>
+		</figure>
+	</div>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			const hero = document.querySelector('.space-hero');
+			const layers = hero ? hero.querySelectorAll('.star-layer') : [];
+
+			if (hero && layers.length && !prefersReducedMotion) {
+				const applyParallax = (xRatio, yRatio) => {
+					layers.forEach((layer, index) => {
+						const depth = (index + 1) * 8;
+						layer.style.transform = `translate3d(${xRatio * depth}px, ${yRatio * depth}px, 0)`;
+					});
+				};
+
+				hero.addEventListener('pointermove', (event) => {
+					const rect = hero.getBoundingClientRect();
+					const x = (event.clientX - rect.left) / rect.width - 0.5;
+					const y = (event.clientY - rect.top) / rect.height - 0.5;
+					applyParallax(x, y);
+				});
+
+				hero.addEventListener('pointerleave', () => {
+					applyParallax(0, 0);
+				});
+			}
+
+			const lightbox = document.querySelector('.space-lightbox');
+			const closeBtn = lightbox ? lightbox.querySelector('.space-lightbox-close') : null;
+			const lightboxImage = lightbox ? lightbox.querySelector('img') : null;
+			const lightboxCaption = lightbox ? lightbox.querySelector('figcaption') : null;
+			let lastTrigger = null;
+
+			function closeLightbox() {
+				if (!lightbox) return;
+				lightbox.setAttribute('hidden', '');
+				document.body.classList.remove('lightbox-open');
+				if (lightboxImage) {
+					lightboxImage.removeAttribute('src');
+					lightboxImage.removeAttribute('alt');
+				}
+				if (lastTrigger) {
+					lastTrigger.focus();
+					lastTrigger = null;
+				}
+			}
+
+			if (lightbox) {
+				document.querySelectorAll('.gallery-item').forEach((button) => {
+					button.addEventListener('click', () => {
+						const src = button.dataset.image;
+						const alt = button.dataset.alt || '';
+						const caption = button.dataset.caption || '';
+						if (lightboxImage && src) {
+							lightboxImage.src = src;
+							lightboxImage.alt = alt;
+						}
+						if (lightboxCaption) {
+							lightboxCaption.textContent = caption;
+						}
+						lightbox.removeAttribute('hidden');
+						document.body.classList.add('lightbox-open');
+						lastTrigger = button;
+						if (closeBtn) closeBtn.focus();
+					});
+				});
+
+				if (closeBtn) {
+					closeBtn.addEventListener('click', closeLightbox);
+				}
+
+				lightbox.addEventListener('click', (event) => {
+					if (event.target.classList.contains('space-lightbox') || event.target.classList.contains('space-lightbox-backdrop')) {
+						closeLightbox();
+					}
+				});
+
+				document.addEventListener('keydown', (event) => {
+					if (event.key === 'Escape' && !lightbox.hasAttribute('hidden')) {
+						closeLightbox();
+					}
+				});
+			}
+
+			const yearNode = document.getElementById('space-year');
+			if (yearNode) {
+				yearNode.textContent = new Date().getFullYear();
+			}
+		});
+	</script>
+</body>
+</html>
