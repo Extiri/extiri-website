@@ -44,7 +44,7 @@
 <body>
     <div id="cookie-consent-banner" class="cookie-consent-banner">
         <div class="cookie-consent-content">
-            <p>We use cookies and other tracking technologies to improve your browsing experience. By clicking "Accept All," you consent to our use of these technologies. You can learn more in our <a href="#" target="_blank">Privacy Policy</a>.</p>
+            <p>We use cookies and other tracking technologies to improve your browsing experience. By clicking "Accept All," you consent to our use of these technologies. You can learn more in our <a href="privacy_policy.html" target="_blank">Privacy Policy</a>.</p>
             <div class="cookie-consent-buttons">
                 <button id="accept-cookies" class="button-primary">Accept All</button>
                 <button id="decline-cookies" class="button-secondary">Decline</button>
@@ -92,115 +92,152 @@
             />
             <p class="home-hero-subtitle">Simply useful and cool apps.</p>
             <div class="home-hero-actions">
-                <a href="#apps" class="button-primary home-cta">Explore apps</a>
+                <a href="#apps" class="button-primary home-cta" onclick="goToApps()">Explore apps</a>
                 <a href="blog/index.html" class="home-ghost-cta">Read the blog</a>
             </div>
         </div>
     </section>
     <div class="page-watermark" aria-hidden="true"></div>
-    <div class="expanding-section" id="apps">
-        <h1 style="margin-top: 56px;">Apps</h1>
-        <p class="apps-intro">Save and use your time better — productivity apps, utilities and tools that streamline your work.</p>
 
-        <!-- Filter pills for richer navigation across many apps -->
-        <div class="apps-filters" role="tablist" aria-label="Filter apps">
-            <button class="apps-filter is-active" role="tab" aria-selected="true" data-filter="all">All</button>
-            <button class="apps-filter" role="tab" aria-selected="false" data-filter="mac">Mac</button>
-            <button class="apps-filter" role="tab" aria-selected="false" data-filter="ios">iOS</button>
-            <button class="apps-filter" role="tab" aria-selected="false" data-filter="web">Web</button>
-            <button class="apps-filter" role="tab" aria-selected="false" data-filter="open-source">Open Source</button>
+    <div class="expanding-section" id="apps">
+        <div class="section-header">
+            <p class="section-eyebrow">EXTIRI APPS</p>
+            <h1>Purposeful tools for focused teams</h1>
+            <p class="section-subtitle">From augmented memory to mindful entertainment, every product is designed with clarity, craftsmanship, and a relentless focus on usefulness.</p>
         </div>
 
-        <section class="section-card apps-section" aria-labelledby="apps-productivity">
-            <h2 id="apps-productivity" class="apps-section-title">Save and use your time better</h2>
-            <div class="app-grid">
-                <div class="app preview-card" data-tags="mac productivity">
-                    <img loading="lazy" decoding="async" src="images/codemenu-icon.webp" style="position: relative; top: 10px; width: min(200px, 90%)" alt="CodeMenu icon">
-                    <h2>CodeMenu</h2>
-                    <h3>MacOS app</h3>
-                    <div style="margin-top: 60px;">
-                        <span class="vertical-center"><a class="button-primary button-cta-card" href="./codemenu.html">Learn more</a></span>
-                        <a class="vertical-center" href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781"><img height="52px" src="images/download_on_the_mac_app_store_white_button.svg"/></a>
-                    </div>
-                    <p>An advanced snippet manager and organizer designed to support every stage of your snippet’s journey. Effortlessly store and manage code (in 55 languages), color palettes, links, prompts, text, and images—all in one elegant tool. Featuring powerful capabilities like visual graphs, customizable spaces and stashes, AI-powered semantic search, code image recognition, smart placeholders, and more, CodeMenu helps you work smarter.</p>
-                    <img loading="lazy" decoding="async" src="./images/codemenu/dashboard_screenshot.webp" class="preview-image" style="width: min(585px, 99%)" alt="Screenshot of CodeMenu's dashboard">
-                </div>
-
-                <div class="app preview-card" data-tags="web desktop">
-                    <img loading="lazy" decoding="async" src="images/dashbrand/dashbrand-icon.png" style="position: relative; top: 10px; width: min(200px, 90%)" alt="Dashbrand icon">
-                    <h2>Dashbrand</h2>
-                    <h3>Web App + Desktop App</h3>
-                    <div style="position: relative;  margin-top: 48px;">
-                    </div>
-                    <p>Visualize, organize, and activate your brand assets (and more) effortlessly. Available with a macOS and Windows companion app.</p>
-                    <span style="display: inline-block; margin-top: 24px; padding: 8px 20px; background: #f5f5f5; color: #333; border-radius: 18px; font-weight: 500; font-size: 1.1em; box-shadow: 0 2px 8px rgba(0,0,0,0.04); letter-spacing: 0.5px;">Coming soon</span>
-                </div>
-
-                <div class="app preview-card" data-tags="mac open-source">
-                    <img loading="lazy" decoding="async" src="images/Suggestions_icon.webp" style="position: relative; top: 10px; width: min(200px, 90%)" alt="Suggestions icon">
-                    <h2>Suggestions</h2>
-                    <h3>MacOS app (open source)</h3>
-                    <div style="position: relative; height: 56px; margin-top: 30px;">
-                        <span class="vertical-center"><a class="button-primary" href="https://github.com/Extiri/Suggestions/releases/download/latest/Suggestions.zip" download="true">Download</a></span>
-                    </div>
-                    <div style="position: relative; margin-top: 5px;"><span><a href="https://github.com/Extiri/Suggestions">GitHub repo</a><pre style="display: inline;"></a></span></div>
-                    <br>
-                    <p>An open source app that allows you to see list of suggestions directly in your IDE, code or text editor. You can either search or use automatic text replacement. Currently it only supports CodeMenu. With CodeMenu provider, Suggestions allows you to search and use snippets.</p>
-                    <img loading="lazy" decoding="async" src="./images/suggestions_example_in_xcode.webp" class="preview-image" style="width: min(585px, 99%)" alt="Screenshot of Suggestions window appearing over Xcode">
-                </div>
-
-                <div class="app preview-card" data-tags="web open-source">
-                    <img loading="lazy" decoding="async" src="images/snippets-store-icon.webp" style="position: relative; top: 10px; width: min(200px, 90%)" alt="Snippets Store icon">
-                    <h2>Snippets Store</h2>
-                    <h3>Web app (open source)</h3>
-                    <div style="position: relative; margin-top: 30px;">
-                        <span><a class="button-primary" href="https://web.extiri.com/">Open</a></span>
-                    </div>
-                    <div style="position: relative; margin-top: 30px;"><span><a href="https://github.com/Extiri/extiri-web">Web app's repo</a><pre style="display: inline;"> | </pre><a href="https://github.com/Extiri/ExtiriServer">Server's repo</a></span></div>
-                    <br>
-                    <p>An online database of code and prompt snippets. It can be self-hosted. For example, it can be used as the team's shared database of prompts and code. Extiri hosts a public instance.</p>
-                    <img loading="lazy" decoding="async" src="./images/snippets_store_web_app.webp" class="" style="width: min(585px, 99%)" alt="Screenshot of Snippets Store's mainpage">
-                </div>
-
-                <div class="app preview-card" data-tags="mac cli open-source">
-                    <div class="vertical-center">
-                        <h2>natsearch</h2>
-                        <h3>MacOS CLI app (open source)</h3>
-                        <div style="position: relative; height: 56px; margin-top: 30px;">
-                            <span><a class="button-primary" href="https://github.com/Extiri/natsearch">GitHub repo</a></span>
-                        </div>
-                        <p>A simple open source command line utility that allows you to search through text files (including code) using natural language.</p>
-                    </div>
+        <section class="app-feature app-feature--codemenu" aria-labelledby="codemenu-heading">
+            <div class="app-feature__media">
+                <img loading="lazy" decoding="async" src="images/codemenu/dashboard_screenshot.webp" alt="CodeMenu dashboard showing organized content entries">
+            </div>
+            <div class="app-feature__content">
+                <span class="app-feature__badge">macOS</span>
+                <h2 id="codemenu-heading">CodeMenu</h2>
+                <p class="app-feature__lede">Augmented memory for creators. Capture every snippet, prompt, palette, and note in a personal content library that remembers context for you.</p>
+                <ul class="app-feature__list">
+                    <li>Visual graph view, tags, and spaces that mirror how you think.</li>
+                    <li>Semantic search, abbreviations, and side window for instant recall.</li>
+                    <li>Private AI summarization, dynamic placeholders, and HTTP automation.</li>
+                </ul>
+                <div class="app-feature__actions">
+                    <a class="button-primary" href="./codemenu.html">Learn more</a>
+                    <a class="button-outline" href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781" aria-label="Download CodeMenu on the Mac App Store">
+                        <img src="images/download_on_the_mac_app_store_white_button.svg" alt="Download on the Mac App Store" height="54" loading="lazy" decoding="async">
+                    </a>
                 </div>
             </div>
         </section>
 
-        <div class="section-divider" role="separator" aria-hidden="true"></div>
-
-        <section class="section-card apps-section apps-section--alt" aria-labelledby="apps-leisure">
-            <h2 id="apps-leisure" class="apps-section-title">Things to do in your free time</h2>
-            <div class="app-grid">
-                <div class="app preview-card" data-tags="ios leisure">
-                    <img src="images/czytnik/czytnik-icon.png" class="app-icon-rounded" style="position: relative; top: 10px; width: min(200px, 90%)" alt="Chitneek icon">
-                    <h2>Chitneek</h2>
-                    <h3>iOS app</h3>
-                    <div>
-                        <span class="vertical-center"><a class="button-primary button-cta-card" href="./chitneek.html">Learn more</a></span>
-                        <a class="vertical-center" href="https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870"><img height="52px" src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store"/></a>
-                    </div>
-                    <p>Turn documents, webpages, and pasted text into natural, listenable audio in seconds. Add a file, paste text, or enter a URL. Native iOS integration (background playback, media controls) and CarPlay support make listening effortless and safe.</p>
+        <section class="app-feature app-feature--dashbrand" aria-labelledby="dashbrand-heading">
+            <div class="app-feature__media">
+                <img loading="lazy" decoding="async" src="images/placeholders-dashboard-screenshot.webp" alt="Dashbrand board showcasing assets" class="app-feature__image--contained">
+            </div>
+            <div class="app-feature__content">
+                <span class="app-feature__badge">Web · Desktop</span>
+                <h2 id="dashbrand-heading">Dashbrand</h2>
+                <p class="app-feature__lede">The brand system command center. Collect guidelines, assets, prompts, and launch plans in one visual dashboard that keeps your team aligned.</p>
+                <ul class="app-feature__list">
+                    <li>Organize entire brands with moodboards, systems, and reusable kits.</li>
+                    <li>Companion apps for macOS and Windows keep work available offline.</li>
+                    <li>Share live boards or export curated launch packs in seconds.</li>
+                </ul>
+                <div class="app-feature__actions">
+                    <span class="status-pill">Coming soon</span>
                 </div>
+            </div>
+        </section>
 
-                <div class="app preview-card" data-tags="ios leisure">
-                    <img loading="lazy" decoding="async" src="images/space_train/space-train-icon.png" class="app-icon-rounded" style="position: relative; top: 10px; width: min(200px, 90%)" alt="Space Train icon">
-                    <h2>Space Train</h2>
-                    <h3>iOS, iPadOS &amp; macOS</h3>
-                    <div>
-                        <span class="vertical-center"><a class="button-primary button-cta-card" href="./space-train.html">Learn more</a></span>
-                        <a class="vertical-center disabled" href="https://apps.apple.com/app/space-train" rel="noopener noreferrer"><img height="52" src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download Space Train on the App Store"></a>
+        <section class="app-collection" aria-labelledby="supporting-tools">
+            <div class="app-collection__header">
+                <h3 id="supporting-tools">Supporting tools</h3>
+                <p>Open source companions and services that extend the CodeMenu workflow.</p>
+            </div>
+            <div class="app-tiles">
+                <article class="app-tile">
+                    <div class="app-tile__header">
+                        <img loading="lazy" decoding="async" src="images/Suggestions_icon.webp" alt="Suggestions icon">
+                        <div>
+                            <h4>Suggestions</h4>
+                            <p class="app-tile__meta">macOS · Open source</p>
+                        </div>
                     </div>
-                    <p class="card-desc">Navigate the playfield, launch smart missiles, and time shields to survive meteors, stations, and dynamic events in this elegant arcade runner.</p>
-                </div>
+                    <p>Search and insert entries from CodeMenu without leaving your editor. Automatic text replacements keep your flow uninterrupted.</p>
+                    <div class="app-tile__actions">
+                        <a class="button-primary" href="https://github.com/Extiri/Suggestions/releases/download/latest/Suggestions.zip" download>Download</a>
+                        <a class="link-inline" href="https://github.com/Extiri/Suggestions">GitHub</a>
+                    </div>
+                </article>
+
+                <article class="app-tile">
+                    <div class="app-tile__header">
+                        <img loading="lazy" decoding="async" src="images/snippets-store-icon.webp" alt="Snippets Store icon">
+                        <div>
+                            <h4>Snippets Store</h4>
+                            <p class="app-tile__meta">Web · Open source</p>
+                        </div>
+                    </div>
+                    <p>Create a shareable knowledge base for your team. Browse public libraries or self-host to keep internal prompts and code in sync.</p>
+                    <div class="app-tile__actions">
+                        <a class="button-primary" href="https://web.extiri.com/">Explore</a>
+                        <a class="link-inline" href="https://github.com/Extiri/extiri-web">Web repo</a>
+                    </div>
+                </article>
+
+                <article class="app-tile">
+                    <div class="app-tile__header">
+                        <img loading="lazy" decoding="async" src="images/extiri-white-logo.webp" alt="natsearch logomark" class="app-tile__icon--small">
+                        <div>
+                            <h4>natsearch</h4>
+                            <p class="app-tile__meta">macOS CLI · Open source</p>
+                        </div>
+                    </div>
+                    <p>Bring natural language to your terminal. Search documentation and codebases conversationally right from the command line.</p>
+                    <div class="app-tile__actions">
+                        <a class="button-outline" href="https://github.com/Extiri/natsearch">GitHub</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="app-collection" aria-labelledby="leisure-tools">
+            <div class="app-collection__header">
+                <h3 id="leisure-tools">Leisure &amp; learning</h3>
+                <p>Wind down or learn on the go with crafted experiences for iPhone, iPad, and Mac.</p>
+            </div>
+            <div class="app-tiles">
+                <article class="app-tile">
+                    <div class="app-tile__header">
+                        <img loading="lazy" decoding="async" src="images/czytnik/czytnik-icon.png" alt="Chitneek icon" class="app-tile__icon--rounded">
+                        <div>
+                            <h4>Chitneek</h4>
+                            <p class="app-tile__meta">iOS</p>
+                        </div>
+                    </div>
+                    <p>Transform docs, webpages, and pasted text into natural audio. Listen hands-free with CarPlay and background playback.</p>
+                    <div class="app-tile__actions">
+                        <a class="button-primary" href="./chitneek.html">Learn more</a>
+                        <a class="button-outline" href="https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870" aria-label="Download Chitneek on the App Store">
+                            <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" height="46" loading="lazy" decoding="async">
+                        </a>
+                    </div>
+                </article>
+
+                <article class="app-tile">
+                    <div class="app-tile__header">
+                        <img loading="lazy" decoding="async" src="images/space_train/space-train-icon.png" alt="Space Train icon" class="app-tile__icon--rounded">
+                        <div>
+                            <h4>Space Train</h4>
+                            <p class="app-tile__meta">iOS · iPadOS · macOS</p>
+                        </div>
+                    </div>
+                    <p>Glide through cosmic railways, dodge meteors, and time shields in an elegant arcade runner with adaptive difficulty.</p>
+                    <div class="app-tile__actions">
+                        <a class="button-primary" href="./space-train.html">Learn more</a>
+                        <a class="button-outline disabled" href="https://apps.apple.com/app/space-train" aria-label="Space Train coming soon">
+                            <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" height="46" loading="lazy" decoding="async">
+                        </a>
+                    </div>
+                </article>
             </div>
         </section>
     </div>
