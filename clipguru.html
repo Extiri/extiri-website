@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+
+        // Set default consent to 'denied' for all tags
+        gtag('consent', 'default', {
+            'analytics_storage': 'denied'
+        });
+
+        // The rest of your gtag config will be handled by the consent banner
+        gtag('js', new Date());
+        gtag('config', 'G-HLY6ZZMNBQ');
+    </script>
+    <title>ClipGuru – Smart Clipboard Manager</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ClipGuru – a lightweight clipboard manager for iOS, iPadOS, and macOS. Save, organize, and search your text, links, and images with smart search and custom keyboard access.">
+    <link rel="icon" type="image/x-icon" href="images/clipguru/ClipGuru-icon.png">
+    <style>
+        .clipguru-hero {
+            position: relative;
+            width: 100%;
+            min-height: 54vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #000 0%, #1a0b1f 50%, #000 100%);
+            overflow: hidden;
+            padding-top: 64px;
+            padding-bottom: 48px;
+            box-shadow: 0 8px 40px rgba(217,69,197,0.08);
+            border-bottom-left-radius: 32px;
+            border-bottom-right-radius: 32px;
+            backdrop-filter: blur(8px);
+        }
+        .clipguru-hero::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            background: radial-gradient(ellipse at 60% 30%, rgba(217,69,197,0.2) 0%, rgba(109,73,215,0.15) 40%, transparent 70%);
+            opacity: 0.7;
+            z-index: 1;
+        }
+        .clipguru-icon {
+            width: 140px;
+            max-width: 32vw;
+            margin-top: 34px;
+            margin-bottom: 8px;
+            border-radius: 20px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+        }
+        .clipguru-title {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.1px;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 16px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 2;
+        }
+        .clipguru-subtitle {
+            font-size: 1.08em;
+            color: #f0e6ff;
+            font-weight: 400;
+            margin-bottom: 0;
+            text-align: center;
+            max-width: 480px;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+            opacity: 0.92;
+            position: relative;
+            z-index: 2;
+        }
+        .clipguru-actions {
+            margin-top: 28px;
+            display: flex;
+            gap: 16px;
+            position: relative;
+            z-index: 2;
+        }
+        .clipguru-actions .button-primary {
+            background: none;
+            box-shadow: none;
+            padding: 0;
+            min-width: 180px;
+            height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .clipguru-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            margin-top: 16px;
+            border-radius: 999px;
+            background: rgba(217,69,197,0.15);
+            border: 1px solid rgba(217,69,197,0.3);
+            color: rgba(240,230,255,0.9);
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+        /* Gradient accent for feature icons */
+        .feature-icon-gradient {
+            background: linear-gradient(135deg, #D945C5, #6D49D7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.5em;
+        }
+        /* Pro badge styling */
+        .pro-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background: linear-gradient(135deg, #D945C5, #6D49D7);
+            color: white;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-left: 8px;
+        }
+        /* Custom styling for ClipGuru theme */
+        .clipguru-feature-grid .feature-item {
+            padding: 1em;
+            border: 1px solid rgba(217,69,197,0.1);
+            background: rgba(109,73,215,0.05);
+        }
+        .clipguru-feature-grid .feature-item:hover {
+            border-color: rgba(217,69,197,0.2);
+            background: rgba(109,73,215,0.08);
+        }
+        body {
+            background: #000;
+            min-height: 100vh;
+            font-family: 'Inter', 'JetBrains Mono', 'Fira Code', 'Segoe UI', Arial, sans-serif;
+            color: #f0e6ff;
+        }
+        /* Override section card backgrounds for ClipGuru theme */
+        .section-card {
+            background: rgba(10,8,12,0.8);
+            border: 1px solid rgba(217,69,197,0.08);
+            max-width: 70vw;
+        }
+        /* Screenshots */
+        .screenshots-section .section-divider { width: 64%; }
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .screenshot-card {
+            background: rgba(20,15,25,0.72);
+            border: 1px solid rgba(217,69,197,0.15);
+            border-radius: 18px;
+            box-shadow: 0 10px 26px rgba(3,6,10,0.45);
+            padding: 14px;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+        .screenshot-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            max-width: 220px;
+            max-height: 360px;
+            object-fit: contain;
+            margin: 0 auto;
+        }
+        .screenshot-caption {
+            margin-top: 8px;
+            color: #e0d0ff;
+            font-size: 0.9em;
+            opacity: 0.9;
+            text-align: center;
+        }
+        @media (max-width: 900px) {
+            .screenshot-grid { 
+                grid-template-columns: 1fr 1fr; 
+                max-width: 600px;
+            }
+        }
+        @media (max-width: 600px) {
+            .screenshot-grid { 
+                grid-template-columns: 1fr; 
+                max-width: 300px;
+            }
+        }
+        @media (max-width: 700px) {
+            .section-card {
+                max-width: 98vw;
+                padding: 24px 4vw;
+            }
+            .clipguru-title {
+                font-size: 1.4em;
+            }
+            .clipguru-subtitle {
+                font-size: 0.98em;
+            }
+        }
+        /* Layout for split sections (media + text) */
+        .split-section { display: flex; gap: 28px; align-items: center; justify-content: center; }
+        .split-content { flex: 1 1 52%; min-width: 260px; }
+        .split-media { flex: 1 1 40%; text-align: center; }
+        .split-media img { width: 100%; max-width: 420px; height: auto; border-radius: 12px; filter: drop-shadow(0 14px 36px rgba(0,0,0,0.45)); }
+        @media (max-width: 900px) {
+            .split-section { flex-direction: column; }
+            .split-media img { max-width: 320px; }
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+    <script>
+    function goToHome() {
+      location.href = "./index.html#home"
+    }
+    
+    function goToApps() {
+      location.href = "./index.html#apps"
+    }
+    
+    function goToBlog() {
+      location.href = "./blog/index.html"
+    }
+  </script>
+</head>
+<body>
+    <div id="cookie-consent-banner" class="cookie-consent-banner">
+        <div class="cookie-consent-content">
+            <p>We use cookies and other tracking technologies to improve your browsing experience. By clicking "Accept All," you consent to our use of these technologies. You can learn more in our <a href="privacy_policy.html" target="_blank">Privacy Policy</a>.</p>
+            <div class="cookie-consent-buttons">
+                <button id="accept-cookies" class="button-primary">Accept All</button>
+                <button id="decline-cookies" class="button-secondary">Decline</button>
+            </div>
+        </div>
+    </div>
+    <div class="navbar">
+        <div class="navbar-content">
+            <a href="./index.html"><img src="images/logo.png" width="110px" class="navbar-logo"></a>
+            <span class="big_screen">
+                <p class="navbar-item" onclick="goToHome()">Home</p>
+                <p class="navbar-item" onclick="goToApps()">Apps</p>
+                <p class="navbar-item" onclick="goToBlog()">Blog</p>
+            </span>
+            <span class="small_screen">
+                <img src="images/hamburger-icon.webp" class="navbar-item" style="position: absolute; top: 11px; width: 30px !important;" onclick="toggleHamburger()" alt="Menu button">
+                <div id="hamburger_menu" class="hamburger_menu">
+                    <div class="hamburger_menu_content">
+                        <p class="navbar-item" onclick="goToHome()">Home</p>
+                        <p class="navbar-item" onclick="goToApps()">Apps</p>
+                        <p class="navbar-item" onclick="goToBlog()">Blog</p>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <section class="clipguru-hero">
+        <img src="images/clipguru/ClipGuru-icon.png" alt="ClipGuru app icon" class="clipguru-icon">
+        <h1 class="clipguru-title">ClipGuru</h1>
+        <p class="clipguru-subtitle">Lightweight clipboard manager that makes your snippets instantly searchable and ready to paste anywhere.</p>
+        <div class="clipguru-badge">iOS • iPadOS • macOS</div>
+        <div class="clipguru-actions">
+            <a href="#" class="button-primary disabled" style="background: none; box-shadow: none; padding: 0; min-width: 180px; height: 54px;">
+                <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" style="height:44px; width:auto; display:block; margin:auto;">
+            </a>
+        </div>
+    </section>
+    
+    <section class="section-card fade-in" id="features">
+        <hr class="section-divider">
+        <div class="split-section">
+            <div class="split-content">
+                <h2>Smart Clipboard Management</h2>
+                <p>ClipGuru is a lightweight clipboard manager that lets you easily save and organize your snippets — text, links, and images — making them instantly searchable and ready to paste anywhere.</p>
+                <div class="feature-grid clipguru-feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon"><span class="feature-icon-gradient">💾</span></div>
+                        <div>
+                            <h3>Quick Save</h3>
+                            <p>Save text, links, and images with one tap. Everything you copy is automatically captured.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><span class="feature-icon-gradient">🔍</span></div>
+                        <div>
+                            <h3>Smart Search</h3>
+                            <p>Find any clip instantly with intelligent search across all your saved content.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><span class="feature-icon-gradient">⌨️</span></div>
+                        <div>
+                            <h3>Custom Keyboard</h3>
+                            <p>Access your clips from any app with the ClipGuru keyboard extension.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><span class="feature-icon-gradient">🌙</span></div>
+                        <div>
+                            <h3>Beautiful Design</h3>
+                            <p>Native iOS design with dark mode support that feels right at home.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="split-media">
+                <img src="images/clipguru/main-screen-screenshot.png" alt="ClipGuru main screen showing saved clips">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-card fade-in">
+        <div class="split-section" style="flex-direction: row-reverse;">
+            <div class="split-content">
+                <h2>Keyboard Extension</h2>
+                <p>Install the ClipGuru keyboard to access your clips from anywhere. Type faster by inserting frequently used text, links, and snippets without switching apps.</p>
+                <div class="feature-grid clipguru-feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon"><span class="feature-icon-gradient">⚡</span></div>
+                        <div>
+                            <h3>Instant Access</h3>
+                            <p>Access your clips from any app without switching between applications.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><span class="feature-icon-gradient">📝</span></div>
+                        <div>
+                            <h3>Type Faster</h3>
+                            <p>Insert frequently used text, links, and snippets with a single tap.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><span class="feature-icon-gradient">🎯</span></div>
+                        <div>
+                            <h3>No App Switching</h3>
+                            <p>Stay in your workflow while accessing your clipboard history.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="split-media">
+                <img src="images/clipguru/keyboard-in-messages-screenshot.png" alt="ClipGuru keyboard extension in Messages app">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-card fade-in">
+        <div class="split-section">
+            <div class="split-content">
+                <h2>Share from Anywhere</h2>
+                <p>Use the share sheet in Safari, Mail, or any app to instantly save content to ClipGuru. Perfect for collecting research, quotes, URLs, and reference material.</p>
+                <div class="feature-grid clipguru-feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon"><span class="feature-icon-gradient">📤</span></div>
+                        <div>
+                            <h3>Share Extension</h3>
+                            <p>Save content directly from Safari and other apps using the share sheet.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><span class="feature-icon-gradient">🔗</span></div>
+                        <div>
+                            <h3>Collect Everything</h3>
+                            <p>Perfect for research, quotes, URLs, and any reference material you need.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><span class="feature-icon-gradient">📋</span></div>
+                        <div>
+                            <h3>Quick Review</h3>
+                            <p>Quickly review clips one by one and decide whether to keep or delete them.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="split-media">
+                <img src="images/clipguru/review-screenshot.png" alt="ClipGuru quick review feature">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-card fade-in">
+        <div class="split-section" style="flex-direction: row-reverse;">
+            <div class="split-content">
+                <h2>Pro Features<span class="pro-badge">Pro</span></h2>
+                <p>Upgrade to ClipGuru Pro with a one-time purchase to unlock unlimited clip history, iCloud sync, and organizational features.</p>
+                <div class="feature-grid clipguru-feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon"><span class="feature-icon-gradient">∞</span></div>
+                        <div>
+                            <h3>Unlimited History</h3>
+                            <p>Save unlimited clips (free version saves 4 clips).</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><span class="feature-icon-gradient">☁️</span></div>
+                        <div>
+                            <h3>iCloud Sync</h3>
+                            <p>Keep your clips synchronized across all your Apple devices.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><span class="feature-icon-gradient">🏷️</span></div>
+                        <div>
+                            <h3>Organize with Tags</h3>
+                            <p>Create tags to organize your clips and find them even faster.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="split-media">
+                <img src="images/clipguru/semantic-search-screenshot.png" alt="ClipGuru semantic search and organization">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-card screenshots-section fade-in" id="screenshots">
+        <hr class="section-divider">
+        <h2>Screenshots</h2>
+        <div class="screenshot-grid">
+            <div class="screenshot-card">
+                <img src="images/clipguru/main-screen-screenshot.png" alt="ClipGuru main screen showing saved clips">
+                <div class="screenshot-caption">Main Screen — view and manage all your saved clips</div>
+            </div>
+            <div class="screenshot-card">
+                <img src="images/clipguru/keyboard-in-messages-screenshot.png" alt="ClipGuru keyboard extension in Messages">
+                <div class="screenshot-caption">Keyboard Extension — access clips from any app</div>
+            </div>
+            <div class="screenshot-card">
+                <img src="images/clipguru/review-screenshot.png" alt="ClipGuru quick review feature">
+                <div class="screenshot-caption">Quick Review — easily manage and organize your clips</div>
+            </div>
+            <div class="screenshot-card">
+                <img src="images/clipguru/semantic-search-screenshot.png" alt="ClipGuru semantic search feature">
+                <div class="screenshot-caption">Smart Search — find any clip instantly with intelligent search</div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section-card fade-in" id="download">
+        <hr class="section-divider">
+        <h2>Get ClipGuru</h2>
+        <p>Ready to streamline your workflow? Whether you're a writer collecting research, a developer saving code snippets, or a professional managing frequent text and links, ClipGuru keeps important content easily accessible.</p>
+        <a href="#" class="button-primary disabled" style="background: none; box-shadow: none; padding: 0; min-width: 180px; height: 54px;">
+            <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" style="height:44px; width:auto; display:block; margin:auto;">
+        </a>
+        <p style="margin-top: 16px; font-size: 0.9rem; opacity: 0.7;">Coming soon to the App Store</p>
+    </section>
+    
+    <section class="section-card fade-in" id="faq">
+        <hr class="section-divider">
+        <h2>FAQ</h2>
+        <h3>Is ClipGuru free?</h3>
+        <p>ClipGuru has a free version that saves up to 4 clips. Pro features like unlimited history, iCloud sync, and tags are available with a one-time purchase.</p>
+        <h3>Which platforms does ClipGuru support?</h3>
+        <p>ClipGuru is available on iOS, iPadOS, and macOS through the App Store.</p>
+        <h3>How does the keyboard extension work?</h3>
+        <p>Install the ClipGuru keyboard to access your clips from any app. You can insert saved text, links, and snippets without switching between applications.</p>
+        <h3>Can I sync my clips across devices?</h3>
+        <p>Yes, with ClipGuru Pro you get iCloud sync to keep your clips synchronized across all your Apple devices.</p>
+        <h3>What types of content can I save?</h3>
+        <p>ClipGuru can save text, links, and images. You can also use the share extension to save content directly from Safari and other apps.</p>
+    </section>
+    
+    <footer class="footer-apple">
+        <hr class="section-divider">
+        <p><a href="privacy_policy.html" class="secondary_link">Privacy Policy</a></p>
+        <p style="color: #505050; font-size:0.95em;">ClipGuru &copy; 2025. Made for iOS, iPadOS & macOS.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
