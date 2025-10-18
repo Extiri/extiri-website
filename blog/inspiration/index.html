@@ -24,43 +24,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" type="image/x-icon" href="./images/favicon.png">
     <link rel="stylesheet" href="styles.css">
-        <style>
-        /* Slideshow styles (inline) */
-        .app-slideshow{margin:2.5rem 0 3rem;background:transparent}
-    .slideshow-viewport{display:flex;overflow:hidden;border-radius:12px}
-    .slideshow-track{display:flex;flex-direction:row;align-items:stretch;}
-    .slideshow-track .slide{flex:0 0 100%;box-sizing:border-box}
-        .slide{min-width:100%;flex:0 0 100%;display:flex;align-items:stretch;padding:1rem;transition:transform 420ms cubic-bezier(.22,.9,.3,1)}
-        .slide-card{display:flex;gap:1rem;width:100%;background:rgba(255,255,255,0.02);padding:1rem;border-radius:10px;align-items:center}
-        .slide-media img{width:140px;height:auto;border-radius:8px;object-fit:cover}
-        .slide-content{flex:1}
-        .slide-content h3{margin:0 0 .25rem 0;font-size:1.25rem}
-        .slideshow-controls{display:flex;align-items:center;justify-content:space-between;margin-top:.75rem}
-        .slideshow-controls button{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text-color);padding:.25rem .6rem;border-radius:6px}
-        .slideshow-indicators{display:flex;gap:.4rem;align-items:center}
-        .slideshow-indicators button{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.08);border:none}
-        .slideshow-indicators button[aria-selected="true"]{background:var(--link-color)}
-        .slideshow-note{font-size:.9rem;opacity:.8;margin-top:.4rem}
-        @media (max-width: 640px){
-            .slide-card{flex-direction:column;align-items:flex-start}
-            .slide-media img{width:100%;height:auto}
-            .slideshow-controls{gap:.5rem}
-        }
-        </style>
-                <style>
-                /* Slideshow app-feature overrides: make slides host the app-feature sections cleanly and slightly less tall */
-                .app-slideshow .slideshow-viewport { align-items: stretch; }
-                .app-slideshow .slide { box-sizing: border-box; padding: 0; display: block; }
-                .app-slideshow .slide > .app-feature { margin: 0 auto; border-radius: 20px; padding: clamp(18px, 3.4vw, 40px); max-width: 1100px; }
-                /* reduce default app-feature margin when inside slideshow */
-                .app-slideshow .app-feature { margin-top: 0; box-shadow: 0 18px 48px rgba(4,6,12,0.45); }
-                /* make media slightly smaller inside slideshow to reduce height */
-                .app-slideshow .app-feature__media img { border-radius: 16px; max-width: 360px; }
-                @media (max-width: 640px) {
-                    .app-slideshow .app-feature { padding: 18px; }
-                    .app-slideshow .app-feature__media img { max-width: 100%; }
-                }
-                </style>
     <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <script>
         function goToHome() {
@@ -143,98 +106,48 @@
             <p class="section-subtitle">From augmented memory to mindful entertainment, every product is designed to keep you organized, inspired, and in control of your own rhythm.</p>
         </div>
 
-        <!-- Slideshow: cycles through released apps and pauses when user interacts -->
-        <section class="app-slideshow" aria-label="Featured apps slideshow">
-            <div class="slideshow-viewport">
-                <div class="slideshow-track">
-                <!-- Slide: CodeMenu (same content/layout as app-feature) -->
-                <article class="slide" data-app="codemenu" tabindex="0">
-                    <section class="app-feature app-feature--codemenu" aria-labelledby="codemenu-heading">
-                        <div class="app-feature__media">
-                            <img loading="lazy" decoding="async" src="images/codemenu/dashboard_screenshot.webp" alt="CodeMenu dashboard showing organized content entries">
-                        </div>
-                        <div class="app-feature__content">
-                            <span class="app-feature__badge">macOS</span>
-                            <h2 id="codemenu-heading">CodeMenu</h2>
-                            <p class="app-feature__lede">Augmented memory for creators. Capture every snippet, prompt, palette, and note in a personal content library that remembers context for you.</p>
-                            <ul class="app-feature__list">
-                                <li>Visual graph view, tags, and spaces that mirror how you think.</li>
-                                <li>Semantic search, abbreviations, and side window for instant recall.</li>
-                                <li>Private AI summarization, dynamic placeholders, and HTTP automation.</li>
-                            </ul>
-                            <div class="app-feature__actions">
-                                <a class="button-primary" href="./codemenu.html">Learn more</a>
-                                <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781" aria-label="Download CodeMenu on the Mac App Store">
-                                    <img src="images/download_on_the_mac_app_store_white_button.svg" alt="Download on the Mac App Store" height="54" loading="lazy" decoding="async">
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-                </article>
-
-                <!-- Slide: Chitneek -->
-                <article class="slide" data-app="chitneek" tabindex="0">
-                    <section class="app-feature app-feature--chitneek" aria-labelledby="chitneek-heading">
-                        <div class="app-feature__media">
-                            <img loading="lazy" decoding="async" src="images/czytnik/library-screenshot.png" alt="Chitneek library view showing listening queue">
-                        </div>
-                        <div class="app-feature__content">
-                            <span class="app-feature__badge">iOS</span>
-                            <h2 id="chitneek-heading">Chitneek</h2>
-                            <p class="app-feature__lede">Turn PDFs, notes, and web pages into smooth, natural audio — privately, on your iPhone, with nothing uploaded to the cloud.</p>
-                            <ul class="app-feature__list">
-                                <li>Import PDFs, EPUBs, and articles from any app with the Share sheet.</li>
-                                <li>Listen offline using on-device voices with CarPlay and background playback.</li>
-                                <li>Organize your library with folders, favorites, and progress synced across devices.</li>
-                            </ul>
-                            <div class="app-feature__actions">
-                                <a class="button-primary" href="./chitneek.html">Learn more</a>
-                                <a href="https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870" aria-label="Download Chitneek on the App Store">
-                                    <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" height="54" loading="lazy" decoding="async">
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-                </article>
-
-                <!-- Slide: ClipGuru (expanded layout similar to app-feature) -->
-                <article class="slide" data-app="clipguru" tabindex="0">
-                    <section class="app-feature app-feature--clipguru" aria-labelledby="clipguru-heading">
-                        <div class="app-feature__media">
-                            <img loading="lazy" decoding="async" src="images/clipguru/main-screen-screenshot.png" alt="ClipGuru main screen screenshot">
-                        </div>
-                        <div class="app-feature__content">
-                            <span class="app-feature__badge">iOS · iPadOS · macOS</span>
-                            <h2 id="clipguru-heading">ClipGuru</h2>
-                            <p class="app-feature__lede">A lightweight clipboard manager that saves text, links, and images — instantly searchable and ready to paste anywhere.</p>
-                            <ul class="app-feature__list">
-                                <li>Instantly save and search recent clips.</li>
-                                <li>Pin or favorite important items for fast access.</li>
-                                <li>Cross-device support on iOS, iPadOS, and macOS.</li>
-                            </ul>
-                            <div class="app-feature__actions">
-                                <a class="button-primary" href="./clipguru.html">Learn more</a>
-                                <a href="https://apps.apple.com/pl/app/clipguru/id6753787446" aria-label="Download ClipGuru on the App Store">
-                                    <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" height="54" loading="lazy" decoding="async">
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-                </article>
+        <section class="app-feature app-feature--codemenu" aria-labelledby="codemenu-heading">
+            <div class="app-feature__media">
+                <img loading="lazy" decoding="async" src="images/codemenu/dashboard_screenshot.webp" alt="CodeMenu dashboard showing organized content entries">
+            </div>
+            <div class="app-feature__content">
+                <span class="app-feature__badge">macOS</span>
+                <h2 id="codemenu-heading">CodeMenu</h2>
+                <p class="app-feature__lede">Augmented memory for creators. Capture every snippet, prompt, palette, and note in a personal content library that remembers context for you.</p>
+                <ul class="app-feature__list">
+                    <li>Visual graph view, tags, and spaces that mirror how you think.</li>
+                    <li>Semantic search, abbreviations, and side window for instant recall.</li>
+                    <li>Private AI summarization, dynamic placeholders, and HTTP automation.</li>
+                </ul>
+                <div class="app-feature__actions">
+                    <a class="button-primary" href="./codemenu.html">Learn more</a>
+                    <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781" aria-label="Download CodeMenu on the Mac App Store">
+                        <img src="images/download_on_the_mac_app_store_white_button.svg" alt="Download on the Mac App Store" height="54" loading="lazy" decoding="async">
+                    </a>
                 </div>
             </div>
+        </section>
 
-            <div class="slideshow-controls" aria-hidden="false">
-                <button class="slideshow-prev" aria-label="Previous slide">‹</button>
-                <div class="slideshow-indicators" role="tablist" aria-label="Slide indicators">
-                    <button data-index="0" aria-label="Show CodeMenu" aria-selected="true"></button>
-                    <button data-index="1" aria-label="Show Chitneek" aria-selected="false"></button>
-                    <button data-index="2" aria-label="Show ClipGuru" aria-selected="false"></button>
-                </div>
-                <button class="slideshow-next" aria-label="Next slide">›</button>
+        <section class="app-feature app-feature--chitneek" aria-labelledby="chitneek-heading">
+            <div class="app-feature__media">
+                <img loading="lazy" decoding="async" src="images/czytnik/library-screenshot.png" alt="Chitneek library view showing listening queue">
             </div>
-
-            <p class="slideshow-note">Tap or click a card to pause the slideshow</p>
+            <div class="app-feature__content">
+                <span class="app-feature__badge">iOS</span>
+                <h2 id="chitneek-heading">Chitneek</h2>
+                <p class="app-feature__lede">Turn PDFs, notes, and web pages into smooth, natural audio — privately, on your iPhone, with nothing uploaded to the cloud.</p>
+                <ul class="app-feature__list">
+                    <li>Import PDFs, EPUBs, and articles from any app with the Share sheet.</li>
+                    <li>Listen offline using on-device voices with CarPlay and background playback.</li>
+                    <li>Organize your library with folders, favorites, and progress synced across devices.</li>
+                </ul>
+                <div class="app-feature__actions">
+                    <a class="button-primary" href="./chitneek.html">Learn more</a>
+                    <a href="https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870" aria-label="Download Chitneek on the App Store">
+                        <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" height="54" loading="lazy" decoding="async">
+                    </a>
+                </div>
+            </div>
         </section>
 
         <section class="app-collection" aria-labelledby="apps-major">
@@ -271,7 +184,7 @@
                     <p>A lightweight clipboard manager that saves text, links, and images — instantly searchable and ready to paste anywhere.</p>
                     <div class="app-tile__actions">
                         <a class="button-primary" href="./clipguru.html">Learn more</a>
-                        <a href="https://apps.apple.com/pl/app/clipguru/id6753787446" aria-label="Download ClipGuru on the App Store">
+                        <a class="disabled" href="#" aria-label="ClipGuru coming soon">
                             <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" height="38" loading="lazy" decoding="async">
                         </a>
                     </div>

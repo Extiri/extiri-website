@@ -11,12 +11,12 @@
 -->
 <meta name="description" content="Posts about programming and software engineering.">
 <meta name="keywords" content="">
-<link rel="canonical" href="http://127.0.0.1/tag/programming/">
+<link rel="canonical" href="https://extiri.com/tag/programming/">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Programming" />
 <meta name="twitter:description" content="Posts about programming and software engineering.
 " />
-<meta name="twitter:image" content="http://127.0.0.1" />
+<meta name="twitter:image" content="https://extiri.com" />
 <meta name="author" content="">
 <link rel="author" href="">
 <meta property="og:locale" content="">
@@ -24,60 +24,80 @@
 <meta property="og:title" content="Programming">
 <meta property="og:description" content="Posts about programming and software engineering.
 ">
-<meta property="og:url" content="http://127.0.0.1/tag/programming/">
+<meta property="og:url" content="https://extiri.com/tag/programming/">
 <meta property="og:site_name" content="Extiri Blog">
 <link rel="stylesheet" href="/blog/assets/vendor/normalize-css/normalize.css">
 <link rel="stylesheet" href="/blog/assets/css/main.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,400italic,700,700italic">
-<style>
-    html {
-      font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-    }
-</style>
 <link rel="stylesheet" href="/blog/assets/css/bf.css">
    <body>
        <div class="wrapper" id="blep">
-          <header>
-   <div class="menu">
-     <div class="logo">
+          <header class="site-header">
+ <div class="site-header__inner">
+    <a class="site-header__brand" href="/blog/index.html">
+      <span class="site-header__logo">
         <object type="image/svg+xml" data="/blog/assets/img/guy.svg" class="logosvg">Your browser does not support svg images</object>
-        <a href="/blog/index.html">Extiri Blog</a>
-     </div>
-       <ul>
-           <li><a href="/blog/about/index.html">about</a>
-           <li><a href="/blog/archive/index.html">archive</a>
-           <li><a href="https://extiri.com">apps</a>
-       </ul>
-   </div>
-   <div class="social">
-     <ul>
-       <li>
-            <a href="https://youtube.com/@wiktorwojcik3678" target="_blank" class="smaller">
-              <span class="icon-youtube"></span>
-            </a>
-       <li>
-            <a href="https://twitter.com/WiktorW2" target="_blank" class="smaller">
-              <span class="icon-twitter"></span>
-            </a>
-       <li>
-            <a href="https://github.com/Extiri" target="_blank" class="smaller">
-              <span class="icon-github"></span>
-            </a>
-       <li>
-            <a href="mailto:wiktor.wojcik@extiri.com" target="_blank">
-              <span class="icon-mail_outline"></span>
-            </a>
-       <li>
-            <a href="/blog/feed.xml" target="_blank">
-                <span class="icon-rss_feed"></span>
-            </a>
-       <li>
-            <a href="#" onclick="switchTheme()" title="Switch theme?">
-              <span class="icon-invert_colors" id="theme-switcher"></span>
-            </a>
+      </span>
+      <span class="site-header__title">Extiri Blog</span>
+    </a>
+    <button
+      class="site-nav__toggle"
+      type="button"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      data-nav-toggle
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+   <nav class="site-nav" id="site-nav" data-site-nav>
+     <ul class="site-nav__list">
+       <li><a href="/blog/about/index.html">About</a>
+       <li><a href="/blog/archive/index.html">Archive</a>
+       <li><a href="https://extiri.com">Apps</a>
      </ul>
-   </div>
+     <div class="site-nav__secondary">
+       <ul class="site-nav__social">
+         <li>
+            <a href="https://youtube.com/@wiktorwojcik3678" target="_blank" rel="noopener">
+              <span class="icon-youtube"></span>
+              <span class="sr-only">YouTube</span>
+            </a>
+         <li>
+            <a href="https://twitter.com/WiktorW2" target="_blank" rel="noopener">
+              <span class="icon-twitter"></span>
+              <span class="sr-only">Twitter</span>
+            </a>
+         <li>
+            <a href="https://github.com/Extiri" target="_blank" rel="noopener">
+              <span class="icon-github"></span>
+              <span class="sr-only">GitHub</span>
+            </a>
+         <li>
+            <a href="mailto:wiktor.wojcik@extiri.com">
+              <span class="icon-mail_outline"></span>
+              <span class="sr-only">Email</span>
+            </a>
+         <li>
+            <a href="/blog/feed.xml">
+              <span class="icon-rss_feed"></span>
+              <span class="sr-only">RSS feed</span>
+            </a>
+       </ul>
+     </div>
+   </nav>
+ </div>
 </header>
+<div id="cookie-consent-banner" class="cookie-consent-banner" aria-live="polite" hidden>
+ <div class="cookie-consent-content">
+   <p>We use cookies and analytics to improve this site. You can accept or decline analytics tracking. Read our <a href="/blog/privacy_policy.html">Privacy Policy</a>.
+   <div class="cookie-consent-buttons">
+      <button id="consent-accept" class="button-primary">Accept</button>
+      <button id="consent-decline" class="button-secondary">Decline</button>
+   </div>
+ </div>
+</div>
 <div class="page-title-container">
  <div class="heading-container">
    <h1>programming</h1>
@@ -86,6 +106,16 @@
 </span>
  </div>
 </div>
+         <h2 id="y2025/10">
+    October 2025
+</h2>
+         <ul class="related-posts">
+         <li>
+            <a href="/blog/posts/ten-developer-habits.html">
+            <span>Best Dev Habits to Save Time Every Day: Using Boilerplate, Snippets, and Templates</span>
+            <small>18/10</small>
+            </a>
+         </ul>
          <h2 id="y2025/08">
     August 2025
 </h2>
@@ -153,12 +183,27 @@
 </ul>
 <hr/>
 </div>
-           <footer>
-    <span>blog about Extiri, programming and cybersecurity
-</span>
-    <span>written by Wiktor Wójcik</span>
+           <footer class="site-footer">
+ <div class="site-footer__inner">
+   <div class="site-footer__primary">
+     <h2>Extiri Blog</h2>
+     <p>blog about Extiri, programming and cybersecurity
+   </div>
+   <nav class="site-footer__links" aria-label="Footer navigation">
+      <a href="/blog/about/index.html">About</a>
+      <a href="/blog/archive/index.html">Archive</a>
+      <a href="https://extiri.com">Apps</a>
+      <a href="/blog/feed.xml">RSS</a>
+   </nav>
+   <div class="site-footer__meta">
+      <span>Crafted by Wiktor Wójcik</span>
+      <span>&copy; 2025 Extiri</span>
+   </div>
+ </div>
 </footer>
        </div>
+<script type="text/javascript" src="/blog/assets/js/nav.js"></script>
 <script type="text/javascript" src="/blog/assets/js/theme.js"></script>
 <script type="text/javascript" src="/blog/assets/js/barefoot.js"></script>
+<script type="text/javascript" src="/blog/assets/js/consent.js"></script>
     

@@ -11,12 +11,12 @@
 <meta name="description" content="blog about Extiri, programming and cybersecurity
 ">
 <meta name="keywords" content="programming, productivity">
-<link rel="canonical" href="http://127.0.0.1/posts/the-art-of-writing-maintainable-code">
+<link rel="canonical" href="https://extiri.com/posts/the-art-of-writing-maintainable-code">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="The Art of Writing Maintainable Code - Best Practices" />
 <meta name="twitter:description" content="blog about Extiri, programming and cybersecurity
 " />
-<meta name="twitter:image" content="http://127.0.0.1" />
+<meta name="twitter:image" content="https://extiri.com" />
 <meta name="author" content="">
 <link rel="author" href="">
 <meta property="og:locale" content="">
@@ -24,126 +24,97 @@
 <meta property="og:title" content="The Art of Writing Maintainable Code - Best Practices">
 <meta property="og:description" content="blog about Extiri, programming and cybersecurity
 ">
-<meta property="og:url" content="http://127.0.0.1/posts/the-art-of-writing-maintainable-code">
+<meta property="og:url" content="https://extiri.com/posts/the-art-of-writing-maintainable-code">
 <meta property="og:site_name" content="Extiri Blog">
 <link rel="stylesheet" href="/blog/assets/vendor/normalize-css/normalize.css">
 <link rel="stylesheet" href="/blog/assets/css/main.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,400italic,700,700italic">
-<style>
-    html {
-      font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-    }
-</style>
 <link rel="stylesheet" href="/blog/assets/css/bf.css">
    <body>
        <div class="wrapper" id="blep">
-          <header>
-   <div class="menu">
-     <div class="logo">
+          <header class="site-header">
+ <div class="site-header__inner">
+    <a class="site-header__brand" href="/blog/index.html">
+      <span class="site-header__logo">
         <object type="image/svg+xml" data="/blog/assets/img/guy.svg" class="logosvg">Your browser does not support svg images</object>
-        <a href="/blog/index.html">Extiri Blog</a>
-     </div>
-       <ul>
-           <li><a href="/blog/about/index.html">about</a>
-           <li><a href="/blog/archive/index.html">archive</a>
-           <li><a href="https://extiri.com">apps</a>
-       </ul>
-   </div>
-   <div class="social">
-     <ul>
-       <li>
-            <a href="https://youtube.com/@wiktorwojcik3678" target="_blank" class="smaller">
-              <span class="icon-youtube"></span>
-            </a>
-       <li>
-            <a href="https://twitter.com/WiktorW2" target="_blank" class="smaller">
-              <span class="icon-twitter"></span>
-            </a>
-       <li>
-            <a href="https://github.com/Extiri" target="_blank" class="smaller">
-              <span class="icon-github"></span>
-            </a>
-       <li>
-            <a href="mailto:wiktor.wojcik@extiri.com" target="_blank">
-              <span class="icon-mail_outline"></span>
-            </a>
-       <li>
-            <a href="/blog/feed.xml" target="_blank">
-                <span class="icon-rss_feed"></span>
-            </a>
-       <li>
-            <a href="#" onclick="switchTheme()" title="Switch theme?">
-              <span class="icon-invert_colors" id="theme-switcher"></span>
-            </a>
+      </span>
+      <span class="site-header__title">Extiri Blog</span>
+    </a>
+    <button
+      class="site-nav__toggle"
+      type="button"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      data-nav-toggle
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+   <nav class="site-nav" id="site-nav" data-site-nav>
+     <ul class="site-nav__list">
+       <li><a href="/blog/about/index.html">About</a>
+       <li><a href="/blog/archive/index.html">Archive</a>
+       <li><a href="https://extiri.com">Apps</a>
      </ul>
-   </div>
-</header>
-<article class="post">
-<style>
-  .the-art-of-writing-maintainable-code {
-    margin-bottom: 2em;
-  }
-  .the-art-of-writing-maintainable-code::before {
-    background-size: cover;
-    -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5);
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    z-index: -2;
-  }
-  .the-art-of-writing-maintainable-code::after {
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    background-color: rgba(100,0,255,0.8);
-    /*mix-blend-mode: darken;
-    mix-blend-mode: color-burn;
-    mix-blend-mode: hard-light;*/
-    mix-blend-mode: overlay;
-    z-index: -1;
-  }
-  .the-art-of-writing-maintainable-code-container,
-  .the-art-of-writing-maintainable-code-container::before,
-  .the-art-of-writing-maintainable-code-container::after {
-    height: 25rem;
-  }
-  .the-art-of-writing-maintainable-code-bleed-container,
-  .the-art-of-writing-maintainable-code-bleed-container::before,
-  .the-art-of-writing-maintainable-code-bleed-container::after {
-    height: 35rem;
-  }
-    @media (max-width: 48rem) {
-        .the-art-of-writing-maintainable-code-container,
-        .the-art-of-writing-maintainable-code-container::before,
-        .the-art-of-writing-maintainable-code-container::after{
-            height: 20rem;
-            margin-bottom: 3rem;
-        }
-    }
-</style>
- <div class="post-title-container
-  the-art-of-writing-maintainable-code the-art-of-writing-maintainable-code-bleed-container bleed-hero-container
-    ">
-    <!--Post hero image source-->
-   <div class="heading-container hero-heading hero-heading-post">
-     <h1>
-          The Art of Writing Maintainable Code - Best Practices
-     </h1>
-     <div class="post-meta">
-        <span>10/01/2025</span>
-        <span>
-              <a href="/blog/tag/programming/index.html">#programming</a>
-              <a href="/blog/tag/productivity/index.html">#productivity</a>
-        </span>
+     <div class="site-nav__secondary">
+       <ul class="site-nav__social">
+         <li>
+            <a href="https://youtube.com/@wiktorwojcik3678" target="_blank" rel="noopener">
+              <span class="icon-youtube"></span>
+              <span class="sr-only">YouTube</span>
+            </a>
+         <li>
+            <a href="https://twitter.com/WiktorW2" target="_blank" rel="noopener">
+              <span class="icon-twitter"></span>
+              <span class="sr-only">Twitter</span>
+            </a>
+         <li>
+            <a href="https://github.com/Extiri" target="_blank" rel="noopener">
+              <span class="icon-github"></span>
+              <span class="sr-only">GitHub</span>
+            </a>
+         <li>
+            <a href="mailto:wiktor.wojcik@extiri.com">
+              <span class="icon-mail_outline"></span>
+              <span class="sr-only">Email</span>
+            </a>
+         <li>
+            <a href="/blog/feed.xml">
+              <span class="icon-rss_feed"></span>
+              <span class="sr-only">RSS feed</span>
+            </a>
+       </ul>
      </div>
+   </nav>
+ </div>
+</header>
+<div id="cookie-consent-banner" class="cookie-consent-banner" aria-live="polite" hidden>
+ <div class="cookie-consent-content">
+   <p>We use cookies and analytics to improve this site. You can accept or decline analytics tracking. Read our <a href="/blog/privacy_policy.html">Privacy Policy</a>.
+   <div class="cookie-consent-buttons">
+      <button id="consent-accept" class="button-primary">Accept</button>
+      <button id="consent-decline" class="button-secondary">Decline</button>
    </div>
  </div>
+</div>
+<article class="post">
+<header class="post-hero">
+   <p class="post-hero__eyebrow">Extiri Blog
+   <h1 class="post-hero__title">The Art of Writing Maintainable Code - Best Practices</h1>
+   <div class="post-hero__meta">
+      <span class="post-hero__date">
+        January 10, 2025
+      </span>
+      <span class="post-hero__divider">•</span>
+      <span class="post-hero__tags">
+          <a href="/blog/tag/programming/index.html">#programming</a>
+          <a href="/blog/tag/productivity/index.html">#productivity</a>
+      </span>
+   </div>
+ </header>
+ <div class="post-content">
    <p class="lead">Writing code is easy; writing maintainable code is a craft. As software engineers, we often focus on delivering features and fixing bugs, but maintainable code is the foundation of scalable, long-term success. Code that’s clean, understandable, and adaptable not only saves time and money but also reduces frustration for everyone working with it, including your future self.
-<p>
 <p>Here’s how you can master the art of writing maintainable code:
 <hr />
 <h3 id="1-name-things-well-its-hard-but-worth-it"><strong>1. Name Things Well (It’s Hard but Worth It)</strong></h3>
@@ -247,17 +218,38 @@ Instead of creating a full plugin system for a one-off feature, write a modular,
 <hr />
 <h3 id="11-avoid-cargo-cult-programming"><strong>11. Avoid Cargo Cult Programming</strong></h3>
 <p>Cargo cult programming occurs when developers copy code or patterns without fully understanding their purpose, often because “it worked elsewhere” or “everyone does it this way.” It also happens when, for example, a bug is solved by duct-taping it with an <code class="language-plaintext highlighter-rouge">if</code> without fixing the underlying issue. While this approach may produce functional code in the short term, it can lead to unnecessary complexity, bugs, and a lack of clarity for future maintainers. To write maintainable code, focus on understanding the problem you’re solving and the rationale behind each implementation choice. Avoid blindly replicating code — be intentional, document your reasoning, and strive for simplicity and readability.
+ </div>
 </article>
 <aside class="related">
 <h2>Related posts</h2>
 <ul class="related-posts">
+   <li>
+    <a href="/blog/posts/ten-developer-habits.html">
+        <span>Best Dev Habits to Save Time Every Day: Using Boilerplate, Snippets, and Templates</span>
+        <small>18/10</small>
+    </a>
 </aside>
-           <footer>
-    <span>blog about Extiri, programming and cybersecurity
-</span>
-    <span>written by Wiktor Wójcik</span>
+           <footer class="site-footer">
+ <div class="site-footer__inner">
+   <div class="site-footer__primary">
+     <h2>Extiri Blog</h2>
+     <p>blog about Extiri, programming and cybersecurity
+   </div>
+   <nav class="site-footer__links" aria-label="Footer navigation">
+      <a href="/blog/about/index.html">About</a>
+      <a href="/blog/archive/index.html">Archive</a>
+      <a href="https://extiri.com">Apps</a>
+      <a href="/blog/feed.xml">RSS</a>
+   </nav>
+   <div class="site-footer__meta">
+      <span>Crafted by Wiktor Wójcik</span>
+      <span>&copy; 2025 Extiri</span>
+   </div>
+ </div>
 </footer>
        </div>
+<script type="text/javascript" src="/blog/assets/js/nav.js"></script>
 <script type="text/javascript" src="/blog/assets/js/theme.js"></script>
 <script type="text/javascript" src="/blog/assets/js/barefoot.js"></script>
+<script type="text/javascript" src="/blog/assets/js/consent.js"></script>
     

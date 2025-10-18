@@ -8,12 +8,12 @@
 <!---->
 <meta name="description" content="blog about Extiri, programming and cybersecurity
 ">
-<link rel="canonical" href="http://127.0.0.1/page-2/">
+<link rel="canonical" href="https://extiri.com/page-2/">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Blog" />
 <meta name="twitter:description" content="blog about Extiri, programming and cybersecurity
 " />
-<meta name="twitter:image" content="http://127.0.0.1" />
+<meta name="twitter:image" content="https://extiri.com" />
 <meta name="author" content="">
 <link rel="author" href="">
 <meta property="og:locale" content="">
@@ -21,365 +21,204 @@
 <meta property="og:title" content="Blog">
 <meta property="og:description" content="blog about Extiri, programming and cybersecurity
 ">
-<meta property="og:url" content="http://127.0.0.1/page-2/">
+<meta property="og:url" content="https://extiri.com/page-2/">
 <meta property="og:site_name" content="Extiri Blog">
 <link rel="stylesheet" href="/blog/assets/vendor/normalize-css/normalize.css">
 <link rel="stylesheet" href="/blog/assets/css/main.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,400italic,700,700italic">
-<style>
-    html {
-      font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-    }
-</style>
 <link rel="stylesheet" href="/blog/assets/css/bf.css">
    <body>
        <div class="wrapper" id="blep">
-          <header>
-   <div class="menu">
-     <div class="logo">
+          <header class="site-header">
+ <div class="site-header__inner">
+    <a class="site-header__brand" href="/blog/index.html">
+      <span class="site-header__logo">
         <object type="image/svg+xml" data="/blog/assets/img/guy.svg" class="logosvg">Your browser does not support svg images</object>
-        <a href="/blog/index.html">Extiri Blog</a>
-     </div>
-       <ul>
-           <li><a href="/blog/about/index.html">about</a>
-           <li><a href="/blog/archive/index.html">archive</a>
-           <li><a href="https://extiri.com">apps</a>
-       </ul>
-   </div>
-   <div class="social">
-     <ul>
-       <li>
-            <a href="https://youtube.com/@wiktorwojcik3678" target="_blank" class="smaller">
-              <span class="icon-youtube"></span>
-            </a>
-       <li>
-            <a href="https://twitter.com/WiktorW2" target="_blank" class="smaller">
-              <span class="icon-twitter"></span>
-            </a>
-       <li>
-            <a href="https://github.com/Extiri" target="_blank" class="smaller">
-              <span class="icon-github"></span>
-            </a>
-       <li>
-            <a href="mailto:wiktor.wojcik@extiri.com" target="_blank">
-              <span class="icon-mail_outline"></span>
-            </a>
-       <li>
-            <a href="/blog/feed.xml" target="_blank">
-                <span class="icon-rss_feed"></span>
-            </a>
-       <li>
-            <a href="#" onclick="switchTheme()" title="Switch theme?">
-              <span class="icon-invert_colors" id="theme-switcher"></span>
-            </a>
+      </span>
+      <span class="site-header__title">Extiri Blog</span>
+    </a>
+    <button
+      class="site-nav__toggle"
+      type="button"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      data-nav-toggle
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+   <nav class="site-nav" id="site-nav" data-site-nav>
+     <ul class="site-nav__list">
+       <li><a href="/blog/about/index.html">About</a>
+       <li><a href="/blog/archive/index.html">Archive</a>
+       <li><a href="https://extiri.com">Apps</a>
      </ul>
-   </div>
+     <div class="site-nav__secondary">
+       <ul class="site-nav__social">
+         <li>
+            <a href="https://youtube.com/@wiktorwojcik3678" target="_blank" rel="noopener">
+              <span class="icon-youtube"></span>
+              <span class="sr-only">YouTube</span>
+            </a>
+         <li>
+            <a href="https://twitter.com/WiktorW2" target="_blank" rel="noopener">
+              <span class="icon-twitter"></span>
+              <span class="sr-only">Twitter</span>
+            </a>
+         <li>
+            <a href="https://github.com/Extiri" target="_blank" rel="noopener">
+              <span class="icon-github"></span>
+              <span class="sr-only">GitHub</span>
+            </a>
+         <li>
+            <a href="mailto:wiktor.wojcik@extiri.com">
+              <span class="icon-mail_outline"></span>
+              <span class="sr-only">Email</span>
+            </a>
+         <li>
+            <a href="/blog/feed.xml">
+              <span class="icon-rss_feed"></span>
+              <span class="sr-only">RSS feed</span>
+            </a>
+       </ul>
+     </div>
+   </nav>
+ </div>
 </header>
-<article class="blog">
-<style>
-  .ultimate-guide-to-snippet-management-with-codemenu {
-    margin-bottom: 2em;
-  }
-  .ultimate-guide-to-snippet-management-with-codemenu::before {
-    background-size: cover;
-    -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5);
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    z-index: -2;
-  }
-  .ultimate-guide-to-snippet-management-with-codemenu::after {
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    background-color: rgba(255,100,0,0.8);
-    /*mix-blend-mode: darken;
-    mix-blend-mode: color-burn;
-    mix-blend-mode: hard-light;*/
-    mix-blend-mode: overlay;
-    z-index: -1;
-  }
-  .ultimate-guide-to-snippet-management-with-codemenu-container,
-  .ultimate-guide-to-snippet-management-with-codemenu-container::before,
-  .ultimate-guide-to-snippet-management-with-codemenu-container::after {
-    height: 25rem;
-  }
-  .ultimate-guide-to-snippet-management-with-codemenu-bleed-container,
-  .ultimate-guide-to-snippet-management-with-codemenu-bleed-container::before,
-  .ultimate-guide-to-snippet-management-with-codemenu-bleed-container::after {
-    height: 35rem;
-  }
-    @media (max-width: 48rem) {
-        .ultimate-guide-to-snippet-management-with-codemenu-container,
-        .ultimate-guide-to-snippet-management-with-codemenu-container::before,
-        .ultimate-guide-to-snippet-management-with-codemenu-container::after{
-            height: 20rem;
-            margin-bottom: 3rem;
-        }
-    }
-</style>
- <div class="
-    post-title-container
-        ultimate-guide-to-snippet-management-with-codemenu ultimate-guide-to-snippet-management-with-codemenu-container hero-hov
-  ">
-   <div class="heading-container hero-heading hero-heading-blog">
-     <h1>
-          <a href="/blog/posts/ultimate-guide-to-snippet-management-with-codemenu.html" title="The Ultimate Guide to Snippet Management with CodeMenu">The Ultimate Guide to Snippet Management with CodeMenu</a>
-     </h1>
-     <div class="
-        post-meta
-      ">
-      <span>10/01/2025</span>
-        <span>
-              <a href="/blog/tag/extiri/index.html">#extiri</a>
-              <a href="/blog/tag/guide/index.html">#guide</a>
-              <a href="/blog/tag/app-showcase/index.html">#app-showcase</a>
-        </span>
-     </div>
+<div id="cookie-consent-banner" class="cookie-consent-banner" aria-live="polite" hidden>
+ <div class="cookie-consent-content">
+   <p>We use cookies and analytics to improve this site. You can accept or decline analytics tracking. Read our <a href="/blog/privacy_policy.html">Privacy Policy</a>.
+   <div class="cookie-consent-buttons">
+      <button id="consent-accept" class="button-primary">Accept</button>
+      <button id="consent-decline" class="button-secondary">Decline</button>
    </div>
  </div>
-   <p class="lead">In the fast-paced world of software development, efficiency isn’t just nice to have; it’s essential. Code snippets, those handy pieces of reusable code, can significantly boost your productivity, but only if you manage them effectively. Enter <a href="https://extiri.com/codemenu.html">CodeMenu</a> by Extiri, a snippet manager designed not just for storing code but for transforming how you code, design, and even think about your work.
-       <div class="readmore">
-          <a href="/blog/posts/ultimate-guide-to-snippet-management-with-codemenu.html" role="button">Read more</a>
-       <div>
-</article>
- <hr>
-<article class="blog">
-<style>
-  .the-art-of-writing-maintainable-code {
-    margin-bottom: 2em;
-  }
-  .the-art-of-writing-maintainable-code::before {
-    background-size: cover;
-    -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5);
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    z-index: -2;
-  }
-  .the-art-of-writing-maintainable-code::after {
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    background-color: rgba(100,0,255,0.8);
-    /*mix-blend-mode: darken;
-    mix-blend-mode: color-burn;
-    mix-blend-mode: hard-light;*/
-    mix-blend-mode: overlay;
-    z-index: -1;
-  }
-  .the-art-of-writing-maintainable-code-container,
-  .the-art-of-writing-maintainable-code-container::before,
-  .the-art-of-writing-maintainable-code-container::after {
-    height: 25rem;
-  }
-  .the-art-of-writing-maintainable-code-bleed-container,
-  .the-art-of-writing-maintainable-code-bleed-container::before,
-  .the-art-of-writing-maintainable-code-bleed-container::after {
-    height: 35rem;
-  }
-    @media (max-width: 48rem) {
-        .the-art-of-writing-maintainable-code-container,
-        .the-art-of-writing-maintainable-code-container::before,
-        .the-art-of-writing-maintainable-code-container::after{
-            height: 20rem;
-            margin-bottom: 3rem;
-        }
-    }
-</style>
- <div class="
-    post-title-container
-        the-art-of-writing-maintainable-code the-art-of-writing-maintainable-code-container hero-hov
-  ">
-   <div class="heading-container hero-heading hero-heading-blog">
-     <h1>
-          <a href="/blog/posts/the-art-of-writing-maintainable-code.html" title="The Art of Writing Maintainable Code - Best Practices">The Art of Writing Maintainable Code - Best Practices</a>
-     </h1>
-     <div class="
-        post-meta
-      ">
-      <span>10/01/2025</span>
-        <span>
-              <a href="/blog/tag/programming/index.html">#programming</a>
-              <a href="/blog/tag/productivity/index.html">#productivity</a>
-        </span>
-     </div>
-   </div>
+</div>
+           <section class="page-hero">
+ <p class="page-hero__eyebrow">Extiri Blog
+ <h1 class="page-hero__title">Purposeful notes from the studio</h1>
+ <p class="page-hero__subtitle">
+    blog about Extiri, programming and cybersecurity
+</section>
+<div class="post-grid">
+<article class="post-card">
+ <div class="post-card__meta">
+    <span class="post-card__date">Jan 18, 2025</span>
+    <span class="post-card__tags">
+      <a href="/blog/tag/guide/index.html">#guide</a>
+      <a href="/blog/tag/app-showcase/index.html">#app-showcase</a>
+    </span>
  </div>
-   <p class="lead">Writing code is easy; writing maintainable code is a craft. As software engineers, we often focus on delivering features and fixing bugs, but maintainable code is the foundation of scalable, long-term success. Code that’s clean, understandable, and adaptable not only saves time and money but also reduces frustration for everyone working with it, including your future self.
-       <div class="readmore">
-          <a href="/blog/posts/the-art-of-writing-maintainable-code.html" role="button">Read more</a>
-       <div>
-</article>
- <hr>
-<article class="blog">
-<style>
-  .some-snippets-of-code-for-your-swift-apps {
-    margin-bottom: 2em;
-  }
-  .some-snippets-of-code-for-your-swift-apps::before {
-    background-size: cover;
-    -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5);
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    z-index: -2;
-  }
-  .some-snippets-of-code-for-your-swift-apps::after {
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    background-color: rgba(255,0,100,0.8);
-    /*mix-blend-mode: darken;
-    mix-blend-mode: color-burn;
-    mix-blend-mode: hard-light;*/
-    mix-blend-mode: overlay;
-    z-index: -1;
-  }
-  .some-snippets-of-code-for-your-swift-apps-container,
-  .some-snippets-of-code-for-your-swift-apps-container::before,
-  .some-snippets-of-code-for-your-swift-apps-container::after {
-    height: 25rem;
-  }
-  .some-snippets-of-code-for-your-swift-apps-bleed-container,
-  .some-snippets-of-code-for-your-swift-apps-bleed-container::before,
-  .some-snippets-of-code-for-your-swift-apps-bleed-container::after {
-    height: 35rem;
-  }
-    @media (max-width: 48rem) {
-        .some-snippets-of-code-for-your-swift-apps-container,
-        .some-snippets-of-code-for-your-swift-apps-container::before,
-        .some-snippets-of-code-for-your-swift-apps-container::after{
-            height: 20rem;
-            margin-bottom: 3rem;
-        }
-    }
-</style>
- <div class="
-    post-title-container
-        some-snippets-of-code-for-your-swift-apps some-snippets-of-code-for-your-swift-apps-container hero-hov
-  ">
-   <div class="heading-container hero-heading hero-heading-blog">
-     <h1>
-          <a href="/blog/posts/some-snippets-of-code-for-your-swift-apps.html" title="Some snippets of code for your Swift apps">Some snippets of code for your Swift apps</a>
-     </h1>
-     <div class="
-        post-meta
-      ">
-      <span>03/10/2024</span>
-        <span>
-              <a href="/blog/tag/snippets/index.html">#snippets</a>
-              <a href="/blog/tag/programming/index.html">#programming</a>
-        </span>
-     </div>
-   </div>
+ <h2 class="post-card__title">
+    <a href="/blog/posts/the-power-of-automation-useful-tools-for-automating.html" target="_self" rel="noopener">The Power of Automation - Useful Tools For Automating</a>
+ </h2>
+     <p class="post-card__excerpt">
+        As developers, we’re often tasked with repetitive, time-consuming activities that can sap creativity and productivity. The good news? Many of these tasks can be automated, freeing up your time to focus on solving real...
+ <div class="post-card__actions">
+    <a class="button-primary" href="/blog/posts/the-power-of-automation-useful-tools-for-automating.html" target="_self" rel="noopener">Read article</a>
  </div>
-   <p class="lead">Hi! While programming in Swift I have accumulated many code snippets. Some of them are mine and some of them come from the internet. Here I’m sharing 5 tiny quality-of-life snippets. Hopefully you will find them useful.
-       <div class="readmore">
-          <a href="/blog/posts/some-snippets-of-code-for-your-swift-apps.html" role="button">Read more</a>
-       <div>
 </article>
- <hr>
-<article class="blog">
-<style>
-  .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app {
-    margin-bottom: 2em;
-  }
-  .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app::before {
-    background-size: cover;
-    -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5);
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    z-index: -2;
-  }
-  .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app::after {
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    background-color: rgba(0,100,255,0.8);
-    /*mix-blend-mode: darken;
-    mix-blend-mode: color-burn;
-    mix-blend-mode: hard-light;*/
-    mix-blend-mode: overlay;
-    z-index: -1;
-  }
-  .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app-container,
-  .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app-container::before,
-  .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app-container::after {
-    height: 25rem;
-  }
-  .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app-bleed-container,
-  .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app-bleed-container::before,
-  .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app-bleed-container::after {
-    height: 35rem;
-  }
-    @media (max-width: 48rem) {
-        .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app-container,
-        .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app-container::before,
-        .taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app-container::after{
-            height: 20rem;
-            margin-bottom: 3rem;
-        }
-    }
-</style>
- <div class="
-    post-title-container
-        taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app-container hero-hov
-  ">
-   <div class="heading-container hero-heading hero-heading-blog">
-     <h1>
-          <a href="/blog/posts/taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app.html" title="Taking an image of a part of the screen in a Cocoa app">Taking an image of a part of the screen in a Cocoa app</a>
-     </h1>
-     <div class="
-        post-meta
-      ">
-      <span>21/09/2024</span>
-        <span>
-              <a href="/blog/tag/snippets/index.html">#snippets</a>
-              <a href="/blog/tag/tutorial/index.html">#tutorial</a>
-              <a href="/blog/tag/programming/index.html">#programming</a>
-        </span>
-     </div>
-   </div>
+<article class="post-card">
+ <div class="post-card__meta">
+    <span class="post-card__date">Jan 10, 2025</span>
+    <span class="post-card__tags">
+      <a href="/blog/tag/extiri/index.html">#extiri</a>
+      <a href="/blog/tag/guide/index.html">#guide</a>
+      <a href="/blog/tag/app-showcase/index.html">#app-showcase</a>
+    </span>
  </div>
-   <p class="lead">Hi! In this post I will show you how to write a “screenshot taker” for a Cocoa app. It will allow the user to select a part of the screen, just like the builtin screenshot taking tool on macOS. It uses <code class="language-plaintext highlighter-rouge">CGWindowListCreateImage</code> (macOS 10.5 - 14.0), so it should work in old codebases although it’s important to note that it’s deprecated in macOS 14.0. In such case you should use ScreenCaptureKit and it’s functions like captureScreenshot. It should work well for most cases. Well, let’s start!
-       <div class="readmore">
-          <a href="/blog/posts/taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app.html" role="button">Read more</a>
-       <div>
+ <h2 class="post-card__title">
+    <a href="/blog/posts/ultimate-guide-to-snippet-management-with-codemenu.html" target="_self" rel="noopener">The Ultimate Guide to Snippet Management with CodeMenu</a>
+ </h2>
+     <p class="post-card__excerpt">
+        In the fast-paced world of software development, efficiency isn’t just nice to have; it’s essential. Code snippets, those handy pieces of reusable code, can significantly boost your productivity, but only if you manag...
+ <div class="post-card__actions">
+    <a class="button-primary" href="/blog/posts/ultimate-guide-to-snippet-management-with-codemenu.html" target="_self" rel="noopener">Read article</a>
+ </div>
 </article>
-<nav class="pagination" role="navigation">
-<hr/>
- <ul>
-   <li class="pagination-item-prev" >
-            <a rel="prev" href="/blog/index.html">&laquo; Previous</a>
-   <li class="pagination-item-next" >
-      <span>Next &raquo;</span>
+<article class="post-card">
+ <div class="post-card__meta">
+    <span class="post-card__date">Jan 10, 2025</span>
+    <span class="post-card__tags">
+      <a href="/blog/tag/programming/index.html">#programming</a>
+      <a href="/blog/tag/productivity/index.html">#productivity</a>
+    </span>
+ </div>
+ <h2 class="post-card__title">
+    <a href="/blog/posts/the-art-of-writing-maintainable-code.html" target="_self" rel="noopener">The Art of Writing Maintainable Code - Best Practices</a>
+ </h2>
+     <p class="post-card__excerpt">
+        Writing code is easy; writing maintainable code is a craft. As software engineers, we often focus on delivering features and fixing bugs, but maintainable code is the foundation of scalable, long-term success. Code th...
+ <div class="post-card__actions">
+    <a class="button-primary" href="/blog/posts/the-art-of-writing-maintainable-code.html" target="_self" rel="noopener">Read article</a>
+ </div>
+</article>
+<article class="post-card">
+ <div class="post-card__meta">
+    <span class="post-card__date">Oct 3, 2024</span>
+    <span class="post-card__tags">
+      <a href="/blog/tag/snippets/index.html">#snippets</a>
+      <a href="/blog/tag/programming/index.html">#programming</a>
+    </span>
+ </div>
+ <h2 class="post-card__title">
+    <a href="/blog/posts/some-snippets-of-code-for-your-swift-apps.html" target="_self" rel="noopener">Some snippets of code for your Swift apps</a>
+ </h2>
+     <p class="post-card__excerpt">
+        Hi! While programming in Swift I have accumulated many code snippets. Some of them are mine and some of them come from the internet. Here I’m sharing 5 tiny quality-of-life snippets. Hopefully you will find them useful.
+ <div class="post-card__actions">
+    <a class="button-primary" href="/blog/posts/some-snippets-of-code-for-your-swift-apps.html" target="_self" rel="noopener">Read article</a>
+ </div>
+</article>
+<article class="post-card">
+ <div class="post-card__meta">
+    <span class="post-card__date">Sep 21, 2024</span>
+    <span class="post-card__tags">
+      <a href="/blog/tag/snippets/index.html">#snippets</a>
+      <a href="/blog/tag/tutorial/index.html">#tutorial</a>
+      <a href="/blog/tag/programming/index.html">#programming</a>
+    </span>
+ </div>
+ <h2 class="post-card__title">
+    <a href="/blog/posts/taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app.html" target="_self" rel="noopener">Taking an image of a part of the screen in a Cocoa app</a>
+ </h2>
+     <p class="post-card__excerpt">
+        Hi! In this post I will show you how to write a “screenshot taker” for a Cocoa app. It will allow the user to select a part of the screen, just like the builtin screenshot taking tool on macOS. It uses CGWindowListCre...
+ <div class="post-card__actions">
+    <a class="button-primary" href="/blog/posts/taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app.html" target="_self" rel="noopener">Read article</a>
+ </div>
+</article>
+</div>
+<nav class="posts-pagination" role="navigation" aria-label="Blog pagination">
+ <ul class="pagination">
+   <li class="pagination-item pagination-item-prev">
+          <a rel="prev" href="/blog/index.html">&laquo; Previous</a>
+   <li class="pagination-item pagination-item-next">
+        <span>Next &raquo;</span>
  </ul>
-<hr/>
 </nav>
-           <footer>
-    <span>blog about Extiri, programming and cybersecurity
-</span>
-    <span>written by Wiktor Wójcik</span>
+           <footer class="site-footer">
+ <div class="site-footer__inner">
+   <div class="site-footer__primary">
+     <h2>Extiri Blog</h2>
+     <p>blog about Extiri, programming and cybersecurity
+   </div>
+   <nav class="site-footer__links" aria-label="Footer navigation">
+      <a href="/blog/about/index.html">About</a>
+      <a href="/blog/archive/index.html">Archive</a>
+      <a href="https://extiri.com">Apps</a>
+      <a href="/blog/feed.xml">RSS</a>
+   </nav>
+   <div class="site-footer__meta">
+      <span>Crafted by Wiktor Wójcik</span>
+      <span>&copy; 2025 Extiri</span>
+   </div>
+ </div>
 </footer>
        </div>
+<script type="text/javascript" src="/blog/assets/js/nav.js"></script>
 <script type="text/javascript" src="/blog/assets/js/theme.js"></script>
 <script type="text/javascript" src="/blog/assets/js/barefoot.js"></script>
+<script type="text/javascript" src="/blog/assets/js/consent.js"></script>
     

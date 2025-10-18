@@ -9,37 +9,53 @@ Object.entries = (object) => Object.keys(object).map(
 const isObject = (obj) => obj === Object(obj)
 
 const LightTheme = {
-  '--bg-color': '#eee',
-  '--text-color': '#484848',
-  '--text-color-light': '#828282',
-  '--link-color': '#000',
-  '--metadata-color': '#999',
-  '--post-title': '#313131',
-  '--code-bg-color': '#fff',
-  '--code-border': '#f5f5f5',
-  '--table-border-color': '#e5e5e5',
-  '--table-header-color': '#fefefe',
-  '--shadow-color': 'rgba(0, 0, 0, 0.1)',
-  '--invert-logo-color': 'invert(0)',
-  '--hero-heading-color': '#000000',
-  themeName: 'LightTheme'
+  '--bg-color': '#050b19',
+  '--bg-elevated': 'rgba(16, 26, 44, 0.82)',
+  '--bg-muted': 'rgba(11, 19, 33, 0.6)',
+  '--surface-card': 'rgba(11, 20, 36, 0.72)',
+  '--surface-border': 'rgba(118, 178, 255, 0.22)',
+  '--surface-highlight': 'rgba(28, 48, 82, 0.85)',
+  '--text-color': '#e4ecff',
+  '--text-color-light': 'rgba(182, 206, 240, 0.72)',
+  '--link-color': '#7fe5ff',
+  '--metadata-color': 'rgba(152, 192, 246, 0.72)',
+  '--post-title': '#f6fbff',
+  '--code-bg-color': '#081423',
+  '--code-border': 'rgba(98, 146, 255, 0.22)',
+  '--table-border-color': 'rgba(96, 138, 212, 0.21)',
+  '--table-header-color': 'rgba(14, 24, 42, 0.88)',
+  '--shadow-color': 'rgba(5, 12, 32, 0.55)',
+  '--invert-logo-color': 'invert(1)',
+  '--hero-heading-color': '#f2f6ff',
+  '--page-highlight': 'rgba(92, 188, 255, 0.16)',
+  '--button-primary': '#f4792b',
+  '--button-primary-hover': '#ff9448',
+  themeName: 'AuroraTheme'
 }
 
 const NightTheme = {
-  '--bg-color': '#1c1c1c',
-  '--text-color': '#c4c4c4',
-  '--text-color-light': '#777',
-  '--link-color': '#f1f1f1',
-  '--metadata-color': '#666',
-  '--post-title': '#fff',
-  '--code-bg-color': '#252525',
-  '--code-border': '#222',
-  '--table-border-color': '#292929',
-  '--table-header-color': '#505050',
-  '--shadow-color': 'rgba(255, 255, 255, 0.1)',
+  '--bg-color': '#020714',
+  '--bg-elevated': 'rgba(10, 18, 34, 0.9)',
+  '--bg-muted': 'rgba(8, 14, 26, 0.7)',
+  '--surface-card': 'rgba(8, 18, 34, 0.78)',
+  '--surface-border': 'rgba(134, 194, 255, 0.3)',
+  '--surface-highlight': 'rgba(40, 62, 104, 0.85)',
+  '--text-color': '#dce6ff',
+  '--text-color-light': 'rgba(170, 198, 236, 0.72)',
+  '--link-color': '#8ff0ff',
+  '--metadata-color': 'rgba(160, 200, 250, 0.72)',
+  '--post-title': '#ffffff',
+  '--code-bg-color': '#061024',
+  '--code-border': 'rgba(124, 176, 255, 0.28)',
+  '--table-border-color': 'rgba(104, 150, 220, 0.28)',
+  '--table-header-color': 'rgba(12, 22, 42, 0.88)',
+  '--shadow-color': 'rgba(8, 18, 40, 0.6)',
   '--invert-logo-color': 'invert(1)',
-  '--hero-heading-color': '#fff',
-  themeName: 'NightTheme'
+  '--hero-heading-color': '#ffffff',
+  '--page-highlight': 'rgba(120, 208, 255, 0.22)',
+  '--button-primary': '#ff8a3c',
+  '--button-primary-hover': '#ffad66',
+  themeName: 'NebulaTheme'
 }
 
 const setCSSVariable = (key, value) => document.body.style.setProperty(key, value)
@@ -77,15 +93,15 @@ const checkForSavedTheme = () => {
 
 const switchTheme = () => {
   const el = document.getElementById('theme-switcher')
-  // Check if we have a saved theme
   const theme = loadSavedTheme()
-  const currentTheme = localStorage['currentTheme']
+  const currentTheme = window.localStorage ? localStorage['currentTheme'] : null
+
   if (theme && currentTheme === NightTheme.themeName) {
     updateTheme(LightTheme)
-    el.className = iconForTheme(LightTheme.themeName)
+    if (el) el.className = iconForTheme(LightTheme.themeName)
   } else {
     updateTheme(NightTheme)
-    el.className = iconForTheme(NightTheme.themeName)
+    if (el) el.className = iconForTheme(NightTheme.themeName)
   }
 }
 
@@ -105,9 +121,11 @@ checkForSavedTheme();
 
 const el = document.getElementById('theme-switcher');
 
-if (window.localStorage && localStorage['currentTheme']) {
-  var iconClasses = iconForTheme(localStorage['currentTheme']);
-  el.className = iconClasses;
-} else {
-  el.className = iconForTheme();
+if (el) {
+  if (window.localStorage && localStorage['currentTheme']) {
+    var iconClasses = iconForTheme(localStorage['currentTheme']);
+    el.className = iconClasses;
+  } else {
+    el.className = iconForTheme();
+  }
 }

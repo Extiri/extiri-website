@@ -249,4 +249,99 @@ document.addEventListener('DOMContentLoaded', function() {
   initCardExpanders();
   initScrollReveal();
   initAppFilters();
+  initSlideshow();
 });
+
+// Slideshow: cycles through .slide elements, pauses when user clicks any slide
+function initSlideshow() {
+  const root = document.querySelector('.app-slideshow');
+  if (!root) return;
+
+  const viewport = root.querySelector('.slideshow-viewport');
+  const track = root.querySelector('.slideshow-track') || viewport;
+  const slides = Array.from(root.querySelectorAll('.slide'));
+  const prevBtn = root.querySelector('.slideshow-prev');
+  const nextBtn = root.querySelector('.slideshow-next');
+  const indicators = Array.from(root.querySelectorAll('.slideshow-indicators button'));
+
+  let current = 0;
+  let intervalId = null;
+  let paused = false;
+  const DELAY = 4500;
+
+  function updateViewport() {
+    if (!viewport) return;
+    // ensure slides fill the viewport width (use pixel translation for block content)
+  const vw = viewport.clientWidth || viewport.getBoundingClientRect().width || window.innerWidth;
+  slides.forEach(s => { s.style.minWidth = vw + 'px'; s.style.flexBasis = vw + 'px'; });
+  // translate track to show current slide in pixels
+  if (track) track.style.transform = `translateX(${ -current * vw }px)`;
+    // update indicators
+    indicators.forEach((btn, i) => btn.setAttribute('aria-selected', String(i === current)));
+  }
+
+  function goTo(index, { user = false } = {}) {
+    current = (index + slides.length) % slides.length;
+    updateViewport();
+    if (user) pause();
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  function start() {
+    if (intervalId || paused) return;
+    intervalId = setInterval(() => { next(); }, DELAY);
+  }
+
+  function stop() {
+    if (!intervalId) return;
+    clearInterval(intervalId);
+    intervalId = null;
+  }
+
+  function pause() {
+    paused = true;
+    stop();
+  }
+
+  // click anywhere on a slide to pause (and keep that slide visible)
+  slides.forEach((s, i) => {
+    s.addEventListener('click', (e) => {
+      // If user clicks interactive control (link/button) allow default but still pause
+      pause();
+      // make sure focused state is visible
+      s.focus();
+    });
+  });
+
+  // Prev/Next controls
+  if (prevBtn) prevBtn.addEventListener('click', () => { prev(); pause(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { next(); pause(); });
+
+  // Indicators
+  indicators.forEach((btn) => {
+    const idx = Number(btn.dataset.index);
+    btn.addEventListener('click', () => { goTo(idx, { user: true }); });
+    btn.addEventListener('keydown', (ev) => {
+      if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); goTo(idx, { user: true }); }
+    });
+  });
+
+  // Keyboard navigation for slides: left/right while focus is inside slideshow
+  root.addEventListener('keydown', (ev) => {
+    if (ev.key === 'ArrowLeft') { prev(); pause(); }
+    if (ev.key === 'ArrowRight') { next(); pause(); }
+  });
+
+  // Resize: ensure transform remains correct (useful on orientation changes)
+  window.addEventListener('resize', () => updateViewport());
+
+  // initialize viewport transition style for sliding
+  if (viewport) viewport.style.transition = 'transform 420ms cubic-bezier(.22,.9,.3,1)';
+  if (track) { track.style.transition = 'transform 420ms cubic-bezier(.22,.9,.3,1)'; track.style.willChange = 'transform'; }
+
+  // start auto-rotation
+  updateViewport();
+  start();
+}

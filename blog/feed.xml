@@ -4,17 +4,269 @@
     <title>Extiri Blog</title>
     <description>blog about Extiri, programming and cybersecurity
 </description>
-    <link>http://127.0.0.1/blog/</link>
-    <atom:link href="http://127.0.0.1/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 22 Sep 2025 13:23:48 +0200</pubDate>
-    <lastBuildDate>Mon, 22 Sep 2025 13:23:48 +0200</lastBuildDate>
+    <link>https://extiri.com/blog/</link>
+    <atom:link href="https://extiri.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 18 Oct 2025 23:51:48 +0200</pubDate>
+    <lastBuildDate>Sat, 18 Oct 2025 23:51:48 +0200</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
+    
+      <item>
+        <title>Best Dev Habits to Save Time Every Day: Using Boilerplate, Snippets, and Templates</title>
+        <description>&lt;p&gt;There’s a common misconception that productive developers are the ones who type the fastest or memorize the most syntax. In reality, the developers who consistently ship quality work and never seem stressed aren’t necessarily working harder—they’re working smarter by eliminating friction from their daily routines.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Think about your own workflow for a second. How much time do you spend recreating the same boilerplate? Looking up commands you’ve run a thousand times? Switching between your editor, browser tabs, and terminal just to find that one piece of documentation? These tiny interruptions don’t feel like much in the moment, but they compound throughout the day, leaving you exhausted by 3 PM even though you feel like you haven’t accomplished much.&lt;/p&gt;
+
+&lt;p&gt;The developers who’ve figured this out—the ones who seem to breeze through complex projects—aren’t relying on tricks or shortcuts. They’re leaning on &lt;strong&gt;habits&lt;/strong&gt; that remove these daily friction points. They reuse patterns that work. They automate the repetitive stuff. They keep their tools organized and sharp.&lt;/p&gt;
+
+&lt;p&gt;The good news? These aren’t secret techniques that take years to master. They’re practical habits you can start adopting today. Some will save you five minutes here and there. Others will save you hours every week. Together, they compound into a workflow that feels effortless and keeps you focused on actually solving problems instead of fighting your environment.&lt;/p&gt;
+
+&lt;p&gt;Here are &lt;strong&gt;10 habits&lt;/strong&gt; that will genuinely save you time every single day. Pick a couple to start with, make them stick, then add more. You don’t need to overhaul your entire workflow overnight—small improvements add up faster than you think.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;1-build-and-use-a-snippet-library&quot;&gt;1. Build and Use a Snippet Library&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Rewriting the same error handlers, validation, or logging patterns eats up time and introduces inconsistency.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Habit:&lt;/strong&gt; Save these patterns into a snippet library. Tag them by language (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;js&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;py&lt;/code&gt;) or domain (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;auth&lt;/code&gt;) so you can recall them instantly.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# ${your_code_here}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Error: {e}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;raise&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Tip:&lt;/strong&gt; Tools like &lt;strong&gt;CodeMenu&lt;/strong&gt; make searching and inserting these snippets lightning fast—without breaking flow.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;2-standardize-with-templates&quot;&gt;2. Standardize with Templates&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Every new module or component starts with the same boilerplate. Doing it by hand is wasted effort.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Habit:&lt;/strong&gt; Use templates for React components, API routes, or unit tests. You’ll save setup time and keep your codebase consistent.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example React template:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;react&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kr&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ComponentName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}({})&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ComponentName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;works&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Store it once → reuse it forever.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;3-automate-file-and-folder-creation&quot;&gt;3. Automate File and Folder Creation&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Creating directories, configs, and starter files manually slows you down.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Habit:&lt;/strong&gt; Use CLI generators (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ng generate component&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rails g scaffold&lt;/code&gt;) or pair templates with a snippet tool.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Pro Tip:&lt;/strong&gt; Keep your templates in CodeMenu, then paste them wherever needed—no need to memorize every CLI flag.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;4-document-as-you-go&quot;&gt;4. Document as You Go&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Leaving documentation for “later” often means it never happens.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Habit:&lt;/strong&gt; Write docstrings, inline comments, or README snippets at the same time you write code.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example in Python:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;calculate_tax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
+    Calculate tax for a given amount.
+    Args:
+        amount (float): The income or purchase amount.
+    Returns:
+        float: The tax due.
+    &quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Bonus: Save comment/docstring templates as snippets so you always follow the same structure.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;5-master-keyboard-shortcuts&quot;&gt;5. Master Keyboard Shortcuts&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Every time you reach for the mouse, you lose momentum.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Habit:&lt;/strong&gt; Learn IDE, terminal, and snippet manager shortcuts. Add one new shortcut to your muscle memory each week.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;VS Code: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cmd+Shift+P&lt;/code&gt; → open command palette.&lt;/li&gt;
+  &lt;li&gt;CodeMenu: Global shortcut → instant snippet search, no window-switching.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;6-reuse-proven-solutions&quot;&gt;6. Reuse Proven Solutions&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Developers often re-solve problems they’ve already cracked.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Habit:&lt;/strong&gt; Before coding, ask:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Did I solve this before?&lt;/li&gt;
+  &lt;li&gt;Is there a library or snippet that covers it?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;When you find a solid solution, add it to your snippet/tooling library so you never waste that effort again.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;7-keep-your-tools-organized&quot;&gt;7. Keep Your Tools Organized&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; A messy library (snippets, bookmarks, repos) makes tools harder to use, so you stop using them.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Habit:&lt;/strong&gt; Spend 10 minutes weekly organizing.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tag snippets (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;logging&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;validation&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db&lt;/code&gt;).&lt;/li&gt;
+  &lt;li&gt;Delete duplicates.&lt;/li&gt;
+  &lt;li&gt;Rename cryptic titles.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In CodeMenu, this takes minutes, and pays off every time you search.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;8-batch-small-tasks&quot;&gt;8. Batch Small Tasks&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Context switching kills flow.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Habit:&lt;/strong&gt; Collect small tasks into a batch list. Handle them in one block instead of sprinkling them through your deep-work hours.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Answer 5 PR comments together.&lt;/li&gt;
+  &lt;li&gt;Write all TODO cleanups before stand-up.&lt;/li&gt;
+  &lt;li&gt;Update snippets at the end of the week.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;9-version-your-snippets&quot;&gt;9. Version Your Snippets&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Snippets evolve over time. Without versioning, teams diverge into conflicting patterns.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Habit:&lt;/strong&gt; Store shared snippets in Git or a snippet server. Review changes like normal code.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tooling:&lt;/strong&gt; Extiri’s &lt;strong&gt;Snippets Store&lt;/strong&gt; (self-hostable) works well with CodeMenu, giving your team one source of truth.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;10-schedule-productivity-maintenance&quot;&gt;10. Schedule “Productivity Maintenance”&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Your workflow gets bloated unless you prune and refine.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Habit:&lt;/strong&gt; Once a week, spend 15 minutes maintaining:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Delete unused snippets.&lt;/li&gt;
+  &lt;li&gt;Improve one template.&lt;/li&gt;
+  &lt;li&gt;Learn a new shortcut.&lt;/li&gt;
+  &lt;li&gt;Clean up your workspace.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Think of it as “spring cleaning” for your dev environment.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Saving time as a developer comes down to habits you repeat daily:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Build a snippet library&lt;/li&gt;
+  &lt;li&gt;Standardize with templates&lt;/li&gt;
+  &lt;li&gt;Automate setup&lt;/li&gt;
+  &lt;li&gt;Document as you go&lt;/li&gt;
+  &lt;li&gt;Learn shortcuts&lt;/li&gt;
+  &lt;li&gt;Reuse solutions&lt;/li&gt;
+  &lt;li&gt;Stay organized&lt;/li&gt;
+  &lt;li&gt;Batch tasks&lt;/li&gt;
+  &lt;li&gt;Version snippets&lt;/li&gt;
+  &lt;li&gt;Maintain weekly&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;👉 Start with 2 habits this week. Once they’re second nature, add more. Small improvements compound into hours saved every month.&lt;/p&gt;
+
+&lt;p&gt;If you’re looking for a tool to make snippets and templates painless, give &lt;a href=&quot;https://extiri.com/codemenu.html&quot;&gt;&lt;strong&gt;CodeMenu&lt;/strong&gt;&lt;/a&gt; a try—it turns many of these habits into effortless defaults.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;7-day-starter-checklist-do-one-per-day&quot;&gt;7-day starter checklist (do one per day)&lt;/h2&gt;
+
+&lt;p&gt;Day 1: Save three snippets you use daily into your snippet manager and tag them.&lt;/p&gt;
+
+&lt;p&gt;Day 2: Create one template for a common file type (React component, test file, or module).&lt;/p&gt;
+
+&lt;p&gt;Day 3: Add a keyboard shortcut for your snippet manager to insert snippets without leaving the editor.&lt;/p&gt;
+
+&lt;p&gt;Day 4: Batch three small tasks and handle them in one focused block.&lt;/p&gt;
+
+&lt;p&gt;Day 5: Audit your snippet library for duplicates and rename unclear items.&lt;/p&gt;
+
+&lt;p&gt;Day 6: Version one snippet in Git (or export your snippet tool library) so it’s tracked.&lt;/p&gt;
+
+&lt;p&gt;Day 7: Teach a teammate one shortcut or snippet workflow (sharing solidifies habit).&lt;/p&gt;
+
+&lt;p&gt;Note on tooling: the suggestions above work with many snippet tools; CodeMenu is one example that supports quick insertion and tagging—feel free to substitute your preferred tool.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 18 Oct 2025 00:00:00 +0200</pubDate>
+        <link>https://extiri.com/blog/posts/ten-developer-habits</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/ten-developer-habits</guid>
+        
+        <category>productivity</category>
+        
+        <category>snippets</category>
+        
+        <category>programming</category>
+        
+        
+      </item>
     
       <item>
         <title>Introducing Chitneek for iOS - Hear Your Documents, Simply and Privately</title>
         <description>&lt;p class=&quot;lead&quot;&gt;Do you want a reading app that’s clean, reliable, and doesn’t force you to sign up for everything? Meet &lt;strong&gt;Chitneek&lt;/strong&gt;, the iPhone app that turns PDFs, EPUBs, web pages, notes, Gutenberg classics, and RSS feeds into spoken text — without cloud uploads or unnecessary complexity.&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
+&lt;!--more--&gt;
 
 &lt;h2 id=&quot;-what-you-can-do-with-chitneek&quot;&gt;🎧 What You Can Do with Chitneek&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&quot;/blog/assets/chitneek-screenshots/Screenshot-1.png&quot; alt=&quot;Read PDFs, EPUBs, websites and text&quot; height=&quot;900&quot; /&gt;&lt;/p&gt;
@@ -70,8 +322,8 @@
 &lt;p&gt;Chitneek is for anyone who believes that reading aloud should be easy, private, and dependable. If you’ve been looking for a calm, uncluttered experience that still covers everything essential — this is it.&lt;/p&gt;
 </description>
         <pubDate>Mon, 22 Sep 2025 00:00:00 +0200</pubDate>
-        <link>http://127.0.0.1/blog/posts/introducing-chitneek</link>
-        <guid isPermaLink="true">http://127.0.0.1/blog/posts/introducing-chitneek</guid>
+        <link>https://extiri.com/blog/posts/introducing-chitneek-copy</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/introducing-chitneek-copy</guid>
         
         <category>extiri</category>
         
@@ -84,7 +336,7 @@
         <title>From Theory to Practice: 5 Platforms That Turn Learning Into Doing</title>
         <description>&lt;p class=&quot;lead&quot;&gt;Ever feel stuck in &lt;em&gt;tutorial hell&lt;/em&gt; - watching endless videos but never actually applying what you learn? I’ve been there too. Books and courses are fantastic - they give structure, context, and explanations - but real understanding often comes when you &lt;em&gt;actually do it&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
+&lt;!--more--&gt;
 
 &lt;p&gt;Over time, I’ve discovered several platforms that take concepts from theory to hands-on experience. Each one is free and ready to help you practice and internalize what you learn.&lt;/p&gt;
 
@@ -152,8 +404,8 @@
 &lt;p&gt;I hope they do the same for you. Dive in, experiment, fail, fix, and learn - your brain will thank you.&lt;/p&gt;
 </description>
         <pubDate>Mon, 25 Aug 2025 00:00:00 +0200</pubDate>
-        <link>http://127.0.0.1/blog/posts/from-theory-to-practice</link>
-        <guid isPermaLink="true">http://127.0.0.1/blog/posts/from-theory-to-practice</guid>
+        <link>https://extiri.com/blog/posts/from-theory-to-practice</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/from-theory-to-practice</guid>
         
         <category>programming</category>
         
@@ -168,7 +420,7 @@
         <title>10 Reason to Use a Snippet Manager in the AI Era</title>
         <description>&lt;p class=&quot;lead&quot;&gt;With AI tools like ChatGPT, Claude, and GitHub Copilot revolutionizing the way we code, it’s easy to wonder if traditional tools like snippet managers are still relevant. The short answer? Absolutely. A snippet manager remains a critical part of a modern developer’s workflow, providing organization, precision, and efficiency that perfectly complements the power of AI.&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
+&lt;!--more--&gt;
 
 &lt;p&gt;Here’s how a snippet manager like CodeMenu can supercharge your productivity—especially when paired with AI-driven tools.&lt;/p&gt;
 
@@ -241,8 +493,8 @@
 &lt;p&gt;By integrating a powerful snippet manager like CodeMenu into your toolkit, you can leverage the strengths of both AI and human organization. CodeMenu’s features—like placeholders, offline AI functions, and support for 55+ languages ensure you’re ready to handle whatever challenges come your way.&lt;/p&gt;
 </description>
         <pubDate>Sun, 26 Jan 2025 00:00:00 +0100</pubDate>
-        <link>http://127.0.0.1/blog/posts/ten-reason-to-use-a-snippet-manager-in-the-ai-era</link>
-        <guid isPermaLink="true">http://127.0.0.1/blog/posts/ten-reason-to-use-a-snippet-manager-in-the-ai-era</guid>
+        <link>https://extiri.com/blog/posts/ten-reason-to-use-a-snippet-manager-in-the-ai-era</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/ten-reason-to-use-a-snippet-manager-in-the-ai-era</guid>
         
         <category>artificial-intelligence</category>
         
@@ -253,7 +505,7 @@
         <title>Building Your Personal Knowledge Base</title>
         <description>&lt;p class=&quot;lead&quot;&gt;In the age of information overload, managing knowledge effectively is not just a luxury; it’s a necessity. Whether you’re a programmer, writer, researcher, or just someone keen on self-improvement, building a personal knowledge base can transform your efficiency and creativity. Here’s how personal databases like snippet managers can become your secret weapon in this endeavor:&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
+&lt;!--more--&gt;
 
 &lt;hr /&gt;
 
@@ -308,8 +560,8 @@
 &lt;p&gt;Building a personal knowledge base isn’t just about hoarding information; it’s about crafting a dynamic, ever-evolving tool that grows with you. Tools like Obsidian, Roam Research and CodeMenu empower you to weave all strands of your digital life into a coherent, powerful tool for personal and professional growth. Whether you’re coding, writing, designing, or learning, your personal database is your ally in mastering the information age.&lt;/p&gt;
 </description>
         <pubDate>Sun, 26 Jan 2025 00:00:00 +0100</pubDate>
-        <link>http://127.0.0.1/blog/posts/building-your-personal-knowledge-base</link>
-        <guid isPermaLink="true">http://127.0.0.1/blog/posts/building-your-personal-knowledge-base</guid>
+        <link>https://extiri.com/blog/posts/building-your-personal-knowledge-base</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/building-your-personal-knowledge-base</guid>
         
         
       </item>
@@ -318,7 +570,7 @@
         <title>The Power of Automation - Useful Tools For Automating</title>
         <description>&lt;p class=&quot;lead&quot;&gt;As developers, we’re often tasked with repetitive, time-consuming activities that can sap creativity and productivity. The good news? Many of these tasks can be automated, freeing up your time to focus on solving real problems and building innovative solutions.&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
+&lt;!--more--&gt;
 
 &lt;p&gt;Automation is no longer a luxury—it’s a necessity in modern software development. Here are 10 tasks every developer should consider automating today:&lt;/p&gt;
 
@@ -495,8 +747,8 @@ Prevents vulnerabilities from slipping into production.&lt;/p&gt;
 &lt;hr /&gt;
 </description>
         <pubDate>Sat, 18 Jan 2025 00:00:00 +0100</pubDate>
-        <link>http://127.0.0.1/blog/posts/the-power-of-automation-useful-tools-for-automating</link>
-        <guid isPermaLink="true">http://127.0.0.1/blog/posts/the-power-of-automation-useful-tools-for-automating</guid>
+        <link>https://extiri.com/blog/posts/the-power-of-automation-useful-tools-for-automating</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/the-power-of-automation-useful-tools-for-automating</guid>
         
         <category>guide</category>
         
@@ -509,7 +761,7 @@ Prevents vulnerabilities from slipping into production.&lt;/p&gt;
         <title>The Ultimate Guide to Snippet Management with CodeMenu</title>
         <description>&lt;p class=&quot;lead&quot;&gt;In the fast-paced world of software development, efficiency isn’t just nice to have; it’s essential. Code snippets, those handy pieces of reusable code, can significantly boost your productivity, but only if you manage them effectively. Enter &lt;a href=&quot;https://extiri.com/codemenu.html&quot;&gt;CodeMenu&lt;/a&gt; by Extiri, a snippet manager designed not just for storing code but for transforming how you code, design, and even think about your work.&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
+&lt;!--more--&gt;
 
 &lt;p&gt;Here’s your ultimate guide to leveraging CodeMenu for an unparalleled coding workflow:&lt;/p&gt;
 
@@ -572,8 +824,8 @@ Prevents vulnerabilities from slipping into production.&lt;/p&gt;
 &lt;p&gt;By integrating CodeMenu into your daily coding routine, you’re not just managing snippets; you’re enhancing your entire development process. From centralizing your knowledge base to leveraging AI for smarter work, CodeMenu is more than a tool; it’s a partner in your coding journey. Start today, and watch how your productivity and creativity soar.&lt;/p&gt;
 </description>
         <pubDate>Fri, 10 Jan 2025 00:00:00 +0100</pubDate>
-        <link>http://127.0.0.1/blog/posts/ultimate-guide-to-snippet-management-with-codemenu</link>
-        <guid isPermaLink="true">http://127.0.0.1/blog/posts/ultimate-guide-to-snippet-management-with-codemenu</guid>
+        <link>https://extiri.com/blog/posts/ultimate-guide-to-snippet-management-with-codemenu</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/ultimate-guide-to-snippet-management-with-codemenu</guid>
         
         <category>extiri</category>
         
@@ -588,7 +840,7 @@ Prevents vulnerabilities from slipping into production.&lt;/p&gt;
         <title>The Art of Writing Maintainable Code - Best Practices</title>
         <description>&lt;p class=&quot;lead&quot;&gt;Writing code is easy; writing maintainable code is a craft. As software engineers, we often focus on delivering features and fixing bugs, but maintainable code is the foundation of scalable, long-term success. Code that’s clean, understandable, and adaptable not only saves time and money but also reduces frustration for everyone working with it, including your future self.&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
+&lt;!--more--&gt;
 
 &lt;p&gt;Here’s how you can master the art of writing maintainable code:&lt;/p&gt;
 
@@ -754,8 +1006,8 @@ Instead of creating a full plugin system for a one-off feature, write a modular,
 &lt;p&gt;Cargo cult programming occurs when developers copy code or patterns without fully understanding their purpose, often because “it worked elsewhere” or “everyone does it this way.” It also happens when, for example, a bug is solved by duct-taping it with an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if&lt;/code&gt; without fixing the underlying issue. While this approach may produce functional code in the short term, it can lead to unnecessary complexity, bugs, and a lack of clarity for future maintainers. To write maintainable code, focus on understanding the problem you’re solving and the rationale behind each implementation choice. Avoid blindly replicating code — be intentional, document your reasoning, and strive for simplicity and readability.&lt;/p&gt;
 </description>
         <pubDate>Fri, 10 Jan 2025 00:00:00 +0100</pubDate>
-        <link>http://127.0.0.1/blog/posts/the-art-of-writing-maintainable-code</link>
-        <guid isPermaLink="true">http://127.0.0.1/blog/posts/the-art-of-writing-maintainable-code</guid>
+        <link>https://extiri.com/blog/posts/the-art-of-writing-maintainable-code</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/the-art-of-writing-maintainable-code</guid>
         
         <category>programming</category>
         
@@ -768,7 +1020,7 @@ Instead of creating a full plugin system for a one-off feature, write a modular,
         <title>Some snippets of code for your Swift apps</title>
         <description>&lt;p class=&quot;lead&quot;&gt;Hi! While programming in Swift I have accumulated many code snippets. Some of them are mine and some of them come from the internet. Here I’m sharing 5 tiny quality-of-life snippets. Hopefully you will find them useful.&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
+&lt;!--more--&gt;
 
 &lt;h3 id=&quot;1-cocoa-accessing-nswindow-from-nsviewcontroller&quot;&gt;1. (Cocoa) Accessing NSWindow from NSViewController&lt;/h3&gt;
 &lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
@@ -1056,8 +1308,8 @@ Instead of creating a full plugin system for a one-off feature, write a modular,
 &lt;p&gt;As a sidenote, if you are dealing with many snippets of various types (like these ones), CodeMenu can help you organize, access and use their full potential.&lt;/p&gt;
 </description>
         <pubDate>Thu, 03 Oct 2024 00:00:00 +0200</pubDate>
-        <link>http://127.0.0.1/blog/posts/some-snippets-of-code-for-your-swift-apps</link>
-        <guid isPermaLink="true">http://127.0.0.1/blog/posts/some-snippets-of-code-for-your-swift-apps</guid>
+        <link>https://extiri.com/blog/posts/some-snippets-of-code-for-your-swift-apps</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/some-snippets-of-code-for-your-swift-apps</guid>
         
         <category>snippets</category>
         
@@ -1070,7 +1322,7 @@ Instead of creating a full plugin system for a one-off feature, write a modular,
         <title>Taking an image of a part of the screen in a Cocoa app</title>
         <description>&lt;p class=&quot;lead&quot;&gt;Hi! In this post I will show you how to write a “screenshot taker” for a Cocoa app. It will allow the user to select a part of the screen, just like the builtin screenshot taking tool on macOS. It uses &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CGWindowListCreateImage&lt;/code&gt; (macOS 10.5 - 14.0), so it should work in old codebases although it’s important to note that it’s deprecated in macOS 14.0. In such case you should use ScreenCaptureKit and it’s functions like captureScreenshot. It should work well for most cases. Well, let’s start!&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
+&lt;!--more--&gt;
 
 &lt;p&gt;This code will be pretty lengthy so I will split it into two parts: a manager and a view controller. The manager will be the frontend for screenshot taking and the view controller will be responsible for selecting part of the screen. Let’s begin with the manager.&lt;/p&gt;
 
@@ -1871,8 +2123,8 @@ Instead of creating a full plugin system for a one-off feature, write a modular,
 &lt;/div&gt;
 </description>
         <pubDate>Sat, 21 Sep 2024 00:00:00 +0200</pubDate>
-        <link>http://127.0.0.1/blog/posts/taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app</link>
-        <guid isPermaLink="true">http://127.0.0.1/blog/posts/taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app</guid>
+        <link>https://extiri.com/blog/posts/taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/taking-an-image-of-a-part-of-the-screen-in-a-cocoa-app</guid>
         
         <category>snippets</category>
         
