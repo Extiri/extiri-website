@@ -401,6 +401,43 @@ html, body {
   border-radius: 39px;
 }
 
+/* Slideshow consolidated styles (moved from inline styles in index.html)
+   These rules power the homepage app slideshow: viewport, track, slides,
+   controls, indicators, and responsive behavior. */
+.app-slideshow{margin:2.5rem 0 3rem;background:transparent}
+.slideshow-viewport{display:flex;overflow:hidden;border-radius:12px}
+.slideshow-track{display:flex;flex-direction:row;align-items:stretch}
+.slideshow-track .slide{flex:0 0 100%;box-sizing:border-box;display:flex;align-items:stretch}
+.slide{min-width:100%;flex:0 0 100%;display:flex;align-items:stretch;padding:1rem;transition:transform 420ms cubic-bezier(.22,.9,.3,1)}
+.slide-card{display:flex;gap:1rem;width:100%;background:rgba(255,255,255,0.02);padding:1rem;border-radius:10px;align-items:center}
+.slide-media img{width:140px;height:auto;border-radius:8px;object-fit:cover}
+.slide-content{flex:1}
+.slide-content h3{margin:0 0 .25rem 0;font-size:1.25rem}
+.slideshow-controls{display:flex;align-items:center;justify-content:space-between;margin-top:.75rem}
+.slideshow-controls button{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text-color);padding:.25rem .6rem;border-radius:6px}
+.slideshow-indicators{display:flex;gap:.4rem;align-items:center}
+.slideshow-indicators button{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.08);border:none}
+.slideshow-indicators button[aria-selected="true"]{background:var(--link-color)}
+.slideshow-note{font-size:.9rem;opacity:.8;margin-top:.4rem}
+@media (max-width: 640px){
+  .slide-card{flex-direction:column;align-items:flex-start}
+  .slide-media img{width:100%;height:auto}
+  .slideshow-controls{gap:.5rem}
+}
+
+/* Slideshow app-feature overrides: host app-feature sections inside slides */
+.app-slideshow .slideshow-viewport { align-items: stretch; }
+.app-slideshow .slide { box-sizing: border-box; padding: 0; display: flex; align-items:stretch }
+.app-slideshow .slide > .app-feature { margin: 0 auto; border-radius: 20px; padding: clamp(18px, 3.4vw, 40px); max-width: 1100px; height: 100%; flex: 1 1 auto; }
+.app-slideshow .app-feature { margin-top: 0; box-shadow: 0 18px 48px rgba(4,6,12,0.45); }
+.app-slideshow .app-feature__media img { border-radius: 16px; max-width: 360px; }
+/* Ensure selected indicator is visible in the dark theme */
+.slideshow-indicators button[aria-selected="true"]{ background: #fff !important; width:12px; height:12px; box-shadow: 0 0 0 3px rgba(255,255,255,0.06); }
+@media (max-width: 640px) {
+  .app-slideshow .app-feature { padding: 18px; }
+  .app-slideshow .app-feature__media img { max-width: 100%; }
+}
+
 .beta-badge {
   text-align: center;
   color: white;
