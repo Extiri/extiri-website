@@ -3,7 +3,7 @@
   
     
     <url>
-      <loc>https://extiri.com/posts/ten-developer-habits/</loc>
+      <loc>https://extiri.com/posts/introducing-clipguru/</loc>
       
         <lastmod>2025-10-18T00:00:00+02:00</lastmod>
       
@@ -18,7 +18,22 @@
   
     
     <url>
-      <loc>https://extiri.com/posts/introducing-chitneek-copy/</loc>
+      <loc>https://extiri.com/posts/ten-developer-habits/</loc>
+      
+        <lastmod>2025-10-17T00:00:00+02:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.7</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://extiri.com/posts/introducing-chitneek/</loc>
       
         <lastmod>2025-09-22T00:00:00+02:00</lastmod>
       
@@ -158,7 +173,7 @@
     <url>
       <loc>https://extiri.com/about/</loc>
       
-        <lastmod>2025-10-18T23:51:48+02:00</lastmod>
+        <lastmod>2025-10-19T13:11:06+02:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -173,7 +188,7 @@
     <url>
       <loc>https://extiri.com/archive/</loc>
       
-        <lastmod>2025-10-18T23:51:48+02:00</lastmod>
+        <lastmod>2025-10-19T13:11:06+02:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -192,7 +207,7 @@
     <url>
       <loc>https://extiri.com/</loc>
       
-        <lastmod>2025-10-18T23:51:48+02:00</lastmod>
+        <lastmod>2025-10-19T13:11:06+02:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -213,7 +228,22 @@
     <url>
       <loc>https://extiri.com/page-2/</loc>
       
-        <lastmod>2025-10-18T23:51:48+02:00</lastmod>
+        <lastmod>2025-10-19T13:11:06+02:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://extiri.com/page-3/</loc>
+      
+        <lastmod>2025-10-19T13:11:06+02:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
