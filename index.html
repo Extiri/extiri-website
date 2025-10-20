@@ -24,6 +24,40 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" type="image/x-icon" href="./images/favicon.png">
     <link rel="stylesheet" href="styles.css">
+        <!-- Homepage overrides: remove decorative gradients for cards/tiles/overlays
+                 while preserving the hero background and button gradients. -->
+        <style>
+            /* Only affect homepage components; keep hero (.home-hero-bg) and buttons intact */
+            .app-feature--codemenu,
+            .app-feature--chitneek,
+            .app-feature--clipguru {
+                background: rgba(18,20,24,0.90) !important;
+                background-image: none !important;
+            }
+
+            /* Remove decorative overlay blobs on feature cards */
+            .app-feature::after {
+                background: none !important;
+            }
+
+            /* Make tiles and section cards use a neutral solid panel color */
+            .app-tile,
+            .app-tile--coming,
+            .section-card,
+            .preview-card {
+                background: rgba(12,14,18,0.80) !important;
+                background-image: none !important;
+                box-shadow: 0 12px 36px rgba(0,0,0,0.45) !important;
+            }
+
+            /* Soft, low-contrast section divider */
+            .section-divider {
+                background: rgba(255,255,255,0.03) !important;
+            }
+
+            /* Keep the page watermark and hero untouched; these rules target only
+                 card-like decorations, not global page background */
+        </style>
     <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <script>
         function goToHome() {
