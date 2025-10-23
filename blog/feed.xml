@@ -4,10 +4,10 @@
     <title>Extiri Blog</title>
     <description>blog about Extiri, programming and cybersecurity
 </description>
-    <link>https://extiri.com/blog/</link>
-    <atom:link href="https://extiri.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 20 Oct 2025 17:44:32 +0200</pubDate>
-    <lastBuildDate>Mon, 20 Oct 2025 17:44:32 +0200</lastBuildDate>
+    <link>https://extiri.com/blog/blog/</link>
+    <atom:link href="https://extiri.com/blog/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 23 Oct 2025 12:47:52 +0200</pubDate>
+    <lastBuildDate>Thu, 23 Oct 2025 12:47:52 +0200</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -77,8 +77,8 @@
 &lt;p&gt;Download ClipGuru from the &lt;a href=&quot;https://apps.apple.com/pl/app/clipguru/id6753787446&quot;&gt;App Store&lt;/a&gt;. The app is mobile-first (iPhone and iPad) but it’s also available on macOS. Learn more &lt;a href=&quot;https://extiri.com/clipguru.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Sat, 18 Oct 2025 00:00:00 +0200</pubDate>
-        <link>https://extiri.com/blog/posts/introducing-clipguru</link>
-        <guid isPermaLink="true">https://extiri.com/blog/posts/introducing-clipguru</guid>
+        <link>https://extiri.com/blog/blog/posts/introducing-clipguru</link>
+        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/introducing-clipguru</guid>
         
         <category>extiri</category>
         
@@ -327,8 +327,8 @@
 &lt;p&gt;Note on tooling: the suggestions above work with many snippet tools; CodeMenu is one example that supports quick insertion and tagging—feel free to substitute your preferred tool.&lt;/p&gt;
 </description>
         <pubDate>Fri, 17 Oct 2025 00:00:00 +0200</pubDate>
-        <link>https://extiri.com/blog/posts/ten-developer-habits</link>
-        <guid isPermaLink="true">https://extiri.com/blog/posts/ten-developer-habits</guid>
+        <link>https://extiri.com/blog/blog/posts/ten-developer-habits</link>
+        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/ten-developer-habits</guid>
         
         <category>productivity</category>
         
@@ -399,8 +399,8 @@
 &lt;p&gt;Chitneek is for anyone who believes that reading aloud should be easy, private, and dependable. If you’ve been looking for a calm, uncluttered experience that still covers everything essential — this is it.&lt;/p&gt;
 </description>
         <pubDate>Mon, 22 Sep 2025 00:00:00 +0200</pubDate>
-        <link>https://extiri.com/blog/posts/introducing-chitneek</link>
-        <guid isPermaLink="true">https://extiri.com/blog/posts/introducing-chitneek</guid>
+        <link>https://extiri.com/blog/blog/posts/introducing-chitneek</link>
+        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/introducing-chitneek</guid>
         
         <category>extiri</category>
         
@@ -481,8 +481,8 @@
 &lt;p&gt;I hope they do the same for you. Dive in, experiment, fail, fix, and learn - your brain will thank you.&lt;/p&gt;
 </description>
         <pubDate>Mon, 25 Aug 2025 00:00:00 +0200</pubDate>
-        <link>https://extiri.com/blog/posts/from-theory-to-practice</link>
-        <guid isPermaLink="true">https://extiri.com/blog/posts/from-theory-to-practice</guid>
+        <link>https://extiri.com/blog/blog/posts/from-theory-to-practice</link>
+        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/from-theory-to-practice</guid>
         
         <category>programming</category>
         
@@ -570,8 +570,8 @@
 &lt;p&gt;By integrating a powerful snippet manager like CodeMenu into your toolkit, you can leverage the strengths of both AI and human organization. CodeMenu’s features—like placeholders, offline AI functions, and support for 55+ languages ensure you’re ready to handle whatever challenges come your way.&lt;/p&gt;
 </description>
         <pubDate>Sun, 26 Jan 2025 00:00:00 +0100</pubDate>
-        <link>https://extiri.com/blog/posts/ten-reason-to-use-a-snippet-manager-in-the-ai-era</link>
-        <guid isPermaLink="true">https://extiri.com/blog/posts/ten-reason-to-use-a-snippet-manager-in-the-ai-era</guid>
+        <link>https://extiri.com/blog/blog/posts/ten-reason-to-use-a-snippet-manager-in-the-ai-era</link>
+        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/ten-reason-to-use-a-snippet-manager-in-the-ai-era</guid>
         
         <category>artificial-intelligence</category>
         
@@ -637,8 +637,8 @@
 &lt;p&gt;Building a personal knowledge base isn’t just about hoarding information; it’s about crafting a dynamic, ever-evolving tool that grows with you. Tools like Obsidian, Roam Research and CodeMenu empower you to weave all strands of your digital life into a coherent, powerful tool for personal and professional growth. Whether you’re coding, writing, designing, or learning, your personal database is your ally in mastering the information age.&lt;/p&gt;
 </description>
         <pubDate>Sun, 26 Jan 2025 00:00:00 +0100</pubDate>
-        <link>https://extiri.com/blog/posts/building-your-personal-knowledge-base</link>
-        <guid isPermaLink="true">https://extiri.com/blog/posts/building-your-personal-knowledge-base</guid>
+        <link>https://extiri.com/blog/blog/posts/building-your-personal-knowledge-base</link>
+        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/building-your-personal-knowledge-base</guid>
         
         
       </item>
@@ -824,8 +824,8 @@ Prevents vulnerabilities from slipping into production.&lt;/p&gt;
 &lt;hr /&gt;
 </description>
         <pubDate>Sat, 18 Jan 2025 00:00:00 +0100</pubDate>
-        <link>https://extiri.com/blog/posts/the-power-of-automation-useful-tools-for-automating</link>
-        <guid isPermaLink="true">https://extiri.com/blog/posts/the-power-of-automation-useful-tools-for-automating</guid>
+        <link>https://extiri.com/blog/blog/posts/the-power-of-automation-useful-tools-for-automating</link>
+        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/the-power-of-automation-useful-tools-for-automating</guid>
         
         <category>guide</category>
         
@@ -901,8 +901,8 @@ Prevents vulnerabilities from slipping into production.&lt;/p&gt;
 &lt;p&gt;By integrating CodeMenu into your daily coding routine, you’re not just managing snippets; you’re enhancing your entire development process. From centralizing your knowledge base to leveraging AI for smarter work, CodeMenu is more than a tool; it’s a partner in your coding journey. Start today, and watch how your productivity and creativity soar.&lt;/p&gt;
 </description>
         <pubDate>Fri, 10 Jan 2025 00:00:00 +0100</pubDate>
-        <link>https://extiri.com/blog/posts/ultimate-guide-to-snippet-management-with-codemenu</link>
-        <guid isPermaLink="true">https://extiri.com/blog/posts/ultimate-guide-to-snippet-management-with-codemenu</guid>
+        <link>https://extiri.com/blog/blog/posts/ultimate-guide-to-snippet-management-with-codemenu</link>
+        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/ultimate-guide-to-snippet-management-with-codemenu</guid>
         
         <category>extiri</category>
         
@@ -1083,8 +1083,8 @@ Instead of creating a full plugin system for a one-off feature, write a modular,
 &lt;p&gt;Cargo cult programming occurs when developers copy code or patterns without fully understanding their purpose, often because “it worked elsewhere” or “everyone does it this way.” It also happens when, for example, a bug is solved by duct-taping it with an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if&lt;/code&gt; without fixing the underlying issue. While this approach may produce functional code in the short term, it can lead to unnecessary complexity, bugs, and a lack of clarity for future maintainers. To write maintainable code, focus on understanding the problem you’re solving and the rationale behind each implementation choice. Avoid blindly replicating code — be intentional, document your reasoning, and strive for simplicity and readability.&lt;/p&gt;
 </description>
         <pubDate>Fri, 10 Jan 2025 00:00:00 +0100</pubDate>
-        <link>https://extiri.com/blog/posts/the-art-of-writing-maintainable-code</link>
-        <guid isPermaLink="true">https://extiri.com/blog/posts/the-art-of-writing-maintainable-code</guid>
+        <link>https://extiri.com/blog/blog/posts/the-art-of-writing-maintainable-code</link>
+        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/the-art-of-writing-maintainable-code</guid>
         
         <category>programming</category>
         
@@ -1385,8 +1385,8 @@ Instead of creating a full plugin system for a one-off feature, write a modular,
 &lt;p&gt;As a sidenote, if you are dealing with many snippets of various types (like these ones), CodeMenu can help you organize, access and use their full potential.&lt;/p&gt;
 </description>
         <pubDate>Thu, 03 Oct 2024 00:00:00 +0200</pubDate>
-        <link>https://extiri.com/blog/posts/some-snippets-of-code-for-your-swift-apps</link>
-        <guid isPermaLink="true">https://extiri.com/blog/posts/some-snippets-of-code-for-your-swift-apps</guid>
+        <link>https://extiri.com/blog/blog/posts/some-snippets-of-code-for-your-swift-apps</link>
+        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/some-snippets-of-code-for-your-swift-apps</guid>
         
         <category>snippets</category>
         
