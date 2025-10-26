@@ -539,21 +539,67 @@ html, body {
 
 /* CodeMenu hero grid (desktop: text left, media right; mobile: stacked) */
 .codemenu-hero-grid {
-  width: min(100%, 1100px);
+  width: min(100%, 1200px);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 480px;
+  /* Larger media column so the video keeps its previous visual size on desktop */
+  grid-template-columns: 1fr 690px;
   gap: 32px;
   align-items: center;
   padding: 28px 18px;
 }
 .codemenu-hero-grid .hero-text { max-width: 720px; }
+.codemenu-hero-grid .hero-text { text-align: center; }
 .codemenu-hero-grid .hero-media { display: flex; align-items: center; justify-content: center; }
 .codemenu-hero-grid .hero-media .preview-image { width: 100%; height: auto; max-width: 100%; border-radius: 12px; }
+
+/* Tone down overly heavy uppercase/bold site-wide heading styles only inside the CodeMenu hero */
+.codemenu-hero-grid .hero-text h1 {
+  text-transform: none !important;
+  font-weight: 700 !important;
+  font-size: clamp(1.8rem, 3.2vw, 3.2rem) !important;
+  line-height: 1.05 !important;
+  color: #ffffff !important;
+  margin-bottom: 6px !important;
+}
+.codemenu-hero-grid .hero-text h2 {
+  text-transform: none !important;
+  font-weight: 500 !important;
+  font-size: clamp(1rem, 1.6vw, 1.2rem) !important;
+  color: #ffe082 !important;
+  margin-top: 0 !important;
+  opacity: 0.96 !important;
+}
+
 @media (max-width: 900px) {
   .codemenu-hero-grid { grid-template-columns: 1fr; }
   .codemenu-hero-grid .hero-media { order: 2; margin-top: 10px; }
   .codemenu-hero-grid .hero-text { order: 1; }
+  .codemenu-hero-grid .hero-media .preview-image { height: auto; max-width: 100%; }
+}
+
+/* Make the CodeMenu hero taller on desktop and keep the video at its original visual size */
+.app-hero {
+  padding-top: 56px; /* space for navbar */
+  padding-bottom: 56px;
+}
+.codemenu-hero-grid {
+  min-height: 720px; /* taller hero on desktop */
+}
+
+/* Ensure the iframe/video keeps the previous 690x390 visual size on wide screens */
+@media (min-width: 1000px) {
+  .codemenu-hero-grid .hero-media .preview-image {
+    width: 690px !important;
+    max-width: 690px !important;
+    height: 390px !important;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 999px) {
+  .codemenu-hero-grid { min-height: 520px; }
+  .codemenu-hero-grid .hero-media .preview-image { width: min(90%, 690px); height: 390px; }
 }
 
 .beta-badge {

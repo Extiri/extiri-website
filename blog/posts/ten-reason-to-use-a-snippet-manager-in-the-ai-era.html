@@ -182,4 +182,23 @@
 <script type="text/javascript" src="/blog/assets/js/theme.js"></script>
 <script type="text/javascript" src="/blog/assets/js/barefoot.js"></script>
 <script type="text/javascript" src="/blog/assets/js/consent.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    // Default to denied until the user accepts
+    gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    gtag('js', new Date());
+    gtag('config', 'G-HLY6ZZMNBQ', { 'anonymize_ip': true });
+    // Listen for our custom consent event to enable analytics
+    window.addEventListener('extiri:consent', function (e) {
+      if (e && e.detail && e.detail.analytics) {
+        // Grant analytics consent
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      } else {
+        // Revoke analytics consent
+        gtag('consent', 'update', { 'analytics_storage': 'denied' });
+      }
+    });
+  </script>
     

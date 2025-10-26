@@ -249,6 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initCardExpanders();
   initScrollReveal();
   initAppFilters();
+  initDownloadTracking();
   initSlideshow();
 });
 
@@ -344,4 +345,48 @@ function initSlideshow() {
   // start auto-rotation
   updateViewport();
   start();
+}
+
+// Download CTA tracking: attach click handlers to download buttons on landing pages
+function initDownloadTracking() {
+  if (typeof document === 'undefined') return;
+
+  function sendCTAEvent(eventName, label) {
+    try {
+      if (typeof gtag === 'function') {
+        // use beacon transport so navigation doesn't cancel the event
+        gtag('event', eventName, {
+          'event_category': 'cta',
+          'event_label': label || eventName,
+          'transport_type': 'beacon'
+        });
+      }
+    } catch (e) {
+      // ignore
+    }
+    try {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: eventName, label: label || eventName });
+    } catch (e) {}
+  }
+
+  const mapping = [
+    { name: 'cta-codemenu', selectors: ['a[href*="codemenu-snippets-manager"]', '.download-codemenu'] },
+    { name: 'cta-chitneek', selectors: ['a[href*="chitneek-read-aloud"]', '.download-chitneek'] },
+    { name: 'cta-clipguru', selectors: ['a[href*="clipguru"]', '.download-clipguru'] }
+  ];
+
+  mapping.forEach(({ name, selectors }) => {
+    const sel = selectors.join(',');
+    Array.from(document.querySelectorAll(sel)).forEach((el) => {
+      // avoid double-binding
+      if (el.__ctaTrackingAttached) return;
+      el.__ctaTrackingAttached = true;
+
+      el.addEventListener('click', (ev) => {
+        // Send the CTA event. Do not block navigation; use beacon where possible.
+        sendCTAEvent(name, (el.getAttribute && (el.getAttribute('aria-label') || el.getAttribute('href'))) || name);
+      }, { passive: true });
+    });
+  });
 }
