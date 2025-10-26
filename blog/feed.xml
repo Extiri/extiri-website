@@ -6,9 +6,312 @@
 </description>
     <link>https://extiri.com/blog/blog/</link>
     <atom:link href="https://extiri.com/blog/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 23 Oct 2025 12:51:39 +0200</pubDate>
-    <lastBuildDate>Thu, 23 Oct 2025 12:51:39 +0200</lastBuildDate>
+    <pubDate>Sun, 26 Oct 2025 15:47:00 +0100</pubDate>
+    <lastBuildDate>Sun, 26 Oct 2025 15:47:00 +0100</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
+    
+      <item>
+        <title>Ranking of The Best Snippet Managers for Mac 2025</title>
+        <description>&lt;p class=&quot;lead&quot;&gt;As developers, we all face the same problem: brilliant ideas scattered across chat logs, forgotten code experiments buried in old projects, and that perfect solution you swear you wrote last month but can’t find anywhere. Your code snippets deserve better than living in chaos.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;The Mac ecosystem offers several solid snippet managers, each with its own philosophy. Let’s look at what’s out there and help you find the right fit for your workflow.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-contenders&quot;&gt;The Contenders&lt;/h2&gt;
+
+&lt;h3 id=&quot;snippetslab-the-traditional-choice&quot;&gt;SnippetsLab: The Traditional Choice&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.renfei.org/snippets-lab/images/Landing/hero2.webp&quot; alt=&quot;SnippetsLab Interface&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;SnippetsLab has been around since 2015 and became completely free in November 2024. It’s a polished, Mac-native snippet manager that does one thing well: organizing code snippets.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What it gets right:&lt;/strong&gt; The interface is clean and developer-focused. With support for over 580 languages, multi-level folders, tags, and smart groups, it offers solid organizational tools. The menubar assistant gives you quick access without opening the main window, and iCloud sync works reliably across Macs. The Markdown support is comprehensive, including Mermaid diagrams and LaTeX formulas.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Where it’s limited:&lt;/strong&gt; SnippetsLab is strictly a snippet organizer - nothing more. There’s no iOS version, no AI features, no automation beyond basic organization. If you need parameterized templates or want to inject dynamic data into your snippets, you’ll need to look elsewhere. It’s Mac-only, and while the GitHub Gist integration exists, it’s one-way for exports.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Best for:&lt;/strong&gt; Developers who want a straightforward, free snippet library without bells and whistles.&lt;/p&gt;
+
+&lt;h3 id=&quot;snippety-the-text-expansion-specialist&quot;&gt;Snippety: The Text Expansion Specialist&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://snippety.app/images/app-main-screen-new.png&quot; alt=&quot;Snippety App&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Snippety ($24.99 one-time purchase) positions itself as a productivity tool with a focus on text expansion and automation across macOS, iOS, and iPadOS.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What it gets right:&lt;/strong&gt; The snippet expander feature is excellent - type your keyword and your snippet appears instantly without opening the app. It supports 50+ languages with syntax highlighting, nearly 250 themes, and includes 19 smart placeholders for dynamic content like dates, AI-assisted text (via OpenAI API or custom providers), and command-line scripts. The iOS and iPadOS companion app with a custom keyboard is genuinely useful, and iCloud sync keeps everything synchronized across Apple devices.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Where it’s limited:&lt;/strong&gt; While Snippety excels at text expansion and has AI integration through OpenAI’s API, it’s primarily designed for rapid text insertion rather than building a comprehensive knowledge base. The organizational structure is simpler compared to dedicated snippet managers. It’s also Apple-exclusive - no Windows or Linux support if you work across platforms.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Best for:&lt;/strong&gt; Apple users who want fast text expansion with cross-device access and don’t mind a one-time purchase.&lt;/p&gt;
+
+&lt;h3 id=&quot;snipperapp-2-the-github-gist-integration-champion&quot;&gt;SnipperApp 2: The GitHub Gist Integration Champion&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://snipperapp.com/static/add34ebf75c8b45d46ca17d2d94df70f/337b1/app-v211-light.webp&quot; alt=&quot;SnipperApp 2 Interface&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;SnipperApp 2 (free with subscription options) is a native Swift-based snippet manager designed specifically for developers who live in the GitHub ecosystem.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What it gets right:&lt;/strong&gt; Full GitHub Gist integration is the standout feature - sync, edit, and manage your gists directly from the app. With 120+ programming languages supported, the editor includes all the essentials: syntax highlighting, line numbers, invisible character display, and tab size customization. It supports multiple storage options (local, iCloud, GitHub), works offline-first, and includes Markdown preview mode. The ability to share snippets via secret links is handy for quick collaboration. Image attachments, tags, folders with drag-and-drop, and backup/restore functionality round out a solid feature set.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Where it’s limited:&lt;/strong&gt; It’s Mac-only with no iOS companion app. The subscription model ($3.99 monthly, $19.99 annual, or $39.99 lifetime) may not appeal to everyone, especially with free alternatives available. While feature-rich for code management, it lacks advanced automation, AI features, or dynamic templates. The interface, while functional, is more utilitarian than modern.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Best for:&lt;/strong&gt; Developers heavily invested in GitHub Gist who want a dedicated Mac app for managing their gists with proper organization and offline support.&lt;/p&gt;
+
+&lt;h3 id=&quot;masscode-the-open-source-alternative&quot;&gt;massCode: The Open-Source Alternative&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://masscode.io/preview.png&quot; alt=&quot;massCode Interface&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;massCode is completely free and open-source, built with Electron, Vue, and CodeMirror for cross-platform compatibility.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What it gets right:&lt;/strong&gt; It’s free, period. Multi-level folders, tags, and fragments (tabs within snippets) provide decent organization. CodeMirror powers the editor with support for 160+ grammars out of the box (600+ available through .tmLanguage files). The HTML/CSS preview feature is handy for front-end work, Markdown support includes Mermaid diagrams, and there’s even a presentation mode for turning snippets into slideshows. It works on Windows, Linux, and macOS, and being open-source means community contributions drive development.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Where it’s limited:&lt;/strong&gt; No built-in sync - you’ll need to manually set up a cloud folder if you want cross-device access. The Electron foundation means it’s heavier on system resources than native apps. While feature-rich, the interface can feel less polished than commercial alternatives. AI features and advanced automation are absent, and being community-driven means feature development can be unpredictable.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Best for:&lt;/strong&gt; Developers who value open-source software and need cross-platform support without spending money.&lt;/p&gt;
+
+&lt;h3 id=&quot;clipguru-the-lightweight-mobile-first-choice&quot;&gt;ClipGuru: The Lightweight Mobile-First Choice&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/clipguru-screenshots/main-screen-screenshot.png&quot; alt=&quot;ClipGuru Interface&quot; height=&quot;900&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ClipGuru is a lightweight clipboard manager that works seamlessly across iOS, iPadOS, and macOS, designed for quick capture and easy retrieval.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What it gets right:&lt;/strong&gt; The interface is beautifully simple and native to Apple platforms. Save text, links, and images with one tap, and the smart search makes finding anything instant. The custom keyboard extension lets you access your clips from any app without switching contexts - perfect for rapid workflows. The share extension works from Safari and other apps, making it effortless to collect research, quotes, and URLs. With support for Apple Vision Pro and requiring only iOS 17.6+, it’s built for modern Apple devices.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Where it’s limited:&lt;/strong&gt; ClipGuru is intentionally lightweight, which means it lacks advanced features like syntax highlighting for code, dynamic templates, or automation. The free version saves only 4 clips (unlimited with Pro upgrade for ~$1.25). There’s no AI features, no parameterized templates, and no advanced organizational structures beyond tags. It’s Apple ecosystem only - no Windows or Linux support.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Best for:&lt;/strong&gt; Apple users who want a simple, fast, mobile-friendly clipboard manager that syncs across devices without complexity. Ideal for non-developers or those who prioritize simplicity over power features.&lt;/p&gt;
+
+&lt;h2 id=&quot;codemenu-your-augmented-memory&quot;&gt;CodeMenu: Your Augmented Memory&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/codemenu-screenshot.png&quot; alt=&quot;CodeMenu Interface&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;CodeMenu takes a different approach entirely. It’s not just a snippet manager - it’s designed to be your external memory system for everything that fuels your work.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What makes it different:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Beyond code snippets:&lt;/strong&gt; While SnippetsLab, Snippety, SnipperApp, and massCode focus primarily on code and text snippets, CodeMenu recognizes that developers work with diverse content. Store color palettes, design notes, AI prompts, screenshots, research, and visual references alongside your code. Everything gets rich descriptions with Markdown, LaTeX, images, and diagrams.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Truly local-first with intelligence:&lt;/strong&gt; Your library stays completely local and works offline by default. Unlike tools that require cloud services or external APIs, CodeMenu includes on-device AI features (generation, chat, semantic search) that run securely on your Mac. You only share what you choose through the optional Snippets Store or team sync.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Context-aware suggestions:&lt;/strong&gt; The Suggestions app (available on GitHub) surfaces relevant snippets based on what you’re working on, learning from your patterns without sending data anywhere. It’s like having an assistant that remembers everything you’ve ever saved and knows when you need it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Built-in productivity tools:&lt;/strong&gt; Why switch between apps? CodeMenu bundles editors, converters, mock data generators, a RegEx tester, and a code-to-image creator. It’s designed to minimize context switching during rapid prototyping.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Parameterized templates that adapt:&lt;/strong&gt; Unlike static snippets, CodeMenu templates inject live data - current date, shell outputs, user input. One saved fragment morphs to fit any scenario. Combined with the HTTP API and JavaScript automation (with extensive API documentation), you can integrate CodeMenu into your existing workflows deeply.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Real extensibility:&lt;/strong&gt; Extensions for the Suggestions system, JavaScript automation with CLI support for any language, HTTP API, and comprehensive documentation at docs.extiri.com mean you can bend CodeMenu to your exact needs. It’s not just a storage box - it’s programmable infrastructure.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Where CodeMenu shines uniquely:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;While SnippetsLab offers clean organization, Snippety provides fast text expansion, SnipperApp excels at GitHub Gist management, massCode gives you free cross-platform access, and ClipGuru delivers mobile-first simplicity, CodeMenu is the only one that combines local-first privacy, on-device AI, visual content management, and true extensibility into a cohesive system.&lt;/p&gt;
+
+&lt;p&gt;If you’re a developer, designer, or creator who works with diverse content types and wants a personal knowledge system that remembers everything while respecting your privacy, CodeMenu is built for you.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Best for:&lt;/strong&gt; Professionals who need a comprehensive personal knowledge base that’s intelligent, extensible, and completely under their control.&lt;/p&gt;
+
+&lt;h2 id=&quot;feature-comparison&quot;&gt;Feature Comparison&lt;/h2&gt;
+
+&lt;p&gt;Here’s how these tools stack up across key capabilities:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Feature&lt;/th&gt;
+      &lt;th&gt;CodeMenu&lt;/th&gt;
+      &lt;th&gt;ClipGuru&lt;/th&gt;
+      &lt;th&gt;SnippetsLab&lt;/th&gt;
+      &lt;th&gt;Snippety&lt;/th&gt;
+      &lt;th&gt;SnipperApp 2&lt;/th&gt;
+      &lt;th&gt;massCode&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Syntax Highlighting&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;60+ languages&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;580+ languages&lt;/td&gt;
+      &lt;td&gt;50+ languages&lt;/td&gt;
+      &lt;td&gt;120+ languages&lt;/td&gt;
+      &lt;td&gt;160+ (600+ available)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Cross-Platform&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Mac only&lt;/td&gt;
+      &lt;td&gt;macOS, iOS, iPadOS, Vision&lt;/td&gt;
+      &lt;td&gt;Mac only&lt;/td&gt;
+      &lt;td&gt;macOS, iOS, iPadOS&lt;/td&gt;
+      &lt;td&gt;Mac only&lt;/td&gt;
+      &lt;td&gt;Mac, Windows, Linux&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;AI&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;✓ (on-device: generation, chat, search)&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✓ (OpenAI/Ollama API)&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Dynamic Templates&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;✓ (parameterized)&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✓ (19 placeholders)&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Visual Content&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;✓ (images, colors, screenshots)&lt;/td&gt;
+      &lt;td&gt;✓ (images, links)&lt;/td&gt;
+      &lt;td&gt;✓ (images, files)&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✓ (images)&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Offline-First&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;✓ (fully local)&lt;/td&gt;
+      &lt;td&gt;✓ (optional iCloud)&lt;/td&gt;
+      &lt;td&gt;✓ (optional iCloud)&lt;/td&gt;
+      &lt;td&gt;✓ (iCloud sync)&lt;/td&gt;
+      &lt;td&gt;✓ (offline-first)&lt;/td&gt;
+      &lt;td&gt;✓ (no built-in sync)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Text Expansion&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;✓ (abbreviations)&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✓ (menubar)&lt;/td&gt;
+      &lt;td&gt;✓ (primary feature)&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Built-in Utilities&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;✓ (editors, converters, RegEx)&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✓ (HTML preview, slides)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;GitHub Integration&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✓ (Gist export)&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✓ (full Gist sync)&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Keyboard Extension&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✓&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✓&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Share Extension&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✓&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Automation&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;✓ (JS + HTTP server)&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✓ (scripts)&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Collaboration&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;✓ (sync + Store)&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✓ (iCloud)&lt;/td&gt;
+      &lt;td&gt;✓ (secret links)&lt;/td&gt;
+      &lt;td&gt;Manual sharing&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Markdown + LaTeX&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;✓&lt;/td&gt;
+      &lt;td&gt;✗&lt;/td&gt;
+      &lt;td&gt;✓ (+ Mermaid)&lt;/td&gt;
+      &lt;td&gt;✓&lt;/td&gt;
+      &lt;td&gt;✓ (preview)&lt;/td&gt;
+      &lt;td&gt;✓ (+ Mermaid)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Pricing&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;$29.99 one-time / $3.99 monthly (7-day free trial)&lt;/td&gt;
+      &lt;td&gt;Free (4 clips) / ~$1.25 Pro&lt;/td&gt;
+      &lt;td&gt;Free&lt;/td&gt;
+      &lt;td&gt;$24.99 one-time&lt;/td&gt;
+      &lt;td&gt;Free / $3.99 monthly / $19.99 annual / $39.99 lifetime&lt;/td&gt;
+      &lt;td&gt;Free (open-source)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Pricing for United States (ClipGuru Pro in PLN ≈ $1.25 USD)&lt;/p&gt;
+
+&lt;h2 id=&quot;the-bottom-line&quot;&gt;The Bottom Line&lt;/h2&gt;
+
+&lt;p&gt;Choosing a snippet manager depends on what you actually need:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;ClipGuru&lt;/strong&gt; if you want a simple, mobile-first clipboard manager that works beautifully across Apple devices&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;SnippetsLab&lt;/strong&gt; if you want a free, focused code snippet organizer with no frills&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Snippety&lt;/strong&gt; if text expansion speed across Apple devices is your priority&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;SnipperApp 2&lt;/strong&gt; if you live in GitHub Gists and want native Mac management with offline support&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;massCode&lt;/strong&gt; if you need free, open-source, cross-platform compatibility&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;CodeMenu&lt;/strong&gt; if you want an intelligent, extensible personal knowledge system that handles everything from code to design to research&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The best snippet manager isn’t about feature checklists - it’s about matching your workflow. Traditional snippet managers organize what you’ve saved. ClipGuru keeps your clipboard accessible across devices. SnipperApp bridges your local work with GitHub. CodeMenu becomes the thinking partner that helps you remember, discover, and ship better work.&lt;/p&gt;
+
+&lt;p&gt;Your ideas deserve a home that works as hard as you do.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;Ready to try our apps?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ClipGuru&lt;/strong&gt;: Available on the &lt;a href=&quot;https://apps.apple.com/pl/app/clipguru/id6753787446&quot;&gt;App Store&lt;/a&gt; for iOS, iPadOS, and macOS. Free with optional Pro upgrade. Visit &lt;a href=&quot;https://extiri.com/clipguru&quot;&gt;extiri.com/clipguru&lt;/a&gt; to learn more.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;CodeMenu&lt;/strong&gt;: Available on the &lt;a href=&quot;https://apps.apple.com/us/app/codemenu-snippet-manager/id1583463781?mt=12&quot;&gt;Mac App Store&lt;/a&gt; with a 7-day free trial, or purchase a one-time license. Visit &lt;a href=&quot;https://extiri.com/codemenu.html&quot;&gt;extiri.com/codemenu&lt;/a&gt; to learn more.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; For official screenshots:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;ClipGuru&lt;/strong&gt;: Visit &lt;a href=&quot;https://extiri.com/clipguru&quot;&gt;extiri.com/clipguru&lt;/a&gt; or the &lt;a href=&quot;https://apps.apple.com/pl/app/clipguru/id6753787446&quot;&gt;App Store page&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;SnippetsLab&lt;/strong&gt;: Visit &lt;a href=&quot;https://www.renfei.org/snippets-lab/&quot;&gt;renfei.org/snippets-lab&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Snippety&lt;/strong&gt;: Visit &lt;a href=&quot;https://snippety.app/&quot;&gt;snippety.app&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;SnipperApp 2&lt;/strong&gt;: Visit &lt;a href=&quot;https://snipperapp.com/&quot;&gt;snipperapp.com&lt;/a&gt; or the &lt;a href=&quot;https://apps.apple.com/us/app/snipperapp-2/id1469182443?mt=12&quot;&gt;Mac App Store&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;massCode&lt;/strong&gt;: Visit &lt;a href=&quot;https://masscode.io/&quot;&gt;masscode.io&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;CodeMenu&lt;/strong&gt;: Visit the &lt;a href=&quot;https://apps.apple.com/us/app/codemenu-snippet-manager/id1583463781?mt=12&quot;&gt;Mac App Store page&lt;/a&gt; or &lt;a href=&quot;https://extiri.com/codemenu.html&quot;&gt;extiri.com/codemenu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 26 Oct 2025 00:00:00 +0200</pubDate>
+        <link>https://extiri.com/blog/blog/posts/the-best-snippet-manager</link>
+        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/the-best-snippet-manager</guid>
+        
+        <category>extiri</category>
+        
+        <category>app-showcase</category>
+        
+        
+      </item>
     
       <item>
         <title>Introducing ClipGuru — a lightweight clipboard manager</title>
@@ -1089,308 +1392,6 @@ Instead of creating a full plugin system for a one-off feature, write a modular,
         <category>programming</category>
         
         <category>productivity</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Some snippets of code for your Swift apps</title>
-        <description>&lt;p class=&quot;lead&quot;&gt;Hi! While programming in Swift I have accumulated many code snippets. Some of them are mine and some of them come from the internet. Here I’m sharing 5 tiny quality-of-life snippets. Hopefully you will find them useful.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;h3 id=&quot;1-cocoa-accessing-nswindow-from-nsviewcontroller&quot;&gt;1. (Cocoa) Accessing NSWindow from NSViewController&lt;/h3&gt;
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kd&quot;&gt;extension&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;NSViewController&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;NSWindow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;NSApp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;windows&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;contentViewController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;This snippet adds a window variable to NSViewController. It requires the window to exist (eg. be in NSApp.windows, in most cases that will be true) and that there is only one window with the specified view controller. It will return the window with the view controller on which it is called.&lt;/p&gt;
-
-&lt;h3 id=&quot;2-checking-if-path-leads-to-a-directory&quot;&gt;2. Checking if path leads to a directory&lt;/h3&gt;
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kd&quot;&gt;extension&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;FileManager&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;isDirectory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Bool&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;isDirectory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;ObjCBool&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;fileExists&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;atPath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;isDirectory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isDirectory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isDirectory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;boolValue&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;This is a simple wrapper around &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FileManager.fileExists()&lt;/code&gt; as an extension to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FileManager&lt;/code&gt; that checks whether a path provided as a string leads to a directory.&lt;/p&gt;
-
-&lt;h3 id=&quot;3-safely-accessing-an-array&quot;&gt;3. Safely accessing an array&lt;/h3&gt;
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kd&quot;&gt;extension&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Array&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nf&quot;&gt;subscript&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;safely&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;endIndex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;This snippet adds a subscript to arrays. It checks whether index is within the array’s range then returns an element or nil depending on the check. You can use it like this:&lt;/p&gt;
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;safely&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// returns Optional(&quot;c&quot;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;This might save you few lines of code for checking and force you to handle the edge case without crashing the app.&lt;/p&gt;
-
-&lt;h3 id=&quot;4-swiftui-web-view-wrapper&quot;&gt;4. (SwiftUI) Web view wrapper&lt;/h3&gt;
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kd&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;WebView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;NSViewRepresentable&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;c1&quot;&gt;/// URL of current page. If changed, WebView will change it into the new URL.&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;@Binding&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;URL&lt;/span&gt;
-	
-	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;onLoadStart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;WKWebView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;onLoadFinish&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;WKWebView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-	
-  &lt;span class=&quot;c1&quot;&gt;/// A WKWebView instance, which is used to render WebView, and which can be used to control it thanks to classes being passed by reference.&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;wkWebView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;WKWebView&lt;/span&gt;
-	
-  &lt;span class=&quot;c1&quot;&gt;/// Accepts a binding to an URL, WKWebView instance, which can be used to control WebView and onLoadStart and onLoadFinish which will run when WebView starts or finishes loading a webpage.&lt;/span&gt;
-	&lt;span class=&quot;nf&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Binding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;URL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;wkWebView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;WKWebView&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;WKWebView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;onLoadStart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;WKWebView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;())?&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;onLoadFinish&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;WKWebView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;())?&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wkWebView&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wkWebView&lt;/span&gt;
-		
-		&lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;
-		
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;onLoadStart&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;onLoadStart&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;onLoadStart&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;onLoadStart&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;onLoadStart&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;onLoadFinish&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;onLoadFinish&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;onLoadFinish&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;onLoadFinish&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;onLoadFinish&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	
-	&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;makeNSView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;WKWebView&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;wkWebView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;navigationDelegate&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coordinator&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;wkWebView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;URLRequest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-		
-		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wkWebView&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	
-	&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;updateNSView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;nsView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;WKWebView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;nsView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;URLRequest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	
-	&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;makeCoordinator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Coordinator&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;kt&quot;&gt;Coordinator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;onLoadStart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;onLoadStart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;onLoadFinish&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;onLoadFinish&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	
-	&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Coordinator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;NSObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;WKNavigationDelegate&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;onLoadStart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;WKWebView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;onLoadFinish&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;WKWebView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-		
-		&lt;span class=&quot;nf&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;onLoadStart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;@escaping&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;WKWebView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;onLoadFinish&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;@escaping&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;WKWebView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;onLoadStart&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;onLoadStart&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;onLoadFinish&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;onLoadFinish&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		
-		&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;webView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;webView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;WKWebView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;didCommit&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;navigation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;WKNavigation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;nf&quot;&gt;onLoadStart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		
-		&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;webView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;webView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;WKWebView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;didFinish&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;navigation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;WKNavigation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;nf&quot;&gt;onLoadFinish&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;This pretty lengthy snippet adds a simple SwiftUI wrapper around &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WKWebView&lt;/code&gt; (which needs to be imported). It only requires a binding to a url, which will be loaded. In more complex cases, you can pass &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;onLoadStart&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;onLoadFinish&lt;/code&gt; handlers which will run when the web view starts and finishes loading and a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WKWebView&lt;/code&gt; class instance. Since in Swift classes are passed by reference, you can use this instance in your view to control the web view (go back, forward, etc).&lt;/p&gt;
-
-&lt;h3 id=&quot;5-cocoa-showing-an-alert&quot;&gt;5. (Cocoa) Showing an alert&lt;/h3&gt;
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;showAlert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;informative&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;buttons&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;completionHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;@escaping&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;NSApplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;ModalResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;kt&quot;&gt;DispatchQueue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;alert&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;NSAlert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-		
-		&lt;span class=&quot;n&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;messageText&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;informativeText&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;informative&lt;/span&gt;
-		
-		&lt;span class=&quot;n&quot;&gt;buttons&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;forEach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addButton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;withTitle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		
-		&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;runModal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-		&lt;span class=&quot;nf&quot;&gt;completionHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Once again, a wrapper. It wraps &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NSAlert&lt;/code&gt; in one function so that you don’t need to rewrite this code. It accepts a message and informative text which will be used on the alert. It also optionally accepts a list of button titles which will be added to the alert. It also runs asynchronously on the main thread, so it works even when run in another thread. Here I’d like to add that you can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NSAlert.accessoryView&lt;/code&gt; to create alerts with custom views, for example I did something like this:&lt;/p&gt;
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;showChoicePrompt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;informativeText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;buttons&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;completionHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;@escaping&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;alert&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;NSAlert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addButton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;withTitle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;OK&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addButton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;withTitle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Cancel&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; 
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;messageText&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;informativeText&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;informativeText&lt;/span&gt;
-
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;popUp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;NSPopUpButton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;frame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;NSRect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;24&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;n&quot;&gt;popUp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addItems&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;withTitles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buttons&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;accessoryView&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;popUp&lt;/span&gt;
-
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;NSApplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;ModalResponse&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;runModal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;NSApplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;ModalResponse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alertFirstButtonReturn&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;completionHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;popUp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;selectedItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;completionHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;which creates an alert with a pop up button for selecting a value.&lt;/p&gt;
-
-&lt;p&gt;As a sidenote, if you are dealing with many snippets of various types (like these ones), CodeMenu can help you organize, access and use their full potential.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 03 Oct 2024 00:00:00 +0200</pubDate>
-        <link>https://extiri.com/blog/blog/posts/some-snippets-of-code-for-your-swift-apps</link>
-        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/some-snippets-of-code-for-your-swift-apps</guid>
-        
-        <category>snippets</category>
-        
-        <category>programming</category>
         
         
       </item>

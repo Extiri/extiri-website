@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://apps.apple.com">
+    <meta name="theme-color" content="#181A1B">
+    <link rel="preload" as="image" href="/images/extiri-text-only-white-light.png">
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -19,7 +23,20 @@
     <title>Extiri</title>
     <meta charset="UTF-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="description" content="Simply useful and cool apps">
+        <meta name="description" content="Simply useful and cool apps">
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Extiri",
+            "url": "https://extiri.com",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://extiri.com/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+        </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" type="image/x-icon" href="./images/favicon.png">
@@ -73,19 +90,21 @@
         }
     </script>
     <script src="scripts.js" defer></script>
+
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div id="cookie-consent-banner" class="cookie-consent-banner">
         <div class="cookie-consent-content">
-            <p>We use cookies and other tracking technologies to improve your browsing experience. By clicking "Accept All," you consent to our use of these technologies. You can learn more in our <a href="privacy_policy.html" target="_blank">Privacy Policy</a>.</p>
+            <p>We use cookies and other tracking technologies to improve your browsing experience. By clicking "Accept All," you consent to our use of these technologies. You can learn more in our <a href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</p>
             <div class="cookie-consent-buttons">
                 <button id="accept-cookies" class="button-primary">Accept All</button>
                 <button id="decline-cookies" class="button-secondary">Decline</button>
             </div>
         </div>
     </div>
-    <div class="navbar">
+    <div class="navbar" role="navigation" aria-label="Main navigation">
         <div class="navbar-content">
             <a href="./index.html"><img src="images/logo.png" width="110px" class="navbar-logo" alt="Extiri"></a>
             
@@ -110,6 +129,7 @@
         </div>
     </div>
     
+    <main id="main-content" role="main">
     <section class="home-hero" id="home" aria-label="Extiri home hero">
         <div class="home-hero-bg"></div>
         <div class="home-hero-inner">
@@ -144,8 +164,8 @@
                 <div class="slideshow-track">
                 <article class="slide" data-app="codemenu" tabindex="0">
                     <section class="app-feature app-feature--codemenu" aria-labelledby="codemenu-heading">
-                        <div class="app-feature__media">
-                            <img loading="lazy" decoding="async" src="images/codemenu/dashboard_screenshot.webp" alt="CodeMenu dashboard showing organized content entries">
+                            <div class="app-feature__media">
+                            <img loading="lazy" decoding="async" src="images/codemenu/dashboard_screenshot.webp" alt="CodeMenu dashboard showing organized content entries" width="800" height="450">
                         </div>
                         <div class="app-feature__content">
                             <span class="app-feature__badge">macOS</span>
@@ -169,7 +189,7 @@
                 <article class="slide" data-app="chitneek" tabindex="0">
                     <section class="app-feature app-feature--chitneek" aria-labelledby="chitneek-heading">
                         <div class="app-feature__media">
-                            <img loading="lazy" decoding="async" src="images/czytnik/library-screenshot.png" alt="Chitneek library view showing listening queue">
+                            <img loading="lazy" decoding="async" src="images/czytnik/library-screenshot.png" alt="Chitneek library view showing listening queue" width="640" height="420">
                         </div>
                         <div class="app-feature__content">
                             <span class="app-feature__badge">iOS</span>
@@ -193,7 +213,7 @@
                 <article class="slide" data-app="clipguru" tabindex="0">
                     <section class="app-feature app-feature--clipguru" aria-labelledby="clipguru-heading">
                         <div class="app-feature__media">
-                            <img loading="lazy" decoding="async" src="images/clipguru/main-screen-screenshot.png" alt="ClipGuru main screen screenshot">
+                            <img loading="lazy" decoding="async" src="images/clipguru/main-screen-screenshot.png" alt="ClipGuru main screen screenshot" width="640" height="420">
                         </div>
                         <div class="app-feature__content">
                             <span class="app-feature__badge">iOS · iPadOS · macOS</span>
@@ -228,14 +248,14 @@
         </section>
 
         <section class="app-collection" aria-labelledby="apps-major">
-            <div class="app-collection__header">
+                <div class="app-collection__header">
                 <h3 id="apps-major">Apps</h3>
                 <p>Major apps for personal productivity — quick access to the things that help you get work done.</p>
             </div>
             <div class="app-tiles">
                 <article class="app-tile">
                     <div class="app-tile__header">
-                        <img loading="lazy" decoding="async" src="images/czytnik/czytnik-icon.png" alt="Chitneek icon">
+                        <img loading="lazy" decoding="async" src="images/czytnik/czytnik-icon.png" alt="Chitneek icon" width="64" height="64">
                         <div>
                             <h4>Chitneek</h4>
                             <p class="app-tile__meta">iOS</p>
@@ -252,7 +272,7 @@
 
                 <article class="app-tile">
                     <div class="app-tile__header">
-                        <img loading="lazy" decoding="async" src="images/clipguru/ClipGuru-icon.png" alt="ClipGuru icon">
+                        <img loading="lazy" decoding="async" src="images/clipguru/ClipGuru-icon.png" alt="ClipGuru icon" width="64" height="64">
                         <div>
                             <h4>ClipGuru</h4>
                             <p class="app-tile__meta">iOS · iPadOS · macOS</p>
@@ -269,7 +289,7 @@
 
                 <article class="app-tile">
                     <div class="app-tile__header">
-                        <img loading="lazy" decoding="async" src="images/codemenu-icon.webp" alt="CodeMenu icon">
+                        <img loading="lazy" decoding="async" src="images/codemenu-icon.webp" alt="CodeMenu icon" width="64" height="64">
                         <div>
                             <h4>CodeMenu</h4>
                             <p class="app-tile__meta">macOS</p>
@@ -294,7 +314,7 @@
             <div class="app-tiles">
                 <article class="app-tile">
                     <div class="app-tile__header">
-                        <img loading="lazy" decoding="async" src="images/Suggestions_icon.webp" alt="Suggestions icon">
+                        <img loading="lazy" decoding="async" src="images/Suggestions_icon.webp" alt="Suggestions icon" width="64" height="64">
                         <div>
                             <h4>Suggestions</h4>
                             <p class="app-tile__meta">macOS · Open source</p>
@@ -309,7 +329,7 @@
 
                 <article class="app-tile">
                     <div class="app-tile__header">
-                        <img loading="lazy" decoding="async" src="images/snippets-store-icon.webp" alt="Snippets Store icon">
+                        <img loading="lazy" decoding="async" src="images/snippets-store-icon.webp" alt="Snippets Store icon" width="64" height="64">
                         <div>
                             <h4>Snippets Store</h4>
                             <p class="app-tile__meta">Web · Open source</p>
@@ -375,6 +395,7 @@
         </section>
     </div>
     
+    </main>
     <section class="section-card" aria-labelledby="blog-heading" style="width:min(90%, 1100px);">
         <h1 id="blog-heading">Blog</h1>
         <p>Extiri's blog covers software engineering, practical guides, and insights from building useful tools.</p>

@@ -207,6 +207,23 @@ html {
   .navbar-download { padding: 8px 10px; min-width: 84px; height: 34px; font-size: 0.95em; }
 }
 
+/* Skip link (visible when focused) */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 8px;
+  background: #111;
+  color: #fff;
+  padding: 8px 12px;
+  z-index: 10000;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 8px;
+}
+
 .hamburger_menu_content {
   display: flex;
   gap: 8px;
@@ -484,6 +501,59 @@ html, body {
 @media (max-width: 640px) {
   .app-slideshow .app-feature { padding: 18px; }
   .app-slideshow .app-feature__media img { max-width: 100%; }
+}
+
+/* Fix: ensure slideshow images never stretch and layout is stable across sizes */
+.app-slideshow .app-feature {
+  /* Use a two-column layout: media | content on desktop, stacked on mobile */
+  display: grid;
+  grid-template-columns: minmax(280px, 44%) 1fr;
+  gap: 28px;
+  align-items: center;
+}
+.app-slideshow .app-feature__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.app-slideshow .app-feature__media img,
+.app-slideshow .app-feature__media video {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100%;
+  object-fit: contain !important; /* never crop/stretch, just fit */
+  display: block;
+}
+.slideshow-viewport, .app-slideshow .slideshow-track { width: 100%; }
+
+/* Prevent app tiles from being clipped on narrow viewports */
+.app-tiles { box-sizing: border-box; width: 100%; padding-inline: 4px; }
+.app-tiles > .app-tile { overflow: visible; }
+
+/* Make slideshow gracefully stack on small screens */
+@media (max-width: 900px) {
+  .app-slideshow .app-feature { grid-template-columns: 1fr; padding: 18px; }
+  .app-slideshow .app-feature__media { order: -1; margin-bottom: 12px; }
+  .app-slideshow .app-feature__media img { max-width: 100%; }
+}
+
+/* CodeMenu hero grid (desktop: text left, media right; mobile: stacked) */
+.codemenu-hero-grid {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 32px;
+  align-items: center;
+  padding: 28px 18px;
+}
+.codemenu-hero-grid .hero-text { max-width: 720px; }
+.codemenu-hero-grid .hero-media { display: flex; align-items: center; justify-content: center; }
+.codemenu-hero-grid .hero-media .preview-image { width: 100%; height: auto; max-width: 100%; border-radius: 12px; }
+@media (max-width: 900px) {
+  .codemenu-hero-grid { grid-template-columns: 1fr; }
+  .codemenu-hero-grid .hero-media { order: 2; margin-top: 10px; }
+  .codemenu-hero-grid .hero-text { order: 1; }
 }
 
 .beta-badge {
