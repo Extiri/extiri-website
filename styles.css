@@ -159,6 +159,54 @@ html {
   transition: opacity 200ms ease, transform 200ms ease;
 }
 
+/* Download button styles for app toolbars */
+.navbar-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 12px;
+  height: 32px;
+  min-width: 96px;
+  border-radius: 999px;
+  color: #fff !important;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.28);
+  transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+  line-height: 1;
+  font-size: 0.95rem;
+}
+.navbar-download:hover { transform: translateY(-2px); }
+
+/* Per-app colors */
+.download-codemenu { background: #ffb300; color: #111 !important; box-shadow: 0 8px 28px rgba(255,180,0,0.12); }
+.download-chitneek { background: #26ABEC; color: #04202a !important; box-shadow: 0 8px 28px rgba(38,171,236,0.12); }
+.download-clipguru { background: linear-gradient(90deg,#D945C5,#6D49D7); color: #fff !important; box-shadow: 0 8px 28px rgba(217,69,197,0.12); }
+
+/* Mobile menu adjustments: make download row slightly more prominent */
+.hamburger_menu .navbar-download {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  margin-top: 6px;
+  border-radius: 10px;
+  height: auto !important;
+  line-height: 1.2;
+}
+
+/* When the download button is also given the navbar-item class (mobile rows), override the fixed navbar-item height */
+.navbar-item.navbar-download {
+  height: auto !important;
+  padding: 0 !important;
+  margin: 6px 0 !important;
+}
+
+/* Small screens: reduce button padding */
+@media (max-width: 780px) {
+  .navbar-download { padding: 8px 10px; min-width: 84px; height: 34px; font-size: 0.95em; }
+}
+
 .hamburger_menu_content {
   display: flex;
   gap: 8px;

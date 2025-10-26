@@ -21,6 +21,26 @@
   <link rel="icon" type="image/x-icon" href="./images/codemenu-icon.png">
   <link rel="stylesheet" href="styles.css">
 
+  <link rel="canonical" href="https://extiri.com/codemenu.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CodeMenu",
+    "url": "https://extiri.com/codemenu.html",
+    "description": "CodeMenu — a modern snippet manager for macOS to capture, organize and reuse code, prompts, images and notes.",
+    "applicationCategory": "DeveloperTool",
+    "operatingSystem": "macOS",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD",
+      "url": "https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781"
+    },
+    "downloadUrl": "https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781"
+  }
+  </script>
+
   <!-- Preload critical font and hero background to improve LCP -->
   <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/images/codemenu_background.webp" as="image">
@@ -67,9 +87,10 @@
       <a href="./index.html"><img loading="eager" fetchpriority="high" decoding="async" src="images/logo.png" width="110px" class="navbar-logo" alt="Extiri logo"></img></a>
       
       <span class="big_screen">
-        <p class="navbar-item" onclick="goToHome()">Home</p>
-        <p class="navbar-item" onclick="goToApps()">Apps</p>
-        <p class="navbar-item" onclick="goToBlog()">Blog</p>
+  <p class="navbar-item" onclick="goToHome()">Home</p>
+  <p class="navbar-item" onclick="goToApps()">Apps</p>
+  <p class="navbar-item" onclick="goToBlog()">Blog</p>
+  <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781" class="navbar-download download-codemenu" aria-label="Download CodeMenu on the Mac App Store">Download now</a>
       </span>
       
       <span class="small_screen">
@@ -80,6 +101,7 @@
             <p class="navbar-item" onclick="goToHome()">Home</p>
             <p class="navbar-item" onclick="goToApps()">Apps</p>
             <p class="navbar-item" onclick="goToBlog()">Blog</p>
+            <p class="navbar-item navbar-download download-codemenu" onclick="location.href='https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781'" role="link" aria-label="Download CodeMenu on the Mac App Store">Download</p>
           </div>
         </div>
       </span>
@@ -96,7 +118,7 @@
     <br>
     
     <div class="app">
-  <img loading="eager" decoding="async" src="images/codemenu-icon.webp" style="width: min(200px, 90%); display: block; margin-left: auto; margin-right: auto;" style="position: relative; top: 10px" alt="CodeMenu icon">
+  <img loading="eager" decoding="async" src="images/codemenu-icon.webp" style="width: min(200px, 90%); display: block; margin-left: auto; margin-right: auto;" style="position: relative; top: 10px" alt="CodeMenu app icon — snippet manager for macOS">
   <h1 style="text-align: center;">CodeMenu</h1>
   <h2 style="text-align: center; letter-spacing: 0.08em;">A Modern Snippet Manager for macOS<br/>Save Code, Prompts, and Anything You Reuse</h2>
   <p style="text-align: center; color: #ffe082; font-size:1.08em; margin-top: 8px; margin-bottom: 0;">Want to learn more about snippet management? <a href="https://extiri.com/blog/posts/ultimate-guide-to-snippet-management-with-codemenu.html" style="color:#ffb300; text-decoration:underline;">Read our Ultimate Guide</a>.</p>
