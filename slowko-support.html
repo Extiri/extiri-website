@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Słówko - Pomoc</title>
+  <meta name="description" content="Pomoc dla Słówko - informacje o ulubionych, powiadomieniach oraz wymogach dotyczących połączenia z internetem.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="images/slowko/Screenshot 1 - S.png">
+</head>
+<body>
+  <div class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-content">
+      <a href="./index.html"><img src="images/logo.png" width="110" class="navbar-logo" alt="Extiri logo"></a>
+      <span class="big_screen">
+        <p class="navbar-item" onclick="location.href='index.html'">Home</p>
+        <p class="navbar-item" onclick="location.href='index.html#apps'">Apps</p>
+        <p class="navbar-item" onclick="location.href='blog/index.html'">Blog</p>
+      </span>
+      <span class="small_screen">
+        <img src="images/hamburger-icon.webp" class="navbar-item" alt="Menu" style="position: absolute; top:11px; width:30px;" onclick="toggleHamburger()">
+      </span>
+    </div>
+  </div>
+
+  <main class="section" style="padding-top:110px;">
+    <nav style="margin-bottom:18px; display:flex; gap:12px; align-items:center;">
+      <a href="#pl" onclick="showLang('pl'); return false;" style="color:#cfe9f5;">Polski (domyślny)</a>
+      <a href="#en" onclick="showLang('en'); return false;" style="color:#9fb8c8;">English</a>
+      <span style="margin-left:8px; color:#6f8a95; font-size:0.95em;">| Translate to: <a href="#pl" onclick="showLang('pl'); return false;">PL</a> · <a href="#en" onclick="showLang('en'); return false;">EN</a></span>
+    </nav>
+
+    <!-- Polish version (default) -->
+  <section id="pl" lang="pl" class="section-card" aria-labelledby="slowko-support-pl" tabindex="-1">
+      <h1 id="slowko-support-pl">Słówko - Pomoc</h1>
+      <p style="max-width:820px; color: #dfeef9;">Ta strona zawiera pomoc i instrukcje dotyczące Słówko - prostej aplikacji z codziennym polskim słowem. Znajdziesz tu praktyczne informacje: import słów, użycie funkcji mowy (Text‑to‑Speech), zarządzanie ulubionymi, powiadomienia oraz informacje o subskrypcji. Uwaga: Słówko wymaga połączenia z internetem, aby pobierać codzienne słowa.</p>
+
+      <div style="display:grid; grid-template-columns: 1fr 360px; gap:28px; align-items:start; margin-top:18px;">
+        <div>
+          <h2>Rozpoczęcie</h2>
+          <p>Po zainstalowaniu Słówko otwórz aplikację, aby zobaczyć dzisiejsze słowo. Użyj ikony gwiazdki, aby dodać słowo do ulubionych, a ikony głośnika, aby odsłuchać wymowę. Aplikacja działa na urządzeniu - nie jest wymagane konto użytkownika.</p>
+
+          <h3>Historia</h3>
+          <p>Poprzednie słowa możesz przeglądać w ekranie Historii. Import list słów nie jest obecnie obsługiwany.</p>
+
+          <h3>Ulubione i Powtórki</h3>
+          <p>Dotknij ikony gwiazdki przy dowolnym haśle, aby dodać je do Ulubionych. Subskrybenci Słówko+ mają dostęp do trybu powtórek/flashcards, który ułatwia szybkie powtarzanie wybranych słów.</p>
+
+          <h3>Powiadomienia</h3>
+          <p>Ustaw codzienną godzinę przypomnienia w Ustawieniach → Powiadomienia. Jeśli przypomnienia nie działają, sprawdź uprawnienia powiadomień dla Słówko w ustawieniach i włącz odświeżanie w tle, jeśli to konieczne.</p>
+
+          <h3>Wymowa (Text‑to‑Speech)</h3>
+          <p>Słówko wykorzystuje głosy dostępne na urządzeniu. Dotknij ikony głośnika, aby odtworzyć wymowę. Jeśli dźwięk jest zbyt cichy lub przerywa, sprawdź głośność urządzenia oraz wyjście audio (Bluetooth).</p>
+
+          <h3>Subskrypcja Słówko+</h3>
+          <p>Subskrypcja jest zarządzana przez App Store. Subskrypcja może zawierać okres próbny. Aby przywrócić zakupy, użyj opcji Przywróć zakupy w ustawieniach aplikacji. Jeśli przywracanie nie powiedzie się, upewnij się, że jesteś zalogowany/a do App Store tym samym Apple ID, którego użyto do zakupu.</p>
+
+          <h2>Rozwiązywanie problemów</h2>
+          <ul>
+            <li><strong>Aplikacja się nie otwiera:</strong> Uruchom ponownie urządzenie i spróbuj ponownie. Jeśli problem nie ustępuje, przeinstaluj aplikację. Ulubione są przechowywane lokalnie i nie ma obecnie wbudowanej funkcji eksportu.</li>
+            <li><strong>Brak danych lub synchronizacja nie działa:</strong> Upewnij się, że masz aktywne połączenie internetowe - Słówko pobiera codzienne słowa z serwera. Import lokalnych plików nie jest obsługiwany.</li>
+            <li><strong>Brak powiadomień:</strong> Sprawdź uprawnienia powiadomień oraz ustawienia Odświeżania w tle dla aplikacji.</li>
+          </ul>
+
+          <h2>Kontakt</h2>
+          <p>Jeśli potrzebujesz pomocy, która nie jest opisana na tej stronie, napisz do mnie: <a href="mailto:wiktor.wojcik@extiri.com">wiktor.wojcik@extiri.com</a>. Dołącz model urządzenia, wersję iOS oraz krótki opis problemu.</p>
+        </div>
+
+        <aside style="position:relative;">
+          <div style="background: rgba(16,20,24,0.7); padding:14px; border-radius:12px;">
+            <h3 style="margin-top:0;">Szybkie linki</h3>
+            <ul style="padding-left:18px;">
+              <li><a href="#pl">Przywróć zakupy</a></li>
+              <li><a href="#pl">Powiadomienia</a></li>
+              <li><a href="#faq-pl">FAQ</a></li>
+            </ul>
+          </div>
+
+          <div style="margin-top:18px; background: rgba(18,22,26,0.75); padding:12px; border-radius:12px; text-align:center;">
+            <img src="images/slowko/Screenshot 1 - S.png" alt="Zrzut ekranu Słówko - codzienne słowo" style="width:100%; border-radius:10px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
+            <figcaption style="font-size:0.9em; color:#cfe9f5; margin-top:8px;">Ekran z dziennym słowem</figcaption>
+          </div>
+
+          <div style="margin-top:14px; background: rgba(18,22,26,0.75); padding:12px; border-radius:12px; text-align:center;">
+            <img src="images/slowko/Screenshot 2 - S.png" alt="Zrzut ekranu Słówko - ulubione i historia" style="width:100%; border-radius:10px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
+            <figcaption style="font-size:0.9em; color:#cfe9f5; margin-top:8px;">Ulubione i historia</figcaption>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- FAQ (Polish) -->
+    <section class="section-card" id="faq-pl">
+      <h2>FAQ</h2>
+      <h3>Czy Słówko jest darmowe?</h3>
+      <p>Aplikacja jest darmowa; Słówko+ to opcjonalna subskrypcja, która odblokowuje dodatkowe funkcje, takie jak tryb powtórek.</p>
+
+      <h3>Jak wyeksportować moje ulubione?</h3>
+      <p>Eksport nie jest obecnie obsługiwany w Słówko. Aby zachować dane przed reinstalacją, użyj kopii zapasowej urządzenia (np. iCloud).</p>
+
+      <h3>Czy Słówko wymaga internetu?</h3>
+      <p>Tak - Słówko wymaga połączenia z internetem, aby pobierać codzienne słowa oraz niektóre funkcje związane z odkrywaniem treści. Odtwarzanie mowy korzysta z głosów urządzenia; jeśli dany głos wymaga pobrania, może być wymagane połączenie internetowe.</p>
+    </section>
+
+  <!-- English version -->
+  <section id="en" lang="en" class="section-card" aria-labelledby="slowko-support-en" style="margin-top:36px; display:none;" tabindex="-1">
+      <h1 id="slowko-support-en">Słówko - Support</h1>
+          <p style="max-width:820px; color: #dfeef9;">This page provides help and troubleshooting for Słówko - a simple daily Polish word app. It's focused on practical support: using Text‑to‑Speech, managing favorites, notifications, and subscription details. Note: Słówko requires an internet connection to retrieve daily words.</p>
+
+      <div style="display:grid; grid-template-columns: 1fr 360px; gap:28px; align-items:start; margin-top:18px;">
+        <div>
+          <h2>Getting started</h2>
+          <p>If you just installed Słówko, open the app to see today's word. Use the star icon to save favorites and tap the speaker to hear pronunciation. Słówko runs on the device - no account required.</p>
+
+          <h3>Word History</h3>
+          <p>You can browse previous words from the History screen.</p>
+
+          <h3>Favorites & Flashcards</h3>
+          <p>Tap the star on any word to add it to Favorites. Słówko+ subscribers can use Flashcard mode for quick practice.</p>
+
+          <h3>Notifications</h3>
+          <p>Set your preferred daily reminder time in Settings → Notifications. If reminders don't appear, check notification permissions for Słówko and enable Background App Refresh if needed.</p>
+
+          <h3>Pronunciation (Text‑to‑Speech)</h3>
+          <p>Słówko uses device voices. Tap the speaker icon to play pronunciation. If audio is quiet or clipped, check device volume and audio output.</p>
+
+          <h3>Subscription & Słówko+</h3>
+          <p>Subscriptions are managed through the App Store. To restore purchases, use Restore Purchases in the app settings. If restore fails, ensure you're signed into the App Store with the same Apple ID used for the purchase.</p>
+
+          <h2>Troubleshooting</h2>
+          <ul>
+            <li><strong>App not opening:</strong> Restart your device and try again. If the issue persists, reinstall the app. Favorites are stored locally and there is no built‑in export feature.</li>
+            <li><strong>Missing content or sync errors:</strong> Ensure you have an active internet connection - Słówko fetches daily words from a server. Importing local files is not supported.</li>
+            <li><strong>Notifications missing:</strong> Verify notification permissions and Background App Refresh.</li>
+          </ul>
+
+          <h2>Contact & Feedback</h2>
+          <p>If you need help not covered here, email <a href="mailto:wiktor.wojcik@extiri.com">wiktor.wojcik@extiri.com</a>. Include your device model, iOS version, and a brief description of the issue.</p>
+        </div>
+
+        <aside style="position:relative;">
+          <div style="background: rgba(16,20,24,0.7); padding:14px; border-radius:12px;">
+            <h3 style="margin-top:0;">Quick links</h3>
+            <ul style="padding-left:18px;">
+              <li><a href="#en">Restore Purchases</a></li>
+              <li><a href="#en">Notifications</a></li>
+              <li><a href="#faq-en">FAQ</a></li>
+            </ul>
+          </div>
+
+          <div style="margin-top:18px; background: rgba(18,22,26,0.75); padding:12px; border-radius:12px; text-align:center;">
+            <img src="images/slowko/Screenshot 1 - S.png" alt="Słówko screenshot 1" style="width:100%; border-radius:10px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
+            <figcaption style="font-size:0.9em; color:#cfe9f5; margin-top:8px;">Daily word screen</figcaption>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+  <section class="section-card" id="faq-en" style="display:none;">
+      <h2>FAQ</h2>
+      <h3>Is Słówko free?</h3>
+      <p>The app is free; Słówko+ is an optional subscription that unlocks additional features such as flashcards.</p>
+
+      <h3>How do I export my favorites?</h3>
+      <p>Export is not currently supported. To preserve data before reinstalling, use your device backup (e.g. iCloud).</p>
+
+      <h3>Does Słówko require internet?</h3>
+      <p>Yes - Słówko requires an internet connection to fetch daily words and some discovery features. Text‑to‑speech uses device voices; if a voice must be downloaded, internet may be needed.</p>
+    </section>
+  </main>
+
+  <footer class="footer-apple">
+    <hr class="section-divider">
+    <p style="text-align:center;"><a href="privacy_policy.html" class="secondary_link">Privacy Policy</a></p>
+    <p style="text-align:center; color:#505050; font-size:0.95em;">Słówko &copy; 2025. Made for Polish language lovers.</p>
+  </footer>
+
+  <script>
+    // Language toggle for the support page. Polish (pl) is default.
+    function showLang(lang){
+      var pl = document.getElementById('pl');
+      var en = document.getElementById('en');
+      var faqPl = document.getElementById('faq-pl');
+      var faqEn = document.getElementById('faq-en');
+      if(!pl || !en) return;
+      if(lang === 'pl'){
+        pl.style.display = 'block'; pl.setAttribute('aria-hidden','false'); pl.focus();
+        en.style.display = 'none'; en.setAttribute('aria-hidden','true');
+        if(faqPl) { faqPl.style.display = 'block'; faqPl.setAttribute('aria-hidden','false'); }
+        if(faqEn) { faqEn.style.display = 'none'; faqEn.setAttribute('aria-hidden','true'); }
+      } else {
+        pl.style.display = 'none'; pl.setAttribute('aria-hidden','true');
+        en.style.display = 'block'; en.setAttribute('aria-hidden','false'); en.focus();
+        if(faqPl) { faqPl.style.display = 'none'; faqPl.setAttribute('aria-hidden','true'); }
+        if(faqEn) { faqEn.style.display = 'block'; faqEn.setAttribute('aria-hidden','false'); }
+      }
+    }
+    document.addEventListener('DOMContentLoaded', function(){ showLang('pl'); });
+  </script>
+  <script src="scripts.js" defer></script>
+</body>
+</html>

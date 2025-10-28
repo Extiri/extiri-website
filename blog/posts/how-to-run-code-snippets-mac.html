@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<title>How to Run Code Snippets on Your Mac &#9642; Extiri Blog</title>
+<!--
+<meta name="description" content="You found a piece of code online-maybe in Python, Bash, JavaScript, Ruby, or even C-and you’re wondering how to actually run it on your Mac. You’re in the right place. I’ll walk you through how to run snippets in both interpreted and compiled languages, explain what’s happening behind the scenes,...">
+-->
+<meta name="description" content="blog about Extiri, programming and cybersecurity
+">
+<meta name="keywords" content="extiri, codemenu-guide">
+<link rel="canonical" href="https://extiri.com/blog/posts/how-to-run-code-snippets-mac">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="How to Run Code Snippets on Your Mac" />
+<meta name="twitter:description" content="blog about Extiri, programming and cybersecurity
+" />
+<meta name="twitter:image" content="https://extiri.com/blog" />
+<meta name="author" content="">
+<link rel="author" href="">
+<meta property="og:locale" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Run Code Snippets on Your Mac">
+<meta property="og:description" content="blog about Extiri, programming and cybersecurity
+">
+<meta property="og:url" content="https://extiri.com/blog/posts/how-to-run-code-snippets-mac">
+<meta property="og:site_name" content="Extiri Blog">
+<link rel="stylesheet" href="/blog/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="/blog/assets/css/main.css">
+<link rel="stylesheet" href="/blog/assets/css/bf.css">
+   <body>
+       <div class="wrapper" id="blep">
+          <header class="site-header">
+ <div class="site-header__inner">
+    <a class="site-header__brand" href="/blog/index.html">
+      <span class="site-header__logo">
+        <object type="image/svg+xml" data="/blog/assets/img/guy.svg" class="logosvg">Your browser does not support svg images</object>
+      </span>
+      <span class="site-header__title">Extiri Blog</span>
+    </a>
+    <button
+      class="site-nav__toggle"
+      type="button"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      data-nav-toggle
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+   <nav class="site-nav" id="site-nav" data-site-nav>
+     <ul class="site-nav__list">
+       <li><a href="/blog/about/index.html">About</a>
+       <li><a href="/blog/archive/index.html">Archive</a>
+       <li><a href="https://extiri.com">Apps</a>
+     </ul>
+     <div class="site-nav__secondary">
+       <ul class="site-nav__social">
+         <li>
+            <a href="https://youtube.com/@wiktorwojcik3678" target="_blank" rel="noopener">
+              <span class="icon-youtube"></span>
+              <span class="sr-only">YouTube</span>
+            </a>
+         <li>
+            <a href="https://twitter.com/WiktorW2" target="_blank" rel="noopener">
+              <span class="icon-twitter"></span>
+              <span class="sr-only">Twitter</span>
+            </a>
+         <li>
+            <a href="https://github.com/Extiri" target="_blank" rel="noopener">
+              <span class="icon-github"></span>
+              <span class="sr-only">GitHub</span>
+            </a>
+         <li>
+            <a href="mailto:wiktor.wojcik@extiri.com">
+              <span class="icon-mail_outline"></span>
+              <span class="sr-only">Email</span>
+            </a>
+         <li>
+            <a href="/blog/feed.xml">
+              <span class="icon-rss_feed"></span>
+              <span class="sr-only">RSS feed</span>
+            </a>
+       </ul>
+     </div>
+   </nav>
+ </div>
+</header>
+<div id="cookie-consent-banner" class="cookie-consent-banner" aria-live="polite" hidden>
+ <div class="cookie-consent-content">
+   <p>We use cookies and analytics to improve this site. You can accept or decline analytics tracking. Read our <a href="/blog/privacy_policy.html">Privacy Policy</a>.
+   <div class="cookie-consent-buttons">
+      <button id="consent-accept" class="button-primary">Accept</button>
+      <button id="consent-decline" class="button-secondary">Decline</button>
+   </div>
+ </div>
+</div>
+<article class="post">
+<header class="post-hero">
+   <p class="post-hero__eyebrow">Extiri Blog
+   <h1 class="post-hero__title">How to Run Code Snippets on Your Mac</h1>
+   <div class="post-hero__meta">
+      <span class="post-hero__date">
+        October 29, 2025
+      </span>
+      <span class="post-hero__divider">•</span>
+      <span class="post-hero__author">
+        Wiktor Wójcik
+      </span>
+      <span class="post-hero__divider">•</span>
+      <span class="post-hero__tags">
+          <a href="/blog/tag/extiri/index.html">#extiri</a>
+          <a href="/blog/tag/codemenu-guide/index.html">#codemenu-guide</a>
+      </span>
+   </div>
+ </header>
+ <div class="post-content">
+   <p class="lead">You found a piece of code online-maybe in Python, Bash, JavaScript, Ruby, or even C-and you’re wondering how to actually run it on your Mac.<br />
+You’re in the right place. I’ll walk you through how to run snippets in both interpreted <em>and</em> compiled languages, explain what’s happening behind the scenes, and keep it simple.
+<hr />
+<h2 id="whats-going-on-interpreted-vs-compiled-languages">What’s going on: interpreted vs compiled languages</h2>
+<p>Before we dive into examples, here’s a quick overview.
+<ul>
+ <li><strong>Interpreted languages</strong> (like Python, Bash scripts, JavaScript via Node.js, Ruby) are executed by a program (an interpreter) line by line. You paste code and it runs.
+ <li><strong>Compiled languages</strong> (such as C, C++ and others) require a <em>compiler</em>. The compiler transforms your source code into a binary executable that your Mac can run directly. That means a few extra steps: install the compiler → compile the code → run the executable.
+</ul>
+<p>Why does this matter to you? Because when you pick up a snippet, you’ll want to know whether you can paste it and run it immediately (interpreted), or if you need a toolchain set up (compiled).<br />
+Let’s go through both.
+<hr />
+<h2 id="option-1-running-interpreted-languages">Option 1: Running Interpreted Languages</h2>
+<h3 id="python">Python</h3>
+<ol>
+ <li>Check if Python is installed:
+   <div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>  python3 --version
+</pre></table>
+</div>
+   </div>
+</ol>
+<p>If you see something like <code class="language-plaintext highlighter-rouge">Python 3.9.x</code>, you’re ready.
+<ol>
+ <li>
+   <p>Run code interactively:
+   <div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>python3
+</pre></table>
+</div>
+   </div>
+   <p>Now you’re at the <code class="language-plaintext highlighter-rouge">&gt;&gt;&gt;</code> prompt. Paste:
+   <div class="language-python highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="k">print</span><span class="p">(</span><span class="s">"Hello from Python!"</span><span class="p">)</span>
+</pre></table>
+</div>
+   </div>
+   <p>Press Enter → you’ll see the output. To exit, type <code class="language-plaintext highlighter-rouge">exit()</code> or press <strong>Ctrl + D</strong>.
+ <li>
+   <p>Run a script from a file:
+   <ul>
+     <li>Open a text editor, paste your snippet.
+     <li>Save it as <code class="language-plaintext highlighter-rouge">myscript.py</code>.
+     <li>
+       <p>In Terminal, navigate to its folder.
+       <div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="nb">cd</span> ~/Desktop     <span class="c"># adjust path as needed</span>
+</pre></table>
+</div>
+       </div>
+     <li>
+       <p>Run:
+       <div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>python3 myscript.py
+</pre></table>
+</div>
+       </div>
+   </ul>
+</ol>
+<h3 id="bash--shell">Bash / Shell</h3>
+<p>If the snippet looks like:
+<div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="nb">echo</span> <span class="s2">"Hello from the shell!"</span>
+</pre></table>
+</div>
+</div>
+<p>You can simply paste it into Terminal and hit Enter-done.
+<p>For a multi-line script:
+<div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre><td class="code"><pre>nano myscript.sh         <span class="c"># open a simple editor</span>
+<span class="c"># paste code</span>
+<span class="c"># save with Ctrl + O, enter; exit with Ctrl + X</span>
+chmod +x myscript.sh     <span class="c"># make it executable</span>
+./myscript.sh            <span class="c"># run it</span>
+</pre></table>
+</div>
+</div>
+<h3 id="javascript-with-nodejs">JavaScript with Node.js</h3>
+<p>To use JavaScript outside of a browser you’ll generally install <strong>Node.js</strong>. I’ll cover installation in the next section. Once installed:
+<ul>
+ <li>
+   <p>Interactive mode:
+   <div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>node
+</pre></table>
+</div>
+   </div>
+   <p>You’ll see a <code class="language-plaintext highlighter-rouge">&gt;</code> prompt. Then:
+   <div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Hello from Node.js!"</span><span class="p">);</span>
+</pre></table>
+</div>
+   </div>
+   <p>Press Enter → output appears. Exit with Ctrl + C.
+ <li>
+   <p>Running from file:
+   <div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre><td class="code"><pre>nano app.js           <span class="c"># create/edit file</span>
+<span class="c"># paste:</span>
+console.log<span class="o">(</span><span class="s2">"This runs using Node.js"</span><span class="o">)</span>;
+<span class="c"># save &amp; exit</span>
+node app.js
+</pre></table>
+</div>
+   </div>
+</ul>
+<h3 id="ruby">Ruby</h3>
+<p>Check:
+<div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>ruby -v
+</pre></table>
+</div>
+</div>
+<p>Then create a file <code class="language-plaintext highlighter-rouge">script.rb</code>:
+<div class="language-ruby highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="nb">puts</span> <span class="s2">"Hello from Ruby!"</span>
+</pre></table>
+</div>
+</div>
+<p>Save, then run:
+<div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>ruby script.rb
+</pre></table>
+</div>
+</div>
+<hr />
+<h2 id="installing-nodejs-so-you-can-run-js">Installing Node.js (so you can run JS)</h2>
+<p>Here’s how to get Node.js running on your Mac:
+<ol>
+ <li>Visit the official Node.js site and download the <strong>LTS</strong> version (https://nodejs.org).
+ <li>Open the downloaded <code class="language-plaintext highlighter-rouge">.pkg</code> installer and follow the on-screen steps.
+ <li>After installation, open Terminal and type:
+</ol>
+<div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre><td class="code"><pre>  node -v
+  npm -v
+</pre></table>
+</div>
+</div>
+<p>You should see version numbers, indicating successful installation.
+<p>Optionally, you can use the Homebrew package manager:
+<div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre><td class="code"><pre>brew update
+brew install node
+</pre></table>
+</div>
+</div>
+<p>Then verify as before.
+<hr />
+<h2 id="option-2-running-compiled-languages---example-with-c">Option 2: Running Compiled Languages - Example with C</h2>
+<p>Using compiled languages means one extra step: building (compiling) the code before you run it. Let’s walk through C on Mac.
+<h3 id="installing-the-compiler">Installing the compiler</h3>
+<p>Your Mac can use Apple’s built-in toolchain (Clang) or you can install GNU GCC. Here’s how to set up the basic tools:
+<ul>
+ <li>
+   <p>Run:
+   <div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>xcode-select --install
+</pre></table>
+</div>
+   </div>
+   <p>This installs Apple’s Command Line Tools (which include Clang) without needing the full Xcode app.
+ <li>
+   <p>If you prefer GNU GCC:
+   <div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>brew install gcc
+</pre></table>
+</div>
+   </div>
+   <p>And verify:
+   <div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>gcc --version
+</pre></table>
+</div>
+   </div>
+   <p>(verify the <code class="language-plaintext highlighter-rouge">gcc</code> output shows a version string)
+</ul>
+<h3 id="write-a-simple-c-snippet">Write a simple C snippet</h3>
+<p>Create a file named <code class="language-plaintext highlighter-rouge">hello.c</code> with content:
+<div class="language-c highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre><td class="code"><pre><span class="cp">#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Hello, C world!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></table>
+</div>
+</div>
+<h3 id="compile--run">Compile &amp; Run</h3>
+<p>In Terminal, navigate to the folder:
+<div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="nb">cd</span> /path/to/folder
+</pre></table>
+</div>
+</div>
+<p>Then compile:
+<div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>clang hello.c -o hello
+</pre></table>
+</div>
+</div>
+<p>or if using GCC:
+<div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>gcc-13 hello.c -o hello
+</pre></table>
+</div>
+</div>
+<p>Now run:
+<div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>./hello
+</pre></table>
+</div>
+</div>
+<p>You should see:
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>Hello, C world!
+</pre></table>
+</div>
+</div>
+<h3 id="using-vs-code-for-c-optional">Using VS Code for C (optional)</h3>
+<ul>
+ <li>Install VS Code
+ <li>Install the C/C++ extension
+ <li>Open <code class="language-plaintext highlighter-rouge">hello.c</code>, then use the built-in terminal (Ctrl + ~) to compile and run as above.
+</ul>
+<hr />
+<h2 id="a-quick-peek-at-other-languages-you-might-encounter">A Quick Peek at Other Languages You Might Encounter</h2>
+<ul>
+ <li><strong>C++</strong> - Very similar to C; you’ll use <code class="language-plaintext highlighter-rouge">clang++</code> or <code class="language-plaintext highlighter-rouge">g++</code> to compile.
+ <li><strong>Go</strong> - Install via <code class="language-plaintext highlighter-rouge">brew install go</code> or official site; run a file with <code class="language-plaintext highlighter-rouge">go run file.go</code>.
+ <li><strong>Rust</strong> - Install using <code class="language-plaintext highlighter-rouge">rustup</code>, compile with <code class="language-plaintext highlighter-rouge">cargo build</code>, run with <code class="language-plaintext highlighter-rouge">cargo run</code>.
+The pattern stays: install toolchain → compile/build (if needed) → run.
+</ul>
+<hr />
+<h2 id="option-3-run--manage-snippets-effortlessly-with-codemenu">Option 3: Run &amp; Manage Snippets Effortlessly with CodeMenu</h2>
+<p>If you’re testing a variety of snippets across languages, switching between terminals, editors and computing steps can get tedious. That’s why I built <strong><a href="https://extiri.com/codemenu.html">CodeMenu</a></strong>.
+<p>With CodeMenu you can:
+<ul>
+ <li>Save and organize snippets (Python, Bash, Ruby, JavaScript, C, and more).
+ <li>Run them instantly without manually opening Terminal each time.
+ <li>Keep everything in one place so you don’t lose track of “one that worked” or “the version I saved”.
+Treat it as a snippet sandbox + launcher-it simplifies your workflow so you can focus on experiments instead of setup.
+</ul>
+<p>👉 Try it here: <a href="https://extiri.com/codemenu.html">CodeMenu for Mac</a>
+<hr />
+<h2 id="tldr-summary">TL;DR (summary)</h2>
+<ul>
+ <li>Interpreted languages (Python, Bash, JS, Ruby) = paste &amp; run almost immediately.
+ <li>Compiled languages (C, C++, Go, etc.) = install compiler → compile → run the executable.
+ <li>On Mac you’ll often use Terminal to run commands; editors like VS Code add comfort.
+ <li>If you’re working with lots of snippets or switching languages, CodeMenu gives you structure.
+</ul>
+<hr />
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>You don’t have to be a “developer” to try running code. You just need curiosity and a few practical steps. Start with a simple snippet, run it, see what happens, tweak it. The “typing commands” part might look intimidating-but once you’ve done it once, it becomes second nature.
+And when you want to keep your snippets organized, manageable, and easy to run-CodeMenu is there to make life simpler.
+ </div>
+</article>
+<aside class="related">
+<h2>Related posts</h2>
+<ul class="related-posts">
+   <li>
+    <a href="/blog/posts/codemenu-guide-add-programming-language.html">
+        <span>Guide to CodeMenu: How to add a programming language for running?</span>
+        <small>28/10</small>
+    </a>
+</aside>
+           <footer class="site-footer">
+ <div class="site-footer__inner">
+   <div class="site-footer__primary">
+     <h2>Extiri Blog</h2>
+     <p>blog about Extiri, programming and cybersecurity
+   </div>
+   <nav class="site-footer__links" aria-label="Footer navigation">
+      <a href="/blog/about/index.html">About</a>
+      <a href="/blog/archive/index.html">Archive</a>
+      <a href="https://extiri.com">Apps</a>
+      <a href="/blog/feed.xml">RSS</a>
+   </nav>
+   <div class="site-footer__meta">
+      <span>Crafted by Wiktor Wójcik</span>
+      <span>&copy; 2025 Extiri</span>
+   </div>
+ </div>
+</footer>
+       </div>
+<script type="text/javascript" src="/blog/assets/js/nav.js"></script>
+<script type="text/javascript" src="/blog/assets/js/theme.js"></script>
+<script type="text/javascript" src="/blog/assets/js/barefoot.js"></script>
+<script type="text/javascript" src="/blog/assets/js/consent.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    // Default to denied until the user accepts
+    gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    gtag('js', new Date());
+    gtag('config', 'G-HLY6ZZMNBQ', { 'anonymize_ip': true });
+    // Listen for our custom consent event to enable analytics
+    window.addEventListener('extiri:consent', function (e) {
+      if (e && e.detail && e.detail.analytics) {
+        // Grant analytics consent
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      } else {
+        // Revoke analytics consent
+        gtag('consent', 'update', { 'analytics_storage': 'denied' });
+      }
+    });
+  </script>
+    

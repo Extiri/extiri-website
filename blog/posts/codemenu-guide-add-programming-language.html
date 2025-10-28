@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<title>Guide to CodeMenu: How to add a programming language for running? &#9642; Extiri Blog</title>
+<!--
+<meta name="description" content="CodeMenu is a handy snippet manager for macOS - and one of its neat features is the ability to run snippets. Out of the box it runs JavaScript, but it’s flexible: you can teach CodeMenu to run almost any language by pointing it at the right command-line utility or script....">
+-->
+<meta name="description" content="blog about Extiri, programming and cybersecurity
+">
+<meta name="keywords" content="extiri, codemenu-guide">
+<link rel="canonical" href="https://extiri.com/blog/posts/codemenu-guide-add-programming-language">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Guide to CodeMenu: How to add a programming language for running?" />
+<meta name="twitter:description" content="blog about Extiri, programming and cybersecurity
+" />
+<meta name="twitter:image" content="https://extiri.com/blog" />
+<meta name="author" content="">
+<link rel="author" href="">
+<meta property="og:locale" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Guide to CodeMenu: How to add a programming language for running?">
+<meta property="og:description" content="blog about Extiri, programming and cybersecurity
+">
+<meta property="og:url" content="https://extiri.com/blog/posts/codemenu-guide-add-programming-language">
+<meta property="og:site_name" content="Extiri Blog">
+<link rel="stylesheet" href="/blog/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="/blog/assets/css/main.css">
+<link rel="stylesheet" href="/blog/assets/css/bf.css">
+   <body>
+       <div class="wrapper" id="blep">
+          <header class="site-header">
+ <div class="site-header__inner">
+    <a class="site-header__brand" href="/blog/index.html">
+      <span class="site-header__logo">
+        <object type="image/svg+xml" data="/blog/assets/img/guy.svg" class="logosvg">Your browser does not support svg images</object>
+      </span>
+      <span class="site-header__title">Extiri Blog</span>
+    </a>
+    <button
+      class="site-nav__toggle"
+      type="button"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      data-nav-toggle
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+   <nav class="site-nav" id="site-nav" data-site-nav>
+     <ul class="site-nav__list">
+       <li><a href="/blog/about/index.html">About</a>
+       <li><a href="/blog/archive/index.html">Archive</a>
+       <li><a href="https://extiri.com">Apps</a>
+     </ul>
+     <div class="site-nav__secondary">
+       <ul class="site-nav__social">
+         <li>
+            <a href="https://youtube.com/@wiktorwojcik3678" target="_blank" rel="noopener">
+              <span class="icon-youtube"></span>
+              <span class="sr-only">YouTube</span>
+            </a>
+         <li>
+            <a href="https://twitter.com/WiktorW2" target="_blank" rel="noopener">
+              <span class="icon-twitter"></span>
+              <span class="sr-only">Twitter</span>
+            </a>
+         <li>
+            <a href="https://github.com/Extiri" target="_blank" rel="noopener">
+              <span class="icon-github"></span>
+              <span class="sr-only">GitHub</span>
+            </a>
+         <li>
+            <a href="mailto:wiktor.wojcik@extiri.com">
+              <span class="icon-mail_outline"></span>
+              <span class="sr-only">Email</span>
+            </a>
+         <li>
+            <a href="/blog/feed.xml">
+              <span class="icon-rss_feed"></span>
+              <span class="sr-only">RSS feed</span>
+            </a>
+       </ul>
+     </div>
+   </nav>
+ </div>
+</header>
+<div id="cookie-consent-banner" class="cookie-consent-banner" aria-live="polite" hidden>
+ <div class="cookie-consent-content">
+   <p>We use cookies and analytics to improve this site. You can accept or decline analytics tracking. Read our <a href="/blog/privacy_policy.html">Privacy Policy</a>.
+   <div class="cookie-consent-buttons">
+      <button id="consent-accept" class="button-primary">Accept</button>
+      <button id="consent-decline" class="button-secondary">Decline</button>
+   </div>
+ </div>
+</div>
+<article class="post">
+<header class="post-hero">
+   <p class="post-hero__eyebrow">Extiri Blog
+   <h1 class="post-hero__title">Guide to CodeMenu: How to add a programming language for running?</h1>
+   <div class="post-hero__meta">
+      <span class="post-hero__date">
+        October 28, 2025
+      </span>
+      <span class="post-hero__divider">•</span>
+      <span class="post-hero__author">
+        Wiktor Wójcik
+      </span>
+      <span class="post-hero__divider">•</span>
+      <span class="post-hero__tags">
+          <a href="/blog/tag/extiri/index.html">#extiri</a>
+          <a href="/blog/tag/codemenu-guide/index.html">#codemenu-guide</a>
+      </span>
+   </div>
+ </header>
+ <div class="post-content">
+   <p class="lead">CodeMenu is a handy snippet manager for macOS - and one of its neat features is the ability to run snippets. Out of the box it runs JavaScript, but it’s flexible: you can teach CodeMenu to run almost any language by pointing it at the right command-line utility or script. This short guide shows two simple examples (Python and C) so you can add languages quickly.
+<h2 id="how-codemenu-runs-snippets">How CodeMenu runs snippets</h2>
+<p>CodeMenu executes snippets by writing the snippet to a temporary file and invoking the language runner you configured for that language. The runner can be a simple interpreter (for languages like Python or Ruby) or a small shell script that compiles and executes code (for C, C++, etc.). The snippet’s stdout is captured and shown as the snippet output.
+<p>Because CodeMenu runs user-specified binaries from a restricted location, you have to link the utilities you want to allow into CodeMenu’s utilities directory - this keeps execution safe and discoverable.
+<hr />
+<h2 id="example-1---add-python-using-python3">Example 1 - Add Python (using python3)</h2>
+<p>If you already have <code class="language-plaintext highlighter-rouge">python3</code> installed, adding it is straightforward.
+<ol>
+ <li>Open a terminal and change to CodeMenu’s application scripts directory:
+</ol>
+<div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="nb">cd</span> ~/Library/Application<span class="se">\ </span>Scripts/id.thedev.marcin.CodeMenu
+</pre></table>
+</div>
+</div>
+<ol>
+ <li>Create a symbolic link to the interpreter (this makes the binary visible to CodeMenu):
+</ol>
+<div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>ln -s <span class="s2">"</span><span class="k">$(</span>which python3<span class="k">)</span><span class="s2">"</span> .
+</pre></table>
+</div>
+</div>
+<p>You can replace <code class="language-plaintext highlighter-rouge">$(which python3)</code> with an absolute path if you prefer.
+<p><img src="/blog/assets/cdmn-guide/link-utility.png" alt="Linking python3 to CodeMenu utilities" />
+<ol>
+ <li>Open CodeMenu → Preferences → Code execution. Click <code class="language-plaintext highlighter-rouge">+ Add</code>, choose a Language (e.g. Python) and set the Language runner to <code class="language-plaintext highlighter-rouge">python3</code> (it will show the name of the file you linked). Save the language.
+</ol>
+<p><img src="/blog/assets/cdmn-guide/code-execution-settings-tab.png" alt="Code execution settings" />
+<p>Now a snippet saved with the Python language will be written to a temp file and executed with <code class="language-plaintext highlighter-rouge">python3 temp_file.py</code>, and its output will be captured by CodeMenu.
+<hr />
+<h2 id="example-2---add-c-using-clang">Example 2 - Add C (using clang)</h2>
+<p>Compiled languages usually need a tiny wrapper to compile and run the temporary file. You can add such a wrapper as a runner script.
+<ol>
+ <li>Return to the utilities directory:
+</ol>
+<div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="nb">cd</span> ~/Library/Application<span class="se">\ </span>Scripts/id.thedev.marcin.CodeMenu
+</pre></table>
+</div>
+</div>
+<ol>
+ <li>Create a runner script (example <code class="language-plaintext highlighter-rouge">clang_run.sh</code>) with the following contents:
+</ol>
+<div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7</pre><td class="code"><pre><span class="c">#!/bin/zsh</span>
+
+<span class="c"># $1 is the path to the temporary source file provided by CodeMenu</span>
+clang -o /var/tmp/compiled_app <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+chmod +x /var/tmp/compiled_app
+/var/tmp/compiled_app
+rm /var/tmp/compiled_app
+</pre></table>
+</div>
+</div>
+<p>This script compiles the temporary source file to <code class="language-plaintext highlighter-rouge">/var/tmp/compiled_app</code>, runs it, then removes the binary. Adjust the paths or flags if you need additional options (e.g. <code class="language-plaintext highlighter-rouge">-O2</code>, <code class="language-plaintext highlighter-rouge">-Wall</code>, or linking libraries).
+<ol>
+ <li>Make the script executable:
+</ol>
+<div class="language-bash highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>chmod +x clang_run.sh
+</pre></table>
+</div>
+</div>
+<ol>
+ <li>In CodeMenu → Preferences → Code execution, add a new language entry, select the <code class="language-plaintext highlighter-rouge">clang_run.sh</code> script as the Language runner, and name the language (e.g. C). Save.
+</ol>
+<p>Now when you run a C snippet, CodeMenu will call your script and capture the program output.
+<hr />
+<p>Tips and safety notes
+<ul>
+ <li>Keep runners in the special application scripts directory so CodeMenu can control what executes. Don’t symlink random user binaries from untrusted locations.
+ <li>For interpreted languages, prefer pointing to an interpreter (python3, ruby, node) that reads the temp file and prints result to stdout.
+ <li>For compiled languages, write a small wrapper script that compiles to a temp location and runs the binary; make sure to clean up temporary files.
+ <li>If a runner needs extra libraries or environment variables, either embed them in the script or use a wrapper that sets those values before invoking the compiler/interpreter.
+</ul>
+<p>That’s it - with these steps you can add new languages to CodeMenu and run snippets right from the app. If you’d like, I can add examples for other languages (Node, Ruby, Swift) or draft a small, shareable runner script template you can drop into the utilities folder.
+<p>Thanks for reading - enjoy running code with CodeMenu!
+ </div>
+</article>
+<aside class="related">
+<h2>Related posts</h2>
+<ul class="related-posts">
+   <li>
+    <a href="/blog/posts/how-to-run-code-snippets-mac.html">
+        <span>How to Run Code Snippets on Your Mac</span>
+        <small>29/10</small>
+    </a>
+</aside>
+           <footer class="site-footer">
+ <div class="site-footer__inner">
+   <div class="site-footer__primary">
+     <h2>Extiri Blog</h2>
+     <p>blog about Extiri, programming and cybersecurity
+   </div>
+   <nav class="site-footer__links" aria-label="Footer navigation">
+      <a href="/blog/about/index.html">About</a>
+      <a href="/blog/archive/index.html">Archive</a>
+      <a href="https://extiri.com">Apps</a>
+      <a href="/blog/feed.xml">RSS</a>
+   </nav>
+   <div class="site-footer__meta">
+      <span>Crafted by Wiktor Wójcik</span>
+      <span>&copy; 2025 Extiri</span>
+   </div>
+ </div>
+</footer>
+       </div>
+<script type="text/javascript" src="/blog/assets/js/nav.js"></script>
+<script type="text/javascript" src="/blog/assets/js/theme.js"></script>
+<script type="text/javascript" src="/blog/assets/js/barefoot.js"></script>
+<script type="text/javascript" src="/blog/assets/js/consent.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    // Default to denied until the user accepts
+    gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    gtag('js', new Date());
+    gtag('config', 'G-HLY6ZZMNBQ', { 'anonymize_ip': true });
+    // Listen for our custom consent event to enable analytics
+    window.addEventListener('extiri:consent', function (e) {
+      if (e && e.detail && e.detail.analytics) {
+        // Grant analytics consent
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      } else {
+        // Revoke analytics consent
+        gtag('consent', 'update', { 'analytics_storage': 'denied' });
+      }
+    });
+  </script>
+    

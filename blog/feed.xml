@@ -6,9 +6,373 @@
 </description>
     <link>https://extiri.com/blog/blog/</link>
     <atom:link href="https://extiri.com/blog/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 28 Oct 2025 18:46:34 +0100</pubDate>
-    <lastBuildDate>Tue, 28 Oct 2025 18:46:34 +0100</lastBuildDate>
+    <pubDate>Wed, 29 Oct 2025 00:36:38 +0100</pubDate>
+    <lastBuildDate>Wed, 29 Oct 2025 00:36:38 +0100</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
+    
+      <item>
+        <title>How to Run Code Snippets on Your Mac</title>
+        <description>&lt;p class=&quot;lead&quot;&gt;You found a piece of code online-maybe in Python, Bash, JavaScript, Ruby, or even C-and you’re wondering how to actually run it on your Mac.&lt;br /&gt;
+You’re in the right place. I’ll walk you through how to run snippets in both interpreted &lt;em&gt;and&lt;/em&gt; compiled languages, explain what’s happening behind the scenes, and keep it simple.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;whats-going-on-interpreted-vs-compiled-languages&quot;&gt;What’s going on: interpreted vs compiled languages&lt;/h2&gt;
+
+&lt;p&gt;Before we dive into examples, here’s a quick overview.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Interpreted languages&lt;/strong&gt; (like Python, Bash scripts, JavaScript via Node.js, Ruby) are executed by a program (an interpreter) line by line. You paste code and it runs.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Compiled languages&lt;/strong&gt; (such as C, C++ and others) require a &lt;em&gt;compiler&lt;/em&gt;. The compiler transforms your source code into a binary executable that your Mac can run directly. That means a few extra steps: install the compiler → compile the code → run the executable.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Why does this matter to you? Because when you pick up a snippet, you’ll want to know whether you can paste it and run it immediately (interpreted), or if you need a toolchain set up (compiled).&lt;br /&gt;
+Let’s go through both.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;option-1-running-interpreted-languages&quot;&gt;Option 1: Running Interpreted Languages&lt;/h2&gt;
+
+&lt;h3 id=&quot;python&quot;&gt;Python&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Check if Python is installed:
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;  python3 --version
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If you see something like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Python 3.9.x&lt;/code&gt;, you’re ready.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Run code interactively:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;python3
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;Now you’re at the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt; prompt. Paste:&lt;/p&gt;
+
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello from Python!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;Press Enter → you’ll see the output. To exit, type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;exit()&lt;/code&gt; or press &lt;strong&gt;Ctrl + D&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Run a script from a file:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Open a text editor, paste your snippet.&lt;/li&gt;
+      &lt;li&gt;Save it as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myscript.py&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;In Terminal, navigate to its folder.&lt;/p&gt;
+
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/Desktop     &lt;span class=&quot;c&quot;&gt;# adjust path as needed&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Run:&lt;/p&gt;
+
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;python3 myscript.py
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;bash--shell&quot;&gt;Bash / Shell&lt;/h3&gt;
+
+&lt;p&gt;If the snippet looks like:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello from the shell!&quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You can simply paste it into Terminal and hit Enter-done.&lt;/p&gt;
+
+&lt;p&gt;For a multi-line script:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;nano myscript.sh         &lt;span class=&quot;c&quot;&gt;# open a simple editor&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# paste code&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# save with Ctrl + O, enter; exit with Ctrl + X&lt;/span&gt;
+chmod +x myscript.sh     &lt;span class=&quot;c&quot;&gt;# make it executable&lt;/span&gt;
+./myscript.sh            &lt;span class=&quot;c&quot;&gt;# run it&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;javascript-with-nodejs&quot;&gt;JavaScript with Node.js&lt;/h3&gt;
+
+&lt;p&gt;To use JavaScript outside of a browser you’ll generally install &lt;strong&gt;Node.js&lt;/strong&gt;. I’ll cover installation in the next section. Once installed:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Interactive mode:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;node
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;You’ll see a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;gt;&lt;/code&gt; prompt. Then:&lt;/p&gt;
+
+    &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello from Node.js!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;Press Enter → output appears. Exit with Ctrl + C.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Running from file:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;nano app.js           &lt;span class=&quot;c&quot;&gt;# create/edit file&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# paste:&lt;/span&gt;
+console.log&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;This runs using Node.js&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+&lt;span class=&quot;c&quot;&gt;# save &amp;amp; exit&lt;/span&gt;
+node app.js
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ruby&quot;&gt;Ruby&lt;/h3&gt;
+
+&lt;p&gt;Check:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;ruby -v
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Then create a file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;script.rb&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello from Ruby!&quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Save, then run:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;ruby script.rb
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;installing-nodejs-so-you-can-run-js&quot;&gt;Installing Node.js (so you can run JS)&lt;/h2&gt;
+
+&lt;p&gt;Here’s how to get Node.js running on your Mac:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Visit the official Node.js site and download the &lt;strong&gt;LTS&lt;/strong&gt; version (https://nodejs.org).&lt;/li&gt;
+  &lt;li&gt;Open the downloaded &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.pkg&lt;/code&gt; installer and follow the on-screen steps.&lt;/li&gt;
+  &lt;li&gt;After installation, open Terminal and type:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;  node -v
+  npm -v
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You should see version numbers, indicating successful installation.&lt;/p&gt;
+
+&lt;p&gt;Optionally, you can use the Homebrew package manager:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;brew update
+brew install node
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Then verify as before.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;option-2-running-compiled-languages---example-with-c&quot;&gt;Option 2: Running Compiled Languages - Example with C&lt;/h2&gt;
+
+&lt;p&gt;Using compiled languages means one extra step: building (compiling) the code before you run it. Let’s walk through C on Mac.&lt;/p&gt;
+
+&lt;h3 id=&quot;installing-the-compiler&quot;&gt;Installing the compiler&lt;/h3&gt;
+
+&lt;p&gt;Your Mac can use Apple’s built-in toolchain (Clang) or you can install GNU GCC. Here’s how to set up the basic tools:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Run:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;xcode-select --install
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;This installs Apple’s Command Line Tools (which include Clang) without needing the full Xcode app.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If you prefer GNU GCC:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;brew install gcc
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;And verify:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;gcc --version
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;(verify the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gcc&lt;/code&gt; output shows a version string)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;write-a-simple-c-snippet&quot;&gt;Write a simple C snippet&lt;/h3&gt;
+
+&lt;p&gt;Create a file named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hello.c&lt;/code&gt; with content:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello, C world!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;compile--run&quot;&gt;Compile &amp;amp; Run&lt;/h3&gt;
+
+&lt;p&gt;In Terminal, navigate to the folder:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /path/to/folder
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Then compile:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;clang hello.c -o hello
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;or if using GCC:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;gcc-13 hello.c -o hello
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Now run:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;./hello
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You should see:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;Hello, C world!
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;using-vs-code-for-c-optional&quot;&gt;Using VS Code for C (optional)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Install VS Code&lt;/li&gt;
+  &lt;li&gt;Install the C/C++ extension&lt;/li&gt;
+  &lt;li&gt;Open &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hello.c&lt;/code&gt;, then use the built-in terminal (Ctrl + ~) to compile and run as above.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;a-quick-peek-at-other-languages-you-might-encounter&quot;&gt;A Quick Peek at Other Languages You Might Encounter&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;C++&lt;/strong&gt; - Very similar to C; you’ll use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;clang++&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g++&lt;/code&gt; to compile.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Go&lt;/strong&gt; - Install via &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;brew install go&lt;/code&gt; or official site; run a file with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;go run file.go&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Rust&lt;/strong&gt; - Install using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rustup&lt;/code&gt;, compile with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cargo build&lt;/code&gt;, run with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cargo run&lt;/code&gt;.
+The pattern stays: install toolchain → compile/build (if needed) → run.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;option-3-run--manage-snippets-effortlessly-with-codemenu&quot;&gt;Option 3: Run &amp;amp; Manage Snippets Effortlessly with CodeMenu&lt;/h2&gt;
+
+&lt;p&gt;If you’re testing a variety of snippets across languages, switching between terminals, editors and computing steps can get tedious. That’s why I built &lt;strong&gt;&lt;a href=&quot;https://extiri.com/codemenu.html&quot;&gt;CodeMenu&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;With CodeMenu you can:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Save and organize snippets (Python, Bash, Ruby, JavaScript, C, and more).&lt;/li&gt;
+  &lt;li&gt;Run them instantly without manually opening Terminal each time.&lt;/li&gt;
+  &lt;li&gt;Keep everything in one place so you don’t lose track of “one that worked” or “the version I saved”.
+Treat it as a snippet sandbox + launcher-it simplifies your workflow so you can focus on experiments instead of setup.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;👉 Try it here: &lt;a href=&quot;https://extiri.com/codemenu.html&quot;&gt;CodeMenu for Mac&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;tldr-summary&quot;&gt;TL;DR (summary)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Interpreted languages (Python, Bash, JS, Ruby) = paste &amp;amp; run almost immediately.&lt;/li&gt;
+  &lt;li&gt;Compiled languages (C, C++, Go, etc.) = install compiler → compile → run the executable.&lt;/li&gt;
+  &lt;li&gt;On Mac you’ll often use Terminal to run commands; editors like VS Code add comfort.&lt;/li&gt;
+  &lt;li&gt;If you’re working with lots of snippets or switching languages, CodeMenu gives you structure.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;final-thoughts&quot;&gt;Final Thoughts&lt;/h2&gt;
+
+&lt;p&gt;You don’t have to be a “developer” to try running code. You just need curiosity and a few practical steps. Start with a simple snippet, run it, see what happens, tweak it. The “typing commands” part might look intimidating-but once you’ve done it once, it becomes second nature.
+And when you want to keep your snippets organized, manageable, and easy to run-CodeMenu is there to make life simpler.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 29 Oct 2025 00:00:00 +0100</pubDate>
+        <link>https://extiri.com/blog/blog/posts/how-to-run-code-snippets-mac</link>
+        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/how-to-run-code-snippets-mac</guid>
+        
+        <category>extiri</category>
+        
+        <category>codemenu-guide</category>
+        
+        
+      </item>
     
       <item>
         <title>How to Study Faster with Read-Aloud PDF Apps</title>
@@ -160,6 +524,133 @@ Read-aloud PDFs work best as part of a complete study system. Use them for initi
         <category>study-guide</category>
         
         <category>app-showcase</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Guide to CodeMenu: How to add a programming language for running?</title>
+        <description>&lt;p class=&quot;lead&quot;&gt;CodeMenu is a handy snippet manager for macOS - and one of its neat features is the ability to run snippets. Out of the box it runs JavaScript, but it’s flexible: you can teach CodeMenu to run almost any language by pointing it at the right command-line utility or script. This short guide shows two simple examples (Python and C) so you can add languages quickly.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;how-codemenu-runs-snippets&quot;&gt;How CodeMenu runs snippets&lt;/h2&gt;
+
+&lt;p&gt;CodeMenu executes snippets by writing the snippet to a temporary file and invoking the language runner you configured for that language. The runner can be a simple interpreter (for languages like Python or Ruby) or a small shell script that compiles and executes code (for C, C++, etc.). The snippet’s stdout is captured and shown as the snippet output.&lt;/p&gt;
+
+&lt;p&gt;Because CodeMenu runs user-specified binaries from a restricted location, you have to link the utilities you want to allow into CodeMenu’s utilities directory - this keeps execution safe and discoverable.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;example-1---add-python-using-python3&quot;&gt;Example 1 - Add Python (using python3)&lt;/h2&gt;
+
+&lt;p&gt;If you already have &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python3&lt;/code&gt; installed, adding it is straightforward.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Open a terminal and change to CodeMenu’s application scripts directory:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/Library/Application&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;Scripts/id.thedev.marcin.CodeMenu
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Create a symbolic link to the interpreter (this makes the binary visible to CodeMenu):&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;ln -s &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;which python3&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; .
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You can replace &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$(which python3)&lt;/code&gt; with an absolute path if you prefer.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/cdmn-guide/link-utility.png&quot; alt=&quot;Linking python3 to CodeMenu utilities&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Open CodeMenu → Preferences → Code execution. Click &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+ Add&lt;/code&gt;, choose a Language (e.g. Python) and set the Language runner to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python3&lt;/code&gt; (it will show the name of the file you linked). Save the language.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/cdmn-guide/code-execution-settings-tab.png&quot; alt=&quot;Code execution settings&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now a snippet saved with the Python language will be written to a temp file and executed with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python3 temp_file.py&lt;/code&gt;, and its output will be captured by CodeMenu.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;example-2---add-c-using-clang&quot;&gt;Example 2 - Add C (using clang)&lt;/h2&gt;
+
+&lt;p&gt;Compiled languages usually need a tiny wrapper to compile and run the temporary file. You can add such a wrapper as a runner script.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Return to the utilities directory:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/Library/Application&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;Scripts/id.thedev.marcin.CodeMenu
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Create a runner script (example &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;clang_run.sh&lt;/code&gt;) with the following contents:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/zsh&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# $1 is the path to the temporary source file provided by CodeMenu&lt;/span&gt;
+clang -o /var/tmp/compiled_app &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+chmod +x /var/tmp/compiled_app
+/var/tmp/compiled_app
+rm /var/tmp/compiled_app
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This script compiles the temporary source file to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/var/tmp/compiled_app&lt;/code&gt;, runs it, then removes the binary. Adjust the paths or flags if you need additional options (e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-O2&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-Wall&lt;/code&gt;, or linking libraries).&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Make the script executable:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;chmod +x clang_run.sh
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;In CodeMenu → Preferences → Code execution, add a new language entry, select the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;clang_run.sh&lt;/code&gt; script as the Language runner, and name the language (e.g. C). Save.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Now when you run a C snippet, CodeMenu will call your script and capture the program output.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Tips and safety notes&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Keep runners in the special application scripts directory so CodeMenu can control what executes. Don’t symlink random user binaries from untrusted locations.&lt;/li&gt;
+  &lt;li&gt;For interpreted languages, prefer pointing to an interpreter (python3, ruby, node) that reads the temp file and prints result to stdout.&lt;/li&gt;
+  &lt;li&gt;For compiled languages, write a small wrapper script that compiles to a temp location and runs the binary; make sure to clean up temporary files.&lt;/li&gt;
+  &lt;li&gt;If a runner needs extra libraries or environment variables, either embed them in the script or use a wrapper that sets those values before invoking the compiler/interpreter.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That’s it - with these steps you can add new languages to CodeMenu and run snippets right from the app. If you’d like, I can add examples for other languages (Node, Ruby, Swift) or draft a small, shareable runner script template you can drop into the utilities folder.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading - enjoy running code with CodeMenu!&lt;/p&gt;
+</description>
+        <pubDate>Tue, 28 Oct 2025 00:00:00 +0100</pubDate>
+        <link>https://extiri.com/blog/blog/posts/codemenu-guide-add-programming-language</link>
+        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/codemenu-guide-add-programming-language</guid>
+        
+        <category>extiri</category>
+        
+        <category>codemenu-guide</category>
         
         
       </item>
@@ -1096,276 +1587,6 @@ Read-aloud PDFs work best as part of a complete study system. Use them for initi
         <pubDate>Sun, 26 Jan 2025 00:00:00 +0100</pubDate>
         <link>https://extiri.com/blog/blog/posts/building-your-personal-knowledge-base</link>
         <guid isPermaLink="true">https://extiri.com/blog/blog/posts/building-your-personal-knowledge-base</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>The Power of Automation - Useful Tools For Automating</title>
-        <description>&lt;p class=&quot;lead&quot;&gt;As developers, we’re often tasked with repetitive, time-consuming activities that can sap creativity and productivity. The good news? Many of these tasks can be automated, freeing up your time to focus on solving real problems and building innovative solutions.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;p&gt;Automation is no longer a luxury—it’s a necessity in modern software development. Here are 10 tasks every developer should consider automating today:&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;1-running-tests-and-deployments-with-cicd-pipelines&quot;&gt;&lt;strong&gt;1. Running Tests and Deployments with CI/CD Pipelines&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;Continuous Integration and Continuous Deployment (CI/CD) tools like GitHub Actions, Jenkins, and CircleCI ensure your code is always tested and ready to ship.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Automate:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Running unit, integration, and end-to-end tests on every commit.&lt;/li&gt;
-  &lt;li&gt;Building and deploying code to staging or production environments.&lt;/li&gt;
-  &lt;li&gt;Rolling back changes if a deployment fails.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Why It’s Useful:&lt;/strong&gt;&lt;br /&gt;
-Catch bugs early and deploy faster without manual intervention.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;2-code-formatting-and-linting&quot;&gt;&lt;strong&gt;2. Code Formatting and Linting&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;Inconsistent formatting can lead to wasted time during code reviews. Tools like Prettier, ESLint, Black, or clang-format can automatically format your code and catch style violations.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Automate:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Pre-commit hooks using tools like Husky to enforce style rules.&lt;/li&gt;
-  &lt;li&gt;Running formatters as part of your CI pipeline.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Why It’s Useful:&lt;/strong&gt;&lt;br /&gt;
-Keeps your codebase clean and consistent without debates over tabs vs. spaces.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;3-generating-documentation&quot;&gt;&lt;strong&gt;3. Generating Documentation&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;Documentation is essential but often neglected. Automation tools can generate and update documentation directly from your code.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Automate:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Generating API docs with tools like Swagger/OpenAPI or Sphinx.&lt;/li&gt;
-  &lt;li&gt;Creating diagrams from code using PlantUML or Mermaid.js.&lt;/li&gt;
-  &lt;li&gt;Auto-generating changelogs from commit messages using tools like conventional-changelog.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Why It’s Useful:&lt;/strong&gt;&lt;br /&gt;
-Keeps documentation up to date without extra effort.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;4-managing-dependencies&quot;&gt;&lt;strong&gt;4. Managing Dependencies&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;Keeping dependencies up to date manually can be tedious and error-prone. Tools like Dependabot, Renovate, or poetry lock files make this process seamless.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Automate:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Detecting outdated dependencies and submitting pull requests with updates.&lt;/li&gt;
-  &lt;li&gt;Checking for security vulnerabilities in dependencies.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Why It’s Useful:&lt;/strong&gt;&lt;br /&gt;
-Ensures your project is secure and avoids technical debt from outdated libraries.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;5-handling-code-reviews&quot;&gt;&lt;strong&gt;5. Handling Code Reviews&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;Code reviews are vital but time-consuming. Tools like Reviewable or Gerrit can streamline the process, while automation can handle the mundane parts.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Automate:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Enforcing code review rules (e.g., required approvals).&lt;/li&gt;
-  &lt;li&gt;Automatically assigning reviewers based on the area of code affected.&lt;/li&gt;
-  &lt;li&gt;Rejecting commits that don’t meet specific criteria (e.g., failing tests).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Why It’s Useful:&lt;/strong&gt;&lt;br /&gt;
-Focuses reviewer time on logic and architecture, not style or formatting.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;6-generating-mock-data&quot;&gt;&lt;strong&gt;6. Generating Mock Data&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;Manually creating mock data for testing can slow you down. Tools like Faker library (JavaScript, Java, Python), generators in CodeMenu macOS app and Mockaroo website (can also create a fake API when you haven’t created a backend yet) can handle this. You can also use AI like ChatGPT or Claude.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Automate:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Generating large datasets for load testing.&lt;/li&gt;
-  &lt;li&gt;Creating realistic mock data for testing APIs or UI components.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Why It’s Useful:&lt;/strong&gt;&lt;br /&gt;
-Speeds up testing and helps simulate real-world conditions.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;7-monitoring-application-performance&quot;&gt;&lt;strong&gt;7. Monitoring Application Performance&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;Manually monitoring app performance and server health is inefficient. Tools like Prometheus, Grafana, and New Relic automate performance tracking.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Automate:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Setting up alerts for anomalies like high memory usage or slow response times.&lt;/li&gt;
-  &lt;li&gt;Logging key metrics and generating automated reports.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Why It’s Useful:&lt;/strong&gt;&lt;br /&gt;
-Proactively catches issues before users are affected.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;8-handling-repetitive-file-or-data-operations&quot;&gt;&lt;strong&gt;8. Handling Repetitive File or Data Operations&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;Tasks like renaming files, transforming datasets, or migrating data can be automated using scripts or tools.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Automate:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Batch-renaming files with a script.&lt;/li&gt;
-  &lt;li&gt;Data transformations using Python, Pandas, or command-line tools like awk.&lt;/li&gt;
-  &lt;li&gt;Exporting/importing databases with automated backup scripts.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Why It’s Useful:&lt;/strong&gt;&lt;br /&gt;
-Eliminates repetitive tasks and reduces human error.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;9-generating-boilerplate-code&quot;&gt;&lt;strong&gt;9. Generating Boilerplate Code&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;Starting a new project or feature often involves writing boilerplate code. Tools like Yeoman, Plop, or cookiecutter can automate this process. You can use a snippets manager like Pieces, Snippety or CodeMenu to store and access them easier.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Automate:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Generating project scaffolding (e.g., React apps, Express APIs).&lt;/li&gt;
-  &lt;li&gt;Creating template files for new features or components.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Why It’s Useful:&lt;/strong&gt;&lt;br /&gt;
-Saves time and ensures consistency across projects.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;10-security-audits-and-code-scanning&quot;&gt;&lt;strong&gt;10. Security Audits and Code Scanning&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;Security and code quality should never be an afterthought. Tools like SonarQube, Snyk, or GitHub’s code scanning features can identify issues early.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Automate:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Scanning code for vulnerabilities during pull requests.&lt;/li&gt;
-  &lt;li&gt;Running regular security audits on dependencies.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Why It’s Useful:&lt;/strong&gt;&lt;br /&gt;
-Prevents vulnerabilities from slipping into production.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;getting-started-with-automation&quot;&gt;&lt;strong&gt;Getting Started with Automation&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;To begin automating, start small. Identify repetitive tasks that slow you down and explore tools that can handle them. Use scripting languages like Python, Bash, or PowerShell for custom tasks, and integrate specialized tools into your workflow. Use AI to write scripts and speed up this process.&lt;/p&gt;
-
-&lt;hr /&gt;
-</description>
-        <pubDate>Sat, 18 Jan 2025 00:00:00 +0100</pubDate>
-        <link>https://extiri.com/blog/blog/posts/the-power-of-automation-useful-tools-for-automating</link>
-        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/the-power-of-automation-useful-tools-for-automating</guid>
-        
-        <category>guide</category>
-        
-        <category>app-showcase</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>The Ultimate Guide to Snippet Management with CodeMenu</title>
-        <description>&lt;p class=&quot;lead&quot;&gt;In the fast-paced world of software development, efficiency isn’t just nice to have; it’s essential. Code snippets, those handy pieces of reusable code, can significantly boost your productivity, but only if you manage them effectively. Enter &lt;a href=&quot;https://extiri.com/codemenu.html&quot;&gt;CodeMenu&lt;/a&gt; by Extiri, a snippet manager designed not just for storing code but for transforming how you code, design, and even think about your work.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;p&gt;Here’s your ultimate guide to leveraging CodeMenu for an unparalleled coding workflow:&lt;/p&gt;
-
-&lt;h3 id=&quot;1-centralize-your-codebase&quot;&gt;&lt;strong&gt;1. Centralize Your Codebase&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;The first step to revolutionizing your workflow is centralization. CodeMenu allows you to store snippets in over 55 programming languages, from Python to TypeScript, ensuring that no matter what project you’re working on, your go-to solutions are just a click away. Instead of rummaging through old projects or scattered notes, you have everything organized in one place.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Action: Begin by migrating all your existing snippets into CodeMenu, using tags or groups to categorize by project or function.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;2-instant-access-with-snippet-suggestions&quot;&gt;&lt;strong&gt;2. Instant Access with Snippet Suggestions&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;Speed is of the essence in development. CodeMenu’s Suggestions app integrates directly into your code editor, allowing you to summon snippets with abbreviations or even natural language queries. This means less time searching, more time coding.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Action: Set up your most used snippets with abbreviations or explore the AI-driven search to find snippets by describing what you need in plain English.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;3-ai-driven-enhancements&quot;&gt;&lt;strong&gt;3. AI-Driven Enhancements&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;CodeMenu isn’t just about storage; it’s about smart assistance. Use AI features for natural language searches, screenshot-to-text conversion, or even generating titles and descriptions for your snippets. These functionalities run offline, ensuring your privacy while keeping your workflow fast.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Action: Try taking a screenshot of code in a programming tutorial to turn it into text or use the AI to generate a description for a complex snippet you just created.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;4-adapt-and-enhance-with-placeholders-and-latex&quot;&gt;&lt;strong&gt;4. Adapt and Enhance with Placeholders and LaTeX&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;One size doesn’t fit all in coding. CodeMenu’s use of placeholders allows you to make snippets adaptable to different contexts. Add LaTeX for mathematical or algorithmic explanations, enhancing your snippets’ utility for documentation or teaching.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Action: Create a template snippet for a common function with placeholders for variable names or values, making it instantly reusable across different projects.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;5-test-and-run-within-codemenu&quot;&gt;&lt;strong&gt;5. Test and Run Within CodeMenu&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;Developers often need to test snippets before integrating them into larger projects. CodeMenu provides an environment to test JavaScript snippets directly, with the option to add support for other languages. This immediate feedback loop can save hours of back-and-forth.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Action: Start testing your snippets within CodeMenu before committing them to your project, ensuring they work as intended.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;6-expand-your-toolkit-with-utilities&quot;&gt;&lt;strong&gt;6. Expand Your Toolkit with Utilities&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;CodeMenu isn’t just about code. It’s packed with utilities like code image generation, mockup data generation (like UUID, emails, etc), text encoding/decoding, RegEx testing, code translation, and number system conversion. These tools can be lifesavers in a variety of scenarios.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Action: Use these utilities to streamline tasks outside of direct coding, like generating test data or understanding how a piece of code might look visually.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;7-customization-and-integration&quot;&gt;&lt;strong&gt;7. Customization and Integration&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;Every developer’s workflow is unique. CodeMenu allows for customization through layouts, code themes, shortcuts, HTTP server capabilities for integration, and even custom scripts called automations. This flexibility means CodeMenu can grow with you, adapting to new tools or methods you adopt.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Action: Customize CodeMenu to integrate with your favorite tools, write an automation modifying snippets or create shortcuts that match your muscle memory.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;By integrating CodeMenu into your daily coding routine, you’re not just managing snippets; you’re enhancing your entire development process. From centralizing your knowledge base to leveraging AI for smarter work, CodeMenu is more than a tool; it’s a partner in your coding journey. Start today, and watch how your productivity and creativity soar.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 10 Jan 2025 00:00:00 +0100</pubDate>
-        <link>https://extiri.com/blog/blog/posts/ultimate-guide-to-snippet-management-with-codemenu</link>
-        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/ultimate-guide-to-snippet-management-with-codemenu</guid>
-        
-        <category>extiri</category>
-        
-        <category>guide</category>
-        
-        <category>app-showcase</category>
         
         
       </item>
