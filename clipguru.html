@@ -40,14 +40,13 @@
             .feature-list { --accent: #6D49D7; }
             .feature-icon svg { stroke: #6D49D7; }
 
-            /* Use flex-based lists to avoid cramped wrapping and keep bullets next to text */
-            .feature-list { margin-left: 0; padding-left: 0; }
-            .feature-list li { display: flex; gap: 12px; align-items: flex-start; }
-            .feature-list li::before { content: "•"; flex: 0 0 20px; margin-top: 4px; color: var(--accent); font-size: 1.05rem; line-height: 1; }
-            .feature-list li > * { margin: 0; }
+            /* Use native list markers so text flows naturally and bullets get accented */
+            .feature-list { margin-left: 0; padding-left: 0; list-style: disc inside; }
+            .feature-list li { display: block; margin: 10px 0; color: var(--text-muted, rgba(214,220,232,0.85)); }
+            .feature-list li::marker { color: var(--accent); font-size: 1.05rem; }
 
-            /* Remove card backgrounds on landing pages (footer keeps its background) */
-            body.app-landing .feature-panel,
+            /* Remove card backgrounds on landing pages (footer keeps its background)
+               then reintroduce subtle purple-tinted panels for feature items only. */
             body.app-landing .section-card,
             body.app-landing .screenshot-card,
             body.app-landing .feature-belt-grid > article {
@@ -56,6 +55,19 @@
                 box-shadow: none !important;
                 padding: 0 !important;
             }
+
+            /* ClipGuru: purple translucent feature panels and extra spacing above features */
+            body.app-landing.clipguru-page .feature-belt { margin-top: 56px !important; }
+            body.app-landing.clipguru-page .feature-panel {
+                background: linear-gradient(180deg, rgba(109,73,215,0.10), rgba(109,73,215,0.04)) !important;
+                border: 1px solid rgba(109,73,215,0.08) !important;
+                filter: drop-shadow(0 10px 30px rgba(6,6,20,0.45)) !important;
+                padding: clamp(18px, 2.4vw, 26px) !important;
+                border-radius: 14px !important;
+            }
+
+            /* Center FAQ text for readability */
+            #faq .faq-list, #faq .faq-answer, #faq .faq-question { text-align: center; }
         </style>
     <script src="scripts.js" defer></script>
     <script>
@@ -180,7 +192,7 @@
                     <p style="margin-bottom:12px;">The ClipGuru keyboard and share extension let you save and insert content from anywhere — no app switching required.</p>
                 </div>
                 <div style="flex:1; text-align:center; min-width:260px;">
-                    <img src="images/clipguru/main-screen-screenshot.png" alt="ClipGuru main screen" style="max-width:100%; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.25);">
+                    <img src="images/clipguru/main-screen-screenshot.png" alt="ClipGuru main screen" style="max-width:100%; border-radius:12px; filter: drop-shadow(0 10px 30px rgba(0,0,0,0.25));">
                 </div>
             </section>
             </section>
@@ -266,9 +278,11 @@
                 <hr class="section-divider">
                 <h2>Get ClipGuru</h2>
                 <p>Ready to streamline your workflow? Whether you're a writer collecting research, a developer saving code snippets, or a professional managing frequent text and links, ClipGuru keeps important content easily accessible.</p>
-                <a href="https://apps.apple.com/pl/app/clipguru/id6753787446" class="button-primary download-clipguru" aria-label="Download ClipGuru on the App Store">
-                    <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download ClipGuru on the App Store" style="height:44px; width:auto; display:block;">
-                </a>
+                <div style="margin-top:18px;">
+                    <a href="https://apps.apple.com/pl/app/clipguru/id6753787446" class="button-primary download-clipguru" aria-label="Download ClipGuru on the App Store">
+                        <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download ClipGuru on the App Store" style="height:44px; width:auto; display:block;">
+                    </a>
+                </div>
             </section>
 
             <section class="section-card" id="faq">
