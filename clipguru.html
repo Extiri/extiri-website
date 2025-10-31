@@ -19,6 +19,44 @@
     <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="styles.css">
     <meta name="theme-color" content="#050608">
+        <style>
+            /* Page-scoped fixes: left-align lists and break up card rhythm */
+            .feature-belt-grid, .feature-list, .screenshot-gallery, .feature-panel, .app-split-copy, .app-split {
+                text-align: left !important;
+                direction: ltr !important;
+            }
+            .feature-belt-grid .feature-panel p, .feature-list li { text-align:left !important; }
+
+                          /* Neutralize App Store badge background inside download links in hero/cta areas only
+                              so we don't remove styles from the navbar download button which shares the same class. */
+                          .hero-actions a.download-clipguru,
+                          .cta-card a.download-clipguru { background: transparent !important; box-shadow: none !important; padding: 0 !important; }
+                          .hero-actions a.download-clipguru img,
+                          .cta-card a.download-clipguru img { background: transparent !important; display:inline-block; }
+
+                    /* Leave navbar-download styling to global styles.css (.download-clipguru) so it matches CodeMenu pattern */
+
+            .feature-icon svg { width:28px; height:28px; vertical-align:middle; margin-right:10px; }
+            .feature-list { --accent: #6D49D7; }
+            .feature-icon svg { stroke: #6D49D7; }
+
+            /* Use flex-based lists to avoid cramped wrapping and keep bullets next to text */
+            .feature-list { margin-left: 0; padding-left: 0; }
+            .feature-list li { display: flex; gap: 12px; align-items: flex-start; }
+            .feature-list li::before { content: "•"; flex: 0 0 20px; margin-top: 4px; color: var(--accent); font-size: 1.05rem; line-height: 1; }
+            .feature-list li > * { margin: 0; }
+
+            /* Remove card backgrounds on landing pages (footer keeps its background) */
+            body.app-landing .feature-panel,
+            body.app-landing .section-card,
+            body.app-landing .screenshot-card,
+            body.app-landing .feature-belt-grid > article {
+                background: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+            }
+        </style>
     <script src="scripts.js" defer></script>
     <script>
       function goToHome() {
@@ -106,26 +144,45 @@
                 <p class="section-lead">ClipGuru is a lightweight clipboard manager that lets you easily save and organize your snippets — text, links, and images — making them instantly searchable and ready to paste anywhere.</p>
                 <div class="feature-belt-grid">
                     <article class="feature-panel">
-                        <span class="feature-icon">💾</span>
+                        <span class="feature-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#6D49D7" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8"/></svg>
+                        </span>
                         <h3>Quick Save</h3>
                         <p>Save text, links, and images with one tap. Everything you copy is automatically captured.</p>
                     </article>
                     <article class="feature-panel">
-                        <span class="feature-icon">🔍</span>
+                        <span class="feature-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#6D49D7" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M21 21l-4.35-4.35"/></svg>
+                        </span>
                         <h3>Smart Search</h3>
                         <p>Find any clip instantly with intelligent search across all your saved content.</p>
                     </article>
                     <article class="feature-panel">
-                        <span class="feature-icon">⌨️</span>
+                        <span class="feature-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#6D49D7" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 13h.01M10 13h.01M14 13h.01M18 13h.01"/></svg>
+                        </span>
                         <h3>Custom Keyboard</h3>
                         <p>Access your clips from any app with the ClipGuru keyboard extension.</p>
                     </article>
                     <article class="feature-panel">
-                        <span class="feature-icon">🌙</span>
+                        <span class="feature-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#6D49D7" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                        </span>
                         <h3>Beautiful Design</h3>
                         <p>Native iOS design with dark mode support that feels right at home.</p>
                     </article>
                 </div>
+
+            <!-- Varied layout: a wider, non-card section to break up the grid -->
+            <section style="width:100%; max-width:1100px; margin:28px auto; display:flex; gap:24px; align-items:center;">
+                <div style="flex:1; min-width:320px;">
+                    <h2 style="margin-top:0;">Access clips without context switching</h2>
+                    <p style="margin-bottom:12px;">The ClipGuru keyboard and share extension let you save and insert content from anywhere — no app switching required.</p>
+                </div>
+                <div style="flex:1; text-align:center; min-width:260px;">
+                    <img src="images/clipguru/main-screen-screenshot.png" alt="ClipGuru main screen" style="max-width:100%; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.25);">
+                </div>
+            </section>
             </section>
 
             <section class="section-card">
