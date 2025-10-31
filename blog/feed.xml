@@ -6,12 +6,12 @@
 </description>
     <link>https://extiri.com/blog/blog/</link>
     <atom:link href="https://extiri.com/blog/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 29 Oct 2025 00:36:38 +0100</pubDate>
-    <lastBuildDate>Wed, 29 Oct 2025 00:36:38 +0100</lastBuildDate>
+    <pubDate>Fri, 31 Oct 2025 13:01:20 +0100</pubDate>
+    <lastBuildDate>Fri, 31 Oct 2025 13:01:20 +0100</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
-        <title>How to Run Code Snippets on Your Mac</title>
+        <title>How to Use Code Snippets on Your Mac</title>
         <description>&lt;p class=&quot;lead&quot;&gt;You found a piece of code online-maybe in Python, Bash, JavaScript, Ruby, or even C-and you’re wondering how to actually run it on your Mac.&lt;br /&gt;
 You’re in the right place. I’ll walk you through how to run snippets in both interpreted &lt;em&gt;and&lt;/em&gt; compiled languages, explain what’s happening behind the scenes, and keep it simple.&lt;/p&gt;
 
@@ -665,6 +665,18 @@ rm /var/tmp/compiled_app
 
 &lt;h2 id=&quot;the-contenders&quot;&gt;The Contenders&lt;/h2&gt;
 
+&lt;h3 id=&quot;codemenu-your-augmented-memory&quot;&gt;CodeMenu: Your Augmented Memory&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/codemenu-screenshot.png&quot; alt=&quot;CodeMenu Interface&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;CodeMenu is a standout in this space — more than a snippet manager, it’s a local-first personal knowledge system that blends code, visual references, and on-device intelligence into a single, extensible workspace.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Why it matters:&lt;/strong&gt; CodeMenu doesn’t just store snippets; it remembers context. Store color palettes, design notes, AI prompts, screenshots, research, and visual references alongside code. Everything gets rich descriptions with Markdown, LaTeX, images, and diagrams, and on-device AI (generation, chat, semantic search) helps you find and adapt content without sending data off your machine.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Where it shines:&lt;/strong&gt; With parameterized templates, JavaScript automation, an HTTP API, and built-in utilities (converters, mock data, RegEx tester), CodeMenu reduces context switching and scales from a single-user sandbox to team workflows via optional sync and the Snippets Store.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Best for:&lt;/strong&gt; Professionals who want a single, private, and extensible place for code, design, and research — a tool that helps you remember, adapt, and ship faster.&lt;/p&gt;
+
 &lt;h3 id=&quot;snippetslab-the-traditional-choice&quot;&gt;SnippetsLab: The Traditional Choice&lt;/h3&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://www.renfei.org/snippets-lab/images/Landing/hero2.webp&quot; alt=&quot;SnippetsLab Interface&quot; /&gt;&lt;/p&gt;
@@ -724,34 +736,6 @@ rm /var/tmp/compiled_app
 &lt;p&gt;&lt;strong&gt;Where it’s limited:&lt;/strong&gt; ClipGuru is intentionally lightweight, which means it lacks advanced features like syntax highlighting for code, dynamic templates, or automation. The free version saves only 4 clips (unlimited with Pro upgrade for ~$1.25). There’s no AI features, no parameterized templates, and no advanced organizational structures beyond tags. It’s Apple ecosystem only - no Windows or Linux support.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Best for:&lt;/strong&gt; Apple users who want a simple, fast, mobile-friendly clipboard manager that syncs across devices without complexity. Ideal for non-developers or those who prioritize simplicity over power features.&lt;/p&gt;
-
-&lt;h2 id=&quot;codemenu-your-augmented-memory&quot;&gt;CodeMenu: Your Augmented Memory&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/assets/codemenu-screenshot.png&quot; alt=&quot;CodeMenu Interface&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;CodeMenu takes a different approach entirely. It’s not just a snippet manager - it’s designed to be your external memory system for everything that fuels your work.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;What makes it different:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Beyond code snippets:&lt;/strong&gt; While SnippetsLab, Snippety, SnipperApp, and massCode focus primarily on code and text snippets, CodeMenu recognizes that developers work with diverse content. Store color palettes, design notes, AI prompts, screenshots, research, and visual references alongside your code. Everything gets rich descriptions with Markdown, LaTeX, images, and diagrams.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Truly local-first with intelligence:&lt;/strong&gt; Your library stays completely local and works offline by default. Unlike tools that require cloud services or external APIs, CodeMenu includes on-device AI features (generation, chat, semantic search) that run securely on your Mac. You only share what you choose through the optional Snippets Store or team sync.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Context-aware suggestions:&lt;/strong&gt; The Suggestions app (available on GitHub) surfaces relevant snippets based on what you’re working on, learning from your patterns without sending data anywhere. It’s like having an assistant that remembers everything you’ve ever saved and knows when you need it.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Built-in productivity tools:&lt;/strong&gt; Why switch between apps? CodeMenu bundles editors, converters, mock data generators, a RegEx tester, and a code-to-image creator. It’s designed to minimize context switching during rapid prototyping.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Parameterized templates that adapt:&lt;/strong&gt; Unlike static snippets, CodeMenu templates inject live data - current date, shell outputs, user input. One saved fragment morphs to fit any scenario. Combined with the HTTP API and JavaScript automation (with extensive API documentation), you can integrate CodeMenu into your existing workflows deeply.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Real extensibility:&lt;/strong&gt; Extensions for the Suggestions system, JavaScript automation with CLI support for any language, HTTP API, and comprehensive documentation at docs.extiri.com mean you can bend CodeMenu to your exact needs. It’s not just a storage box - it’s programmable infrastructure.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Where CodeMenu shines uniquely:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;While SnippetsLab offers clean organization, Snippety provides fast text expansion, SnipperApp excels at GitHub Gist management, massCode gives you free cross-platform access, and ClipGuru delivers mobile-first simplicity, CodeMenu is the only one that combines local-first privacy, on-device AI, visual content management, and true extensibility into a cohesive system.&lt;/p&gt;
-
-&lt;p&gt;If you’re a developer, designer, or creator who works with diverse content types and wants a personal knowledge system that remembers everything while respecting your privacy, CodeMenu is built for you.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Best for:&lt;/strong&gt; Professionals who need a comprehensive personal knowledge base that’s intelligent, extensible, and completely under their control.&lt;/p&gt;
 
 &lt;h2 id=&quot;feature-comparison&quot;&gt;Feature Comparison&lt;/h2&gt;
 
@@ -915,12 +899,12 @@ rm /var/tmp/compiled_app
 &lt;p&gt;Choosing a snippet manager depends on what you actually need:&lt;/p&gt;
 
 &lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;CodeMenu&lt;/strong&gt; if you want an intelligent, extensible personal knowledge system that handles everything from code to design to research&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;ClipGuru&lt;/strong&gt; if you want a simple, mobile-first clipboard manager that works beautifully across Apple devices&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;SnippetsLab&lt;/strong&gt; if you want a free, focused code snippet organizer with no frills&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Snippety&lt;/strong&gt; if text expansion speed across Apple devices is your priority&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;SnipperApp 2&lt;/strong&gt; if you live in GitHub Gists and want native Mac management with offline support&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;massCode&lt;/strong&gt; if you need free, open-source, cross-platform compatibility&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;CodeMenu&lt;/strong&gt; if you want an intelligent, extensible personal knowledge system that handles everything from code to design to research&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;The best snippet manager isn’t about feature checklists - it’s about matching your workflow. Traditional snippet managers organize what you’ve saved. ClipGuru keeps your clipboard accessible across devices. SnipperApp bridges your local work with GitHub. CodeMenu becomes the thinking partner that helps you remember, discover, and ship better work.&lt;/p&gt;
