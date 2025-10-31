@@ -6,8 +6,8 @@
 </description>
     <link>https://extiri.com/blog/blog/</link>
     <atom:link href="https://extiri.com/blog/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 31 Oct 2025 13:01:20 +0100</pubDate>
-    <lastBuildDate>Fri, 31 Oct 2025 13:01:20 +0100</lastBuildDate>
+    <pubDate>Fri, 31 Oct 2025 15:03:18 +0100</pubDate>
+    <lastBuildDate>Fri, 31 Oct 2025 15:03:18 +0100</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -915,21 +915,9 @@ rm /var/tmp/compiled_app
 
 &lt;p&gt;&lt;em&gt;Ready to try our apps?&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;ClipGuru&lt;/strong&gt;: Available on the &lt;a href=&quot;https://apps.apple.com/pl/app/clipguru/id6753787446&quot;&gt;App Store&lt;/a&gt; for iOS, iPadOS, and macOS. Free with optional Pro upgrade. Visit &lt;a href=&quot;https://extiri.com/clipguru&quot;&gt;extiri.com/clipguru&lt;/a&gt; to learn more.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ClipGuru&lt;/strong&gt;: Available on the &lt;a href=&quot;https://apps.apple.com/pl/app/clipguru/id6753787446&quot;&gt;App Store&lt;/a&gt; for iOS, iPadOS, and macOS. Free with optional Pro upgrade. Learn more about our &lt;a href=&quot;/clipguru.html&quot;&gt;clipboard manager for iOS&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;CodeMenu&lt;/strong&gt;: Available on the &lt;a href=&quot;https://apps.apple.com/us/app/codemenu-snippet-manager/id1583463781?mt=12&quot;&gt;Mac App Store&lt;/a&gt; with a 7-day free trial, or purchase a one-time license. Visit &lt;a href=&quot;https://extiri.com/codemenu.html&quot;&gt;extiri.com/codemenu&lt;/a&gt; to learn more.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; For official screenshots:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;ClipGuru&lt;/strong&gt;: Visit &lt;a href=&quot;https://extiri.com/clipguru&quot;&gt;extiri.com/clipguru&lt;/a&gt; or the &lt;a href=&quot;https://apps.apple.com/pl/app/clipguru/id6753787446&quot;&gt;App Store page&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;SnippetsLab&lt;/strong&gt;: Visit &lt;a href=&quot;https://www.renfei.org/snippets-lab/&quot;&gt;renfei.org/snippets-lab&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Snippety&lt;/strong&gt;: Visit &lt;a href=&quot;https://snippety.app/&quot;&gt;snippety.app&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;SnipperApp 2&lt;/strong&gt;: Visit &lt;a href=&quot;https://snipperapp.com/&quot;&gt;snipperapp.com&lt;/a&gt; or the &lt;a href=&quot;https://apps.apple.com/us/app/snipperapp-2/id1469182443?mt=12&quot;&gt;Mac App Store&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;massCode&lt;/strong&gt;: Visit &lt;a href=&quot;https://masscode.io/&quot;&gt;masscode.io&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;CodeMenu&lt;/strong&gt;: Visit the &lt;a href=&quot;https://apps.apple.com/us/app/codemenu-snippet-manager/id1583463781?mt=12&quot;&gt;Mac App Store page&lt;/a&gt; or &lt;a href=&quot;https://extiri.com/codemenu.html&quot;&gt;extiri.com/codemenu&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;CodeMenu&lt;/strong&gt;: Available on the &lt;a href=&quot;https://apps.apple.com/us/app/codemenu-snippet-manager/id1583463781?mt=12&quot;&gt;Mac App Store&lt;/a&gt; with a 7-day free trial, or purchase a one-time license. Learn more about our &lt;a href=&quot;/codemenu.html&quot;&gt;snippet manager for macOS&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Sun, 26 Oct 2025 00:00:00 +0200</pubDate>
         <link>https://extiri.com/blog/blog/posts/the-best-snippet-manager</link>
