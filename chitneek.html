@@ -11,10 +11,10 @@
         gtag('config', 'G-HLY6ZZMNBQ');
     </script>
 
-    <title>Chitneek — Private read aloud for iOS</title>
+    <title>Chitneek — Read aloud PDF & EPUB on iPhone (private, on-device)</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Chitneek — private on-device reader for PDF and EPUB on iPhone and iPad. Read aloud without uploads or accounts.">
+    <meta name="description" content="Chitneek — private on-device reader for PDF and EPUB on iPhone and iPad. Read aloud PDF and EPUB locally with no uploads or accounts.">
     <link rel="canonical" href="https://extiri.com/chitneek.html">
     <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="styles.css">
@@ -72,8 +72,33 @@
             .feature-icon svg { stroke: var(--accent); }
             @media (max-width:780px) { .feature-icon svg { width:22px; height:22px; } }
 
-            /* Center FAQ text for readability */
+            /* Center FAQ text and heading for readability */
+            #faq h2 { text-align: center; }
             #faq .faq-list, #faq .faq-answer, #faq .faq-question { text-align: center; }
+            /* Remove shadows around sections on this page to keep visuals subtle */
+            .section, .section-card, body.app-landing .section, body.app-landing .section-card {
+                box-shadow: none !important;
+                -webkit-box-shadow: none !important;
+                filter: none !important;
+                -webkit-filter: none !important;
+            }
+
+            /* Strongly override global grid-based feature-list so items render as native list items */
+            .feature-list {
+                list-style: disc inside !important;
+                margin: 0 0 20px 0 !important;
+                padding-left: 1.05em !important;
+            }
+            .feature-list li {
+                display: list-item !important;
+                grid-template-columns: none !important;
+                gap: 0 !important;
+                margin: 10px 0 !important;
+                color: var(--text-muted, rgba(214,220,232,0.85)) !important;
+                line-height: 1.45;
+            }
+            .feature-list li::before { content: none !important; }
+            .feature-list li::marker { color: var(--accent); font-weight: 700; font-size: 1.02rem; }
     </style>
     <meta name="theme-color" content="#050608">
     <script type="application/ld+json">
@@ -82,7 +107,7 @@
             "@type": "SoftwareApplication",
             "name": "Chitneek",
             "url": "https://extiri.com/chitneek.html",
-            "description": "Chitneek lets you read aloud PDF and EPUB files on iPhone using private, on-device voices.",
+            "description": "Chitneek helps you read aloud PDF and EPUB files on iPhone using private, on-device voices.",
             "applicationCategory": "MobileApplication",
             "operatingSystem": "iOS",
             "keywords": "read aloud pdf, read aloud epub, pdf reader ios, text to speech",
@@ -154,7 +179,6 @@
                     <img src="images/czytnik/czytnik-icon.png" alt="Chitneek app icon" class="hero-icon">
                     <h1 class="hero-title">Chitneek</h1>
                     <p class="hero-description">Chitneek for iOS — a private, on-device reader that can read aloud PDF and EPUB files on iPhone and iPad. Offline voices, organized library, CarPlay support, and simple import from Files or Share Sheet.</p>
-                    <p class="hero-note">Want to quickly read aloud PDF files on your iPhone? Chitneek imports PDFs from Files or the Share sheet and instantly plays them back with Apple’s high-quality voices — no uploads, no accounts.</p>
                     <div class="hero-actions">
                         <a href="https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870" class="button-primary download-chitneek" aria-label="Download Chitneek on the App Store">
                             <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download Chitneek on the App Store" style="height:44px; width:auto; display:block;">
@@ -179,7 +203,7 @@
             <section class="section-card feature-belt" id="features">
                 <hr class="section-divider">
                 <h2>Why Chitneek</h2>
-                <p class="section-lead">Chitneek is a straightforward, privacy‑focused text‑to‑speech app. It turns PDFs, EPUBs, notes, and web content into clear, natural audio — all processed on your device. Use Chitneek as an EPUB reader on iOS or a PDF reader with read‑aloud support for hands‑free listening.</p>
+                <p class="section-lead">Chitneek is a straightforward, privacy‑focused text‑to‑speech app. It turns PDFs, EPUBs, notes, and web content into audio — all processed on your device. Use Chitneek to read aloud PDF files or as an EPUB reader on iOS for comfortable, hands‑free listening.</p>
                 <div class="feature-belt-grid">
                     <article class="feature-panel">
                                                     <span class="feature-icon">
@@ -273,7 +297,7 @@
                     </figure>
                     <figure class="screenshot-card">
                         <img src="images/czytnik/additional-functions-screenshot.png" alt="Additional functions like text to PDF and discovery">
-                        <figcaption class="screenshot-caption">More tools — text to PDF, discovery from Gutenberg and RSS.</figcaption>
+                        <figcaption class="screenshot-caption">More tools — bookmarks, sleep timer</figcaption>
                     </figure>
                 </div>
             </section>
