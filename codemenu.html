@@ -66,11 +66,37 @@
   <!-- Load site script deferred so it doesn't block initial render -->
   <script src="scripts.js" defer></script>
   <style>
-    .app-hero {
-      background: url("images/codemenu_background.webp") no-repeat;
-      background-size: cover;
-      background-color: black;
-      width: 100%; /*6 53px */
+    /* Clean, professional hero section */
+    .app-hero-clean {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 80px 24px;
+      background: linear-gradient(180deg, rgba(14,16,20,1) 0%, rgba(10,12,16,1) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .app-hero-clean::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1200px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,179,0,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-clean-container {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    @media (max-width: 780px) {
+      .app-hero-clean { padding: 100px 20px 60px 20px; min-height: 70vh; }
     }
   </style>
 </head>
@@ -112,26 +138,27 @@
     </div>
   </div>
   
-  <div class="app-hero">
-    <section class="codemenu-hero-grid" aria-label="CodeMenu hero">
-      <div class="hero-text">
-        <img loading="eager" decoding="async" src="images/codemenu-icon.webp" style="width: min(200px, 90%); display: block; margin-left: auto; margin-right: auto;" alt="CodeMenu app icon — snippet manager for macOS">
-        <h1 style="margin: 12px 0 6px 0; width: 650px;">CodeMenu<br><span style="font-size: 0.7em; font-weight: 100">Modern Snippet Manager for macOS</span></h1>
-        <h2 style="letter-spacing: 0.02em; font-weight:600; margin-top:0;">Save Code, Prompts, and Anything You Reuse</h2>
-        <p style="color: #ffe082; font-size:1.08em; margin-top: 8px; margin-bottom: 0;">Want to learn more about snippet management? <a href="https://extiri.com/blog/posts/ultimate-guide-to-snippet-management-with-codemenu.html" style="color:#ffb300; text-decoration:underline;">Read our Ultimate Guide</a>.</p>
-
-        <div style="margin-top:18px; display:flex; gap:12px; align-items:center; justify-content:center; flex-wrap:wrap;">
-          <a class="button-cta" href="https://www.producthunt.com/posts/codemenu?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-codemenu" target="_blank" rel="noopener noreferrer"><img loading="lazy" decoding="async" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=464819&theme=light" alt="CodeMenu — Augmented Memory for Creators | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
-          <a class="button-cta" href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781"><img loading="lazy" decoding="async" src="images/download_on_the_mac_app_store_button.svg" height="60px" alt="Get CodeMenu on the Mac App Store"/></a>
+  <div class="app-hero-clean">
+    <div class="hero-clean-container">
+      <div class="hero-clean-content">
+        <img loading="eager" decoding="async" src="images/codemenu-icon.webp" style="width: 96px; height: 96px; display: block; margin: 0 auto 24px auto; border-radius: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.3);" alt="CodeMenu app icon">
+        <h1 style="margin: 0 auto 12px auto; max-width: 680px; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15;">Snippet Manager for Mac</h1>
+        <p style="margin: 0 auto 32px auto; max-width: 540px; font-size: clamp(1.08rem, 1.6vw, 1.22rem); color: rgba(200,210,220,0.88); line-height: 1.6;">Capture, organize, and reuse code, prompts, and creative assets with fast semantic search.</p>
+        
+        <div style="display: flex; gap: 14px; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 28px;">
+          <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; background: #ffb300; color: #111; font-weight: 700; border-radius: 10px; text-decoration: none; box-shadow: 0 8px 20px rgba(255,179,0,0.25); transition: transform 0.15s, box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 28px rgba(255,179,0,0.35)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(255,179,0,0.25)';">Download for Mac</a>
+          <a href="https://extiri.com/blog/posts/ultimate-guide-to-snippet-management-with-codemenu.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; background: rgba(255,255,255,0.06); color: rgba(220,230,240,0.92); font-weight: 600; border-radius: 10px; text-decoration: none; border: 1px solid rgba(255,255,255,0.08); transition: background 0.15s, border 0.15s;" onmouseover="this.style.background='rgba(255,255,255,0.10)'; this.style.borderColor='rgba(255,255,255,0.14)';" onmouseout="this.style.background='rgba(255,255,255,0.06)'; this.style.borderColor='rgba(255,255,255,0.08)';">Read the guide</a>
         </div>
 
-        <p class="note-text" style="text-align: center; margin-top:14px;">Unlock your augmented memory with a one-time license or start a 7-day free trial on the Mac App Store.</p>
+        <p style="margin: 0; font-size: 0.92rem; color: rgba(180,190,200,0.7);">7-day free trial · One-time purchase or subscription</p>
       </div>
 
-      <div class="hero-media">
-        <iframe class="preview-image" loading="lazy" width="100%" height="390" src="https://www.youtube-nocookie.com/embed/zGxLaAIhof8?si=SzlimOdgoWDfpN7I&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="hero-clean-media" style="margin-top: 48px; max-width: 860px; margin-left: auto; margin-right: auto;">
+        <div style="position: relative; width: 100%; padding-bottom: 56.25%; border-radius: 14px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); background: rgba(20,24,30,0.9);">
+          <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" loading="lazy" src="https://www.youtube-nocookie.com/embed/zGxLaAIhof8?si=SzlimOdgoWDfpN7I&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
       </div>
-    </section>
+    </div>
   </div>
   
   <div class="story-section" style="width:100%; max-width:1200px; margin:0px auto 64px auto; position:relative; z-index:1;">
