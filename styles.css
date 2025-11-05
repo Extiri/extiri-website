@@ -191,6 +191,7 @@ html {
 .download-codemenu { background: #ffb300; color: #111 !important; box-shadow: 0 8px 28px rgba(255,180,0,0.12); }
 .download-chitneek { background: #26ABEC; color: #04202a !important; box-shadow: 0 8px 28px rgba(38,171,236,0.12); }
 .download-clipguru { background: #6D49D7; color: #fff !important; box-shadow: 0 8px 28px rgba(109,73,215,0.12); }
+.download-slowko { background: #214A3C; color: #fff !important; box-shadow: 0 8px 28px rgba(33,74,60,0.12); }
 
 /* Mobile menu adjustments: make download row slightly more prominent */
 .hamburger_menu .navbar-download {

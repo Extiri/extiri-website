@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+
+        gtag('consent', 'default', { 'analytics_storage': 'denied' });
+        gtag('js', new Date());
+        gtag('config', 'G-HLY6ZZMNBQ');
+    </script>
+
+    <title>Słówko – Codzienne polskie słowo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Słówko – minimalistyczna aplikacja z codziennym polskim słowem. Odkrywaj bogactwo języka polskiego każdego dnia z eleganckimi definicjami i przykładami użycia.">
+    <link rel="icon" type="image/x-icon" href="images/slowko/slowko-icon.png">
+    <link rel="preload" href="/fonts/InstrumentSerif-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#214A3C">
+    <style>
+        /* Page-scoped fixes: left-align lists and break up card rhythm */
+        .feature-belt-grid, .feature-list, .screenshot-gallery, .feature-panel, .app-split-copy, .app-split {
+            text-align: left !important;
+            direction: ltr !important;
+        }
+        .feature-belt-grid .feature-panel p, .feature-list li { text-align:left !important; }
+
+        /* Neutralize App Store badge background inside download links in hero/cta areas only */
+        .hero-actions a.download-slowko,
+        .cta-card a.download-slowko { background: transparent !important; box-shadow: none !important; padding: 0 !important; }
+        .hero-actions a.download-slowko img,
+        .cta-card a.download-slowko img { background: transparent !important; display:inline-block; }
+
+        .feature-icon svg { width:28px; height:28px; vertical-align:middle; margin-right:10px; }
+        .feature-list { --accent: #214A3C; }
+        .feature-icon svg { stroke: #214A3C; }
+
+        /* Use native list markers so text flows naturally and bullets get accented */
+        .feature-list { margin-left: 0; padding-left: 0; list-style: disc inside; }
+        .feature-list li { display: block; margin: 10px 0; color: var(--text-muted, rgba(214,220,232,0.85)); }
+        .feature-list li::marker { color: var(--accent); font-size: 1.05rem; }
+
+        /* Remove card backgrounds on landing pages (footer keeps its background) */
+        body.app-landing .section-card,
+        body.app-landing .screenshot-card,
+        body.app-landing .feature-belt-grid > article {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+        }
+
+        /* Słówko: green translucent feature panels and extra spacing above features */
+        body.app-landing.slowko-page .feature-belt { margin-top: 56px !important; }
+        body.app-landing.slowko-page .feature-panel {
+            background: linear-gradient(180deg, rgba(33,74,60,0.12), rgba(33,74,60,0.05)) !important;
+            border: 1px solid rgba(33,74,60,0.10) !important;
+            filter: drop-shadow(0 10px 30px rgba(6,6,20,0.45)) !important;
+            padding: clamp(18px, 2.4vw, 26px) !important;
+            border-radius: 14px !important;
+        }
+
+        /* Center FAQ heading and text for readability */
+        #faq h2 { text-align: center; }
+        #faq .faq-list, #faq .faq-answer, #faq .faq-question { text-align: center; }
+
+        /* Language picker in navbar */
+        .language-picker {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-left: 16px;
+        }
+        .language-picker a {
+            display: flex;
+            align-items: center;
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: background 0.2s;
+            text-decoration: none;
+            font-size: 0.9rem;
+            color: rgba(220, 230, 240, 0.75);
+        }
+        .language-picker a:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .language-picker a.active {
+            background: rgba(33, 74, 60, 0.3);
+            color: rgba(240, 250, 255, 0.95);
+        }
+        .language-picker img {
+            width: 20px;
+            height: 15px;
+            margin-right: 6px;
+            border-radius: 2px;
+        }
+
+        /* Hide sections by default */
+        .lang-section {
+            display: none;
+        }
+        .lang-section.active {
+            display: block;
+        }
+    </style>
+    <script src="scripts.js" defer></script>
+    <script>
+        function goToHome() {
+            location.href = "./index.html#home";
+        }
+
+        function goToApps() {
+            location.href = "./index.html#apps";
+        }
+
+        function goToBlog() {
+            location.href = "./blog/index.html";
+        }
+
+        function switchLanguage(lang) {
+            // Update active state in language picker
+            document.querySelectorAll('.language-picker a').forEach(a => {
+                a.classList.remove('active');
+                if (a.dataset.lang === lang) {
+                    a.classList.add('active');
+                }
+            });
+
+            // Show/hide content sections
+            document.querySelectorAll('.lang-section').forEach(section => {
+                section.classList.remove('active');
+                if (section.dataset.lang === lang) {
+                    section.classList.add('active');
+                }
+            });
+
+            // Update page language and title
+            document.documentElement.lang = lang;
+            if (lang === 'pl') {
+                document.title = 'Słówko – Codzienne polskie słowo';
+                document.querySelector('meta[name="description"]').content = 'Słówko – minimalistyczna aplikacja z codziennym polskim słowem. Odkrywaj bogactwo języka polskiego każdego dnia z eleganckimi definicjami i przykładami użycia.';
+            } else {
+                document.title = 'Słówko – Daily Polish Word';
+                document.querySelector('meta[name="description"]').content = 'Słówko – a minimalist app featuring a daily Polish word. Discover the richness of the Polish language every day with elegant definitions and usage examples.';
+            }
+
+            // Store preference
+            localStorage.setItem('slowko-lang', lang);
+        }
+
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('slowko-lang') || 'pl';
+            switchLanguage(savedLang);
+        });
+    </script>
+</head>
+<body class="app-landing slowko-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div id="cookie-consent-banner" class="cookie-consent-banner">
+        <div class="cookie-consent-content">
+            <p>We use cookies and other tracking technologies to improve your browsing experience. By clicking "Accept All," you consent to our use of these technologies. You can learn more in our <a href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</p>
+            <div class="cookie-consent-buttons">
+                <button id="accept-cookies" class="button-primary">Accept All</button>
+                <button id="decline-cookies" class="button-secondary">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="navbar">
+        <div class="navbar-content">
+            <a href="./index.html"><img src="images/logo.png" width="110" height="34" class="navbar-logo" alt="Extiri logo"></a>
+            <span class="big_screen">
+                <p class="navbar-item" onclick="goToHome()">Home</p>
+                <p class="navbar-item" onclick="goToApps()">Apps</p>
+                <p class="navbar-item" onclick="goToBlog()">Blog</p>
+                <div class="language-picker">
+                    <a href="#" data-lang="pl" onclick="switchLanguage('pl'); return false;" class="active">
+                        <img src="https://flagcdn.com/w40/pl.png" alt="Polski">
+                        PL
+                    </a>
+                    <a href="#" data-lang="en" onclick="switchLanguage('en'); return false;">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                        EN
+                    </a>
+                </div>
+                <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko/id6738549428" class="navbar-download download-slowko" aria-label="Download Słówko on the App Store">Download now</a>
+            </span>
+            <span class="small_screen">
+                <img src="images/hamburger-icon.webp" class="navbar-item" style="position: absolute; top: 11px; width: 30px !important;" onclick="toggleHamburger()" alt="Menu button">
+                <div id="hamburger_menu" class="hamburger_menu">
+                    <div class="hamburger_menu_content">
+                        <p class="navbar-item" onclick="goToHome()">Home</p>
+                        <p class="navbar-item" onclick="goToApps()">Apps</p>
+                        <p class="navbar-item" onclick="goToBlog()">Blog</p>
+                        <div class="language-picker" style="margin: 12px 0; justify-content: center;">
+                            <a href="#" data-lang="pl" onclick="switchLanguage('pl'); return false;">
+                                <img src="https://flagcdn.com/w40/pl.png" alt="Polski">
+                                PL
+                            </a>
+                            <a href="#" data-lang="en" onclick="switchLanguage('en'); return false;">
+                                <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                                EN
+                            </a>
+                        </div>
+                        <p class="navbar-item navbar-download download-slowko" onclick="location.href='https://apps.apple.com/pl/app/s%C5%82%C3%B3wko/id6738549428'" role="link" aria-label="Download Słówko on the App Store">Download</p>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+
+    <main id="main-content">
+        <!-- Polish Content -->
+        <div class="lang-section" data-lang="pl">
+            <section class="landing-hero">
+                <div class="app-hero-grid">
+                    <div class="hero-text">
+                        <p class="hero-eyebrow">Codzienne polskie słowo</p>
+                        <img src="images/slowko/slowko-icon.png" alt="Słówko ikona aplikacji" class="hero-icon">
+                        <h1 class="hero-title">Słówko</h1>
+                        <p class="hero-description">Minimalistyczna aplikacja dla miłośników języka polskiego. Odkrywaj jedno starannie wybrane słowo każdego dnia.</p>
+                        <p class="hero-note">Elegancka typografia spotyka się z bogatym słownictwem – codzienny rytuał dla językowej kontemplacji.</p>
+                        <div class="hero-actions">
+                            <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko/id6738549428" class="button-primary download-slowko" aria-label="Pobierz Słówko z App Store">
+                                <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Pobierz z App Store" style="height:44px; width:auto; display:block;">
+                            </a>
+                        </div>
+                        <div class="hero-platforms" aria-label="Wspierane platformy">
+                            <span>iOS</span>
+                        </div>
+                    </div>
+                    <div class="hero-media">
+                        <div class="device-stack">
+                            <img src="images/slowko/Screenshot 1 - S.png" alt="Słówko - ekran główny z dziennym słowem" class="device-primary">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="page-watermark" aria-hidden="true"></div>
+
+            <section class="section" style="max-width: 1100px; margin: 80px auto; padding: 0 24px;">
+                <div class="section-header" style="text-align: center; margin-bottom: 64px;">
+                    <h2 style="font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 18px; color: rgba(245,250,255,0.96);">Dlaczego Słówko?</h2>
+                    <p class="section-subtitle" style="max-width: 660px; margin: 0 auto; color: rgba(220,230,240,0.82);">Odkrywaj bogactwo języka polskiego w spokoju codziennej refleksji</p>
+                </div>
+
+                <!-- Featured word showcase with green accent -->
+                <div style="background: linear-gradient(135deg, rgba(33,74,60,0.15) 0%, rgba(33,74,60,0.05) 100%); border: 1px solid rgba(33,74,60,0.2); border-radius: 20px; padding: 48px; margin-bottom: 64px; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(33,74,60,0.15) 0%, transparent 70%); pointer-events: none;"></div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+                        <div>
+                            <div style="display: inline-block; background: rgba(33,74,60,0.2); color: #3dd68c; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; letter-spacing: 0.5px;">SŁOWO DNIA</div>
+                            <h3 style="font-size: clamp(2.2rem, 3.5vw, 3rem); margin: 0 0 16px 0; color: #3dd68c; font-family: 'Instrument Serif', serif;">przemyślenie</h3>
+                            <p style="font-size: 1.1rem; line-height: 1.7; color: rgba(230,240,250,0.88); margin-bottom: 20px;">rzeczownik, rodzaj nijaki</p>
+                            <p style="font-size: 1.05rem; line-height: 1.8; color: rgba(210,220,230,0.85); font-style: italic;">"Wynik długiego namysłu; myśl lub wniosek powstały w wyniku głębokiego rozważenia."</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <img src="images/slowko/Screenshot 1 - S.png" alt="Słówko - przykład słowa dnia" style="max-width: 280px; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature grid with icons and green accents -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-bottom: 64px;">
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px; transition: all 0.3s;">
+                        <div style="width: 48px; height: 48px; background: rgba(33,74,60,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3dd68c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin: 0 0 12px 0; color: rgba(245,250,255,0.96);">Słowo dnia</h3>
+                        <p style="color: rgba(210,220,230,0.82); line-height: 1.65; margin: 0;">Elegancko prezentowane z definicją i przykładem użycia – codzienne odkrycie językowe</p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px; transition: all 0.3s;">
+                        <div style="width: 48px; height: 48px; background: rgba(33,74,60,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3dd68c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 3v18h18"></path>
+                                <path d="M18 17V9"></path>
+                                <path d="M13 17V5"></path>
+                                <path d="M8 17v-3"></path>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin: 0 0 12px 0; color: rgba(245,250,255,0.96);">Historia słów</h3>
+                        <p style="color: rgba(210,220,230,0.82); line-height: 1.65; margin: 0;">Przeglądaj i wyszukuj wcześniejsze słowa – wszystkie odkrycia zawsze pod ręką</p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px; transition: all 0.3s;">
+                        <div style="width: 48px; height: 48px; background: rgba(33,74,60,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3dd68c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin: 0 0 12px 0; color: rgba(245,250,255,0.96);">Ulubione</h3>
+                        <p style="color: rgba(210,220,230,0.82); line-height: 1.65; margin: 0;">Zapisuj najbardziej inspirujące słowa i wracaj do nich w dowolnym momencie</p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px; transition: all 0.3s;">
+                        <div style="width: 48px; height: 48px; background: rgba(33,74,60,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3dd68c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin: 0 0 12px 0; color: rgba(245,250,255,0.96);">Czytanie na głos</h3>
+                        <p style="color: rgba(210,220,230,0.82); line-height: 1.65; margin: 0;">Posłuchaj prawidłowej wymowy każdego słowa dzięki technologii text-to-speech</p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px; transition: all 0.3s;">
+                        <div style="width: 48px; height: 48px; background: rgba(33,74,60,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3dd68c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin: 0 0 12px 0; color: rgba(245,250,255,0.96);">Powiadomienia</h3>
+                        <p style="color: rgba(210,220,230,0.82); line-height: 1.65; margin: 0;">Ustaw przypomnienie o wybranej godzinie, aby nie przegapić nowego słowa</p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px; transition: all 0.3s;">
+                        <div style="width: 48px; height: 48px; background: rgba(33,74,60,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3dd68c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2a10 10 0 1 0 10 10H12V2z"></path>
+                                <path d="M12 2v10l9.5 5.5"></path>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin: 0 0 12px 0; color: rgba(245,250,255,0.96);">Estetyczny wygląd</h3>
+                        <p style="color: rgba(210,220,230,0.82); line-height: 1.65; margin: 0;">Piękna typografia i elegancki styl sprawiają, że słowa nabierają szlachetności</p>
+                    </div>
+                </div>
+
+                <!-- Screenshots gallery -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 48px;">
+                    <div style="border-radius: 14px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.35); border: 1px solid rgba(33,74,60,0.2);">
+                        <img src="images/slowko/Screenshot 3 - S.png" alt="Słówko screenshot 3" style="width: 100%; display: block;">
+                    </div>
+                    <div style="border-radius: 14px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.35); border: 1px solid rgba(33,74,60,0.2);">
+                        <img src="images/slowko/Screenshot 4 - S.png" alt="Słówko screenshot 4" style="width: 100%; display: block;">
+                    </div>
+                    <div style="border-radius: 14px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.35); border: 1px solid rgba(33,74,60,0.2);">
+                        <img src="images/slowko/Screenshot 5 - S.png" alt="Słówko screenshot 5" style="width: 100%; display: block;">
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" style="max-width: 900px; margin: 80px auto; text-align: center;">
+                <h2>Słówko+ Premium</h2>
+                <p style="max-width: 700px; margin: 0 auto 32px auto; color: rgba(220, 230, 240, 0.85);">
+                    Odblokuj pełne możliwości aplikacji dzięki subskrypcji premium. Dostępny 7-dniowy okres próbny.
+                </p>
+                <ul class="feature-list" style="text-align: left; max-width: 600px; margin: 0 auto;">
+                    <li>Brak reklam dla nieprzerwanego doświadczenia</li>
+                    <li>Losowe słowo na żądanie – odkryj nowe słowa w dowolnym momencie</li>
+                    <li>Tryb fiszek z ulubionych słów dla efektywnej nauki</li>
+                </ul>
+            </section>
+
+            <section class="section" id="faq" style="max-width: 900px; margin: 80px auto;">
+                <h2>Często zadawane pytania</h2>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary class="faq-question">Czy Słówko jest darmowe?</summary>
+                        <div class="faq-answer">
+                            <p>Aplikacja jest darmowa z podstawowymi funkcjami. Słówko+ to opcjonalna subskrypcja, która odblokowuje dodatkowe funkcje, takie jak tryb powtórek i brak reklam.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">Czy Słówko wymaga internetu?</summary>
+                        <div class="faq-answer">
+                            <p>Tak, Słówko wymaga połączenia z internetem, aby pobierać codzienne słowa. Odtwarzanie mowy korzysta z głosów urządzenia.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">Jak mogę zapisać słowa?</summary>
+                        <div class="faq-answer">
+                            <p>Dotknij ikony gwiazdki przy dowolnym słowie, aby dodać je do Ulubionych. Możesz przeglądać zapisane słowa w dedykowanej sekcji.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">Jak działa tryb fiszek?</summary>
+                        <div class="faq-answer">
+                            <p>Tryb fiszek jest dostępny dla subskrybentów Słówko+. Pozwala na szybkie powtarzanie zapisanych słów w formie flashcards.</p>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <section class="cta-card section-card" style="text-align: center; max-width: 700px; margin: 80px auto;">
+                <h2>Rozpocznij swoją codzienną podróż z językiem polskim</h2>
+                <p style="color: rgba(220, 230, 240, 0.85); margin-bottom: 24px;">Dołącz do społeczności miłośników języka polskiego i odkrywaj nowe słowa każdego dnia.</p>
+                <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko/id6738549428" class="button-primary download-slowko">
+                    <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Pobierz z App Store" style="height:44px; width:auto; display:block;">
+                </a>
+                <p style="margin-top: 16px; font-size: 0.9rem; color: rgba(200, 210, 220, 0.7);">
+                    <a href="./slowko-support.html" style="text-decoration: underline;">Pomoc i wsparcie</a> · 
+                    <a href="./slowko-privacy.html" style="text-decoration: underline;">Polityka prywatności</a>
+                </p>
+            </section>
+        </div>
+
+        <!-- English Content -->
+        <div class="lang-section" data-lang="en">
+            <section class="landing-hero">
+                <div class="app-hero-grid">
+                    <div class="hero-text">
+                        <p class="hero-eyebrow">Daily Polish word</p>
+                        <img src="images/slowko/slowko-icon.png" alt="Słówko app icon" class="hero-icon">
+                        <h1 class="hero-title">Słówko</h1>
+                        <p class="hero-description">A minimalist app for Polish language lovers. Discover one carefully chosen word every day.</p>
+                        <p class="hero-note">Elegant typography meets rich vocabulary – a daily ritual for linguistic contemplation.</p>
+                        <div class="hero-actions">
+                            <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko/id6738549428" class="button-primary download-slowko" aria-label="Download Słówko on the App Store">
+                                <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" style="height:44px; width:auto; display:block;">
+                            </a>
+                        </div>
+                        <div class="hero-platforms" aria-label="Supported platforms">
+                            <span>iOS</span>
+                        </div>
+                    </div>
+                    <div class="hero-media">
+                        <div class="device-stack">
+                            <img src="images/slowko/Screenshot 1 - S.png" alt="Słówko main screen with daily word" class="device-primary">
+                            <img src="images/slowko/Screenshot 2 - S.png" alt="Słówko history and favorites" class="device-secondary">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="page-watermark" aria-hidden="true"></div>
+
+            <section class="section" style="max-width: 1100px; margin: 80px auto; padding: 0 24px;">
+                <div class="section-header" style="text-align: center; margin-bottom: 64px;">
+                    <h2 style="font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 18px; color: rgba(245,250,255,0.96);">Why Słówko?</h2>
+                    <p class="section-subtitle" style="max-width: 660px; margin: 0 auto; color: rgba(220,230,240,0.82);">Discover the richness of the Polish language through daily quiet reflection</p>
+                </div>
+
+                <!-- Featured word showcase with green accent -->
+                <div style="background: linear-gradient(135deg, rgba(33,74,60,0.15) 0%, rgba(33,74,60,0.05) 100%); border: 1px solid rgba(33,74,60,0.2); border-radius: 20px; padding: 48px; margin-bottom: 64px; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(33,74,60,0.15) 0%, transparent 70%); pointer-events: none;"></div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+                        <div>
+                            <div style="display: inline-block; background: rgba(33,74,60,0.2); color: #3dd68c; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; letter-spacing: 0.5px;">WORD OF THE DAY</div>
+                            <h3 style="font-size: clamp(2.2rem, 3.5vw, 3rem); margin: 0 0 16px 0; color: #3dd68c; font-family: 'Instrument Serif', serif;">przemyślenie</h3>
+                            <p style="font-size: 1.1rem; line-height: 1.7; color: rgba(230,240,250,0.88); margin-bottom: 20px;">noun, neuter</p>
+                            <p style="font-size: 1.05rem; line-height: 1.8; color: rgba(210,220,230,0.85); font-style: italic;">"The result of long consideration; a thought or conclusion arising from deep reflection."</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <img src="images/slowko/Screenshot 1 - S.png" alt="Słówko - word of the day example" style="max-width: 280px; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature grid with icons and green accents -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-bottom: 64px;">
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px; transition: all 0.3s;">
+                        <div style="width: 48px; height: 48px; background: rgba(33,74,60,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3dd68c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin: 0 0 12px 0; color: rgba(245,250,255,0.96);">Word of the day</h3>
+                        <p style="color: rgba(210,220,230,0.82); line-height: 1.65; margin: 0;">Elegantly presented with definition and usage example – daily linguistic discovery</p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px; transition: all 0.3s;">
+                        <div style="width: 48px; height: 48px; background: rgba(33,74,60,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3dd68c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 3v18h18"></path>
+                                <path d="M18 17V9"></path>
+                                <path d="M13 17V5"></path>
+                                <path d="M8 17v-3"></path>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin: 0 0 12px 0; color: rgba(245,250,255,0.96);">Word history</h3>
+                        <p style="color: rgba(210,220,230,0.82); line-height: 1.65; margin: 0;">Browse and search previous words – all discoveries always at your fingertips</p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px; transition: all 0.3s;">
+                        <div style="width: 48px; height: 48px; background: rgba(33,74,60,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3dd68c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin: 0 0 12px 0; color: rgba(245,250,255,0.96);">Favorites</h3>
+                        <p style="color: rgba(210,220,230,0.82); line-height: 1.65; margin: 0;">Save the most inspiring words and return to them at any time</p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px; transition: all 0.3s;">
+                        <div style="width: 48px; height: 48px; background: rgba(33,74,60,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3dd68c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin: 0 0 12px 0; color: rgba(245,250,255,0.96);">Text-to-speech</h3>
+                        <p style="color: rgba(210,220,230,0.82); line-height: 1.65; margin: 0;">Listen to the correct pronunciation of each word with built-in voice technology</p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px; transition: all 0.3s;">
+                        <div style="width: 48px; height: 48px; background: rgba(33,74,60,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3dd68c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin: 0 0 12px 0; color: rgba(245,250,255,0.96);">Notifications</h3>
+                        <p style="color: rgba(210,220,230,0.82); line-height: 1.65; margin: 0;">Set a reminder at your preferred time so you never miss a new word</p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px; transition: all 0.3s;">
+                        <div style="width: 48px; height: 48px; background: rgba(33,74,60,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3dd68c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2a10 10 0 1 0 10 10H12V2z"></path>
+                                <path d="M12 2v10l9.5 5.5"></path>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin: 0 0 12px 0; color: rgba(245,250,255,0.96);">Beautiful design</h3>
+                        <p style="color: rgba(210,220,230,0.82); line-height: 1.65; margin: 0;">Elegant typography and refined style give words their due nobility</p>
+                    </div>
+                </div>
+
+                <!-- Screenshots gallery -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 48px;">
+                    <div style="border-radius: 14px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.35); border: 1px solid rgba(33,74,60,0.2);">
+                        <img src="images/slowko/Screenshot 3 - S.png" alt="Słówko screenshot 3" style="width: 100%; display: block;">
+                    </div>
+                    <div style="border-radius: 14px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.35); border: 1px solid rgba(33,74,60,0.2);">
+                        <img src="images/slowko/Screenshot 4 - S.png" alt="Słówko screenshot 4" style="width: 100%; display: block;">
+                    </div>
+                    <div style="border-radius: 14px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.35); border: 1px solid rgba(33,74,60,0.2);">
+                        <img src="images/slowko/Screenshot 5 - S.png" alt="Słówko screenshot 5" style="width: 100%; display: block;">
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" style="max-width: 900px; margin: 80px auto; text-align: center;">
+                <h2>Słówko+ Premium</h2>
+                <p style="max-width: 700px; margin: 0 auto 32px auto; color: rgba(220, 230, 240, 0.85);">
+                    Unlock the full potential of the app with a premium subscription. 7-day free trial available.
+                </p>
+                <ul class="feature-list" style="text-align: left; max-width: 600px; margin: 0 auto;">
+                    <li>Ad-free experience for uninterrupted learning</li>
+                    <li>Random word on demand – discover new words anytime</li>
+                    <li>Flashcard mode with your favorite words for effective learning</li>
+                </ul>
+            </section>
+
+            <section class="section" id="faq-en" style="max-width: 900px; margin: 80px auto;">
+                <h2>Frequently asked questions</h2>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary class="faq-question">Is Słówko free?</summary>
+                        <div class="faq-answer">
+                            <p>The app is free with basic features. Słówko+ is an optional subscription that unlocks additional features like flashcard mode and ad-free experience.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">Does Słówko require internet?</summary>
+                        <div class="faq-answer">
+                            <p>Yes, Słówko requires an internet connection to fetch daily words. Speech playback uses device voices.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">How can I save words?</summary>
+                        <div class="faq-answer">
+                            <p>Tap the star icon next to any word to add it to your Favorites. You can browse saved words in the dedicated section.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">How does flashcard mode work?</summary>
+                        <div class="faq-answer">
+                            <p>Flashcard mode is available for Słówko+ subscribers. It allows quick review of saved words in flashcard format.</p>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <section class="cta-card section-card" style="text-align: center; max-width: 700px; margin: 80px auto;">
+                <h2>Start your daily journey with the Polish language</h2>
+                <p style="color: rgba(220, 230, 240, 0.85); margin-bottom: 24px;">Join the community of Polish language lovers and discover new words every day.</p>
+                <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko/id6738549428" class="button-primary download-slowko">
+                    <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" style="height:44px; width:auto; display:block;">
+                </a>
+                <p style="margin-top: 16px; font-size: 0.9rem; color: rgba(200, 210, 220, 0.7);">
+                    <a href="./slowko-support.html" style="text-decoration: underline;">Support</a> · 
+                    <a href="./slowko-privacy.html" style="text-decoration: underline;">Privacy Policy</a>
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <section class="footer-apple" id="about">
+        <h2 style="margin-top:0; margin-bottom: 8px;">About</h2>
+        <p class="footer-note">Extiri is an independent software studio crafting simple, well‑crafted apps for macOS, iOS, web, and other platforms. Created by Wiktor Wójcik, the studio emphasizes clear design and practical utility. </br></br> Contact: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#119;&#105;&#107;&#116;&#111;&#114;&#46;&#119;&#111;&#106;&#99;&#105;&#107;&#64;&#101;&#120;&#116;&#105;&#114;&#105;&#46;&#99;&#111;&#109;">&#119;&#105;&#107;&#116;&#111;&#114;&#46;&#119;&#111;&#106;&#99;&#105;&#107;&#64;&#101;&#120;&#116;&#105;&#114;&#105;&#46;&#99;&#111;&#109;</a></p>
+        <div style="margin-top: 8px;">
+            <a href="index.html#apps">Apps</a> ·
+            <a href="blog/index.html">Blog</a> ·
+            <a href="privacy_policy.html">Privacy</a>
+        </div>
+    </section>
+</body>
+</html>
