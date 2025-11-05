@@ -64,8 +64,90 @@
         }
 
         /* Center FAQ heading and text for readability */
-        #faq h2 { text-align: center; }
-        #faq .faq-list, #faq .faq-answer, #faq .faq-question { text-align: center; }
+        #faq h2, #faq-en h2 { text-align: center; }
+        #faq .faq-list, #faq-en .faq-list { text-align: center; }
+
+        /* FAQ with green accent for Słówko page */
+        .faq-item {
+            margin-bottom: 18px;
+            border-radius: 12px;
+            background: rgba(33,74,60,0.07);
+            border: 1px solid rgba(33,74,60,0.12);
+            box-shadow: 0 2px 12px rgba(33,74,60,0.04);
+            transition: box-shadow 0.18s cubic-bezier(.4,.2,.2,1), transform 0.18s cubic-bezier(.4,.2,.2,1);
+        }
+        .faq-item:hover {
+            box-shadow: 0 12px 32px rgba(33,74,60,0.08);
+            transform: translateY(-2px);
+        }
+        .faq-question {
+            width: 100%;
+            text-align: center;
+            background: none;
+            border: none;
+            outline: none;
+            font-size: 1.18em;
+            color: #9ae6c8;
+            font-weight: 700;
+            padding: 18px 48px 18px 24px;
+            cursor: pointer;
+            transition: background 0.18s, color 0.18s;
+            display: block;
+            position: relative;
+            list-style: none;
+        }
+        .faq-question::marker {
+            display: none;
+        }
+        .faq-question::-webkit-details-marker {
+            display: none;
+        }
+        .faq-question::after {
+            content: '›';
+            position: absolute;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.4em;
+            color: #3dd68c;
+            transition: transform 0.22s cubic-bezier(.4,.2,.2,1);
+        }
+        details[open] > .faq-question::after {
+            transform: translateY(-50%) rotate(90deg);
+        }
+        .faq-question:hover {
+            background: rgba(33,74,60,0.09);
+            color: #3dd68c;
+        }
+        details[open] > .faq-question {
+            background: rgba(33,74,60,0.13);
+            color: #3dd68c;
+            border-bottom: 1px solid rgba(33,74,60,0.15);
+        }
+        .faq-answer {
+            /* Override global styles that hide FAQ answers */
+            max-height: none !important;
+            opacity: 1 !important;
+            overflow: visible !important;
+            padding: 18px 24px !important;
+            color: rgba(220, 230, 240, 0.92) !important;
+            font-size: 1.08em;
+            text-align: center;
+        }
+        .faq-answer p {
+            margin: 0;
+            line-height: 1.6;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
         /* Language picker in navbar */
         .language-picker {
@@ -224,7 +306,7 @@
                         <img src="images/slowko/slowko-icon.png" alt="Słówko ikona aplikacji" class="hero-icon">
                         <h1 class="hero-title">Słówko</h1>
                         <p class="hero-description">Minimalistyczna aplikacja dla miłośników języka polskiego. Odkrywaj jedno starannie wybrane słowo każdego dnia.</p>
-                        <p class="hero-note">Elegancka typografia spotyka się z bogatym słownictwem – codzienny rytuał dla językowej kontemplacji.</p>
+                        <p class="hero-note">Elegancka wygląd spotyka się z bogatym słownictwem – codzienny rytuał dla językowej kontemplacji.</p>
                         <div class="hero-actions">
                             <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko/id6738549428" class="button-primary download-slowko" aria-label="Pobierz Słówko z App Store">
                                 <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Pobierz z App Store" style="height:44px; width:auto; display:block;">
@@ -352,9 +434,9 @@
             </section>
 
             <section class="section" style="max-width: 900px; margin: 80px auto; text-align: center;">
-                <h2>Słówko+ Premium</h2>
+                <h2>Słówko+</h2>
                 <p style="max-width: 700px; margin: 0 auto 32px auto; color: rgba(220, 230, 240, 0.85);">
-                    Odblokuj pełne możliwości aplikacji dzięki subskrypcji premium. Dostępny 7-dniowy okres próbny.
+                    Odblokuj pełne możliwości aplikacji dzięki subskrypcji Plus. Dostępny 7-dniowy okres próbny.
                 </p>
                 <ul class="feature-list" style="text-align: left; max-width: 600px; margin: 0 auto;">
                     <li>Brak reklam dla nieprzerwanego doświadczenia</li>
@@ -418,7 +500,7 @@
                         <img src="images/slowko/slowko-icon.png" alt="Słówko app icon" class="hero-icon">
                         <h1 class="hero-title">Słówko</h1>
                         <p class="hero-description">A minimalist app for Polish language lovers. Discover one carefully chosen word every day.</p>
-                        <p class="hero-note">Elegant typography meets rich vocabulary – a daily ritual for linguistic contemplation.</p>
+                        <p class="hero-note">Elegant design meets rich vocabulary – a daily ritual for linguistic contemplation.</p>
                         <div class="hero-actions">
                             <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko/id6738549428" class="button-primary download-slowko" aria-label="Download Słówko on the App Store">
                                 <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" style="height:44px; width:auto; display:block;">
@@ -431,7 +513,6 @@
                     <div class="hero-media">
                         <div class="device-stack">
                             <img src="images/slowko/Screenshot 1 - S.png" alt="Słówko main screen with daily word" class="device-primary">
-                            <img src="images/slowko/Screenshot 2 - S.png" alt="Słówko history and favorites" class="device-secondary">
                         </div>
                     </div>
                 </div>
@@ -547,9 +628,9 @@
             </section>
 
             <section class="section" style="max-width: 900px; margin: 80px auto; text-align: center;">
-                <h2>Słówko+ Premium</h2>
+                <h2>Słówko+</h2>
                 <p style="max-width: 700px; margin: 0 auto 32px auto; color: rgba(220, 230, 240, 0.85);">
-                    Unlock the full potential of the app with a premium subscription. 7-day free trial available.
+                    Unlock the full potential of the app with a Plus subscription. 7-day free trial available.
                 </p>
                 <ul class="feature-list" style="text-align: left; max-width: 600px; margin: 0 auto;">
                     <li>Ad-free experience for uninterrupted learning</li>
