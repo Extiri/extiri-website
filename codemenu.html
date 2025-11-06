@@ -267,10 +267,14 @@
 <div class="slideshow-section" style="width:100vw; max-width:100%; padding:0; height: 697px">
   <div class="slideshow-container" style="position:relative; width:100%; max-width:1100px; margin:0 auto; height: 100%;">
     <div class="slideshow-images" style="height: 100%;">
-      <img loading="lazy" decoding="async" src="./images/codemenu/dashboard_screenshot.webp" alt="Graphs" class="slideshow-img" style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
-      <img loading="lazy" decoding="async" src="./images/codemenu/codemenu-graphs-screenshot.png" alt="Graphs" class="slideshow-img" style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
-      <img loading="lazy" decoding="async" src="./images/codemenu/side_window_and_suggestions.webp" alt="Side Window & Suggestions" class="slideshow-img" style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
-      <img loading="lazy" decoding="async" src="./images/codemenu/utilities.webp" alt="Utilities" class="slideshow-img" style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
+      <!-- Lazy-loaded promo images: data-src used so images only load when shown -->
+      <img data-src="./images/codemenu/promo-images/Screenshot 1.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" decoding="async" alt="CodeMenu promo 1" class="slideshow-img" style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
+      <img data-src="./images/codemenu/promo-images/Screenshot 2.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" decoding="async" alt="CodeMenu promo 2" class="slideshow-img" style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
+      <img data-src="./images/codemenu/promo-images/Screenshot 4.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" decoding="async" alt="CodeMenu promo 3" class="slideshow-img" style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
+      <img data-src="./images/codemenu/promo-images/Screenshot 5.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" decoding="async" alt="CodeMenu promo 4" class="slideshow-img" style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
+      <img data-src="./images/codemenu/promo-images/Screenshot 7.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" decoding="async" alt="CodeMenu promo 5" class="slideshow-img" style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
+      <img data-src="./images/codemenu/promo-images/Screenshot 8.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" decoding="async" alt="CodeMenu promo 6" class="slideshow-img" style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
+      <img data-src="./images/codemenu/promo-images/Screenshot 9.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" decoding="async" alt="CodeMenu promo 7" class="slideshow-img" style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
     </div>
     <button class="slideshow-btn slideshow-prev" style="position:absolute; top:50%; left:-90px; transform:translateY(-50%); background:#23272e; color:#ffe082; border:none; border-radius:50%; width:44px; height:44px; font-size:2em; cursor:pointer; opacity:0.85; transition:background 0.18s; z-index: 2;">&#8592;</button>
     <button class="slideshow-btn slideshow-next" style="position:absolute; top:50%; right:-90px; transform:translateY(-50%); background:#23272e; color:#ffe082; border:none; border-radius:50%; width:44px; height:44px; font-size:2em; cursor:pointer; opacity:0.85; transition:background 0.18s; z-index: 2;">&#8594;</button>
@@ -279,27 +283,103 @@
       <span class="slideshow-dot" style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
       <span class="slideshow-dot" style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
       <span class="slideshow-dot" style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
+      <span class="slideshow-dot" style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
+      <span class="slideshow-dot" style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
+      <span class="slideshow-dot" style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
     </div>
   </div>
 </div>
 <script>
-  // Slideshow logic
+  // Slideshow logic: lazy-load images, pause-on-hover, and stop auto-play after manual interaction
   (function() {
-    const imgs = document.querySelectorAll('.slideshow-img');
-    const dots = document.querySelectorAll('.slideshow-dot');
+    const imgs = Array.from(document.querySelectorAll('.slideshow-img'));
+    const dots = Array.from(document.querySelectorAll('.slideshow-dot'));
+    const nextBtn = document.querySelector('.slideshow-next');
+    const prevBtn = document.querySelector('.slideshow-prev');
+    const container = document.querySelector('.slideshow-container');
     let idx = 0;
+    let intervalId = null;
+    const delay = 3000;
+    let userInteracted = false; // if true, auto-play will not resume
+
+    function ensureLoaded(img) {
+      const dataSrc = img.dataset && img.dataset.src;
+      if (dataSrc && img.getAttribute('src') !== dataSrc) {
+        img.setAttribute('src', dataSrc);
+        img.loading = 'lazy';
+      }
+    }
+
     function showSlide(i) {
-      imgs.forEach((img, j) => img.style.display = (j === i ? 'block' : 'none'));
+      i = ((i % imgs.length) + imgs.length) % imgs.length;
+      imgs.forEach((img, j) => {
+        if (j === i) {
+          ensureLoaded(img);
+          img.style.display = 'block';
+        } else {
+          img.style.display = 'none';
+        }
+      });
       dots.forEach((dot, j) => dot.style.background = (j === i ? '#ffb300' : '#ffe08244'));
       idx = i;
+      // preload next slide for smoother transition
+      const nextIdx = (i + 1) % imgs.length;
+      if (imgs[nextIdx]) ensureLoaded(imgs[nextIdx]);
     }
-    function nextSlide() { showSlide((idx+1)%imgs.length); }
-    function prevSlide() { showSlide((idx-1+imgs.length)%imgs.length); }
-    document.querySelector('.slideshow-next').onclick = nextSlide;
-    document.querySelector('.slideshow-prev').onclick = prevSlide;
-    dots.forEach((dot, i) => dot.onclick = () => showSlide(i));
-    showSlide(0);
-    setInterval(nextSlide, 3000);
+
+    function nextSlide() { showSlide(idx + 1); }
+    function prevSlide() { showSlide(idx - 1); }
+
+    function startAuto() {
+      if (intervalId || userInteracted) return;
+      intervalId = setInterval(nextSlide, delay);
+    }
+
+    function stopAuto() {
+      if (!intervalId) return;
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+
+    // Manual controls should stop auto-advance permanently
+    if (nextBtn) nextBtn.addEventListener('click', function() { nextSlide(); userInteracted = true; stopAuto(); });
+    if (prevBtn) prevBtn.addEventListener('click', function() { prevSlide(); userInteracted = true; stopAuto(); });
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', function() { showSlide(i); userInteracted = true; stopAuto(); });
+    });
+
+    // Pause on hover (but do not restart if user manually interacted)
+    if (container) {
+      container.addEventListener('mouseenter', () => stopAuto());
+      container.addEventListener('mouseleave', () => { if (!userInteracted) startAuto(); });
+    }
+
+    // Initialize only when slideshow becomes visible to avoid offscreen autoplay
+    const slideshowEl = document.querySelector('.slideshow-container');
+    let started = false;
+    if (slideshowEl && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !started) {
+            started = true;
+            showSlide(0);
+            startAuto();
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.25 });
+      io.observe(slideshowEl);
+    } else {
+      // Fallback: start immediately
+      showSlide(0);
+      startAuto();
+    }
+
+    // accessibility: make dots keyboard focusable and activate on Enter/Space
+    dots.forEach((dot) => {
+      dot.setAttribute('tabindex', '0');
+      dot.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dot.click(); } });
+    });
   })();
 </script>
 
