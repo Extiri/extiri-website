@@ -1,18 +1,8 @@
-function toggleHamburger() {
-  const menu = document.getElementById('hamburger_menu');
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
   if (!menu) return;
-  const isOpen = menu.classList.contains('open') || menu.style.visibility === 'visible';
-  if (isOpen) {
-    menu.classList.remove('open');
-    menu.style.visibility = 'hidden';
-    document.body.classList.remove('menu-open');
-    document.querySelectorAll('img[onclick*="toggleHamburger"]').forEach(btn => btn.setAttribute('aria-expanded', 'false'));
-  } else {
-    menu.classList.add('open');
-    menu.style.visibility = 'visible';
-    document.body.classList.add('menu-open');
-    document.querySelectorAll('img[onclick*="toggleHamburger"]').forEach(btn => btn.setAttribute('aria-expanded', 'true'));
-  }
+  menu.classList.toggle('open');
+  document.body.classList.toggle('menu-open');
 }
 
 // Function to handle user consent

@@ -1,445 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Extiri — Purposeful apps. Fluent workflows.</title>
+    <meta name="description"
+        content="Simply useful and cool apps. From augmented memory to mindful entertainment, every product is designed to keep you organized, inspired, and in control.">
+    <meta name="theme-color" content="#050505">
+
+    <!-- Fonts -->
+    <link rel="preload" href="/fonts/InstrumentSerif-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png">
+
+    <!-- Scripts -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://apps.apple.com">
-    <meta name="theme-color" content="#181A1B">
-    <link rel="preload" as="image" href="/images/extiri-text-only-white-light.png">
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-
-        // Set default consent to 'denied' for all tags
-        gtag('consent', 'default', {
-            'analytics_storage': 'denied'
-        });
-
-        // The rest of your gtag config will be handled by the consent banner
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'default', { 'analytics_storage': 'denied' });
         gtag('js', new Date());
         gtag('config', 'G-HLY6ZZMNBQ');
     </script>
-
-    <title>Extiri</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <meta name="description" content="Simply useful and cool apps">
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "Extiri",
-            "url": "https://extiri.com",
-            "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://extiri.com/?s={search_term_string}",
-                "query-input": "required name=search_term_string"
-            }
-        }
-        </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" type="image/x-icon" href="./images/favicon.png">
-    <link rel="stylesheet" href="styles.css">
-        <!-- Homepage overrides: remove decorative gradients for cards/tiles/overlays
-                 while preserving the hero background and button gradients. -->
-        <style>
-            /* Only affect homepage components; keep hero (.home-hero-bg) and buttons intact */
-            .app-feature--codemenu,
-            .app-feature--chitneek,
-            .app-feature--clipguru {
-                background: rgba(18,20,24,0.90) !important;
-                background-image: none !important;
-            }
-
-            /* Remove decorative overlay blobs on feature cards */
-            .app-feature::after {
-                background: none !important;
-            }
-
-            /* Make tiles and section cards use a neutral solid panel color */
-            .app-tile,
-            .app-tile--coming,
-            .section-card,
-            .preview-card {
-                background: rgba(12,14,18,0.80) !important;
-                background-image: none !important;
-                box-shadow: 0 12px 36px rgba(0,0,0,0.45) !important;
-            }
-
-            /* Soft, low-contrast section divider */
-            .section-divider {
-                background: rgba(255,255,255,0.03) !important;
-            }
-
-            /* Keep the page watermark and hero untouched; these rules target only
-                 card-like decorations, not global page background */
-        </style>
-    <link rel="preload" href="/fonts/InstrumentSerif-Regular.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <script>
-        function goToHome() {
-            location.href = "#home"
-        }
-        
-        function goToApps() {
-            location.href = "#apps"
-        }
-        
-        function goToBlog() {
-            location.href = "blog/index.html"
-        }
-    </script>
     <script src="scripts.js" defer></script>
-
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Extiri",
+        "url": "https://extiri.com",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://extiri.com/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
 </head>
 
 <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
-    <div id="cookie-consent-banner" class="cookie-consent-banner">
-        <div class="cookie-consent-content">
-            <p>We use cookies and other tracking technologies to improve your browsing experience. By clicking "Accept All," you consent to our use of these technologies. You can learn more in our <a href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</p>
-            <div class="cookie-consent-buttons">
-                <button id="accept-cookies" class="button-primary">Accept All</button>
-                <button id="decline-cookies" class="button-secondary">Decline</button>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-inner">
+            <a href="./index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Extiri Logo">
+            </a>
+
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#apps" class="nav-link">Apps</a>
+                <a href="blog/index.html" class="nav-link">Blog</a>
             </div>
+
+            <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
+                ☰
+            </button>
         </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="#home" class="nav-link" onclick="toggleMobileMenu()">Home</a>
+        <a href="#apps" class="nav-link" onclick="toggleMobileMenu()">Apps</a>
+        <a href="blog/index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a>
     </div>
-    <div class="navbar" role="navigation" aria-label="Main navigation">
-        <div class="navbar-content">
-            <a href="./index.html"><img src="images/logo.png" width="110px" class="navbar-logo" alt="Extiri"></a>
-            
-            <span class="big_screen">
-                <p class="navbar-item" onclick="goToHome()">Home</p>
-                <p class="navbar-item" onclick="goToApps()">Apps</p>
-                <p class="navbar-item" onclick="goToBlog()">Blog</p>
-            </span>
-            
-            <span class="small_screen">
-                <img src="images/hamburger-icon.webp" class="navbar-item"
-                style="position: absolute; top: 11px; width: 30px !important;" onclick="toggleHamburger()" alt="Menu button">
-                
-                <div id="hamburger_menu" class="hamburger_menu">
-                    <div class="hamburger_menu_content">
-                        <p class="navbar-item" onclick="goToHome()">Home</p>
-                        <p class="navbar-item" onclick="goToApps()">Apps</p>
-                        <p class="navbar-item" onclick="goToBlog()">Blog</p>
-                    </div>
-                </div>
-            </span>
-        </div>
-    </div>
-    
-    <main id="main-content" role="main">
-    <section class="home-hero" id="home" aria-label="Extiri home hero">
-        <div class="home-hero-bg"></div>
-        <div class="home-hero-inner">
-            <img
-                class="home-hero-logo"
-                src="images/extiri-text-only-white-light.png"
-                width="760"
-                height="160"
-                alt="Extiri"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-            />
-            <p class="home-hero-subtitle">Purposeful apps. Fluent workflows.</p>
-            <div class="home-hero-actions">
-                <a href="#apps" class="button-primary home-cta" onclick="goToApps()">Explore apps</a>
-                <a href="blog/index.html" class="home-ghost-cta">Read the blog</a>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-content animate-fade-in">
+            <img src="images/extiri-text-only-white-light.png" alt="Extiri"
+                style="width: 200px; margin: 0 auto 2rem auto; opacity: 0.9;">
+            <h1 class="hero-title">Purposeful apps.<br><span class="text-gradient">Fluent workflows.</span></h1>
+            <p class="hero-subtitle delay-100">From augmented memory to mindful entertainment, every product is designed
+                to keep you organized, inspired, and in control.</p>
+            <div class="hero-actions delay-200">
+                <a href="#apps" class="btn btn-primary">Explore Apps</a>
+                <a href="blog/index.html" class="btn btn-secondary">Read Blog</a>
             </div>
         </div>
-    </section>
-    <div class="page-watermark" aria-hidden="true"></div>
+    </header>
 
-    <div class="expanding-section" id="apps">
-        <div class="section-header">
-            <p class="section-eyebrow">APPS</p>
-            <h1>Thoughtful tools for your personal flow</h1>
-            <p class="section-subtitle">From augmented memory to mindful entertainment, every product is designed to keep you organized, inspired, and in control of your own rhythm.</p>
-        </div>
-
-        <section class="app-slideshow" aria-label="Featured apps slideshow">
-            <div class="slideshow-viewport">
-                <div class="slideshow-track">
-                <article class="slide" data-app="codemenu" tabindex="0">
-                    <section class="app-feature app-feature--codemenu" aria-labelledby="codemenu-heading">
-                            <div class="app-feature__media">
-                            <img loading="lazy" decoding="async" src="images/codemenu/dashboard_screenshot.webp" alt="CodeMenu dashboard showing organized content entries" width="800" height="450">
-                        </div>
-                        <div class="app-feature__content">
-                            <span class="app-feature__badge">macOS</span>
-                            <h2 id="codemenu-heading">CodeMenu</h2>
-                            <p class="app-feature__lede">Augmented memory for creators. Capture every snippet, prompt, palette, and note in a personal content library that remembers context for you.</p>
-                            <ul class="app-feature__list">
-                                <li>Groups, graphs, tags, and spaces that mirror how you think.</li>
-                                <li>Semantic search, abbreviations, and side window for instant recall.</li>
-                                <li>Private AI integration, dynamic placeholders, and HTTP or JavaScript automation.</li>
-                            </ul>
-                            <div class="app-feature__actions">
-                                <a class="button-primary" href="./codemenu.html">Learn more</a>
-                                <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781" aria-label="Download CodeMenu on the Mac App Store">
-                                    <img src="images/download_on_the_mac_app_store_white_button.svg" alt="Download on the Mac App Store" height="54" loading="lazy" decoding="async">
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-                </article>
-
-                <article class="slide" data-app="chitneek" tabindex="0">
-                    <section class="app-feature app-feature--chitneek" aria-labelledby="chitneek-heading">
-                        <div class="app-feature__media">
-                            <img loading="lazy" decoding="async" src="images/czytnik/library-screenshot.png" alt="Chitneek library view showing listening queue" width="640" height="420">
-                        </div>
-                        <div class="app-feature__content">
-                            <span class="app-feature__badge">iOS</span>
-                            <h2 id="chitneek-heading">Chitneek</h2>
-                            <p class="app-feature__lede">Turn PDFs, notes, and web pages into smooth, natural audio — privately, on your iPhone, with nothing uploaded to the cloud.</p>
-                            <ul class="app-feature__list">
-                                <li>Import PDFs, EPUBs, and articles from any app with the Share sheet.</li>
-                                <li>Listen offline using on-device voices with CarPlay and background playback.</li>
-                                <li>Organize your library with folders, favorites, and progress synced across devices.</li>
-                            </ul>
-                            <div class="app-feature__actions">
-                                <a class="button-primary" href="./chitneek.html">Learn more</a>
-                                <a href="https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870" aria-label="Download Chitneek on the App Store">
-                                    <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" height="54" loading="lazy" decoding="async">
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-                </article>
-
-                <article class="slide" data-app="clipguru" tabindex="0">
-                    <section class="app-feature app-feature--clipguru" aria-labelledby="clipguru-heading">
-                        <div class="app-feature__media">
-                            <img loading="lazy" decoding="async" src="images/clipguru/main-screen-screenshot.png" alt="ClipGuru main screen screenshot" width="640" height="420">
-                        </div>
-                        <div class="app-feature__content">
-                            <span class="app-feature__badge">iOS · iPadOS · macOS</span>
-                            <h2 id="clipguru-heading">ClipGuru</h2>
-                            <p class="app-feature__lede">A lightweight clipboard manager that saves text, links, and images — instantly searchable and ready to paste anywhere.</p>
-                            <ul class="app-feature__list">
-                                <li>Instantly save and search recent clips.</li>
-                                <li>Pin or favorite important items for fast access.</li>
-                                <li>Cross-device support on iOS, iPadOS, and macOS.</li>
-                            </ul>
-                            <div class="app-feature__actions">
-                                <a class="button-primary" href="./clipguru.html">Learn more</a>
-                                <a href="https://apps.apple.com/pl/app/clipguru/id6753787446" aria-label="Download ClipGuru on the App Store">
-                                    <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" height="54" loading="lazy" decoding="async">
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-                </article>
+    <!-- Apps Section -->
+    <main id="apps" class="section">
+        <div class="container">
+            <div class="flex-between" style="margin-bottom: var(--space-12); align-items: flex-end;">
+                <div>
+                    <span class="badge" style="margin-bottom: var(--space-4);">Our Products</span>
+                    <h2>Crafted for <span class="text-gradient">Creators</span></h2>
                 </div>
             </div>
 
-            <div class="slideshow-controls" aria-hidden="false">
-                <button class="slideshow-prev" aria-label="Previous slide">‹</button>
-                <div class="slideshow-indicators" role="tablist" aria-label="Slide indicators">
-                    <button data-index="0" aria-label="Show CodeMenu" aria-selected="true"></button>
-                    <button data-index="1" aria-label="Show Chitneek" aria-selected="false"></button>
-                    <button data-index="2" aria-label="Show ClipGuru" aria-selected="false"></button>
-                </div>
-                <button class="slideshow-next" aria-label="Next slide">›</button>
-            </div>
-        </section>
-
-        <section class="app-collection" aria-labelledby="apps-major">
-                <div class="app-collection__header">
-                <h3 id="apps-major">Apps</h3>
-                <p>Major apps for personal productivity — quick access to the things that help you get work done.</p>
-            </div>
-            <div class="app-tiles">
-                <article class="app-tile">
-                    <div class="app-tile__header">
-                        <img loading="lazy" decoding="async" src="images/czytnik/czytnik-icon.png" alt="Chitneek icon" width="64" height="64">
-                        <div>
-                            <h4>Chitneek</h4>
-                            <p class="app-tile__meta">iOS</p>
+            <div class="app-showcase">
+                <!-- CodeMenu -->
+                <article class="app-card-large">
+                    <div class="app-card-content">
+                        <img src="images/codemenu-icon.webp" alt="CodeMenu Icon" class="app-icon"
+                            style="box-shadow: 0 0 20px rgba(255, 179, 0, 0.2);">
+                        <h3>CodeMenu</h3>
+                        <p>Augmented memory for creators. Capture every snippet, prompt, palette, and note in a personal
+                            content library that remembers context for you.</p>
+                        <div class="flex" style="flex-wrap: wrap;">
+                            <span class="badge">macOS</span>
+                            <span class="badge">Productivity</span>
+                        </div>
+                        <div class="flex" style="margin-top: var(--space-4);">
+                            <a href="./codemenu.html" class="btn btn-primary"
+                                style="background: var(--color-codemenu); color: #000;">Learn More</a>
+                            <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781"
+                                class="btn btn-secondary" aria-label="Download CodeMenu">App Store</a>
                         </div>
                     </div>
-                    <p>Simple, privacy‑focused text‑to‑speech that turns PDFs, notes and web pages into natural audio — all processed on device.</p>
-                    <div class="app-tile__actions">
-                        <a class="button-primary" href="./chitneek.html">Learn more</a>
-                        <a href="https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870" aria-label="Download Chitneek on the App Store">
-                            <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" height="38" loading="lazy" decoding="async">
-                        </a>
+                    <div class="app-card-media">
+                        <img src="images/codemenu/dashboard_screenshot.webp" alt="CodeMenu Dashboard">
                     </div>
                 </article>
 
-                <article class="app-tile">
-                    <div class="app-tile__header">
-                        <img loading="lazy" decoding="async" src="images/clipguru/ClipGuru-icon.png" alt="ClipGuru icon" width="64" height="64">
-                        <div>
-                            <h4>ClipGuru</h4>
-                            <p class="app-tile__meta">iOS · iPadOS · macOS</p>
+                <!-- Chitneek -->
+                <article class="app-card-large reversed">
+                    <div class="app-card-content">
+                        <img src="images/czytnik/czytnik-icon.png" alt="Chitneek Icon" class="app-icon"
+                            style="box-shadow: 0 0 20px rgba(38, 171, 236, 0.2);">
+                        <h3>Chitneek</h3>
+                        <p>Turn PDFs, notes, and web pages into smooth, natural audio — privately, on your iPhone, with
+                            nothing uploaded to the cloud.</p>
+                        <div class="flex" style="flex-wrap: wrap;">
+                            <span class="badge">iOS</span>
+                            <span class="badge">Accessibility</span>
+                        </div>
+                        <div class="flex" style="margin-top: var(--space-4);">
+                            <a href="./chitneek.html" class="btn btn-primary"
+                                style="background: var(--color-chitneek); color: #fff;">Learn More</a>
+                            <a href="https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870"
+                                class="btn btn-secondary" aria-label="Download Chitneek">App Store</a>
                         </div>
                     </div>
-                    <p>A lightweight clipboard manager that saves text, links, and images — instantly searchable and ready to paste anywhere.</p>
-                    <div class="app-tile__actions">
-                        <a class="button-primary" href="./clipguru.html">Learn more</a>
-                        <a href="https://apps.apple.com/pl/app/clipguru/id6753787446" aria-label="Download ClipGuru on the App Store">
-                            <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" height="38" loading="lazy" decoding="async">
-                        </a>
+                    <div class="app-card-media">
+                        <img src="images/czytnik/library-screenshot.png" alt="Chitneek Library">
                     </div>
                 </article>
 
-                <article class="app-tile">
-                    <div class="app-tile__header">
-                        <img loading="lazy" decoding="async" src="images/codemenu-icon.webp" alt="CodeMenu icon" width="64" height="64">
-                        <div>
-                            <h4>CodeMenu</h4>
-                            <p class="app-tile__meta">macOS</p>
+                <!-- ClipGuru -->
+                <article class="app-card-large">
+                    <div class="app-card-content">
+                        <img src="images/clipguru/ClipGuru-icon.png" alt="ClipGuru Icon" class="app-icon"
+                            style="box-shadow: 0 0 20px rgba(109, 73, 215, 0.2);">
+                        <h3>ClipGuru</h3>
+                        <p>A lightweight clipboard manager that saves text, links, and images — instantly searchable and
+                            ready to paste anywhere.</p>
+                        <div class="flex" style="flex-wrap: wrap;">
+                            <span class="badge">iOS</span>
+                            <span class="badge">macOS</span>
+                            <span class="badge">Utility</span>
+                        </div>
+                        <div class="flex" style="margin-top: var(--space-4);">
+                            <a href="./clipguru.html" class="btn btn-primary"
+                                style="background: var(--color-clipguru); color: #fff;">Learn More</a>
+                            <a href="https://apps.apple.com/pl/app/clipguru/id6753787446" class="btn btn-secondary"
+                                aria-label="Download ClipGuru">App Store</a>
                         </div>
                     </div>
-                    <p>Your personal content library — capture code, prompts, palettes, and text with semantic search and visual graphs for instant reuse.</p>
-                    <div class="app-tile__actions">
-                        <a class="button-primary" href="./codemenu.html">Learn more</a>
-                        <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781" aria-label="Download CodeMenu on the Mac App Store">
-                            <img src="images/download_on_the_mac_app_store_white_button.svg" alt="Download on the Mac App Store" height="38" loading="lazy" decoding="async">
-                        </a>
+                    <div class="app-card-media">
+                        <img src="images/clipguru/main-screen-screenshot.png" alt="ClipGuru Screen">
                     </div>
                 </article>
             </div>
-        </section>
 
-        <section class="app-collection" aria-labelledby="lifestyle-entertainment">
-            <div class="app-collection__header">
-                <h3 id="lifestyle-entertainment">Lifestyle & Entertainment</h3>
-                <p>Apps for language learning, gaming, and daily enrichment — designed to inspire and delight.</p>
-            </div>
-            <div class="app-tiles">
-                <article class="app-tile">
-                    <div class="app-tile__header">
-                        <img loading="lazy" decoding="async" src="images/slowko/slowko-icon.png" alt="Słówko icon" width="64" height="64">
+            <!-- More Apps Grid -->
+            <div class="grid"
+                style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: var(--space-12);">
+
+                <!-- Slowko -->
+                <div class="card">
+                    <div class="flex-center" style="justify-content: flex-start; margin-bottom: var(--space-4);">
+                        <img src="images/slowko/slowko-icon.png" alt="Slowko Icon" width="48" height="48"
+                            style="border-radius: 12px; margin-right: var(--space-4);">
                         <div>
                             <h4>Słówko</h4>
-                            <p class="app-tile__meta">iOS</p>
+                            <span class="badge" style="font-size: 0.6rem;">iOS</span>
                         </div>
                     </div>
-                    <p>A minimalist app for Polish language lovers. Discover one carefully chosen word every day with elegant typography and definitions.</p>
-                    <div class="app-tile__actions">
-                        <a class="button-primary" href="./slowko.html">Learn more</a>
-                        <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko/id6738549428" aria-label="Download Słówko on the App Store">
-                            <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" height="38" loading="lazy" decoding="async">
-                        </a>
-                    </div>
-                </article>
+                    <p>A minimalist app for Polish language lovers. Discover one carefully chosen word every day.</p>
+                    <a href="./slowko.html" class="btn btn-outline" style="width: 100%;">Learn More</a>
+                </div>
 
-                <article class="app-tile app-tile--coming">
-                    <div class="app-tile__header">
-                        <img loading="lazy" decoding="async" src="images/space_train/space-train-icon.png" alt="Space Train icon" class="app-tile__icon--rounded">
+                <!-- Space Train -->
+                <div class="card">
+                    <div class="flex-center" style="justify-content: flex-start; margin-bottom: var(--space-4);">
+                        <img src="images/space_train/space-train-icon.png" alt="Space Train Icon" width="48" height="48"
+                            style="border-radius: 12px; margin-right: var(--space-4);">
                         <div>
                             <h4>Space Train</h4>
-                            <p class="app-tile__meta">iOS · iPadOS · macOS</p>
+                            <span class="badge" style="font-size: 0.6rem;">Game</span>
                         </div>
                     </div>
-                    <p>Glide through cosmic railways, dodge meteors, and perfect your timing in an elegant arcade runner built for all Apple devices.</p>
-                    <div class="app-tile__actions">
-                        <span class="status-pill">COMING SOON</span>
-                        <a class="button-outline" href="./space-train.html">Learn more</a>
-                    </div>
-                </article>
-            </div>
-        </section>
+                    <p>Glide through cosmic railways, dodge meteors, and perfect your timing in an elegant arcade
+                        runner.</p>
+                    <a href="./space-train.html" class="btn btn-outline" style="width: 100%;">Coming Soon</a>
+                </div>
 
-        <section class="app-collection" aria-labelledby="supporting-tools">
-            <div class="app-collection__header">
-                <h3 id="supporting-tools">Supporting tools</h3>
-                <p>Open source companions and services that extend the CodeMenu workflow.</p>
-            </div>
-            <div class="app-tiles">
-                <article class="app-tile">
-                    <div class="app-tile__header">
-                        <img loading="lazy" decoding="async" src="images/Suggestions_icon.webp" alt="Suggestions icon" width="64" height="64">
+                <!-- Suggestions -->
+                <div class="card">
+                    <div class="flex-center" style="justify-content: flex-start; margin-bottom: var(--space-4);">
+                        <img src="images/Suggestions_icon.webp" alt="Suggestions Icon" width="48" height="48"
+                            style="border-radius: 12px; margin-right: var(--space-4);">
                         <div>
                             <h4>Suggestions</h4>
-                            <p class="app-tile__meta">macOS · Open source</p>
+                            <span class="badge" style="font-size: 0.6rem;">Open Source</span>
                         </div>
                     </div>
-                    <p>Search and insert entries from CodeMenu without leaving your editor. Automatic text replacements keep your flow uninterrupted.</p>
-                    <div class="app-tile__actions">
-                        <a class="button-primary" href="https://github.com/Extiri/Suggestions/releases/download/latest/Suggestions.zip" download>Download</a>
-                        <a class="link-inline" href="https://github.com/Extiri/Suggestions">GitHub</a>
-                    </div>
-                </article>
+                    <p>Search and insert entries from CodeMenu without leaving your editor.</p>
+                    <a href="https://github.com/Extiri/Suggestions" class="btn btn-outline"
+                        style="width: 100%;">GitHub</a>
+                </div>
 
-                <article class="app-tile">
-                    <div class="app-tile__header">
-                        <img loading="lazy" decoding="async" src="images/snippex/snippex_icon.png" alt="Snippex icon" width="64" height="64">
-                        <div>
-                            <h4>Snippex</h4>
-                            <p class="app-tile__meta">Web · Open source</p>
-                        </div>
-                    </div>
-                    <p>Create a shareable knowledge base for your team. Browse public libraries or self-host to keep internal prompts and code in sync.</p>
-                    <div class="app-tile__actions">
-                        <a class="button-primary" href="https://web.extiri.com/">Explore</a>
-                        <a class="link-inline" href="https://github.com/Extiri/extiri-web">Web repo</a>
-                    </div>
-                </article>
-
-                <article class="app-tile">
-                    <div class="app-tile__header">
-                        <div>
-                            <h4>natsearch</h4>
-                            <p class="app-tile__meta">macOS CLI · Open source</p>
-                        </div>
-                    </div>
-                    <p>Bring natural language to your terminal. Search documentation and codebases conversationally right from the command line.</p>
-                    <div class="app-tile__actions">
-                        <a class="button-outline" href="https://github.com/Extiri/natsearch">GitHub</a>
-                    </div>
-                </article>
             </div>
-        </section>
-
-                <section class="app-collection" aria-labelledby="coming-soon">
-            <div class="app-collection__header">
-                <h3 id="coming-soon">Coming soon</h3>
-                <p>A glimpse at what's next. These releases are in active development—check back for public previews.</p>
-            </div>
-            <div class="app-tiles">
-                <article class="app-tile app-tile--coming">
-                    <div class="app-tile__header">
-                        <img loading="lazy" decoding="async" src="images/dashbrand/dashbrand-icon.png" alt="Dashbrand icon">
-                        <div>
-                            <h4>Dashbrand</h4>
-                            <p class="app-tile__meta">Web · Desktop</p>
-                        </div>
-                    </div>
-                    <p>Build a shared brand hub with visual guidelines, launch kits, and reusable assets that keep every campaign aligned.</p>
-                    <div class="app-tile__actions">
-                        <span class="status-pill">COMING SOON</span>
-                    </div>
-                </article>
-            </div>
-        </section>
-    </div>
-    
-    </main>
-    <section class="section-card" aria-labelledby="blog-heading" style="width:min(90%, 1100px);">
-        <h1 id="blog-heading">Blog</h1>
-        <p>Extiri's blog covers software engineering, practical guides, and insights from building useful tools.</p>
-        <a class="button-primary" style="padding-top: 10px;" href="blog/index.html">Visit the blog</a>
-    </section>
-    
-    <br>
-    <br>
-    <br>
-    
-    <section class="footer-apple" id="about">
-        <h2 style="margin-top:0; margin-bottom: 8px;">About</h2>
-        <p class="footer-note">Extiri is an independent software studio crafting simple, well‑crafted apps for macOS, iOS, web, and other platforms. Created by Wiktor Wójcik, the studio emphasizes clear design and practical utility. </br></br> Contact: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#119;&#105;&#107;&#116;&#111;&#114;&#46;&#119;&#111;&#106;&#99;&#105;&#107;&#64;&#101;&#120;&#116;&#105;&#114;&#105;&#46;&#99;&#111;&#109;">&#119;&#105;&#107;&#116;&#111;&#114;&#46;&#119;&#111;&#106;&#99;&#105;&#107;&#64;&#101;&#120;&#116;&#105;&#114;&#105;&#46;&#99;&#111;&#109;</a></p>
-        <div style="margin-top: 8px;">
-            <a href="#apps">Apps</a> ·
-            <a href="blog/index.html">Blog</a> ·
-            <a href="privacy_policy.html">Privacy</a>
         </div>
-    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="Extiri" width="100" style="opacity: 0.8;">
+                    <p>Extiri is an independent software studio crafting simple, well‑crafted apps for macOS, iOS, and
+                        web.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="./codemenu.html">CodeMenu</a></li>
+                        <li><a href="./chitneek.html">Chitneek</a></li>
+                        <li><a href="./clipguru.html">ClipGuru</a></li>
+                        <li><a href="./slowko.html">Słówko</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="blog/index.html">Blog</a></li>
+                        <li><a href="privacy_policy.html">Privacy Policy</a></li>
+                        <li><a href="mailto:wiktor.wojcik@extiri.com">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Extiri. All rights reserved.</p>
+                <p>Designed & Built by Extiri.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent -->
+    <div id="cookie-consent-banner"
+        style="position: fixed; bottom: 20px; right: 20px; max-width: 400px; background: var(--bg-surface); border: 1px solid var(--bg-glass-border); padding: 20px; border-radius: var(--radius-lg); z-index: 2000; display: none; box-shadow: var(--shadow-xl);">
+        <p style="margin-bottom: 15px;">We use cookies to improve your experience. By clicking "Accept All," you consent
+            to our use of these technologies.</p>
+        <div style="display: flex; gap: 10px;">
+            <button id="accept-cookies" class="btn btn-primary" style="font-size: 0.8rem; padding: 8px 16px;">Accept
+                All</button>
+            <button id="decline-cookies" class="btn btn-outline"
+                style="font-size: 0.8rem; padding: 8px 16px;">Decline</button>
+        </div>
+    </div>
+
 </body>
+
 </html>
