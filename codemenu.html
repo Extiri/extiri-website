@@ -2,439 +2,560 @@
 <html lang="en">
 
 <head>
-  <!-- Google tag (gtag.js) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CodeMenu — Developer Knowledge Base for Mac</title>
+  <meta name="description"
+    content="CodeMenu is the developer knowledge base for macOS. Capture code, AI prompts, screenshots, palettes, and product research in one private, searchable workspace.">
+  <meta name="theme-color" content="#050505">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="CodeMenu — Developer Knowledge Base for Mac" />
+  <meta property="og:description"
+    content="Capture everything that fuels your shipping stack: code, prompts, visuals, docs, and experiments." />
+  <meta property="og:image" content="https://extiri.com/images/codemenu/dashboard_screenshot.webp" />
+  <meta name="twitter:title" content="CodeMenu — Developer Knowledge Base for Mac" />
+  <meta name="twitter:description"
+    content="CodeMenu keeps every brilliant idea close: artifacts, prompts, screenshots, palettes, research, and automations." />
+
+  <!-- Fonts -->
+  <link rel="preload" href="/fonts/InstrumentSerif-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Page-specific overrides */
+    .hero-codemenu {
+      background: radial-gradient(circle at 50% 30%, rgba(255, 179, 0, 0.08) 0%, rgba(5, 5, 5, 0) 60%);
+    }
+
+    .feature-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-4);
+      font-size: 1.5rem;
+    }
+
+    /* Slideshow Styles */
+    .slideshow-section {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      padding: var(--space-12) 0;
+    }
+
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      aspect-ratio: 16/10;
+    }
+
+    .slideshow-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      display: none;
+    }
+
+    .slideshow-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(20, 20, 20, 0.8);
+      color: var(--color-codemenu);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .slideshow-btn:hover {
+      background: rgba(255, 179, 0, 0.1);
+      border-color: var(--color-codemenu);
+    }
+
+    .slideshow-prev {
+      left: 20px;
+    }
+
+    .slideshow-next {
+      right: 20px;
+    }
+
+    .slideshow-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: var(--space-6);
+    }
+
+    .slideshow-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .slideshow-dot.active {
+      background: var(--color-codemenu);
+      transform: scale(1.2);
+    }
+
+    /* Comparison Table */
+    .comparison-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--bg-glass-border);
+      background: var(--bg-surface);
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: var(--space-4) var(--space-6);
+      text-align: left;
+      border-bottom: 1px solid var(--bg-glass-border);
+    }
+
+    .comparison-table th {
+      background: rgba(255, 255, 255, 0.03);
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* FAQ */
+    .faq-item {
+      border-bottom: 1px solid var(--bg-glass-border);
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: var(--space-6) 0;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: var(--text-lg);
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+      opacity: 0;
+      color: var(--text-secondary);
+    }
+
+    .faq-question.open .faq-arrow {
+      transform: rotate(90deg);
+    }
+
+    .faq-answer.open {
+      opacity: 1;
+      padding-bottom: var(--space-6);
+    }
+  </style>
+
+  <!-- Scripts -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
+    gtag('consent', 'default', { 'analytics_storage': 'denied' });
     gtag('js', new Date());
-
     gtag('config', 'G-HLY6ZZMNBQ');
   </script>
-
-  <title>CodeMenu — Snippet Manager for Mac — Save code, prompts, images, colors & more</title>
-  <meta charset="UTF-8">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="description"
-    content="CodeMenu is a focused snippet manager for Mac. Capture, organize, and reuse code, prompts, and creative assets with fast semantic search and a private vault.">
-  <meta property="og:title" content="CodeMenu — Snippet Manager for Mac" />
-  <meta property="og:description"
-    content="A focused snippet manager for Mac: capture, organize and reuse code, prompts, images and notes with private, offline-first storage and semantic search." />
-  <meta name="twitter:title" content="CodeMenu — Snippet Manager for Mac" />
-  <meta name="twitter:description"
-    content="A focused snippet manager for Mac: capture, organize and reuse code, prompts, images and notes with private, offline-first storage and semantic search." />
-  <meta name="keywords"
-    content="snippet manager, snippet manager mac, snippet manager for mac, personal snippet manager, augmented memory, content vault, semantic content search, snippet organizer, prompt library, offline content management">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="icon" type="image/x-icon" href="./images/codemenu-icon.png">
-  <link rel="stylesheet" href="styles.css">
-
-  <link rel="canonical" href="https://extiri.com/codemenu.html">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "CodeMenu",
-    "url": "https://extiri.com/codemenu.html",
-  "description": "CodeMenu — a modern snippet manager for macOS to capture, organize and reuse code, prompts, images and notes. Focused on Mac users who need a private snippet manager with fast recall.",
-    "applicationCategory": "DeveloperTool",
-    "operatingSystem": "macOS",
-    "offers": {
-      "@type": "Offer",
-      "price": "0.00",
-      "priceCurrency": "USD",
-      "url": "https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781"
-    },
-    "downloadUrl": "https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781"
-  }
-  </script>
-
-  <!-- Preload critical font and hero background to improve LCP -->
-  <link rel="preload" href="/fonts/InstrumentSerif-Regular.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/images/codemenu_background.webp" as="image">
-
-  <script>
-    function goToHome() {
-      location.href = "./index.html#home"
-    }
-
-    function goToApps() {
-      location.href = "./index.html#apps"
-    }
-
-    function goToBlog() {
-      location.href = "./blog/index.html"
-    }
-  </script>
-
-  <!-- Load site script deferred so it doesn't block initial render -->
   <script src="scripts.js" defer></script>
-  <style>
-    /* Clean, professional hero section */
-    .app-hero-clean {
-      min-height: 85vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 120px 24px 80px 24px;
-      background: linear-gradient(180deg, rgba(14, 16, 20, 1) 0%, rgba(10, 12, 16, 1) 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .app-hero-clean::before {
-      content: '';
-      position: absolute;
-      top: -200px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1200px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(255, 179, 0, 0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-clean-container {
-      position: relative;
-      z-index: 2;
-      max-width: 1100px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    @media (max-width: 780px) {
-      .app-hero-clean {
-        padding: 100px 20px 60px 20px;
-        min-height: 70vh;
-      }
-    }
-  </style>
 </head>
 
 <body>
-  <div id="cookie-consent-banner" class="cookie-consent-banner">
-    <div class="cookie-consent-content">
-      <p>We use cookies and other tracking technologies to improve your browsing experience. By clicking "Accept All,"
-        you consent to our use of these technologies. You can learn more in our <a href="privacy_policy.html"
-          target="_blank">Privacy Policy</a>.</p>
-      <div class="cookie-consent-buttons">
-        <button id="accept-cookies" class="button-primary">Accept All</button>
-        <button id="decline-cookies" class="button-secondary">Decline</button>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="./index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Extiri Logo">
+      </a>
+
+      <div class="nav-links">
+        <a href="./index.html#home" class="nav-link">Home</a>
+        <a href="./index.html#apps" class="nav-link">Apps</a>
+        <a href="./blog/index.html" class="nav-link">Blog</a>
       </div>
+
+      <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
+        ☰
+      </button>
     </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu">
+    <a href="./index.html#home" class="nav-link" onclick="toggleMobileMenu()">Home</a>
+    <a href="./index.html#apps" class="nav-link" onclick="toggleMobileMenu()">Apps</a>
+    <a href="./blog/index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a>
   </div>
 
-  <div class="navbar">
-    <div class="navbar-content">
-      <a href="./index.html"><img loading="eager" fetchpriority="high" decoding="async" src="images/logo.png"
-          width="110px" class="navbar-logo" alt="Extiri logo"></img></a>
+  <!-- Hero Section -->
+  <header class="hero hero-codemenu">
+    <div class="container hero-content animate-fade-in">
+      <img src="images/codemenu-icon.webp" alt="CodeMenu Icon"
+        style="width: 96px; height: 96px; border-radius: 22px; margin: 0 auto var(--space-6) auto; filter: drop-shadow(0 0 30px rgba(255, 179, 0, 0.3));">
 
-      <span class="big_screen">
-        <p class="navbar-item" onclick="goToHome()">Home</p>
-        <p class="navbar-item" onclick="goToApps()">Apps</p>
-        <p class="navbar-item" onclick="goToBlog()">Blog</p>
-        <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781"
-          class="navbar-download download-codemenu" aria-label="Download CodeMenu on the Mac App Store">Download now</a>
-      </span>
+      <h2
+        style="color: var(--color-codemenu); font-family: var(--font-sans); font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-2); letter-spacing: 0.05em; text-transform: uppercase;">
+        CodeMenu</h2>
 
-      <span class="small_screen">
-        <img src="images/hamburger-icon.webp" class="navbar-item" alt=""
-          style="position: absolute; top: 11px; width: 30px !important;" onclick="toggleHamburger()">
+      <h1 class="hero-title">Developer knowledge base<br>for Mac</h1>
 
-        <div id="hamburger_menu" class="hamburger_menu">
-          <div class="hamburger_menu_content">
-            <p class="navbar-item" onclick="goToHome()">Home</p>
-            <p class="navbar-item" onclick="goToApps()">Apps</p>
-            <p class="navbar-item" onclick="goToBlog()">Blog</p>
-            <p class="navbar-item navbar-download download-codemenu"
-              onclick="location.href='https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781'" role="link"
-              aria-label="Download CodeMenu on the Mac App Store">Download</p>
+      <p class="hero-subtitle delay-100">Capture the artifacts that power each release—code, prompts, screenshots, docs,
+        and research—and retrieve the full story in seconds.</p>
+
+      <div class="flex-center delay-200" style="flex-wrap: wrap; margin-bottom: var(--space-8);">
+        <span class="badge">Private library</span>
+        <span class="badge">Graph + Semantic Search</span>
+        <span class="badge">Automation</span>
+      </div>
+
+      <div class="hero-actions delay-300">
+        <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781" class="btn btn-primary"
+          style="background: var(--color-codemenu); color: #000;">Download for Mac</a>
+        <a href="https://extiri.com/blog/posts/ultimate-guide-to-snippet-management-with-codemenu.html"
+          class="btn btn-outline">Read the Guide</a>
+      </div>
+
+      <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--text-tertiary);">7-day free trial ·
+        Works offline · macOS 12+</p>
+    </div>
+  </header>
+
+  <!-- Video Section -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div
+        style="position: relative; width: 100%; padding-bottom: 56.25%; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-xl); border: 1px solid var(--bg-glass-border);">
+        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" loading="lazy"
+          src="https://www.youtube-nocookie.com/embed/zGxLaAIhof8?si=SzlimOdgoWDfpN7I&rel=0"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
+        <p class="text-gradient"
+          style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">Your
+          Developer Knowledge Base</p>
+        <h2>One place for context, code, and delivery</h2>
+        <p>Log the rough idea, the UI draft, the API call, and the release notes inside a single knowledge base so you
+          always know how a feature came together.</p>
+      </div>
+
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <div class="card">
+          <h3 style="color: var(--color-codemenu); font-size: var(--text-xl);">Plan inside one knowledge base</h3>
+          <p>Save feedback, naming ideas, AI drafts, and flows per project so planning notes live beside the
+            implementation.</p>
+        </div>
+        <div class="card">
+          <h3 style="color: #ffe082; font-size: var(--text-xl);">Design, write, and iterate</h3>
+          <p>Keep visuals next to the notes and prompts that shaped them, and link related artifacts so every draft
+            pulls from the same knowledge base.</p>
+        </div>
+        <div class="card">
+          <h3 style="color: #3dd68c; font-size: var(--text-xl);">Ship, learn, and improve</h3>
+          <p>Turn artifacts into templates, run JavaScript helpers or HTTP calls, and share highlights to Snippex so
+            your knowledge base keeps leveling up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slideshow Section -->
+  <section class="section slideshow-section">
+    <div class="container">
+      <div class="slideshow-container">
+        <div class="slideshow-images">
+          <img data-src="./images/codemenu/promo-images/Screenshot 1.png"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="CodeMenu promo 1"
+            class="slideshow-img">
+          <img data-src="./images/codemenu/promo-images/Screenshot 2.png"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="CodeMenu promo 2"
+            class="slideshow-img">
+          <img data-src="./images/codemenu/promo-images/Screenshot 4.png"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="CodeMenu promo 3"
+            class="slideshow-img">
+          <img data-src="./images/codemenu/promo-images/Screenshot 5.png"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="CodeMenu promo 4"
+            class="slideshow-img">
+          <img data-src="./images/codemenu/promo-images/Screenshot 7.png"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="CodeMenu promo 5"
+            class="slideshow-img">
+          <img data-src="./images/codemenu/promo-images/Screenshot 8.png"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="CodeMenu promo 6"
+            class="slideshow-img">
+          <img data-src="./images/codemenu/promo-images/Screenshot 9.png"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="CodeMenu promo 7"
+            class="slideshow-img">
+        </div>
+        <button class="slideshow-btn slideshow-prev" aria-label="Previous Slide">&#8592;</button>
+        <button class="slideshow-btn slideshow-next" aria-label="Next Slide">&#8594;</button>
+        <div class="slideshow-dots">
+          <!-- Dots injected by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Features -->
+  <section class="section">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: var(--space-12);">Store every part of your project</h2>
+
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+        <div class="card card-glass">
+          <div class="feature-icon-box" style="background: rgba(255, 179, 0, 0.1); color: var(--color-codemenu);">💻
+          </div>
+          <h4>Code & Infrastructure</h4>
+          <p>Keep artifacts, migration scripts, API payloads, shell logs, and fix notes anchored to one knowledge base.
+          </p>
+        </div>
+        <div class="card card-glass">
+          <div class="feature-icon-box" style="background: rgba(61, 214, 140, 0.1); color: #3dd68c;">🤖</div>
+          <h4>AI Prompts & Playbooks</h4>
+          <p>Save prompts, canned replies, automation notes, and checklists so your AI playbooks live inside the same
+            knowledge base.</p>
+        </div>
+        <div class="card card-glass">
+          <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;">🎨</div>
+          <h4>Design & Context</h4>
+          <p>Pin palettes, layout decisions, research notes, and annotated screenshots next to the code that uses them.
+          </p>
+        </div>
+        <div class="card card-glass">
+          <div class="feature-icon-box" style="background: rgba(255, 224, 130, 0.1); color: #ffe082;">📝</div>
+          <h4>Docs & Rituals</h4>
+          <p>Record onboarding steps, launch plans, personal SOPs, and meeting notes with links and offline search.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deep Dive Sections -->
+  <section class="section">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: var(--space-12);">How CodeMenu grows your knowledge base</h2>
+
+      <div class="grid">
+        <article class="app-card-large">
+          <div class="app-card-content">
+            <h3>Capture the messy middle</h3>
+            <p>Log early thoughts, shell history, interviews, prompts, and sketches as they happen so they land in the
+              knowledge base, not an inbox.</p>
+          </div>
+          <div class="app-card-media">
+            <img src="./images/codemenu/codemenu-graphs-screenshot.png" alt="Graph View">
+          </div>
+        </article>
+
+        <article class="app-card-large reversed">
+          <div class="app-card-content">
+            <h3>Recall at the speed of a shortcut</h3>
+            <p>Pull up the prompt, clause, or migration script you need with abbreviations, the Suggestions app, and
+              fast search.</p>
+          </div>
+          <div class="app-card-media">
+            <img src="./images/codemenu/side_window_and_suggestions.webp" alt="Side Window">
+          </div>
+        </article>
+
+        <article class="app-card-large">
+          <div class="app-card-content">
+            <h3>Tools that keep momentum</h3>
+            <p>Work faster with bundled editors, converters, mock data generators, a RegEx tester, and a code-to-image
+              creator.</p>
+          </div>
+          <div class="app-card-media">
+            <img src="./images/codemenu/utilities.webp" alt="Utilities">
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="section">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: var(--space-8);">Why a knowledge base beats a snippet manager</h2>
+
+      <div style="overflow-x: auto;">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Capability</th>
+              <th>Typical artifact manager</th>
+              <th>CodeMenu</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Artifacts stored</td>
+              <td>Code and text-only artifacts</td>
+              <td>Code, prompts, screenshots, palettes, flow diagrams, docs, research notes, and linked automations</td>
+            </tr>
+            <tr>
+              <td>Context + relationships</td>
+              <td>Tags or folders</td>
+              <td>Graph view, graph links, semantic search, custom metadata, and connected workflows</td>
+            </tr>
+            <tr>
+              <td>Automation</td>
+              <td>Limited artifact expansion</td>
+              <td>Runnable JavaScript, HTTP triggers, dynamic placeholders, abbreviations</td>
+            </tr>
+            <tr>
+              <td>Privacy & control</td>
+              <td>Cloud-first, limited export</td>
+              <td>Offline-first, local workspace, export to JSON</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container" style="max-width: 800px;">
+      <h2 style="text-align: center; margin-bottom: var(--space-8);">FAQ</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">Is CodeMenu just a snippet manager?<span class="faq-arrow">▶</span></button>
+          <div class="faq-answer">
+            <p>CodeMenu is more than a snippet manager. It’s a developer knowledge base that keeps code, prompts,
+              visuals, research, and decisions together so your context and execution stay side by side.</p>
           </div>
         </div>
-      </span>
-    </div>
-  </div>
-
-  <div class="app-hero-clean">
-    <div class="hero-clean-container">
-      <div class="hero-clean-content">
-        <img loading="eager" decoding="async" src="images/codemenu-icon.webp"
-          style="width: 96px; height: 96px; display: block; margin: 0 auto 24px auto; border-radius: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.3);"
-          alt="CodeMenu app icon">
-        <h2
-          style="margin: 0 auto 8px auto; max-width: 680px; font-size: 1.4rem; color: #ffe082; font-weight: 600; letter-spacing: -0.01em;">
-          CodeMenu</h2>
-        <h1
-          style="margin: 0 auto 12px auto; max-width: 680px; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15;">
-          Modern Snippet Manager for Mac</h1>
-        <p
-          style="margin: 0 auto 32px auto; max-width: 540px; font-size: clamp(1.08rem, 1.6vw, 1.22rem); color: rgba(200,210,220,0.88); line-height: 1.6; word-break: keep-all;">
-          Your personal library for code, prompts, images, and more - organized, searchable, and always ready when you
-          need them.</p>
-
-        <div
-          style="display: flex; gap: 14px; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 28px;">
-          <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781"
-            style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; background: #ffb300; color: #111; font-weight: 700; border-radius: 10px; text-decoration: none; box-shadow: 0 8px 20px rgba(255,179,0,0.25); transition: transform 0.15s, box-shadow 0.15s;"
-            onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 28px rgba(255,179,0,0.35)';"
-            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(255,179,0,0.25)';">Download
-            for Mac</a>
-          <a href="https://extiri.com/blog/posts/ultimate-guide-to-snippet-management-with-codemenu.html"
-            style="display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; background: rgba(255,255,255,0.06); color: rgba(220,230,240,0.92); font-weight: 600; border-radius: 10px; text-decoration: none; border: 1px solid rgba(255,255,255,0.08); transition: background 0.15s, border 0.15s;"
-            onmouseover="this.style.background='rgba(255,255,255,0.10)'; this.style.borderColor='rgba(255,255,255,0.14)';"
-            onmouseout="this.style.background='rgba(255,255,255,0.06)'; this.style.borderColor='rgba(255,255,255,0.08)';">Read
-            the guide</a>
-        </div>
-
-        <p style="margin: 0; font-size: 0.92rem; color: rgba(180,190,200,0.7);">7-day free trial · One-time purchase or
-          subscription</p>
-      </div>
-
-      <div class="hero-clean-media" style="margin-top: 48px; max-width: 860px; margin-left: auto; margin-right: auto;">
-        <div
-          style="position: relative; width: 100%; padding-bottom: 56.25%; border-radius: 14px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); background: rgba(20,24,30,0.9);">
-          <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" loading="lazy"
-            src="https://www.youtube-nocookie.com/embed/zGxLaAIhof8?si=SzlimOdgoWDfpN7I&rel=0"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="story-section"
-    style="width:100%; max-width:1200px; margin:0px auto 64px auto; position:relative; z-index:1;">
-    <div class="story-bg-full grainy"
-      style="position:absolute; inset:0; width:100vw; left:50%; transform:translateX(-50%); height:100%; z-index:0; pointer-events:none;">
-      <img loading="lazy" decoding="async" src="images/background-curve.webp" alt="Background curve"
-        style="width:100vw; height:100%; object-fit:cover; opacity:0.22; filter: grayscale(0.45) blur(50px);">
-    </div>
-    <div style="position:relative; z-index:2;">
-      <!-- Section 1: Imagine -->
-      <div class="story-row" style="display:flex; align-items:center; gap:0; margin-bottom:56px;">
-        <div class="story-svg"
-          style="flex:0 0 420px; min-width:320px; height:400px; display:flex; align-items:center; justify-content:center;">
-          <img loading="lazy" decoding="async" src="images/imagine-image.png" width="400" height="250"
-            aria-label="Imagine – the spark of an idea" style="object-fit: contain;" />
-        </div>
-        <div style="flex:1; padding:48px 48px 48px 32px;">
-          <h2 style="color:#ffe082; font-size:2em; margin-bottom:18px;">Imagine</h2>
-          <p style="font-size:1.18em; color:#f5f5f7; margin-bottom:18px;">You capture sparks everywhere—code
-            experiments, design palettes, prompts, briefs, screenshots, research notes. They live in folders, chats, and
-            tabs. When inspiration hits, you hunt through chaos, repeat old work, or lose the thread entirely.</p>
-          <blockquote
-            style="border-left: 4px solid #ffb300; margin: 18px 0; padding-left: 18px; color: #ffe082; background: rgba(255,179,0,0.04); font-style: italic;">
-            “Every brilliant idea deserves a home that remembers it for you.”</blockquote>
-        </div>
-      </div>
-      <!-- Section 2: Transformation -->
-      <div class="story-row"
-        style="display:flex; align-items:center; gap:0; flex-direction:row-reverse; margin-bottom:56px;">
-        <div class="story-svg"
-          style="flex:0 0 420px; min-width:320px; height:400px; display:flex; align-items:center; justify-content:center;">
-          <img loading="lazy" decoding="async" src="images/transform-image.png" width="400" height="250"
-            aria-label="Transformation – turning raw ideas into structured actions" style="object-fit: contain;" />
-        </div>
-        <div style="flex:1; padding:48px 32px 48px 48px;">
-          <h2 style="color:#ffe082; font-size:2em; margin-bottom:18px;">Transformation</h2>
-          <div style="background:rgba(255,179,0,0.07); border-radius:12px; padding:18px; margin-bottom:18px;">
-            <b style="color:#ffb300;">CodeMenu</b> becomes your augmented memory. Capture anything in seconds, layer it
-            with metadata, and surface it exactly when your flow demands it. It’s a personal snippet manager designed
-            for makers who refuse to lose their best work.
+        <div class="faq-item">
+          <button class="faq-question">What can I capture and organize?<span class="faq-arrow">▶</span></button>
+          <div class="faq-answer">
+            <p>Save artifacts, API payloads, prompts, UX research, screenshots, PDFs, diagrams, and even audio or video
+              references. Add Markdown notes, custom metadata, tags, and graph links.</p>
           </div>
-          <ul style="margin: 0 0 0 18px;">
-            <li style="margin-bottom: 10px;"><b style="color:#ffb300;">Capture & Store</b> code, prompts, documentation,
-              palettes, and media in one encrypted vault.</li>
-            <li style="margin-bottom: 10px;"><b style="color:#ffb300;">Organize & Contextualize</b> with groups, tags,
-              graph view, and dynamic placeholders that adapt to each project.</li>
-            <li style="margin-bottom: 10px;"><b style="color:#ffb300;">Recall & Reuse</b> through semantic search, quick
-              suggestions, abbreviations, and side-window previews that drop content directly into your tools.</li>
-            <li style="margin-bottom: 10px;"><b style="color:#ffb300;">Extend & Automate</b> using built-in utilities,
-              runnable snippets, HTTP integrations, and custom scripts that keep your workflows glued together.</li>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How does sharing and privacy work?<span class="faq-arrow">▶</span></button>
+          <div class="faq-answer">
+            <p>Your library lives on your Mac and works offline by default. Publish curated spaces through
+              Snippex—Extiri’s gallery—or enable the optional HTTP server when you want to share.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Can I automate workflows?<span class="faq-arrow">▶</span></button>
+          <div class="faq-answer">
+            <p>Yes. Trigger JavaScript transforms, run shell commands, call HTTP endpoints, and use dynamic placeholders
+              to generate content on the fly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="Extiri" width="100" style="opacity: 0.8;">
+          <p>Extiri is an independent software studio crafting simple, well‑crafted apps for macOS, iOS, and web.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="./codemenu.html">CodeMenu</a></li>
+            <li><a href="./chitneek.html">Chitneek</a></li>
+            <li><a href="./clipguru.html">ClipGuru</a></li>
+            <li><a href="./slowko.html">Słówko</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="./index.html#about">About</a></li>
+            <li><a href="./blog/index.html">Blog</a></li>
+            <li><a href="privacy_policy.html">Privacy Policy</a></li>
+            <li><a href="codemenu/terms_of_services.html">Terms of Service</a></li>
           </ul>
         </div>
       </div>
-      <!-- Section 3: Result -->
-      <div class="story-row" style="display:flex; align-items:center; gap:0; margin-bottom:0; padding-bottom: 170px;">
-        <div class="story-svg"
-          style="flex:0 0 420px; min-width:320px; height:400px; display:flex; align-items:center; justify-content:center;">
-          <img loading="lazy" decoding="async" src="images/result-image.png" width="400" height="250"
-            aria-label="The Result – a clean, actionable CodeMenu" style="object-fit: contain;" />
-        </div>
-        <div style="flex:1; padding:48px 48px 48px 32px;">
-          <h2 style="color:#ffe082; font-size:2em; margin-bottom:18px;">The Result</h2>
-          <p style="margin-top:0; margin-bottom:0; line-height: 2em;"><span
-              style="color:#ffe082; font-weight:600;">CodeMenu</span> evolves into the always-on teammate that remembers
-            context, surfaces answers, and keeps you shipping. Focus stays unbroken, output gets sharper, and every idea
-            returns when you call for it.</p>
-        </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Extiri. All rights reserved.</p>
+        <p>Mac is a trademark of Apple Inc.</p>
       </div>
     </div>
-  </div>
+  </footer>
 
-  <div class="section" style="width: 90%; margin: 0 auto 80px auto; text-align: left;">
-    <h1 style="text-align:center; margin-bottom: 28px;">Why creators rely on their augmented memory</h1>
-    <ul style="list-style: none; padding: 0; max-width: 840px; margin: 0 auto; font-size: 1.08em; line-height: 1.9em;">
-      <li style="margin-bottom: 16px; padding-left: 28px; position: relative;"><span
-          style="position:absolute; left:0; color:#ffb300;">•</span>Save hours every week by eliminating app switching
-        and duplicate work.</li>
-      <li style="margin-bottom: 16px; padding-left: 28px; position: relative;"><span
-          style="position:absolute; left:0; color:#ffb300;">•</span>Keep every idea retrievable—code, prompts, images,
-        briefs, research—without digging through folders.</li>
-      <li style="margin-bottom: 16px; padding-left: 28px; position: relative;"><span
-          style="position:absolute; left:0; color:#ffb300;">•</span>Stay in flow with instant recall, side-window
-        previews, and abbreviations that paste the right piece on demand.</li>
-      <li style="margin-bottom: 16px; padding-left: 28px; position: relative;"><span
-          style="position:absolute; left:0; color:#ffb300;">•</span>Work confidently knowing your augmented memory is
-        private, offline-first, and under your control.</li>
-      <li style="margin-bottom: 0; padding-left: 28px; position: relative;"><span
-          style="position:absolute; left:0; color:#ffb300;">•</span>Share selectively with teammates when needed—without
-        losing ownership of your personal library using Snippets Store.</li>
-    </ul>
-  </div>
-
-  <div class="roles-section"
-    style="width: 90%; margin-left: auto; margin-right: auto; margin-bottom: 100px; margin-top: 100px;">
-    <h1>Designed for every creator</h1>
-    <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; margin-bottom: 32px;">
-      <div class="role-card"
-        style="flex:1; min-width:180px; background:rgba(255,179,0,0.07); border-radius:12px; padding:18px; text-align:center;">
-        <!-- Engineer SVG: Hammer -->
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"
-          style="margin-bottom:8px;">
-          <circle cx="18" cy="18" r="18" fill="#ffb300" />
-          <rect x="16" y="18" width="4" height="10" rx="1.5" fill="#23272e" stroke="#ffe082" stroke-width="2" />
-          <rect x="13" y="13" width="10" height="4" rx="1.5" fill="#23272e" stroke="#ffe082" stroke-width="2" />
-          <path d="M13 13 Q11 15 13 17" stroke="#ffe082" stroke-width="2" fill="none" />
-        </svg>
-        </svg>
-        <h3 style="margin-top:0; color:#ffb300;">Developers & Engineers</h3>
-        <p style="margin-bottom:0; color:#f5f5f7; font-size:0.98em;">Spin up features with living boilerplates, API
-          calls, migrations, and incident playbooks that stay organized and ready to drop into your editor.</p>
-      </div>
-      <div class="role-card"
-        style="flex:1; min-width:180px; background:rgba(255,179,0,0.07); border-radius:12px; padding:18px; text-align:center;">
-        <!-- Designers SVG: Palette -->
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"
-          style="margin-bottom:8px;">
-          <circle cx="18" cy="18" r="18" fill="#ffb300" />
-          <path
-            d="M22 10C17 10 11 12 11 18C11 22 14 26 19 26C20.5 26 22 24.5 22 23C22 22 21 21 20 21C19.5 21 18.5 21.5 18 22"
-            stroke="#23272e" stroke-width="2" fill="#23272e" />
-          <circle cx="15" cy="17" r="2" fill="#ffe082" />
-          <circle cx="20" cy="16" r="2" fill="#ffe082" />
-          <circle cx="16" cy="21" r="1.6" fill="#ffe082" />
-        </svg>
-        <h3 style="margin-top:0; color:#ffb300;">Designers & Creative Teams</h3>
-        <p style="margin-bottom:0; color:#f5f5f7; font-size:0.98em;">Store color systems, component notes, AI art
-          prompts, and image assets with instant previews and version history.</p>
-      </div>
-      <div class="role-card"
-        style="flex:1; min-width:180px; background:rgba(255,179,0,0.07); border-radius:12px; padding:18px; text-align:center;">
-        <!-- Technical Writers SVG: Document/Pen -->
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"
-          style="margin-bottom:8px;">
-          <circle cx="18" cy="18" r="18" fill="#ffb300" />
-          <rect x="11" y="10" width="14" height="16" rx="3" fill="#23272e" stroke="#ffe082" stroke-width="2" />
-          <rect x="14" y="14" width="8" height="2" rx="1" fill="#ffe082" />
-          <rect x="14" y="18" width="8" height="2" rx="1" fill="#ffe082" />
-          <rect x="14" y="22" width="5" height="2" rx="1" fill="#ffe082" />
-        </svg>
-        <h3 style="margin-top:0; color:#ffb300;">Writers & Knowledge Teams</h3>
-        <p style="margin-bottom:0; color:#f5f5f7; font-size:0.98em;">Keep reusable docs, onboarding playbooks, release
-          notes, and AI prompt sets searchable and ready to remix.</p>
-      </div>
-      <div class="role-card"
-        style="flex:1; min-width:180px; background:rgba(255,179,0,0.07); border-radius:12px; padding:18px; text-align:center;">
-        <!-- Power Users SVG: Lightning Bolt -->
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"
-          style="margin-bottom:8px;">
-          <circle cx="18" cy="18" r="18" fill="#ffb300" />
-          <polygon points="16,8 26,16 20,16 20,28 10,20 16,20" fill="#23272e" stroke="#ffe082" stroke-width="2" />
-        </svg>
-        <h3 style="margin-top:0; color:#ffb300;">Productivity Power Users</h3>
-        <p style="margin-bottom:0; color:#f5f5f7; font-size:0.98em;">Automate daily tasks with macros, store keyboard
-          shortcuts, and sync cross-app snippets so nothing falls between the cracks.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Slideshow Section -->
-  <div class="slideshow-section" style="width:100vw; max-width:100%; padding:0; height: 697px">
-    <div class="slideshow-container"
-      style="position:relative; width:100%; max-width:1100px; margin:0 auto; height: 100%;">
-      <div class="slideshow-images" style="height: 100%;">
-        <!-- Lazy-loaded promo images: data-src used so images only load when shown -->
-        <img data-src="./images/codemenu/promo-images/Screenshot 1.png"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" decoding="async"
-          alt="CodeMenu promo 1" class="slideshow-img"
-          style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
-        <img data-src="./images/codemenu/promo-images/Screenshot 2.png"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" decoding="async"
-          alt="CodeMenu promo 2" class="slideshow-img"
-          style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
-        <img data-src="./images/codemenu/promo-images/Screenshot 4.png"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" decoding="async"
-          alt="CodeMenu promo 3" class="slideshow-img"
-          style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
-        <img data-src="./images/codemenu/promo-images/Screenshot 5.png"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" decoding="async"
-          alt="CodeMenu promo 4" class="slideshow-img"
-          style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
-        <img data-src="./images/codemenu/promo-images/Screenshot 7.png"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" decoding="async"
-          alt="CodeMenu promo 5" class="slideshow-img"
-          style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
-        <img data-src="./images/codemenu/promo-images/Screenshot 8.png"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" decoding="async"
-          alt="CodeMenu promo 6" class="slideshow-img"
-          style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
-        <img data-src="./images/codemenu/promo-images/Screenshot 9.png"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" decoding="async"
-          alt="CodeMenu promo 7" class="slideshow-img"
-          style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
-      </div>
-      <button class="slideshow-btn slideshow-prev"
-        style="position:absolute; top:50%; left:-90px; transform:translateY(-50%); background:#23272e; color:#ffe082; border:none; border-radius:50%; width:44px; height:44px; font-size:2em; cursor:pointer; opacity:0.85; transition:background 0.18s; z-index: 2;">&#8592;</button>
-      <button class="slideshow-btn slideshow-next"
-        style="position:absolute; top:50%; right:-90px; transform:translateY(-50%); background:#23272e; color:#ffe082; border:none; border-radius:50%; width:44px; height:44px; font-size:2em; cursor:pointer; opacity:0.85; transition:background 0.18s; z-index: 2;">&#8594;</button>
-      <div class="slideshow-dots"
-        style="position:absolute; bottom:18px; left:50%; transform:translateX(-50%); display:flex; gap:12px; z-index: 5;">
-        <span class="slideshow-dot"
-          style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
-        <span class="slideshow-dot"
-          style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
-        <span class="slideshow-dot"
-          style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
-        <span class="slideshow-dot"
-          style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
-        <span class="slideshow-dot"
-          style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
-        <span class="slideshow-dot"
-          style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
-        <span class="slideshow-dot"
-          style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
-      </div>
-    </div>
-  </div>
+  <!-- Page Specific Scripts -->
   <script>
-    // Slideshow logic: lazy-load images, pause-on-hover, and stop auto-play after manual interaction
+    // Slideshow Logic
     (function () {
       const imgs = Array.from(document.querySelectorAll('.slideshow-img'));
-      const dots = Array.from(document.querySelectorAll('.slideshow-dot'));
+      const dotsContainer = document.querySelector('.slideshow-dots');
       const nextBtn = document.querySelector('.slideshow-next');
       const prevBtn = document.querySelector('.slideshow-prev');
       const container = document.querySelector('.slideshow-container');
       let idx = 0;
       let intervalId = null;
-      const delay = 3000;
-      let userInteracted = false; // if true, auto-play will not resume
+      const delay = 4000;
+      let userInteracted = false;
+
+      // Create dots
+      imgs.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.className = 'slideshow-dot';
+        dot.onclick = () => { showSlide(i); userInteracted = true; stopAuto(); };
+        dotsContainer.appendChild(dot);
+      });
+
+      const dots = Array.from(document.querySelectorAll('.slideshow-dot'));
 
       function ensureLoaded(img) {
-        const dataSrc = img.dataset && img.dataset.src;
+        const dataSrc = img.dataset.src;
         if (dataSrc && img.getAttribute('src') !== dataSrc) {
           img.setAttribute('src', dataSrc);
           img.loading = 'lazy';
@@ -451,9 +572,10 @@
             img.style.display = 'none';
           }
         });
-        dots.forEach((dot, j) => dot.style.background = (j === i ? '#ffb300' : '#ffe08244'));
+        dots.forEach((dot, j) => dot.classList.toggle('active', j === i));
         idx = i;
-        // preload next slide for smoother transition
+
+        // Preload next
         const nextIdx = (i + 1) % imgs.length;
         if (imgs[nextIdx]) ensureLoaded(imgs[nextIdx]);
       }
@@ -472,303 +594,53 @@
         intervalId = null;
       }
 
-      // Manual controls should stop auto-advance permanently
-      if (nextBtn) nextBtn.addEventListener('click', function () { nextSlide(); userInteracted = true; stopAuto(); });
-      if (prevBtn) prevBtn.addEventListener('click', function () { prevSlide(); userInteracted = true; stopAuto(); });
-      dots.forEach((dot, i) => {
-        dot.addEventListener('click', function () { showSlide(i); userInteracted = true; stopAuto(); });
-      });
+      if (nextBtn) nextBtn.onclick = () => { nextSlide(); userInteracted = true; stopAuto(); };
+      if (prevBtn) prevBtn.onclick = () => { prevSlide(); userInteracted = true; stopAuto(); };
 
-      // Pause on hover (but do not restart if user manually interacted)
       if (container) {
-        container.addEventListener('mouseenter', () => stopAuto());
-        container.addEventListener('mouseleave', () => { if (!userInteracted) startAuto(); });
+        container.onmouseenter = stopAuto;
+        container.onmouseleave = () => { if (!userInteracted) startAuto(); };
       }
 
-      // Initialize only when slideshow becomes visible to avoid offscreen autoplay
-      const slideshowEl = document.querySelector('.slideshow-container');
-      let started = false;
-      if (slideshowEl && 'IntersectionObserver' in window) {
+      // Init
+      if ('IntersectionObserver' in window) {
         const io = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
-            if (entry.isIntersecting && !started) {
-              started = true;
+            if (entry.isIntersecting) {
               showSlide(0);
               startAuto();
               io.disconnect();
             }
           });
-        }, { threshold: 0.25 });
-        io.observe(slideshowEl);
+        });
+        io.observe(container);
       } else {
-        // Fallback: start immediately
         showSlide(0);
         startAuto();
       }
-
-      // accessibility: make dots keyboard focusable and activate on Enter/Space
-      dots.forEach((dot) => {
-        dot.setAttribute('tabindex', '0');
-        dot.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dot.click(); } });
-      });
     })();
-  </script>
 
-  <div class="section">
-    <br>
-    <br>
-    <br>
-
-    <h1 style="text-align:center; font-size:2em; color:#ffb300; margin-bottom:24px; letter-spacing:-1px;">Features</h1>
-    <div class="features-list"
-      style="display:flex; flex-wrap:wrap; gap:32px; justify-content:center; margin-bottom:32px;">
-      <div class="feature-card"
-        style="background:rgba(255,255,255,0.04); border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:28px 22px; flex:1 1 340px; min-width:320px; max-width:480px;">
-        <h2 style="color:#ffb300; margin-top:0;">Capture everything in seconds</h2>
-        <p>Clip code, prompts, emails, screenshots, palettes, and research into one personal snippet manager. Drop items
-          with drag-and-drop, share extensions, or keyboard shortcuts.</p>
-        <img loading="lazy" src="./images/codemenu/codemenu-graphs-screenshot.png" width="100%"
-          alt="Screenshot showing an example graph for a phishing investigation"
-          style="border-radius:8px; margin-top:12px; box-shadow:0 1px 8px rgba(0,0,0,0.08);">
-      </div>
-      <div class="feature-card"
-        style="background:rgba(255,255,255,0.04); border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:28px 22px; flex:1 1 340px; min-width:320px; max-width:480px;">
-        <h2 style="color:#ffb300; margin-top:0;">Context made clear</h2>
-        <p>Describe entries with Markdown, LaTeX, images, and flow diagrams. Layer tags, groups, graph links, and custom
-          placeholders so every asset is self-explanatory.</p>
-      </div>
-      <div class="feature-card"
-        style="background:rgba(255,255,255,0.04); border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:28px 22px; flex:1 1 340px; min-width:320px; max-width:480px;">
-        <h2 style="color:#ffb300; margin-top:0;">Recall at the speed of thought</h2>
-        <p>Semantic content search, filters, and instant suggestions surface the exact piece you saved months
-          ago—complete with context and ready to paste.</p>
-      </div>
-      <div class="feature-card"
-        style="background:rgba(255,255,255,0.04); border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:28px 22px; flex:1 1 340px; min-width:320px; max-width:480px;">
-        <h2 style="color:#ffb300; margin-top:0;">Surface content everywhere</h2>
-        <p>Open the side window beside your editor, trigger abbreviations, or ask the Suggestions app. Your content
-          vault follows you through Xcode, Figma, browsers, and terminals.</p>
-        <img loading="lazy" src="./images/codemenu/side_window_and_suggestions.webp" width="100%"
-          alt="Screenshot showing the side window with saved content and the Suggestions app beside Xcode"
-          style="border-radius:8px; margin-top:12px; box-shadow:0 1px 8px rgba(0,0,0,0.08);">
-      </div>
-      <div class="feature-card"
-        style="background:rgba(255,255,255,0.04); border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:28px 22px; flex:1 1 340px; min-width:320px; max-width:480px;">
-        <h2 style="color:#ffb300; margin-top:0;">Dynamic, reusable building blocks</h2>
-        <p>Create parameterized templates that inject live data—current date, shell outputs, user input—so one saved
-          fragment adapts to any scenario.</p>
-      </div>
-      <div class="feature-card"
-        style="background:rgba(255,255,255,0.04); border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:28px 22px; flex:1 1 340px; min-width:320px; max-width:480px;">
-        <h2 style="color:#ffb300; margin-top:0;">Private vault, optional sharing</h2>
-        <p>Everything stays local-first and offline by default. When you want to collaborate, publish to the Snippets
-          Store or sync selected spaces with teammates.</p>
-      </div>
-      <div class="feature-card"
-        style="background:rgba(255,255,255,0.04); border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:28px 22px; flex:1 1 340px; min-width:320px; max-width:480px;">
-        <h2 style="color:#ffb300; margin-top:0;">Integrated engineering toolkit</h2>
-        <p>Work faster with bundled editors, converters, mock data generators, RegEx tester, and code-to-image
-          creator—engineered for rapid prototyping without context switching.</p>
-        <img loading="lazy" src="./images/codemenu/utilities.webp" width="100%"
-          alt="Screenshot showing the utilities: code image generator, generator, RegEx tester, editor, coders and converters"
-          style="border-radius:8px; margin-top:12px; box-shadow:0 1px 8px rgba(0,0,0,0.08);">
-      </div>
-      <div class="feature-card"
-        style="background:rgba(255,255,255,0.04); border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:28px 22px; flex:1 1 340px; min-width:320px; max-width:480px;">
-        <h2 style="color:#ffb300; margin-top:0;">Augmented by private AI</h2>
-        <p>Generate documentation, summarize research, extract code from screenshots, and ask natural-language questions
-          about your library—securely on your machine.</p>
-      </div>
-      <div class="feature-card"
-        style="background:rgba(255,255,255,0.04); border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:28px 22px; flex:1 1 340px; min-width:320px; max-width:480px;">
-        <h2 style="color:#ffb300; margin-top:0;">Extend and automate</h2>
-        <p>Trigger automations with JavaScript, connect via HTTP, and embed CodeMenu into your favorite tools. <a
-            href="https://docs.extiri.com" style="color:#ffe082; text-decoration:underline;">Explore the docs</a></p>
-      </div>
-    </div>
-
-    <br>
-    <br>
-
-    <h1>Ready to unlock your augmented memory?</h1>
-    <table class="app-details-table">
-      <tbody>
-        <tr>
-          <td colspan="1" rowspan="2">
-            <img src="images/codemenu-icon.webp"
-              style="width: min(200px, 90%); margin-left: auto; margin-right: auto; display: block;"
-              alt="CodeMenu icon">
-          </td>
-          <td>
-            <h2>CodeMenu</h2>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h3>Personal snippet manager for macOS</h3>
-            <ul>
-              <li>one-time purchase</li>
-              or
-              <li>monthly subscription with a 7-day free trial</li>
-            </ul>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <a style="margin-bottom: 60px;" class="button-cta"
-      href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781"><img
-        src="images/download_on_the_mac_app_store_white_button.svg" height="60px"
-        alt="Get CodeMenu on the Mac App Store" /></a>
-    <hr>
-  </div>
-
-  <div class="section" id="about">
-    <h1>FAQ</h1>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-question"><span class="faq-text">How can I get CodeMenu?</span><span
-            class="faq-arrow">&#9654;</span></button>
-        <div class="faq-answer">
-          <p>CodeMenu is available exclusively on the Mac App Store and via a closed TestFlight beta. Payments are
-            handled by Apple—choose a one-time purchase or start a monthly plan with a 7-day free trial to experience
-            your personal snippet manager.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question"><span class="faq-text">Where can I find HTTP server's documentation?</span><span
-            class="faq-arrow">&#9654;</span></button>
-        <div class="faq-answer">
-          <p>At <a href="https://docs.extiri.com">Extiri's documentation</a> website.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question"><span class="faq-text">Where can I learn more about Suggestions?</span><span
-            class="faq-arrow">&#9654;</span></button>
-        <div class="faq-answer">
-          <p>You can learn more about Suggestions on its <a href="https://github.com/Extiri/Suggestions"> GitHub
-              repository</a>.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question"><span class="faq-text">What languages does Editor support?</span><span
-            class="faq-arrow">&#9654;</span></button>
-        <div class="faq-answer">
-          <p>At this moment Editor supports JavaScript by default. But you can add any other language that has a CLI
-            utility.</p>
-          <p>You can do this by placing language's command line utility in Application Scripts of CodeMenu (to open
-            click "Open Application Scripts" in Languages settings section).</p>
-          <p>You can also do this by creating a symlink (shortcut to file, but accessible by CodeMenu) to command line
-            utility by opening your terminal and then
-            entering<br><br><code>cd /Users/(your username)/Library/Application\ Scripts/id.thedev.marcin.CodeMenu</code><br><br>
-            and then <br><br><code>ln -s (path to utilities shell command) .</code><br><br> You can use
-            <code>which</code> shell command to find the path. You might need to restart CodeMenu for language to show
-            up.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question"><span class="faq-text">How can I use LaTeX in an entry description?</span><span
-            class="faq-arrow">&#9654;</span></button>
-        <div class="faq-answer">
-          <p>Wrap any LaTeX expression in $$ (for example: "Here is some fraction $$\frac{126}{3}$$"). In preview mode
-            it renders beautifully on a separate line—perfect for math-heavy notes.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question"><span class="faq-text">What languages does syntax highlighting support?</span><span
-            class="faq-arrow">&#9654;</span></button>
-        <div class="faq-answer">
-          <p>You can find list of all languages supported by Snippets Store (which are the same as CodeMenu's) in Extiri
-            API documentation at <a
-              href="https://docs.extiri.com/ExtiriAPI/data/languages/">docs.extiri.com/ExtiriAPI/data/languages/</a>.
-          </p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question"><span class="faq-text">What languages does library generator support?</span><span
-            class="faq-arrow">&#9654;</span></button>
-        <div class="faq-answer">
-          <p>At this moment library generator supports Swift, PHP, HTML and JavaScript.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question"><span class="faq-text">Are entries from Snippets Store copyrighted?</span><span
-            class="faq-arrow">&#9654;</span></button>
-        <div class="faq-answer">
-          <p>No. Public entries in Snippets Store have a <a
-              href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 license</a>. You can copy, modify, and
-            distribute them—even commercially—without asking permission. No warranties are provided, and liability is
-            disclaimed to the fullest extent permitted by law.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question"><span class="faq-text">Can I import content from other managers?</span><span
-            class="faq-arrow">&#9654;</span></button>
-        <div class="faq-answer">
-          <p>Currently importing from massCode is supported. If you rely on another content or snippet manager, let me
-            know which one—you may influence the next migration path.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question"><span class="faq-text">Can I export my library?</span><span
-            class="faq-arrow">&#9654;</span></button>
-        <div class="faq-answer">
-          <p>Yes, export any selection of entries to JSON so you always retain a portable backup of your content vault.
-          </p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question"><span class="faq-text">What are the system requirements?</span><span
-            class="faq-arrow">&#9654;</span></button>
-        <div class="faq-answer">
-          <p>CodeMenu supports macOS 12 and later. Intel and Apple Silicon are supported. To use AI features (generation
-            and chat) good specifications (min. 16 GB RAM and Apple Silicon) are recommended, altough they're not
-            required so they should work on any Mac with minimum 16 GB RAM, but possibly slower.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question"><span class="faq-text">Does my content stay on device?</span><span
-            class="faq-arrow">&#9654;</span></button>
-        <div class="faq-answer">
-          <p>Yes, your snippet manager is stored locally and never leaves your Mac unless you choose to share it.
-            Publishing to Snippets Store or enabling the HTTP server is fully optional.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script>
-    // FAQ expand/collapse logic
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    faqQuestions.forEach(btn => {
+    // FAQ Logic
+    document.querySelectorAll('.faq-question').forEach(btn => {
       btn.onclick = function () {
         const answer = this.nextElementSibling;
-        const arrow = this.querySelector('.faq-arrow');
-        if (answer.style.maxHeight) {
-          answer.style.maxHeight = null;
-          answer.style.opacity = 0;
-          this.classList.remove('open');
-          arrow.innerHTML = '&#9654;'; // right arrow
-        } else {
-          document.querySelectorAll('.faq-answer').forEach(a => {
-            a.style.maxHeight = null;
-            a.style.opacity = 0;
-          });
-          document.querySelectorAll('.faq-question').forEach(q => {
-            q.classList.remove('open');
-            q.querySelector('.faq-arrow').innerHTML = '&#9654;';
-          });
-          answer.style.maxHeight = answer.scrollHeight + 'px';
-          answer.style.opacity = 1;
+        const isOpen = this.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('open'));
+        document.querySelectorAll('.faq-answer').forEach(a => {
+          a.style.maxHeight = null;
+          a.classList.remove('open');
+        });
+
+        if (!isOpen) {
           this.classList.add('open');
+          answer.classList.add('open');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
         }
       };
     });
   </script>
-
-  <p style="color: white; padding-bottom: 10px; text-align: center; margin-top: 100px;"><a href="privacy_policy.html"
-      class="secondary_link">Privacy Policy</a> | <a href="codemenu/terms_of_services.html" class="secondary_link">Terms
-      of Services/EULA</a></p>
-  <p style="color: #505050; padding-bottom: 50px; text-align: center;">Mac is a trademark of Apple Inc., registered in
-    the U.S. and other countries and regions.</p>
 </body>
 
 </html>

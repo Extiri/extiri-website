@@ -1,41 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Space Train — runs that match your skill. Pilot a compact space-train across a scrolling field. Available on iPhone, iPad, and Mac.">
-    <meta property="og:title" content="Space Train — Runs that match your skill">
-    <meta property="og:description" content="Pilot a compact space-train across a scrolling field. Runs that match your skill.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://extiri.com/space-train.html">
-    <meta property="og:image" content="/assets/og/space-train-1200x630.png">
-    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Space Train — Runs that match your skill</title>
-    <link rel="icon" type="image/png" href="images/space_train/space-train-icon.png">
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);} 
-        gtag('consent', 'default', { 'analytics_storage': 'denied' });
-        gtag('js', new Date());
-        gtag('config', 'G-HLY6ZZMNBQ');
-    </script>
-    
+    <meta name="description"
+        content="Space Train — runs that match your skill. Pilot a compact space-train across a scrolling field. Available on iPhone, iPad, and Mac.">
+    <meta name="theme-color" content="#050505">
+
+    <!-- Fonts -->
+    <link rel="preload" href="/fonts/InstrumentSerif-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/Megrim-Regular.ttf" as="font" type="font/ttf" crossorigin>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-        
         @font-face {
             font-family: 'Megrim';
             src: url('fonts/Megrim-Regular.ttf') format('truetype');
@@ -43,835 +25,329 @@
             font-style: normal;
             font-display: swap;
         }
-        
-        body {
-            background: #0a0a0a;
-            color: #fff;
-            line-height: 1.6;
-            overflow-x: hidden;
+
+        /* Page-specific overrides */
+        .hero-spacetrain {
+            background: radial-gradient(circle at 50% 30%, rgba(100, 200, 255, 0.08) 0%, rgba(5, 5, 5, 0) 60%);
         }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        .hero-title-spacetrain {
+            font-family: 'Megrim', sans-serif;
+            letter-spacing: -0.02em;
         }
-        
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-        
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-        
-        .animate-fade-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-        
-        .animate-fade-left {
-            animation: fadeInLeft 0.8s ease-out forwards;
-        }
-        
-        .animate-fade-right {
-            animation: fadeInRight 0.8s ease-out forwards;
-        }
-        
-        .animate-scale-in {
-            animation: scaleIn 0.6s ease-out forwards;
-        }
-        
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        /* Intersection Observer setup */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 56px;
-            background: rgba(16, 27, 38, 0.55);
-            backdrop-filter: blur(14px) saturate(1.2);
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            box-shadow: 0 6px 22px rgba(0,0,0,0.35);
-            z-index: 1000;
-        }
-        
-        .navbar-content {
+
+        .feature-icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            max-width: 1160px;
-            height: 56px;
-            margin: 0 auto;
-            padding: 0 16px;
-        }
-        
-        .navbar-logo {
-            height: 34px;
-            width: auto;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .nav-links a {
-            color: rgba(245,250,255,0.96);
-            text-decoration: none;
-            padding: 0 12px;
-            font-weight: 600;
-        }
-        
-        .nav-links a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Mobile navigation */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
+            justify-content: center;
+            margin-bottom: var(--space-4);
             font-size: 1.5rem;
-            cursor: pointer;
         }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-        }
-        
-        /* Main content */
-        main {
-            padding-top: 56px;
-        }
-        
-        /* Hero section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-        }
-        
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(45deg, rgba(0,0,0,0.7), rgba(20,20,40,0.6));
-            z-index: 2;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            max-width: 600px;
-            padding: 2rem;
-        }
-        
-        .app-icon {
-            width: 120px;
-            height: 120px;
-            border-radius: 22px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .app-icon:hover {
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        .hero h1 {
-            font-family: 'Megrim', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            font-weight: 300;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #fff, #6ef);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            color: #aaa;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .hero-description {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            color: #ddd;
-        }
-        
-        .download-btn {
-            display: inline-block;
-            transition: transform 0.3s ease;
-        }
-        
-        .download-btn:hover {
-            transform: scale(1.05);
-            animation: float 2s ease-in-out infinite;
-        }
-        
-        .download-btn img {
-            height: 60px;
-            width: auto;
-        }
-        
-        .features-bar {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-        
-        .feature-badge {
-            background: rgba(255,255,255,0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .disabled {
-            filter: grayscale(1) brightness(0.6);
-            cursor: not-allowed !important;
-        }
-        
-        .feature-badge:hover {
-            background: rgba(110, 222, 252, 0.2);
-            border-color: rgba(110, 222, 252, 0.4);
-            transform: translateY(-2px);
-        }
-        
-        /* Sections */
-        .section {
-            padding: 4rem 0;
-        }
-        
-        .section.alt {
-            background: rgba(255,255,255,0.02);
-        }
-        
-        .section.dark {
-            background: linear-gradient(135deg, #000 0%, #001122 100%);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .section h2 {
-            font-family: 'Megrim', sans-serif;
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            font-weight: 300;
-        }
-        
-        /* Video showcase */
-        .video-showcase {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            margin-bottom: 4rem;
-        }
-        
-        .video-wrapper {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-        
-        .video-wrapper video {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .video-text {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #ddd;
-        }
-        
-        .video-text h3 {
-            font-family: 'Megrim', sans-serif;
-            color: #6ef;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        /* Screenshots grid */
-        .screenshots-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .screenshot {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        
-        .screenshot:hover {
-            transform: scale(1.05) translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-        
-        .screenshot img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* Device mockups */
-        .device-showcase {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 4rem;
-            margin: 4rem 0;
-        }
-        
-        .device-mockup {
-            position: relative;
-            text-align: center;
-        }
-        
-        .device-mockup img {
-            max-width: 200px;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-        }
-        
-        .device-label {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-        
-        /* Lightbox */
-        .lightbox {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease;
-        }
-        
-        .lightbox.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .lightbox-content {
-            position: relative;
-            max-width: 90vw;
-            max-height: 90vh;
-        }
-        
-        .lightbox img {
-            max-width: 100%;
-            max-height: 90vh;
-            border-radius: 10px;
-        }
-        
-        .lightbox-close {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            padding: 10px;
-        }
-        
-        /* Gameplay section */
-        .gameplay-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .gameplay-item {
-            background: rgba(255,255,255,0.05);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .gameplay-item h3 {
-            color: #6ef;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-        
-        /* Controls section */
-        .controls-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .control-method {
-            text-align: center;
-            background: rgba(255,255,255,0.05);
-            padding: 2rem;
-            border-radius: 15px;
-        }
-        
-        .control-method h3 {
-            font-family: 'Megrim', sans-serif;
-            color: #6ef;
-            margin-bottom: 1rem;
-        }
-        
-        /* FAQ section */
-        .faq {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
+
+        /* FAQ */
         .faq-item {
-            background: rgba(255,255,255,0.05);
-            border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--bg-glass-border);
         }
-        
-        .faq-item summary {
-            padding: 1.5rem;
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: var(--space-6) 0;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: var(--text-lg);
+            font-weight: 500;
             cursor: pointer;
-            font-weight: 600;
-            color: #6ef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        
-        .faq-item p {
-            padding: 0 1.5rem 1.5rem;
-            color: #ddd;
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+            color: var(--text-secondary);
         }
-        
-        /* Download section */
-        .download-section {
-            text-align: center;
-            background: linear-gradient(45deg, #001122, #002244);
+
+        .faq-question.open .faq-arrow {
+            transform: rotate(90deg);
         }
-        
-        /* Footer */
-        .footer {
-            background: #000;
-            padding: 2rem 0;
-            text-align: center;
-        }
-        
-        .footer-links {
-            margin-bottom: 1rem;
-        }
-        
-        .footer-links a {
-            color: #6ef;
-            text-decoration: none;
-            margin: 0 1rem;
-        }
-        
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Mobile responsive */
-        @media (max-width: 768px) {
-            .hero {
-                min-height: 100vh;
-                padding: 1rem;
-            }
-            
-            .section {
-                padding: 2rem 0;
-            }
-            
-            .container {
-                padding: 0 1rem;
-            }
-            
-            .gameplay-grid,
-            .controls-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .video-showcase {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .device-showcase {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            
-            .screenshots-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+
+        .faq-answer.open {
+            opacity: 1;
+            padding-bottom: var(--space-6);
         }
     </style>
+
+    <!-- Scripts -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'default', { 'analytics_storage': 'denied' });
+        gtag('js', new Date());
+        gtag('config', 'G-HLY6ZZMNBQ');
+    </script>
+    <script src="scripts.js" defer></script>
 </head>
 
 <body>
+
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="navbar-content">
-            <a href="./index.html">
-                <img src="images/logo.png" alt="Extiri" class="navbar-logo">
+        <div class="container navbar-inner">
+            <a href="./index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Extiri Logo">
             </a>
+
             <div class="nav-links">
-                <a href="./index.html#home">Home</a>
-                <a href="./index.html#apps">Apps</a>
-                <a href="./blog/index.html">Blog</a>
+                <a href="./index.html#home" class="nav-link">Home</a>
+                <a href="./index.html#apps" class="nav-link">Apps</a>
+                <a href="./blog/index.html" class="nav-link">Blog</a>
             </div>
-            <button class="mobile-menu-btn">☰</button>
+
+            <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
+                ☰
+            </button>
         </div>
     </nav>
-    
-    <!-- Main content -->
-    <main>
-        <!-- Hero section -->
-        <section class="hero">
-            <video autoplay muted loop playsinline class="hero-video">
-                <source src="images/space_train/ipad-gameplay.mp4" type="video/mp4">
-            </video>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <img src="images/space_train/space-train-icon.png" alt="Space Train" class="app-icon animate-scale-in">
-                <h1 class="animate-fade-up" style="animation-delay: 0.2s;">Space Train</h1>
-                <p class="tagline animate-fade-up" style="animation-delay: 0.4s;">Deliver cargo across the stars</p>
-                <p class="hero-description animate-fade-up" style="animation-delay: 0.6s;">Each journey is a cosmic adventure—keep your cargo safe and race through the galaxy for as long as you can outsmart the dangers of deep space.</p>
-                
-                <a href="https://apps.apple.com/app/space-train" class="download-btn animate-fade-up disabled" style="animation-delay: 0.8s;" target="_blank" rel="noopener">
-                    <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store">
-                </a>
-                
-                <div class="features-bar animate-fade-up" style="animation-delay: 1s;">
-                    <span class="feature-badge">Works offline</span>
-                    <span class="feature-badge">iPhone • iPad • Mac</span>
-                    <span class="feature-badge">Free</span>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Gameplay showcase with video -->
-        <section class="section">
-            <div class="container">
-                <h2 class="animate-on-scroll">Deliver Cargo Between Stations</h2>
-                <div class="video-showcase">
-                    <div class="video-wrapper animate-on-scroll">
-                        <video autoplay muted loop playsinline>
-                            <source src="images/space_train/ipad-gameplay.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-text animate-on-scroll">
-                        <h3>Navigate the Field</h3>
-                        <p>Pilot your space-train through drifting obstacles. Move freely across the play area — you're not locked to tracks. Every run is about survival and precision.</p>
-                    </div>
-                </div>
-                
-                <div class="video-showcase">
-                    <div class="video-text animate-on-scroll">
-                        <h3>Reach the Next Station</h3>
-                        <p>Each successful delivery extends your journey. Stations restore your cargo and mark your progress. The goal is simple: survive long enough to keep delivering.</p>
-                    </div>
-                    <div class="video-wrapper animate-on-scroll">
-                        <img src="images/space_train/tablet-screenshot-4.png" alt="Station approach" style="width: 100%; border-radius: 15px;">
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Screenshots gallery -->
-        <section class="section alt">
-            <div class="container">
-                <h2 class="animate-on-scroll">See It In Action</h2>
-                <div class="screenshots-grid">
-                    <div class="screenshot animate-on-scroll" onclick="openLightbox('images/space_train/phone-screenshot-1.png')">
-                        <img src="images/space_train/phone-screenshot-1.png" alt="Space Train gameplay">
-                    </div>
-                    <div class="screenshot animate-on-scroll" onclick="openLightbox('images/space_train/phone-screenshot-2.png')">
-                        <img src="images/space_train/phone-screenshot-2.png" alt="Space Train gameplay">
-                    </div>
-                    <div class="screenshot animate-on-scroll" onclick="openLightbox('images/space_train/phone-screenshot-3.png')">
-                        <img src="images/space_train/phone-screenshot-3.png" alt="Space Train gameplay">
-                    </div>
-                    <div class="screenshot animate-on-scroll" onclick="openLightbox('images/space_train/phone-screenshot-4.png')">
-                        <img src="images/space_train/phone-screenshot-4.png" alt="Space Train gameplay">
-                    </div>
-                    <div class="screenshot animate-on-scroll" onclick="openLightbox('images/space_train/phone-screenshot-5.png')">
-                        <img src="images/space_train/phone-screenshot-5.png" alt="Space Train gameplay">
-                    </div>
-                    <div class="screenshot animate-on-scroll" onclick="openLightbox('images/space_train/tablet-screenshot-1.png')">
-                        <img src="images/space_train/tablet-screenshot-1.png" alt="Space Train gameplay">
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Device showcase -->
-        <section class="section dark">
-            <div class="container">
-                <h2 class="animate-on-scroll">Play Anywhere</h2>
-                <div class="device-showcase">
-                    <div class="device-mockup animate-on-scroll">
-                        <img src="images/space_train/phone-screenshot-1.png" alt="Space Train on iPhone" style="max-width: 150px;">
-                        <div class="device-label">iPhone</div>
-                    </div>
-                    <div class="device-mockup animate-on-scroll">
-                        <img src="images/space_train/tablet-screenshot-1.png" alt="Space Train on iPad" style="max-width: 200px;">
-                        <div class="device-label">iPad</div>
-                    </div>
-                    <div class="device-mockup animate-on-scroll">
-                        <img src="images/space_train/tablet-screenshot-2.png" alt="Space Train on Mac" style="max-width: 200px;">
-                        <div class="device-label">Mac</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Controls section -->
-        <section class="section">
-            <div class="container">
-                <h2 class="animate-on-scroll">Designed for Every Device</h2>
-                <div class="controls-grid">
-                    <div class="control-method animate-on-scroll">
-                        <img src="images/space_train/phone-screenshot-2.png" alt="Touch controls" style="width: 200px; margin-bottom: 1rem; border-radius: 10px;">
-                        <h3>Touch Controls</h3>
-                        <p>Intuitive drag controls. Vertical for positioning, horizontal for fine adjustments. Tap to fire and shield.</p>
-                    </div>
-                    <div class="control-method animate-on-scroll">
-                        <img src="images/space_train/tablet-screenshot-3.png" alt="Keyboard controls" style="width: 200px; margin-bottom: 1rem; border-radius: 10px;">
-                        <h3>Keyboard (iPad/Mac)</h3>
-                        <p>Keyboard controls. WASD for movement, K for missiles, H for shields. Perfect for extended play sessions.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- FAQ section -->
-        <section class="section">
-            <div class="container">
-                <h2>FAQ</h2>
-                <div class="faq">
-                    <details class="faq-item">
-                        <summary>How long does a run last?</summary>
-                        <p>A run continues until you lose all cargo. You may play quick attempts or sustain much longer runs depending on how well you navigate hazards and use resources.</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary>What platforms is it available on?</summary>
-                        <p>Space Train is available on iPhone, iPad, and Mac. It works offline and supports both touch controls on mobile and keyboard controls on iPad/Mac.</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary>Are there in-app purchases?</summary>
-                        <p>There are no pay-to-win mechanics. Ads will appear between runs and on the main screen; a one-time purchase removes them permanently.</p>
-                    </details>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Download section -->
-        <section class="section download-section">
-            <div class="container">
-                <h2>Ready to Pilot Your Space Train?</h2>
-                <div style="text-align: center; margin-bottom: 2rem;">
-                    <img src="images/space_train/space-train-icon.png" alt="Space Train" style="width: 80px; height: 80px; border-radius: 18px; margin-bottom: 1rem;">
-                </div>
-                <a href="https://apps.apple.com/app/space-train" class="download-btn disabled" target="_blank" rel="noopener">
-                    <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store">
-                </a>
-                <div style="margin-top: 2rem; font-size: 0.9rem; color: #aaa;">
-                    <p>Available on iPhone, iPad, and Mac • Works offline • Universal purchase</p>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <div class="lightbox-content" onclick="event.stopPropagation()">
-            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-            <img id="lightbox-img" src="" alt="">
-        </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="./index.html#home" class="nav-link" onclick="toggleMobileMenu()">Home</a>
+        <a href="./index.html#apps" class="nav-link" onclick="toggleMobileMenu()">Apps</a>
+        <a href="./blog/index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a>
     </div>
-    
+
+    <!-- Hero Section -->
+    <header class="hero hero-spacetrain">
+        <div class="container hero-content animate-fade-in">
+            <img src="images/space_train/space-train-icon.png" alt="Space Train Icon"
+                style="width: 96px; height: 96px; border-radius: 22px; margin: 0 auto var(--space-6) auto; filter: drop-shadow(0 0 30px rgba(100, 200, 255, 0.3));">
+
+            <h2
+                style="color: #6ef; font-family: var(--font-sans); font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-2); letter-spacing: 0.05em; text-transform: uppercase;">
+                Space Train</h2>
+
+            <h1 class="hero-title hero-title-spacetrain">Runs that match<br>your skill</h1>
+
+            <p class="hero-subtitle delay-100">Pilot a compact space-train across a scrolling field. Each journey is a
+                cosmic adventure—keep your cargo safe and race through the galaxy.</p>
+
+            <div class="flex-center delay-200" style="flex-wrap: wrap; margin-bottom: var(--space-8);">
+                <span class="badge">iPhone</span>
+                <span class="badge">iPad</span>
+                <span class="badge">Mac</span>
+                <span class="badge">Offline</span>
+            </div>
+
+            <div class="hero-actions delay-300">
+                <a href="https://apps.apple.com/app/space-train" class="btn btn-primary"
+                    style="background: #6ef; color: #000;">Download on App Store</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Video Section -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div
+                style="position: relative; width: 100%; padding-bottom: 56.25%; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-xl); border: 1px solid var(--bg-glass-border);">
+                <video autoplay muted loop playsinline
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    <source src="images/space_train/ipad-gameplay.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="section">
+        <div class="container">
+            <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
+                <p class="text-gradient"
+                    style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">
+                    Gameplay</p>
+                <h2>Deliver cargo across the stars</h2>
+                <p>Pilot your space-train through drifting obstacles. Move freely across the play area — you're not
+                    locked to tracks.</p>
+            </div>
+
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <div class="card card-glass">
+                    <div class="feature-icon-box" style="background: rgba(100, 200, 255, 0.1); color: #6ef;">🚀</div>
+                    <h4>Navigate the Field</h4>
+                    <p>Move freely across the play area. Every run is about survival and precision.</p>
+                </div>
+                <div class="card card-glass">
+                    <div class="feature-icon-box" style="background: rgba(100, 200, 255, 0.1); color: #6ef;">🚉</div>
+                    <h4>Reach Stations</h4>
+                    <p>Each successful delivery extends your journey. Stations restore your cargo and mark your
+                        progress.</p>
+                </div>
+                <div class="card card-glass">
+                    <div class="feature-icon-box" style="background: rgba(100, 200, 255, 0.1); color: #6ef;">🎮</div>
+                    <h4>Play Anywhere</h4>
+                    <p>Available on iPhone, iPad, and Mac with support for touch and keyboard controls.</p>
+                </div>
+                <div class="card card-glass">
+                    <div class="feature-icon-box" style="background: rgba(100, 200, 255, 0.1); color: #6ef;">🚫</div>
+                    <h4>No Pay-to-Win</h4>
+                    <p>Pure skill-based gameplay. Optional one-time purchase to remove ads.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: var(--space-12);">Screenshots</h2>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div style="text-align: center;">
+                    <img src="images/space_train/phone-screenshot-1.png" alt="Gameplay 1"
+                        style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
+                </div>
+                <div style="text-align: center;">
+                    <img src="images/space_train/phone-screenshot-2.png" alt="Gameplay 2"
+                        style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
+                </div>
+                <div style="text-align: center;">
+                    <img src="images/space_train/phone-screenshot-3.png" alt="Gameplay 3"
+                        style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
+                </div>
+                <div style="text-align: center;">
+                    <img src="images/space_train/phone-screenshot-4.png" alt="Gameplay 4"
+                        style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Controls -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: var(--space-12);">Designed for Every Device</h2>
+            <div class="grid">
+                <article class="app-card-large">
+                    <div class="app-card-content">
+                        <h3>Touch Controls</h3>
+                        <p>Intuitive drag controls. Vertical for positioning, horizontal for fine adjustments. Tap to
+                            fire and shield.</p>
+                    </div>
+                    <div class="app-card-media">
+                        <img src="images/space_train/phone-screenshot-2.png" alt="Touch Controls">
+                    </div>
+                </article>
+
+                <article class="app-card-large reversed">
+                    <div class="app-card-content">
+                        <h3>Keyboard (iPad/Mac)</h3>
+                        <p>Keyboard controls. WASD for movement, K for missiles, H for shields. Perfect for extended
+                            play sessions.</p>
+                    </div>
+                    <div class="app-card-media">
+                        <img src="images/space_train/tablet-screenshot-3.png" alt="Keyboard Controls">
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+        <div class="container" style="max-width: 800px;">
+            <h2 style="text-align: center; margin-bottom: var(--space-8);">FAQ</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">How long does a run last?<span class="faq-arrow">▶</span></button>
+                    <div class="faq-answer">
+                        <p>A run continues until you lose all cargo. You may play quick attempts or sustain much longer
+                            runs depending on how well you navigate hazards and use resources.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What platforms is it available on?<span
+                            class="faq-arrow">▶</span></button>
+                    <div class="faq-answer">
+                        <p>Space Train is available on iPhone, iPad, and Mac. It works offline and supports both touch
+                            controls on mobile and keyboard controls on iPad/Mac.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Are there in-app purchases?<span class="faq-arrow">▶</span></button>
+                    <div class="faq-answer">
+                        <p>There are no pay-to-win mechanics. Ads will appear between runs and on the main screen; a
+                            one-time purchase removes them permanently.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-links">
-                <a href="mailto:support@extiri.com">Support</a>
-                <a href="game-privacy.html">Privacy</a>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="Extiri" width="100" style="opacity: 0.8;">
+                    <p>Extiri is an independent software studio crafting simple, well‑crafted apps for macOS, iOS, and
+                        web.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="./codemenu.html">CodeMenu</a></li>
+                        <li><a href="./chitneek.html">Chitneek</a></li>
+                        <li><a href="./clipguru.html">ClipGuru</a></li>
+                        <li><a href="./slowko.html">Słówko</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="./index.html#about">About</a></li>
+                        <li><a href="./blog/index.html">Blog</a></li>
+                        <li><a href="privacy_policy.html">Privacy Policy</a></li>
+                        <li><a href="mailto:wiktor.wojcik@extiri.com">Contact</a></li>
+                    </ul>
+                </div>
             </div>
-            <p>&copy; 2025 Extiri</p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Extiri. All rights reserved.</p>
+                <p>Made for iOS, iPadOS & macOS.</p>
+            </div>
         </div>
     </footer>
-    
+
+    <!-- FAQ Script -->
     <script>
-        function openLightbox(imageSrc) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            lightboxImg.src = imageSrc;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        
-        // Close lightbox with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            }
-        });
-        
-        // Intersection Observer for scroll animations
-        document.addEventListener('DOMContentLoaded', function() {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.onclick = function () {
+                const answer = this.nextElementSibling;
+                const isOpen = this.classList.contains('open');
+
+                // Close all
+                document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('open'));
+                document.querySelectorAll('.faq-answer').forEach(a => {
+                    a.style.maxHeight = null;
+                    a.classList.remove('open');
                 });
-            }, observerOptions);
-            
-            // Observe all elements with animate-on-scroll class
-            const animateElements = document.querySelectorAll('.animate-on-scroll');
-            animateElements.forEach(function(element) {
-                observer.observe(element);
-            });
-            
-            // Add staggered animation delays to screenshot grid
-            const screenshots = document.querySelectorAll('.screenshots-grid .screenshot');
-            screenshots.forEach(function(screenshot, index) {
-                screenshot.style.animationDelay = (index * 0.1) + 's';
-            });
-            
-            // Add staggered animation delays to device showcase
-            const devices = document.querySelectorAll('.device-showcase .device-mockup');
-            devices.forEach(function(device, index) {
-                device.style.animationDelay = (index * 0.2) + 's';
-            });
+
+                if (!isOpen) {
+                    this.classList.add('open');
+                    answer.classList.add('open');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            };
         });
     </script>
 </body>
+
 </html>

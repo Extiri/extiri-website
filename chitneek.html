@@ -1,396 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chitneek — Read aloud PDF & EPUB on iPhone (private, on-device)</title>
+    <meta name="description"
+        content="Chitneek — private on-device reader for PDF and EPUB on iPhone and iPad. Read aloud PDF and EPUB locally with no uploads or accounts.">
+    <meta name="theme-color" content="#050505">
+
+    <!-- Fonts -->
+    <link rel="preload" href="/fonts/InstrumentSerif-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Page-specific overrides */
+        .hero-chitneek {
+            background: radial-gradient(circle at 50% 30%, rgba(38, 171, 236, 0.08) 0%, rgba(5, 5, 5, 0) 60%);
+        }
+
+        .feature-icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-4);
+            font-size: 1.5rem;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--bg-glass-border);
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: var(--space-6) 0;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: var(--text-lg);
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+            color: var(--text-secondary);
+        }
+
+        .faq-question.open .faq-arrow {
+            transform: rotate(90deg);
+        }
+
+        .faq-answer.open {
+            opacity: 1;
+            padding-bottom: var(--space-6);
+        }
+    </style>
+
+    <!-- Scripts -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);} 
-
+        function gtag() { dataLayer.push(arguments); }
         gtag('consent', 'default', { 'analytics_storage': 'denied' });
         gtag('js', new Date());
         gtag('config', 'G-HLY6ZZMNBQ');
     </script>
-
-    <title>Chitneek — Read aloud PDF & EPUB on iPhone (private, on-device)</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Chitneek — private on-device reader for PDF and EPUB on iPhone and iPad. Read aloud PDF and EPUB locally with no uploads or accounts.">
-    <link rel="canonical" href="https://extiri.com/chitneek.html">
-    <link rel="preload" href="/fonts/InstrumentSerif-Regular.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-            /* Page-scoped fixes: force left-aligned lists and readable flow */
-            .feature-belt-grid, .screenshot-gallery, .feature-panel, .app-split-copy, .app-split {
-                text-align: left !important;
-                direction: ltr !important;
-            }
-
-            /* set per-page accent so bullets and icons match app color */
-            .feature-list { --accent: #26ABEC; }
-
-            /* make lists use native markers again (fix wrapping issues) */
-            .feature-list {
-                list-style: disc inside;
-                padding-left: 1.05em;
-                margin: 0 0 20px 0;
-            }
-            .feature-list li { line-height: 1.45; }
-            .feature-list li::marker { color: var(--accent); font-weight: 700; }
-
-            /* remove card backgrounds on landing pages (footer keeps its background)
-               then keep panels transparent by default but allow page-scoped tints below */
-            body.app-landing .section-card,
-            body.app-landing .screenshot-card,
-            body.app-landing .feature-belt-grid > article {
-                background: transparent !important;
-                border: none !important;
-                filter: none !important;
-                padding: 0 !important;
-            }
-
-            /* Chitneek: translucent blue feature panels and extra spacing above features */
-            body.app-landing.chitneek-page .feature-belt { margin-top: 56px !important; }
-            body.app-landing.chitneek-page .feature-panel {
-                background: linear-gradient(180deg, rgba(38,171,236,0.10), rgba(38,171,236,0.04)) !important;
-                border: 1px solid rgba(38,171,236,0.08) !important;
-                filter: drop-shadow(0 10px 30px rgba(6,6,20,0.45)) !important;
-                padding: clamp(18px, 2.4vw, 26px) !important;
-                border-radius: 14px !important;
-            }
-
-            /* Make App Store badge visually neutral in hero/CTA areas (do not affect navbar) */
-            .hero-actions a.download-chitneek,
-            .cta-card a.download-chitneek {
-                background: transparent !important;
-                padding: 0 !important;
-            }
-            .hero-actions a.download-chitneek img,
-            .cta-card a.download-chitneek img { background: transparent !important; display: inline-block; }
-
-            /* Replace emoji sizing with SVG sizing helper and use app accent */
-            .feature-icon svg { width: 28px; height: 28px; display:inline-block; vertical-align:middle; margin-right:10px; }
-            .feature-icon svg { stroke: var(--accent); }
-            @media (max-width:780px) { .feature-icon svg { width:22px; height:22px; } }
-
-            /* Center FAQ text and heading for readability */
-            #faq h2 { text-align: center; }
-            #faq .faq-list, #faq .faq-answer, #faq .faq-question { text-align: center; }
-            /* Remove shadows around sections on this page to keep visuals subtle */
-            .section, .section-card, body.app-landing .section, body.app-landing .section-card {
-                box-shadow: none !important;
-                -webkit-box-shadow: none !important;
-                filter: none !important;
-                -webkit-filter: none !important;
-            }
-
-            /* Strongly override global grid-based feature-list so items render as native list items */
-            .feature-list {
-                list-style: disc inside !important;
-                margin: 0 0 20px 0 !important;
-                padding-left: 1.05em !important;
-            }
-            .feature-list li {
-                display: list-item !important;
-                grid-template-columns: none !important;
-                gap: 0 !important;
-                margin: 10px 0 !important;
-                color: var(--text-muted, rgba(214,220,232,0.85)) !important;
-                line-height: 1.45;
-            }
-            .feature-list li::before { content: none !important; }
-            .feature-list li::marker { color: var(--accent); font-weight: 700; font-size: 1.02rem; }
-    </style>
-    <meta name="theme-color" content="#050608">
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "Chitneek",
-            "url": "https://extiri.com/chitneek.html",
-            "description": "Chitneek helps you read aloud PDF and EPUB files on iPhone using private, on-device voices.",
-            "applicationCategory": "MobileApplication",
-            "operatingSystem": "iOS",
-            "keywords": "read aloud pdf, read aloud epub, pdf reader ios, text to speech",
-            "offers": {
-                "@type": "Offer",
-                "price": "0.00",
-                "priceCurrency": "USD",
-                "url": "https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870"
-            },
-            "downloadUrl": "https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870"
-        }
-    </script>
     <script src="scripts.js" defer></script>
-    <script>
-      function goToHome() {
-        location.href = "./index.html#home";
-      }
-
-      function goToApps() {
-        location.href = "./index.html#apps";
-      }
-
-      function goToBlog() {
-        location.href = "./blog/index.html";
-      }
-    </script>
 </head>
-<body class="app-landing chitneek-page">
-    <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <div id="cookie-consent-banner" class="cookie-consent-banner">
-        <div class="cookie-consent-content">
-            <p>We use cookies and other tracking technologies to improve your browsing experience. By clicking "Accept All," you consent to our use of these technologies. You can learn more in our <a href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</p>
-            <div class="cookie-consent-buttons">
-                <button id="accept-cookies" class="button-primary">Accept All</button>
-                <button id="decline-cookies" class="button-secondary">Decline</button>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-inner">
+            <a href="./index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Extiri Logo">
+            </a>
+
+            <div class="nav-links">
+                <a href="./index.html#home" class="nav-link">Home</a>
+                <a href="./index.html#apps" class="nav-link">Apps</a>
+                <a href="./blog/index.html" class="nav-link">Blog</a>
             </div>
+
+            <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
+                ☰
+            </button>
         </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="./index.html#home" class="nav-link" onclick="toggleMobileMenu()">Home</a>
+        <a href="./index.html#apps" class="nav-link" onclick="toggleMobileMenu()">Apps</a>
+        <a href="./blog/index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a>
     </div>
 
-    <div class="navbar">
-        <div class="navbar-content">
-            <a href="./index.html"><img src="images/logo.png" width="110" height="34" class="navbar-logo" alt="Extiri logo"></a>
-            <span class="big_screen">
-                <p class="navbar-item" onclick="goToHome()">Home</p>
-                <p class="navbar-item" onclick="goToApps()">Apps</p>
-                <p class="navbar-item" onclick="goToBlog()">Blog</p>
-                <a href="https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870" class="navbar-download download-chitneek" aria-label="Download Chitneek on the App Store">Download now</a>
-            </span>
-            <span class="small_screen">
-                <img src="images/hamburger-icon.webp" class="navbar-item" style="position: absolute; top: 11px; width: 30px !important;" onclick="toggleHamburger()" alt="Menu button">
-                <div id="hamburger_menu" class="hamburger_menu">
-                    <div class="hamburger_menu_content">
-                        <p class="navbar-item" onclick="goToHome()">Home</p>
-                        <p class="navbar-item" onclick="goToApps()">Apps</p>
-                        <p class="navbar-item" onclick="goToBlog()">Blog</p>
-                        <p class="navbar-item navbar-download download-chitneek" onclick="location.href='https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870'" role="link" aria-label="Download Chitneek on the App Store">Download</p>
-                    </div>
-                </div>
-            </span>
-        </div>
-    </div>
+    <!-- Hero Section -->
+    <header class="hero hero-chitneek">
+        <div class="container hero-content animate-fade-in">
+            <img src="images/czytnik/czytnik-icon.png" alt="Chitneek Icon"
+                style="width: 96px; height: 96px; border-radius: 22px; margin: 0 auto var(--space-6) auto; filter: drop-shadow(0 0 30px rgba(38, 171, 236, 0.3));">
 
-    <main id="main-content">
-        <section class="landing-hero">
-            <div class="app-hero-grid">
-                <div class="hero-text">
-                    <p class="hero-eyebrow">Privately read aloud</p>
-                    <img src="images/czytnik/czytnik-icon.png" alt="Chitneek app icon" class="hero-icon">
-                    <h1 class="hero-title">Chitneek</h1>
-                    <p class="hero-description">Chitneek for iOS — a private, on-device reader that can read aloud PDF and EPUB files on iPhone and iPad. Offline voices, organized library, CarPlay support, and simple import from Files or Share Sheet.</p>
-                    <div class="hero-actions">
-                        <a href="https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870" class="button-primary download-chitneek" aria-label="Download Chitneek on the App Store">
-                            <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download Chitneek on the App Store" style="height:44px; width:auto; display:block;">
-                        </a>
+            <h2
+                style="color: var(--color-chitneek); font-family: var(--font-sans); font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-2); letter-spacing: 0.05em; text-transform: uppercase;">
+                Chitneek</h2>
+
+            <h1 class="hero-title">Privately read aloud</h1>
+
+            <p class="hero-subtitle delay-100">A private, on-device reader that can read aloud PDF and EPUB files on
+                iPhone and iPad. Offline voices, organized library, and CarPlay support.</p>
+
+            <div class="flex-center delay-200" style="flex-wrap: wrap; margin-bottom: var(--space-8);">
+                <span class="badge">iOS</span>
+                <span class="badge">iPadOS</span>
+                <span class="badge">CarPlay</span>
+            </div>
+
+            <div class="hero-actions delay-300">
+                <a href="https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870" class="btn btn-primary"
+                    style="background: var(--color-chitneek); color: #fff;">Download on App Store</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Grid -->
+    <section class="section">
+        <div class="container">
+            <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
+                <p class="text-gradient"
+                    style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">
+                    Why Chitneek</p>
+                <h2>Simple, privacy-focused listening</h2>
+                <p>Chitneek turns PDFs, EPUBs, notes, and web content into audio — all processed on your device.</p>
+            </div>
+
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <div class="card card-glass">
+                    <div class="feature-icon-box"
+                        style="background: rgba(38, 171, 236, 0.1); color: var(--color-chitneek);">🔒</div>
+                    <h4>Private & Offline</h4>
+                    <p>Files stay on your device for reliable, private listening without internet.</p>
+                </div>
+                <div class="card card-glass">
+                    <div class="feature-icon-box"
+                        style="background: rgba(38, 171, 236, 0.1); color: var(--color-chitneek);">📚</div>
+                    <h4>Organized Library</h4>
+                    <p>Use named groups to keep content tidy and easy to find.</p>
+                </div>
+                <div class="card card-glass">
+                    <div class="feature-icon-box"
+                        style="background: rgba(38, 171, 236, 0.1); color: var(--color-chitneek);">🗣️</div>
+                    <h4>Natural Voices</h4>
+                    <p>Uses Apple’s built‑in iOS voices for a natural experience.</p>
+                </div>
+                <div class="card card-glass">
+                    <div class="feature-icon-box"
+                        style="background: rgba(38, 171, 236, 0.1); color: var(--color-chitneek);">✨</div>
+                    <h4>Simple by Design</h4>
+                    <p>No accounts, no cloud — just add, tap, and listen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deep Dive Sections -->
+    <section class="section">
+        <div class="container">
+            <div class="grid">
+                <article class="app-card-large">
+                    <div class="app-card-content">
+                        <h3>Listening, Your Way</h3>
+                        <p>Customizable playback, CarPlay support, and clear audio keep narration comfortable on every
+                            drive, walk, or focus session.</p>
+                        <ul style="list-style: none; padding: 0; color: var(--text-secondary);">
+                            <li style="margin-bottom: 8px;">• <strong>Customizable playback.</strong> Adjust speech rate
+                                and pitch.</li>
+                            <li style="margin-bottom: 8px;">• <strong>CarPlay support.</strong> Distraction‑free
+                                listening on the road.</li>
+                            <li>• <strong>Clear audio.</strong> High‑quality, on-device voices.</li>
+                        </ul>
                     </div>
-                    <div class="hero-platforms" aria-label="Supported platforms">
-                        <span>iOS</span>
-                        <span>iPadOS</span>
-                        <span>CarPlay</span>
+                    <div class="app-card-media">
+                        <img src="images/czytnik/book-reader-screenshot.png" alt="Reader Screen">
+                    </div>
+                </article>
+
+                <article class="app-card-large reversed">
+                    <div class="app-card-content">
+                        <h3>Import and Discover</h3>
+                        <p>Capture documents in the format that works best for you and keep building a personal
+                            listening queue.</p>
+                        <ul style="list-style: none; padding: 0; color: var(--text-secondary);">
+                            <li style="margin-bottom: 8px;">• <strong>Easy import.</strong> Add PDFs, EPUBs from Files
+                                or share sheet.</li>
+                            <li style="margin-bottom: 8px;">• <strong>Text → PDF.</strong> Paste text or save a web
+                                page.</li>
+                            <li>• <strong>Discovery.</strong> Find books from Project Gutenberg.</li>
+                        </ul>
+                    </div>
+                    <div class="app-card-media">
+                        <img src="images/czytnik/library-screenshot.png" alt="Library View">
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: var(--space-12);">Screenshots</h2>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div style="text-align: center;">
+                    <img src="images/czytnik/library-screenshot.png" alt="Library"
+                        style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
+                    <p>Organized Library</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="images/czytnik/book-reader-screenshot.png" alt="Reader"
+                        style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
+                    <p>Reader Controls</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="images/czytnik/additional-functions-screenshot.png" alt="Tools"
+                        style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
+                    <p>More Tools</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+        <div class="container" style="max-width: 800px;">
+            <h2 style="text-align: center; margin-bottom: var(--space-8);">FAQ</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">Is Chitneek paid?<span class="faq-arrow">▶</span></button>
+                    <div class="faq-answer">
+                        <p>Yes, but there is a 7-day free trial available for both of the subscription plans - monthly
+                            and yearly.</p>
                     </div>
                 </div>
-                <div class="hero-media">
-                    <div class="device-stack">
-                        <img src="images/czytnik/library-screenshot.png" alt="Chitneek library view with groups and items" class="device-primary">
-                        <img src="images/czytnik/book-reader-screenshot.png" alt="Chitneek EPUB reader iOS — reader screen with playback controls and read aloud EPUB support" class="device-secondary">
+                <div class="faq-item">
+                    <button class="faq-question">Does Chitneek work offline?<span class="faq-arrow">▶</span></button>
+                    <div class="faq-answer">
+                        <p>Yes. Files and pasted text are processed on-device using iOS voices. Saving a web page to a
+                            PDF works offline after you save it.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Which voices does it use?<span class="faq-arrow">▶</span></button>
+                    <div class="faq-answer">
+                        <p>Chitneek uses Apple’s built-in voices, so output sounds natural and works system-wide.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How do I import content?<span class="faq-arrow">▶</span></button>
+                    <div class="faq-answer">
+                        <p>Add PDFs from Files or share into Chitneek from other apps. You can also paste text or save a
+                            web page to a PDF to listen later.</p>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <div class="app-landing-main">
-            <section class="section-card feature-belt" id="features">
-                <hr class="section-divider">
-                <h2>Why Chitneek</h2>
-                <p class="section-lead">Chitneek is a straightforward, privacy‑focused text‑to‑speech app. It turns PDFs, EPUBs, notes, and web content into audio — all processed on your device. Use Chitneek to read aloud PDF files or as an EPUB reader on iOS for comfortable, hands‑free listening.</p>
-                <div class="feature-belt-grid">
-                    <article class="feature-panel">
-                                                    <span class="feature-icon">
-                                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#26ABEC" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l7 4v6c0 5-3 9-7 11-4-2-7-6-7-11V6l7-4z"/></svg>
-                                                    </span>
-                        <h3>Private &amp; Offline</h3>
-                        <p>Files stay on your device for reliable, private listening without internet.</p>
-                    </article>
-                    <article class="feature-panel">
-                                                    <span class="feature-icon">
-                                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#26ABEC" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h14v13H3z"/><path d="M7 6v13"/></svg>
-                                                    </span>
-                        <h3>Organized Library</h3>
-                        <p>Use named groups to keep content tidy and easy to find.</p>
-                    </article>
-                    <article class="feature-panel">
-                                                    <span class="feature-icon">
-                                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#26ABEC" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M19 9a4 4 0 0 1 0 6"/></svg>
-                                                    </span>
-                        <h3>Natural Voices</h3>
-                        <p>Uses Apple’s built‑in iOS voices for a natural experience.</p>
-                    </article>
-                    <article class="feature-panel">
-                                                    <span class="feature-icon">
-                                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#26ABEC" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-                                                    </span>
-                        <h3>Simple by Design</h3>
-                        <p>No accounts, no cloud — just add, tap, and listen.</p>
-                    </article>
-                </div>
-
-                            <!-- Wide highlight: break the card rhythm with a two-column media + text section -->
-                            <section class="section" style="width:100%; max-width:1100px; margin:28px auto; display:flex; gap:24px; align-items:center;">
-                                <div style="flex:1; min-width:320px;">
-                                    <h2 style="margin-top:0;">Focused listening, anytime</h2>
-                                    <p style="margin-bottom:12px;">When you need to focus, Chitneek minimizes distractions: large playback controls, adjustable speed, and CarPlay support keep narration comfortable on long walks or drives.</p>
-                                </div>
-                                <div style="flex:1; text-align:center; min-width:260px;">
-                                    <img src="images/czytnik/book-reader-screenshot.png" alt="Chitneek EPUB reader — playback controls" style="max-width:100%; border-radius:12px; filter: drop-shadow(0 10px 30px rgba(0,0,0,0.25));">
-                                </div>
-                            </section>
-            </section>
-
-            <section class="section-card">
-                <hr class="section-divider">
-                <div class="app-split">
-                    <div class="app-split-media">
-                        <img src="images/czytnik/book-reader-screenshot.png" alt="Chitneek EPUB reader iOS — reader screen with playback controls and read aloud EPUB support">
-                    </div>
-                    <div class="app-split-copy">
-                        <h2>Listening, Your Way</h2>
-                        <p>Customizable playback, CarPlay support, and clear audio keep narration comfortable on every drive, walk, or focus session.</p>
-                        <ul class="feature-list">
-                            <li><strong>Customizable playback.</strong> Adjust speech rate and pitch to suit your preferences.</li>
-                            <li><strong>CarPlay support.</strong> Integrated playback controls for distraction‑free listening on the road.</li>
-                            <li><strong>Clear audio.</strong> High‑quality, on-device voices keep narration crisp and consistent.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section-card">
-                <hr class="section-divider">
-                <div class="app-split reverse">
-                    <div class="app-split-media">
-                        <img src="images/czytnik/library-screenshot.png" alt="Chitneek library view with groups and items">
-                    </div>
-                    <div class="app-split-copy">
-                        <h2>Import and Discover</h2>
-                        <p>Capture documents in the format that works best for you and keep building a personal listening queue.</p>
-                        <ul class="feature-list">
-                            <li><strong>Easy import.</strong> Add PDFs, EPUBs from Files or share into Chitneek from other apps.</li>
-                            <li><strong>Text → PDF.</strong> Paste text or save a web page; Chitneek creates a tidy PDF to listen to.</li>
-                            <li><strong>Discovery.</strong> Find books from Project Gutenberg and follow RSS feeds in the app.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section-card screenshots-section" id="screenshots">
-                <hr class="section-divider">
-                <h2>Screenshots</h2>
-                <div class="screenshot-gallery">
-                    <figure class="screenshot-card">
-                        <img src="images/czytnik/library-screenshot.png" alt="Chitneek library view with groups and items">
-                        <figcaption class="screenshot-caption">Organized Library — browse groups, sort, and find items fast.</figcaption>
-                    </figure>
-                    <figure class="screenshot-card">
-                        <img src="images/czytnik/book-reader-screenshot.png" alt="Book reader screen with playback controls">
-                        <figcaption class="screenshot-caption">Reader — natural iOS voices with playback controls.</figcaption>
-                    </figure>
-                    <figure class="screenshot-card">
-                        <img src="images/czytnik/additional-functions-screenshot.png" alt="Additional functions like text to PDF and discovery">
-                        <figcaption class="screenshot-caption">More tools — bookmarks, sleep timer</figcaption>
-                    </figure>
-                </div>
-            </section>
-
-            <section class="section-card cta-card" id="download">
-                <hr class="section-divider">
-                <h2>Get Chitneek</h2>
-                <p>Ready to listen? Download Chitneek from the App Store and turn your documents into audio — privately and offline.</p>
-                <div style="margin-top:18px;">
-                    <a href="https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870" class="button-primary download-chitneek" aria-label="Download Chitneek on the App Store">
-                        <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download Chitneek on the App Store" style="height:44px; width:auto; display:block;">
-                    </a>
-                </div>
-            </section>
-
-            <section class="section-card" id="faq">
-                <hr class="section-divider">
-                <h2>FAQ</h2>
-                <div class="faq-list">
-                    <div class="faq-item">
-                        <button class="faq-question"><span class="faq-text">Is Chitneek paid?</span><span class="faq-arrow">&#9654;</span></button>
-                        <div class="faq-answer">
-                            <p>Yes, but there is a 7-day free trial available for both of the subscription plans - monthly and yearly.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question"><span class="faq-text">Does Chitneek work offline?</span><span class="faq-arrow">&#9654;</span></button>
-                        <div class="faq-answer">
-                            <p>Yes. Files and pasted text are processed on-device using iOS voices. Saving a web page to a PDF works offline after you save it.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question"><span class="faq-text">Which voices does it use?</span><span class="faq-arrow">&#9654;</span></button>
-                        <div class="faq-answer">
-                            <p>Chitneek uses Apple’s built-in voices, so output sounds natural and works system-wide.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question"><span class="faq-text">How do I import content?</span><span class="faq-arrow">&#9654;</span></button>
-                        <div class="faq-answer">
-                            <p>Add PDFs from Files or share into Chitneek from other apps. You can also paste text or save a web page to a PDF to listen later.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question"><span class="faq-text">How do I make a PDF read aloud on my iPhone?</span><span class="faq-arrow">&#9654;</span></button>
-                        <div class="faq-answer">
-                            <p>Open the PDF in the Files app (or use the Share menu from another app), choose "Open in Chitneek" or "Share" → Chitneek, then tap the big play button. Chitneek will read the document out loud using on-device voices. You can adjust speed and pitch in playback controls.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question"><span class="faq-text">Is there a subscription?</span><span class="faq-arrow">&#9654;</span></button>
-                        <div class="faq-answer">
-                            <p>Yes. A subscription is required to access all features.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
-    </main>
+    </section>
 
-    <footer class="footer-apple">
-        <hr class="section-divider">
-        <p><a href="privacy_policy.html" class="secondary_link">Privacy Policy</a></p>
-        <p>Chitneek &copy; 2025. Made for iOS.</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="Extiri" width="100" style="opacity: 0.8;">
+                    <p>Extiri is an independent software studio crafting simple, well‑crafted apps for macOS, iOS, and
+                        web.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="./codemenu.html">CodeMenu</a></li>
+                        <li><a href="./chitneek.html">Chitneek</a></li>
+                        <li><a href="./clipguru.html">ClipGuru</a></li>
+                        <li><a href="./slowko.html">Słówko</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="./index.html#about">About</a></li>
+                        <li><a href="./blog/index.html">Blog</a></li>
+                        <li><a href="privacy_policy.html">Privacy Policy</a></li>
+                        <li><a href="mailto:wiktor.wojcik@extiri.com">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Extiri. All rights reserved.</p>
+                <p>Made for iOS.</p>
+            </div>
+        </div>
     </footer>
 
+    <!-- FAQ Script -->
     <script>
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    faqQuestions.forEach(btn => {
-      btn.onclick = function() {
-        const answer = this.nextElementSibling;
-        const arrow = this.querySelector('.faq-arrow');
-        if (answer.style.maxHeight) {
-          answer.style.maxHeight = null;
-          answer.style.opacity = 0;
-          this.classList.remove('open');
-          arrow.innerHTML = '&#9654;';
-        } else {
-          document.querySelectorAll('.faq-answer').forEach(a => {
-            a.style.maxHeight = null;
-            a.style.opacity = 0;
-          });
-          document.querySelectorAll('.faq-question').forEach(q => {
-            q.classList.remove('open');
-            q.querySelector('.faq-arrow').innerHTML = '&#9654;';
-          });
-          answer.style.maxHeight = answer.scrollHeight + 'px';
-          answer.style.opacity = 1;
-          this.classList.add('open');
-        }
-      };
-    });
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.onclick = function () {
+                const answer = this.nextElementSibling;
+                const isOpen = this.classList.contains('open');
+
+                // Close all
+                document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('open'));
+                document.querySelectorAll('.faq-answer').forEach(a => {
+                    a.style.maxHeight = null;
+                    a.classList.remove('open');
+                });
+
+                if (!isOpen) {
+                    this.classList.add('open');
+                    answer.classList.add('open');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            };
+        });
     </script>
 </body>
+
 </html>

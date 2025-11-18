@@ -16,12 +16,13 @@
   --text-primary: #ffffff;
   --text-secondary: #a0a0a0;
   --text-tertiary: #666666;
-  --text-accent: #ffcf66; /* Keeping the gold/yellow accent */
+  --text-accent: #ffcf66;
+  /* Keeping the gold/yellow accent */
 
   /* Brand Colors (Preserved & Enhanced) */
   --brand-primary: #eb7259;
   --brand-gradient: linear-gradient(135deg, #eb7259 0%, #ee8b3e 50%, #f0a242 100%);
-  
+
   /* App Specific Colors */
   --color-codemenu: #ffb300;
   --color-chitneek: #26ABEC;
@@ -29,7 +30,8 @@
   --color-slowko: #214A3C;
 
   /* --- Typography --- */
-  --font-sans: 'JetBrains Mono', monospace; /* Keeping as requested, though it's mono, we'll treat it as primary sans for this brand */
+  --font-sans: 'JetBrains Mono', monospace;
+  /* Keeping as requested, though it's mono, we'll treat it as primary sans for this brand */
   --font-serif: 'Instrument Serif', serif;
 
   /* Scale */
@@ -71,14 +73,16 @@
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
   --shadow-glow: 0 0 20px rgba(235, 114, 89, 0.3);
-  
+
   --transition-fast: 0.15s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.5s ease;
 }
 
 /* --- Reset & Base --- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -98,7 +102,9 @@ body {
   overflow-x: hidden;
 }
 
-img, video, svg {
+img,
+video,
+svg {
   display: block;
   max-width: 100%;
   height: auto;
@@ -111,18 +117,43 @@ a {
 }
 
 /* --- Typography --- */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-serif);
   font-weight: 400;
   line-height: 1.1;
   color: var(--text-primary);
 }
 
-h1 { font-size: var(--text-5xl); letter-spacing: -0.02em; }
-h2 { font-size: var(--text-4xl); letter-spacing: -0.01em; }
-h3 { font-size: var(--text-3xl); }
-h4 { font-size: var(--text-2xl); font-family: var(--font-sans); font-weight: 600; }
-h5 { font-size: var(--text-xl); font-family: var(--font-sans); font-weight: 600; }
+h1 {
+  font-size: var(--text-5xl);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--text-4xl);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: var(--text-3xl);
+}
+
+h4 {
+  font-size: var(--text-2xl);
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+h5 {
+  font-size: var(--text-xl);
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
 
 p {
   color: var(--text-secondary);
@@ -164,6 +195,12 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: var(--space-4);
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .flex-between {
@@ -191,7 +228,8 @@ p {
 
 .btn-primary {
   background: var(--brand-gradient);
-  color: #000; /* Better contrast on orange */
+  color: #000;
+  /* Better contrast on orange */
   box-shadow: var(--shadow-glow);
 }
 
@@ -303,7 +341,8 @@ p {
   position: relative;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
   color: var(--text-primary);
 }
 
@@ -413,7 +452,8 @@ p {
 .app-card-large.reversed {
   direction: rtl;
 }
-.app-card-large.reversed > * {
+
+.app-card-large.reversed>* {
   direction: ltr;
 }
 
@@ -438,7 +478,8 @@ p {
 .app-icon {
   width: 80px;
   height: 80px;
-  border-radius: 22%; /* Apple-ish squircle approximation */
+  border-radius: 22%;
+  /* Apple-ish squircle approximation */
   margin-bottom: var(--space-4);
 }
 
@@ -501,18 +542,18 @@ p {
     --text-5xl: 2.5rem;
     --text-4xl: 2rem;
   }
-  
+
   .app-card-large {
     grid-template-columns: 1fr;
     gap: var(--space-8);
     padding: var(--space-8);
     text-align: center;
   }
-  
+
   .app-card-large.reversed {
     direction: ltr;
   }
-  
+
   .app-card-content {
     align-items: center;
   }
@@ -522,16 +563,16 @@ p {
   .nav-links {
     display: none;
   }
-  
+
   .mobile-menu-btn {
     display: block;
   }
-  
+
   .footer-grid {
     grid-template-columns: 1fr;
     gap: var(--space-8);
   }
-  
+
   .footer-bottom {
     flex-direction: column;
     gap: var(--space-4);
@@ -540,14 +581,29 @@ p {
 
 /* --- Animations --- */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fade-in {
   animation: fadeIn 0.8s ease forwards;
 }
 
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
