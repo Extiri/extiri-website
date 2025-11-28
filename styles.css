@@ -79,6 +79,146 @@
   --transition-slow: 0.5s ease;
 }
 
+/* --- Banner --- */
+.banner {
+  background: linear-gradient(90deg, #ffb300 0%, #ffca28 100%);
+  color: #000;
+  text-align: center;
+  padding: 8px;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  position: relative;
+  z-index: 1001;
+}
+
+.banner a {
+  text-decoration: underline;
+  color: inherit;
+  font-weight: 700;
+}
+
+.banner-close {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  font-size: 1.2rem;
+  opacity: 0.6;
+}
+
+.banner-close:hover {
+  opacity: 1;
+}
+
+/* --- Tech Stack Grid --- */
+.stack-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+.stack-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-4);
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  transition: var(--transition-fast);
+  white-space: nowrap;
+}
+
+.stack-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  border-color: var(--color-codemenu);
+}
+
+/* --- Workflow Steps --- */
+.workflow-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-8);
+  position: relative;
+}
+
+.workflow-step {
+  text-align: center;
+  padding: var(--space-6);
+  background: var(--bg-surface);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-lg);
+  position: relative;
+}
+
+.workflow-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--bg-glass-border);
+  border-radius: 50%;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+  color: var(--color-codemenu);
+}
+
+/* --- Testimonials --- */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-6);
+}
+
+.testimonial-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+}
+
+.testimonial-text {
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.author-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-glass-border);
+}
+
+.author-info h5 {
+  font-size: var(--text-sm);
+  margin-bottom: 0;
+  color: var(--text-primary);
+}
+
+.author-info span {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+}
+
 /* --- Reset & Base --- */
 *,
 *::before,
@@ -308,17 +448,21 @@ p {
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--header-height);
+  height: auto;
+  min-height: var(--header-height);
   z-index: 1000;
   background: rgba(5, 5, 5, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--bg-glass-border);
   transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
 }
 
 .navbar-inner {
-  height: 100%;
+  height: var(--header-height);
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;

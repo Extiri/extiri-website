@@ -7,45 +7,45 @@ function toggleMobileMenu() {
 
 // Function to handle user consent
 function handleConsent() {
-    const banner = document.getElementById('cookie-consent-banner');
-    const acceptBtn = document.getElementById('accept-cookies');
-    const declineBtn = document.getElementById('decline-cookies');
+  const banner = document.getElementById('cookie-consent-banner');
+  const acceptBtn = document.getElementById('accept-cookies');
+  const declineBtn = document.getElementById('decline-cookies');
 
-    // Check for existing consent
-    const consent = localStorage.getItem('cookie_consent');
+  // Check for existing consent
+  const consent = localStorage.getItem('cookie_consent');
 
-    if (consent === 'accepted') {
-        // If consent was previously accepted, update gtag
-        gtag('consent', 'update', {
-            'analytics_storage': 'granted'
-        });
-    } else if (consent === 'declined') {
-        // If consent was previously declined, update gtag
-        gtag('consent', 'update', {
-            'analytics_storage': 'denied'
-        });
-    } else {
-        // No consent yet, show the banner
-        banner.style.display = 'block';
+  if (consent === 'accepted') {
+    // If consent was previously accepted, update gtag
+    gtag('consent', 'update', {
+      'analytics_storage': 'granted'
+    });
+  } else if (consent === 'declined') {
+    // If consent was previously declined, update gtag
+    gtag('consent', 'update', {
+      'analytics_storage': 'denied'
+    });
+  } else {
+    // No consent yet, show the banner
+    banner.style.display = 'block';
 
-        acceptBtn.addEventListener('click', () => {
-            localStorage.setItem('cookie_consent', 'accepted');
-            banner.style.display = 'none';
-            // Update consent status to granted
-            gtag('consent', 'update', {
-                'analytics_storage': 'granted'
-            });
-        });
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem('cookie_consent', 'accepted');
+      banner.style.display = 'none';
+      // Update consent status to granted
+      gtag('consent', 'update', {
+        'analytics_storage': 'granted'
+      });
+    });
 
-        declineBtn.addEventListener('click', () => {
-            localStorage.setItem('cookie_consent', 'declined');
-            banner.style.display = 'none';
-            // Update consent status to denied
-            gtag('consent', 'update', {
-                'analytics_storage': 'denied'
-            });
-        });
-    }
+    declineBtn.addEventListener('click', () => {
+      localStorage.setItem('cookie_consent', 'declined');
+      banner.style.display = 'none';
+      // Update consent status to denied
+      gtag('consent', 'update', {
+        'analytics_storage': 'denied'
+      });
+    });
+  }
 }
 
 // Accessible app-card expand/collapse behavior
@@ -152,7 +152,10 @@ function initScrollReveal() {
     '.home-hero-actions',
     '.apps-section-title',
     '.section-card',
-    '.preview-card'
+    '.preview-card',
+    '.stack-item',
+    '.workflow-step',
+    '.testimonial-card'
   ].join(',');
 
   const nodes = Array.from(document.querySelectorAll(revealSelector));
@@ -234,7 +237,7 @@ function initAppFilters() {
 }
 
 // Run the consent handler when the page loads and initialize card expanders
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   handleConsent();
   initCardExpanders();
   initScrollReveal();
@@ -263,10 +266,10 @@ function initSlideshow() {
   function updateViewport() {
     if (!viewport) return;
     // ensure slides fill the viewport width (use pixel translation for block content)
-  const vw = viewport.clientWidth || viewport.getBoundingClientRect().width || window.innerWidth;
-  slides.forEach(s => { s.style.minWidth = vw + 'px'; s.style.flexBasis = vw + 'px'; });
-  // translate track to show current slide in pixels
-  if (track) track.style.transform = `translateX(${ -current * vw }px)`;
+    const vw = viewport.clientWidth || viewport.getBoundingClientRect().width || window.innerWidth;
+    slides.forEach(s => { s.style.minWidth = vw + 'px'; s.style.flexBasis = vw + 'px'; });
+    // translate track to show current slide in pixels
+    if (track) track.style.transform = `translateX(${-current * vw}px)`;
     // update indicators
     indicators.forEach((btn, i) => btn.setAttribute('aria-selected', String(i === current)));
   }
@@ -357,7 +360,7 @@ function initDownloadTracking() {
     try {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: eventName, label: label || eventName });
-    } catch (e) {}
+    } catch (e) { }
   }
 
   const mapping = [

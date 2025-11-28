@@ -205,8 +205,18 @@
 
 <body>
 
+  <!-- Black Friday Banner -->
+
+
   <!-- Navigation -->
   <nav class="navbar">
+    <!-- Black Friday Banner -->
+    <div class="banner" id="bf-banner">
+      <span>🔥 <strong>Black Friday:</strong> Get 30% off the Lifetime Plan! <a
+          href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781">Claim Offer</a></span>
+      <button class="banner-close" onclick="document.getElementById('bf-banner').style.display='none'"
+        aria-label="Close banner">×</button>
+    </div>
     <div class="container navbar-inner">
       <a href="./index.html" class="nav-logo">
         <img src="images/logo.png" alt="Extiri Logo">
@@ -304,6 +314,112 @@
           <h3 style="color: #3dd68c; font-size: var(--text-xl);">Ship, learn, and improve</h3>
           <p>Turn artifacts into templates, run JavaScript helpers or HTTP calls, and share highlights to Snippex so
             your knowledge base keeps leveling up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-8) auto;">
+        <h2>Works with your stack</h2>
+        <p>CodeMenu speaks your language. Store snippets and artifacts for any technology.</p>
+      </div>
+      <div class="stack-grid">
+        <div class="stack-item" style="color: var(--text-primary); border-color: var(--color-codemenu);">Prompt</div>
+        <div class="stack-item" style="color: var(--text-primary); border-color: var(--color-codemenu);">Image</div>
+        <div class="stack-item" style="color: var(--text-primary); border-color: var(--color-codemenu);">Color</div>
+        <div class="stack-item">APL</div>
+        <div class="stack-item">PGP</div>
+        <div class="stack-item">ASN.1</div>
+        <div class="stack-item">CMake</div>
+        <div class="stack-item">C</div>
+        <div class="stack-item">C++</div>
+        <div class="stack-item">Objective-C</div>
+        <div class="stack-item">Kotlin</div>
+        <div class="stack-item">Scala</div>
+        <div class="stack-item">C#</div>
+        <div class="stack-item">Java</div>
+        <div class="stack-item">COBOL</div>
+        <div class="stack-item">CoffeeScript</div>
+        <div class="stack-item">Lisp</div>
+        <div class="stack-item">CSS/SCSS</div>
+        <div class="stack-item">Django</div>
+        <div class="stack-item">Dart</div>
+        <div class="stack-item">Dockerfile</div>
+        <div class="stack-item">Erlang</div>
+        <div class="stack-item">Fortran</div>
+        <div class="stack-item">Go</div>
+        <div class="stack-item">Groovy</div>
+        <div class="stack-item">Haskell</div>
+        <div class="stack-item">HTML</div>
+        <div class="stack-item">HTTP</div>
+        <div class="stack-item">JavaScript</div>
+        <div class="stack-item">TypeScript</div>
+        <div class="stack-item">JSON</div>
+        <div class="stack-item">ECMA</div>
+        <div class="stack-item">Jinja</div>
+        <div class="stack-item">Lua</div>
+        <div class="stack-item">Markdown</div>
+        <div class="stack-item">Maths</div>
+        <div class="stack-item">N-Triples</div>
+        <div class="stack-item">Pascal</div>
+        <div class="stack-item">Perl</div>
+        <div class="stack-item">PHP</div>
+        <div class="stack-item">PowerShell</div>
+        <div class="stack-item">Properties</div>
+        <div class="stack-item">Protobuf</div>
+        <div class="stack-item">Python</div>
+        <div class="stack-item">R</div>
+        <div class="stack-item">Ruby</div>
+        <div class="stack-item">Rust</div>
+        <div class="stack-item">Sass</div>
+        <div class="stack-item">Scheme</div>
+        <div class="stack-item">Shell</div>
+        <div class="stack-item">SQL</div>
+        <div class="stack-item">SQLite</div>
+        <div class="stack-item">SPARQL</div>
+        <div class="stack-item">MySQL</div>
+        <div class="stack-item">LaTeX</div>
+        <div class="stack-item">Swift</div>
+        <div class="stack-item">Text</div>
+        <div class="stack-item">TOML</div>
+        <div class="stack-item">Turtle</div>
+        <div class="stack-item">VB.NET</div>
+        <div class="stack-item">Vue</div>
+        <div class="stack-item">XML</div>
+        <div class="stack-item">YAML</div>
+        <div class="stack-item">RegEx</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workflow Section -->
+  <section class="section" style="background: linear-gradient(180deg, rgba(255,179,0,0.02) 0%, rgba(0,0,0,0) 100%);">
+    <div class="container">
+      <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
+        <p class="text-gradient"
+          style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">The
+          Workflow</p>
+        <h2>From Chaos to Order</h2>
+      </div>
+
+      <div class="workflow-steps">
+        <div class="workflow-step">
+          <div class="workflow-number">1</div>
+          <h3>Capture</h3>
+          <p>Don't lose the thought. Save code, prompts, and screenshots instantly with global shortcuts.</p>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-number">2</div>
+          <h3>Organize</h3>
+          <p>Connect the dots. Link related artifacts, add tags, and build a graph of your project's context.</p>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-number">3</div>
+          <h3>Automate</h3>
+          <p>Speed up. Use your stored snippets to generate boilerplate, run scripts, and ship faster.</p>
         </div>
       </div>
     </div>
@@ -420,6 +536,8 @@
       </div>
     </div>
   </section>
+
+
 
   <!-- Comparison -->
   <section class="section">
