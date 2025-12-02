@@ -687,6 +687,11 @@ p {
     --text-4xl: 2rem;
   }
 
+  /* Adjust hero padding for banner on mobile */
+  .hero {
+    padding-top: calc(var(--header-height) + 40px);
+  }
+
   .app-card-large {
     grid-template-columns: 1fr;
     gap: var(--space-8);
