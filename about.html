@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About Extiri — Purposeful apps. Fluent workflows.</title>
+    <meta name="description"
+        content="Learn about Extiri: an independent software studio crafting thoughtful, well-designed apps for macOS, iOS, and web. We believe in privacy, simplicity, and lasting quality.">
+    <meta name="keywords"
+        content="Extiri, independent studio, software company, app developer, macOS, iOS, privacy-first, indie software">
+    <meta name="theme-color" content="#050505">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://extiri.com/about.html">
+    <meta property="og:title" content="About Extiri — Purposeful apps. Fluent workflows.">
+    <meta property="og:description"
+        content="Learn about Extiri: an independent software studio crafting thoughtful, well-designed apps for macOS, iOS, and web.">
+    <meta property="og:image" content="https://extiri.com/images/extiri-og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://extiri.com/about.html">
+    <meta property="twitter:title" content="About Extiri">
+    <meta property="twitter:description"
+        content="An independent software studio crafting thoughtful, well-designed apps for macOS, iOS, and web.">
+    <meta property="twitter:image" content="https://extiri.com/images/extiri-og-image.png">
+
+    <!-- Fonts -->
+    <link rel="preload" href="/fonts/InstrumentSerif-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png">
+
+    <!-- Scripts -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'default', { 'analytics_storage': 'denied' });
+        gtag('js', new Date());
+        gtag('config', 'G-HLY6ZZMNBQ');
+    </script>
+    <script src="js/three.min.js" defer></script>
+    <script src="js/background-effect.js" defer></script>
+    <script src="scripts.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-inner">
+            <a href="./index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Extiri Logo">
+            </a>
+
+            <div class="nav-links">
+                <a href="./index.html#home" class="nav-link">Home</a>
+                <a href="./index.html#apps" class="nav-link">Apps</a>
+                <a href="./blog/index.html" class="nav-link">Blog</a>
+                <a href="./about.html" class="nav-link active">About</a>
+            </div>
+
+            <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
+                ☰
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="./index.html#home" class="nav-link" onclick="toggleMobileMenu()">Home</a>
+        <a href="./index.html#apps" class="nav-link" onclick="toggleMobileMenu()">Apps</a>
+        <a href="./blog/index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a>
+        <a href="./about.html" class="nav-link active" onclick="toggleMobileMenu()">About</a>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content animate-fade-in">
+            <h1 class="hero-title">About <span class="text-gradient">Extiri</span></h1>
+            <p class="hero-subtitle delay-100">A one-person software studio by indie developer Wiktor Wójcik, crafting thoughtful, well-designed apps for macOS, iOS, and web. Built on privacy, simplicity, and lasting quality.</p>
+        </div>
+    </header>
+
+    <!-- Story Section -->
+    <main class="section">
+        <div class="container" style="max-width: 900px;">
+            <div style="margin-bottom: var(--space-12);">
+                <h2>The Story</h2>
+                <p>Extiri started as a solo project driven by a simple belief: software should be purposeful, not cluttered. I build apps that solve real problems for real people—without surveillance, unnecessary complexity, or bloat.</p>
+                <p>Every product I ship reflects my core values: respect for your privacy, thoughtful design, and respect for your time. I don't track you, I don't sell your data, and I design features that you actually want to use.</p>
+                <p>As an indie developer, I have the freedom to focus on what matters—building tools that are genuinely useful, not chasing metrics or investor expectations.</p>
+            </div>
+
+            <div style="margin-bottom: var(--space-12);">
+                <h2>What I Build</h2>
+                <p>My product line spans productivity, accessibility, and developer tools—each addressing a specific need:</p>
+                <ul style="line-height: 1.8; color: var(--text-secondary);">
+                    <li><strong>CodeMenu</strong> — A developer knowledge base that keeps code, prompts, and context
+                        together.</li>
+                    <li><strong>Chitneek</strong> — Accessible audio for PDFs and web content, processed on your device.
+                    </li>
+                    <li><strong>ClipGuru</strong> — A fast, lightweight clipboard manager for your clipboard history.
+                    </li>
+                    <li><strong>Słówko</strong> — A mindful learning app for Polish vocabulary.</li>
+                    <li><strong>Space Train</strong> — A puzzle game that's fun and replayable.</li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: var(--space-12);">
+                <h2>My Values</h2>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-6);">
+                    <div class="card card-glass">
+                        <h4>Privacy First</h4>
+                        <p>Your data belongs to you. I build offline-first apps and never collect more than necessary.
+                        </p>
+                    </div>
+                    <div class="card card-glass">
+                        <h4>Simplicity</h4>
+                        <p>I remove the unnecessary so you can focus on what matters. No dark patterns, no features you didn't ask for.</p>
+                    </div>
+                    <div class="card card-glass">
+                        <h4>Craftsmanship</h4>
+                        <p>Every pixel, every interaction is intentional. I sweat the details because they matter.</p>
+                    </div>
+                    <div class="card card-glass">
+                        <h4>Longevity</h4>
+                        <p>I build software you can rely on for years, not products I abandon after the next trend.
+                        </p>
+                    </div>
+                    <div class="card card-glass">
+                        <h4>Independence</h4>
+                        <p>I stay independent so I can make decisions based on what's right for users, not venture capital.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-bottom: var(--space-12);">
+                <h2>Credits</h2>
+                <p><strong>Wiktor Wójcik</strong> — Founder, developer, and designer. I build every product from the ground up.</p>
+                <p><strong>Natalia Wójcik</strong> — Branding and visual identity, including the Extiri logo and key design assets.</p>
+            </div>
+
+            <div style="margin-bottom: var(--space-12);">
+                <h2>Get in Touch</h2>
+                <p>Have questions, feedback, or just want to say hello? I'd love to hear from you.</p>
+                <div style="margin-top: var(--space-6);">
+                    <p><strong>Email:</strong> <a href="mailto:hello@extiri.com" style="color: var(--color-codemenu); text-decoration: none;">hello@extiri.com</a></p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/Extiri" target="_blank" rel="noopener" style="color: var(--color-codemenu); text-decoration: none;">github.com/Extiri</a></p>
+                    <p><strong>Blog:</strong> <a href="./blog/index.html" style="color: var(--color-codemenu); text-decoration: none;">Read our latest posts</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="Extiri" width="100" style="opacity: 0.8;">
+                    <p>Extiri is an independent software studio crafting simple, well‑crafted apps for macOS, iOS, and web.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="./codemenu.html">CodeMenu</a></li>
+                        <li><a href="./chitneek.html">Chitneek</a></li>
+                        <li><a href="./clipguru.html">ClipGuru</a></li>
+                        <li><a href="./slowko.html">Slowko</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="./about.html">About</a></li>
+                        <li><a href="./blog/index.html">Blog</a></li>
+                        <li><a href="privacy_policy.html">Privacy Policy</a></li>
+                        <li><a href="codemenu/terms_of_services.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Extiri. All rights reserved.</p>
+                <p>Mac is a trademark of Apple Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
