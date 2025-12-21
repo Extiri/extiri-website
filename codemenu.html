@@ -187,6 +187,102 @@
       opacity: 1;
       padding-bottom: var(--space-6);
     }
+
+    /* Bento Grid Styles */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(2, minmax(250px, auto));
+      gap: var(--space-6);
+    }
+
+    .bento-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--bg-glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bento-large {
+      grid-column: span 7;
+      grid-row: span 2;
+    }
+
+    .bento-medium {
+      grid-column: span 5;
+      grid-row: span 1;
+    }
+
+    @media (max-width: 900px) {
+      .bento-grid {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    /* Terminal/Code Block Visuals */
+    .terminal-window {
+      background: #1e1e1e;
+      border-radius: 8px;
+      border: 1px solid #333;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: #d4d4d4;
+      padding: 12px;
+      margin-top: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .terminal-header {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .terminal-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #555;
+    }
+
+    .terminal-dot.red {
+      background: #ff5f56;
+    }
+
+    .terminal-dot.yellow {
+      background: #ffbd2e;
+    }
+
+    .terminal-dot.green {
+      background: #27c93f;
+    }
+
+    .code-line {
+      display: block;
+      line-height: 1.5;
+    }
+
+    .code-keyword {
+      color: #c678dd;
+    }
+
+    .code-string {
+      color: #98c379;
+    }
+
+    .code-func {
+      color: #61afef;
+    }
+
+    .code-comment {
+      color: #5c6370;
+      font-style: italic;
+    }
   </style>
 
   <!-- Scripts -->
@@ -249,15 +345,15 @@
         style="color: var(--color-codemenu); font-family: var(--font-sans); font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-2); letter-spacing: 0.05em; text-transform: uppercase;">
         CodeMenu</h2>
 
-      <h1 class="hero-title">Developer knowledge base for Mac</h1>
+      <h1 class="hero-title">Developer knowledge base<br>for you and your AI</h1>
 
-      <p class="hero-subtitle delay-100">The ultimate snippet manager and knowledge base. Capture code, prompts,
-        screenshots, and research—and retrieve the full story in seconds.</p>
+      <p class="hero-subtitle delay-100">The persistent context layer for your shipping stack. Store code, prompts, research, and secrets. Accessible via IDE, Terminal, or MCP.</p>
 
       <div class="flex-center delay-200" style="flex-wrap: wrap; margin-bottom: var(--space-8);">
-        <span class="badge">Private library</span>
-        <span class="badge">Graph + Semantic Search</span>
-        <span class="badge">Automation</span>
+        <span class="badge">Local-first</span>
+        <span class="badge">Semantic Search</span>
+        <span class="badge">MCP Server</span>
+        <span class="badge">Scriptable</span>
       </div>
 
       <div class="hero-actions delay-300">
@@ -285,33 +381,60 @@
     </div>
   </section>
 
-  <!-- Features Grid -->
+  <!-- Features Bento Grid -->
   <section class="section">
     <div class="container">
       <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
         <p class="text-gradient"
-          style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">Your
-          Developer Knowledge Base</p>
-        <h2>One place for context, code, and delivery</h2>
-        <p>Log the rough idea, the UI draft, the API call, and the release notes inside a single knowledge base so you
-          always know how a feature came together.</p>
+          style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">Capabilities</p>
+        <h2>Your second brain, <span style="font-family: var(--font-sans); font-size: 0.8em; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 6px;">--offline</span></h2>
+        <p>Designed for the modern developer workflow. No cloud sync required. No subscription needed.</p>
       </div>
 
-      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-        <div class="card">
-          <h3 style="color: var(--color-codemenu); font-size: var(--text-xl);">Plan inside one knowledge base</h3>
-          <p>Save feedback, naming ideas, AI drafts, and flows per project so planning notes live beside the
-            implementation.</p>
+      <div class="bento-grid">
+        <!-- Large Item: Polyglot Storage -->
+        <div class="bento-item bento-large">
+          <div class="feature-icon-box" style="background: rgba(255, 179, 0, 0.1); color: var(--color-codemenu);">📦</div>
+          <h3>Polyglot Artifact Storage</h3>
+          <p>It's not just for code. Store the entire context of your feature.</p>
+          <ul style="margin-top: 16px; list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #ffb300;">✓</span> Code Snippets (60+ langs)</li>
+            <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #ffb300;">✓</span> AI System Prompts</li>
+            <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #ffb300;">✓</span> Screenshots & Design Tokens</li>
+            <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #ffb300;">✓</span> Markdown Notes & Research</li>
+            <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #ffb300;">✓</span> Shell Scripts & Configs</li>
+            <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #ffb300;">✓</span> PDF Documentation</li>
+          </ul>
+          
+          <!-- Mini Terminal Visual -->
+          <div class="terminal-window">
+            <div class="terminal-header"><div class="terminal-dot red"></div><div class="terminal-dot yellow"></div><div class="terminal-dot green"></div></div>
+            <span class="code-line"><span class="code-keyword">const</span> <span class="code-func">artifact</span> = <span class="code-keyword">await</span> db.<span class="code-func">find</span>({ tag: <span class="code-string">'auth-flow'</span> });</span>
+            <span class="code-line"><span class="code-comment">// Returns: [React Component, Figma Screenshot, JWT Secret, API Spec]</span></span>
+          </div>
         </div>
-        <div class="card">
-          <h3 style="color: #ffe082; font-size: var(--text-xl);">Design, write, and iterate</h3>
-          <p>Keep visuals next to the notes and prompts that shaped them, and link related artifacts so every draft
-            pulls from the same knowledge base.</p>
+
+        <!-- Medium Item: AI Context -->
+        <div class="bento-item bento-medium">
+          <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;">🧠</div>
+          <h3>Context for your AI</h3>
+          <p>Stop pasting context manually. Use the <strong>MCP Server</strong> to let Claude/Cursor read your snippets directly.</p>
+          <div class="terminal-window" style="margin-top: auto;">
+             <span class="code-line"><span class="code-keyword">User:</span> @CodeMenu fetch the 'stripe-webhook' snippet</span>
+             <span class="code-line"><span class="code-keyword">AI:</span> Found it. Generating test cases based on your saved webhook handler...</span>
+          </div>
         </div>
-        <div class="card">
-          <h3 style="color: #3dd68c; font-size: var(--text-xl);">Ship, learn, and improve</h3>
-          <p>Turn artifacts into templates, run JavaScript helpers or HTTP calls, and share highlights to Snippex so
-            your knowledge base keeps leveling up.</p>
+
+        <!-- Medium Item: Automation -->
+        <div class="bento-item bento-medium">
+          <div class="feature-icon-box" style="background: rgba(61, 214, 140, 0.1); color: #3dd68c;">⚡</div>
+          <h3>Scriptable Actions</h3>
+          <p>Write JavaScript to transform clipboard content, fetch API tokens, or generate UUIDs on paste.</p>
+          <div class="terminal-window" style="margin-top: auto;">
+             <span class="code-line"><span class="code-func">onPaste</span>(async () => {</span>
+             <span class="code-line">  <span class="code-keyword">return</span> <span class="code-keyword">await</span> fetch(<span class="code-string">'/api/token'</span>);</span>
+             <span class="code-line">});</span>
+          </div>
         </div>
       </div>
     </div>
@@ -321,8 +444,8 @@
   <section class="section">
     <div class="container">
       <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-8) auto;">
-        <h2>Works with your stack</h2>
-        <p>CodeMenu speaks your language. The most versatile snippet manager for any technology.</p>
+        <h2>Syntax highlighting for 60+ languages</h2>
+        <p>Your snippets stay readable with proper highlighting.</p>
       </div>
       <div class="stack-grid">
         <div class="stack-item" style="color: var(--text-primary); border-color: var(--color-codemenu);">Prompt</div>
@@ -393,31 +516,39 @@
     </div>
   </section>
 
-  <!-- Workflow Section -->
+  <!-- Integration Stack Section -->
   <section class="section" style="background: linear-gradient(180deg, rgba(255,179,0,0.02) 0%, rgba(0,0,0,0) 100%);">
     <div class="container">
       <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
         <p class="text-gradient"
-          style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">The
-          Workflow</p>
-        <h2>From Chaos to Order</h2>
+          style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">Integration</p>
+        <h2>The missing layer in your stack</h2>
+        <p>CodeMenu sits between your editor, your terminal, and your AI tools.</p>
       </div>
 
-      <div class="workflow-steps">
+      <div class="workflow-steps" style="grid-template-columns: repeat(3, 1fr);">
+        <!-- Step 1: IDE -->
         <div class="workflow-step">
-          <div class="workflow-number">1</div>
-          <h3>Capture</h3>
-          <p>Don't lose the thought. Save code, prompts, and screenshots instantly with global shortcuts.</p>
+          <div class="workflow-number" style="border-radius: 8px; width: auto; padding: 0 12px;">IDE</div>
+          <h3>Side Window</h3>
+          <p>Keep CodeMenu pinned next to VS Code or Xcode. Drag and drop snippets, or use the <strong>Suggestions</strong> companion app to find relevant code without leaving your editor.</p>
         </div>
+        
+        <!-- Step 2: Terminal -->
         <div class="workflow-step">
-          <div class="workflow-number">2</div>
-          <h3>Organize</h3>
-          <p>Connect the dots. Link related artifacts, add tags, and build a graph of your project's context.</p>
+          <div class="workflow-number" style="border-radius: 8px; width: auto; padding: 0 12px;">CLI</div>
+          <h3>Terminal Access</h3>
+          <p>Pipe content into CodeMenu or fetch snippets via the HTTP API. Build custom aliases to insert your most used commands instantly.</p>
+          <div class="terminal-window" style="margin-top: 12px; text-align: left;">
+            <span class="code-line">$ curl localhost:3333/api/snippet/deploy-script | sh</span>
+          </div>
         </div>
+
+        <!-- Step 3: AI -->
         <div class="workflow-step">
-          <div class="workflow-number">3</div>
-          <h3>Automate</h3>
-          <p>Speed up. Use your stored snippets to generate boilerplate, run scripts, and ship faster.</p>
+          <div class="workflow-number" style="border-radius: 8px; width: auto; padding: 0 12px;">AI</div>
+          <h3>MCP Server</h3>
+          <p>Connect CodeMenu to Claude Desktop or Cursor. Give your AI agent read-access to your personal documentation and verified code patterns.</p>
         </div>
       </div>
     </div>
@@ -459,76 +590,85 @@
     </div>
   </section>
 
-  <!-- Detailed Features -->
-  <section class="section">
-    <div class="container">
-      <h2 style="text-align: center; margin-bottom: var(--space-12);">Store every part of your project</h2>
 
-      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-        <div class="card card-glass">
-          <div class="feature-icon-box" style="background: rgba(255, 179, 0, 0.1); color: var(--color-codemenu);">💻
-          </div>
-          <h4>Code & Infrastructure</h4>
-          <p>Keep artifacts, migration scripts, API payloads, shell logs, and fix notes anchored to one knowledge base.
-          </p>
-        </div>
-        <div class="card card-glass">
-          <div class="feature-icon-box" style="background: rgba(61, 214, 140, 0.1); color: #3dd68c;">🤖</div>
-          <h4>AI Prompts & Playbooks</h4>
-          <p>Save prompts, canned replies, automation notes, and checklists so your AI playbooks live inside the same
-            knowledge base. To let the Suggestions AI securely query your library, run the optional MCP server (<a href="https://github.com/Extiri/codemenu-mcp">github.com/Extiri/codemenu-mcp</a>).</p>
-        </div>
-        <div class="card card-glass">
-          <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;">🎨</div>
-          <h4>Design & Context</h4>
-          <p>Pin palettes, layout decisions, research notes, and annotated screenshots next to the code that uses them.
-          </p>
-        </div>
-        <div class="card card-glass">
-          <div class="feature-icon-box" style="background: rgba(255, 224, 130, 0.1); color: #ffe082;">📝</div>
-          <h4>Docs & Rituals</h4>
-          <p>Record onboarding steps, launch plans, personal SOPs, and meeting notes with links and offline search.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Deep Dive Sections -->
   <section class="section">
     <div class="container">
-      <h2 style="text-align: center; margin-bottom: var(--space-12);">How CodeMenu grows your knowledge base</h2>
+      <h2 style="text-align: center; margin-bottom: var(--space-12);">Key features</h2>
 
       <div class="grid">
+        <!-- Feature 1: Graph View -->
         <article class="app-card-large">
           <div class="app-card-content">
-            <h3>Capture the messy middle</h3>
-            <p>Log early thoughts, shell history, interviews, prompts, and sketches as they happen so they land in the
-              knowledge base, not an inbox.</p>
+            <div class="feature-icon-box" style="background: rgba(255, 179, 0, 0.1); color: var(--color-codemenu);">🕸️</div>
+            <h3>Visual Knowledge Graph</h3>
+            <p>Code doesn't live in isolation. Link snippets, notes, and assets together to build a navigable map of your project's context. See dependencies and relationships instantly.</p>
           </div>
           <div class="app-card-media">
-            <img src="./images/codemenu/codemenu-graphs-screenshot.png" alt="Graph View">
+            <img src="./images/codemenu/codemenu-graphs-screenshot.png" alt="Graph View showing connected nodes">
           </div>
         </article>
 
+        <!-- Feature 2: Automation -->
         <article class="app-card-large reversed">
           <div class="app-card-content">
-            <h3>Recall at the speed of a shortcut</h3>
-            <p>Pull up the prompt, clause, or migration script you need with abbreviations, side window, the Suggestions app, and
-                fast search. Optionally run the MCP server (<a href="https://github.com/Extiri/codemenu-mcp">github.com/Extiri/codemenu-mcp</a>) — it enables only the Suggestions AI to search and retrieve snippets from your workspace.</p>
+            <div class="feature-icon-box" style="background: rgba(61, 214, 140, 0.1); color: #3dd68c;">⚡</div>
+            <h3>Scriptable & Automatable</h3>
+            <p>Don't just paste static text. Create snippets that run JavaScript, execute shell commands, or fetch data from HTTP endpoints before insertion.</p>
+            
+            <div class="terminal-window">
+              <div class="terminal-header"><div class="terminal-dot red"></div><div class="terminal-dot yellow"></div><div class="terminal-dot green"></div></div>
+              <span class="code-line"><span class="code-comment">// Example: Fetch dynamic token before pasting</span></span>
+              <span class="code-line"><span class="code-keyword">const</span> response = <span class="code-keyword">await</span> fetch(<span class="code-string">'https://api.dev/token'</span>);</span>
+              <span class="code-line"><span class="code-keyword">const</span> { token } = <span class="code-keyword">await</span> response.json();</span>
+              <span class="code-line"><span class="code-keyword">return</span> <span class="code-string">`Authorization: Bearer ${token}`</span>;</span>
+            </div>
           </div>
           <div class="app-card-media">
-            <img src="./images/codemenu/side_window_and_suggestions.webp" alt="Side Window">
+            <img src="./images/codemenu/side_window_and_suggestions.webp" alt="Automation and Side Window">
           </div>
         </article>
 
+        <!-- Feature 3: AI & Semantic Search -->
         <article class="app-card-large">
           <div class="app-card-content">
-            <h3>Tools that keep momentum</h3>
-            <p>Work faster with bundled editors, converters, mock data generators, a RegEx tester, and a code-to-image
-              creator.</p>
+            <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;">🧠</div>
+            <h3>Local AI & Semantic Search</h3>
+            <p>Forget exact filenames. Search by concept ("how to center div") and let the local semantic engine find the right snippet. Generate documentation or refactor code using your own local LLMs.</p>
           </div>
           <div class="app-card-media">
-            <img src="./images/codemenu/utilities.webp" alt="Utilities">
+            <img src="./images/codemenu/promo-images/Screenshot 1.png" alt="Semantic Search Interface">
+          </div>
+        </article>
+
+        <!-- Feature 4: Extensibility API -->
+        <article class="app-card-large reversed">
+          <div class="app-card-content">
+            <div class="feature-icon-box" style="background: rgba(255, 224, 130, 0.1); color: #ffe082;">🔌</div>
+            <h3>Headless Access via HTTP</h3>
+            <p>CodeMenu isn't a walled garden. Enable the local HTTP server to access your snippets programmatically. Integrate with Raycast, Alfred, or your own CLI tools.</p>
+            
+            <div class="terminal-window">
+              <div class="terminal-header"><div class="terminal-dot red"></div><div class="terminal-dot yellow"></div><div class="terminal-dot green"></div></div>
+              <span class="code-line"><span class="code-comment"># Fetch a snippet by ID and pipe to clipboard</span></span>
+              <span class="code-line">$ curl -s http://localhost:3333/api/snippets/search?q=deploy | jq -r '.[0].content' | pbcopy</span>
+            </div>
+          </div>
+          <div class="app-card-media">
+            <img src="./images/codemenu/promo-images/Screenshot 2.png" alt="API and Integrations">
+          </div>
+        </article>
+
+        <!-- Feature 5: Utilities -->
+        <article class="app-card-large">
+          <div class="app-card-content">
+            <div class="feature-icon-box" style="background: rgba(255, 255, 255, 0.1); color: #fff;">🛠️</div>
+            <h3>Dev Utilities Toolkit</h3>
+            <p>Stop context-switching to the browser. Built-in JSON formatters, JWT decoders, Regex testers, and code-to-image generators are right there when you need them.</p>
+          </div>
+          <div class="app-card-media">
+            <img src="./images/codemenu/utilities.webp" alt="Built-in Utilities">
           </div>
         </article>
       </div>
@@ -540,38 +680,42 @@
   <!-- Comparison -->
   <section class="section">
     <div class="container">
-      <h2 style="text-align: center; margin-bottom: var(--space-8);">Why CodeMenu is more than just a snippet manager
-      </h2>
+      <h2 style="text-align: center; margin-bottom: var(--space-8);">More than a snippet manager</h2>
 
       <div style="overflow-x: auto;">
         <table class="comparison-table">
           <thead>
             <tr>
-              <th>Capability</th>
-              <th>Typical artifact manager</th>
+              <th></th>
+              <th>Basic snippet tools</th>
               <th>CodeMenu</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Artifacts stored</td>
-              <td>Code and text-only artifacts</td>
-              <td>Code, prompts, screenshots, palettes, flow diagrams, docs, research notes, and linked automations</td>
+              <td>Content types</td>
+              <td>Text</td>
+              <td>Code, prompts, images, colors, notes</td>
             </tr>
             <tr>
-              <td>Context + relationships</td>
-              <td>Tags or folders</td>
-              <td>Graph view, graph links, semantic search, custom metadata, and connected workflows</td>
+              <td>Organization</td>
+              <td>Folders, tags</td>
+              <td>Folders, tags, graph links</td>
+            </tr>
+            <tr>
+              <td>Search</td>
+              <td>Text search</td>
+              <td>Text search + semantic search</td>
             </tr>
             <tr>
               <td>Automation</td>
-              <td>Limited artifact expansion</td>
-              <td>Runnable JavaScript, HTTP triggers, dynamic placeholders, abbreviations</td>
+              <td>Text expansion</td>
+              <td>JavaScript, HTTP calls, dynamic placeholders</td>
             </tr>
             <tr>
-              <td>Privacy & control</td>
-              <td>Cloud-first, limited export</td>
-              <td>Offline-first, local workspace, export to JSON</td>
+              <td>Data storage</td>
+              <td>Cloud</td>
+              <td>Local (offline-first)</td>
             </tr>
           </tbody>
         </table>
@@ -587,29 +731,31 @@
         <div class="faq-item">
           <button class="faq-question">Is CodeMenu just a snippet manager?<span class="faq-arrow">▶</span></button>
           <div class="faq-answer">
-            <p>CodeMenu is a next-generation snippet manager and developer knowledge base. It keeps code, prompts,
-              visuals, research, and decisions together so your context and execution stay side by side.</p>
+            <p>It's a developer knowledge base. While it excels at snippets, it's designed to store your entire context: API responses, design tokens, prompt templates, and research notes. It's the long-term memory for your shipping workflow.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">What can I capture and organize?<span class="faq-arrow">▶</span></button>
+          <button class="faq-question">Where is my data stored?<span class="faq-arrow">▶</span></button>
           <div class="faq-answer">
-            <p>Save artifacts, API payloads, prompts, UX research, screenshots, PDFs, diagrams, and even audio or video
-              references. Add Markdown notes, custom metadata, tags, and graph links.</p>
+            <p>Locally on your Mac in a standard SQLite database. CodeMenu is offline-first and privacy-focused. Your code never leaves your machine unless you explicitly choose to share it.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">How does sharing and privacy work?<span class="faq-arrow">▶</span></button>
+          <button class="faq-question">What is the HTTP server for?<span class="faq-arrow">▶</span></button>
           <div class="faq-answer">
-            <p>Your library lives on your Mac and works offline by default. Publish curated spaces through
-              Snippex—Extiri’s gallery—or enable the optional HTTP server when you want to share.</p>
+            <p>The built-in HTTP server provides a local API for your other tools to access your library. It is <strong>not</strong> for public sharing. Use it to fetch snippets via scripts, integrate with Raycast/Alfred, or build custom workflows that need access to your knowledge base.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">Can I automate workflows?<span class="faq-arrow">▶</span></button>
+          <button class="faq-question">Can I use it with AI?<span class="faq-arrow">▶</span></button>
           <div class="faq-answer">
-            <p>Yes. Trigger JavaScript transforms, run shell commands, call HTTP endpoints, and use dynamic placeholders
-              to generate content on the fly.</p>
+            <p>Yes. CodeMenu is designed to be the context layer for your AI. Use the <a href="https://github.com/Extiri/codemenu-mcp">MCP server</a> to let Claude or other agents query your library, or use the local semantic search to find relevant context to paste into your LLM.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Is there a free trial?<span class="faq-arrow">▶</span></button>
+          <div class="faq-answer">
+            <p>Yes, there is a 7-day free trial available on the Mac App Store. You can choose between a one-time purchase or a subscription.</p>
           </div>
         </div>
       </div>

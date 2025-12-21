@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HLY6ZZMNBQ');
+</script>
+
+  <title>CodeMenu — Smart Snippet Manager for Mac: Code, Prompts, Colors, Images & More</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="description" content="CodeMenu is your snippet manager on macOS – capture, organize, and reuse code, prompts, images, notes, and creative assets.">
+  <meta name="keywords" content="snippet manager, personal snippet manager, augmented memory, content vault, semantic content search, snippet organizer, prompt library, offline content management">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/x-icon" href="./images/codemenu-icon.png">
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="canonical" href="https://extiri.com/codemenu.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CodeMenu",
+    "url": "https://extiri.com/codemenu.html",
+    "description": "CodeMenu — a modern snippet manager for macOS to capture, organize and reuse code, prompts, images and notes.",
+    "applicationCategory": "DeveloperTool",
+    "operatingSystem": "macOS",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD",
+      "url": "https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781"
+    },
+    "downloadUrl": "https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781"
+  }
+  </script>
+
+  <!-- Preload critical font and hero background to improve LCP -->
+  <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/images/codemenu_background.webp" as="image">
+
+  <script>
+    function goToHome() {
+      location.href = "./index.html#home"
+    }
+    
+    function goToApps() {
+      location.href = "./index.html#apps"
+    }
+    
+    function goToBlog() {
+      location.href = "./blog/index.html"
+    }
+  </script>
+
+  <!-- Load site script deferred so it doesn't block initial render -->
+  <script src="scripts.js" defer></script>
+  <style>
+    .app-hero {
+      background: url("images/codemenu_background.webp") no-repeat;
+      background-size: cover;
+      background-color: black;
+      width: 100%; /*6 53px */
+    }
+  </style>
+</head>
+
+<body>
+  <div id="cookie-consent-banner" class="cookie-consent-banner">
+    <div class="cookie-consent-content">
+        <p>We use cookies and other tracking technologies to improve your browsing experience. By clicking "Accept All," you consent to our use of these technologies. You can learn more in our <a href="privacy_policy.html" target="_blank">Privacy Policy</a>.</p>
+        <div class="cookie-consent-buttons">
+            <button id="accept-cookies" class="button-primary">Accept All</button>
+            <button id="decline-cookies" class="button-secondary">Decline</button>
+        </div>
+    </div>
+  </div>
+
+  <div class="navbar">
+    <div class="navbar-content">
+      <a href="./index.html"><img loading="eager" fetchpriority="high" decoding="async" src="images/logo.png" width="110px" class="navbar-logo" alt="Extiri logo"></img></a>
+      
+      <span class="big_screen">
+  <p class="navbar-item" onclick="goToHome()">Home</p>
+  <p class="navbar-item" onclick="goToApps()">Apps</p>
+  <p class="navbar-item" onclick="goToBlog()">Blog</p>
+  <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781" class="navbar-download download-codemenu" aria-label="Download CodeMenu on the Mac App Store">Download now</a>
+      </span>
+      
+      <span class="small_screen">
+        <img src="images/hamburger-icon.webp" class="navbar-item" alt="" style="position: absolute; top: 11px; width: 30px !important;" onclick="toggleHamburger()">
+        
+        <div id="hamburger_menu" class="hamburger_menu">
+          <div class="hamburger_menu_content">
+            <p class="navbar-item" onclick="goToHome()">Home</p>
+            <p class="navbar-item" onclick="goToApps()">Apps</p>
+            <p class="navbar-item" onclick="goToBlog()">Blog</p>
+            <p class="navbar-item navbar-download download-codemenu" onclick="location.href='https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781'" role="link" aria-label="Download CodeMenu on the Mac App Store">Download</p>
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+  
+  <div class="app-hero">
+    <section class="codemenu-hero-grid" aria-label="CodeMenu hero">
+      <div class="hero-text">
+        <img loading="eager" decoding="async" src="images/codemenu-icon.webp" style="width: min(200px, 90%); display: block; margin-left: auto; margin-right: auto;" alt="CodeMenu app icon — snippet manager for macOS">
+        <h1 style="margin: 12px 0 6px 0;">CodeMenu</h1>
+        <h2 style="letter-spacing: 0.02em; font-weight:600; margin-top:0;">A Modern Snippet Manager for macOS<br/>Save Code, Prompts, and Anything You Reuse</h2>
+        <p style="color: #ffe082; font-size:1.08em; margin-top: 8px; margin-bottom: 0;">Want to learn more about snippet management? <a href="https://extiri.com/blog/posts/ultimate-guide-to-snippet-management-with-codemenu.html" style="color:#ffb300; text-decoration:underline;">Read our Ultimate Guide</a>.</p>
+
+        <div style="margin-top:18px; display:flex; gap:12px; align-items:center; justify-content:center; flex-wrap:wrap;">
+          <a class="button-cta" href="https://www.producthunt.com/posts/codemenu?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-codemenu" target="_blank" rel="noopener noreferrer"><img loading="lazy" decoding="async" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=464819&theme=light" alt="CodeMenu — Augmented Memory for Creators | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+          <a class="button-cta" href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781"><img loading="lazy" decoding="async" src="images/download_on_the_mac_app_store_button.svg" height="60px" alt="Get CodeMenu on the Mac App Store"/></a>
+        </div>
+
+        <p class="note-text" style="text-align: center; margin-top:14px;">Unlock your augmented memory with a one-time license or start a 7-day free trial on the Mac App Store.</p>
+      </div>
+
+      <div class="hero-media">
+        <iframe class="preview-image" loading="lazy" width="100%" height="390" src="https://www.youtube-nocookie.com/embed/zGxLaAIhof8?si=SzlimOdgoWDfpN7I&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </section>
+  </div>
+  
+  <div class="story-section" style="width:100%; max-width:1200px; margin:0px auto 64px auto; position:relative; z-index:1;">
+    <div class="story-bg-full grainy" style="position:absolute; inset:0; width:100vw; left:50%; transform:translateX(-50%); height:100%; z-index:0; pointer-events:none;">
+      <img loading="lazy" decoding="async" src="images/background-curve.webp" alt="Background curve" style="width:100vw; height:100%; object-fit:cover; opacity:0.22; filter: grayscale(0.45) blur(50px);">
+    </div>
+    <div style="position:relative; z-index:2;">
+      <!-- Section 1: Imagine -->
+      <div class="story-row" style="display:flex; align-items:center; gap:0; margin-bottom:56px;">
+        <div class="story-svg" style="flex:0 0 420px; min-width:320px; height:400px; display:flex; align-items:center; justify-content:center;">
+          <img loading="lazy" decoding="async" src="images/imagine-image.png" width="400" height="250" aria-label="Imagine – the spark of an idea" style="object-fit: contain;" />
+        </div>
+        <div style="flex:1; padding:48px 48px 48px 32px;">
+          <h2 style="color:#ffe082; font-size:2em; margin-bottom:18px;">Imagine</h2>
+          <p style="font-size:1.18em; color:#f5f5f7; margin-bottom:18px;">You capture sparks everywhere—code experiments, design palettes, prompts, briefs, screenshots, research notes. They live in folders, chats, and tabs. When inspiration hits, you hunt through chaos, repeat old work, or lose the thread entirely.</p>
+          <blockquote style="border-left: 4px solid #ffb300; margin: 18px 0; padding-left: 18px; color: #ffe082; background: rgba(255,179,0,0.04); font-style: italic;">“Every brilliant idea deserves a home that remembers it for you.”</blockquote>
+        </div>
+      </div>
+      <!-- Section 2: Transformation -->
+      <div class="story-row" style="display:flex; align-items:center; gap:0; flex-direction:row-reverse; margin-bottom:56px;">
+        <div class="story-svg" style="flex:0 0 420px; min-width:320px; height:400px; display:flex; align-items:center; justify-content:center;">
+          <img loading="lazy" decoding="async" src="images/transform-image.png" width="400" height="250" aria-label="Transformation – turning raw ideas into structured actions"  style="object-fit: contain;" />
+        </div>
+        <div style="flex:1; padding:48px 32px 48px 48px;">
+          <h2 style="color:#ffe082; font-size:2em; margin-bottom:18px;">Transformation</h2>
+          <div style="background:rgba(255,179,0,0.07); border-radius:12px; padding:18px; margin-bottom:18px;">
+            <b style="color:#ffb300;">CodeMenu</b> becomes your augmented memory. Capture anything in seconds, layer it with metadata, and surface it exactly when your flow demands it. It’s a personal snippet manager designed for makers who refuse to lose their best work.
+          </div>
+          <ul style="margin: 0 0 0 18px;">
+            <li style="margin-bottom: 10px;"><b style="color:#ffb300;">Capture & Store</b> code, prompts, documentation, palettes, and media in one encrypted vault.</li>
+            <li style="margin-bottom: 10px;"><b style="color:#ffb300;">Organize & Contextualize</b> with groups, tags, graph view, and dynamic placeholders that adapt to each project.</li>
+            <li style="margin-bottom: 10px;"><b style="color:#ffb300;">Recall & Reuse</b> through semantic search, quick suggestions, abbreviations, and side-window previews that drop content directly into your tools.</li>
+            <li style="margin-bottom: 10px;"><b style="color:#ffb300;">Extend & Automate</b> using built-in utilities, runnable snippets, HTTP integrations, and custom scripts that keep your workflows glued together.</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Section 3: Result -->
+      <div class="story-row" style="display:flex; align-items:center; gap:0; margin-bottom:0; padding-bottom: 170px;">
+        <div class="story-svg" style="flex:0 0 420px; min-width:320px; height:400px; display:flex; align-items:center; justify-content:center;">
+          <img loading="lazy" decoding="async" src="images/result-image.png" width="400" height="250" aria-label="The Result – a clean, actionable CodeMenu"  style="object-fit: contain;" />
+        </div>
+        <div style="flex:1; padding:48px 48px 48px 32px;">
+          <h2 style="color:#ffe082; font-size:2em; margin-bottom:18px;">The Result</h2>
+          <p style="margin-top:0; margin-bottom:0; line-height: 2em;"><span style="color:#ffe082; font-weight:600;">CodeMenu</span> evolves into the always-on teammate that remembers context, surfaces answers, and keeps you shipping. Focus stays unbroken, output gets sharper, and every idea returns when you call for it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="section" style="width: 90%; margin: 0 auto 80px auto; text-align: left;">
+  <h1 style="text-align:center; margin-bottom: 28px;">Why creators rely on their augmented memory</h1>
+  <ul style="list-style: none; padding: 0; max-width: 840px; margin: 0 auto; font-size: 1.08em; line-height: 1.9em;">
+      <li style="margin-bottom: 16px; padding-left: 28px; position: relative;"><span style="position:absolute; left:0; color:#ffb300;">•</span>Save hours every week by eliminating app switching and duplicate work.</li>
+      <li style="margin-bottom: 16px; padding-left: 28px; position: relative;"><span style="position:absolute; left:0; color:#ffb300;">•</span>Keep every idea retrievable—code, prompts, images, briefs, research—without digging through folders.</li>
+      <li style="margin-bottom: 16px; padding-left: 28px; position: relative;"><span style="position:absolute; left:0; color:#ffb300;">•</span>Stay in flow with instant recall, side-window previews, and abbreviations that paste the right piece on demand.</li>
+      <li style="margin-bottom: 16px; padding-left: 28px; position: relative;"><span style="position:absolute; left:0; color:#ffb300;">•</span>Work confidently knowing your augmented memory is private, offline-first, and under your control.</li>
+      <li style="margin-bottom: 0; padding-left: 28px; position: relative;"><span style="position:absolute; left:0; color:#ffb300;">•</span>Share selectively with teammates when needed—without losing ownership of your personal library using Snippets Store.</li>
+    </ul>
+  </div>
+  
+  <div class="roles-section" style="width: 90%; margin-left: auto; margin-right: auto; margin-bottom: 100px; margin-top: 100px;">
+  <h1>Designed for every creator</h1>
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; margin-bottom: 32px;">
+      <div class="role-card" style="flex:1; min-width:180px; background:rgba(255,179,0,0.07); border-radius:12px; padding:18px; text-align:center;">
+        <!-- Engineer SVG: Hammer -->
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:8px;">
+          <circle cx="18" cy="18" r="18" fill="#ffb300"/>
+          <rect x="16" y="18" width="4" height="10" rx="1.5" fill="#23272e" stroke="#ffe082" stroke-width="2"/>
+          <rect x="13" y="13" width="10" height="4" rx="1.5" fill="#23272e" stroke="#ffe082" stroke-width="2"/>
+          <path d="M13 13 Q11 15 13 17" stroke="#ffe082" stroke-width="2" fill="none"/>
+        </svg>
+      </svg>
+      <h3 style="margin-top:0; color:#ffb300;">Developers & Engineers</h3>
+      <p style="margin-bottom:0; color:#f5f5f7; font-size:0.98em;">Spin up features with living boilerplates, API calls, migrations, and incident playbooks that stay organized and ready to drop into your editor.</p>
+    </div>
+    <div class="role-card" style="flex:1; min-width:180px; background:rgba(255,179,0,0.07); border-radius:12px; padding:18px; text-align:center;">
+      <!-- Designers SVG: Palette -->
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:8px;">
+        <circle cx="18" cy="18" r="18" fill="#ffb300"/>
+        <path d="M22 10C17 10 11 12 11 18C11 22 14 26 19 26C20.5 26 22 24.5 22 23C22 22 21 21 20 21C19.5 21 18.5 21.5 18 22" stroke="#23272e" stroke-width="2" fill="#23272e"/>
+        <circle cx="15" cy="17" r="2" fill="#ffe082"/>
+        <circle cx="20" cy="16" r="2" fill="#ffe082"/>
+        <circle cx="16" cy="21" r="1.6" fill="#ffe082"/>
+      </svg>
+      <h3 style="margin-top:0; color:#ffb300;">Designers & Creative Teams</h3>
+      <p style="margin-bottom:0; color:#f5f5f7; font-size:0.98em;">Store color systems, component notes, AI art prompts, and image assets with instant previews and version history.</p>
+    </div>
+    <div class="role-card" style="flex:1; min-width:180px; background:rgba(255,179,0,0.07); border-radius:12px; padding:18px; text-align:center;">
+      <!-- Technical Writers SVG: Document/Pen -->
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:8px;"><circle cx="18" cy="18" r="18" fill="#ffb300"/><rect x="11" y="10" width="14" height="16" rx="3" fill="#23272e" stroke="#ffe082" stroke-width="2"/><rect x="14" y="14" width="8" height="2" rx="1" fill="#ffe082"/><rect x="14" y="18" width="8" height="2" rx="1" fill="#ffe082"/><rect x="14" y="22" width="5" height="2" rx="1" fill="#ffe082"/></svg>
+      <h3 style="margin-top:0; color:#ffb300;">Writers & Knowledge Teams</h3>
+      <p style="margin-bottom:0; color:#f5f5f7; font-size:0.98em;">Keep reusable docs, onboarding playbooks, release notes, and AI prompt sets searchable and ready to remix.</p>
+    </div>
+    <div class="role-card" style="flex:1; min-width:180px; background:rgba(255,179,0,0.07); border-radius:12px; padding:18px; text-align:center;">
+      <!-- Power Users SVG: Lightning Bolt -->
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:8px;"><circle cx="18" cy="18" r="18" fill="#ffb300"/><polygon points="16,8 26,16 20,16 20,28 10,20 16,20" fill="#23272e" stroke="#ffe082" stroke-width="2"/></svg>
+      <h3 style="margin-top:0; color:#ffb300;">Productivity Power Users</h3>
+      <p style="margin-bottom:0; color:#f5f5f7; font-size:0.98em;">Automate daily tasks with macros, store keyboard shortcuts, and sync cross-app snippets so nothing falls between the cracks.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Slideshow Section -->
+<div class="slideshow-section" style="width:100vw; max-width:100%; padding:0; height: 697px">
+  <div class="slideshow-container" style="position:relative; width:100%; max-width:1100px; margin:0 auto; height: 100%;">
+    <div class="slideshow-images" style="height: 100%;">
+      <img loading="lazy" decoding="async" src="./images/codemenu/dashboard_screenshot.webp" alt="Graphs" class="slideshow-img" style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
+      <img loading="lazy" decoding="async" src="./images/codemenu/codemenu-graphs-screenshot.png" alt="Graphs" class="slideshow-img" style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
+      <img loading="lazy" decoding="async" src="./images/codemenu/side_window_and_suggestions.webp" alt="Side Window & Suggestions" class="slideshow-img" style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
+      <img loading="lazy" decoding="async" src="./images/codemenu/utilities.webp" alt="Utilities" class="slideshow-img" style="width:100%; display:none; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.13); height: 100%">
+    </div>
+    <button class="slideshow-btn slideshow-prev" style="position:absolute; top:50%; left:-90px; transform:translateY(-50%); background:#23272e; color:#ffe082; border:none; border-radius:50%; width:44px; height:44px; font-size:2em; cursor:pointer; opacity:0.85; transition:background 0.18s; z-index: 2;">&#8592;</button>
+    <button class="slideshow-btn slideshow-next" style="position:absolute; top:50%; right:-90px; transform:translateY(-50%); background:#23272e; color:#ffe082; border:none; border-radius:50%; width:44px; height:44px; font-size:2em; cursor:pointer; opacity:0.85; transition:background 0.18s; z-index: 2;">&#8594;</button>
+    <div class="slideshow-dots" style="position:absolute; bottom:18px; left:50%; transform:translateX(-50%); display:flex; gap:12px; z-index: 5;">
+      <span class="slideshow-dot" style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
+      <span class="slideshow-dot" style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
+      <span class="slideshow-dot" style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
+      <span class="slideshow-dot" style="width:14px; height:14px; border-radius:50%; background:#ffe08244; cursor:pointer; display:inline-block;"></span>
+    </div>
+  </div>
+</div>
+<script>
+  // Slideshow logic
+  (function() {
+    const imgs = document.querySelectorAll('.slideshow-img');
+    const dots = document.querySelectorAll('.slideshow-dot');
+    let idx = 0;
+    function showSlide(i) {
+      imgs.forEach((img, j) => img.style.display = (j === i ? 'block' : 'none'));
+      dots.forEach((dot, j) => dot.style.background = (j === i ? '#ffb300' : '#ffe08244'));
+      idx = i;
+    }
+    function nextSlide() { showSlide((idx+1)%imgs.length); }
+    function prevSlide() { showSlide((idx-1+imgs.length)%imgs.length); }
+    document.querySelector('.slideshow-next').onclick = nextSlide;
+    document.querySelector('.slideshow-prev').onclick = prevSlide;
+    dots.forEach((dot, i) => dot.onclick = () => showSlide(i));
+    showSlide(0);
+    setInterval(nextSlide, 3000);
+  })();
+</script>
+
+<div class="section">
+  <br>
+  <br>
+  <br>
+  
+  <h1 style="text-align:center; font-size:2em; color:#ffb300; margin-bottom:24px; letter-spacing:-1px;">Features</h1>
+  <div class="features-list" style="display:flex; flex-wrap:wrap; gap:32px; justify-content:center; margin-bottom:32px;">
+    <div class="feature-card" style="background:rgba(255,255,255,0.04); border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:28px 22px; flex:1 1 340px; min-width:320px; max-width:480px;">
+  <h2 style="color:#ffb300; margin-top:0;">Capture everything in seconds</h2>
+  <p>Clip code, prompts, emails, screenshots, palettes, and research into one personal snippet manager. Drop items with drag-and-drop, share extensions, or keyboard shortcuts.</p>
+      <img loading="lazy" src="./images/codemenu/codemenu-graphs-screenshot.png" width="100%" alt="Screenshot showing an example graph for a phishing investigation" style="border-radius:8px; margin-top:12px; box-shadow:0 1px 8px rgba(0,0,0,0.08);">
+    </div>
+    <div class="feature-card" style="background:rgba(255,255,255,0.04); border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:28px 22px; flex:1 1 340px; min-width:320px; max-width:480px;">
+  <h2 style="color:#ffb300; margin-top:0;">Context made clear</h2>
+  <p>Describe entries with Markdown, LaTeX, images, and flow diagrams. Layer tags, groups, graph links, and custom placeholders so every asset is self-explanatory.</p>
+    </div>
+    <div class="feature-card" style="background:rgba(255,255,255,0.04); border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:28px 22px; flex:1 1 340px; min-width:320px; max-width:480px;">
+  <h2 style="color:#ffb300; margin-top:0;">Recall at the speed of thought</h2>
+  <p>Semantic content search, filters, and instant suggestions surface the exact piece you saved months ago—complete with context and ready to paste.</p>
+    </div>
+    <div class="feature-card" style="background:rgba(255,255,255,0.04); border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:28px 22px; flex:1 1 340px; min-width:320px; max-width:480px;">
+  <h2 style="color:#ffb300; margin-top:0;">Surface content everywhere</h2>
+  <p>Open the side window beside your editor, trigger abbreviations, or ask the Suggestions app. Your content vault follows you through Xcode, Figma, browsers, and terminals.</p>
+  <img loading="lazy" src="./images/codemenu/side_window_and_suggestions.webp" width="100%" alt="Screenshot showing the side window with saved content and the Suggestions app beside Xcode" style="border-radius:8px; margin-top:12px; box-shadow:0 1px 8px rgba(0,0,0,0.08);">
+    </div>
+    <div class="feature-card" style="background:rgba(255,255,255,0.04); border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:28px 22px; flex:1 1 340px; min-width:320px; max-width:480px;">
+  <h2 style="color:#ffb300; margin-top:0;">Dynamic, reusable building blocks</h2>
+  <p>Create parameterized templates that inject live data—current date, shell outputs, user input—so one saved fragment adapts to any scenario.</p>
+    </div>
+    <div class="feature-card" style="background:rgba(255,255,255,0.04); border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:28px 22px; flex:1 1 340px; min-width:320px; max-width:480px;">
+  <h2 style="color:#ffb300; margin-top:0;">Private vault, optional sharing</h2>
+  <p>Everything stays local-first and offline by default. When you want to collaborate, publish to the Snippets Store or sync selected spaces with teammates.</p>
+    </div>
+    <div class="feature-card" style="background:rgba(255,255,255,0.04); border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:28px 22px; flex:1 1 340px; min-width:320px; max-width:480px;">
+  <h2 style="color:#ffb300; margin-top:0;">Integrated engineering toolkit</h2>
+  <p>Work faster with bundled editors, converters, mock data generators, RegEx tester, and code-to-image creator—engineered for rapid prototyping without context switching.</p>
+      <img loading="lazy" src="./images/codemenu/utilities.webp" width="100%" alt="Screenshot showing the utilities: code image generator, generator, RegEx tester, editor, coders and converters" style="border-radius:8px; margin-top:12px; box-shadow:0 1px 8px rgba(0,0,0,0.08);">
+    </div>
+    <div class="feature-card" style="background:rgba(255,255,255,0.04); border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:28px 22px; flex:1 1 340px; min-width:320px; max-width:480px;">
+  <h2 style="color:#ffb300; margin-top:0;">Augmented by private AI</h2>
+  <p>Generate documentation, summarize research, extract code from screenshots, and ask natural-language questions about your library—securely on your machine.</p>
+    </div>
+    <div class="feature-card" style="background:rgba(255,255,255,0.04); border-radius:14px; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:28px 22px; flex:1 1 340px; min-width:320px; max-width:480px;">
+  <h2 style="color:#ffb300; margin-top:0;">Extend and automate</h2>
+  <p>Trigger automations with JavaScript, connect via HTTP, and embed CodeMenu into your favorite tools. <a href="https://docs.extiri.com" style="color:#ffe082; text-decoration:underline;">Explore the docs</a></p>
+    </div>
+  </div>
+  
+  <br>
+  <br>
+  
+  <h1>Ready to unlock your augmented memory?</h1>
+  <table class="app-details-table">
+    <tbody>
+      <tr>
+        <td colspan="1" rowspan="2">
+          <img src="images/codemenu-icon.webp" style="width: min(200px, 90%); margin-left: auto; margin-right: auto; display: block;" alt="CodeMenu icon">
+        </td>
+        <td>
+          <h2>CodeMenu</h2>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>Personal snippet manager for macOS</h3>
+          <ul>
+            <li>one-time purchase</li>
+            or
+            <li>monthly subscription with a 7-day free trial</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a style="margin-bottom: 60px;" class="button-cta" href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781"><img src="images/download_on_the_mac_app_store_white_button.svg" height="60px" alt="Get CodeMenu on the Mac App Store"/></a>
+  <hr>
+</div>
+
+<div class="section" id="about">
+  <h1>FAQ</h1>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-question"><span class="faq-text">How can I get CodeMenu?</span><span class="faq-arrow">&#9654;</span></button>
+      <div class="faq-answer">
+        <p>CodeMenu is available exclusively on the Mac App Store and via a closed TestFlight beta. Payments are handled by Apple—choose a one-time purchase or start a monthly plan with a 7-day free trial to experience your personal snippet manager.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question"><span class="faq-text">Where can I find HTTP server's documentation?</span><span class="faq-arrow">&#9654;</span></button>
+      <div class="faq-answer">
+        <p>At <a href="https://docs.extiri.com">Extiri's documentation</a> website.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question"><span class="faq-text">Where can I learn more about Suggestions?</span><span class="faq-arrow">&#9654;</span></button>
+      <div class="faq-answer">
+        <p>You can learn more about Suggestions on its <a href="https://github.com/Extiri/Suggestions"> GitHub repository</a>.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question"><span class="faq-text">What languages does Editor support?</span><span class="faq-arrow">&#9654;</span></button>
+      <div class="faq-answer">
+        <p>At this moment Editor supports JavaScript by default. But you can add any other language that has a CLI utility.</p>
+        <p>You can do this by placing language's command line utility in Application Scripts of CodeMenu (to open click "Open Application Scripts" in Languages settings section).</p>
+        <p>You can also do this by creating a symlink (shortcut to file, but accessible by CodeMenu) to command line utility by opening your terminal and then entering<br><br><code>cd /Users/(your username)/Library/Application\ Scripts/id.thedev.marcin.CodeMenu</code><br><br> and then <br><br><code>ln -s (path to utilities shell command) .</code><br><br> You can use <code>which</code> shell command to find the path. You might need to restart CodeMenu for language to show up.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question"><span class="faq-text">How can I use LaTeX in an entry description?</span><span class="faq-arrow">&#9654;</span></button>
+      <div class="faq-answer">
+        <p>Wrap any LaTeX expression in $$ (for example: "Here is some fraction $$\frac{126}{3}$$"). In preview mode it renders beautifully on a separate line—perfect for math-heavy notes.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question"><span class="faq-text">What languages does syntax highlighting support?</span><span class="faq-arrow">&#9654;</span></button>
+      <div class="faq-answer">
+        <p>You can find list of all languages supported by Snippets Store (which are the same as CodeMenu's) in Extiri API documentation at <a href="https://docs.extiri.com/ExtiriAPI/data/languages/">docs.extiri.com/ExtiriAPI/data/languages/</a>.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question"><span class="faq-text">What languages does library generator support?</span><span class="faq-arrow">&#9654;</span></button>
+      <div class="faq-answer">
+        <p>At this moment library generator supports Swift, PHP, HTML and JavaScript.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question"><span class="faq-text">Are entries from Snippets Store copyrighted?</span><span class="faq-arrow">&#9654;</span></button>
+      <div class="faq-answer">
+        <p>No. Public entries in Snippets Store have a <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 license</a>. You can copy, modify, and distribute them—even commercially—without asking permission. No warranties are provided, and liability is disclaimed to the fullest extent permitted by law.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question"><span class="faq-text">Can I import content from other managers?</span><span class="faq-arrow">&#9654;</span></button>
+      <div class="faq-answer">
+        <p>Currently importing from massCode is supported. If you rely on another content or snippet manager, let me know which one—you may influence the next migration path.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question"><span class="faq-text">Can I export my library?</span><span class="faq-arrow">&#9654;</span></button>
+      <div class="faq-answer">
+        <p>Yes, export any selection of entries to JSON so you always retain a portable backup of your content vault.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question"><span class="faq-text">What are the system requirements?</span><span class="faq-arrow">&#9654;</span></button>
+      <div class="faq-answer">
+        <p>CodeMenu supports macOS 12 and later. Intel and Apple Silicon are supported. To use AI features (generation and chat) good specifications (min. 16 GB RAM and Apple Silicon) are recommended, altough they're not required so they should work on any Mac with minimum 16 GB RAM, but possibly slower.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question"><span class="faq-text">Does my content stay on device?</span><span class="faq-arrow">&#9654;</span></button>
+      <div class="faq-answer">
+        <p>Yes, your snippet manager is stored locally and never leaves your Mac unless you choose to share it. Publishing to Snippets Store or enabling the HTTP server is fully optional.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+// FAQ expand/collapse logic
+const faqQuestions = document.querySelectorAll('.faq-question');
+faqQuestions.forEach(btn => {
+  btn.onclick = function() {
+    const answer = this.nextElementSibling;
+    const arrow = this.querySelector('.faq-arrow');
+    if (answer.style.maxHeight) {
+      answer.style.maxHeight = null;
+      answer.style.opacity = 0;
+      this.classList.remove('open');
+      arrow.innerHTML = '&#9654;'; // right arrow
+    } else {
+      document.querySelectorAll('.faq-answer').forEach(a => {
+        a.style.maxHeight = null;
+        a.style.opacity = 0;
+      });
+      document.querySelectorAll('.faq-question').forEach(q => {
+        q.classList.remove('open');
+        q.querySelector('.faq-arrow').innerHTML = '&#9654;';
+      });
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+      answer.style.opacity = 1;
+      this.classList.add('open');
+    }
+  };
+});
+</script>
+
+<p style="color: white; padding-bottom: 10px; text-align: center; margin-top: 100px;"><a href="privacy_policy.html" class="secondary_link">Privacy Policy</a> | <a href="codemenu/terms_of_services.html" class="secondary_link">Terms of Services/EULA</a></p>
+<p style="color: #505050; padding-bottom: 50px; text-align: center;">Mac is a trademark of Apple Inc., registered in the U.S. and other countries and regions.</p>
+</body>
+</html>
