@@ -437,7 +437,7 @@
              <span class="code-line"></span>
              <span class="code-line"><span class="code-keyword">for</span> (<span class="code-keyword">let</span> i = 0; i < snippets.length; i++) {</span>
              <span class="code-line">  <span class="code-keyword">let</span> s = snippets[i];</span>
-             <span class="code-line">  <span class="code-keyword">if</span> (s.lang === <span class="code-string">"Swift"</span> && !s.code.includes(<span class="code-string">"Copyright"</span>)) {</span>
+             <span class="code-line">  <span class="code-keyword">if</span> (s.lang === <span class="code-string">"swift"</span> && !s.code.includes(<span class="code-string">"Copyright"</span>)) {</span>
              <span class="code-line">    s.code = license + s.code;</span>
              <span class="code-line">    s.<span class="code-func">update</span>(); <span class="code-comment">// Persist changes</span></span>
              <span class="code-line">    <span class="code-func">alert</span>(<span class="code-string">"Updated"</span>, s.title);</span>
