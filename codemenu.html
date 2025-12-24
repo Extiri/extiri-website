@@ -430,20 +430,19 @@
         <div class="bento-item bento-medium">
           <div class="feature-icon-box" style="background: rgba(61, 214, 140, 0.1); color: #3dd68c;"><i class="fa-solid fa-bolt"></i></div>
           <h3>Scriptable Actions</h3>
-          <p>Write JavaScript to transform clipboard content, fetch API tokens, or generate UUIDs on paste. These automations run independently from the HTTP API.</p>
+          <p>Automate your knowledge base maintenance. Write scripts to bulk-refactor code, validate snippet syntax, or generate reports. Full access to read and modify your library programmatically.</p>
           <div class="terminal-window" style="margin-top: auto;">
-             <span class="code-line"><span class="code-comment">// Example: Print titles of all snippets</span></span>
-             <span class="code-line"><span class="code-keyword">for</span> (<span class="code-keyword">let</span> i = 0; i < snippets.length; i++) {</span>
-             <span class="code-line">  <span class="code-func">alert</span>(<span class="code-string">"Title"</span>, snippets[i].title);</span>
-             <span class="code-line">}</span>
+             <span class="code-line"><span class="code-comment">// Example: Add license header to all Swift files</span></span>
+             <span class="code-line"><span class="code-keyword">const</span> license = <span class="code-string">"// Copyright 2025 Extiri\n"</span>;</span>
              <span class="code-line"></span>
-             <span class="code-line"><span class="code-comment">// Example: Make HTTP Request</span></span>
-             <span class="code-line"><span class="code-keyword">var</span> request = HTTPRequest.<span class="code-func">create</span>(<span class="code-string">"https://api.example.com"</span>, <span class="code-string">"GET"</span>);</span>
-             <span class="code-line">request.<span class="code-func">send</span>(<span class="code-keyword">function</span>(response) {</span>
-             <span class="code-line">  <span class="code-keyword">if</span> (response.statusCode === 0) {</span>
-             <span class="code-line">    <span class="code-func">alert</span>(<span class="code-string">"Response"</span>, response.data);</span>
+             <span class="code-line"><span class="code-keyword">for</span> (<span class="code-keyword">let</span> i = 0; i < snippets.length; i++) {</span>
+             <span class="code-line">  <span class="code-keyword">let</span> s = snippets[i];</span>
+             <span class="code-line">  <span class="code-keyword">if</span> (s.lang === <span class="code-string">"Swift"</span> && !s.code.includes(<span class="code-string">"Copyright"</span>)) {</span>
+             <span class="code-line">    s.code = license + s.code;</span>
+             <span class="code-line">    s.<span class="code-func">update</span>(); <span class="code-comment">// Persist changes</span></span>
+             <span class="code-line">    <span class="code-func">alert</span>(<span class="code-string">"Updated"</span>, s.title);</span>
              <span class="code-line">  }</span>
-             <span class="code-line">});</span>
+             <span class="code-line">}</span>
           </div>
         </div>
       </div>
@@ -549,7 +548,7 @@
         <div class="workflow-step">
           <div class="workflow-number" style="border-radius: 8px; width: auto; padding: 0 12px;">CLI</div>
           <h3>Terminal Access</h3>
-          <p>Use the <code>cdmn</code> CLI to pipe content into CodeMenu or fetch snippets via the HTTP API. Build custom aliases to insert your most used commands instantly.</p>
+          <p>Access your library via <code>cdmn</code>. Features a TUI for browsing, fuzzy search for quick retrieval, and scriptable output (like JSON).</p>
           <div class="terminal-window" style="margin-top: 12px; text-align: left;">
             <span class="code-line"><span class="code-comment"># Install cdmn</span></span>
             <span class="code-line">$ go install github.com/extiri/cdmn@latest</span>
@@ -632,7 +631,7 @@
           <div class="app-card-content">
             <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;"><i class="fa-solid fa-diagram-project"></i></div>
             <h3>Visual Knowledge Graph</h3>
-            <p>Code doesn't live in isolation. Link a database config to its migration script, or a design token to its React component. Navigate your knowledge base visually to rediscover connections you forgot you made.</p>
+            <p>Knowledge doesn't live in isolation. Link an OSINT screenshot to your research notes, or a database config to its migration script. Navigate your knowledge base visually to rediscover connections you forgot you made.</p>
           </div>
           <div class="app-card-media">
             <img src="./images/codemenu/codemenu-graphs-screenshot.png" alt="Graph View showing connected nodes">
@@ -644,7 +643,7 @@
           <div class="app-card-content">
             <div class="feature-icon-box" style="background: rgba(61, 214, 140, 0.1); color: #3dd68c;"><i class="fa-solid fa-box-open"></i></div>
             <h3>First-Class Artifacts</h3>
-            <p>It's not just a text bucket. CodeMenu renders Markdown with LaTeX support, previews images and colors, and highlights syntax for 60+ languages. Store the <em>entire</em> context of your work.</p>
+            <p>It's not just a text bucket. CodeMenu renders Markdown with LaTeX support, previews images and colors, and highlights syntax for 60+ languages. Store the <em>entire</em> context of your work, from PDFs to shell scripts.</p>
           </div>
           <div class="app-card-media">
             <img src="./images/codemenu/promo-images/Screenshot 2.png" alt="Various content types including images and code">
