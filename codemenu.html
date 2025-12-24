@@ -595,80 +595,83 @@
   <!-- Deep Dive Sections -->
   <section class="section">
     <div class="container">
-      <h2 style="text-align: center; margin-bottom: var(--space-12);">Key features</h2>
+      <h2 style="text-align: center; margin-bottom: var(--space-12);">Engineered for Focus</h2>
 
       <div class="grid">
-        <!-- Feature 1: Graph View -->
+        <!-- Feature 1: Organization (Spaces/Stashes) -->
         <article class="app-card-large">
           <div class="app-card-content">
-            <div class="feature-icon-box" style="background: rgba(255, 179, 0, 0.1); color: var(--color-codemenu);">🕸️</div>
+            <div class="feature-icon-box" style="background: rgba(255, 179, 0, 0.1); color: var(--color-codemenu);">🗂️</div>
+            <h3>Structured for Focus</h3>
+            <p>Context switching kills flow. Use <strong>Spaces</strong> to isolate only the snippets relevant to your current project. Dump temporary ideas into <strong>Stashes</strong> for quick access without the clutter. Of course, standard Groups and Tags are there when you need them.</p>
+          </div>
+          <div class="app-card-media">
+            <img src="./images/codemenu/promo-images/Screenshot 4.png" alt="Organization with Spaces and Stashes">
+          </div>
+        </article>
+
+        <!-- Feature 2: Graph View -->
+        <article class="app-card-large reversed">
+          <div class="app-card-content">
+            <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;">🕸️</div>
             <h3>Visual Knowledge Graph</h3>
-            <p>Code doesn't live in isolation. Link snippets, notes, and assets together to build a navigable map of your project's context. See dependencies and relationships instantly.</p>
+            <p>Code doesn't live in isolation. Link a database config to its migration script, or a design token to its React component. Navigate your knowledge base visually to rediscover connections you forgot you made.</p>
           </div>
           <div class="app-card-media">
             <img src="./images/codemenu/codemenu-graphs-screenshot.png" alt="Graph View showing connected nodes">
           </div>
         </article>
 
-        <!-- Feature 2: Automation -->
-        <article class="app-card-large reversed">
-          <div class="app-card-content">
-            <div class="feature-icon-box" style="background: rgba(61, 214, 140, 0.1); color: #3dd68c;">⚡</div>
-            <h3>Scriptable & Automatable</h3>
-            <p>Don't just paste static text. Create snippets that run JavaScript, execute shell commands, or fetch data from HTTP endpoints before insertion.</p>
-            
-            <div class="terminal-window">
-              <div class="terminal-header"><div class="terminal-dot red"></div><div class="terminal-dot yellow"></div><div class="terminal-dot green"></div></div>
-              <span class="code-line"><span class="code-comment">// Example: Fetch dynamic token before pasting</span></span>
-              <span class="code-line"><span class="code-keyword">const</span> response = <span class="code-keyword">await</span> fetch(<span class="code-string">'https://api.dev/token'</span>);</span>
-              <span class="code-line"><span class="code-keyword">const</span> { token } = <span class="code-keyword">await</span> response.json();</span>
-              <span class="code-line"><span class="code-keyword">return</span> <span class="code-string">`Authorization: Bearer ${token}`</span>;</span>
-            </div>
-          </div>
-          <div class="app-card-media">
-            <img src="./images/codemenu/side_window_and_suggestions.webp" alt="Automation and Side Window">
-          </div>
-        </article>
-
-        <!-- Feature 3: AI & Semantic Search -->
+        <!-- Feature 3: Content Types -->
         <article class="app-card-large">
           <div class="app-card-content">
-            <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;">🧠</div>
-            <h3>Local AI & Semantic Search</h3>
-            <p>Forget exact filenames. Search by concept ("how to center div") and let the local semantic engine find the right snippet. Generate documentation or refactor code using your own local LLMs.</p>
+            <div class="feature-icon-box" style="background: rgba(61, 214, 140, 0.1); color: #3dd68c;">📦</div>
+            <h3>First-Class Artifacts</h3>
+            <p>It's not just a text bucket. CodeMenu renders Markdown with LaTeX support, previews images and colors, and highlights syntax for 60+ languages. Store the <em>entire</em> context of your work.</p>
           </div>
           <div class="app-card-media">
-            <img src="./images/codemenu/promo-images/Screenshot 1.png" alt="Semantic Search Interface">
+            <img src="./images/codemenu/promo-images/Screenshot 2.png" alt="Various content types including images and code">
           </div>
         </article>
 
-        <!-- Feature 4: Extensibility API -->
+        <!-- Feature 4: Execution & Preview -->
         <article class="app-card-large reversed">
+          <div class="app-card-content">
+            <div class="feature-icon-box" style="background: rgba(255, 99, 71, 0.1); color: #ff6347;">▶️</div>
+            <h3>Run & Preview</h3>
+            <p>Don't just store code—execute it. Run shell scripts directly from the app, preview HTML/JS snippets in a sandboxed web view, or test that Regex before you commit it.</p>
+          </div>
+          <div class="app-card-media">
+            <img src="./images/codemenu/promo-images/Screenshot 7.png" alt="Running and previewing code snippets">
+          </div>
+        </article>
+
+        <!-- Feature 5: Extensibility -->
+        <article class="app-card-large">
           <div class="app-card-content">
             <div class="feature-icon-box" style="background: rgba(255, 224, 130, 0.1); color: #ffe082;">🔌</div>
-            <h3>Headless Access via HTTP</h3>
-            <p>CodeMenu isn't a walled garden. Enable the local HTTP server to access your snippets programmatically. Integrate with Raycast, Alfred, or your own CLI tools.</p>
-            
+            <h3>Headless & Scriptable</h3>
+            <p>The built-in HTTP server exposes your library to your local network of tools. Fetch snippets via `curl`, integrate with Raycast, or write JavaScript automations to transform content on paste.</p>
             <div class="terminal-window">
               <div class="terminal-header"><div class="terminal-dot red"></div><div class="terminal-dot yellow"></div><div class="terminal-dot green"></div></div>
-              <span class="code-line"><span class="code-comment"># Fetch a snippet by ID and pipe to clipboard</span></span>
-              <span class="code-line">$ curl -s http://localhost:3333/api/snippets/search?q=deploy | jq -r '.[0].content' | pbcopy</span>
+              <span class="code-line"><span class="code-comment"># Access your snippets from anywhere</span></span>
+              <span class="code-line">$ curl localhost:3333/api/snippet/deploy | sh</span>
             </div>
           </div>
           <div class="app-card-media">
-            <img src="./images/codemenu/promo-images/Screenshot 2.png" alt="API and Integrations">
+            <img src="./images/codemenu/promo-images/Screenshot 8.png" alt="HTTP Server and Automation settings">
           </div>
         </article>
 
-        <!-- Feature 5: Utilities -->
-        <article class="app-card-large">
+        <!-- Feature 6: The Rest -->
+        <article class="app-card-large reversed">
           <div class="app-card-content">
             <div class="feature-icon-box" style="background: rgba(255, 255, 255, 0.1); color: #fff;">🛠️</div>
-            <h3>Dev Utilities Toolkit</h3>
-            <p>Stop context-switching to the browser. Built-in JSON formatters, JWT decoders, Regex testers, and code-to-image generators are right there when you need them.</p>
+            <h3>Complete Developer Toolkit</h3>
+            <p>A Swiss Army knife for your daily tasks. Includes a JWT decoder, JSON formatter, UUID generator, and more. Everything you usually Google for, now offline and instant.</p>
           </div>
           <div class="app-card-media">
-            <img src="./images/codemenu/utilities.webp" alt="Built-in Utilities">
+            <img src="./images/codemenu/promo-images/Screenshot 9.png" alt="Utilities and extra features">
           </div>
         </article>
       </div>
