@@ -19,7 +19,7 @@
     <meta property="og:title" content="Extiri — Purposeful apps. Fluent workflows.">
     <meta property="og:description"
         content="Simply useful and cool apps. From augmented memory to mindful entertainment, every product is designed to keep you organized, inspired, and in control.">
-    <meta property="og:image" content="https://extiri.com/images/extiri-og-image.png">
+    <meta property="og:image" content="https://extiri.com/images/extiri-og-image.webp">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -27,7 +27,7 @@
     <meta property="twitter:title" content="Extiri — Purposeful apps. Fluent workflows.">
     <meta property="twitter:description"
         content="Simply useful and cool apps. From augmented memory to mindful entertainment, every product is designed to keep you organized, inspired, and in control.">
-    <meta property="twitter:image" content="https://extiri.com/images/extiri-og-image.png">
+    <meta property="twitter:image" content="https://extiri.com/images/extiri-og-image.webp">
 
     <!-- Fonts -->
     <script src="https://kit.fontawesome.com/cbd5f7f345.js" crossorigin="anonymous"></script>
@@ -36,9 +36,16 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Page-specific overrides */
+        .hero-home {
+            background: radial-gradient(circle at 30% 30%, rgba(235, 114, 89, 0.08) 0%, rgba(5, 5, 5, 0) 50%),
+                        radial-gradient(circle at 70% 70%, rgba(38, 171, 236, 0.08) 0%, rgba(5, 5, 5, 0) 50%);
+        }
+    </style>
 
     <!-- Icons -->
-    <link rel="icon" type="image/x-icon" href="./images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.webp">
 
     <!-- Scripts -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
@@ -73,7 +80,7 @@
     <nav class="navbar">
         <div class="container navbar-inner">
             <a href="./index.html" class="nav-logo">
-                <img src="images/logo.png" alt="Extiri Logo">
+                <img src="images/logo.webp" alt="Extiri Logo">
             </a>
 
             <div class="nav-links">
@@ -98,15 +105,15 @@
     </div>
 
     <!-- Hero Section -->
-    <header id="home" class="hero">
+    <header id="home" class="hero hero-home">
         <div class="hero-content animate-fade-in">
-            <img src="images/extiri-text-only-white-light.png" alt="Extiri"
+            <img src="images/extiri-text-only-white-light.webp" alt="Extiri"
                 style="width: 200px; margin: 0 auto 2rem auto; opacity: 0.9;">
             <h1 class="hero-title">Purposeful apps.<br><span class="text-gradient">Fluent workflows.</span></h1>
             <p class="hero-subtitle delay-100">From augmented memory to mindful entertainment, every product is designed
                 to keep you organized, inspired, and in control.</p>
             <div class="hero-actions delay-200">
-                <a href="#apps" class="btn btn-primary">Explore Apps</a>
+                <a href="#apps" class="btn btn-primary" style="--btn-shadow-rgb: var(--brand-primary-rgb);">Explore Apps</a>
                 <a href="blog/index.html" class="btn btn-secondary">Read Blog</a>
             </div>
         </div>
@@ -137,7 +144,7 @@
                         </div>
                         <div class="flex" style="margin-top: var(--space-4);">
                             <a href="./codemenu.html" class="btn btn-primary"
-                                style="background: var(--color-codemenu); color: #000;">Learn More</a>
+                                style="background: var(--color-codemenu); color: #000; --btn-shadow-rgb: var(--color-codemenu-rgb);">Learn More</a>
                             <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781"
                                 class="btn btn-secondary" aria-label="Download CodeMenu">App Store</a>
                         </div>
@@ -150,7 +157,7 @@
                 <!-- Chitneek -->
                 <article class="app-card-large reversed">
                     <div class="app-card-content">
-                        <img src="images/czytnik/czytnik-icon.png" alt="Chitneek Icon" class="app-icon"
+                        <img src="images/czytnik/czytnik-icon.webp" alt="Chitneek Icon" class="app-icon"
                             style="filter: drop-shadow(0 0 20px rgba(38, 171, 236, 0.2));">
                         <h3>Chitneek</h3>
                         <p>Turn PDFs, notes, and web pages into smooth, natural audio — privately, on your iPhone, with
@@ -161,20 +168,20 @@
                         </div>
                         <div class="flex" style="margin-top: var(--space-4);">
                             <a href="./chitneek.html" class="btn btn-primary"
-                                style="background: var(--color-chitneek); color: #fff;">Learn More</a>
+                                style="background: var(--color-chitneek); color: #fff; --btn-shadow-rgb: var(--color-chitneek-rgb);">Learn More</a>
                             <a href="https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870"
                                 class="btn btn-secondary" aria-label="Download Chitneek">App Store</a>
                         </div>
                     </div>
                     <div class="app-card-media">
-                        <img src="images/czytnik/library-screenshot.png" alt="Chitneek Library">
+                        <img src="images/czytnik/library-screenshot.webp" alt="Chitneek Library">
                     </div>
                 </article>
 
                 <!-- ClipGuru -->
                 <article class="app-card-large">
                     <div class="app-card-content">
-                        <img src="images/clipguru/ClipGuru-icon.png" alt="ClipGuru Icon" class="app-icon"
+                        <img src="images/clipguru/ClipGuru-icon.webp" alt="ClipGuru Icon" class="app-icon"
                             style="filter: drop-shadow(0 0 20px rgba(109, 73, 215, 0.2));">
                         <h3>ClipGuru</h3>
                         <p>A lightweight clipboard manager that saves text, links, and images — instantly searchable and
@@ -186,13 +193,13 @@
                         </div>
                         <div class="flex" style="margin-top: var(--space-4);">
                             <a href="./clipguru.html" class="btn btn-primary"
-                                style="background: var(--color-clipguru); color: #fff;">Learn More</a>
+                                style="background: var(--color-clipguru); color: #fff; --btn-shadow-rgb: var(--color-clipguru-rgb);">Learn More</a>
                             <a href="https://apps.apple.com/pl/app/clipguru/id6753787446" class="btn btn-secondary"
                                 aria-label="Download ClipGuru">App Store</a>
                         </div>
                     </div>
                     <div class="app-card-media">
-                        <img src="images/clipguru/main-screen-screenshot.png" alt="ClipGuru Screen">
+                        <img src="images/clipguru/main-screen-screenshot.webp" alt="ClipGuru Screen">
                     </div>
                 </article>
             </div>
@@ -204,7 +211,7 @@
                 <!-- Slowko -->
                 <div class="card">
                     <div class="flex-center" style="justify-content: flex-start; margin-bottom: var(--space-4);">
-                        <img src="images/slowko/slowko-icon.png" alt="Slowko Icon" width="48" height="48"
+                        <img src="images/slowko/slowko-icon.webp" alt="Slowko Icon" width="48" height="48"
                             style="border-radius: 12px; margin-right: var(--space-4);">
                         <div>
                             <h4>Słówko</h4>
@@ -218,7 +225,7 @@
                 <!-- Space Train -->
                 <div class="card">
                     <div class="flex-center" style="justify-content: flex-start; margin-bottom: var(--space-4);">
-                        <img src="images/space_train/space-train-icon.png" alt="Space Train Icon" width="48" height="48"
+                        <img src="images/space_train/space-train-icon.webp" alt="Space Train Icon" width="48" height="48"
                             style="border-radius: 12px; margin-right: var(--space-4);">
                         <div>
                             <h4>Space Train</h4>
@@ -254,7 +261,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <img src="images/logo.png" alt="Extiri" width="100" style="opacity: 0.8;">
+                    <img src="images/logo.webp" alt="Extiri" width="100" style="opacity: 0.8;">
                     <p>Extiri is an independent software studio crafting simple, well‑crafted apps for macOS, iOS, and
                         web. Developed by Wiktor Wójcik. Design in collaboration with Natalia Wójcik.</p>
                 </div>

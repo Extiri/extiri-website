@@ -21,13 +21,20 @@
 
   /* Brand Colors (Preserved & Enhanced) */
   --brand-primary: #eb7259;
+  --brand-primary-rgb: 235, 114, 89;
   --brand-gradient: linear-gradient(135deg, #eb7259 0%, #ee8b3e 50%, #f0a242 100%);
 
   /* App Specific Colors */
   --color-codemenu: #ffb300;
+  --color-codemenu-rgb: 255, 179, 0;
   --color-chitneek: #26ABEC;
+  --color-chitneek-rgb: 38, 171, 236;
   --color-clipguru: #6D49D7;
+  --color-clipguru-rgb: 109, 73, 215;
   --color-slowko: #214A3C;
+  --color-slowko-rgb: 33, 74, 60;
+  --color-spacetrain: #66eeff;
+  --color-spacetrain-rgb: 102, 238, 255;
 
   /* --- Typography --- */
   --font-sans: 'JetBrains Mono', monospace;
@@ -370,12 +377,13 @@ p {
   background: var(--brand-gradient);
   color: #000;
   /* Better contrast on orange */
-  box-shadow: var(--shadow-glow);
+  --btn-shadow-rgb: var(--brand-primary-rgb);
+  box-shadow: 0 0 20px rgba(var(--btn-shadow-rgb), 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(235, 114, 89, 0.4);
+  box-shadow: 0 10px 30px rgba(var(--btn-shadow-rgb), 0.4);
 }
 
 .btn-secondary {

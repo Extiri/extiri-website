@@ -1,237 +1,132 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>CodeMenu - Extiri</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="description" content="Privacy Policy - Extiri">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">	
-    <link rel="icon" type="image/x-icon" href="./images/favicon.webp">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/cbd5f7f345.js" crossorigin="anonymous"></script>
-    <style>
-      body {
-        color: white;
-        background-color: black;
-      }
+<html lang="en">
 
-      .main {
-        display: block;
-        height: 130vh;
-        width: 100%;
-        top: 70px;
-        z-index: 2;
-      }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Privacy Policy — Extiri</title>
+  <meta name="description" content="Extiri Privacy Policy — CodeMenu, ClipGuru, Chitneek and other Extiri products." />
+  <meta property="og:title" content="Extiri — Privacy Policy" />
+  <meta property="og:description" content="How Extiri collects and processes data for its apps and services." />
+  <meta property="og:image" content="https://extiri.com/images/extiri-og-image.webp" />
+  <link rel="icon" href="/images/favicon.webp" />
 
-      .section {
-        display: block;
-        width: 100%;
-        z-index: 3;
-      }
+  <script src="https://kit.fontawesome.com/cbd5f7f345.js" crossorigin="anonymous"></script>
+  <link rel="preload" href="/fonts/InstrumentSerif-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+  <script async src="/js/background-effect.js" defer></script>
+  <script src="/scripts.js" defer></script>
+</head>
 
-      .action-button {
-        width: 223px;
-        height: 52px;
-        text-align: center;
-        line-height: 50px;
+<body>
 
-        font-style: normal;
-        font-weight: 600;
-        font-size: 24px;
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="./index.html" class="nav-logo"><img src="/images/logo.webp" alt="Extiri Logo"></a>
+      <div class="nav-links">
+        <a href="./index.html#home" class="nav-link">Home</a>
+        <a href="./index.html#apps" class="nav-link">Apps</a>
+        <a href="./blog/index.html" class="nav-link">Blog</a>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleMobileMenu()"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </nav>
 
-        background: linear-gradient(180deg, #FEBF1F 0%, #FE9C28 100%);
-        border-radius: 100px;
-      }
+  <main class="section" style="padding-top: calc(var(--header-height) + var(--space-8));">
+    <div class="container" style="max-width: 900px;">
+      <h1 style="margin-bottom: var(--space-6);">Privacy Policy</h1>
 
-      h1 {
-        font-style: normal;
-        font-weight: 600;
-        font-size: 48px;
-        line-height: 52px;
-      }
+      <p style="color:var(--text-secondary); margin-bottom: var(--space-6);">Version: 1.1 &middot; Last updated: 26 August 2025</p>
 
-      .paragraph {
-        font-style: normal;
-        font-weight: 400;
-        font-size: 30px;
-        line-height: 39px;
-        text-align: justify;
-      }
+      <section>
+        <h2>Definitions</h2>
+        <p>Extiri’s website includes everything served under the extiri.com domain and its subdomains. "Extiri product" refers to services or products provided by Extiri, including CodeMenu, Snippets Store, and Extiri’s website. "User" means an entity using Extiri products. "Personal information" means information that can be associated with a specific person (e.g., name, email).</p>
+      </section>
 
-      .left {
-        position: relative;
-        left: 50px;
-        flex: left;
-        width: 45%;
-      }
+      <section>
+        <h2>Changes to terms</h2>
+        <p>We may update this policy from time to time to improve clarity or reflect changes in our products. When we do, we will post the updated version here with the date it was last updated. Continued use of our services constitutes acceptance of the revised policy.</p>
+      </section>
 
-      .right {
-        position: relative;
-        right: 10px;
-        flex: right;
-        width: 45%;
-      }
+      <section>
+        <h2>Consent</h2>
+        <p>By downloading, installing, accessing, or using any Extiri product you consent to this Privacy Policy. If you do not agree, stop using the product and delete any data you have provided in accordance with the Data Deletion section.</p>
+      </section>
 
-      .paragraph-small {
-        font-style: normal;
-        font-weight: 400;
-        font-size: 27px;
-        line-height: 39px;
-        text-align: justify;
-      }
+      <section>
+        <h2>Third-party service providers</h2>
+        <p>Extiri products may use third-party services whose privacy policies also apply. These may include Oracle Cloud Infrastructure, Cloudflare, SendGrid, Vercel, Apple App Store services, Gravatar, and Google Analytics.</p>
+      </section>
 
-      .utilities_grid {
-        display: grid;
-        margin-left: auto;
-        margin-right: auto;
-        justify-content: center;
-        width: 90%;
-        grid-template-columns: repeat(auto-fit, 800px);
-	      grid-template-rows: repeat(auto-fit, minmax(400px, 1fr));
-	      grid-auto-flow: row dense;
-	      gap: 30px;
-        justify-items: center;
-      }
+      <section>
+        <h2>Google Analytics and Cookies</h2>
+        <p>We use Google Analytics for anonymous usage statistics. Analytics will be loaded only if you accept cookies via our consent banner. No personally identifiable information is collected via analytics by default.</p>
+      </section>
 
-      .utility_element {
-        width: 800px;
-      }
-    </style>
-    <script>
-      function goToHome() {
-        window.open("./index.html#home")
-      }
+      <section>
+        <h2>Collected data</h2>
+        <p>The data collected depends on the product. For the website we may collect general data such as country or region. For CodeMenu we may collect device architecture, app version, build number, installation source (App Store/TestFlight), locale, OS version, device model, session identifiers, and a hashed (MD5) representation of an email where applicable.</p>
+      </section>
 
-      function goToApps() {
-        window.open("./index.html#apps")
-      }
+      <section>
+        <h2>Data deletion</h2>
+        <p>Users may delete their Extiri account (including username and email) via CodeMenu preferences. Account deletion may take up to 30 days to finalize.</p>
+      </section>
 
-      function goToBlog() {
-        window.open("./blog/index.html")
-      }
-    </script>
-    <script src="scripts.js"></script>
-  </head>
-  <body>
-    <div class="navbar">
-        <div class="navbar-content">
-          <a href="./index.html"><img src="images/logo.png" width="110px" class="navbar-logo"></img></a>
-  
-          <span class="big_screen">
-            <p class="navbar-item" onclick="goToHome()">Home</p>
-            <p class="navbar-item" onclick="goToApps()">Apps</p>
-            <p class="navbar-item" onclick="goToBlog()">Blog</p>
-          </span>
+      <section>
+        <h2>Contact & Disputes</h2>
+        <p>If you have concerns about your privacy, contact us at <a href="mailto:wiktor.wojcik@extiri.com">wiktor.wojcik@extiri.com</a>.</p>
+      </section>
 
-          <span class="small_screen">
-            <i class="fa-solid fa-bars navbar-item" style="position: absolute; top: 11px; width: 30px !important; font-size: 30px; cursor: pointer;" onclick="toggleHamburger()"></i>
+      <section>
+        <h2>Your Rights</h2>
+        <p>Depending on your jurisdiction (e.g., CCPA, GDPR) you may have rights to access, correct, delete, restrict processing of, or port your personal data. Submit requests by contacting us; we will respond within one month where required by law.</p>
+      </section>
 
-            <div id="hamburger_menu" class="hamburger_menu">
-              <div class="hamburger_menu_content">
-                <p class="navbar-item" onclick="goToHome()">Home</p>
-                <p class="navbar-item" onclick="goToApps()">Apps</p>
-                <p class="navbar-item" onclick="goToBlog()">Blog</p>
-                </div>
-            </div>
-          </span>
+      <section>
+        <h2>Children</h2>
+        <p>Extiri does not knowingly collect personal information from children under 13. If you believe a child has provided such information, contact us and we will remove it.</p>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="/images/logo.webp" alt="Extiri" width="100" style="opacity: 0.8;">
+          <p>Extiri is an independent software studio crafting simple, well‑crafted apps for macOS, iOS, and web.</p>
         </div>
+        <div class="footer-links">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="/codemenu.html">CodeMenu</a></li>
+            <li><a href="/chitneek.html">Chitneek</a></li>
+            <li><a href="/clipguru.html">ClipGuru</a></li>
+            <li><a href="/slowko.html">Słówko</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/blog/index.html">Blog</a></li>
+            <li><a href="/privacy_policy.html">Privacy Policy</a></li>
+            <li><a href="mailto:wiktor.wojcik@extiri.com">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Extiri. All rights reserved.</p>
+        <p>Mac is a trademark of Apple Inc.</p>
+      </div>
     </div>
-    
-    <br>
-    <br>
-    <br>
-    <br>
+  </footer>
 
-    <div class="section" style="width: 70%; margin-left: auto; margin-right: auto; font-size: 1.5em; margin-top: 100px;">
-			<p>
-Version: 1.1 | Last change date: 26.08.2025
+</body>
 
-<h1>Privacy Policy</h1>
-<h2>Definitions</h2>
-Extiri’s website - includes everything served under extiri.com domain and it’s subdomains.<br>
-Extiri product - a service or product provided directly by Extiri. Extiri products are: CodeMenu, Snippets Store and Extiri’s website.<br>
-Extiri products - a collective name for all Extiri products.<br>
-User - an entity, including, but not limited to, company, individual person, who/which registered, purchased or uses a Extiri product.<br>
-Personal informations - informations allowing for direct association of data with user. This includes, but is not limited to, user’s name, email.<br>
-Collected data - all informations collected during your usage of a Extiri product including, but not limited to, personal informations.<br>
-Privacy Policy - this privacy policy<br>
-
-<h2>Changes to terms</h2>
-Privacy policy may change from time to time. We reserve the right to change these Terms at any time, to improve clarity or to reflect changes in our product or business. When we do, we will post an updated version on our website, including the date that these Terms were last updated. By continuing to use our Services, you consent to the revised Terms.<br>
-
-<h2>Consent</h2>
-You agree to Privacy Policy by downloading, installing, accessing and using any of Extiri products. This consent is required for usage of Services. If user decides to resign, they should delete their data (described in Data deletion section) and stop using Extiri product.<br>
-
-<h2>Third-party service providers</h2>
-Exitiri products may use third-party services provided by other entities. Their privacy policies may also apply to user and to which, by using, buying or registering an Extiri product, user also consent. These are the services used by Extiri products:<br>
-Oracle Cloud Infrastructure<br>
-CloudFlare<br>
-SendGrid<br>
-Vercel<br>
-App Store<br>
-Gravatar<br>
-Google Analytics<br>
-
-<h2>Google Analytics and Cookies</h2>
-<p>We use Google Analytics to collect anonymous usage statistics and improve our website. Google Analytics uses cookies to gather information about how visitors use our site. The data collected includes anonymized IP addresses, device information, and browsing behavior. No personally identifiable information is stored or shared.</p>
-<p>Upon your first visit, you will be presented with a cookie consent banner. Google Analytics will only be loaded if you accept cookies. You may decline cookies at any time, and analytics will not be loaded. Your choice is stored in your browser and can be changed by clearing site data.</p>
-<p>For more information about Google Analytics, visit <a href="https://policies.google.com/technologies/partner-sites">Google's privacy policy</a>.</p>
-
-<h2>Collected data</h2>
-The data that is collected by Extiri may depend on a Extiri product used by user. During usage of Extiri’s website, this data may be collected:<br>
-<ul>
-  <li>country or region, from which user accessed website</li>
-</ul>
-During usage of CodeMenu this data may be collected (here, device means a device from which CodeMenu is used and CodeMenu means a instance of CodeMenu product used on this device):<br>
-<ul>
-<li>Architecture of device (e.g. x86_64)</li>
-<li>App version of CodeMenu</li>
-<li>Random user ID, not associated with user</li>
-<li>Build number of CodeMenu</li>
-<li>Information whether CodeMenu has been downloaded from App Store or TestFlight</li>
-<li>Information whether CodeMenu is a debug or simulator version</li>
-<li>Locale used by CodeMenu (e.g. en_US)</li>
-<li>Operating system and it’s version on which CodeMenu is running (e.g. macOS 12.1)</li>
-<li>Model name of device</li>
-<li>Target environment of CodeMenu (e.g. native)</li>
-<li>Version of Telemetry client used by CodeMenu (e.g. 1.1.5)</li>
-<li>Session ID, informing whether subsequent signals come from the same session of CodeMenu (e.g. CodeMenu has been closed)</li>
-<li>a hashed (MD5 algorithm) version of user’s email</li>
-</ul>
-When you create a Extiri account, which is used by products like CodeMenu and Snippets Store, only user’s username, email and password are collected and stored on the server. Username may be accessible by other users. User will use email and password to access the account. Email may also be used by Extiri for communication with user. During your communication with Extiri via official communication methods (methods informed  including, but not limited to, email from extiri.com domain, more data may be asked to be provided.<br>
-
-<h2>Data deletion</h2>
-User can delete theirs Extiri account (which includes all personal informations collected by Extiri (username, email, password)) using an option within CodeMenu preferences. Process of account deletion may last 30 days, after which all user data from database is deleted.<br>
-
-<h2>Disputes</h2>
-If you think that your privacy has been violated or want to contact Extiri, you may contact me using wiktor.wojcik@extiri.com email address and other contact options provided on Extiri website.<br>
-
-CCPA Privacy Policy (Do Not Sell My Personal Information)<br>
-Under the CCPA, among other rights, California consumers have the right to:<br>
-Request that a business that collects a consumer's personal data disclose the categories and specific pieces of personal data that a business has collected about consumers.<br>
-Request that a business delete any personal data about the consumer that a business has collected.<br>
-Request that a business that sells a consumer's personal data, not sell the consumer's personal data.<br>
-If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.<br>
-<h2>GDPR Privacy Policy (Data Protection Rights)</h2>
-We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:<br>
-The right to access – You have the right to request copies of your personal data.<br>
-The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete.<br>
-The right to erasure – You have the right to request that we erase your personal data, under certain conditions.<br>
-The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions.<br>
-The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions.<br>
-The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.<br>
-If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.<br>
-<h2>Children's Information</h2>
-Another part of our priority is adding protection for children while using the internet. I encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity, especially on services (e.g. Snippets Store), which data are provided by other users, whose content is moderated, but the content may not always be removed immediately after the violation of the terms of use occurs. Extiri does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information to Extiri, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.
-      </p>
-    </div>
-
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <p style="color: white; padding-bottom: 10px; text-align: center;"><a href="#" class="secondary_link">Privacy Policy</a></p>
-    <p style="color: #505050; padding-bottom: 50px; text-align: center;">Mac is a trademark of Apple Inc., registered in the U.S. and other countries and regions.</p>
-  </body>
 </html>
