@@ -121,7 +121,7 @@
     </header>
 
     <!-- Recent Posts Section -->
-    <section id="recent-posts" class="section" style="padding-bottom: var(--space-12);">
+    <section id="recent-posts" class="section" style="padding-bottom: var(--space-12)">
         <div class="container">
             <div class="flex-between" style="margin-bottom: var(--space-8); align-items: flex-end;">
                 <div>
@@ -150,132 +150,186 @@
                 </div>
             </div>
 
-            <div class="app-showcase">
+            <div class="featured-apps">
                 <!-- CodeMenu -->
-                <article class="app-card-large">
-                    <div class="app-card-content">
-                        <img src="images/codemenu-icon.webp" alt="CodeMenu Icon" class="app-icon"
-                            style="filter: drop-shadow(0 0 20px rgba(255, 179, 0, 0.2));">
-                        <h3>CodeMenu</h3>
-                        <p>Augmented memory for creators. Capture every snippet, prompt, palette, and note in a personal
-                            content library that remembers context for you.</p>
-                        <div class="flex" style="flex-wrap: wrap;">
-                            <span class="badge">macOS</span>
-                            <span class="badge">Productivity</span>
-                        </div>
-                        <div class="flex" style="margin-top: var(--space-4);">
-                            <a href="./codemenu.html" class="btn btn-primary"
-                                style="background: var(--color-codemenu); color: #000; --btn-shadow-rgb: var(--color-codemenu-rgb);">Learn
-                                More</a>
-                            <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781"
-                                class="btn btn-secondary" aria-label="Download CodeMenu">App Store</a>
-                        </div>
-                    </div>
-                    <div class="app-card-media">
+                <article class="featured-app-card"
+                    style="--app-color: var(--color-codemenu); --app-color-rgb: var(--color-codemenu-rgb);">
+                    <div class="featured-app-card__glow"></div>
+                    <div class="featured-app-card__media">
                         <img src="images/codemenu/dashboard_screenshot.webp" alt="CodeMenu Dashboard">
+                    </div>
+                    <div class="featured-app-card__content">
+                        <div class="featured-app-card__header">
+                            <img src="images/codemenu-icon.webp" alt="CodeMenu" class="featured-app-card__icon">
+                            <div>
+                                <h3>CodeMenu</h3>
+                                <div class="featured-app-card__badges">
+                                    <span class="badge badge--small">macOS</span>
+                                    <span class="badge badge--small">Productivity</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Augmented memory for creators. Capture every snippet, prompt, palette, and note in a personal
+                            content library.</p>
+                        <div class="featured-app-card__actions">
+                            <a href="./codemenu.html" class="btn btn-primary btn--small"
+                                style="background: var(--color-codemenu); color: #000; --btn-shadow-rgb: var(--color-codemenu-rgb);">
+                                Learn More
+                            </a>
+                            <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781"
+                                class="btn btn-secondary btn--small" aria-label="Download CodeMenu">
+                                <i class="fa-brands fa-apple"></i> App Store
+                            </a>
+                        </div>
                     </div>
                 </article>
 
                 <!-- Chitneek -->
-                <article class="app-card-large reversed">
-                    <div class="app-card-content">
-                        <img src="images/czytnik/czytnik-icon.webp" alt="Chitneek Icon" class="app-icon"
-                            style="filter: drop-shadow(0 0 20px rgba(38, 171, 236, 0.2));">
-                        <h3>Chitneek</h3>
-                        <p>Turn PDFs, notes, and web pages into smooth, natural audio — privately, on your iPhone, with
-                            nothing uploaded to the cloud.</p>
-                        <div class="flex" style="flex-wrap: wrap;">
-                            <span class="badge">iOS</span>
-                            <span class="badge">Accessibility</span>
-                        </div>
-                        <div class="flex" style="margin-top: var(--space-4);">
-                            <a href="./chitneek.html" class="btn btn-primary"
-                                style="background: var(--color-chitneek); color: #fff; --btn-shadow-rgb: var(--color-chitneek-rgb);">Learn
-                                More</a>
-                            <a href="https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870"
-                                class="btn btn-secondary" aria-label="Download Chitneek">App Store</a>
-                        </div>
-                    </div>
-                    <div class="app-card-media">
+                <article class="featured-app-card"
+                    style="--app-color: var(--color-chitneek); --app-color-rgb: var(--color-chitneek-rgb);">
+                    <div class="featured-app-card__glow"></div>
+                    <div class="featured-app-card__media">
                         <img src="images/czytnik/library-screenshot.webp" alt="Chitneek Library">
+                    </div>
+                    <div class="featured-app-card__content">
+                        <div class="featured-app-card__header">
+                            <img src="images/czytnik/czytnik-icon.webp" alt="Chitneek" class="featured-app-card__icon">
+                            <div>
+                                <h3>Chitneek</h3>
+                                <div class="featured-app-card__badges">
+                                    <span class="badge badge--small">iOS</span>
+                                    <span class="badge badge--small">Reading</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Turn PDFs, notes, and web pages into smooth, natural audio — privately, on your iPhone.</p>
+                        <div class="featured-app-card__actions">
+                            <a href="./chitneek.html" class="btn btn-primary btn--small"
+                                style="background: var(--color-chitneek); --btn-shadow-rgb: var(--color-chitneek-rgb);">
+                                Learn More
+                            </a>
+                            <a href="https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870"
+                                class="btn btn-secondary btn--small" aria-label="Download Chitneek">
+                                <i class="fa-brands fa-apple"></i> App Store
+                            </a>
+                        </div>
                     </div>
                 </article>
 
                 <!-- ClipGuru -->
-                <article class="app-card-large">
-                    <div class="app-card-content">
-                        <img src="images/clipguru/ClipGuru-icon.webp" alt="ClipGuru Icon" class="app-icon"
-                            style="filter: drop-shadow(0 0 20px rgba(109, 73, 215, 0.2));">
-                        <h3>ClipGuru</h3>
-                        <p>A lightweight clipboard manager that saves text, links, and images — instantly searchable and
-                            ready to paste anywhere.</p>
-                        <div class="flex" style="flex-wrap: wrap;">
-                            <span class="badge">iOS</span>
-                            <span class="badge">macOS</span>
-                            <span class="badge">Utility</span>
-                        </div>
-                        <div class="flex" style="margin-top: var(--space-4);">
-                            <a href="./clipguru.html" class="btn btn-primary"
-                                style="background: var(--color-clipguru); color: #fff; --btn-shadow-rgb: var(--color-clipguru-rgb);">Learn
-                                More</a>
-                            <a href="https://apps.apple.com/pl/app/clipguru/id6753787446" class="btn btn-secondary"
-                                aria-label="Download ClipGuru">App Store</a>
-                        </div>
-                    </div>
-                    <div class="app-card-media">
+                <article class="featured-app-card"
+                    style="--app-color: var(--color-clipguru); --app-color-rgb: var(--color-clipguru-rgb);">
+                    <div class="featured-app-card__glow"></div>
+                    <div class="featured-app-card__media">
                         <img src="images/clipguru/main-screen-screenshot.webp" alt="ClipGuru Screen">
+                    </div>
+                    <div class="featured-app-card__content">
+                        <div class="featured-app-card__header">
+                            <img src="images/clipguru/ClipGuru-icon.webp" alt="ClipGuru"
+                                class="featured-app-card__icon">
+                            <div>
+                                <h3>ClipGuru</h3>
+                                <div class="featured-app-card__badges">
+                                    <span class="badge badge--small">iOS</span>
+                                    <span class="badge badge--small">macOS</span>
+                                    <span class="badge badge--small">Semantic</span>
+                                    <span class="badge badge--small">Keyboard</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p>A lightweight clipboard manager that saves text, links, and images — instantly searchable.
+                        </p>
+                        <div class="featured-app-card__actions">
+                            <a href="./clipguru.html" class="btn btn-primary btn--small"
+                                style="background: var(--color-clipguru); --btn-shadow-rgb: var(--color-clipguru-rgb);">
+                                Learn More
+                            </a>
+                            <a href="https://apps.apple.com/pl/app/clipguru/id6753787446"
+                                class="btn btn-secondary btn--small" aria-label="Download ClipGuru">
+                                <i class="fa-brands fa-apple"></i> App Store
+                            </a>
+                        </div>
                     </div>
                 </article>
             </div>
 
-            <!-- More Apps Grid -->
-            <div class="grid"
-                style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: var(--space-12);">
-
-                <!-- Slowko -->
-                <div class="card">
-                    <div class="flex-center" style="justify-content: flex-start; margin-bottom: var(--space-4);">
-                        <img src="images/slowko/slowko-icon.webp" alt="Slowko Icon" width="48" height="48"
-                            style="border-radius: 12px; margin-right: var(--space-4);">
-                        <div>
-                            <h4>Słówko</h4>
-                            <span class="badge" style="font-size: 0.6rem;">iOS</span>
-                        </div>
-                    </div>
-                    <p>A minimalist app for Polish language lovers. Discover one carefully chosen word every day.</p>
-                    <a href="./slowko.html" class="btn btn-outline" style="width: 100%;">Learn More</a>
+            <!-- More Apps Section -->
+            <div class="more-apps-section">
+                <div class="more-apps-header">
+                    <div class="more-apps-line"></div>
+                    <span class="more-apps-label">More from Extiri</span>
+                    <div class="more-apps-line"></div>
                 </div>
 
-                <!-- Space Train -->
-                <div class="card">
-                    <div class="flex-center" style="justify-content: flex-start; margin-bottom: var(--space-4);">
-                        <img src="images/space_train/space-train-icon.webp" alt="Space Train Icon" width="48"
-                            height="48" style="border-radius: 12px; margin-right: var(--space-4);">
-                        <div>
-                            <h4>Space Train</h4>
-                            <span class="badge" style="font-size: 0.6rem;">Game</span>
+                <div class="more-apps-grid">
+                    <!-- Slowko -->
+                    <article class="app-mini-card" style="--card-accent: var(--color-slowko);">
+                        <div class="app-mini-card__header">
+                            <img src="images/slowko/slowko-icon.webp" alt="Słówko Icon" class="app-mini-card__icon">
+                            <div class="app-mini-card__meta">
+                                <h4>Słówko</h4>
+                                <div class="app-mini-card__badges">
+                                    <span class="badge badge--small">iOS</span>
+                                    <span class="badge badge--small">Web</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <p>Glide through cosmic railways, dodge meteors, and perfect your timing in an elegant arcade
-                        runner.</p>
-                    <a href="./space-train.html" class="btn btn-outline" style="width: 100%;">Coming Soon</a>
-                </div>
-
-                <!-- Suggestions -->
-                <div class="card">
-                    <div class="flex-center" style="justify-content: flex-start; margin-bottom: var(--space-4);">
-                        <img src="images/Suggestions_icon.webp" alt="Suggestions Icon" width="48" height="48"
-                            style="border-radius: 12px; margin-right: var(--space-4);">
-                        <div>
-                            <h4>Suggestions</h4>
-                            <span class="badge" style="font-size: 0.6rem;">Open Source</span>
+                        <p class="app-mini-card__desc">A minimalist app for Polish language lovers. Discover one
+                            carefully chosen word every day.</p>
+                        <div class="app-mini-card__actions">
+                            <a href="./slowko.html" class="btn btn-outline btn--small">
+                                <i class="fa-solid fa-circle-info"></i> Learn More
+                            </a>
+                            <a href="https://slowko.extiri.com" class="btn btn-primary btn--small"
+                                style="background: var(--color-slowko); --btn-shadow-rgb: var(--color-slowko-rgb);"
+                                target="_blank">
+                                <i class="fa-solid fa-globe"></i> Web App
+                            </a>
                         </div>
-                    </div>
-                    <p>Search and insert entries from CodeMenu without leaving your editor.</p>
-                    <a href="https://github.com/Extiri/Suggestions" class="btn btn-outline"
-                        style="width: 100%;">GitHub</a>
-                </div>
+                    </article>
 
+                    <!-- Space Train -->
+                    <article class="app-mini-card" style="--card-accent: var(--color-spacetrain);">
+                        <div class="app-mini-card__header">
+                            <img src="images/space_train/space-train-icon.webp" alt="Space Train Icon"
+                                class="app-mini-card__icon">
+                            <div class="app-mini-card__meta">
+                                <h4>Space Train</h4>
+                                <div class="app-mini-card__badges">
+                                    <span class="badge badge--small badge--accent">Coming Soon</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="app-mini-card__desc">Glide through cosmic railways, dodge meteors, and perfect your
+                            timing in an elegant arcade runner.</p>
+                        <div class="app-mini-card__actions">
+                            <a href="./space-train.html" class="btn btn-outline btn--small" style="width: 100%;">
+                                <i class="fa-solid fa-rocket"></i> Preview
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Suggestions -->
+                    <article class="app-mini-card" style="--card-accent: var(--color-codemenu);">
+                        <div class="app-mini-card__header">
+                            <img src="images/Suggestions_icon.webp" alt="Suggestions Icon" class="app-mini-card__icon">
+                            <div class="app-mini-card__meta">
+                                <h4>Suggestions</h4>
+                                <div class="app-mini-card__badges">
+                                    <span class="badge badge--small">Open Source</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="app-mini-card__desc">Search and insert entries from CodeMenu without leaving your
+                            editor. Works with Xcode, VSCode, and more.</p>
+                        <div class="app-mini-card__actions">
+                            <a href="https://github.com/Extiri/Suggestions" class="btn btn-outline btn--small"
+                                style="width: 100%;" target="_blank">
+                                <i class="fa-brands fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </article>
+                </div>
             </div>
         </div>
     </main>
