@@ -4,8 +4,8 @@
     <title>Extiri Blog</title>
     <description>blog about Extiri, programming and cybersecurity
 </description>
-    <link>https://extiri.com/blog/blog/</link>
-    <atom:link href="https://extiri.com/blog/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <link>https://extiri.com/blog/</link>
+    <atom:link href="https://extiri.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <pubDate>Fri, 31 Oct 2025 15:03:18 +0100</pubDate>
     <lastBuildDate>Fri, 31 Oct 2025 15:03:18 +0100</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
@@ -364,8 +364,8 @@ Treat it as a snippet sandbox + launcher-it simplifies your workflow so you can 
 And when you want to keep your snippets organized, manageable, and easy to run-CodeMenu is there to make life simpler.&lt;/p&gt;
 </description>
         <pubDate>Wed, 29 Oct 2025 00:00:00 +0100</pubDate>
-        <link>https://extiri.com/blog/blog/posts/how-to-run-code-snippets-mac</link>
-        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/how-to-run-code-snippets-mac</guid>
+        <link>https://extiri.com/blog/posts/how-to-run-code-snippets-mac</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/how-to-run-code-snippets-mac</guid>
         
         <category>extiri</category>
         
@@ -516,8 +516,8 @@ Read-aloud PDFs work best as part of a complete study system. Use them for initi
 &lt;p&gt;Start studying smarter by making every moment count. Try Chitneek’s 7-day free trial and experience what it’s like to have your entire PDF library accessible as audio, anywhere you go. Learn more &lt;a href=&quot;https://extiri.com/chitneek.html&quot;&gt;here&lt;/a&gt; or &lt;a href=&quot;https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870&quot;&gt;download now&lt;/a&gt; from the App Store on iOS.&lt;/p&gt;
 </description>
         <pubDate>Tue, 28 Oct 2025 00:00:00 +0100</pubDate>
-        <link>https://extiri.com/blog/blog/posts/how-to-study-read-aloud-pdf</link>
-        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/how-to-study-read-aloud-pdf</guid>
+        <link>https://extiri.com/blog/posts/how-to-study-read-aloud-pdf</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/how-to-study-read-aloud-pdf</guid>
         
         <category>extiri</category>
         
@@ -645,8 +645,8 @@ rm /var/tmp/compiled_app
 &lt;p&gt;Thanks for reading - enjoy running code with CodeMenu!&lt;/p&gt;
 </description>
         <pubDate>Tue, 28 Oct 2025 00:00:00 +0100</pubDate>
-        <link>https://extiri.com/blog/blog/posts/codemenu-guide-add-programming-language</link>
-        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/codemenu-guide-add-programming-language</guid>
+        <link>https://extiri.com/blog/posts/codemenu-guide-add-programming-language</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/codemenu-guide-add-programming-language</guid>
         
         <category>extiri</category>
         
@@ -920,8 +920,8 @@ rm /var/tmp/compiled_app
 &lt;p&gt;&lt;strong&gt;CodeMenu&lt;/strong&gt;: Available on the &lt;a href=&quot;https://apps.apple.com/us/app/codemenu-snippet-manager/id1583463781?mt=12&quot;&gt;Mac App Store&lt;/a&gt; with a 7-day free trial, or purchase a one-time license. Learn more about our &lt;a href=&quot;/codemenu.html&quot;&gt;snippet manager for macOS&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Sun, 26 Oct 2025 00:00:00 +0200</pubDate>
-        <link>https://extiri.com/blog/blog/posts/the-best-snippet-manager</link>
-        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/the-best-snippet-manager</guid>
+        <link>https://extiri.com/blog/posts/the-best-snippet-manager</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/the-best-snippet-manager</guid>
         
         <category>extiri</category>
         
@@ -997,8 +997,8 @@ rm /var/tmp/compiled_app
 &lt;p&gt;Download ClipGuru from the &lt;a href=&quot;https://apps.apple.com/pl/app/clipguru/id6753787446&quot;&gt;App Store&lt;/a&gt;. The app is mobile-first (iPhone and iPad) but it’s also available on macOS. Learn more &lt;a href=&quot;https://extiri.com/clipguru.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Sat, 18 Oct 2025 00:00:00 +0200</pubDate>
-        <link>https://extiri.com/blog/blog/posts/introducing-clipguru</link>
-        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/introducing-clipguru</guid>
+        <link>https://extiri.com/blog/posts/introducing-clipguru</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/introducing-clipguru</guid>
         
         <category>extiri</category>
         
@@ -1247,8 +1247,8 @@ rm /var/tmp/compiled_app
 &lt;p&gt;Note on tooling: the suggestions above work with many snippet tools; CodeMenu is one example that supports quick insertion and tagging—feel free to substitute your preferred tool.&lt;/p&gt;
 </description>
         <pubDate>Fri, 17 Oct 2025 00:00:00 +0200</pubDate>
-        <link>https://extiri.com/blog/blog/posts/ten-developer-habits</link>
-        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/ten-developer-habits</guid>
+        <link>https://extiri.com/blog/posts/ten-developer-habits</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/ten-developer-habits</guid>
         
         <category>productivity</category>
         
@@ -1319,8 +1319,8 @@ rm /var/tmp/compiled_app
 &lt;p&gt;Chitneek is for anyone who believes that reading aloud should be easy, private, and dependable. If you’ve been looking for a calm, uncluttered experience that still covers everything essential — this is it.&lt;/p&gt;
 </description>
         <pubDate>Mon, 22 Sep 2025 00:00:00 +0200</pubDate>
-        <link>https://extiri.com/blog/blog/posts/introducing-chitneek</link>
-        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/introducing-chitneek</guid>
+        <link>https://extiri.com/blog/posts/introducing-chitneek</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/introducing-chitneek</guid>
         
         <category>extiri</category>
         
@@ -1401,8 +1401,8 @@ rm /var/tmp/compiled_app
 &lt;p&gt;I hope they do the same for you. Dive in, experiment, fail, fix, and learn - your brain will thank you.&lt;/p&gt;
 </description>
         <pubDate>Mon, 25 Aug 2025 00:00:00 +0200</pubDate>
-        <link>https://extiri.com/blog/blog/posts/from-theory-to-practice</link>
-        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/from-theory-to-practice</guid>
+        <link>https://extiri.com/blog/posts/from-theory-to-practice</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/from-theory-to-practice</guid>
         
         <category>programming</category>
         
@@ -1490,8 +1490,8 @@ rm /var/tmp/compiled_app
 &lt;p&gt;By integrating a powerful snippet manager like CodeMenu into your toolkit, you can leverage the strengths of both AI and human organization. CodeMenu’s features—like placeholders, offline AI functions, and support for 55+ languages ensure you’re ready to handle whatever challenges come your way.&lt;/p&gt;
 </description>
         <pubDate>Sun, 26 Jan 2025 00:00:00 +0100</pubDate>
-        <link>https://extiri.com/blog/blog/posts/ten-reason-to-use-a-snippet-manager-in-the-ai-era</link>
-        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/ten-reason-to-use-a-snippet-manager-in-the-ai-era</guid>
+        <link>https://extiri.com/blog/posts/ten-reason-to-use-a-snippet-manager-in-the-ai-era</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/ten-reason-to-use-a-snippet-manager-in-the-ai-era</guid>
         
         <category>artificial-intelligence</category>
         
@@ -1557,8 +1557,8 @@ rm /var/tmp/compiled_app
 &lt;p&gt;Building a personal knowledge base isn’t just about hoarding information; it’s about crafting a dynamic, ever-evolving tool that grows with you. Tools like Obsidian, Roam Research and CodeMenu empower you to weave all strands of your digital life into a coherent, powerful tool for personal and professional growth. Whether you’re coding, writing, designing, or learning, your personal database is your ally in mastering the information age.&lt;/p&gt;
 </description>
         <pubDate>Sun, 26 Jan 2025 00:00:00 +0100</pubDate>
-        <link>https://extiri.com/blog/blog/posts/building-your-personal-knowledge-base</link>
-        <guid isPermaLink="true">https://extiri.com/blog/blog/posts/building-your-personal-knowledge-base</guid>
+        <link>https://extiri.com/blog/posts/building-your-personal-knowledge-base</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/building-your-personal-knowledge-base</guid>
         
         
       </item>
