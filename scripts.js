@@ -244,6 +244,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initAppFilters();
   initDownloadTracking();
   initSlideshow();
+  initRecentPosts();
 });
 
 // Slideshow: cycles through .slide elements, pauses when user clicks any slide
@@ -382,4 +383,95 @@ function initDownloadTracking() {
       }, { passive: true });
     });
   });
+}
+
+// Recent posts: fetch RSS feed and display the 5 latest blog posts
+function initRecentPosts() {
+  const container = document.getElementById('recent-posts-container');
+  if (!container) return;
+
+  // Use relative path to avoid CORS issues - works in both dev and production
+  const RSS_URL = 'blog/feed.xml';
+  const MAX_POSTS = 5;
+
+  // Format date nicely (e.g., "Oct 29, 2025")
+  function formatDate(dateString) {
+    try {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+      });
+    } catch (e) {
+      return dateString;
+    }
+  }
+
+  // Fix link URLs (the RSS has /blog/blog/ which needs to be corrected)
+  function fixLink(url) {
+    return url.replace('/blog/blog/', '/blog/');
+  }
+
+  // Create a post card element
+  function createPostCard(item) {
+    const card = document.createElement('a');
+    card.className = 'recent-post-card';
+    card.href = fixLink(item.link);
+    card.innerHTML = `
+      <span class="recent-post-card__date">${formatDate(item.pubDate)}</span>
+      <h3 class="recent-post-card__title">${item.title}</h3>
+      <span class="recent-post-card__arrow">
+        Read article <i class="fa-solid fa-arrow-right" style="font-size: 0.75em;"></i>
+      </span>
+    `;
+    return card;
+  }
+
+  // Show error state
+  function showError() {
+    container.innerHTML = `
+      <div class="recent-posts-loading">
+        <p style="color: var(--text-tertiary); text-align: center;">Unable to load posts. <a href="blog/index.html" style="color: var(--brand-primary);">Visit the blog</a></p>
+      </div>
+    `;
+  }
+
+  // Fetch and parse RSS feed
+  fetch(RSS_URL)
+    .then(response => {
+      if (!response.ok) throw new Error('Network response was not ok');
+      return response.text();
+    })
+    .then(xmlString => {
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(xmlString, 'application/xml');
+
+      // Check for parsing errors
+      const parserError = xml.querySelector('parsererror');
+      if (parserError) throw new Error('XML parsing failed');
+
+      const items = xml.querySelectorAll('item');
+      const posts = [];
+
+      // Extract post data from RSS items (up to MAX_POSTS)
+      for (let i = 0; i < Math.min(items.length, MAX_POSTS); i++) {
+        const item = items[i];
+        posts.push({
+          title: item.querySelector('title')?.textContent || 'Untitled',
+          link: item.querySelector('link')?.textContent || '#',
+          pubDate: item.querySelector('pubDate')?.textContent || ''
+        });
+      }
+
+      // Clear loading state and render posts
+      container.innerHTML = '';
+      posts.forEach(post => {
+        container.appendChild(createPostCard(post));
+      });
+    })
+    .catch(err => {
+      console.warn('Failed to load RSS feed:', err);
+      showError();
+    });
 }

@@ -40,7 +40,7 @@
         /* Page-specific overrides */
         .hero-home {
             background: radial-gradient(circle at 30% 30%, rgba(235, 114, 89, 0.08) 0%, rgba(5, 5, 5, 0) 50%),
-                        radial-gradient(circle at 70% 70%, rgba(38, 171, 236, 0.08) 0%, rgba(5, 5, 5, 0) 50%);
+                radial-gradient(circle at 70% 70%, rgba(38, 171, 236, 0.08) 0%, rgba(5, 5, 5, 0) 50%);
         }
     </style>
 
@@ -113,11 +113,32 @@
             <p class="hero-subtitle delay-100">From augmented memory to mindful entertainment, every product is designed
                 to keep you organized, inspired, and in control.</p>
             <div class="hero-actions delay-200">
-                <a href="#apps" class="btn btn-primary" style="--btn-shadow-rgb: var(--brand-primary-rgb);">Explore Apps</a>
+                <a href="#apps" class="btn btn-primary" style="--btn-shadow-rgb: var(--brand-primary-rgb);">Explore
+                    Apps</a>
                 <a href="blog/index.html" class="btn btn-secondary">Read Blog</a>
             </div>
         </div>
     </header>
+
+    <!-- Recent Posts Section -->
+    <section id="recent-posts" class="section" style="padding-bottom: var(--space-12);">
+        <div class="container">
+            <div class="flex-between" style="margin-bottom: var(--space-8); align-items: flex-end;">
+                <div>
+                    <span class="badge" style="margin-bottom: var(--space-4);">From the Blog</span>
+                    <h2>Recent <span class="text-gradient">Posts</span></h2>
+                </div>
+                <a href="blog/index.html" class="btn btn-outline" style="flex-shrink: 0;">View All Posts</a>
+            </div>
+
+            <div id="recent-posts-container" class="recent-posts-grid">
+                <!-- Posts will be loaded dynamically via JavaScript -->
+                <div class="recent-posts-loading">
+                    <p style="color: var(--text-tertiary); text-align: center;">Loading recent posts...</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Apps Section -->
     <main id="apps" class="section">
@@ -144,7 +165,8 @@
                         </div>
                         <div class="flex" style="margin-top: var(--space-4);">
                             <a href="./codemenu.html" class="btn btn-primary"
-                                style="background: var(--color-codemenu); color: #000; --btn-shadow-rgb: var(--color-codemenu-rgb);">Learn More</a>
+                                style="background: var(--color-codemenu); color: #000; --btn-shadow-rgb: var(--color-codemenu-rgb);">Learn
+                                More</a>
                             <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781"
                                 class="btn btn-secondary" aria-label="Download CodeMenu">App Store</a>
                         </div>
@@ -168,7 +190,8 @@
                         </div>
                         <div class="flex" style="margin-top: var(--space-4);">
                             <a href="./chitneek.html" class="btn btn-primary"
-                                style="background: var(--color-chitneek); color: #fff; --btn-shadow-rgb: var(--color-chitneek-rgb);">Learn More</a>
+                                style="background: var(--color-chitneek); color: #fff; --btn-shadow-rgb: var(--color-chitneek-rgb);">Learn
+                                More</a>
                             <a href="https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870"
                                 class="btn btn-secondary" aria-label="Download Chitneek">App Store</a>
                         </div>
@@ -193,7 +216,8 @@
                         </div>
                         <div class="flex" style="margin-top: var(--space-4);">
                             <a href="./clipguru.html" class="btn btn-primary"
-                                style="background: var(--color-clipguru); color: #fff; --btn-shadow-rgb: var(--color-clipguru-rgb);">Learn More</a>
+                                style="background: var(--color-clipguru); color: #fff; --btn-shadow-rgb: var(--color-clipguru-rgb);">Learn
+                                More</a>
                             <a href="https://apps.apple.com/pl/app/clipguru/id6753787446" class="btn btn-secondary"
                                 aria-label="Download ClipGuru">App Store</a>
                         </div>
@@ -225,8 +249,8 @@
                 <!-- Space Train -->
                 <div class="card">
                     <div class="flex-center" style="justify-content: flex-start; margin-bottom: var(--space-4);">
-                        <img src="images/space_train/space-train-icon.webp" alt="Space Train Icon" width="48" height="48"
-                            style="border-radius: 12px; margin-right: var(--space-4);">
+                        <img src="images/space_train/space-train-icon.webp" alt="Space Train Icon" width="48"
+                            height="48" style="border-radius: 12px; margin-right: var(--space-4);">
                         <div>
                             <h4>Space Train</h4>
                             <span class="badge" style="font-size: 0.6rem;">Game</span>
