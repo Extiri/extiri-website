@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<title>Why 2026 Is the Year of Local-First Productivity Tools (and How CodeMenu Fits In) &#9642; Extiri Blog</title>
+<!--
+<meta name="description" content="We’re copying API keys into ChatGPT prompts, uploading proprietary code to cloud snippet managers, and syncing our entire knowledge bases through servers we don’t control. Somewhere along the way, we normalized sending our most valuable work artifacts through someone else’s infrastructure. That’s changing in 2026 — and it’s about time....">
+-->
+<meta name="description" content="blog about Extiri, programming and cybersecurity
+">
+<meta name="keywords" content="extiri">
+<link rel="canonical" href="https://extiri.com/posts/the-year-of-local-software">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Why 2026 Is the Year of Local-First Productivity Tools (and How CodeMenu Fits In)" />
+<meta name="twitter:description" content="blog about Extiri, programming and cybersecurity
+" />
+<meta name="twitter:image" content="https://extiri.com" />
+<meta name="author" content="">
+<link rel="author" href="">
+<meta property="og:locale" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Why 2026 Is the Year of Local-First Productivity Tools (and How CodeMenu Fits In)">
+<meta property="og:description" content="blog about Extiri, programming and cybersecurity
+">
+<meta property="og:url" content="https://extiri.com/posts/the-year-of-local-software">
+<meta property="og:site_name" content="Extiri Blog">
+<link rel="stylesheet" href="/blog/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="/blog/assets/css/main.css">
+<link rel="stylesheet" href="/blog/assets/css/bf.css">
+   <body>
+       <div class="wrapper" id="blep">
+          <header class="site-header">
+ <div class="site-header__inner">
+    <a class="site-header__brand" href="/blog/index.html">
+      <span class="site-header__logo">
+        <object type="image/svg+xml" data="/blog/assets/img/guy.svg" class="logosvg">Your browser does not support svg images</object>
+      </span>
+      <span class="site-header__title">Extiri Blog</span>
+    </a>
+    <button
+      class="site-nav__toggle"
+      type="button"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      data-nav-toggle
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+   <nav class="site-nav" id="site-nav" data-site-nav>
+     <ul class="site-nav__list">
+       <li><a href="/blog/about/index.html">About</a>
+       <li><a href="/blog/archive/index.html">Archive</a>
+       <li><a href="https://extiri.com">Apps</a>
+     </ul>
+     <div class="site-nav__secondary">
+       <ul class="site-nav__social">
+         <li>
+            <a href="https://youtube.com/@wiktorwojcik3678" target="_blank" rel="noopener">
+              <span class="icon-youtube"></span>
+              <span class="sr-only">YouTube</span>
+            </a>
+         <li>
+            <a href="https://twitter.com/WiktorW2" target="_blank" rel="noopener">
+              <span class="icon-twitter"></span>
+              <span class="sr-only">Twitter</span>
+            </a>
+         <li>
+            <a href="https://github.com/Extiri" target="_blank" rel="noopener">
+              <span class="icon-github"></span>
+              <span class="sr-only">GitHub</span>
+            </a>
+         <li>
+            <a href="mailto:wiktor.wojcik@extiri.com">
+              <span class="icon-mail_outline"></span>
+              <span class="sr-only">Email</span>
+            </a>
+         <li>
+            <a href="/blog/feed.xml">
+              <span class="icon-rss_feed"></span>
+              <span class="sr-only">RSS feed</span>
+            </a>
+       </ul>
+     </div>
+   </nav>
+ </div>
+</header>
+<div id="cookie-consent-banner" class="cookie-consent-banner" aria-live="polite" hidden>
+ <div class="cookie-consent-content">
+   <p>We use cookies and analytics to improve this site. You can accept or decline analytics tracking. Read our <a href="/blog/privacy_policy.html">Privacy Policy</a>.
+   <div class="cookie-consent-buttons">
+      <button id="consent-accept" class="button-primary">Accept</button>
+      <button id="consent-decline" class="button-secondary">Decline</button>
+   </div>
+ </div>
+</div>
+<article class="post">
+<header class="post-hero">
+   <p class="post-hero__eyebrow">Extiri Blog
+   <h1 class="post-hero__title">Why 2026 Is the Year of Local-First Productivity Tools (and How CodeMenu Fits In)</h1>
+   <div class="post-hero__meta">
+      <span class="post-hero__date">
+        January 13, 2026
+      </span>
+      <span class="post-hero__divider">•</span>
+      <span class="post-hero__author">
+        Wiktor Wójcik
+      </span>
+      <span class="post-hero__divider">•</span>
+      <span class="post-hero__tags">
+          <a href="/blog/tag/extiri/index.html">#extiri</a>
+      </span>
+   </div>
+ </header>
+ <div class="post-content">
+   <p>We’re copying API keys into ChatGPT prompts, uploading proprietary code to cloud snippet managers, and syncing our entire knowledge bases through servers we don’t control. Somewhere along the way, we normalized sending our most valuable work artifacts through someone else’s infrastructure.
+<p>That’s changing in 2026 — and it’s about time.
+<h2 id="privacy-isnt-optional-anymore">Privacy Isn’t Optional Anymore</h2>
+<p>The tools we used to trust are now the ones we question. Every snippet, every piece of code, every design decision we document potentially flows through a third-party server. With data breaches making headlines weekly and companies quietly training AI models on user content, developers are waking up to an uncomfortable truth: cloud-first isn’t always the answer.
+<p>The problem isn’t cloud sync itself—it’s the assumption that it must be the default. Your code snippets, your AI prompts, your research notes—these don’t need to live on someone else’s computer. They shouldn’t have to.
+<p>Local-first tools flip this model. Your data stays on your machine. You choose when (and if) to sync. You control who sees what. And when you close your laptop on a plane, everything still works because it was never dependent on someone else’s servers in the first place.
+<h2 id="ai-needs-context-not-your-companys-secrets">AI Needs Context, Not Your Company’s Secrets</h2>
+<p>The AI productivity revolution came with a catch: to be useful, AI needs context. The more it knows about your codebase, your patterns, your preferences, the better it performs. But feeding that context into cloud APIs means broadcasting your intellectual property to external services.
+<p>This creates a painful choice: accept reduced productivity by keeping AI out of your workflow, or accept privacy risks by sending everything to the cloud.
+<p>On-device AI changes the equation entirely. You get intelligent assistance—semantic search, content generation, automated tagging—without any data leaving your machine. The AI model runs locally, learns from your patterns privately, and helps you work faster without compromising what matters.
+<h2 id="codemenu-your-private-knowledge-system">CodeMenu: Your Private Knowledge System</h2>
+<p>This is where CodeMenu comes in. It’s built from the ground up as a local-first tool that treats your privacy as a feature, not an afterthought.
+<p>Everything you save—code snippets in 60+ languages, design references, color palettes, AI prompts, screenshots—lives on your Mac. The on-device AI features (generation, chat, semantic search) run entirely on your hardware using Apple Silicon’s neural engine. Nothing gets sent to external servers unless you explicitly choose to sync or share.
+<p>What makes this powerful isn’t just the privacy angle. It’s the workflow. With parameterized templates, you can create living boilerplates that adapt to different contexts. The JavaScript automation and HTTP API let you build custom workflows that connect CodeMenu to your other tools. Built-in utilities (RegEx tester, converters, mock data generators) mean fewer context switches.
+<p>And because it’s offline-first, everything works on planes, in basements, or when your internet inevitably decides to fail right before a demo. Your augmented memory is always available.
+<p>For teams that do need sharing, CodeMenu’s optional sync and Snippets Store provide controlled collaboration—you decide what to share, when to share it, and who sees it.
+<h2 id="clipguru-local-first-for-your-mobile-workflow">ClipGuru: Local-First for Your Mobile Workflow</h2>
+<p>Not everything needs the power of a full snippet manager. Sometimes you just need to capture a URL from Safari, save a quote you’ll reference later, or keep a piece of code accessible across your iPhone and Mac.
+<p>ClipGuru takes the local-first philosophy and distills it into a lightweight clipboard manager for iOS, iPadOS, and macOS. Text, links, and images sync via iCloud (which means your data stays in Apple’s ecosystem, not a third-party server), and the custom keyboard extension gives you instant access without app switching.
+<p>It’s intentionally simple—no overwhelming features, no complex setup, just fast capture and smart search. The free version saves 4 clips, and Pro unlocks unlimited history and tags for about the price of a coffee.
+<p>Think of it as CodeMenu’s mobile companion: ClipGuru handles quick captures and clipboard management across devices, while CodeMenu serves as your deeper knowledge system on Mac. Together, they create a local-first workflow that scales from quick mobile snippets to comprehensive knowledge management.
+<h2 id="the-offline-first-future-is-already-here">The Offline-First Future Is Already Here</h2>
+<p>We’re seeing a shift away from the “everything must be cloud-based” mentality of the 2010s. Developers are choosing tools that respect their privacy, work offline, and give them control over their data. The technology is mature—local AI models are powerful, device storage is cheap, and sync protocols exist that don’t require surrendering your data.
+<p>2026 won’t be the year everyone abandons cloud tools. But it will be the year local-first becomes a serious consideration rather than a niche preference. When you can have the best of both worlds—powerful features and complete privacy—why would you settle for less?
+<p>Your code, your snippets, your knowledge base—these are your intellectual property. They deserve to live somewhere you control.
+<hr />
+<p><strong>Ready to go local-first?</strong>
+<p>Try <strong>CodeMenu</strong> free for 7 days → <a href="https://apps.apple.com/us/app/codemenu-snippet-manager/id1583463781?mt=12">Mac App Store</a>
+<p>Or grab <strong>ClipGuru</strong> for quick clipboard access → <a href="https://apps.apple.com/pl/app/clipguru/id6753787446">App Store (iOS, iPadOS, macOS)</a>
+ </div>
+</article>
+<aside class="related">
+<h2>Related posts</h2>
+<ul class="related-posts">
+</aside>
+           <footer class="site-footer">
+ <div class="site-footer__inner">
+   <div class="site-footer__primary">
+     <h2>Extiri Blog</h2>
+     <p>blog about Extiri, programming and cybersecurity
+   </div>
+   <nav class="site-footer__links" aria-label="Footer navigation">
+      <a href="/blog/about/index.html">About</a>
+      <a href="/blog/archive/index.html">Archive</a>
+      <a href="https://extiri.com">Apps</a>
+      <a href="/blog/feed.xml">RSS</a>
+   </nav>
+   <div class="site-footer__meta">
+      <span>Crafted by Wiktor Wójcik</span>
+      <span>&copy; 2026 Extiri</span>
+   </div>
+ </div>
+</footer>
+       </div>
+<script type="text/javascript" src="/blog/assets/js/nav.js"></script>
+<script type="text/javascript" src="/blog/assets/js/theme.js"></script>
+<script type="text/javascript" src="/blog/assets/js/barefoot.js"></script>
+<script type="text/javascript" src="/blog/assets/js/consent.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    // Default to denied until the user accepts
+    gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    gtag('js', new Date());
+    gtag('config', 'G-HLY6ZZMNBQ', { 'anonymize_ip': true });
+    // Listen for our custom consent event to enable analytics
+    window.addEventListener('extiri:consent', function (e) {
+      if (e && e.detail && e.detail.analytics) {
+        // Grant analytics consent
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      } else {
+        // Revoke analytics consent
+        gtag('consent', 'update', { 'analytics_storage': 'denied' });
+      }
+    });
+  </script>
+    
