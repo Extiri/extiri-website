@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<title>CodeMenu as a File System for Your AI Agents &#9642; Extiri Blog</title>
+<!--
+<meta name="description" content="In the evolving world of AI development, there’s a growing buzz around “filesystems for AI”—essentially, structured ways to organize and access data that empower AI agents to work more intelligently and autonomously. Think of it as giving your AI a well-organized filing cabinet where it can pull out exactly what...">
+-->
+<meta name="description" content="blog about Extiri, programming and cybersecurity
+">
+<meta name="keywords" content="extiri, codemenu">
+<link rel="canonical" href="https://extiri.com/posts/codemenu-as-a-filesystem-ai-agent">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="CodeMenu as a File System for Your AI Agents" />
+<meta name="twitter:description" content="blog about Extiri, programming and cybersecurity
+" />
+<meta name="twitter:image" content="https://extiri.com" />
+<meta name="author" content="">
+<link rel="author" href="">
+<meta property="og:locale" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CodeMenu as a File System for Your AI Agents">
+<meta property="og:description" content="blog about Extiri, programming and cybersecurity
+">
+<meta property="og:url" content="https://extiri.com/posts/codemenu-as-a-filesystem-ai-agent">
+<meta property="og:site_name" content="Extiri Blog">
+<link rel="stylesheet" href="/blog/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="/blog/assets/css/main.css">
+<link rel="stylesheet" href="/blog/assets/css/bf.css">
+   <body>
+       <div class="wrapper" id="blep">
+          <header class="site-header">
+ <div class="site-header__inner">
+    <a class="site-header__brand" href="/blog/index.html">
+      <span class="site-header__logo">
+        <object type="image/svg+xml" data="/blog/assets/img/guy.svg" class="logosvg">Your browser does not support svg images</object>
+      </span>
+      <span class="site-header__title">Extiri Blog</span>
+    </a>
+    <button
+      class="site-nav__toggle"
+      type="button"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      data-nav-toggle
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+   <nav class="site-nav" id="site-nav" data-site-nav>
+     <ul class="site-nav__list">
+       <li><a href="/blog/about/index.html">About</a>
+       <li><a href="/blog/archive/index.html">Archive</a>
+       <li><a href="https://extiri.com">Apps</a>
+     </ul>
+     <div class="site-nav__secondary">
+       <ul class="site-nav__social">
+         <li>
+            <a href="https://youtube.com/@wiktorwojcik3678" target="_blank" rel="noopener">
+              <span class="icon-youtube"></span>
+              <span class="sr-only">YouTube</span>
+            </a>
+         <li>
+            <a href="https://twitter.com/WiktorW2" target="_blank" rel="noopener">
+              <span class="icon-twitter"></span>
+              <span class="sr-only">Twitter</span>
+            </a>
+         <li>
+            <a href="https://github.com/Extiri" target="_blank" rel="noopener">
+              <span class="icon-github"></span>
+              <span class="sr-only">GitHub</span>
+            </a>
+         <li>
+            <a href="mailto:wiktor.wojcik@extiri.com">
+              <span class="icon-mail_outline"></span>
+              <span class="sr-only">Email</span>
+            </a>
+         <li>
+            <a href="/blog/feed.xml">
+              <span class="icon-rss_feed"></span>
+              <span class="sr-only">RSS feed</span>
+            </a>
+       </ul>
+     </div>
+   </nav>
+ </div>
+</header>
+<div id="cookie-consent-banner" class="cookie-consent-banner" aria-live="polite" hidden>
+ <div class="cookie-consent-content">
+   <p>We use cookies and analytics to improve this site. You can accept or decline analytics tracking. Read our <a href="/blog/privacy_policy.html">Privacy Policy</a>.
+   <div class="cookie-consent-buttons">
+      <button id="consent-accept" class="button-primary">Accept</button>
+      <button id="consent-decline" class="button-secondary">Decline</button>
+   </div>
+ </div>
+</div>
+<article class="post">
+<header class="post-hero">
+   <p class="post-hero__eyebrow">Extiri Blog
+   <h1 class="post-hero__title">CodeMenu as a File System for Your AI Agents</h1>
+   <div class="post-hero__meta">
+      <span class="post-hero__date">
+        January 16, 2026
+      </span>
+      <span class="post-hero__divider">•</span>
+      <span class="post-hero__author">
+        Wiktor Wójcik
+      </span>
+      <span class="post-hero__divider">•</span>
+      <span class="post-hero__tags">
+          <a href="/blog/tag/extiri/index.html">#extiri</a>
+          <a href="/blog/tag/codemenu/index.html">#codemenu</a>
+      </span>
+   </div>
+ </header>
+ <div class="post-content">
+   <p>In the evolving world of AI development, there’s a growing buzz around “filesystems for AI”—essentially, structured ways to organize and access data that empower AI agents to work more intelligently and autonomously. Think of it as giving your AI a well-organized filing cabinet where it can pull out exactly what it needs without rummaging through chaos. This trend is picking up steam because AI agents aren’t just chatbots anymore; they’re becoming active participants in coding, research, and problem-solving workflows. They need reliable, queryable repositories to fetch context, code patterns, or prompts on demand.
+<p>Enter CodeMenu, a nifty Mac app from Extiri that’s quietly positioning itself as a perfect fit for this niche. It’s not marketed as a filesystem per se, but its design as an offline-first knowledge base for developers makes it an ideal local “file system” for AI agents. I’ve been exploring it, and it’s got that warm, practical feel—like a trusted notebook that’s always at your side. Let me walk you through what it offers, why it aligns with this trend, and some real-world use cases that might inspire you to give it a spin.
+<h3 id="what-makes-codemenu-a-file-system-for-ai">What Makes CodeMenu a “File System” for AI?</h3>
+<p>At its core, CodeMenu is a developer-focused tool for storing and managing code snippets, AI prompts, notes, images, and more. Everything lives locally on your Mac in a Realm database, which means no cloud dependencies, no subscriptions, and full privacy—your data stays put unless you choose otherwise. This offline-first approach is a breath of fresh air in a world of always-online tools, and it echoes the reliability we expect from a traditional file system.
+<p>But here’s where it shines for AI: CodeMenu isn’t just a static storage bin. It structures your data in a way that’s easy for humans <em>and</em> machines to navigate. You can organize artifacts into “Spaces” for project isolation, “Stashes” for quick ideas, and use tags, groups, and even a visual knowledge graph to link things together. Imagine a file system where files aren’t isolated silos—they’re connected nodes in a graph, allowing for relational queries.
+<p>The real magic for AI agents comes from its integration points:
+<ul>
+ <li><strong>MCP Server</strong>: This lets AI tools like Claude Desktop or Cursor directly query your CodeMenu library. Your agent can say something like “CodeMenu fetch the ‘stripe-webhook’ snippet” and pull in verified code without you copying and pasting.
+ <li><strong>HTTP Server</strong>: Running locally (e.g., via curl to localhost), it exposes your snippets as an API. This turns CodeMenu into a programmable data source that AI scripts or agents can tap into programmatically.
+ <li><strong>CLI Tool (cdmn)</strong>: A terminal interface with fuzzy search and JSON output, perfect for scripting AI workflows.
+</ul>
+<p>It’s like having a lightweight, developer-centric database that AI can read from, much like how modern AI systems use vector databases or file systems for long-term memory. And with support for over 60 languages, syntax highlighting, and rendering for Markdown, LaTeX, images, and even regex testing, it’s robust enough to handle diverse AI needs.
+<h3 id="real-use-cases-bringing-it-to-life">Real Use Cases: Bringing It to Life</h3>
+<p>To make this concrete, let’s look at some practical scenarios where CodeMenu acts as that essential filesystem layer for AI agents. These are drawn from how developers are already using it, adapted to highlight the AI angle.
+<ol>
+ <li>
+   <p><strong>Building Smarter Coding Assistants</strong>: Suppose you’re working on a web app with Stripe integration. You’ve stored webhook handlers, error-handling patterns, and test prompts in CodeMenu, tagged and linked in a knowledge graph. Now, integrate it with an AI agent in Cursor (an AI-powered code editor). The agent queries CodeMenu via the MCP Server to retrieve a “stripe-webhook” snippet, then generates unit tests or refactors code based on that context. No more losing track of your best practices—your AI pulls from a structured “file” of proven code, reducing hallucinations and improving output quality. CodeMenu can also store your Agent Skills and AGENTS.md giving you a centralized place to manage them. I’ve seen devs save hours this way, turning scattered notes into a reliable AI memory bank.
+ <li>
+   <p><strong>Automating Research Workflows</strong>: For AI agents handling research or OSINT (open-source intelligence), CodeMenu can store screenshots, notes, links, and prompts as interconnected artifacts. Picture an agent tasked with analyzing design trends: It fetches a group of design tokens (colors, refs) from CodeMenu’s API, cross-references them with stored images, and generates a report. It’s neutral and warm in practice: No over-reliance on external APIs, just local, organized data that keeps your agent grounded and efficient.
+ <li>
+   <p><strong>Scripting Bulk Operations for AI Pipelines</strong>: CodeMenu’s JavaScript scripting lets you automate tasks, but pair it with AI for more power. Say you’re maintaining a library of AI prompts for generating documentation. An AI agent uses the HTTP server to list all prompts tagged “docs-gen,” then scripts a bulk update (e.g., adding ethical guidelines to each). This filesystem-like access means your AI can “read” and “write” to the repo programmatically, evolving it over time. A real win for solo devs or small teams building custom AI tools—it’s like giving your agent write access to a shared drive, but safer and more structured.
+ <li>
+   <p><strong>Offline AI Experimentation</strong>: In areas with spotty internet (or just for privacy), CodeMenu’s local setup is gold. Store system prompts, templates, and code for fine-tuning small models. An AI agent running locally (via tools like Ollama) queries CodeMenu for prompt patterns, tests them offline, and iterates. This use case feels particularly human-centered—it’s about empowering you to tinker without barriers, aligning with the trend of democratizing AI through accessible “filesystems.”
+</ol>
+<h3 id="why-this-matters-in-the-bigger-picture">Why This Matters in the Bigger Picture</h3>
+<p>As AI agents become more agentic—handling tasks end-to-end—they’ll need better ways to manage knowledge. Traditional filesystems are too rigid, cloud services too invasive, but tools like CodeMenu bridge the gap with a developer-friendly, AI-ready structure. It’s not perfect for every setup (it’s Mac-only for now), but its free model and extensibility make it approachable for anyone dipping into this trend.
+<p>If you’re curious about enhancing your AI workflows, I’d gently suggest downloading CodeMenu and experimenting. Start small: Populate a Space with your go-to snippets, fire up the MCP Server, and see how your favorite AI tool interacts with it. It’s a subtle shift, but one that could make your agents feel less like tools and more like thoughtful collaborators. What do you think—ready to organize your AI’s “files”?
+<p>Try <strong>CodeMenu</strong> free for 7 days → <a href="https://apps.apple.com/us/app/codemenu-snippet-manager/id1583463781?mt=12">Mac App Store</a>
+ </div>
+</article>
+<aside class="related">
+<h2>Related posts</h2>
+<ul class="related-posts">
+</aside>
+           <footer class="site-footer">
+ <div class="site-footer__inner">
+   <div class="site-footer__primary">
+     <h2>Extiri Blog</h2>
+     <p>blog about Extiri, programming and cybersecurity
+   </div>
+   <nav class="site-footer__links" aria-label="Footer navigation">
+      <a href="/blog/about/index.html">About</a>
+      <a href="/blog/archive/index.html">Archive</a>
+      <a href="https://extiri.com">Apps</a>
+      <a href="/blog/feed.xml">RSS</a>
+   </nav>
+   <div class="site-footer__meta">
+      <span>Crafted by Wiktor Wójcik</span>
+      <span>&copy; 2026 Extiri</span>
+   </div>
+ </div>
+</footer>
+       </div>
+<script type="text/javascript" src="/blog/assets/js/nav.js"></script>
+<script type="text/javascript" src="/blog/assets/js/theme.js"></script>
+<script type="text/javascript" src="/blog/assets/js/barefoot.js"></script>
+<script type="text/javascript" src="/blog/assets/js/consent.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    // Default to denied until the user accepts
+    gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    gtag('js', new Date());
+    gtag('config', 'G-HLY6ZZMNBQ', { 'anonymize_ip': true });
+    // Listen for our custom consent event to enable analytics
+    window.addEventListener('extiri:consent', function (e) {
+      if (e && e.detail && e.detail.analytics) {
+        // Grant analytics consent
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      } else {
+        // Revoke analytics consent
+        gtag('consent', 'update', { 'analytics_storage': 'denied' });
+      }
+    });
+  </script>
+    
