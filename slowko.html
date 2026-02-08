@@ -37,9 +37,9 @@
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Page-specific overrides */
+        /* === Page-specific overrides === */
         .hero-slowko {
-            background: radial-gradient(circle at 50% 30%, rgba(33, 74, 60, 0.08) 0%, rgba(5, 5, 5, 0) 60%);
+            background: radial-gradient(circle at 50% 30%, rgba(33, 74, 60, 0.12) 0%, rgba(5, 5, 5, 0) 60%);
         }
 
         .feature-icon-box {
@@ -50,10 +50,10 @@
             align-items: center;
             justify-content: center;
             margin-bottom: var(--space-4);
-            font-size: 1.5rem;
+            font-size: 2rem;
         }
 
-        /* Language Picker */
+        /* === Language Picker === */
         .language-picker {
             display: flex;
             gap: 8px;
@@ -79,7 +79,7 @@
 
         .language-picker a.active {
             background: rgba(33, 74, 60, 0.3);
-            color: var(--color-slowko);
+            color: #4ecca3;
         }
 
         .language-picker img {
@@ -89,29 +89,424 @@
             border-radius: 2px;
         }
 
-        /* Hide sections by default */
+        /* === Lang sections === */
         .lang-section {
             display: none;
         }
 
         .lang-section.active {
             display: block;
-            animation: fadeIn 0.5s ease-out;
+            animation: langFadeIn 0.5s ease-out;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes langFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* FAQ */
+        /* === Word of the Day Demo Card === */
+        .wotd-card {
+            background: linear-gradient(145deg, #0f1f1a 0%, #0a1510 100%);
+            border: 1px solid rgba(78, 204, 163, 0.15);
+            border-radius: 24px;
+            padding: 48px;
+            max-width: 560px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .wotd-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(78, 204, 163, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .wotd-card:hover {
+            border-color: rgba(78, 204, 163, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(33, 74, 60, 0.3);
+        }
+
+        .wotd-date {
+            font-size: 0.8rem;
+            color: #4ecca3;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .wotd-date i {
+            font-size: 0.7rem;
+        }
+
+        .wotd-word {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: #fff;
+            margin-bottom: 4px;
+            line-height: 1.1;
+        }
+
+        .wotd-pos {
+            font-size: 0.85rem;
+            color: #4ecca3;
+            font-style: italic;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .wotd-definition {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            padding-left: 16px;
+            border-left: 2px solid rgba(78, 204, 163, 0.3);
+        }
+
+        .wotd-example {
+            font-size: 0.95rem;
+            color: var(--text-tertiary);
+            font-style: italic;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            line-height: 1.6;
+        }
+
+        .wotd-example::before {
+            content: '„';
+            color: #4ecca3;
+            font-size: 1.5rem;
+            margin-right: 4px;
+        }
+
+        .wotd-example::after {
+            content: '"';
+            color: #4ecca3;
+            font-size: 1.5rem;
+            margin-left: 4px;
+        }
+
+        .wotd-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .wotd-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(78, 204, 163, 0.2);
+            background: rgba(78, 204, 163, 0.08);
+            color: #4ecca3;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .wotd-btn:hover {
+            background: rgba(78, 204, 163, 0.15);
+            border-color: rgba(78, 204, 163, 0.4);
+            transform: translateY(-1px);
+        }
+
+        /* === Animated Word Cycle === */
+        .word-cycle {
+            display: inline-block;
+            position: relative;
+            min-width: 280px;
+            text-align: left;
+        }
+
+        .word-cycle span {
+            display: none;
+            animation: wordPop 0.4s ease-out;
+        }
+
+        .word-cycle span.active {
+            display: inline;
+        }
+
+        @keyframes wordPop {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* === Bento Grid === */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(2, minmax(200px, auto));
+            gap: var(--space-6);
+        }
+
+        .bento-item {
+            background: var(--bg-surface);
+            border: 1px solid var(--bg-glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-8);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bento-large { grid-column: span 7; grid-row: span 2; }
+        .bento-medium { grid-column: span 5; grid-row: span 1; }
+
+        @media (max-width: 900px) {
+            .bento-grid { display: flex; flex-direction: column; }
+        }
+
+        /* === Stats Grid === */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-6);
+            margin-top: var(--space-8);
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: var(--space-8) var(--space-6);
+            background: var(--bg-surface);
+            border: 1px solid var(--bg-glass-border);
+            border-radius: var(--radius-lg);
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #214A3C, #4ecca3);
+            opacity: 0;
+            transition: var(--transition-fast);
+        }
+
+        .stat-card:hover {
+            border-color: rgba(78, 204, 163, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-card:hover::before { opacity: 1; }
+
+        .stat-number {
+            font-family: var(--font-serif);
+            font-size: var(--text-4xl);
+            color: #4ecca3;
+            margin-bottom: var(--space-2);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr; }
+        }
+
+        /* === How It Works Steps === */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-8);
+            position: relative;
+        }
+
+        .steps-grid::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 16.66%;
+            right: 16.66%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(78, 204, 163, 0.3), transparent);
+            z-index: 0;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: var(--space-8);
+            background: var(--bg-surface);
+            border: 1px solid var(--bg-glass-border);
+            border-radius: var(--radius-lg);
+            position: relative;
+            z-index: 1;
+            transition: var(--transition-normal);
+        }
+
+        .step-card:hover {
+            border-color: rgba(78, 204, 163, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #214A3C, #1a3d30);
+            border: 2px solid #4ecca3;
+            border-radius: 50%;
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #4ecca3;
+            margin-bottom: var(--space-4);
+        }
+
+        @media (max-width: 768px) {
+            .steps-grid { grid-template-columns: 1fr; }
+            .steps-grid::before { display: none; }
+        }
+
+        /* === Slideshow === */
+        .slideshow-section {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: var(--space-12) 0;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .slideshow-img {
+            width: 100%;
+            height: auto;
+            border-radius: 28px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+
+        .slideshow-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(20, 20, 20, 0.85);
+            color: #4ecca3;
+            border: 1px solid rgba(78, 204, 163, 0.2);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .slideshow-btn:hover {
+            background: rgba(78, 204, 163, 0.15);
+            border-color: #4ecca3;
+        }
+
+        .slideshow-prev { left: -60px; }
+        .slideshow-next { right: -60px; }
+
+        @media (max-width: 600px) {
+            .slideshow-prev { left: 8px; }
+            .slideshow-next { right: 8px; }
+        }
+
+        .slideshow-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: var(--space-6);
+        }
+
+        .slideshow-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .slideshow-dot.active {
+            background: #4ecca3;
+            transform: scale(1.2);
+        }
+
+        /* === Comparison Table === */
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--bg-glass-border);
+            background: var(--bg-surface);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: var(--space-4) var(--space-6);
+            text-align: left;
+            border-bottom: 1px solid var(--bg-glass-border);
+        }
+
+        .comparison-table th {
+            background: rgba(255, 255, 255, 0.03);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table .check {
+            color: #4ecca3;
+            font-weight: 700;
+        }
+
+        .comparison-table .cross {
+            color: var(--text-tertiary);
+        }
+
+        /* === FAQ === */
         .faq-item {
             border-bottom: 1px solid var(--bg-glass-border);
         }
@@ -147,6 +542,113 @@
             opacity: 1;
             padding-bottom: var(--space-6);
         }
+
+        /* === Floating word particles === */
+        .floating-words {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-word {
+            position: absolute;
+            font-family: var(--font-serif);
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            color: rgba(78, 204, 163, 0.07);
+            animation: floatWord 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes floatWord {
+            0% { transform: translateY(100vh) rotate(-5deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(5deg); opacity: 0; }
+        }
+
+        /* === Responsive YouTube embed === */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+        }
+
+        .video-wrapper iframe,
+        .video-wrapper object,
+        .video-wrapper embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* === Hero animated icon === */
+        .hero-icon-wrapper {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto var(--space-6) auto;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .hero-icon-wrapper img {
+            width: 108px;
+            height: 108px;
+            border-radius: 24px;
+            filter: drop-shadow(0 0 40px rgba(78, 204, 163, 0.35));
+            position: relative;
+            top: 0;
+        }
+
+        /* === Glow ring behind icon === */
+        .icon-glow {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(78, 204, 163, 0.15) 0%, transparent 70%);
+            animation: pulseGlow 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+        }
+
+        /* === Color accents === */
+        .slowko-accent { color: #4ecca3; }
+        .slowko-bg-accent { background: rgba(78, 204, 163, 0.1); color: #4ecca3; }
+        .slowko-border { border-color: rgba(78, 204, 163, 0.3); }
+        .slowko-gradient-text {
+            background: linear-gradient(135deg, #4ecca3, #2d8f6f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* === Polish letter decorations === */
+        .letter-deco {
+            position: absolute;
+            font-family: var(--font-serif);
+            font-size: 12rem;
+            color: rgba(78, 204, 163, 0.03);
+            pointer-events: none;
+            user-select: none;
+            line-height: 1;
+        }
     </style>
 
     <!-- Scripts -->
@@ -163,23 +665,14 @@
     <script src="scripts.js" defer></script>
     <script>
         function switchLanguage(lang) {
-            // Update active state in language picker
             document.querySelectorAll('.language-picker a').forEach(a => {
                 a.classList.remove('active');
-                if (a.dataset.lang === lang) {
-                    a.classList.add('active');
-                }
+                if (a.dataset.lang === lang) a.classList.add('active');
             });
-
-            // Show/hide content sections
             document.querySelectorAll('.lang-section').forEach(section => {
                 section.classList.remove('active');
-                if (section.dataset.lang === lang) {
-                    section.classList.add('active');
-                }
+                if (section.dataset.lang === lang) section.classList.add('active');
             });
-
-            // Update page language and title
             document.documentElement.lang = lang;
             if (lang === 'pl') {
                 document.title = 'Słówko – Codzienne polskie słowo';
@@ -188,12 +681,9 @@
                 document.title = 'Słówko – Daily Polish Word';
                 document.querySelector('meta[name="description"]').content = 'Słówko – a minimalist app featuring a daily Polish word. Discover the richness of the Polish language every day with elegant definitions and usage examples.';
             }
-
-            // Store preference
             localStorage.setItem('slowko-lang', lang);
         }
 
-        // Initialize language on page load
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('slowko-lang') || 'pl';
             switchLanguage(savedLang);
@@ -209,23 +699,19 @@
             <a href="./index.html" class="nav-logo">
                 <img src="images/logo.webp" alt="Extiri Logo">
             </a>
-
             <div class="nav-links">
                 <a href="./index.html#home" class="nav-link">Home</a>
                 <a href="./index.html#apps" class="nav-link">Apps</a>
                 <a href="./blog/index.html" class="nav-link">Blog</a>
                 <div class="language-picker">
                     <a href="#" data-lang="pl" onclick="switchLanguage('pl'); return false;" class="active">
-                        <img src="https://flagcdn.com/w40/pl.png" alt="Polski">
-                        PL
+                        <img src="https://flagcdn.com/w40/pl.png" alt="Polski"> PL
                     </a>
                     <a href="#" data-lang="en" onclick="switchLanguage('en'); return false;">
-                        <img src="https://flagcdn.com/w40/gb.png" alt="English">
-                        EN
+                        <img src="https://flagcdn.com/w40/gb.png" alt="English"> EN
                     </a>
                 </div>
             </div>
-
             <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
                 <i class="fa-solid fa-bars"></i>
             </button>
@@ -239,111 +725,343 @@
         <a href="./blog/index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a>
         <div class="language-picker" style="justify-content: center; margin-top: 1rem;">
             <a href="#" data-lang="pl" onclick="switchLanguage('pl'); toggleMobileMenu(); return false;">
-                <img src="https://flagcdn.com/w40/pl.png" alt="Polski">
-                PL
+                <img src="https://flagcdn.com/w40/pl.png" alt="Polski"> PL
             </a>
             <a href="#" data-lang="en" onclick="switchLanguage('en'); toggleMobileMenu(); return false;">
-                <img src="https://flagcdn.com/w40/gb.png" alt="English">
-                EN
+                <img src="https://flagcdn.com/w40/gb.png" alt="English"> EN
             </a>
         </div>
     </div>
 
     <main id="main-content">
-        <!-- Polish Content -->
-        <div class="lang-section" data-lang="pl">
-            <!-- Hero Section -->
-            <header class="hero hero-slowko">
-                <div class="container hero-content animate-fade-in">
-                    <img src="images/slowko/slowko-icon.webp" alt="Słówko Icon"
-                        style="width: 96px; height: 96px; border-radius: 22px; margin: 0 auto var(--space-6) auto; filter: drop-shadow(0 0 30px rgba(33, 74, 60, 0.3));">
 
-                    <h2
-                        style="color: var(--color-slowko); font-family: var(--font-sans); font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-2); letter-spacing: 0.05em; text-transform: uppercase;">
+        <!-- ╔══════════════════════════════════════╗ -->
+        <!-- ║          POLISH CONTENT              ║ -->
+        <!-- ╚══════════════════════════════════════╝ -->
+        <div class="lang-section" data-lang="pl">
+
+            <!-- Hero -->
+            <header class="hero hero-slowko" style="position: relative; overflow: hidden;">
+                <div class="floating-words" aria-hidden="true">
+                    <span class="floating-word" style="left: 5%; animation-delay: 0s;">peregrynacja</span>
+                    <span class="floating-word" style="left: 20%; animation-delay: 3s;">melancholia</span>
+                    <span class="floating-word" style="left: 40%; animation-delay: 6s;">zadurzenie</span>
+                    <span class="floating-word" style="left: 60%; animation-delay: 9s;">błogość</span>
+                    <span class="floating-word" style="left: 75%; animation-delay: 12s;">kontemplacja</span>
+                    <span class="floating-word" style="left: 90%; animation-delay: 15s;">efemeryczny</span>
+                </div>
+                <div class="container hero-content animate-fade-in" style="position: relative; z-index: 1;">
+                    <div class="hero-icon-wrapper">
+                        <div class="icon-glow"></div>
+                        <img src="images/slowko/slowko-icon.GIF" alt="Słówko – animowana ikona">
+                    </div>
+
+                    <h2 style="color: #4ecca3; font-family: var(--font-sans); font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-3); letter-spacing: 0.05em; text-transform: uppercase;">
                         Słówko</h2>
 
-                    <h1 class="hero-title">Codzienne polskie słowo</h1>
+                    <h1 class="hero-title">Odkryj piękno<br>polskiego słowa</h1>
 
-                    <p class="hero-subtitle delay-100">Minimalistyczna aplikacja dla miłośników języka polskiego.
-                        Odkrywaj jedno starannie wybrane słowo każdego dnia.</p>
+                    <p class="hero-subtitle delay-100">Codziennie jedno starannie wybrane słowo z definicją, przykładem użycia i wymową. Buduj swój słownik, ucz się z fiszkami i ciesz się widgetami na ekranie głównym.</p>
 
                     <div class="flex-center delay-200" style="flex-wrap: wrap; margin-bottom: var(--space-8);">
                         <span class="badge">iOS</span>
+                        <span class="badge">Widgety</span>
+                        <span class="badge">Fiszki</span>
+                        <span class="badge">Darmowe</span>
                     </div>
 
                     <div class="hero-actions delay-300">
                         <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko/id6738549428" class="btn btn-primary"
-                            style="background: var(--color-slowko); color: #fff; --btn-shadow-rgb: var(--color-slowko-rgb);">Pobierz
-                            z App Store</a>
+                            style="background: linear-gradient(135deg, #214A3C, #4ecca3); color: #fff; --btn-shadow-rgb: 78, 204, 163;">
+                            <i class="fa-brands fa-apple" style="margin-right: 8px;"></i> Pobierz z App Store</a>
+                        <a href="slowko-support.html" class="btn btn-outline">Wsparcie</a>
                     </div>
+
+                    <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--text-tertiary);">Darmowa wersja · Bez konta · iOS 17+</p>
                 </div>
             </header>
 
-            <!-- Features Grid -->
-            <section class="section">
+            <!-- Word of the Day Demo -->
+            <section class="section" style="position: relative;">
+                <span class="letter-deco" style="top: -40px; right: -30px;">Ą</span>
                 <div class="container">
                     <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
-                        <p class="text-gradient"
-                            style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">
-                            Dlaczego Słówko?</p>
-                        <h2>Odkrywaj bogactwo języka</h2>
-                        <p>Codzienny rytuał dla językowej kontemplacji w eleganckiej oprawie.</p>
+                        <p class="slowko-gradient-text" style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">Słowo dnia</p>
+                        <h2>Każdego dnia nowe odkrycie</h2>
+                        <p>Oto jak wygląda codzienne spotkanie ze słowem — elegancko, prosto i inspirująco.</p>
                     </div>
 
-                    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-                        <div class="card card-glass">
-                            <div class="feature-icon-box"
-                                style="background: rgba(33, 74, 60, 0.1); color: var(--color-slowko);"><i
-                                    class="fa-solid fa-calendar-day"></i></div>
-                            <h4>Słowo dnia</h4>
-                            <p>Elegancko prezentowane z definicją i przykładem użycia – codzienne odkrycie językowe.</p>
+                    <div class="wotd-card" id="wotd-demo-pl">
+                        <div class="wotd-date"><i class="fa-solid fa-calendar-day"></i> 8 LUTEGO 2026</div>
+                        <div class="wotd-word" id="wotd-word-pl">peregrynacja</div>
+                        <div class="wotd-pos" id="wotd-pos-pl">rzeczownik, ż.</div>
+                        <div class="wotd-definition" id="wotd-def-pl">Dalekie wędrowanie, podróżowanie po odległych krainach; pielgrzymka.</div>
+                        <div class="wotd-example" id="wotd-ex-pl">Jego peregrynacja po Azji trwała niemal dwa lata.</div>
+                        <div class="wotd-actions">
+                            <span class="wotd-btn" onclick="cycleWord('pl')"><i class="fa-solid fa-shuffle"></i> Losuj inne</span>
+                            <span class="wotd-btn"><i class="fa-solid fa-volume-high"></i> Wymów</span>
+                            <span class="wotd-btn"><i class="fa-solid fa-star"></i> Zapisz</span>
                         </div>
-                        <div class="card card-glass">
-                            <div class="feature-icon-box"
-                                style="background: rgba(33, 74, 60, 0.1); color: var(--color-slowko);"><i
-                                    class="fa-solid fa-book"></i></div>
-                            <h4>Historia słów</h4>
-                            <p>Przeglądaj i wyszukuj wcześniejsze słowa – wszystkie odkrycia zawsze pod ręką.</p>
+                    </div>
+                    </div>
+                </section>
+
+            <!-- Video Demo (PL) -->
+            <section class="section">
+                <div class="container" style="max-width: 900px;">
+                    <h2 style="text-align: center; margin-bottom: var(--space-6);">Zobacz demo</h2>
+                    <p style="text-align:center; color: var(--text-secondary); max-width:700px; margin: 0 auto var(--space-6);">Krótki film przedstawiający działanie aplikacji Słówko.</p>
+                    <div class="video-wrapper" style="max-width:900px; margin: 0 auto;">
+                        <iframe src="https://www.youtube.com/embed/OdqoMTMPC6I" title="Słówko demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    </div>
+                </section>
+
+            <!-- Video Demo (EN) -->
+            <section class="section">
+                <div class="container" style="max-width: 900px;">
+                    <h2 style="text-align: center; margin-bottom: var(--space-6);">Watch the demo</h2>
+                    <p style="text-align:center; color: var(--text-secondary); max-width:700px; margin: 0 auto var(--space-6);">A short video showing Słówko in action.</p>
+                    <div class="video-wrapper" style="max-width:900px; margin: 0 auto;">
+                        <iframe src="https://www.youtube.com/embed/OdqoMTMPC6I" title="Słówko demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats -->
+            <section class="section" style="background: linear-gradient(180deg, rgba(33,74,60,0.04) 0%, rgba(0,0,0,0) 100%);">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">365+</div>
+                            <div class="stat-label">Słów w bazie</div>
                         </div>
-                        <div class="card card-glass">
-                            <div class="feature-icon-box"
-                                style="background: rgba(33, 74, 60, 0.1); color: var(--color-slowko);"><i
-                                    class="fa-solid fa-star"></i></div>
-                            <h4>Ulubione</h4>
-                            <p>Zapisuj najbardziej inspirujące słowa i wracaj do nich w dowolnym momencie.</p>
+                        <div class="stat-card">
+                            <div class="stat-number">24h</div>
+                            <div class="stat-label">Nowe słowo codziennie</div>
                         </div>
-                        <div class="card card-glass">
-                            <div class="feature-icon-box"
-                                style="background: rgba(33, 74, 60, 0.1); color: var(--color-slowko);"><i
-                                    class="fa-solid fa-volume-high"></i></div>
-                            <h4>Czytanie na głos</h4>
-                            <p>Posłuchaj prawidłowej wymowy każdego słowa dzięki technologii text-to-speech.</p>
+                        <div class="stat-card">
+                            <div class="stat-number">∞</div>
+                            <div class="stat-label">Ulubionych</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Rodzaje widgetów</div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Screenshots -->
+            <!-- Features Bento Grid -->
             <section class="section">
                 <div class="container">
+                    <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
+                        <p class="slowko-gradient-text" style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">Możliwości</p>
+                        <h2>Więcej niż słownik</h2>
+                        <p>Poznawaj, powtarzaj, zapamiętuj – Słówko to kompletne narzędzie do odkrywania języka polskiego.</p>
+                    </div>
+
+                    <div class="bento-grid">
+                        <!-- Large: Widgets -->
+                        <div class="bento-item bento-large">
+                            <div class="feature-icon-box" style="background: rgba(78, 204, 163, 0.1); color: #4ecca3;"><i class="fa-solid fa-table-cells-large"></i></div>
+                            <h3>Widgety na ekranie głównym</h3>
+                            <p style="margin-bottom: var(--space-4);">Słowo dnia bez otwierania aplikacji. Trzy rozmiary widgetów, które pasują do Twojego stylu ekranu.</p>
+                            <div style="margin-top: auto; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-xl);">
+                                <img src="images/slowko/widgets+home-with-background.jpeg" alt="Widgety Słówka na ekranie głównym iPhone'a" style="width: 100%; display: block;">
+                            </div>
+                        </div>
+
+                        <!-- Medium: Fiszki / Quiz -->
+                        <div class="bento-item bento-medium">
+                            <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;"><i class="fa-solid fa-brain"></i></div>
+                            <h3>Fiszki i Quiz</h3>
+                            <p>Tryb powtórek, który pomaga naprawdę zapamiętać słowa. Testuj się z definicjami i sprawdzaj postępy.</p>
+                            <div style="margin-top: auto; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-xl);">
+                                <img src="images/slowko/quiz+fiszki.png" alt="Tryb fiszek i quizu w Słówku" style="width: 100%; display: block;">
+                            </div>
+                        </div>
+
+                        <!-- Medium: Favorites & History -->
+                        <div class="bento-item bento-medium">
+                            <div class="feature-icon-box" style="background: rgba(255, 179, 0, 0.1); color: #ffb300;"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                            <h3>Historia i ulubione</h3>
+                            <p>Przeglądaj wszystkie wcześniejsze słowa. Zaznacz ulubione gwiazdką i wracaj do nich kiedykolwiek chcesz. Wyszukuj po tytule, definicji lub dacie.</p>
+                            <div style="display: flex; gap: 12px; margin-top: auto; flex-wrap: wrap;">
+                                <div style="flex: 1; min-width: 100px; background: rgba(255, 179, 0, 0.05); border: 1px solid rgba(255, 179, 0, 0.2); border-radius: var(--radius-md); padding: var(--space-4); text-align: center;">
+                                    <i class="fa-solid fa-star" style="font-size: 1.5rem; color: #ffb300; margin-bottom: 8px; display: block;"></i>
+                                    <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">Ulubione</div>
+                                </div>
+                                <div style="flex: 1; min-width: 100px; background: rgba(78, 204, 163, 0.05); border: 1px solid rgba(78, 204, 163, 0.2); border-radius: var(--radius-md); padding: var(--space-4); text-align: center;">
+                                    <i class="fa-solid fa-magnifying-glass" style="font-size: 1.5rem; color: #4ecca3; margin-bottom: 8px; display: block;"></i>
+                                    <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">Szukaj</div>
+                                </div>
+                                <div style="flex: 1; min-width: 100px; background: rgba(130, 214, 255, 0.05); border: 1px solid rgba(130, 214, 255, 0.2); border-radius: var(--radius-md); padding: var(--space-4); text-align: center;">
+                                    <i class="fa-solid fa-list" style="font-size: 1.5rem; color: #82d6ff; margin-bottom: 8px; display: block;"></i>
+                                    <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">Historia</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works -->
+            <section class="section">
+                <div class="container">
+                    <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
+                        <p class="slowko-gradient-text" style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">Jak to działa?</p>
+                        <h2>Trzy kroki do bogactwa słów</h2>
+                    </div>
+
+                    <div class="steps-grid">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <h4>Odkryj</h4>
+                            <p>Każdego ranka znajdziesz nowe słowo — z definicją, częścią mowy i przykładem użycia.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <h4>Zapamiętaj</h4>
+                            <p>Zapisz ulubione słowa i powtarzaj je w trybie fiszek lub quizu, aby utrwalić wiedzę.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <h4>Używaj</h4>
+                            <p>Widgety na ekranie głównym i powiadomienia pomagają stosować nowe słowa na co dzień.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Deep Dive Sections -->
+            <section class="section">
+                <div class="container">
+                    <h2 style="text-align: center; margin-bottom: var(--space-12);">Zaprojektowane z pasją</h2>
+
+                    <div class="grid">
+                        <!-- Feature: Word of the Day -->
+                        <article class="app-card-large">
+                            <div class="app-card-content">
+                                <div class="feature-icon-box" style="background: rgba(78, 204, 163, 0.1); color: #4ecca3;"><i class="fa-solid fa-calendar-day"></i></div>
+                                <h3>Słowo dnia</h3>
+                                <p>Każdego dnia o wybranej godzinie otrzymujesz jedno starannie dobrane polskie słowo. Definicja, część mowy, przykład użycia — i przycisk do odtworzenia wymowy na głos. Proste, piękne i skuteczne.</p>
+                            </div>
+                            <div class="app-card-media">
+                                <img src="images/slowko/Screenshot 1 - S.png" alt="Ekran słowa dnia w Słówku">
+                            </div>
+                        </article>
+
+                        <!-- Feature: Widgets -->
+                        <article class="app-card-large reversed">
+                            <div class="app-card-content">
+                                <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;"><i class="fa-solid fa-table-cells-large"></i></div>
+                                <h3>Widgety, które inspirują</h3>
+                                <p>Dodaj Słówko do ekranu głównego. Trzy warianty widgetów — mały, średni i duży — pozwalają Ci zobaczyć słowo dnia bez otwierania aplikacji. Perfekcyjnie wpasowują się w Twój ekran.</p>
+                            </div>
+                            <div class="app-card-media">
+                                <img src="images/slowko/widgets+home-with-background.jpeg" alt="Widgety na ekranie głównym">
+                            </div>
+                        </article>
+
+                        <!-- Feature: Quiz & Flashcards -->
+                        <article class="app-card-large">
+                            <div class="app-card-content">
+                                <div class="feature-icon-box" style="background: rgba(255, 99, 71, 0.1); color: #ff6347;"><i class="fa-solid fa-brain"></i></div>
+                                <h3>Fiszki i quiz</h3>
+                                <p>Nie wystarczy przeczytać — trzeba zapamiętać. Tryb fiszek pozwala powtarzać ulubione słowa, a quiz sprawdza Twoją wiedzę z ostatnich odkryć. Poznawanie języka jeszcze nigdy nie było tak wciągające.</p>
+                            </div>
+                            <div class="app-card-media">
+                                <img src="images/slowko/quiz+fiszki.png" alt="Fiszki i quiz w Słówku">
+                            </div>
+                        </article>
+
+                        <!-- Feature: TTS & Pronunciation -->
+                        <article class="app-card-large reversed">
+                            <div class="app-card-content">
+                                <div class="feature-icon-box" style="background: rgba(255, 224, 130, 0.1); color: #ffe082;"><i class="fa-solid fa-volume-high"></i></div>
+                                <h3>Słuchaj i wymawiaj</h3>
+                                <p>Każde słowo możesz odsłuchać dzięki technologii text-to-speech. Nauka wymowy nigdy nie była prostsza — wystarczy jedno stuknięcie, aby usłyszeć prawidłową wymowę polskiego słowa.</p>
+                            </div>
+                            <div class="app-card-media">
+                                <img src="images/slowko/Screenshot 2 - S.png" alt="Wymowa słowa w Słówku">
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screenshots Slideshow -->
+            <section class="section slideshow-section">
+                <div class="container">
                     <h2 style="text-align: center; margin-bottom: var(--space-12);">Zrzuty ekranu</h2>
-                    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                        <div style="text-align: center;">
-                            <img src="images/slowko/Screenshot 1 - S.png" alt="Ekran główny"
-                                style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
+                    <div class="slideshow-container">
+                        <div class="slideshow-images">
+                            <img data-src="images/slowko/Screenshot 1 - S.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Ekran główny" class="slideshow-img">
+                            <img data-src="images/slowko/Screenshot 2 - S.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Słowo dnia" class="slideshow-img">
+                            <img data-src="images/slowko/Screenshot 3 - S.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Historia" class="slideshow-img">
+                            <img data-src="images/slowko/Screenshot 4 - S.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Ulubione" class="slideshow-img">
+                            <img data-src="images/slowko/Screenshot 5 - S.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Ustawienia" class="slideshow-img">
                         </div>
-                        <div style="text-align: center;">
-                            <img src="images/slowko/Screenshot 3 - S.png" alt="Historia"
-                                style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
-                        </div>
-                        <div style="text-align: center;">
-                            <img src="images/slowko/Screenshot 4 - S.png" alt="Ulubione"
-                                style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
-                        </div>
-                        <div style="text-align: center;">
-                            <img src="images/slowko/Screenshot 5 - S.png" alt="Ustawienia"
-                                style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
-                        </div>
+                        <button class="slideshow-btn slideshow-prev" aria-label="Poprzedni">&#8592;</button>
+                        <button class="slideshow-btn slideshow-next" aria-label="Następny">&#8594;</button>
+                        <div class="slideshow-dots"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Comparison: Free vs Słówko+ -->
+            <section class="section">
+                <div class="container">
+                    <h2 style="text-align: center; margin-bottom: var(--space-8);">Darmowe vs Słówko+</h2>
+                    <p style="text-align: center; max-width: 600px; margin: 0 auto var(--space-8);">Podstawowa wersja jest w pełni funkcjonalna. Słówko+ odblokowuje dodatkowe narzędzia do nauki.</p>
+                    <div style="overflow-x: auto;">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Funkcja</th>
+                                    <th>Darmowe</th>
+                                    <th>Słówko+</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Słowo dnia</td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Historia słów</td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Ulubione</td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Czytanie na głos</td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Widgety</td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Fiszki i quiz</td>
+                                    <td class="cross"><i class="fa-solid fa-xmark"></i></td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Brak reklam</td>
+                                    <td class="cross"><i class="fa-solid fa-xmark"></i></td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </section>
@@ -354,139 +1072,356 @@
                     <h2 style="text-align: center; margin-bottom: var(--space-8);">Często zadawane pytania</h2>
                     <div class="faq-list">
                         <div class="faq-item">
-                            <button class="faq-question">Czy Słówko jest darmowe?<span class="faq-arrow"><i
-                                        class="fa-solid fa-chevron-right"></i></span></button>
+                            <button class="faq-question">Czy Słówko jest darmowe?<span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
                             <div class="faq-answer">
-                                <p>Aplikacja jest darmowa z podstawowymi funkcjami. Słówko+ to opcjonalna subskrypcja,
-                                    która odblokowuje dodatkowe funkcje, takie jak tryb powtórek i brak reklam.</p>
+                                <p>Tak! Podstawowe funkcje — słowo dnia, historia, ulubione, widgety i czytanie na głos — są całkowicie darmowe. Słówko+ to opcjonalna subskrypcja, która dodaje fiszki, quiz i usuwa reklamy.</p>
                             </div>
                         </div>
                         <div class="faq-item">
-                            <button class="faq-question">Czy Słówko wymaga internetu?<span class="faq-arrow"><i
-                                        class="fa-solid fa-chevron-right"></i></span></button>
+                            <button class="faq-question">Czy Słówko wymaga internetu?<span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
                             <div class="faq-answer">
-                                <p>Tak, Słówko wymaga połączenia z internetem, aby pobierać codzienne słowa. Odtwarzanie
-                                    mowy korzysta z głosów urządzenia.</p>
+                                <p>Tak, Słówko wymaga połączenia z internetem, aby pobrać codzienne słowo. Odtwarzanie wymowy korzysta z głosów zainstalowanych na urządzeniu, więc działa offline.</p>
                             </div>
                         </div>
                         <div class="faq-item">
-                            <button class="faq-question">Jak mogę zapisać słowa?<span class="faq-arrow"><i
-                                        class="fa-solid fa-chevron-right"></i></span></button>
+                            <button class="faq-question">Jak mogę zapisywać słowa?<span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
                             <div class="faq-answer">
-                                <p>Dotknij ikony gwiazdki przy dowolnym słowie, aby dodać je do Ulubionych. Możesz
-                                    przeglądać zapisane słowa w dedykowanej sekcji.</p>
+                                <p>Dotknij ikony gwiazdki przy dowolnym słowie, aby dodać je do Ulubionych. Możesz przeglądać i przeszukiwać zapisane słowa w dedykowanej sekcji.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">Jak działają fiszki i quiz?<span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
+                            <div class="faq-answer">
+                                <p>Tryb fiszek pokazuje słowo i po stuknięciu odsłania definicję. Quiz prezentuje definicję, a Ty wybierasz prawidłowe słowo. Obie funkcje dostępne są w ramach Słówko+.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">Jak dodać widget na ekran główny?<span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
+                            <div class="faq-answer">
+                                <p>Przytrzymaj palec na ekranie głównym, stuknij „+" w lewym górnym rogu, wyszukaj „Słówko" i wybierz jeden z trzech rozmiarów widgetu.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
             <!-- Newsletter (PL) -->
             <section class="section">
                 <div class="container" style="max-width: 700px; text-align: center;">
                     <h2 style="margin-bottom: var(--space-4);">Dołącz do newslettera</h2>
-                    <p
-                        style="margin-bottom: var(--space-8); color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">
-                        Otrzymuj wiadomości o nowych funkcjach Słówka, ciekawostki językowe i informacje o innych
-                        naszych aplikacjach.</p>
+                    <p style="margin-bottom: var(--space-8); color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">
+                        Otrzymuj wiadomości o nowych funkcjach Słówka, ciekawostki językowe i informacje o innych naszych aplikacjach.</p>
                     <script async data-uid="72455a1b9f" src="https://extiri.kit.com/72455a1b9f/index.js"></script>
                 </div>
             </section>
+
         </div>
 
-        <!-- English Content -->
+        <!-- ╔══════════════════════════════════════╗ -->
+        <!-- ║         ENGLISH CONTENT              ║ -->
+        <!-- ╚══════════════════════════════════════╝ -->
         <div class="lang-section" data-lang="en">
-            <!-- Hero Section -->
-            <header class="hero hero-slowko">
-                <div class="container hero-content animate-fade-in">
-                    <img src="images/slowko/slowko-icon.webp" alt="Słówko Icon"
-                        style="width: 96px; height: 96px; border-radius: 22px; margin: 0 auto var(--space-6) auto; filter: drop-shadow(0 0 30px rgba(33, 74, 60, 0.3));">
 
-                    <h2
-                        style="color: var(--color-slowko); font-family: var(--font-sans); font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-2); letter-spacing: 0.05em; text-transform: uppercase;">
+            <!-- Hero -->
+            <header class="hero hero-slowko" style="position: relative; overflow: hidden;">
+                <div class="floating-words" aria-hidden="true">
+                    <span class="floating-word" style="left: 5%; animation-delay: 0s;">peregrination</span>
+                    <span class="floating-word" style="left: 20%; animation-delay: 3s;">melancholy</span>
+                    <span class="floating-word" style="left: 40%; animation-delay: 6s;">infatuation</span>
+                    <span class="floating-word" style="left: 60%; animation-delay: 9s;">bliss</span>
+                    <span class="floating-word" style="left: 75%; animation-delay: 12s;">contemplation</span>
+                    <span class="floating-word" style="left: 90%; animation-delay: 15s;">ephemeral</span>
+                </div>
+                <div class="container hero-content animate-fade-in" style="position: relative; z-index: 1;">
+                    <div class="hero-icon-wrapper">
+                        <div class="icon-glow"></div>
+                        <img src="images/slowko/slowko-icon.GIF" alt="Słówko – animated icon">
+                    </div>
+
+                    <h2 style="color: #4ecca3; font-family: var(--font-sans); font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-3); letter-spacing: 0.05em; text-transform: uppercase;">
                         Słówko</h2>
 
-                    <h1 class="hero-title">Daily Polish word</h1>
+                    <h1 class="hero-title">Discover the beauty<br>of the Polish word</h1>
 
-                    <p class="hero-subtitle delay-100">A minimalist app for Polish language lovers. Discover one
-                        carefully chosen word every day.</p>
+                    <p class="hero-subtitle delay-100">One carefully selected Polish word every day with definition, usage example, and pronunciation. Build your vocabulary, study with flashcards, and enjoy widgets on your home screen.</p>
 
                     <div class="flex-center delay-200" style="flex-wrap: wrap; margin-bottom: var(--space-8);">
                         <span class="badge">iOS</span>
+                        <span class="badge">Widgets</span>
+                        <span class="badge">Flashcards</span>
+                        <span class="badge">Free</span>
                     </div>
 
                     <div class="hero-actions delay-300">
                         <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko/id6738549428" class="btn btn-primary"
-                            style="background: var(--color-slowko); color: #fff; --btn-shadow-rgb: var(--color-slowko-rgb);">Download
-                            on App Store</a>
+                            style="background: linear-gradient(135deg, #214A3C, #4ecca3); color: #fff; --btn-shadow-rgb: 78, 204, 163;">
+                            <i class="fa-brands fa-apple" style="margin-right: 8px;"></i> Download on App Store</a>
+                        <a href="slowko-support.html" class="btn btn-outline">Support</a>
                     </div>
+
+                    <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--text-tertiary);">Free version · No account needed · iOS 17+</p>
                 </div>
             </header>
 
-            <!-- Features Grid -->
-            <section class="section">
+            <!-- Word of the Day Demo -->
+            <section class="section" style="position: relative;">
+                <span class="letter-deco" style="top: -40px; right: -30px;">Ą</span>
                 <div class="container">
                     <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
-                        <p class="text-gradient"
-                            style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">
-                            Why Słówko?</p>
-                        <h2>Discover language richness</h2>
-                        <p>A daily ritual for linguistic contemplation in an elegant setting.</p>
+                        <p class="slowko-gradient-text" style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">Word of the Day</p>
+                        <h2>A new discovery every day</h2>
+                        <p>Here's what your daily encounter with a word looks like — elegant, simple, and inspiring.</p>
                     </div>
 
-                    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-                        <div class="card card-glass">
-                            <div class="feature-icon-box"
-                                style="background: rgba(33, 74, 60, 0.1); color: var(--color-slowko);"><i
-                                    class="fa-solid fa-calendar-day"></i></div>
-                            <h4>Word of the day</h4>
-                            <p>Elegantly presented with definition and usage example – daily linguistic discovery.</p>
-                        </div>
-                        <div class="card card-glass">
-                            <div class="feature-icon-box"
-                                style="background: rgba(33, 74, 60, 0.1); color: var(--color-slowko);"><i
-                                    class="fa-solid fa-book"></i></div>
-                            <h4>Word history</h4>
-                            <p>Browse and search previous words – all discoveries always at your fingertips.</p>
-                        </div>
-                        <div class="card card-glass">
-                            <div class="feature-icon-box"
-                                style="background: rgba(33, 74, 60, 0.1); color: var(--color-slowko);"><i
-                                    class="fa-solid fa-star"></i></div>
-                            <h4>Favorites</h4>
-                            <p>Save the most inspiring words and return to them at any time.</p>
-                        </div>
-                        <div class="card card-glass">
-                            <div class="feature-icon-box"
-                                style="background: rgba(33, 74, 60, 0.1); color: var(--color-slowko);"><i
-                                    class="fa-solid fa-volume-high"></i></div>
-                            <h4>Text-to-speech</h4>
-                            <p>Listen to the correct pronunciation of each word with built-in voice technology.</p>
+                    <div class="wotd-card" id="wotd-demo-en">
+                        <div class="wotd-date"><i class="fa-solid fa-calendar-day"></i> FEBRUARY 8, 2026</div>
+                        <div class="wotd-word" id="wotd-word-en">peregrynacja</div>
+                        <div class="wotd-pos" id="wotd-pos-en">noun, f.</div>
+                        <div class="wotd-definition" id="wotd-def-en">A long journey to distant lands; a pilgrimage.</div>
+                        <div class="wotd-example" id="wotd-ex-en">His peregrination across Asia lasted nearly two years.</div>
+                        <div class="wotd-actions">
+                            <span class="wotd-btn" onclick="cycleWord('en')"><i class="fa-solid fa-shuffle"></i> Shuffle</span>
+                            <span class="wotd-btn"><i class="fa-solid fa-volume-high"></i> Pronounce</span>
+                            <span class="wotd-btn"><i class="fa-solid fa-star"></i> Save</span>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Screenshots -->
+            <!-- Stats -->
+            <section class="section" style="background: linear-gradient(180deg, rgba(33,74,60,0.04) 0%, rgba(0,0,0,0) 100%);">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">365+</div>
+                            <div class="stat-label">Words in database</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">24h</div>
+                            <div class="stat-label">New word daily</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">∞</div>
+                            <div class="stat-label">Favorites</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Widget sizes</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Bento Grid -->
             <section class="section">
                 <div class="container">
+                    <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
+                        <p class="slowko-gradient-text" style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">Capabilities</p>
+                        <h2>More than a dictionary</h2>
+                        <p>Discover, repeat, remember — Słówko is a complete tool for exploring the Polish language.</p>
+                    </div>
+
+                    <div class="bento-grid">
+                        <!-- Large: Widgets -->
+                        <div class="bento-item bento-large">
+                            <div class="feature-icon-box" style="background: rgba(78, 204, 163, 0.1); color: #4ecca3;"><i class="fa-solid fa-table-cells-large"></i></div>
+                            <h3>Home screen widgets</h3>
+                            <p style="margin-bottom: var(--space-4);">See the word of the day without opening the app. Three widget sizes that fit your home screen style.</p>
+                            <div style="margin-top: auto; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-xl);">
+                                <img src="images/slowko/widgets+home-with-background.jpeg" alt="Słówko widgets on iPhone home screen" style="width: 100%; display: block;">
+                            </div>
+                        </div>
+
+                        <!-- Medium: Flashcards / Quiz -->
+                        <div class="bento-item bento-medium">
+                            <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;"><i class="fa-solid fa-brain"></i></div>
+                            <h3>Flashcards & Quiz</h3>
+                            <p>A review mode that helps you truly memorize words. Test yourself with definitions and track your progress.</p>
+                            <div style="margin-top: auto; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-xl);">
+                                <img src="images/slowko/quiz+fiszki.png" alt="Flashcard and quiz mode in Słówko" style="width: 100%; display: block;">
+                            </div>
+                        </div>
+
+                        <!-- Medium: Favorites & History -->
+                        <div class="bento-item bento-medium">
+                            <div class="feature-icon-box" style="background: rgba(255, 179, 0, 0.1); color: #ffb300;"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                            <h3>History & Favorites</h3>
+                            <p>Browse all previous words. Star your favorites and return to them whenever you want. Search by title, definition, or date.</p>
+                            <div style="display: flex; gap: 12px; margin-top: auto; flex-wrap: wrap;">
+                                <div style="flex: 1; min-width: 100px; background: rgba(255, 179, 0, 0.05); border: 1px solid rgba(255, 179, 0, 0.2); border-radius: var(--radius-md); padding: var(--space-4); text-align: center;">
+                                    <i class="fa-solid fa-star" style="font-size: 1.5rem; color: #ffb300; margin-bottom: 8px; display: block;"></i>
+                                    <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">Favorites</div>
+                                </div>
+                                <div style="flex: 1; min-width: 100px; background: rgba(78, 204, 163, 0.05); border: 1px solid rgba(78, 204, 163, 0.2); border-radius: var(--radius-md); padding: var(--space-4); text-align: center;">
+                                    <i class="fa-solid fa-magnifying-glass" style="font-size: 1.5rem; color: #4ecca3; margin-bottom: 8px; display: block;"></i>
+                                    <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">Search</div>
+                                </div>
+                                <div style="flex: 1; min-width: 100px; background: rgba(130, 214, 255, 0.05); border: 1px solid rgba(130, 214, 255, 0.2); border-radius: var(--radius-md); padding: var(--space-4); text-align: center;">
+                                    <i class="fa-solid fa-list" style="font-size: 1.5rem; color: #82d6ff; margin-bottom: 8px; display: block;"></i>
+                                    <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">History</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works -->
+            <section class="section">
+                <div class="container">
+                    <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
+                        <p class="slowko-gradient-text" style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">How it works</p>
+                        <h2>Three steps to a richer vocabulary</h2>
+                    </div>
+
+                    <div class="steps-grid">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <h4>Discover</h4>
+                            <p>Every morning you'll find a new word — with its definition, part of speech, and a usage example.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <h4>Memorize</h4>
+                            <p>Save your favorite words and review them with flashcards or quiz mode to cement your knowledge.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <h4>Use</h4>
+                            <p>Home screen widgets and notifications help you put new words into practice every day.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Deep Dive Sections -->
+            <section class="section">
+                <div class="container">
+                    <h2 style="text-align: center; margin-bottom: var(--space-12);">Designed with passion</h2>
+
+                    <div class="grid">
+                        <!-- Feature: Word of the Day -->
+                        <article class="app-card-large">
+                            <div class="app-card-content">
+                                <div class="feature-icon-box" style="background: rgba(78, 204, 163, 0.1); color: #4ecca3;"><i class="fa-solid fa-calendar-day"></i></div>
+                                <h3>Word of the Day</h3>
+                                <p>Every day at your chosen time you receive one carefully selected Polish word. Definition, part of speech, usage example — and a button to hear it pronounced aloud. Simple, beautiful, and effective.</p>
+                            </div>
+                            <div class="app-card-media">
+                                <img src="images/slowko/Screenshot 1 - S.png" alt="Word of the Day screen in Słówko">
+                            </div>
+                        </article>
+
+                        <!-- Feature: Widgets -->
+                        <article class="app-card-large reversed">
+                            <div class="app-card-content">
+                                <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;"><i class="fa-solid fa-table-cells-large"></i></div>
+                                <h3>Widgets that inspire</h3>
+                                <p>Add Słówko to your home screen. Three widget variants — small, medium, and large — let you see the word of the day without opening the app. They fit perfectly into your screen.</p>
+                            </div>
+                            <div class="app-card-media">
+                                <img src="images/slowko/widgets+home-with-background.jpeg" alt="Widgets on home screen">
+                            </div>
+                        </article>
+
+                        <!-- Feature: Quiz & Flashcards -->
+                        <article class="app-card-large">
+                            <div class="app-card-content">
+                                <div class="feature-icon-box" style="background: rgba(255, 99, 71, 0.1); color: #ff6347;"><i class="fa-solid fa-brain"></i></div>
+                                <h3>Flashcards & Quiz</h3>
+                                <p>Reading isn't enough — you need to remember. Flashcard mode lets you review favorite words, and the quiz tests your knowledge of recent discoveries. Learning Polish has never been this engaging.</p>
+                            </div>
+                            <div class="app-card-media">
+                                <img src="images/slowko/quiz+fiszki.png" alt="Flashcards and quiz in Słówko">
+                            </div>
+                        </article>
+
+                        <!-- Feature: TTS & Pronunciation -->
+                        <article class="app-card-large reversed">
+                            <div class="app-card-content">
+                                <div class="feature-icon-box" style="background: rgba(255, 224, 130, 0.1); color: #ffe082;"><i class="fa-solid fa-volume-high"></i></div>
+                                <h3>Listen & pronounce</h3>
+                                <p>Every word can be played aloud with text-to-speech technology. Learning pronunciation has never been simpler — just one tap to hear the correct Polish pronunciation.</p>
+                            </div>
+                            <div class="app-card-media">
+                                <img src="images/slowko/Screenshot 2 - S.png" alt="Word pronunciation in Słówko">
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screenshots Slideshow -->
+            <section class="section slideshow-section">
+                <div class="container">
                     <h2 style="text-align: center; margin-bottom: var(--space-12);">Screenshots</h2>
-                    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                        <div style="text-align: center;">
-                            <img src="images/slowko/Screenshot 1 - S.png" alt="Main Screen"
-                                style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
+                    <div class="slideshow-container">
+                        <div class="slideshow-images">
+                            <img data-src="images/slowko/Screenshot 1 - S.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Main screen" class="slideshow-img">
+                            <img data-src="images/slowko/Screenshot 2 - S.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Word of the day" class="slideshow-img">
+                            <img data-src="images/slowko/Screenshot 3 - S.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="History" class="slideshow-img">
+                            <img data-src="images/slowko/Screenshot 4 - S.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Favorites" class="slideshow-img">
+                            <img data-src="images/slowko/Screenshot 5 - S.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Settings" class="slideshow-img">
                         </div>
-                        <div style="text-align: center;">
-                            <img src="images/slowko/Screenshot 3 - S.png" alt="History"
-                                style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
-                        </div>
-                        <div style="text-align: center;">
-                            <img src="images/slowko/Screenshot 4 - S.png" alt="Favorites"
-                                style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
-                        </div>
-                        <div style="text-align: center;">
-                            <img src="images/slowko/Screenshot 5 - S.png" alt="Settings"
-                                style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
-                        </div>
+                        <button class="slideshow-btn slideshow-prev" aria-label="Previous">&#8592;</button>
+                        <button class="slideshow-btn slideshow-next" aria-label="Next">&#8594;</button>
+                        <div class="slideshow-dots"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Comparison: Free vs Słówko+ -->
+            <section class="section">
+                <div class="container">
+                    <h2 style="text-align: center; margin-bottom: var(--space-8);">Free vs Słówko+</h2>
+                    <p style="text-align: center; max-width: 600px; margin: 0 auto var(--space-8);">The free version is fully functional. Słówko+ unlocks extra learning tools.</p>
+                    <div style="overflow-x: auto;">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Free</th>
+                                    <th>Słówko+</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Word of the day</td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Word history</td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Favorites</td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Text-to-speech</td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Widgets</td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Flashcards & quiz</td>
+                                    <td class="cross"><i class="fa-solid fa-xmark"></i></td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Ad-free</td>
+                                    <td class="cross"><i class="fa-solid fa-xmark"></i></td>
+                                    <td class="check"><i class="fa-solid fa-check"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </section>
@@ -497,42 +1432,49 @@
                     <h2 style="text-align: center; margin-bottom: var(--space-8);">Frequently Asked Questions</h2>
                     <div class="faq-list">
                         <div class="faq-item">
-                            <button class="faq-question">Is Słówko free?<span class="faq-arrow"><i
-                                        class="fa-solid fa-chevron-right"></i></span></button>
+                            <button class="faq-question">Is Słówko free?<span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
                             <div class="faq-answer">
-                                <p>The app is free with basic features. Słówko+ is an optional subscription that unlocks
-                                    additional features like flashcard mode and ad-free experience.</p>
+                                <p>Yes! Core features — word of the day, history, favorites, widgets, and text-to-speech — are completely free. Słówko+ is an optional subscription that adds flashcards, quiz mode, and removes ads.</p>
                             </div>
                         </div>
                         <div class="faq-item">
-                            <button class="faq-question">Does Słówko require internet?<span class="faq-arrow"><i
-                                        class="fa-solid fa-chevron-right"></i></span></button>
+                            <button class="faq-question">Does Słówko require internet?<span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
                             <div class="faq-answer">
-                                <p>Yes, Słówko requires an internet connection to fetch daily words. Speech playback
-                                    uses device voices.</p>
+                                <p>Yes, Słówko requires an internet connection to fetch the daily word. Speech playback uses device voices and works offline.</p>
                             </div>
                         </div>
                         <div class="faq-item">
-                            <button class="faq-question">How can I save words?<span class="faq-arrow"><i
-                                        class="fa-solid fa-chevron-right"></i></span></button>
+                            <button class="faq-question">How can I save words?<span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
                             <div class="faq-answer">
-                                <p>Tap the star icon next to any word to add it to your Favorites. You can browse saved
-                                    words in the dedicated section.</p>
+                                <p>Tap the star icon next to any word to add it to your Favorites. You can browse and search saved words in the dedicated section.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">How do flashcards and quiz work?<span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
+                            <div class="faq-answer">
+                                <p>Flashcard mode shows the word and reveals the definition on tap. Quiz mode presents a definition and you pick the correct word. Both features are available with Słówko+.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">How do I add a widget to my home screen?<span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
+                            <div class="faq-answer">
+                                <p>Long-press on your home screen, tap "+" in the top-left corner, search for "Słówko," and choose one of three widget sizes.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
             <!-- Newsletter (EN) -->
             <section class="section">
                 <div class="container" style="max-width: 700px; text-align: center;">
                     <h2 style="margin-bottom: var(--space-4);">Join the Newsletter</h2>
-                    <p
-                        style="margin-bottom: var(--space-8); color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">
+                    <p style="margin-bottom: var(--space-8); color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">
                         Get news about Słówko updates, linguistic trivia, and info about our other apps.</p>
                     <script async data-uid="72455a1b9f" src="https://extiri.kit.com/72455a1b9f/index.js"></script>
                 </div>
             </section>
+
         </div>
     </main>
 
@@ -542,8 +1484,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <img src="images/logo.webp" alt="Extiri" width="100" style="opacity: 0.8;">
-                    <p>Extiri is an independent software studio crafting simple, well‑crafted apps for macOS, iOS, and
-                        web.</p>
+                    <p>Extiri is an independent software studio crafting simple, well‑crafted apps for macOS, iOS, and web.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Products</h4>
@@ -571,20 +1512,132 @@
         </div>
     </footer>
 
-    <!-- FAQ Script -->
+    <!-- ═══════════ Page Scripts ═══════════ -->
     <script>
+        // === Word of the Day Demo Cycling ===
+        const wordsDB = {
+            pl: [
+                { word: 'peregrynacja', pos: 'rzeczownik, ż.', def: 'Dalekie wędrowanie, podróżowanie po odległych krainach; pielgrzymka.', ex: 'Jego peregrynacja po Azji trwała niemal dwa lata.' },
+                { word: 'zadurzenie', pos: 'rzeczownik, n.', def: 'Krótkotrwałe, silne zauroczenie drugą osobą; fascynacja bez głębszego uczucia.', ex: 'Zadurzenie minęło po kilku tygodniach, ale wspomnienia zostały.' },
+                { word: 'efemeryczny', pos: 'przymiotnik', def: 'Trwający bardzo krótko, przelotny, ulotny.', ex: 'Efemeryczny blask zachodu słońca rozświetlił niebo na chwilę.' },
+                { word: 'błogość', pos: 'rzeczownik, ż.', def: 'Stan najwyższego szczęścia, spokoju i zadowolenia.', ex: 'Po długim spacerze ogarnęła ją błogość ciepłego wieczoru.' },
+                { word: 'kontemplacja', pos: 'rzeczownik, ż.', def: 'Głębokie, skupione rozmyślanie; duchowe lub filozoficzne rozważanie.', ex: 'Godziny kontemplacji przy jeziorze dawały mu wewnętrzny spokój.' },
+                { word: 'melancholia', pos: 'rzeczownik, ż.', def: 'Głęboki smutek, zaduma, łagodny żal bez wyraźnej przyczyny.', ex: 'Jesienna melancholia ogarniała go za każdym razem, gdy liście zaczynały opadać.' }
+            ],
+            en: [
+                { word: 'peregrynacja', pos: 'noun, f.', def: 'A long journey to distant lands; a pilgrimage.', ex: 'His peregrination across Asia lasted nearly two years.' },
+                { word: 'zadurzenie', pos: 'noun, n.', def: 'A short-lived, intense infatuation with another person; fascination without deeper feeling.', ex: 'The infatuation passed after a few weeks, but the memories remained.' },
+                { word: 'efemeryczny', pos: 'adjective', def: 'Lasting for a very short time; fleeting, transient.', ex: 'The ephemeral glow of the sunset lit up the sky for a moment.' },
+                { word: 'błogość', pos: 'noun, f.', def: 'A state of supreme happiness, peace, and contentment.', ex: 'After a long walk, she was enveloped in the bliss of a warm evening.' },
+                { word: 'kontemplacja', pos: 'noun, f.', def: 'Deep, focused reflection; spiritual or philosophical contemplation.', ex: 'Hours of contemplation by the lake gave him inner peace.' },
+                { word: 'melancholia', pos: 'noun, f.', def: 'Deep sadness, pensiveness, gentle sorrow without a clear cause.', ex: 'Autumnal melancholy gripped him every time the leaves began to fall.' }
+            ]
+        };
+
+        const wordIndex = { pl: 0, en: 0 };
+
+        function cycleWord(lang) {
+            wordIndex[lang] = (wordIndex[lang] + 1) % wordsDB[lang].length;
+            const w = wordsDB[lang][wordIndex[lang]];
+            const suffix = lang === 'pl' ? '-pl' : '-en';
+            const wordEl = document.getElementById('wotd-word' + suffix);
+            const posEl = document.getElementById('wotd-pos' + suffix);
+            const defEl = document.getElementById('wotd-def' + suffix);
+            const exEl = document.getElementById('wotd-ex' + suffix);
+
+            // Animate out
+            [wordEl, posEl, defEl, exEl].forEach(el => {
+                el.style.transition = 'opacity 0.15s ease, transform 0.15s ease';
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(6px)';
+            });
+
+            setTimeout(() => {
+                wordEl.textContent = w.word;
+                posEl.textContent = w.pos;
+                defEl.textContent = w.def;
+                exEl.textContent = w.ex;
+                [wordEl, posEl, defEl, exEl].forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                });
+            }, 180);
+        }
+
+        // === Slideshow Logic ===
+        document.querySelectorAll('.slideshow-container').forEach(container => {
+            const imgs = Array.from(container.querySelectorAll('.slideshow-img'));
+            const dotsContainer = container.querySelector('.slideshow-dots');
+            const nextBtn = container.querySelector('.slideshow-next');
+            const prevBtn = container.querySelector('.slideshow-prev');
+            let idx = 0;
+            let intervalId = null;
+            const delay = 4000;
+            let userInteracted = false;
+
+            imgs.forEach((_, i) => {
+                const dot = document.createElement('span');
+                dot.className = 'slideshow-dot';
+                dot.onclick = () => { showSlide(i); userInteracted = true; stopAuto(); };
+                dotsContainer.appendChild(dot);
+            });
+
+            const dots = Array.from(dotsContainer.querySelectorAll('.slideshow-dot'));
+
+            function ensureLoaded(img) {
+                const dataSrc = img.dataset.src;
+                if (dataSrc && img.getAttribute('src') !== dataSrc) {
+                    img.setAttribute('src', dataSrc);
+                }
+            }
+
+            function showSlide(i) {
+                i = ((i % imgs.length) + imgs.length) % imgs.length;
+                imgs.forEach((img, j) => {
+                    if (j === i) { ensureLoaded(img); img.style.display = 'block'; }
+                    else { img.style.display = 'none'; }
+                });
+                dots.forEach((dot, j) => dot.classList.toggle('active', j === i));
+                idx = i;
+                const nextIdx = (i + 1) % imgs.length;
+                if (imgs[nextIdx]) ensureLoaded(imgs[nextIdx]);
+            }
+
+            function nextSlide() { showSlide(idx + 1); }
+            function prevSlide() { showSlide(idx - 1); }
+            function startAuto() { if (intervalId || userInteracted) return; intervalId = setInterval(nextSlide, delay); }
+            function stopAuto() { if (!intervalId) return; clearInterval(intervalId); intervalId = null; }
+
+            if (nextBtn) nextBtn.onclick = () => { nextSlide(); userInteracted = true; stopAuto(); };
+            if (prevBtn) prevBtn.onclick = () => { prevSlide(); userInteracted = true; stopAuto(); };
+
+            if (container) {
+                container.onmouseenter = stopAuto;
+                container.onmouseleave = () => { if (!userInteracted) startAuto(); };
+            }
+
+            if ('IntersectionObserver' in window) {
+                const io = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) { showSlide(0); startAuto(); io.disconnect(); }
+                    });
+                });
+                io.observe(container);
+            } else {
+                showSlide(0);
+                startAuto();
+            }
+        });
+
+        // === FAQ Logic ===
         document.querySelectorAll('.faq-question').forEach(btn => {
             btn.onclick = function () {
                 const answer = this.nextElementSibling;
                 const isOpen = this.classList.contains('open');
-
-                // Close all
-                document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('open'));
-                document.querySelectorAll('.faq-answer').forEach(a => {
-                    a.style.maxHeight = null;
-                    a.classList.remove('open');
-                });
-
+                // Close all in same faq-list
+                const list = this.closest('.faq-list');
+                list.querySelectorAll('.faq-question').forEach(q => q.classList.remove('open'));
+                list.querySelectorAll('.faq-answer').forEach(a => { a.style.maxHeight = null; a.classList.remove('open'); });
                 if (!isOpen) {
                     this.classList.add('open');
                     answer.classList.add('open');
@@ -592,6 +1645,24 @@
                 }
             };
         });
+
+        // === Animate stats on scroll ===
+        if ('IntersectionObserver' in window) {
+            const statCards = document.querySelectorAll('.stat-card');
+            const statObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'langFadeIn 0.5s ease-out forwards';
+                        statObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+            statCards.forEach((card, i) => {
+                card.style.opacity = '0';
+                card.style.animationDelay = (i * 0.1) + 's';
+                statObserver.observe(card);
+            });
+        }
     </script>
 </body>
 
