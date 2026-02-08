@@ -6,9 +6,641 @@
 </description>
     <link>https://extiri.com/blog/</link>
     <atom:link href="https://extiri.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 16 Jan 2026 00:49:41 +0100</pubDate>
-    <lastBuildDate>Fri, 16 Jan 2026 00:49:41 +0100</lastBuildDate>
+    <pubDate>Sun, 08 Feb 2026 17:41:10 +0100</pubDate>
+    <lastBuildDate>Sun, 08 Feb 2026 17:41:10 +0100</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
+    
+      <item>
+        <title>Teaching Machines to Smell Danger: A Fun Dive Into ML-Powered Threat Detection</title>
+        <description>&lt;p&gt;Every now and then at Extiri, between shipping apps and squashing bugs, I like to take a detour into a completely different corner of tech — just to see what happens. At my university there was a statistics project that could be made so it served as ane xcuse to work wht ML. So this time, the question was: &lt;em&gt;can I teach a machine learning model to sniff out network attacks?&lt;/em&gt; Spoiler: I got it to 97% accuracy, learned a ton, and had a surprisingly good time doing it.&lt;/p&gt;
+
+&lt;p&gt;Here’s how this little research adventure played out.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;the-spark-why-even-do-this&quot;&gt;The Spark: Why Even Do This?&lt;/h2&gt;
+
+&lt;p&gt;Network security is, at its heart, a massive pattern recognition puzzle. Attackers leave fingerprints everywhere — weird packet sizes, suspicious timing, oddly shaped data flows. The catch? These clues are buried under mountains of perfectly normal “someone’s watching YouTube” traffic, and they change all the time.&lt;/p&gt;
+
+&lt;p&gt;Classic rule-based systems are fine, but they’re a bit like a guard dog that only barks at people wearing the exact same hat as the last burglar. Machine learning, on the other hand, can learn the subtle statistical vibe of “everything’s fine” versus “something is definitely off.”&lt;/p&gt;
+
+&lt;p&gt;That sounded like a fun experiment. So I grabbed a dataset, fired up a Jupyter notebook, and went to work.&lt;/p&gt;
+
+&lt;p&gt;You can find all the code on &lt;a href=&quot;https://github.com/wiktorwojcik112/threat-detection-project&quot;&gt;GitHub&lt;/a&gt; if you want to follow along or poke holes in my methodology (feedback welcome!).&lt;/p&gt;
+
+&lt;h2 id=&quot;the-playground-28-million-network-flows&quot;&gt;The Playground: 2.8 Million Network Flows&lt;/h2&gt;
+
+&lt;p&gt;For data, I used the CICIDS 2017 dataset — a week-long capture of real network traffic where security researchers were actively staging different attacks alongside normal activity.&lt;/p&gt;
+
+&lt;p&gt;The numbers are huge: over &lt;strong&gt;2.8 million&lt;/strong&gt; network flows, each packed with features like:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Packet lengths and timing&lt;/li&gt;
+  &lt;li&gt;Flow duration&lt;/li&gt;
+  &lt;li&gt;Forward and backward packet statistics&lt;/li&gt;
+  &lt;li&gt;Inter-arrival times&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And the best part — every single flow is labeled as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BENIGN&lt;/code&gt; or one of &lt;strong&gt;14 different attack types&lt;/strong&gt; (DDoS, Port Scan, SQL Injection… the whole villain roster).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/threat-detection/statistic_analysis_of_threat_detection-2.jpeg&quot; alt=&quot;Overview of the CICIDS 2017 dataset&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;poking-around-the-detective-phase&quot;&gt;Poking Around: The Detective Phase&lt;/h2&gt;
+
+&lt;p&gt;Before letting any algorithm loose on the data, I wanted to actually &lt;em&gt;understand&lt;/em&gt; what I was looking at. This turned out to be the most interesting part.&lt;/p&gt;
+
+&lt;h3 id=&quot;a-lopsided-world&quot;&gt;A Lopsided World&lt;/h3&gt;
+
+&lt;p&gt;First fun fact: the dataset is overwhelmingly benign traffic. Which makes total sense — most real networks are boring most of the time. But it immediately means a model that just shrugs and says “looks fine to me” for every single packet would score high on accuracy while being spectacularly useless. Noted.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/threat-detection/statistic_analysis_of_threat_detection-4.jpeg&quot; alt=&quot;Class distribution showing heavy skew toward benign traffic&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;which-features-actually-matter&quot;&gt;Which Features Actually Matter?&lt;/h3&gt;
+
+&lt;p&gt;I ran correlations between every feature and the target variable to find out which network characteristics are the best attack detectors. Ten features rose to the top, including:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Backward packet length statistics&lt;/strong&gt; (standard deviation, max, mean)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Packet length variance&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Inter-arrival time patterns&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Average packet sizes&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/threat-detection/statistic_analysis_of_threat_detection-6.jpeg&quot; alt=&quot;Feature correlation analysis&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here’s where it gets nerdy (in a good way): these top features had &lt;em&gt;massive&lt;/em&gt; standard deviations — some in the millions — and extreme positive skewness. In plain English? Most values huddle near zero, but there are wild outliers stretching way out into the distance. The data is &lt;em&gt;leptokurtic&lt;/em&gt;, which is a word I don’t get to use nearly often enough.&lt;/p&gt;
+
+&lt;p&gt;It makes intuitive sense though. Normal browsing = small, regular packets. DDoS attack = a firehose of chaotic bursts.&lt;/p&gt;
+
+&lt;h3 id=&quot;do-attacks-actually-look-different&quot;&gt;Do Attacks Actually Look Different?&lt;/h3&gt;
+
+&lt;p&gt;I plotted the distributions of these key features for benign vs. malicious traffic side by side, and — oh yes — the difference jumped right off the screen.&lt;/p&gt;
+
+&lt;p&gt;Benign traffic: smooth exponential decay, lots of tiny values, quickly tapering off. Malicious traffic: similar shape, but with telltale spikes at larger values. The attacks were basically wearing neon signs, statistically speaking.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/threat-detection/statistic_analysis_of_threat_detection-10.jpeg&quot; alt=&quot;Distribution comparison between benign and malicious traffic&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;But I didn’t want to just trust my eyeballs. So I ran Kolmogorov-Smirnov tests to compare the distributions formally. The p-values came back so close to zero that Python basically shrugged and said “yeah, these are not the same.” The benign and malicious features live in genuinely different statistical universes.&lt;/p&gt;
+
+&lt;p&gt;Green light. If the math says they’re different, machine learning should be able to find the boundary.&lt;/p&gt;
+
+&lt;p&gt;There was, however, a problem due to the both types - benign and malicious - 
+having nearly identical spikes at the low end of the distribution. In those small-value ranges, benign and malicious traffic are practically indistinguishable — you’d need additional features (or deeper packet-level data) to tell them apart. I decided to accept that limitation and file it under “things to improve later.”&lt;/p&gt;
+
+&lt;h2 id=&quot;the-showdown-four-models-enter-one-wins&quot;&gt;The Showdown: Four Models Enter, One Wins&lt;/h2&gt;
+
+&lt;p&gt;Time for the fun part — the model bake-off. I trained four contenders:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Logistic Regression&lt;/strong&gt; — the reliable baseline, the control group of ML&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Random Forest&lt;/strong&gt; — a whole crowd of decision trees voting together&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Gradient Boosting&lt;/strong&gt; — learns from its mistakes, one tree at a time&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;AdaBoost&lt;/strong&gt; — keeps throwing more attention at the hard cases&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;All features were standardized first (mean 0, standard deviation 1), because some of those wild outliers would otherwise hijack the learning process. The data has been split into two sets - training and testing - so that I could test the model with data it has never seen. The sets used the “stratify” option to guarantee that each type of traffic will appear with the same proportions as the original.&lt;/p&gt;
+
+&lt;p&gt;The metric I cared about most? &lt;strong&gt;F1 score for the malicious class.&lt;/strong&gt; In security, you’re always balancing two headaches:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Recall&lt;/strong&gt;: Catch as many real attacks as possible (don’t let the bad guys through)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Precision&lt;/strong&gt;: Don’t flood the security team with false alarms (the team might not be big enough)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;F1 is the harmonic mean of both — one number that captures the trade-off nicely.&lt;/p&gt;
+
+&lt;h3 id=&quot;results-and-the-winner-is&quot;&gt;Results: And the Winner Is…&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Model&lt;/th&gt;
+      &lt;th&gt;Accuracy&lt;/th&gt;
+      &lt;th&gt;Malicious F1&lt;/th&gt;
+      &lt;th&gt;Malicious Precision&lt;/th&gt;
+      &lt;th&gt;Malicious Recall&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Random Forest&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;97%&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;0.92&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;0.99&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;0.87&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Gradient Boosting&lt;/td&gt;
+      &lt;td&gt;97%&lt;/td&gt;
+      &lt;td&gt;0.91&lt;/td&gt;
+      &lt;td&gt;0.98&lt;/td&gt;
+      &lt;td&gt;0.84&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;AdaBoost&lt;/td&gt;
+      &lt;td&gt;95%&lt;/td&gt;
+      &lt;td&gt;0.86&lt;/td&gt;
+      &lt;td&gt;0.95&lt;/td&gt;
+      &lt;td&gt;0.79&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Logistic Regression&lt;/td&gt;
+      &lt;td&gt;89%&lt;/td&gt;
+      &lt;td&gt;0.60&lt;/td&gt;
+      &lt;td&gt;0.98&lt;/td&gt;
+      &lt;td&gt;0.43&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/threat-detection/statistic_analysis_of_threat_detection-21.jpeg&quot; alt=&quot;Model performance comparison&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Random Forest&lt;/strong&gt; took the crown with an F1 of 0.92. Some highlights:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;99% precision&lt;/strong&gt; on malicious traffic — when it says “attack,” it means it&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;100% recall&lt;/strong&gt; on benign traffic — zero false truth on normal activity (!)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;87% recall&lt;/strong&gt; on malicious traffic — catches 87 out of every 100 attacks&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That 13% miss rate is the price of keeping false truths at essentially zero. For many real-world setups, that’s a trade-off most security teams would happily take.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-did-random-forest-win&quot;&gt;Why Did Random Forest Win?&lt;/h3&gt;
+
+&lt;p&gt;Random Forests build hundreds of decision trees, each trained on a slightly different slice of the data, and then let them vote. It’s democracy applied to machine learning, and it turns out to be great at:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Wrangling high-dimensional data with complex interactions&lt;/li&gt;
+  &lt;li&gt;Staying cool around outliers (those extreme values we found earlier)&lt;/li&gt;
+  &lt;li&gt;Not overfitting, thanks to built-in regularization&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Essentially, the model learned hundreds of different “if this packet looks like &lt;em&gt;that&lt;/em&gt;, be suspicious” rules and combined them into one robust detector. Wisdom of the (tree) crowd.&lt;/p&gt;
+
+&lt;h2 id=&quot;bonus-round-what-kind-of-attack-is-it&quot;&gt;Bonus Round: What &lt;em&gt;Kind&lt;/em&gt; of Attack Is It?&lt;/h2&gt;
+
+&lt;p&gt;Knowing “something’s wrong” is step one. But &lt;em&gt;what&lt;/em&gt; exactly is wrong? That’s what security teams really need. So I trained a second Random Forest to classify the specific attack type — and it did surprisingly well:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;99% overall accuracy&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Perfect F1 scores (1.00) for attacks like FTP-Patator, Heartbleed, Infiltration, and PortScan&lt;/li&gt;
+  &lt;li&gt;Near-perfect results on DDoS, DoS variants, and Bot traffic&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/threat-detection/statistic_analysis_of_threat_detection-23.jpeg&quot; alt=&quot;Attack type classification results&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;But — and there’s always a but — web attacks gave it trouble. XSS landed at 0.36 F1, SQL Injection at 0.60, and Web Brute Force at 0.66. The model kept mixing them up, which actually makes sense: from a network-flow perspective, these attacks probably look pretty similar. To truly tell them apart, you’d need deeper packet inspection or application-layer features that this dataset doesn’t capture.&lt;/p&gt;
+
+&lt;h2 id=&quot;where-could-this-go&quot;&gt;Where Could This Go?&lt;/h2&gt;
+
+&lt;p&gt;This was a clean, controlled experiment. Taking it into the real world would mean tackling:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Continuous retraining&lt;/strong&gt; as attack patterns evolve (attackers don’t stand still)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Adversarial robustness&lt;/strong&gt; (what if someone deliberately tries to fool the model?)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Integration&lt;/strong&gt; with actual security tooling&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Explainability&lt;/strong&gt; so humans understand &lt;em&gt;why&lt;/em&gt; something got flagged&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;But as a proof of concept? A 97% accurate detector with 99% precision on malicious traffic is a pretty solid starting point — and a really enjoyable way to spend a few weekends.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;All the code, statistical tests, confusion matrices, and model comparisons are available in the &lt;a href=&quot;https://github.com/wiktorwojcik112/threat-detection-project&quot;&gt;GitHub repo&lt;/a&gt;. Reproducibility or it didn’t happen.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tools used&lt;/strong&gt;: Python, Scikit-Learn, Pandas, Matplotlib, Seaborn&lt;br /&gt;
+&lt;strong&gt;Dataset&lt;/strong&gt;: CICIDS 2017 (2.8M network flows, 14 attack types)&lt;br /&gt;
+&lt;strong&gt;Best model&lt;/strong&gt;: Random Forest (F1: 0.92, Accuracy: 97%)&lt;/p&gt;
+</description>
+        <pubDate>Sun, 08 Feb 2026 00:00:00 +0100</pubDate>
+        <link>https://extiri.com/blog/posts/teaching-machines-to-smell-danger</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/teaching-machines-to-smell-danger</guid>
+        
+        <category>machine-learning</category>
+        
+        <category>projects</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>The Power of Elegant Simplicity #1: Shamir&apos;s Secret Sharing - The Polynomial That Guards Your Secrets</title>
+        <description>&lt;p&gt;&lt;em&gt;Part of the “The Power of Elegant Simplicity” series - algorithms that hide power in plain sight&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;You know what’s wild? One of the most elegant cryptographic algorithms ever invented uses nothing more than high school algebra. No complex number theory, no quantum mechanics, just polynomials. The kind you probably learned to hate in 9th grade.&lt;/p&gt;
+
+&lt;p&gt;Welcome to Shamir’s Secret Sharing, where a simple quadratic equation becomes the foundation for securing nuclear launch codes, cryptocurrency wallets, and anything else you really, &lt;em&gt;really&lt;/em&gt; don’t want falling into the wrong hands.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;the-problem-trust-no-one-but-trust-everyone-together&quot;&gt;The Problem: Trust No One (But Trust Everyone Together)&lt;/h2&gt;
+
+&lt;p&gt;Imagine you’re a startup founder with the keys to your company’s crypto wallet. If you keep them yourself, you’re one bike accident away from locking everyone out forever. If you give copies to your co-founders, any one of them could clean out the account and disappear to Bali.&lt;/p&gt;
+
+&lt;p&gt;What you need is a way to split a secret so that:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;No single person can reconstruct it alone&lt;/li&gt;
+  &lt;li&gt;But any group of, say, 3 out of 5 people can work together to recover it&lt;/li&gt;
+  &lt;li&gt;People who don’t have enough shares learn absolutely nothing (not “almost nothing” - literally nothing)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is exactly what Adi Shamir figured out in 1979. And the solution is beautifully simple.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/img/shamir_infographic.png&quot; alt=&quot;A visualization of the algorithm&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-trick-its-just-a-polynomial&quot;&gt;The Trick: It’s Just a Polynomial&lt;/h2&gt;
+
+&lt;p&gt;Here’s the entire algorithm in one sentence: &lt;strong&gt;encode your secret as a point on a polynomial, give each person a different point, and use the magic of polynomial interpolation to reconstruct it.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;That’s it. No, really.&lt;/p&gt;
+
+&lt;p&gt;Let’s break it down with an example where we want 3 people to be able to reconstruct the secret, out of 6 total people (k=3, n=6).&lt;/p&gt;
+
+&lt;h3 id=&quot;step-1-encode-your-secret&quot;&gt;Step 1: Encode Your Secret&lt;/h3&gt;
+
+&lt;p&gt;Let’s say your secret is the number 8 (maybe it’s a password hash, or a piece of an encryption key).&lt;/p&gt;
+
+&lt;p&gt;Create a polynomial of degree k-1 (so degree 2 in our case) where the constant term is your secret:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;f(x) = 3x² + 5x + 8
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The coefficients 3 and 5? Completely random. Throw dice. Mash your keyboard. Doesn’t matter. But that 8? That’s your secret, hiding in plain sight at f(0).&lt;/p&gt;
+
+&lt;h3 id=&quot;step-2-generate-the-shares&quot;&gt;Step 2: Generate the Shares&lt;/h3&gt;
+
+&lt;p&gt;Now just evaluate your polynomial at different points:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create_shares&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;secret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
+    Split a secret into n shares where k shares are needed to reconstruct.
+    
+    Args:
+        secret: The secret value to share
+        k: Minimum number of shares needed to reconstruct
+        n: Total number of shares to create
+    &quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;random&lt;/span&gt;
+    
+    &lt;span class=&quot;c&quot;&gt;# Create a polynomial of degree k-1 with secret as constant term&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;coefficients&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;secret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;polynomial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coef&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;coef&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coefficients&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    
+    &lt;span class=&quot;c&quot;&gt;# Generate n shares by evaluating polynomial at different points&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;shares&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;polynomial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shares&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Example usage&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;secret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;shares&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;create_shares&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;secret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# With coefficients [8, 5, 3] this gives us:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# [(1, 16), (2, 30), (3, 50), (4, 76), (5, 108), (6, 146)]&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Give person #1 the point (1, 16), person #2 gets (2, 30), and so on. These are your shares.&lt;/p&gt;
+
+&lt;h3 id=&quot;step-3-the-magic-of-reconstruction&quot;&gt;Step 3: The Magic of Reconstruction&lt;/h3&gt;
+
+&lt;p&gt;Here’s where it gets cool. With fewer than 3 shares, there are &lt;strong&gt;infinitely many&lt;/strong&gt; polynomials that fit through those points. Just like two points define a line but could be part of any parabola, two shares from our 2nd-degree polynomial could match an infinite number of possible secrets.&lt;/p&gt;
+
+&lt;p&gt;But the moment you have 3 shares, boom - there’s exactly one polynomial of degree 2 that fits through all three points. Mathematics locks it in.&lt;/p&gt;
+
+&lt;p&gt;We use Lagrange interpolation to reconstruct the polynomial:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;lagrange_interpolation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shares&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
+    Reconstruct the secret using Lagrange interpolation.
+    
+    Args:
+        shares: List of (x, y) tuples representing shares
+    
+    Returns:
+        The secret (value at x=0)
+    &quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;basis_polynomial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;Calculate the i-th Lagrange basis polynomial at x&quot;&quot;&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;xi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shares&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yi&lt;/span&gt;
+        
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shares&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;
+    
+    &lt;span class=&quot;c&quot;&gt;# Evaluate the interpolated polynomial at x=0 to get the secret&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;secret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;basis_polynomial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shares&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;round&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;secret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Reconstruct with any 3 shares&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;secret_recovered&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lagrange_interpolation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;76&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)])&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Secret: {secret_recovered}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;# Output: Secret: 8&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The polynomial gets reconstructed, and f(0) gives us back our secret.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-this-is-actually-mind-blowing&quot;&gt;Why This is Actually Mind-Blowing&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Perfect Security&lt;/strong&gt;: If you have k-1 shares, you have zero information about the secret. Not “very little” - literally zero. The secret could be any value with equal probability. This is information-theoretic security, the same kind that makes one-time pads unbreakable.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Flexibility&lt;/strong&gt;: Want to go from 5 shares to 10? Just evaluate the same polynomial at new points — instant new shares. Want to update the secret entirely? Generate a new polynomial and distribute fresh shares. One caveat: if you need to change the &lt;em&gt;threshold&lt;/em&gt; (say, from “3 of 5” to “4 of 7”), that means a new polynomial of a different degree, so you’d need to redistribute all shares.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Simplicity&lt;/strong&gt;: The entire algorithm fits in a tweet. Okay, maybe a long tweet. But still.&lt;/p&gt;
+
+&lt;h2 id=&quot;real-world-applications&quot;&gt;Real-World Applications&lt;/h2&gt;
+
+&lt;p&gt;This isn’t just a clever party trick. Shamir’s Secret Sharing is used in:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Cryptocurrency wallets&lt;/strong&gt;: Splitting recovery seeds across multiple devices or people&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Certificate authorities&lt;/strong&gt;: Requiring multiple executives to sign off on root certificates&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Nuclear launch codes&lt;/strong&gt;: Academic example because you definitely want more than one person to agree on this&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Distributed password managers&lt;/strong&gt;: Like Hashicorp Vault’s unseal process&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Threshold signatures&lt;/strong&gt;: Multiple parties cooperating to sign transactions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;the-catch-theres-always-a-catch&quot;&gt;The Catch (There’s Always a Catch)&lt;/h2&gt;
+
+&lt;p&gt;Like most cryptographic primitives, the devil is in the implementation details:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Random number generation matters&lt;/strong&gt;: Those random coefficients need to come from a cryptographically secure random number generator (CSPRNG), like Python’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;secrets&lt;/code&gt; module. The standard &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;random&lt;/code&gt; module is a regular PRNG — predictable if someone knows the seed. (The code examples in this post use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;random&lt;/code&gt; for clarity, but don’t do that in production.)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Share storage is critical&lt;/strong&gt;: Each share is as sensitive as the original secret. If someone gets k shares, game over.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;No integrity protection (mostly)&lt;/strong&gt;: Basic Shamir doesn’t have built-in authentication, but here’s a neat trick — if you collect &lt;em&gt;more&lt;/em&gt; than the minimum k shares, you can catch liars. Just try reconstructing from different subsets of k shares. If everyone’s honest, every subset gives the same secret. If someone faked their share, the subsets containing it will produce a different result, exposing the liar. Fair warning: this gets expensive fast (the number of subsets grows combinatorially), so it’s more of a sanity check than a scalable defense. For real-world use, look into verifiable schemes like Feldman’s VSS or Pedersen’s VSS.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Computation in finite fields&lt;/strong&gt;: For production use, you need to work in finite fields (modulo a large prime) to avoid floating-point precision issues and information leakage.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Other production concerns&lt;/strong&gt;: A full deployment would also want share authentication (MACs or signatures on each share), replay protection, and possibly proactive secret sharing — periodically refreshing shares without changing the secret. These are beyond our scope here, but worth knowing about if you ever build this for real.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;the-modular-twist-from-theory-to-practice&quot;&gt;The Modular Twist: From Theory to Practice&lt;/h2&gt;
+
+&lt;p&gt;That last point deserves its own section, because it’s both important and surprisingly simple.&lt;/p&gt;
+
+&lt;p&gt;Everything I explained above works &lt;em&gt;algebraically&lt;/em&gt; over the real numbers — the polynomial math is correct, and you’ll get your secret back. But here’s the thing: over ℝ, the scheme doesn’t actually provide information-theoretic security. The range and magnitude of the share values can leak information about the secret. The “zero knowledge with k-1 shares” guarantee &lt;strong&gt;only holds in a finite field&lt;/strong&gt;. So modular arithmetic isn’t just a practical fix for computers — it’s a security requirement. Let me explain.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-modular-arithmetic&quot;&gt;Why Modular Arithmetic?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Problem 1: Floating-point chaos&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;When you reconstruct a polynomial using Lagrange interpolation with real numbers, you’re doing lots of divisions. These create fractions that computers represent as floating-point numbers. After a few operations, you might get &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;7.999999999998&lt;/code&gt; instead of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;8&lt;/code&gt;. Usually you can just round, but what if your secret is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;7&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;8&lt;/code&gt;? At scale, these errors compound.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Problem 2: Information leakage&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Here’s a subtler issue. If someone has k-1 shares and sees the intermediate calculations, the &lt;em&gt;size&lt;/em&gt; of those numbers might reveal information about the secret. In real arithmetic, evaluating a degree-2 polynomial at x=100 gives much bigger results for some coefficients than others. An attacker could use this to narrow down possibilities.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The solution: Work modulo a prime&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Instead of doing arithmetic over all real numbers, we do everything modulo a large prime number &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p&lt;/code&gt;. This means:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;All values stay in the range [0, p-1]&lt;/li&gt;
+  &lt;li&gt;No floating-point numbers at all - everything is integers&lt;/li&gt;
+  &lt;li&gt;Division becomes “multiplication by the modular inverse”&lt;/li&gt;
+  &lt;li&gt;Every value is equally likely, revealing nothing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;how-simple-is-the-change&quot;&gt;How Simple Is The Change?&lt;/h3&gt;
+
+&lt;p&gt;Remarkably simple. Take any operation from the basic algorithm and add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;% prime&lt;/code&gt; at the end:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;# Basic (problematic)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;coef&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Modular (production-ready)  &lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;coef&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prime&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The only tricky part is division. In modular arithmetic, you can’t just divide - instead, you multiply by the &lt;strong&gt;modular inverse&lt;/strong&gt;. If you want to compute &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a / b mod p&lt;/code&gt;, you calculate &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a * (b^(-1)) mod p&lt;/code&gt;, where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b^(-1)&lt;/code&gt; is the number such that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b * b^(-1) ≡ 1 (mod p)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Python 3.8+ makes this trivial:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;# Division in modular arithmetic&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;pow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prime&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;That’s it. The entire conceptual framework - polynomials, shares, interpolation - stays exactly the same. You’re just doing the arithmetic in a different “universe” where numbers wrap around at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prime&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;choosing-your-prime&quot;&gt;Choosing Your Prime&lt;/h3&gt;
+
+&lt;p&gt;The prime &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p&lt;/code&gt; needs to be larger than:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Your secret value&lt;/li&gt;
+  &lt;li&gt;The number of shares you’ll create&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;A common choice is a Mersenne prime like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2³¹ - 1&lt;/code&gt; or, for cryptographic applications, a 256-bit prime. The “Try It Yourself” example below uses modular arithmetic properly.&lt;/p&gt;
+
+&lt;h2 id=&quot;try-it-yourself&quot;&gt;Try It Yourself&lt;/h2&gt;
+
+&lt;p&gt;Here’s a complete, simple implementation you can play with:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;random&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create_shares&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;secret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;Create n shares of a secret with threshold k&quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prime&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;prime&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;# Mersenne prime for simplicity&lt;/span&gt;
+    
+    &lt;span class=&quot;c&quot;&gt;# Random coefficients for polynomial&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;coefficients&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;secret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prime&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;evaluate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;Evaluate polynomial at x using Horner&apos;s method&quot;&quot;&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;coef&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;reversed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coefficients&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;coef&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prime&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;
+    
+    &lt;span class=&quot;c&quot;&gt;# Generate shares&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;shares&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;evaluate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shares&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prime&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;reconstruct_secret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shares&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;Reconstruct secret from shares using Lagrange interpolation&quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;secret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shares&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;numerator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;denominator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shares&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;numerator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numerator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prime&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;denominator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;denominator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prime&lt;/span&gt;
+        
+        &lt;span class=&quot;c&quot;&gt;# Modular inverse for division in finite field&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;lagrange_coef&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numerator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;pow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;denominator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prime&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;secret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;secret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lagrange_coef&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prime&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;secret&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Example&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;secret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12345&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;shares&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prime&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;create_shares&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;secret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;104729&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Original secret: {secret}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Shares: {shares[:3]}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;# Show first 3 shares&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Reconstruct with any 3 shares&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;recovered&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reconstruct_secret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shares&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Recovered secret: {recovered}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;the-takeaway&quot;&gt;The Takeaway&lt;/h2&gt;
+
+&lt;p&gt;Shamir’s Secret Sharing is sneakily brilliant because it looks so simple. Polynomials? We learned those in high school. But that simplicity hides incredible power: a mathematically perfect way to split trust, with security properties that hold up against even quantum computers.&lt;/p&gt;
+
+&lt;p&gt;Sometimes the best algorithms aren’t the most complex ones. Sometimes they’re the ones that make you slap your forehead and think, “why didn’t I think of that?”&lt;/p&gt;
+
+&lt;p&gt;That’s the beauty of elegantly simple algorithms. They hide in plain sight, doing impossible-seeming things with elementary mathematics.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;Next in the series: Bloom Filters - The data structure that’s okay with being wrong (sometimes)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Further Reading:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dl.acm.org/doi/10.1145/359168.359176&quot;&gt;Shamir’s original 1979 paper&lt;/a&gt; - Surprisingly readable&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing&quot;&gt;Implementation considerations for production systems&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Example implementation: &lt;a href=&quot;https://github.com/wiktorwojcik112/secret_sharing&quot;&gt;Secret Sharing Demo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 08 Feb 2026 00:00:00 +0100</pubDate>
+        <link>https://extiri.com/blog/posts/elegant-simplicity-secret-sharing</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/elegant-simplicity-secret-sharing</guid>
+        
+        <category>fun-facts</category>
+        
+        <category>The Power of Elegant Simplicity</category>
+        
+        
+      </item>
     
       <item>
         <title>CodeMenu as a File System for Your AI Agents</title>
@@ -1387,160 +2019,6 @@ rm /var/tmp/compiled_app
         <category>snippets</category>
         
         <category>programming</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Introducing Chitneek for iOS - Hear Your Documents, Simply and Privately</title>
-        <description>&lt;p class=&quot;lead&quot;&gt;Do you want a reading app that’s clean, reliable, and doesn’t force you to sign up for everything? Meet &lt;strong&gt;Chitneek&lt;/strong&gt;, the iPhone app that turns PDFs, EPUBs, web pages, notes, Gutenberg classics, and RSS feeds into spoken text — without cloud uploads or unnecessary complexity.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;h2 id=&quot;what-you-can-do-with-chitneek&quot;&gt;What You Can Do with Chitneek&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/assets/chitneek-screenshots/Screenshot-1.png&quot; alt=&quot;Read PDFs, EPUBs, websites and text&quot; height=&quot;900&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Listen to PDFs, EPUBs, and notes&lt;/strong&gt; using native iOS text-to-speech voices — nothing fancy needed, just clear and dependable reading.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Convert text or web pages into PDFs&lt;/strong&gt; so you can listen later whenever it suits you.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Access Project Gutenberg right inside the app&lt;/strong&gt; — public domain books are just a tap away.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Subscribe to RSS feeds&lt;/strong&gt; and have the latest posts delivered for you to listen to.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Organize your library&lt;/strong&gt; with named groups, and bookmarks so you can easily find where you left off.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Customize playback&lt;/strong&gt;: adjust speed and pitch per document or book to match your listening style.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;CarPlay integration&lt;/strong&gt; so you can keep your eyes on the road while listening.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Sleep timer&lt;/strong&gt; to stop playback automatically — perfect for nighttime listening.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;All local storage &amp;amp; usage&lt;/strong&gt;: your files remain on your device; you’re in control of your data.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;what-makes-chitneek-special&quot;&gt;What Makes Chitneek Special&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/assets/chitneek-screenshots/Screenshot-2.png&quot; alt=&quot;Keep you collection organized&quot; height=&quot;900&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Chitneek isn’t trying to be every kind of reader-app out there — instead, it focuses on doing a few things very well, in a way that feels natural:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Minimal friction, maximum focus&lt;/strong&gt; — no signups, no cloud dependencies, no uploading.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Built-in sources&lt;/strong&gt; like Gutenberg and RSS reduce manual importing and help you access content you care about faster.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Simple yet powerful organization&lt;/strong&gt; with groups and bookmarks — because locating what you want should be quick.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flexible audio controls&lt;/strong&gt; which can be adapted to your listening pace and preference.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Privacy and peace of mind&lt;/strong&gt; — your documents stay yours, stored locally. No mystery about where your text goes.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;why-youll-want-chitneek&quot;&gt;Why You’ll Want Chitneek&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/assets/chitneek-screenshots/Screenshot-3.png&quot; alt=&quot;Listen to blog feeds&quot; height=&quot;900&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;If any of these sound familiar, Chitneek may be exactly what you’ve been looking for:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;You read often, but want to rest your eyes — or want to listen during walks, commuting, or chores.&lt;/li&gt;
-  &lt;li&gt;You follow blogs or websites and wish for hands-free listening to new content.&lt;/li&gt;
-  &lt;li&gt;You love classic books or public domain works and want easy access without hunting for files.&lt;/li&gt;
-  &lt;li&gt;You care about privacy, offline reliability, and simplicity.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/assets/chitneek-screenshots/Screenshot-4.png&quot; alt=&quot;Find interesting books quickly&quot; height=&quot;900&quot; /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Download &lt;strong&gt;Chitneek — Read Aloud&lt;/strong&gt; from the App Store.&lt;/li&gt;
-  &lt;li&gt;Open the app.&lt;/li&gt;
-  &lt;li&gt;Browse Gutenberg works or add RSS feeds. Import any PDFs or EPUBs you already have.&lt;/li&gt;
-  &lt;li&gt;Tap to play, adjust speed/pitch, use the sleep timer or CarPlay when needed.&lt;/li&gt;
-  &lt;li&gt;Organize using groups to keep things tidy.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Chitneek is for anyone who believes that reading aloud should be easy, private, and dependable. If you’ve been looking for a calm, uncluttered experience that still covers everything essential — this is it.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 22 Sep 2025 00:00:00 +0200</pubDate>
-        <link>https://extiri.com/blog/posts/introducing-chitneek</link>
-        <guid isPermaLink="true">https://extiri.com/blog/posts/introducing-chitneek</guid>
-        
-        <category>extiri</category>
-        
-        <category>app-showcase</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>From Theory to Practice: 5 Platforms That Turn Learning Into Doing</title>
-        <description>&lt;p class=&quot;lead&quot;&gt;Ever feel stuck in &lt;em&gt;tutorial hell&lt;/em&gt; - watching endless videos but never actually applying what you learn? I’ve been there too. Books and courses are fantastic - they give structure, context, and explanations - but real understanding often comes when you &lt;em&gt;actually do it&lt;/em&gt;.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;p&gt;Over time, I’ve discovered several platforms that take concepts from theory to hands-on experience. Each one is free and ready to help you practice and internalize what you learn.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;1-cryptohack--experiment-with-cryptography&quot;&gt;1. CryptoHack – Experiment with Cryptography&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/assets/img/cryptohack-screenshot.png&quot; alt=&quot;CryptoHack&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Cryptography has always fascinated me. Recently, I wanted a way to practice it beyond reading theory, and that’s when I found &lt;strong&gt;CryptoHack&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;CryptoHack offers challenges that let you experiment directly with cryptographic algorithms. From XOR operations to RSA attacks, you get to see how the theory works in practice. They also have structured introductory courses if you want guided learning.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://cryptohack.org&quot;&gt;Explore CryptoHack&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;2-iximiuz-labs--hands-on-devops&quot;&gt;2. iximiuz Labs – Hands-On DevOps&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/assets/img/ixizmuz-screenshot.png&quot; alt=&quot;iximiuz Labs&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;I often learn Linux or Docker from blogs or books - but the moment it clicks is when I actually spin it up. That’s where &lt;strong&gt;iximiuz Labs&lt;/strong&gt; comes in.&lt;/p&gt;
-
-&lt;p&gt;This platform provides practical challenges in Linux, Docker, and Kubernetes. Each challenge is designed to let you solve real-world tasks, deepening your understanding of the concepts while keeping it safe in a sandboxed environment.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://labs.iximiuz.com/challenges&quot;&gt;Try iximiuz Labs&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;3-deep-ml--understand-machine-learning-from-the-inside&quot;&gt;3. Deep-ML – Understand Machine Learning From the Inside&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/assets/img/deepml-screenshot.png&quot; alt=&quot;Deep-ML&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Reading about PCA, neural networks, or gradient descent is one thing - but implementing them yourself is where understanding solidifies.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Deep-ML&lt;/strong&gt; offers machine learning and deep learning challenges crafted to make you code the algorithms yourself. It’s a structured playground that helps you see how the math and theory translate into real computation.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.deep-ml.com&quot;&gt;Start with Deep-ML&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;4-webgpu-puzzles--feel-parallel-execution&quot;&gt;4. WebGPU Puzzles – Feel Parallel Execution&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/assets/img/wgpupuzzles-screenshot.png&quot; alt=&quot;WebGPU Puzzles&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;GPU programming can feel abstract until you run code yourself. &lt;strong&gt;WebGPU Puzzles&lt;/strong&gt; brings WGSL coding directly to your browser, no installation required.&lt;/p&gt;
-
-&lt;p&gt;Through small compute puzzles, you dispatch GPU threads and see parallel execution in action. It’s a surprisingly intuitive way to get a tactile feel for GPU computing fundamentals.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://gpupuzzles.answer.ai&quot;&gt;Explore WebGPU Puzzles&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;5-project-euler--sharpen-your-mathematical-thinking&quot;&gt;5. Project Euler – Sharpen Your Mathematical Thinking&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/assets/img/projecteuler-screenshot.png&quot; alt=&quot;Project Euler&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Reading about algorithms is useful - but solving them is transformative.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Project Euler&lt;/strong&gt; offers small, elegant math-and-programming problems that make you think algorithmically. I use it especially to train my mathematical thinking, and each solved problem feels like a small victory that reinforces the concepts I’ve learned.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://projecteuler.net&quot;&gt;Try Project Euler&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;hands-on-learning-matters&quot;&gt;Hands-On Learning Matters&lt;/h2&gt;
-
-&lt;p&gt;Books, blogs, and courses give you the foundation. Hands-on practice turns that knowledge into skill. These platforms have helped me solidify concepts, see results instantly, and stay motivated by giving tangible accomplishments along the way.&lt;/p&gt;
-
-&lt;p&gt;I hope they do the same for you. Dive in, experiment, fail, fix, and learn - your brain will thank you.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 25 Aug 2025 00:00:00 +0200</pubDate>
-        <link>https://extiri.com/blog/posts/from-theory-to-practice</link>
-        <guid isPermaLink="true">https://extiri.com/blog/posts/from-theory-to-practice</guid>
-        
-        <category>programming</category>
-        
-        <category>studying</category>
-        
-        <category>resources</category>
         
         
       </item>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<title>Teaching Machines to Smell Danger: A Fun Dive Into ML-Powered Threat Detection &#9642; Extiri Blog</title>
+<!--
+<meta name="description" content="Every now and then at Extiri, between shipping apps and squashing bugs, I like to take a detour into a completely different corner of tech — just to see what happens. At my university there was a statistics project that could be made so it served as ane xcuse to...">
+-->
+<meta name="description" content="blog about Extiri, programming and cybersecurity
+">
+<meta name="keywords" content="machine-learning, projects">
+<link rel="canonical" href="https://extiri.com/posts/teaching-machines-to-smell-danger">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Teaching Machines to Smell Danger: A Fun Dive Into ML-Powered Threat Detection" />
+<meta name="twitter:description" content="blog about Extiri, programming and cybersecurity
+" />
+<meta name="twitter:image" content="https://extiri.com" />
+<meta name="author" content="">
+<link rel="author" href="">
+<meta property="og:locale" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Teaching Machines to Smell Danger: A Fun Dive Into ML-Powered Threat Detection">
+<meta property="og:description" content="blog about Extiri, programming and cybersecurity
+">
+<meta property="og:url" content="https://extiri.com/posts/teaching-machines-to-smell-danger">
+<meta property="og:site_name" content="Extiri Blog">
+<link rel="stylesheet" href="/blog/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="/blog/assets/css/main.css">
+<link rel="stylesheet" href="/blog/assets/css/bf.css">
+   <body>
+       <div class="wrapper" id="blep">
+          <header class="site-header">
+ <div class="site-header__inner">
+    <a class="site-header__brand" href="/blog/index.html">
+      <span class="site-header__logo">
+        <object type="image/svg+xml" data="/blog/assets/img/guy.svg" class="logosvg">Your browser does not support svg images</object>
+      </span>
+      <span class="site-header__title">Extiri Blog</span>
+    </a>
+    <button
+      class="site-nav__toggle"
+      type="button"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      data-nav-toggle
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+   <nav class="site-nav" id="site-nav" data-site-nav>
+     <ul class="site-nav__list">
+       <li><a href="/blog/about/index.html">About</a>
+       <li><a href="/blog/archive/index.html">Archive</a>
+       <li><a href="https://extiri.com">Apps</a>
+     </ul>
+     <div class="site-nav__secondary">
+       <ul class="site-nav__social">
+         <li>
+            <a href="https://youtube.com/@wiktorwojcik3678" target="_blank" rel="noopener">
+              <span class="icon-youtube"></span>
+              <span class="sr-only">YouTube</span>
+            </a>
+         <li>
+            <a href="https://twitter.com/WiktorW2" target="_blank" rel="noopener">
+              <span class="icon-twitter"></span>
+              <span class="sr-only">Twitter</span>
+            </a>
+         <li>
+            <a href="https://github.com/Extiri" target="_blank" rel="noopener">
+              <span class="icon-github"></span>
+              <span class="sr-only">GitHub</span>
+            </a>
+         <li>
+            <a href="mailto:wiktor.wojcik@extiri.com">
+              <span class="icon-mail_outline"></span>
+              <span class="sr-only">Email</span>
+            </a>
+         <li>
+            <a href="/blog/feed.xml">
+              <span class="icon-rss_feed"></span>
+              <span class="sr-only">RSS feed</span>
+            </a>
+       </ul>
+     </div>
+   </nav>
+ </div>
+</header>
+<div id="cookie-consent-banner" class="cookie-consent-banner" aria-live="polite" hidden>
+ <div class="cookie-consent-content">
+   <p>We use cookies and analytics to improve this site. You can accept or decline analytics tracking. Read our <a href="/blog/privacy_policy.html">Privacy Policy</a>.
+   <div class="cookie-consent-buttons">
+      <button id="consent-accept" class="button-primary">Accept</button>
+      <button id="consent-decline" class="button-secondary">Decline</button>
+   </div>
+ </div>
+</div>
+<article class="post">
+<header class="post-hero">
+   <p class="post-hero__eyebrow">Extiri Blog
+   <h1 class="post-hero__title">Teaching Machines to Smell Danger: A Fun Dive Into ML-Powered Threat Detection</h1>
+   <div class="post-hero__meta">
+      <span class="post-hero__date">
+        February 8, 2026
+      </span>
+      <span class="post-hero__divider">•</span>
+      <span class="post-hero__author">
+        Wiktor Wójcik
+      </span>
+      <span class="post-hero__divider">•</span>
+      <span class="post-hero__tags">
+          <a href="/blog/tag/machine-learning/index.html">#machine-learning</a>
+          <a href="/blog/tag/projects/index.html">#projects</a>
+      </span>
+   </div>
+ </header>
+ <div class="post-content">
+   <p>Every now and then at Extiri, between shipping apps and squashing bugs, I like to take a detour into a completely different corner of tech — just to see what happens. At my university there was a statistics project that could be made so it served as ane xcuse to work wht ML. So this time, the question was: <em>can I teach a machine learning model to sniff out network attacks?</em> Spoiler: I got it to 97% accuracy, learned a ton, and had a surprisingly good time doing it.
+<p>Here’s how this little research adventure played out.
+<h2 id="the-spark-why-even-do-this">The Spark: Why Even Do This?</h2>
+<p>Network security is, at its heart, a massive pattern recognition puzzle. Attackers leave fingerprints everywhere — weird packet sizes, suspicious timing, oddly shaped data flows. The catch? These clues are buried under mountains of perfectly normal “someone’s watching YouTube” traffic, and they change all the time.
+<p>Classic rule-based systems are fine, but they’re a bit like a guard dog that only barks at people wearing the exact same hat as the last burglar. Machine learning, on the other hand, can learn the subtle statistical vibe of “everything’s fine” versus “something is definitely off.”
+<p>That sounded like a fun experiment. So I grabbed a dataset, fired up a Jupyter notebook, and went to work.
+<p>You can find all the code on <a href="https://github.com/wiktorwojcik112/threat-detection-project">GitHub</a> if you want to follow along or poke holes in my methodology (feedback welcome!).
+<h2 id="the-playground-28-million-network-flows">The Playground: 2.8 Million Network Flows</h2>
+<p>For data, I used the CICIDS 2017 dataset — a week-long capture of real network traffic where security researchers were actively staging different attacks alongside normal activity.
+<p>The numbers are huge: over <strong>2.8 million</strong> network flows, each packed with features like:
+<ul>
+ <li>Packet lengths and timing
+ <li>Flow duration
+ <li>Forward and backward packet statistics
+ <li>Inter-arrival times
+</ul>
+<p>And the best part — every single flow is labeled as <code class="language-plaintext highlighter-rouge">BENIGN</code> or one of <strong>14 different attack types</strong> (DDoS, Port Scan, SQL Injection… the whole villain roster).
+<p><img src="/blog/assets/threat-detection/statistic_analysis_of_threat_detection-2.jpeg" alt="Overview of the CICIDS 2017 dataset" />
+<h2 id="poking-around-the-detective-phase">Poking Around: The Detective Phase</h2>
+<p>Before letting any algorithm loose on the data, I wanted to actually <em>understand</em> what I was looking at. This turned out to be the most interesting part.
+<h3 id="a-lopsided-world">A Lopsided World</h3>
+<p>First fun fact: the dataset is overwhelmingly benign traffic. Which makes total sense — most real networks are boring most of the time. But it immediately means a model that just shrugs and says “looks fine to me” for every single packet would score high on accuracy while being spectacularly useless. Noted.
+<p><img src="/blog/assets/threat-detection/statistic_analysis_of_threat_detection-4.jpeg" alt="Class distribution showing heavy skew toward benign traffic" />
+<h3 id="which-features-actually-matter">Which Features Actually Matter?</h3>
+<p>I ran correlations between every feature and the target variable to find out which network characteristics are the best attack detectors. Ten features rose to the top, including:
+<ul>
+ <li><strong>Backward packet length statistics</strong> (standard deviation, max, mean)
+ <li><strong>Packet length variance</strong>
+ <li><strong>Inter-arrival time patterns</strong>
+ <li><strong>Average packet sizes</strong>
+</ul>
+<p><img src="/blog/assets/threat-detection/statistic_analysis_of_threat_detection-6.jpeg" alt="Feature correlation analysis" />
+<p>Here’s where it gets nerdy (in a good way): these top features had <em>massive</em> standard deviations — some in the millions — and extreme positive skewness. In plain English? Most values huddle near zero, but there are wild outliers stretching way out into the distance. The data is <em>leptokurtic</em>, which is a word I don’t get to use nearly often enough.
+<p>It makes intuitive sense though. Normal browsing = small, regular packets. DDoS attack = a firehose of chaotic bursts.
+<h3 id="do-attacks-actually-look-different">Do Attacks Actually Look Different?</h3>
+<p>I plotted the distributions of these key features for benign vs. malicious traffic side by side, and — oh yes — the difference jumped right off the screen.
+<p>Benign traffic: smooth exponential decay, lots of tiny values, quickly tapering off. Malicious traffic: similar shape, but with telltale spikes at larger values. The attacks were basically wearing neon signs, statistically speaking.
+<p><img src="/blog/assets/threat-detection/statistic_analysis_of_threat_detection-10.jpeg" alt="Distribution comparison between benign and malicious traffic" />
+<p>But I didn’t want to just trust my eyeballs. So I ran Kolmogorov-Smirnov tests to compare the distributions formally. The p-values came back so close to zero that Python basically shrugged and said “yeah, these are not the same.” The benign and malicious features live in genuinely different statistical universes.
+<p>Green light. If the math says they’re different, machine learning should be able to find the boundary.
+<p>There was, however, a problem due to the both types - benign and malicious - 
+having nearly identical spikes at the low end of the distribution. In those small-value ranges, benign and malicious traffic are practically indistinguishable — you’d need additional features (or deeper packet-level data) to tell them apart. I decided to accept that limitation and file it under “things to improve later.”
+<h2 id="the-showdown-four-models-enter-one-wins">The Showdown: Four Models Enter, One Wins</h2>
+<p>Time for the fun part — the model bake-off. I trained four contenders:
+<ol>
+ <li><strong>Logistic Regression</strong> — the reliable baseline, the control group of ML
+ <li><strong>Random Forest</strong> — a whole crowd of decision trees voting together
+ <li><strong>Gradient Boosting</strong> — learns from its mistakes, one tree at a time
+ <li><strong>AdaBoost</strong> — keeps throwing more attention at the hard cases
+</ol>
+<p>All features were standardized first (mean 0, standard deviation 1), because some of those wild outliers would otherwise hijack the learning process. The data has been split into two sets - training and testing - so that I could test the model with data it has never seen. The sets used the “stratify” option to guarantee that each type of traffic will appear with the same proportions as the original.
+<p>The metric I cared about most? <strong>F1 score for the malicious class.</strong> In security, you’re always balancing two headaches:
+<ul>
+ <li><strong>Recall</strong>: Catch as many real attacks as possible (don’t let the bad guys through)
+ <li><strong>Precision</strong>: Don’t flood the security team with false alarms (the team might not be big enough)
+</ul>
+<p>F1 is the harmonic mean of both — one number that captures the trade-off nicely.
+<h3 id="results-and-the-winner-is">Results: And the Winner Is…</h3>
+<table>
+<thead>
+   <tr>
+     <th>Model
+     <th>Accuracy
+     <th>Malicious F1
+     <th>Malicious Precision
+     <th>Malicious Recall
+ <tbody>
+   <tr>
+     <td><strong>Random Forest</strong>
+     <td><strong>97%</strong>
+     <td><strong>0.92</strong>
+     <td><strong>0.99</strong>
+     <td><strong>0.87</strong>
+   <tr>
+     <td>Gradient Boosting
+     <td>97%
+     <td>0.91
+     <td>0.98
+     <td>0.84
+   <tr>
+     <td>AdaBoost
+     <td>95%
+     <td>0.86
+     <td>0.95
+     <td>0.79
+   <tr>
+     <td>Logistic Regression
+     <td>89%
+     <td>0.60
+     <td>0.98
+     <td>0.43
+</table>
+<p><img src="/blog/assets/threat-detection/statistic_analysis_of_threat_detection-21.jpeg" alt="Model performance comparison" />
+<p><strong>Random Forest</strong> took the crown with an F1 of 0.92. Some highlights:
+<ul>
+ <li><strong>99% precision</strong> on malicious traffic — when it says “attack,” it means it
+ <li><strong>100% recall</strong> on benign traffic — zero false truth on normal activity (!)
+ <li><strong>87% recall</strong> on malicious traffic — catches 87 out of every 100 attacks
+</ul>
+<p>That 13% miss rate is the price of keeping false truths at essentially zero. For many real-world setups, that’s a trade-off most security teams would happily take.
+<h3 id="why-did-random-forest-win">Why Did Random Forest Win?</h3>
+<p>Random Forests build hundreds of decision trees, each trained on a slightly different slice of the data, and then let them vote. It’s democracy applied to machine learning, and it turns out to be great at:
+<ul>
+ <li>Wrangling high-dimensional data with complex interactions
+ <li>Staying cool around outliers (those extreme values we found earlier)
+ <li>Not overfitting, thanks to built-in regularization
+</ul>
+<p>Essentially, the model learned hundreds of different “if this packet looks like <em>that</em>, be suspicious” rules and combined them into one robust detector. Wisdom of the (tree) crowd.
+<h2 id="bonus-round-what-kind-of-attack-is-it">Bonus Round: What <em>Kind</em> of Attack Is It?</h2>
+<p>Knowing “something’s wrong” is step one. But <em>what</em> exactly is wrong? That’s what security teams really need. So I trained a second Random Forest to classify the specific attack type — and it did surprisingly well:
+<ul>
+ <li><strong>99% overall accuracy</strong>
+ <li>Perfect F1 scores (1.00) for attacks like FTP-Patator, Heartbleed, Infiltration, and PortScan
+ <li>Near-perfect results on DDoS, DoS variants, and Bot traffic
+</ul>
+<p><img src="/blog/assets/threat-detection/statistic_analysis_of_threat_detection-23.jpeg" alt="Attack type classification results" />
+<p>But — and there’s always a but — web attacks gave it trouble. XSS landed at 0.36 F1, SQL Injection at 0.60, and Web Brute Force at 0.66. The model kept mixing them up, which actually makes sense: from a network-flow perspective, these attacks probably look pretty similar. To truly tell them apart, you’d need deeper packet inspection or application-layer features that this dataset doesn’t capture.
+<h2 id="where-could-this-go">Where Could This Go?</h2>
+<p>This was a clean, controlled experiment. Taking it into the real world would mean tackling:
+<ul>
+ <li><strong>Continuous retraining</strong> as attack patterns evolve (attackers don’t stand still)
+ <li><strong>Adversarial robustness</strong> (what if someone deliberately tries to fool the model?)
+ <li><strong>Integration</strong> with actual security tooling
+ <li><strong>Explainability</strong> so humans understand <em>why</em> something got flagged
+</ul>
+<p>But as a proof of concept? A 97% accurate detector with 99% precision on malicious traffic is a pretty solid starting point — and a really enjoyable way to spend a few weekends.
+<hr />
+<p><em>All the code, statistical tests, confusion matrices, and model comparisons are available in the <a href="https://github.com/wiktorwojcik112/threat-detection-project">GitHub repo</a>. Reproducibility or it didn’t happen.</em>
+<p><strong>Tools used</strong>: Python, Scikit-Learn, Pandas, Matplotlib, Seaborn<br />
+<strong>Dataset</strong>: CICIDS 2017 (2.8M network flows, 14 attack types)<br />
+<strong>Best model</strong>: Random Forest (F1: 0.92, Accuracy: 97%)
+ </div>
+</article>
+<aside class="related">
+<h2>Related posts</h2>
+<ul class="related-posts">
+</aside>
+           <footer class="site-footer">
+ <div class="site-footer__inner">
+   <div class="site-footer__primary">
+     <h2>Extiri Blog</h2>
+     <p>blog about Extiri, programming and cybersecurity
+   </div>
+   <nav class="site-footer__links" aria-label="Footer navigation">
+      <a href="/blog/about/index.html">About</a>
+      <a href="/blog/archive/index.html">Archive</a>
+      <a href="https://extiri.com">Apps</a>
+      <a href="/blog/feed.xml">RSS</a>
+   </nav>
+   <div class="site-footer__meta">
+      <span>Crafted by Wiktor Wójcik</span>
+      <span>&copy; 2026 Extiri</span>
+   </div>
+ </div>
+</footer>
+       </div>
+<script type="text/javascript" src="/blog/assets/js/nav.js"></script>
+<script type="text/javascript" src="/blog/assets/js/theme.js"></script>
+<script type="text/javascript" src="/blog/assets/js/barefoot.js"></script>
+<script type="text/javascript" src="/blog/assets/js/consent.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    // Default to denied until the user accepts
+    gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    gtag('js', new Date());
+    gtag('config', 'G-HLY6ZZMNBQ', { 'anonymize_ip': true });
+    // Listen for our custom consent event to enable analytics
+    window.addEventListener('extiri:consent', function (e) {
+      if (e && e.detail && e.detail.analytics) {
+        // Grant analytics consent
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      } else {
+        // Revoke analytics consent
+        gtag('consent', 'update', { 'analytics_storage': 'denied' });
+      }
+    });
+  </script>
+    
