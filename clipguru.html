@@ -38,23 +38,211 @@
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Page-specific overrides */
-        .hero-clipguru {
-            background: radial-gradient(circle at 50% 30%, rgba(109, 73, 215, 0.08) 0%, rgba(5, 5, 5, 0) 60%);
+        /* === ClipGuru Color Palette === */
+        :root {
+            --cg-purple: #6D49D7;
+            --cg-blue: #0A84FF;
+            --cg-pink: #FF375F;
+            --cg-orange: #FF9F0A;
+            --cg-teal: #64D2FF;
         }
 
-        .feature-icon-box {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+        /* === Hero === */
+        .hero-clipguru {
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-clipguru::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 30%, rgba(109, 73, 215, 0.15) 0%, rgba(5, 5, 5, 0) 65%),
+                linear-gradient(to bottom, transparent 60%, var(--bg-body) 100%);
+            z-index: 1;
+        }
+
+        .hero-clipguru .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-clipguru .hero-icon-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 28px;
+            margin: 0 auto var(--space-6) auto;
+            display: block;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* === Feature Bento Grid === */
+        .cg-bento {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-6);
+        }
+
+        @media (max-width: 768px) {
+            .cg-bento {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .cg-bento-card {
+            border-radius: var(--radius-lg);
+            padding: var(--space-8);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .cg-bento-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+        }
+
+        .cg-bento-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: var(--space-4);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
+            box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.15);
         }
 
-        /* FAQ */
+        .cg-bento-card h3 {
+            font-size: var(--text-xl);
+            margin-bottom: var(--space-2);
+        }
+
+        .cg-bento-card p {
+            color: var(--text-secondary);
+            font-size: var(--text-base);
+            line-height: 1.6;
+        }
+
+        /* Skeuomorphic card backgrounds - solid colors */
+        .cg-card-purple {
+            background: rgba(109, 73, 215, 0.06);
+        }
+
+        .cg-card-purple .cg-bento-icon {
+            background: var(--cg-purple);
+            color: #fff;
+        }
+
+        .cg-card-blue {
+            background: rgba(10, 132, 255, 0.06);
+        }
+
+        .cg-card-blue .cg-bento-icon {
+            background: var(--cg-blue);
+            color: #fff;
+        }
+
+        .cg-card-pink {
+            background: rgba(255, 55, 95, 0.06);
+        }
+
+        .cg-card-pink .cg-bento-icon {
+            background: var(--cg-pink);
+            color: #fff;
+        }
+
+        .cg-card-orange {
+            background: rgba(255, 159, 10, 0.06);
+        }
+
+        .cg-card-orange .cg-bento-icon {
+            background: var(--cg-orange);
+            color: #fff;
+        }
+
+        /* === Screenshot styling === */
+        .cg-screenshot {
+            max-height: 700px;
+            max-width: 100%;
+            width: auto;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* === Deep-dive feature section === */
+        .cg-feature-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-12);
+            align-items: center;
+            padding: var(--space-16) 0;
+            border-bottom: 1px solid var(--bg-glass-border);
+        }
+
+        .cg-feature-block:last-child {
+            border-bottom: none;
+        }
+
+        .cg-feature-block.reversed {
+            direction: rtl;
+        }
+
+        .cg-feature-block.reversed>* {
+            direction: ltr;
+        }
+
+        @media (max-width: 900px) {
+
+            .cg-feature-block,
+            .cg-feature-block.reversed {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                gap: var(--space-8);
+                padding: var(--space-10) 0;
+            }
+        }
+
+        .cg-feature-text h3 {
+            font-size: var(--text-2xl);
+            margin-bottom: var(--space-4);
+        }
+
+        .cg-feature-text p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: var(--space-4);
+        }
+
+        .cg-feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .cg-feature-list li {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-2);
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .cg-feature-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        /* === FAQ === */
         .faq-item {
             border-bottom: 1px solid var(--bg-glass-border);
         }
@@ -90,6 +278,14 @@
             opacity: 1;
             padding-bottom: var(--space-6);
         }
+
+        /* === Section color accent lines === */
+        .cg-accent-line {
+            width: 48px;
+            height: 4px;
+            border-radius: 2px;
+            margin-bottom: var(--space-4);
+        }
     </style>
 
     <!-- Scripts -->
@@ -101,8 +297,6 @@
         gtag('js', new Date());
         gtag('config', 'G-HLY6ZZMNBQ');
     </script>
-    <script src="js/three.min.js" defer></script>
-    <script src="js/background-effect.js" defer></script>
     <script src="scripts.js" defer></script>
 </head>
 
@@ -114,13 +308,11 @@
             <a href="./index.html" class="nav-logo">
                 <img src="images/logo.webp" alt="Extiri Logo">
             </a>
-
             <div class="nav-links">
                 <a href="./index.html#home" class="nav-link">Home</a>
                 <a href="./index.html#apps" class="nav-link">Apps</a>
                 <a href="./blog/index.html" class="nav-link">Blog</a>
             </div>
-
             <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
                 <i class="fa-solid fa-bars"></i>
             </button>
@@ -134,20 +326,23 @@
         <a href="./blog/index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a>
     </div>
 
-    <!-- Hero Section -->
+    <!-- ═══════════════════════════════════════ -->
+    <!--              HERO SECTION              -->
+    <!-- ═══════════════════════════════════════ -->
     <header class="hero hero-clipguru">
-        <div class="container hero-content animate-fade-in">
-            <img src="images/clipguru/ClipGuru-icon.webp" alt="ClipGuru Icon"
-                style="width: 96px; height: 96px; border-radius: 22px; margin: 0 auto var(--space-6) auto; filter: drop-shadow(0 0 30px rgba(109, 73, 215, 0.3));">
+        <div class="container hero-content animate-fade-in" style="text-align: center;">
+            <img src="images/clipguru/ClipGuru-icon.webp" alt="ClipGuru Icon" class="hero-icon-img">
 
             <h2
-                style="color: var(--color-clipguru); font-family: var(--font-sans); font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-2); letter-spacing: 0.05em; text-transform: uppercase;">
+                style="color: var(--cg-purple); font-family: var(--font-sans); font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-3); letter-spacing: 0.05em; text-transform: uppercase;">
                 ClipGuru</h2>
 
-            <h1 class="hero-title">Smart clipboard manager</h1>
+            <h1 class="hero-title">Smart Clipboard<br>Manager</h1>
 
-            <p class="hero-subtitle delay-100">Lightweight clipboard manager that makes your snippets instantly
-                searchable and ready to paste anywhere.</p>
+            <p class="hero-subtitle delay-100"
+                style="color: rgba(255, 255, 255, 0.85); font-weight: 400; max-width: 500px;">
+                Lightweight clipboard manager that makes your snippets instantly searchable and ready to paste anywhere.
+            </p>
 
             <div class="flex-center delay-200" style="flex-wrap: wrap; margin-bottom: var(--space-8);">
                 <span class="badge">iOS</span>
@@ -157,144 +352,191 @@
 
             <div class="hero-actions delay-300">
                 <a href="https://apps.apple.com/pl/app/clipguru/id6753787446" class="btn btn-primary"
-                    style="background: var(--color-clipguru); color: #fff; --btn-shadow-rgb: var(--color-clipguru-rgb);">Download
-                    on App Store</a>
+                    style="background: var(--cg-purple); color: #fff; --btn-shadow-rgb: 109, 73, 215;">
+                    <i class="fa-brands fa-apple" style="margin-right: 8px;"></i>Download on App Store</a>
             </div>
         </div>
     </header>
 
-    <!-- Features Grid -->
+    <!-- ═══════════════════════════════════════ -->
+    <!--          FEATURES BENTO GRID           -->
+    <!-- ═══════════════════════════════════════ -->
     <section class="section">
         <div class="container">
             <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
-                <p class="text-gradient"
-                    style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">
+                <p
+                    style="color: var(--cg-purple); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">
                     Why ClipGuru</p>
-                <h2>Smart Clipboard Management</h2>
-                <p>Save text, links, and images with one tap. Everything you copy is automatically captured.</p>
+                <h2>Everything You Copy, Captured</h2>
+                <p>Save text, links, and images with one tap. ClipGuru securely keeps your history ready whenever you
+                    need it.</p>
             </div>
 
-            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-                <div class="card card-glass">
-                    <div class="feature-icon-box"
-                        style="background: rgba(109, 73, 215, 0.1); color: var(--color-clipguru);"><i
-                            class="fa-solid fa-clipboard"></i></div>
-                    <h4>Quick Save</h4>
-                    <p>Save text, links, and images with one tap. Everything you copy is automatically captured.</p>
+            <div class="cg-bento">
+                <!-- Card 1: Quick Save -->
+                <div class="cg-bento-card cg-card-purple">
+                    <div class="cg-bento-icon">
+                        <i class="fa-solid fa-clipboard"></i>
+                    </div>
+                    <h3>Quick Save</h3>
+                    <p>Save text, links, and images instantly. A simple button at the bottom allows you to quickly add
+                        the item currently in your clipboard to ClipGuru.</p>
                 </div>
-                <div class="card card-glass">
-                    <div class="feature-icon-box"
-                        style="background: rgba(109, 73, 215, 0.1); color: var(--color-clipguru);"><i
-                            class="fa-solid fa-magnifying-glass"></i></div>
-                    <h4>Smart Search</h4>
-                    <p>Find any clip instantly with intelligent search across all your saved content.</p>
+
+                <!-- Card 2: Smart Search -->
+                <div class="cg-bento-card cg-card-blue">
+                    <div class="cg-bento-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <h3>Smart Search</h3>
+                    <p>Find any clip instantly. Search through all your saved content with built-in semantic
+                        understanding.</p>
                 </div>
-                <div class="card card-glass">
-                    <div class="feature-icon-box"
-                        style="background: rgba(109, 73, 215, 0.1); color: var(--color-clipguru);"><i
-                            class="fa-solid fa-keyboard"></i></div>
-                    <h4>Custom Keyboard</h4>
-                    <p>Access your clips from any app with the ClipGuru keyboard extension.</p>
+
+                <!-- Card 3: Keyboard -->
+                <div class="cg-bento-card cg-card-orange">
+                    <div class="cg-bento-icon">
+                        <i class="fa-solid fa-keyboard"></i>
+                    </div>
+                    <h3>Custom Keyboard</h3>
+                    <p>Access your clips from any app seamlessly. The native ClipGuru keyboard extension lets you drop
+                        saved text right into your workflow.</p>
                 </div>
-                <div class="card card-glass">
-                    <div class="feature-icon-box"
-                        style="background: rgba(109, 73, 215, 0.1); color: var(--color-clipguru);"><i
-                            class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    <h4>Beautiful Design</h4>
-                    <p>Native iOS design with dark mode support that feels right at home.</p>
+
+                <!-- Card 4: Design -->
+                <div class="cg-bento-card cg-card-pink">
+                    <div class="cg-bento-icon">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3>Beautiful Design</h3>
+                    <p>Native iOS design tailored with a sophisticated dark mode support. It feels right at home on your
+                        iPhone, iPad, and Mac.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Deep Dive Sections -->
+    <!-- ═══════════════════════════════════════ -->
+    <!--         DEEP-DIVE FEATURES             -->
+    <!-- ═══════════════════════════════════════ -->
     <section class="section">
         <div class="container">
-            <div class="grid">
-                <article class="app-card-large">
-                    <div class="app-card-content">
-                        <h3>Access clips without context switching</h3>
-                        <p>The ClipGuru keyboard and share extension let you save and insert content from anywhere — no
-                            app switching required.</p>
-                        <ul style="list-style: none; padding: 0; color: var(--text-secondary);">
-                            <li style="margin-bottom: 8px;">• <strong>Instant access.</strong> Access clips from any
-                                app.</li>
-                            <li style="margin-bottom: 8px;">• <strong>Type faster.</strong> Insert snippets with a
-                                single tap.</li>
-                            <li>• <strong>No app switching.</strong> Stay in your workflow.</li>
-                        </ul>
-                    </div>
-                    <div class="app-card-media">
-                        <img src="images/clipguru/keyboard-in-messages-screenshot.webp" alt="Keyboard Extension">
-                    </div>
-                </article>
+            <!-- Feature 1: Main Screen/Library -->
+            <div class="cg-feature-block">
+                <div class="cg-feature-text">
+                    <div class="cg-accent-line" style="background: var(--cg-purple);"></div>
+                    <h3>Your Clipboard, Organized</h3>
+                    <p>An uncluttered, intuitive interface designed to help you quickly review and manage everything
+                        you've saved.</p>
+                    <ul class="cg-feature-list">
+                        <li><strong>Rich previews.</strong> See content at a glance before pasting.</li>
+                        <li><strong>Tags.</strong> Keep important snippets organized and easy to access.
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="images/clipguru/main-screen-screenshot.webp" alt="Main Screen View" class="cg-screenshot">
+                </div>
+            </div>
 
-                <article class="app-card-large reversed">
-                    <div class="app-card-content">
-                        <h3>Share from Anywhere</h3>
-                        <p>Use the share sheet in Safari, Mail, or any app to instantly save content to ClipGuru.</p>
-                        <ul style="list-style: none; padding: 0; color: var(--text-secondary);">
-                            <li style="margin-bottom: 8px;">• <strong>Share extension.</strong> Save directly from other
-                                apps.</li>
-                            <li style="margin-bottom: 8px;">• <strong>Collect everything.</strong> Research, quotes,
-                                URLs.</li>
-                            <li>• <strong>Quick review.</strong> Decide what to keep.</li>
-                        </ul>
-                    </div>
-                    <div class="app-card-media">
-                        <img src="images/clipguru/review-screenshot.webp" alt="Review Screen">
-                    </div>
-                </article>
+            <!-- Feature 2: Keyboard -->
+            <div class="cg-feature-block reversed">
+                <div class="cg-feature-text">
+                    <div class="cg-accent-line" style="background: var(--cg-blue);"></div>
+                    <h3>No Context Switching</h3>
+                    <p>The ClipGuru keyboard extension lets you retrieve and insert content from anywhere — no need to
+                        juggle between applications.</p>
+                    <ul class="cg-feature-list">
+                        <li><strong>Instant access.</strong> Pull up the keyboard in Messages, Notes, or Mail.</li>
+                        <li><strong>Type faster.</strong> Insert snippets, links, and common replies with a single tap.
+                        </li>
+                        <li><strong>Stay in the flow.</strong> Keep your focus right where you are working.</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="images/clipguru/keyboard-in-messages-screenshot.webp" alt="Keyboard Extension"
+                        class="cg-screenshot">
+                </div>
+            </div>
 
-                <article class="app-card-large">
-                    <div class="app-card-content">
-                        <h3>Pro Features</h3>
-                        <p>Upgrade to ClipGuru Pro with a one-time purchase to unlock unlimited clip history, iCloud
-                            sync, and organizational features.</p>
-                        <ul style="list-style: none; padding: 0; color: var(--text-secondary);">
-                            <li style="margin-bottom: 8px;">• <strong>Unlimited history.</strong> Save unlimited clips.
-                            </li>
-                            <li style="margin-bottom: 8px;">• <strong>iCloud sync.</strong> Sync across all your
-                                devices.</li>
-                            <li>• <strong>Organize with tags.</strong> Find clips faster.</li>
-                        </ul>
+            <!-- Feature 3: Share from Anywhere (Text) -->
+            <div
+                style="padding: var(--space-16) 0; text-align: center; border-bottom: 1px solid var(--bg-glass-border);">
+                <div style="max-width: 700px; margin: 0 auto;">
+                    <div class="cg-accent-line" style="background: var(--cg-pink); margin: 0 auto var(--space-4) auto;">
                     </div>
-                    <div class="app-card-media">
-                        <img src="images/clipguru/semantic-search-screenshot.webp" alt="Pro Features">
-                    </div>
-                </article>
+                    <h3 style="font-size: var(--text-2xl); margin-bottom: var(--space-4);">Share from Anywhere</h3>
+                    <p
+                        style="color: var(--text-secondary); line-height: 1.7; font-size: 1.1rem; margin-bottom: var(--space-4);">
+                        Use the native iOS share sheet to instantly save web pages, quotes, or images directly to
+                        ClipGuru without opening the app.
+                    </p>
+                    <ul class="cg-feature-list" style="display: inline-block; text-align: left; margin: 0 auto;">
+                        <li><strong>Share extension.</strong> Direct integration with Safari, Photos, and more.</li>
+                        <li><strong>Collect everything.</strong> Rapidly gather research, URLs, and inspiration.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Feature 3.5: Quick Review (Centered Screenshot) -->
+            <div
+                style="text-align: center; padding: var(--space-16) 0; border-bottom: 1px solid var(--bg-glass-border);">
+                <div class="cg-accent-line" style="background: var(--cg-pink); margin: 0 auto var(--space-4) auto;">
+                </div>
+                <h3 style="font-size: var(--text-2xl); margin-bottom: var(--space-4);">Quick Review</h3>
+                <p
+                    style="color: var(--text-secondary); line-height: 1.7; max-width: 500px; margin: 0 auto var(--space-8) auto;">
+                    Easily maintain a focused history. Open Quick Review at any time to go through your clips
+                    full-screen one by one and quickly decide whether to keep or remove each item.
+                </p>
+                <img src="images/clipguru/review-screenshot.webp" alt="Review Share Screen" class="cg-screenshot">
+            </div>
+
+            <!-- Feature 4.5: Semantic Search (Centered Screenshot) -->
+            <div
+                style="text-align: center; padding: var(--space-16) 0; border-bottom: 1px solid var(--bg-glass-border);">
+                <div class="cg-accent-line" style="background: var(--cg-blue); margin: 0 auto var(--space-4) auto;">
+                </div>
+                <h3 style="font-size: var(--text-2xl); margin-bottom: var(--space-4);">Semantic Search</h3>
+                <p
+                    style="color: var(--text-secondary); line-height: 1.7; max-width: 500px; margin: 0 auto var(--space-8) auto;">
+                    Find snippets based on meaning, not just exact keywords.
+                </p>
+                <img src="images/clipguru/semantic-search-screenshot.webp" alt="Semantic Search Features"
+                    class="cg-screenshot">
+            </div>
+
+            <!-- Feature 4: Pro Features (Text) -->
+            <div style="max-width: 700px; padding: var(--space-16) 0; margin: 0 auto; text-align: center;">
+                <div class="cg-accent-line" style="background: var(--cg-orange); margin: 0 auto var(--space-4) auto;">
+                </div>
+                <h3 style="font-size: var(--text-2xl); margin-bottom: var(--space-4);">Pro Features</h3>
+                <p
+                    style="color: var(--text-secondary); line-height: 1.7; font-size: 1.1rem; margin-bottom: var(--space-4);">
+                    Upgrade to ClipGuru Pro with a one-time purchase to unlock unlimited clip history, iCloud sync, and
+                    organizational features.
+                </p>
+                <ul class="cg-feature-list" style="display: inline-block; text-align: left; margin: 0 auto;">
+                    <li><strong>Unlimited history.</strong> Save an unlimited number of clips without restrictions.</li>
+                    <li><strong>iCloud sync.</strong> Securely share your clipboard across iPhone, iPad, and Mac.</li>
+                    <li><strong>Organize with tags.</strong> Keep your important snippets categorized and easy to find.
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Screenshots -->
-    <section class="section">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: var(--space-12);">Screenshots</h2>
-            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-                <div style="text-align: center;">
-                    <img src="images/clipguru/main-screen-screenshot.webp" alt="Main Screen"
-                        style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
-                    <p>Main Screen</p>
-                </div>
-                <div style="text-align: center;">
-                    <img src="images/clipguru/keyboard-in-messages-screenshot.webp" alt="Keyboard"
-                        style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
-                    <p>Keyboard Extension</p>
-                </div>
-                <div style="text-align: center;">
-                    <img src="images/clipguru/semantic-search-screenshot.webp" alt="Search"
-                        style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
-                    <p>Smart Search</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
+    <!-- ═══════════════════════════════════════ -->
+    <!--                  FAQ                   -->
+    <!-- ═══════════════════════════════════════ -->
     <section class="section" id="faq">
         <div class="container" style="max-width: 800px;">
-            <h2 style="text-align: center; margin-bottom: var(--space-8);">FAQ</h2>
+            <div style="text-align: center; margin-bottom: var(--space-12);">
+                <p
+                    style="color: var(--cg-purple); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">
+                    FAQ</p>
+                <h2>Common questions</h2>
+            </div>
             <div class="faq-list">
                 <div class="faq-item">
                     <button class="faq-question">Is ClipGuru free?<span class="faq-arrow"><i
@@ -331,7 +573,9 @@
         </div>
     </section>
 
-    <!-- Newsletter -->
+    <!-- ═══════════════════════════════════════ -->
+    <!--              NEWSLETTER                -->
+    <!-- ═══════════════════════════════════════ -->
     <section class="section">
         <div class="container" style="max-width: 700px; text-align: center;">
             <h2 style="margin-bottom: var(--space-4);">Extiri Newsletter</h2>
@@ -350,7 +594,7 @@
                 <div class="footer-brand">
                     <img src="images/logo.webp" alt="Extiri" width="100" style="opacity: 0.8;">
                     <p>Extiri is an independent software studio crafting simple, well‑crafted apps for macOS, iOS, and
-                        web.</p>
+                        web. Developed by Wiktor Wójcik. Design in collaboration with Natalia Wójcik.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Products</h4>
@@ -365,7 +609,7 @@
                     <h4>Company</h4>
                     <ul>
                         <li><a href="./about.html">About</a></li>
-                        <li><a href="./blog/index.html">Blog</a></li>
+                        <li><a href="blog/index.html">Blog</a></li>
                         <li><a href="privacy_policy.html">Privacy Policy</a></li>
                         <li><a href="mailto:wiktor.wojcik@extiri.com">Contact</a></li>
                     </ul>
@@ -373,7 +617,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Extiri. All rights reserved.</p>
-                <p>Made for iOS, iPadOS & macOS.</p>
+                <p>Designed & Built by Extiri.</p>
             </div>
         </div>
     </footer>
@@ -381,7 +625,7 @@
     <!-- FAQ Script -->
     <script>
         document.querySelectorAll('.faq-question').forEach(btn => {
-            btn.onclick = function () {
+            btn.addEventListener('click', function () {
                 const answer = this.nextElementSibling;
                 const isOpen = this.classList.contains('open');
 
@@ -397,7 +641,7 @@
                     answer.classList.add('open');
                     answer.style.maxHeight = answer.scrollHeight + 'px';
                 }
-            };
+            });
         });
     </script>
 </body>
