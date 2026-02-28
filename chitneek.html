@@ -5,29 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chitneek — Read aloud PDF & EPUB on iPhone (private, on-device)</title>
+    <title>Chitneek — Give Your Books a Voice | Audiobook Reader for iOS</title>
     <meta name="description"
-        content="Chitneek — private on-device reader for PDF and EPUB on iPhone and iPad. Read aloud PDF and EPUB locally with no uploads or accounts.">
+        content="Chitneek turns your PDFs, EPUBs, and audio files into a personal listening experience. Text-to-speech, shared groups, offline playback — all on your iPhone.">
     <meta name="theme-color" content="#050505">
     <meta name="apple-itunes-app" content="app-id=6749827870">
     <meta name="keywords"
-        content="read aloud PDF, read aloud EPUB, iPhone text to speech, private PDF reader, offline text to speech, Chitneek, iOS accessibility, voice reader">
+        content="audiobook reader iOS, read aloud PDF, read aloud EPUB, text to speech iPhone, TTS reader, mp3 audiobook player, offline audiobook, Chitneek, iOS audiobook app">
     <link rel="canonical" href="https://extiri.com/chitneek.html">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://extiri.com/chitneek.html">
-    <meta property="og:title" content="Chitneek — Read aloud PDF & EPUB on iPhone (private, on-device)">
+    <meta property="og:title" content="Chitneek — Give Your Books a Voice">
     <meta property="og:description"
-        content="Chitneek — private on-device reader for PDF and EPUB on iPhone and iPad. Read aloud PDF and EPUB locally with no uploads or accounts.">
+        content="Chitneek turns your PDFs, EPUBs, and audio files into a personal listening experience on iPhone.">
     <meta property="og:image" content="https://extiri.com/images/czytnik/library-screenshot.webp">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://extiri.com/chitneek.html">
-    <meta property="twitter:title" content="Chitneek — Read aloud PDF & EPUB on iPhone (private, on-device)">
+    <meta property="twitter:title" content="Chitneek — Give Your Books a Voice">
     <meta property="twitter:description"
-        content="Chitneek — private on-device reader for PDF and EPUB on iPhone and iPad. Read aloud PDF and EPUB locally with no uploads or accounts.">
+        content="Chitneek turns your PDFs, EPUBs, and audio files into a personal listening experience on iPhone.">
     <meta property="twitter:image" content="https://extiri.com/images/czytnik/library-screenshot.webp">
 
     <!-- Fonts -->
@@ -38,23 +38,435 @@
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Page-specific overrides */
-        .hero-chitneek {
-            background: radial-gradient(circle at 50% 30%, rgba(38, 171, 236, 0.08) 0%, rgba(5, 5, 5, 0) 60%);
+        /* === Chitneek Color Palette === */
+        :root {
+            --ck-blue: #007AFF;
+            --ck-orange: #FF9500;
+            --ck-pink: #FF2D55;
+            --ck-teal: #30B0C7;
+            --ck-purple: #AF52DE;
         }
 
-        .feature-icon-box {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+        /* === Hero === */
+        .hero-chitneek {
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-chitneek::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('images/czytnik/hero-background.webp') center center / cover no-repeat;
+            opacity: 1;
+            z-index: 0;
+        }
+
+        .hero-chitneek::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 30%, rgba(0, 122, 255, 0.10) 0%, rgba(5, 5, 5, 0) 65%),
+                linear-gradient(to bottom, transparent 60%, var(--bg-body) 100%);
+            z-index: 1;
+        }
+
+        .hero-chitneek .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-chitneek .hero-icon-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 28px;
+            margin: 0 auto var(--space-6) auto;
+            display: block;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* === Video Section === */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--bg-glass-border);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* === Feature Bento Grid === */
+        .ck-bento {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-6);
+        }
+
+        @media (max-width: 768px) {
+            .ck-bento {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .ck-bento-card {
+            border-radius: var(--radius-lg);
+            padding: var(--space-8);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .ck-bento-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+        }
+
+        .ck-bento-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: var(--space-4);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
+            box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.15);
         }
 
-        /* FAQ */
+        .ck-bento-card h3 {
+            font-size: var(--text-xl);
+            margin-bottom: var(--space-2);
+        }
+
+        .ck-bento-card p {
+            color: var(--text-secondary);
+            font-size: var(--text-base);
+            line-height: 1.6;
+        }
+
+        /* Skeuomorphic card backgrounds - solid colors */
+        .ck-card-blue {
+            background: rgba(0, 122, 255, 0.06);
+        }
+
+        .ck-card-blue .ck-bento-icon {
+            background: var(--ck-blue);
+            color: #fff;
+        }
+
+        .ck-card-orange {
+            background: rgba(255, 149, 0, 0.06);
+        }
+
+        .ck-card-orange .ck-bento-icon {
+            background: var(--ck-orange);
+            color: #fff;
+        }
+
+        .ck-card-purple {
+            background: rgba(175, 82, 222, 0.06);
+        }
+
+        .ck-card-purple .ck-bento-icon {
+            background: var(--ck-purple);
+            color: #fff;
+        }
+
+        .ck-card-teal {
+            background: rgba(48, 176, 199, 0.06);
+        }
+
+        .ck-card-teal .ck-bento-icon {
+            background: var(--ck-teal);
+            color: #fff;
+        }
+
+        .ck-card-pink {
+            background: rgba(255, 45, 85, 0.06);
+        }
+
+        .ck-card-pink .ck-bento-icon {
+            background: var(--ck-pink);
+            color: #fff;
+        }
+
+        /* === Screenshot styling === */
+        .ck-screenshot {
+            border-radius: 36px;
+            border: 4px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.4);
+            max-height: 520px;
+            max-width: 100%;
+            width: auto;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* === Deep-dive feature section === */
+        .ck-feature-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-12);
+            align-items: center;
+            padding: var(--space-16) 0;
+            border-bottom: 1px solid var(--bg-glass-border);
+        }
+
+        .ck-feature-block:last-child {
+            border-bottom: none;
+        }
+
+        .ck-feature-block.reversed {
+            direction: rtl;
+        }
+
+        .ck-feature-block.reversed>* {
+            direction: ltr;
+        }
+
+        @media (max-width: 900px) {
+
+            .ck-feature-block,
+            .ck-feature-block.reversed {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                gap: var(--space-8);
+                padding: var(--space-10) 0;
+            }
+        }
+
+        .ck-feature-text h3 {
+            font-size: var(--text-2xl);
+            margin-bottom: var(--space-4);
+        }
+
+        .ck-feature-text p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: var(--space-4);
+        }
+
+        .ck-feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ck-feature-list li {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-2);
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .ck-feature-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .ck-color-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+
+        /* === Formats Strip === */
+        .formats-strip {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--space-6);
+        }
+
+        .format-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-2);
+            min-width: 90px;
+        }
+
+        .format-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: inset 0 -2px 6px rgba(0, 0, 0, 0.2),
+                inset 0 1px 2px rgba(255, 255, 255, 0.15),
+                0 4px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease;
+        }
+
+        .format-icon:hover {
+            transform: scale(1.08);
+        }
+
+        .format-label {
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        /* === Language Grid === */
+        .lang-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--space-4);
+        }
+
+        .lang-chip {
+            background: var(--bg-surface);
+            border: 1px solid var(--bg-glass-border);
+            border-radius: var(--radius-md);
+            padding: var(--space-3) var(--space-6);
+            font-size: var(--text-sm);
+            color: var(--text-primary);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .lang-chip:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .lang-chip img {
+            width: 22px;
+            height: 16px;
+            border-radius: 2px;
+        }
+
+        /* === Slideshow === */
+        .ck-slideshow-section {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: var(--space-12) 0;
+        }
+
+        .ck-slideshow-container {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .ck-slideshow-img {
+            width: 100%;
+            height: auto;
+            border-radius: 36px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 4px solid rgba(255, 255, 255, 0.25);
+            display: none;
+        }
+
+        .ck-slideshow-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(20, 20, 20, 0.85);
+            color: var(--ck-blue);
+            border: 1px solid rgba(0, 122, 255, 0.25);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .ck-slideshow-btn:hover {
+            background: rgba(0, 122, 255, 0.15);
+            border-color: var(--ck-blue);
+        }
+
+        .ck-slideshow-prev {
+            left: -60px;
+        }
+
+        .ck-slideshow-next {
+            right: -60px;
+        }
+
+        @media (max-width: 600px) {
+            .ck-slideshow-prev {
+                left: 8px;
+            }
+
+            .ck-slideshow-next {
+                right: 8px;
+            }
+        }
+
+        .ck-slideshow-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: var(--space-6);
+        }
+
+        .ck-slideshow-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .ck-slideshow-dot.active {
+            background: var(--ck-blue);
+            transform: scale(1.2);
+        }
+
+        /* === Dual Screenshot Layout === */
+        .ck-dual-screenshots {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-6);
+        }
+
+        @media (max-width: 600px) {
+            .ck-dual-screenshots {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* === FAQ === */
         .faq-item {
             border-bottom: 1px solid var(--bg-glass-border);
         }
@@ -90,6 +502,36 @@
             opacity: 1;
             padding-bottom: var(--space-6);
         }
+
+        /* === Section color accent lines === */
+        .ck-accent-line {
+            width: 48px;
+            height: 4px;
+            border-radius: 2px;
+            margin-bottom: var(--space-4);
+        }
+
+        /* === Staggered screenshot showcase === */
+        .ck-showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-6);
+            align-items: start;
+        }
+
+        .ck-showcase-grid> :nth-child(2) {
+            transform: translateY(40px);
+        }
+
+        @media (max-width: 768px) {
+            .ck-showcase-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ck-showcase-grid> :nth-child(2) {
+                transform: none;
+            }
+        }
     </style>
 
     <!-- Scripts -->
@@ -101,8 +543,6 @@
         gtag('js', new Date());
         gtag('config', 'G-HLY6ZZMNBQ');
     </script>
-    <script src="js/three.min.js" defer></script>
-    <script src="js/background-effect.js" defer></script>
     <script src="scripts.js" defer></script>
 </head>
 
@@ -114,13 +554,11 @@
             <a href="./index.html" class="nav-logo">
                 <img src="images/logo.webp" alt="Extiri Logo">
             </a>
-
             <div class="nav-links">
                 <a href="./index.html#home" class="nav-link">Home</a>
                 <a href="./index.html#apps" class="nav-link">Apps</a>
                 <a href="./blog/index.html" class="nav-link">Blog</a>
             </div>
-
             <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
                 <i class="fa-solid fa-bars"></i>
             </button>
@@ -134,345 +572,419 @@
         <a href="./blog/index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a>
     </div>
 
-    <!-- Hero Section -->
+    <!-- ═══════════════════════════════════════ -->
+    <!--              HERO SECTION              -->
+    <!-- ═══════════════════════════════════════ -->
     <header class="hero hero-chitneek">
-        <div class="container hero-content animate-fade-in">
-            <img src="images/czytnik/czytnik-icon.webp" alt="Chitneek Icon"
-                style="width: 96px; height: 96px; border-radius: 22px; margin: 0 auto var(--space-6) auto; filter: drop-shadow(0 0 30px rgba(38, 171, 236, 0.3));">
+        <div class="container hero-content animate-fade-in" style="text-align: center;">
+            <img src="images/czytnik/chitneek-icon.webp" alt="Chitneek Icon" class="hero-icon-img">
 
             <h2
-                style="color: var(--color-chitneek); font-family: var(--font-sans); font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-2); letter-spacing: 0.05em; text-transform: uppercase;">
+                style="color: var(--ck-blue); font-family: var(--font-sans); font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-3); letter-spacing: 0.05em; text-transform: uppercase;">
                 Chitneek</h2>
 
-            <h1 class="hero-title">Privately read aloud</h1>
+            <h1 class="hero-title">Give Your Books<br>a Voice</h1>
 
-            <p class="hero-subtitle delay-100">A private, on-device reader that can read aloud PDF and EPUB files on
-                iPhone and iPad. Offline voices, organized library, and CarPlay support.</p>
+            <p class="hero-subtitle delay-100"
+                style="color: rgba(255, 255, 255, 0.85); font-weight: 400; max-width: 500px;">
+                Turn your documents and audio files into a personal listening experience. Listen to PDFs, EPUBs, and
+                MP3s directly on your iPhone.
+            </p>
 
             <div class="flex-center delay-200" style="flex-wrap: wrap; margin-bottom: var(--space-8);">
                 <span class="badge">iOS</span>
-                <span class="badge">iPadOS</span>
-                <span class="badge">CarPlay</span>
+                <span class="badge">Audio</span>
+                <span class="badge">TTS</span>
+                <span class="badge">Offline</span>
             </div>
 
             <div class="hero-actions delay-300">
                 <a href="https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870" class="btn btn-primary"
-                    style="background: var(--color-chitneek); color: #fff; --btn-shadow-rgb: var(--color-chitneek-rgb);">Download
-                    on App Store</a>
+                    style="background: var(--ck-blue); color: #fff; --btn-shadow-rgb: 0, 122, 255;">
+                    <i class="fa-brands fa-apple" style="margin-right: 8px;"></i>Download on App Store</a>
             </div>
+
+            <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--text-tertiary);">7-day free
+                trial · Works offline · iOS 16.6+</p>
         </div>
     </header>
 
-    <!-- Features Grid -->
+    <!-- ═══════════════════════════════════════ -->
+    <!--            HERO VIDEO                  -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container" style="max-width: 960px;">
+            <div class="video-wrapper">
+                <iframe loading="lazy" src="https://www.youtube.com/embed/jJiaiagEEpg" title="Chitneek — Promo Video"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!--         SUPPORTED FORMATS              -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="section">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto var(--space-12) auto;">
+                <h2>One app for all your content</h2>
+                <p>Import your own files or discover new content — Chitneek handles text and audio natively.</p>
+            </div>
+
+            <div class="formats-strip">
+                <div class="format-badge">
+                    <div class="format-icon" style="background: var(--ck-purple); color: #fff;">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </div>
+                    <span class="format-label">PDF</span>
+                </div>
+                <div class="format-badge">
+                    <div class="format-icon" style="background: var(--ck-orange); color: #fff;">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <span class="format-label">EPUB</span>
+                </div>
+                <div class="format-badge">
+                    <div class="format-icon" style="background: var(--ck-blue); color: #fff;">
+                        <i class="fa-solid fa-headphones"></i>
+                    </div>
+                    <span class="format-label">MP3</span>
+                </div>
+                <div class="format-badge">
+                    <div class="format-icon" style="background: var(--ck-teal); color: #fff;">
+                        <i class="fa-solid fa-film"></i>
+                    </div>
+                    <span class="format-label">MP4</span>
+                </div>
+                <div class="format-badge">
+                    <div class="format-icon" style="background: var(--ck-pink); color: #fff;">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                    <span class="format-label">YouTube</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!--          FEATURES BENTO GRID           -->
+    <!-- ═══════════════════════════════════════ -->
     <section class="section">
         <div class="container">
             <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
-                <p class="text-gradient"
-                    style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">
+                <p
+                    style="color: var(--ck-blue); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">
                     Why Chitneek</p>
-                <h2>Simple, privacy-focused listening</h2>
-                <p>Chitneek turns PDFs, EPUBs, notes, and web content into audio — all processed on your device.</p>
+                <h2>Read without limits</h2>
+                <p>Chitneek is designed to make your content accessible. Using your device's built-in text-to-speech,
+                    it reads your books and notes aloud so you can keep moving and stay productive.</p>
             </div>
 
-            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-                <div class="card card-glass">
-                    <div class="feature-icon-box"
-                        style="background: rgba(38, 171, 236, 0.1); color: var(--color-chitneek);"><i
-                            class="fa-solid fa-lock"></i></div>
-                    <h4>Private & Offline</h4>
-                    <p>Files stay on your device for reliable, private listening without internet.</p>
+            <div class="ck-bento">
+                <!-- Card 1: Library -->
+                <div class="ck-bento-card ck-card-blue">
+                    <div class="ck-bento-icon">
+                        <i class="fa-solid fa-folder-open"></i>
+                    </div>
+                    <h3>Your Library, Anywhere</h3>
+                    <p>Import your own PDFs, MP3s, and ePUBs to listen on the go. Once downloaded, your files are
+                        available for offline listening — perfect for flights or commutes.</p>
                 </div>
-                <div class="card card-glass">
-                    <div class="feature-icon-box"
-                        style="background: rgba(38, 171, 236, 0.1); color: var(--color-chitneek);"><i
-                            class="fa-solid fa-book"></i></div>
-                    <h4>Organized Library</h4>
-                    <p>Use named groups to keep content tidy and easy to find.</p>
+
+                <!-- Card 2: TTS -->
+                <div class="ck-bento-card ck-card-orange">
+                    <div class="ck-bento-icon">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </div>
+                    <h3>Natural TTS Voices</h3>
+                    <p>Powered by Apple's built-in text-to-speech engine, Chitneek reads your documents aloud with
+                        natural-sounding voices. Adjust speed and pitch to your preference.</p>
                 </div>
-                <div class="card card-glass">
-                    <div class="feature-icon-box"
-                        style="background: rgba(38, 171, 236, 0.1); color: var(--color-chitneek);"><i
-                            class="fa-solid fa-volume-high"></i></div>
-                    <h4>Natural Voices</h4>
-                    <p>Uses Apple’s built‑in iOS voices for a natural experience.</p>
+
+                <!-- Card 3: Shared Groups -->
+                <div class="ck-bento-card ck-card-purple">
+                    <div class="ck-bento-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3>Shared Groups</h3>
+                    <p>Don't read alone. Create shared groups to build a common library with friends, family, or study
+                        partners. Everyone contributes, everyone listens.</p>
                 </div>
-                <div class="card card-glass">
-                    <div class="feature-icon-box"
-                        style="background: rgba(38, 171, 236, 0.1); color: var(--color-chitneek);"><i
-                            class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    <h4>Simple by Design</h4>
-                    <p>No accounts, no cloud — just add, tap, and listen.</p>
+
+                <!-- Card 4: Web Libraries -->
+                <div class="ck-bento-card ck-card-teal">
+                    <div class="ck-bento-icon">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h3>Web Libraries</h3>
+                    <p>Use the in-app browser to find and download PDFs or ePUBs from your favorite online sources
+                        directly into the app. Browse, tap, listen.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Deep Dive Sections -->
+    <!-- ═══════════════════════════════════════ -->
+    <!--         DEEP-DIVE FEATURES             -->
+    <!-- ═══════════════════════════════════════ -->
     <section class="section">
         <div class="container">
-            <div class="grid">
-                <article class="app-card-large">
-                    <div class="app-card-content">
-                        <h3>Listening, Your Way</h3>
-                        <p>Customizable playback, CarPlay support, and clear audio keep narration comfortable on every
-                            drive, walk, or focus session.</p>
-                        <ul style="list-style: none; padding: 0; color: var(--text-secondary);">
-                            <li style="margin-bottom: 8px;">• <strong>Customizable playback.</strong> Adjust speech rate
-                                and pitch.</li>
-                            <li style="margin-bottom: 8px;">• <strong>CarPlay support.</strong> Distraction‑free
-                                listening on the road.</li>
-                            <li>• <strong>Clear audio.</strong> High‑quality, on-device voices.</li>
-                        </ul>
+            <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
+                <p
+                    style="color: var(--ck-orange); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">
+                    Features</p>
+                <h2>Engineered for Listening</h2>
+            </div>
+
+            <!-- Feature 1: TTS Reader -->
+            <div class="ck-feature-block">
+                <div class="ck-feature-text">
+                    <div class="ck-accent-line" style="background: var(--ck-orange);"></div>
+                    <h3>Listening, Your Way</h3>
+                    <p>Customizable playback, bookmarks, and a built-in sleep timer keep narration comfortable on every
+                        drive, walk, or focus session.</p>
+                    <ul class="ck-feature-list">
+                        <li><strong>Adjustable speed & pitch.</strong> Fine-tune your listening experience.</li>
+                        <li><strong>Sleep timer.</strong> Fall asleep to your book without wasting battery.</li>
+                        <li><strong>Bookmarks.</strong> Mark your place and resume anytime.</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="images/czytnik/tts-reader-screenshot.webp" alt="TTS Reader Screen" class="ck-screenshot">
+                </div>
+            </div>
+
+            <!-- Feature 2: Library -->
+            <div class="ck-feature-block reversed">
+                <div class="ck-feature-text">
+                    <div class="ck-accent-line" style="background: var(--ck-blue);"></div>
+                    <h3>Import & Manage</h3>
+                    <p>Capture documents in the format that works best for you. Build a personal listening queue from
+                        your own files, the web, or even YouTube.</p>
+                    <ul class="ck-feature-list">
+                        <li><strong>Easy import.</strong> Add PDFs, EPUBs, MP3s from Files or Share Sheet.</li>
+                        <li><strong>YouTube support.</strong> Listen to YouTube content in-app.</li>
+                        <li><strong>In-app translation.</strong> Translate PDF books before listening.</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="images/czytnik/library-screenshot.webp" alt="Library View" class="ck-screenshot">
+                </div>
+            </div>
+
+            <!-- Feature 3: Scanner -->
+            <div class="ck-feature-block">
+                <div class="ck-feature-text">
+                    <div class="ck-accent-line" style="background: var(--ck-pink);"></div>
+                    <h3>Scan & Record</h3>
+                    <p>Use your camera to scan physical pages or record audio notes to save for later. Turn anything
+                        into listenable content.</p>
+                    <ul class="ck-feature-list">
+                        <li><strong>Camera scanning.</strong> Photograph pages and convert to text.</li>
+                        <li><strong>Audio notes.</strong> Record voice memos directly in your library.</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="images/czytnik/scanner-feature-screenshot.webp" alt="Scanner Feature"
+                        class="ck-screenshot">
+                </div>
+            </div>
+
+            <!-- Feature 4: Browse catalogs -->
+            <div class="ck-feature-block reversed">
+                <div class="ck-feature-text">
+                    <div class="ck-accent-line" style="background: var(--ck-teal);"></div>
+                    <h3>Browse & Download</h3>
+                    <p>Seamlessly browse audiobook and text catalogs directly within the app. Find free content from
+                        online libraries and add it to your collection in one tap.</p>
+                    <ul class="ck-feature-list">
+                        <li><strong>Audiobook catalog.</strong> Browse and stream audio content.</li>
+                        <li><strong>Text book catalog.</strong> Access thousands of free ePUBs and PDFs.</li>
+                        <li><strong>Direct downloads.</strong> Content goes straight into your library.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="ck-dual-screenshots">
+                        <img src="images/czytnik/audiobook-catalog-screenshot.webp" alt="Audiobook Catalog"
+                            class="ck-screenshot">
+                        <img src="images/czytnik/text-book-catalog-screenshot.webp" alt="Text Book Catalog"
+                            class="ck-screenshot">
                     </div>
-                    <div class="app-card-media">
-                        <img src="images/czytnik/book-reader-screenshot.webp" alt="Reader Screen">
-                    </div>
-                </article>
+                </div>
+            </div>
 
-                <article class="app-card-large reversed">
-                    <div class="app-card-content">
-                        <h3>Import and Discover</h3>
-                        <p>Capture documents in the format that works best for you and keep building a personal
-                            listening queue.</p>
-                        <ul style="list-style: none; padding: 0; color: var(--text-secondary);">
-                            <li style="margin-bottom: 8px;">• <strong>Easy import.</strong> Add PDFs, EPUBs from Files
-                                or share sheet.</li>
-                            <li style="margin-bottom: 8px;">• <strong>Text → PDF.</strong> Paste text or save a web
-                                page.</li>
-                            <li>• <strong>Discovery.</strong> Find books from Project Gutenberg.</li>
-                        </ul>
-                    </div>
-                    <div class="app-card-media">
-                        <img src="images/czytnik/library-screenshot.webp" alt="Library View">
-                    </div>
-                </article>
-
-                <article class="app-card-large">
-                    <div class="app-card-content">
-                        <h3>Shared Groups</h3>
-                        <p>Create collaborative reading spaces where everyone can contribute and access books together.
-                        </p>
-                        <ul style="list-style: none; padding: 0; color: var(--text-secondary);">
-                            <li style="margin-bottom: 8px;">• <strong>Collaborative libraries.</strong> Create groups
-                                where all members can upload books.</li>
-                            <li style="margin-bottom: 8px;">• <strong>Shared access.</strong> Everyone in the group can
-                                access all uploaded content.</li>
-                            <li>• <strong>Personal progress.</strong> Reading progress stays private and individual.
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="app-card-media">
-                        <div
-                            style="position: relative; width: 100%; height: 400px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(38, 171, 236, 0.05) 0%, rgba(38, 171, 236, 0.02) 100%); border-radius: 16px;">
-                            <!-- Central books -->
-                            <div style="position: absolute; display: flex; gap: 12px; z-index: 2;">
-                                <div
-                                    style="width: 60px; height: 80px; background: linear-gradient(135deg, #26abec 0%, #1a8bc4 100%); border-radius: 4px; box-shadow: 0 8px 24px rgba(38, 171, 236, 0.3); transform: rotate(-8deg);">
-                                </div>
-                                <div
-                                    style="width: 60px; height: 80px; background: linear-gradient(135deg, #4ecdc4 0%, #3ab5ad 100%); border-radius: 4px; box-shadow: 0 8px 24px rgba(78, 205, 196, 0.3); transform: rotate(5deg);">
-                                </div>
-                                <div
-                                    style="width: 60px; height: 80px; background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%); border-radius: 4px; box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3); transform: rotate(-3deg);">
-                                </div>
-                            </div>
-
-                            <!-- User avatars in circle -->
-                            <!-- Top -->
-                            <div
-                                style="position: absolute; top: 30px; left: 50%; transform: translateX(-50%); width: 56px; height: 56px; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border-radius: 50%; border: 3px solid var(--bg-primary); box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 20px;">
-                                A</div>
-
-                            <!-- Right -->
-                            <div
-                                style="position: absolute; right: 40px; top: 50%; transform: translateY(-50%); width: 56px; height: 56px; background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); border-radius: 50%; border: 3px solid var(--bg-primary); box-shadow: 0 4px 12px rgba(236, 72, 153, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 20px;">
-                                B</div>
-
-                            <!-- Bottom -->
-                            <div
-                                style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); width: 56px; height: 56px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-radius: 50%; border: 3px solid var(--bg-primary); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 20px;">
-                                C</div>
-
-                            <!-- Left -->
-                            <div
-                                style="position: absolute; left: 40px; top: 50%; transform: translateY(-50%); width: 56px; height: 56px; background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); border-radius: 50%; border: 3px solid var(--bg-primary); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 20px;">
-                                D</div>
-
-                            <!-- Connection lines -->
-                            <svg style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1;"
-                                viewBox="0 0 400 400">
-                                <line x1="200" y1="60" x2="200" y2="160" stroke="rgba(38, 171, 236, 0.2)"
-                                    stroke-width="2" stroke-dasharray="4,4" />
-                                <line x1="340" y1="200" x2="240" y2="200" stroke="rgba(38, 171, 236, 0.2)"
-                                    stroke-width="2" stroke-dasharray="4,4" />
-                                <line x1="200" y1="340" x2="200" y2="240" stroke="rgba(38, 171, 236, 0.2)"
-                                    stroke-width="2" stroke-dasharray="4,4" />
-                                <line x1="60" y1="200" x2="160" y2="200" stroke="rgba(38, 171, 236, 0.2)"
-                                    stroke-width="2" stroke-dasharray="4,4" />
-                            </svg>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="app-card-large reversed">
-                    <div class="app-card-content">
-                        <h3>Web Libraries</h3>
-                        <p>Seamlessly integrate online libraries for instant access to thousands of free books and
-                            resources.</p>
-                        <ul style="list-style: none; padding: 0; color: var(--text-secondary);">
-                            <li style="margin-bottom: 8px;">• <strong>Direct integration.</strong> Add web libraries
-                                like OpenStax for quick access.</li>
-                            <li style="margin-bottom: 8px;">• <strong>Automatic downloads.</strong> App intercepts
-                                PDF/EPUB downloads and adds them directly.</li>
-                            <li>• <strong>Instant library.</strong> Browse and download books without leaving the app.
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="app-card-media">
-                        <div
-                            style="position: relative; width: 100%; height: 400px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(38, 171, 236, 0.05) 0%, rgba(78, 205, 196, 0.02) 100%); border-radius: 16px; overflow: hidden;">
-                            <!-- Browser window (top) -->
-                            <div
-                                style="position: absolute; top: 40px; left: 50%; transform: translateX(-50%); width: 280px; height: 140px; background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(38, 171, 236, 0.3); border-radius: 12px; backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(38, 171, 236, 0.2);">
-                                <!-- Browser chrome -->
-                                <div
-                                    style="height: 28px; background: rgba(38, 171, 236, 0.1); border-bottom: 1px solid rgba(38, 171, 236, 0.2); border-radius: 10px 10px 0 0; display: flex; align-items: center; padding: 0 12px; gap: 6px;">
-                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ec4899;">
-                                    </div>
-                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #f59e0b;">
-                                    </div>
-                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #10b981;">
-                                    </div>
-                                </div>
-                                <!-- Browser content - books -->
-                                <div style="padding: 16px; display: flex; gap: 8px; justify-content: center;">
-                                    <div
-                                        style="width: 36px; height: 48px; background: linear-gradient(135deg, #26abec 0%, #1a8bc4 100%); border-radius: 3px; box-shadow: 0 4px 12px rgba(38, 171, 236, 0.3);">
-                                    </div>
-                                    <div
-                                        style="width: 36px; height: 48px; background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%); border-radius: 3px; box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);">
-                                    </div>
-                                    <div
-                                        style="width: 36px; height: 48px; background: linear-gradient(135deg, #4ecdc4 0%, #3ab5ad 100%); border-radius: 3px; box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Phone (bottom) -->
-                            <div
-                                style="position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); width: 160px; height: 180px; background: linear-gradient(135deg, rgba(38, 171, 236, 0.1) 0%, rgba(38, 171, 236, 0.05) 100%); border: 3px solid rgba(38, 171, 236, 0.4); border-radius: 24px; box-shadow: 0 12px 40px rgba(38, 171, 236, 0.3); display: flex; flex-direction: column; align-items: center; padding: 16px 12px;">
-                                <!-- Notch -->
-                                <div
-                                    style="width: 60px; height: 6px; background: rgba(38, 171, 236, 0.3); border-radius: 3px; margin-bottom: 12px;">
-                                </div>
-                                <!-- Books in phone -->
-                                <div style="display: flex; gap: 6px; margin-top: 8px;">
-                                    <div
-                                        style="width: 28px; height: 38px; background: linear-gradient(135deg, #26abec 0%, #1a8bc4 100%); border-radius: 2px; box-shadow: 0 2px 8px rgba(38, 171, 236, 0.4);">
-                                    </div>
-                                    <div
-                                        style="width: 28px; height: 38px; background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%); border-radius: 2px; box-shadow: 0 2px 8px rgba(139, 92, 246, 0.4);">
-                                    </div>
-                                    <div
-                                        style="width: 28px; height: 38px; background: linear-gradient(135deg, #4ecdc4 0%, #3ab5ad 100%); border-radius: 2px; box-shadow: 0 2px 8px rgba(78, 205, 196, 0.4);">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Download arrow -->
-                            <div
-                                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10;">
-                                <svg width="48" height="48" viewBox="0 0 48 48"
-                                    style="filter: drop-shadow(0 4px 12px rgba(38, 171, 236, 0.5));">
-                                    <circle cx="24" cy="24" r="22" fill="rgba(38, 171, 236, 0.2)" stroke="#26abec"
-                                        stroke-width="2" />
-                                    <path d="M24 14 L24 30 M24 30 L18 24 M24 30 L30 24" stroke="#26abec"
-                                        stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-                                </svg>
-                            </div>
-
-                            <!-- Flowing particles -->
-                            <div
-                                style="position: absolute; top: 180px; left: 50%; width: 8px; height: 8px; background: #26abec; border-radius: 50%; transform: translateX(-50%); opacity: 0.6; box-shadow: 0 0 12px rgba(38, 171, 236, 0.8);">
-                            </div>
-                            <div
-                                style="position: absolute; top: 210px; left: calc(50% - 15px); width: 6px; height: 6px; background: #a78bfa; border-radius: 50%; opacity: 0.5; box-shadow: 0 0 10px rgba(167, 139, 250, 0.8);">
-                            </div>
-                            <div
-                                style="position: absolute; top: 195px; left: calc(50% + 15px); width: 6px; height: 6px; background: #4ecdc4; border-radius: 50%; opacity: 0.5; box-shadow: 0 0 10px rgba(78, 205, 196, 0.8);">
-                            </div>
-                        </div>
-                    </div>
-                </article>
+            <!-- Feature 5: Audio Player -->
+            <div class="ck-feature-block">
+                <div class="ck-feature-text">
+                    <div class="ck-accent-line" style="background: var(--ck-purple);"></div>
+                    <h3>Rich Audio Player</h3>
+                    <p>A full-featured audio player for your MP3s and MP4s. Beautiful playback controls with
+                        cover art, progress tracking, and chapter navigation.</p>
+                    <ul class="ck-feature-list">
+                        <li><strong>Cover art display.</strong> Beautiful, album-style playback screen.</li>
+                        <li><strong>Progress tracking.</strong> Pick up right where you left off.</li>
+                        <li><strong>Background playback.</strong> Keep listening while using other apps.</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="images/czytnik/audio-player-screenshot.webp" alt="Audio Player" class="ck-screenshot">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Screenshots -->
-    <section class="section">
+    <!-- ═══════════════════════════════════════ -->
+    <!--         SUPPORTED LANGUAGES            -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="section"
+        style="background: linear-gradient(180deg, rgba(0, 122, 255, 0.02) 0%, rgba(0, 0, 0, 0) 100%);">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: var(--space-12);">Screenshots</h2>
-            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-                <div style="text-align: center;">
-                    <img src="images/czytnik/library-screenshot.webp" alt="Library"
-                        style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
-                    <p>Organized Library</p>
+            <div style="text-align: center; max-width: 700px; margin: 0 auto var(--space-12) auto;">
+                <p
+                    style="color: var(--ck-purple); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">
+                    Multilingual</p>
+                <h2>Speak every language</h2>
+                <p>Full interface and voice support for major languages. Many additional languages supported for voice
+                    playback.</p>
+            </div>
+
+            <div class="lang-grid">
+                <div class="lang-chip">
+                    <img src="https://flagcdn.com/w40/gb.png" alt="English"> English
                 </div>
-                <div style="text-align: center;">
-                    <img src="images/czytnik/book-reader-screenshot.webp" alt="Reader"
-                        style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
-                    <p>Reader Controls</p>
+                <div class="lang-chip">
+                    <img src="https://flagcdn.com/w40/pl.png" alt="Polish"> Polish
                 </div>
-                <div style="text-align: center;">
-                    <img src="images/czytnik/additional-functions-screenshot.webp" alt="Tools"
-                        style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);">
-                    <p>More Tools</p>
+                <div class="lang-chip">
+                    <img src="https://flagcdn.com/w40/de.png" alt="German"> German
+                </div>
+                <div class="lang-chip">
+                    <img src="https://flagcdn.com/w40/es.png" alt="Spanish"> Spanish
+                </div>
+                <div class="lang-chip">
+                    <img src="https://flagcdn.com/w40/fr.png" alt="French"> French
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- ═══════════════════════════════════════ -->
+    <!--         APP STORE SCREENSHOTS          -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="section ck-slideshow-section">
+        <div class="container">
+            <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
+                <p
+                    style="color: var(--ck-teal); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">
+                    Gallery</p>
+                <h2>See it in action</h2>
+            </div>
+
+            <div class="ck-slideshow-container" id="ck-slideshow">
+                <div class="ck-slideshow-images">
+                    <img data-src="images/czytnik/app-store-screenshots/Screenshot 1.webp"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                        alt="Chitneek Screenshot 1" class="ck-slideshow-img">
+                    <img data-src="images/czytnik/app-store-screenshots/Screenshot 2.webp"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                        alt="Chitneek Screenshot 2" class="ck-slideshow-img">
+                    <img data-src="images/czytnik/app-store-screenshots/Screenshot 4.webp"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                        alt="Chitneek Screenshot 3" class="ck-slideshow-img">
+                    <img data-src="images/czytnik/app-store-screenshots/Screenshot 5.webp"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                        alt="Chitneek Screenshot 4" class="ck-slideshow-img">
+                    <img data-src="images/czytnik/app-store-screenshots/Screenshot 6.webp"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                        alt="Chitneek Screenshot 5" class="ck-slideshow-img">
+                </div>
+                <button class="ck-slideshow-btn ck-slideshow-prev" aria-label="Previous">&#8592;</button>
+                <button class="ck-slideshow-btn ck-slideshow-next" aria-label="Next">&#8594;</button>
+                <div class="ck-slideshow-dots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!--                 FAQ                    -->
+    <!-- ═══════════════════════════════════════ -->
     <section class="section" id="faq">
         <div class="container" style="max-width: 800px;">
-            <h2 style="text-align: center; margin-bottom: var(--space-8);">FAQ</h2>
+            <div style="text-align: center; margin-bottom: var(--space-12);">
+                <p
+                    style="color: var(--ck-pink); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">
+                    FAQ</p>
+                <h2>Questions & Answers</h2>
+            </div>
+
             <div class="faq-list">
                 <div class="faq-item">
-                    <button class="faq-question">Is Chitneek paid?<span class="faq-arrow"><i
+                    <button class="faq-question">Is Chitneek free?<span class="faq-arrow"><i
                                 class="fa-solid fa-chevron-right"></i></span></button>
                     <div class="faq-answer">
-                        <p>Yes, but there is a 7-day free trial available for both of the subscription plans - monthly
-                            and yearly.</p>
+                        <p>Chitneek offers a 7-day free trial. After that, you can choose between a monthly or yearly
+                            subscription plan to access all features.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">Does Chitneek work offline?<span class="faq-arrow"><i
                                 class="fa-solid fa-chevron-right"></i></span></button>
                     <div class="faq-answer">
-                        <p>Yes. Files and pasted text are processed on-device using iOS voices. Saving a web page to a
-                            PDF works offline after you save it.</p>
+                        <p>Yes. Once your files are imported, they're available for offline listening. The
+                            text-to-speech
+                            engine runs entirely on your device using iOS voices.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Which file types are supported?<span class="faq-arrow"><i
+                                class="fa-solid fa-chevron-right"></i></span></button>
+                    <div class="faq-answer">
+                        <p>Chitneek supports PDF, EPUB, MP3, and MP4 files. You can also listen to YouTube content
+                            directly within the app and scan physical pages with your camera.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What are Shared Groups?<span class="faq-arrow"><i
+                                class="fa-solid fa-chevron-right"></i></span></button>
+                    <div class="faq-answer">
+                        <p>Shared Groups let you create a collaborative library with friends, family, or study partners.
+                            Everyone in the group can upload and access books, while reading progress stays private.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">Which voices does it use?<span class="faq-arrow"><i
                                 class="fa-solid fa-chevron-right"></i></span></button>
                     <div class="faq-answer">
-                        <p>Chitneek uses Apple’s built-in voices, so output sounds natural and works system-wide.</p>
+                        <p>Chitneek uses Apple's built-in iOS voices for text-to-speech. The quality depends on the
+                            voices you've downloaded on your device — enhanced and premium voices sound remarkably
+                            natural.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">How do I import content?<span class="faq-arrow"><i
+                    <button class="faq-question">Can I translate documents?<span class="faq-arrow"><i
                                 class="fa-solid fa-chevron-right"></i></span></button>
                     <div class="faq-answer">
-                        <p>Add PDFs from Files or share into Chitneek from other apps. You can also paste text or save a
-                            web page to a PDF to listen later.</p>
+                        <p>Yes. Chitneek includes in-app translation for PDF books, allowing you to translate content
+                            into another language before you start listening.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Is iPad supported?<span class="faq-arrow"><i
+                                class="fa-solid fa-chevron-right"></i></span></button>
+                    <div class="faq-answer">
+                        <p>iPad support is currently limited. The app is primarily designed and optimized for iPhone,
+                            with full iPad support coming in a future update.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter -->
+    <!-- ═══════════════════════════════════════ -->
+    <!--             NEWSLETTER                 -->
+    <!-- ═══════════════════════════════════════ -->
     <section class="section">
         <div class="container" style="max-width: 700px; text-align: center;">
             <h2 style="margin-bottom: var(--space-4);">Stay updated on Chitneek</h2>
@@ -484,7 +996,9 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ═══════════════════════════════════════ -->
+    <!--               FOOTER                   -->
+    <!-- ═══════════════════════════════════════ -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -519,14 +1033,16 @@
         </div>
     </footer>
 
-    <!-- FAQ Script -->
+    <!-- ═══════════════════════════════════════ -->
+    <!--              SCRIPTS                   -->
+    <!-- ═══════════════════════════════════════ -->
     <script>
+        // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(btn => {
             btn.onclick = function () {
                 const answer = this.nextElementSibling;
                 const isOpen = this.classList.contains('open');
 
-                // Close all
                 document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('open'));
                 document.querySelectorAll('.faq-answer').forEach(a => {
                     a.style.maxHeight = null;
@@ -540,7 +1056,54 @@
                 }
             };
         });
+
+        // Slideshow
+        (function () {
+            const container = document.getElementById('ck-slideshow');
+            if (!container) return;
+
+            const images = container.querySelectorAll('.ck-slideshow-img');
+            const dotsContainer = container.querySelector('.ck-slideshow-dots');
+            const prevBtn = container.querySelector('.ck-slideshow-prev');
+            const nextBtn = container.querySelector('.ck-slideshow-next');
+            let current = 0;
+
+            // Create dots
+            images.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.className = 'ck-slideshow-dot' + (i === 0 ? ' active' : '');
+                dot.onclick = () => goTo(i);
+                dotsContainer.appendChild(dot);
+            });
+
+            function goTo(index) {
+                images[current].style.display = 'none';
+                dotsContainer.children[current].classList.remove('active');
+
+                current = (index + images.length) % images.length;
+
+                // Lazy load
+                const img = images[current];
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    delete img.dataset.src;
+                }
+
+                img.style.display = 'block';
+                dotsContainer.children[current].classList.add('active');
+            }
+
+            prevBtn.onclick = () => goTo(current - 1);
+            nextBtn.onclick = () => goTo(current + 1);
+
+            // Show first
+            goTo(0);
+
+            // Auto-advance
+            setInterval(() => goTo(current + 1), 5000);
+        })();
     </script>
+
 </body>
 
 </html>
