@@ -6,9 +6,78 @@
 </description>
     <link>https://extiri.com/blog/</link>
     <atom:link href="https://extiri.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 08 Feb 2026 17:41:10 +0100</pubDate>
-    <lastBuildDate>Sun, 08 Feb 2026 17:41:10 +0100</lastBuildDate>
+    <pubDate>Sun, 08 Mar 2026 14:52:28 +0100</pubDate>
+    <lastBuildDate>Sun, 08 Mar 2026 14:52:28 +0100</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
+    
+      <item>
+        <title>Building an Image Compressor with the Discrete Fourier Transform</title>
+        <description>&lt;p&gt;A few weeks ago, I was flipping through one of my old programming magazines when I stumbled across an interesting claim: you can compress images using the Discrete Fourier Transform. The idea seemed almost too elegant to be true - transform an image into the frequency domain, throw away the small stuff, and reconstruct something that still looks decent. This is apparently one of the core mechanisms behind JPEG compression.&lt;/p&gt;
+
+&lt;p&gt;I had to try it myself.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;The result is a Python script that compresses BMP files into a custom “IMGX” format. It’s not going to replace modern codecs anytime soon, but it works, and building it taught me more about signal processing than any textbook ever did. If you want to see the code, the whole experiment is &lt;a href=&quot;https://github.com/wiktorwojcik112/fourier_compress&quot;&gt;on GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/img/compression-experiment.jpeg&quot; alt=&quot;A comparison of the experiment at two steps&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-the-discrete-fourier-transform&quot;&gt;What is the Discrete Fourier Transform?&lt;/h2&gt;
+
+&lt;p&gt;Before diving into the implementation, it helps to understand what the DFT actually does. At its core, the DFT takes a signal - in this case, the pixel values in an image - and decomposes it into a sum of sine and cosine waves at different frequencies.&lt;/p&gt;
+
+&lt;p&gt;Think of it like this: imagine you have a complicated audio waveform. The DFT tells you how much of each musical note (frequency) is present in that sound. For images, instead of sound waves, you’re analyzing how quickly pixel values change across the image. Smooth gradients have low frequencies, while sharp edges and fine details have high frequencies.&lt;/p&gt;
+
+&lt;p&gt;The key insight for compression is that most natural images have most of their “energy” concentrated in the low frequencies. The high-frequency components - the ones representing fine details - tend to have much smaller amplitudes. If we keep only the frequencies with the largest amplitudes and discard the rest, we can reconstruct an image that looks pretty similar to the original, but with far less data.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-first-attempt-bigger-than-the-original&quot;&gt;The First Attempt: Bigger Than the Original&lt;/h2&gt;
+
+&lt;p&gt;My initial implementation was straightforward: apply a 1D DFT to each color channel, keep the top 70% of frequency components by amplitude, and discard the rest. The reconstructed image looked great. There was just one problem: the compressed file was &lt;em&gt;larger&lt;/em&gt; than the original BMP.&lt;/p&gt;
+
+&lt;p&gt;This was frustrating, but not entirely surprising. Each pixel in a BMP uses 3 bytes (one per RGB channel). Each complex frequency value in the DFT, however, requires storing both a real and imaginary component as floating-point numbers - 8 bytes each, for a total of 16 bytes. Even keeping only 70% of the values meant I was using more space than before.&lt;/p&gt;
+
+&lt;p&gt;I dropped the threshold to 10% to reduce file size. The image quality suffered significantly, but the file was still bigger than the BMP. Something was fundamentally wrong.&lt;/p&gt;
+
+&lt;p&gt;Then I realized my mistake: I had assumed the first 70% of DFT values were the largest ones. They weren’t. The DFT doesn’t output values sorted by magnitude - I needed to explicitly find and keep only the top frequencies. Once I fixed that, things started to improve, but I still wasn’t beating BMP compression.&lt;/p&gt;
+
+&lt;h2 id=&quot;making-it-actually-work&quot;&gt;Making It Actually Work&lt;/h2&gt;
+
+&lt;p&gt;Getting the file size down required three key improvements.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;First: 2D DFT instead of 1D.&lt;/strong&gt; Originally, I was treating each row of pixels independently and applying a 1D DFT. But images are inherently two-dimensional, and a 2D DFT captures spatial patterns more efficiently. Instead of transforming rows separately, the 2D DFT analyzes the image as a whole, identifying patterns in both horizontal and vertical directions. This meant fewer frequency components were needed to represent the same information.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Second: Quantization.&lt;/strong&gt; Even with the 2D DFT, each frequency component still required far more bytes than a single pixel. I needed to reduce the precision of the stored values. By finding the maximum amplitude in each channel and scaling all values relative to that maximum, I could represent each component with just 2 bytes for the real part and 2 bytes for the imaginary part - 4 bytes total instead of 16. The trick was finding a quantization level that preserved image quality without wasting bits. After some experimentation, I settled on a quantization factor that brought the file size down significantly without introducing too many visual artifacts.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Third: Exploiting DFT symmetry.&lt;/strong&gt; This was the real breakthrough. The DFT has a mathematical property: when the input is real-valued (like pixel intensities), the output frequencies are symmetric. Specifically, half of the frequency components are complex conjugates of the other half. This means they contain the same information - just with the imaginary part flipped in sign.&lt;/p&gt;
+
+&lt;p&gt;Since conjugate pairs have the same magnitude, if one frequency is in the top 10%, its conjugate almost certainly is too. Instead of storing both, I could store just half the frequencies and reconstruct the conjugates during decompression. This nearly halved the number of values I needed to save.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-results&quot;&gt;The Results&lt;/h2&gt;
+
+&lt;p&gt;After implementing all three improvements, the compression finally worked. I tested it on a 16.8 MB BMP image, and the compressed IMGX file came out to 8.8 MB - a reduction of about 48%. The decompressed image isn’t pixel-perfect, but it’s remarkably close to the original, especially considering only 10% of the frequency information was kept.&lt;/p&gt;
+
+&lt;p&gt;For reference, modern JPEG compression would do much better on the same image, but that’s not really the point. This was never about building a production-ready codec. It was about understanding how frequency-domain compression actually works, and seeing firsthand why choices like 2D transforms and quantization matter.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-i-learned&quot;&gt;What I Learned&lt;/h2&gt;
+
+&lt;p&gt;The biggest lesson from this project was that compression algorithms work thanks to careful exploitation of patterns in data. Images happen to have most of their information in low frequencies, so discarding high frequencies works. Audio compression uses similar principles. Text compression exploits the fact that some words appear more often than others.&lt;/p&gt;
+
+&lt;p&gt;I also learned that the devil really is in the details. The difference between “doesn’t work at all” and “works reasonably well” came down to a few specific implementation choices: using a 2D transform, quantizing carefully, and leveraging symmetry.&lt;/p&gt;
+
+&lt;p&gt;If you’re curious about the implementation details, the full source code is available at &lt;a href=&quot;https://github.com/wiktorwojcik112/fourier_compress&quot;&gt;github.com/wiktorwojcik112/fourier_compress&lt;/a&gt;. The compression script takes a BMP file and outputs an IMGX format, which you can then decompress back to BMP to view the result.&lt;/p&gt;
+
+&lt;p&gt;Would I use this for real image compression? Absolutely not. But building it gave me a much deeper appreciation for the algorithms we use every day and for the clever mathematical insights that make them possible.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 08 Mar 2026 00:00:00 +0100</pubDate>
+        <link>https://extiri.com/blog/posts/experiment-compressing-images-with-dft</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/experiment-compressing-images-with-dft</guid>
+        
+        <category>experiments</category>
+        
+        <category>projects</category>
+        
+        
+      </item>
     
       <item>
         <title>Teaching Machines to Smell Danger: A Fun Dive Into ML-Powered Threat Detection</title>
@@ -1767,258 +1836,6 @@ rm /var/tmp/compiled_app
         <category>extiri</category>
         
         <category>app-showcase</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Best Dev Habits to Save Time Every Day: Using Boilerplate, Snippets, and Templates</title>
-        <description>&lt;p&gt;There’s a common misconception that productive developers are the ones who type the fastest or memorize the most syntax. In reality, the developers who consistently ship quality work and never seem stressed aren’t necessarily working harder—they’re working smarter by eliminating friction from their daily routines.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;p&gt;Think about your own workflow for a second. How much time do you spend recreating the same boilerplate? Looking up commands you’ve run a thousand times? Switching between your editor, browser tabs, and terminal just to find that one piece of documentation? These tiny interruptions don’t feel like much in the moment, but they compound throughout the day, leaving you exhausted by 3 PM even though you feel like you haven’t accomplished much.&lt;/p&gt;
-
-&lt;p&gt;The developers who’ve figured this out—the ones who seem to breeze through complex projects—aren’t relying on tricks or shortcuts. They’re leaning on &lt;strong&gt;habits&lt;/strong&gt; that remove these daily friction points. They reuse patterns that work. They automate the repetitive stuff. They keep their tools organized and sharp.&lt;/p&gt;
-
-&lt;p&gt;The good news? These aren’t secret techniques that take years to master. They’re practical habits you can start adopting today. Some will save you five minutes here and there. Others will save you hours every week. Together, they compound into a workflow that feels effortless and keeps you focused on actually solving problems instead of fighting your environment.&lt;/p&gt;
-
-&lt;p&gt;Here are &lt;strong&gt;10 habits&lt;/strong&gt; that will genuinely save you time every single day. Pick a couple to start with, make them stick, then add more. You don’t need to overhaul your entire workflow overnight—small improvements add up faster than you think.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;1-build-and-use-a-snippet-library&quot;&gt;1. Build and Use a Snippet Library&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Rewriting the same error handlers, validation, or logging patterns eats up time and introduces inconsistency.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The Habit:&lt;/strong&gt; Save these patterns into a snippet library. Tag them by language (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;js&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;py&lt;/code&gt;) or domain (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;auth&lt;/code&gt;) so you can recall them instantly.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;# ${your_code_here}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Error: {e}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;raise&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Tip:&lt;/strong&gt; Tools like &lt;strong&gt;CodeMenu&lt;/strong&gt; make searching and inserting these snippets lightning fast—without breaking flow.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;2-standardize-with-templates&quot;&gt;2. Standardize with Templates&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Every new module or component starts with the same boilerplate. Doing it by hand is wasted effort.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The Habit:&lt;/strong&gt; Use templates for React components, API routes, or unit tests. You’ll save setup time and keep your codebase consistent.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Example React template:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;react&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kr&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ComponentName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}({})&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ComponentName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;works&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Store it once → reuse it forever.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;3-automate-file-and-folder-creation&quot;&gt;3. Automate File and Folder Creation&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Creating directories, configs, and starter files manually slows you down.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The Habit:&lt;/strong&gt; Use CLI generators (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ng generate component&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rails g scaffold&lt;/code&gt;) or pair templates with a snippet tool.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Pro Tip:&lt;/strong&gt; Keep your templates in CodeMenu, then paste them wherever needed—no need to memorize every CLI flag.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;4-document-as-you-go&quot;&gt;4. Document as You Go&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Leaving documentation for “later” often means it never happens.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The Habit:&lt;/strong&gt; Write docstrings, inline comments, or README snippets at the same time you write code.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Example in Python:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;calculate_tax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
-    Calculate tax for a given amount.
-    Args:
-        amount (float): The income or purchase amount.
-    Returns:
-        float: The tax due.
-    &quot;&quot;&quot;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Bonus: Save comment/docstring templates as snippets so you always follow the same structure.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;5-master-keyboard-shortcuts&quot;&gt;5. Master Keyboard Shortcuts&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Every time you reach for the mouse, you lose momentum.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The Habit:&lt;/strong&gt; Learn IDE, terminal, and snippet manager shortcuts. Add one new shortcut to your muscle memory each week.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;VS Code: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cmd+Shift+P&lt;/code&gt; → open command palette.&lt;/li&gt;
-  &lt;li&gt;CodeMenu: Global shortcut → instant snippet search, no window-switching.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;6-reuse-proven-solutions&quot;&gt;6. Reuse Proven Solutions&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Developers often re-solve problems they’ve already cracked.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The Habit:&lt;/strong&gt; Before coding, ask:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Did I solve this before?&lt;/li&gt;
-  &lt;li&gt;Is there a library or snippet that covers it?&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;When you find a solid solution, add it to your snippet/tooling library so you never waste that effort again.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;7-keep-your-tools-organized&quot;&gt;7. Keep Your Tools Organized&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; A messy library (snippets, bookmarks, repos) makes tools harder to use, so you stop using them.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The Habit:&lt;/strong&gt; Spend 10 minutes weekly organizing.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Tag snippets (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;logging&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;validation&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db&lt;/code&gt;).&lt;/li&gt;
-  &lt;li&gt;Delete duplicates.&lt;/li&gt;
-  &lt;li&gt;Rename cryptic titles.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In CodeMenu, this takes minutes, and pays off every time you search.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;8-batch-small-tasks&quot;&gt;8. Batch Small Tasks&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Context switching kills flow.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The Habit:&lt;/strong&gt; Collect small tasks into a batch list. Handle them in one block instead of sprinkling them through your deep-work hours.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Answer 5 PR comments together.&lt;/li&gt;
-  &lt;li&gt;Write all TODO cleanups before stand-up.&lt;/li&gt;
-  &lt;li&gt;Update snippets at the end of the week.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;9-version-your-snippets&quot;&gt;9. Version Your Snippets&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Snippets evolve over time. Without versioning, teams diverge into conflicting patterns.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The Habit:&lt;/strong&gt; Store shared snippets in Git or a snippet server. Review changes like normal code.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Tooling:&lt;/strong&gt; Extiri’s &lt;strong&gt;Snippets Store&lt;/strong&gt; (self-hostable) works well with CodeMenu, giving your team one source of truth.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;10-schedule-productivity-maintenance&quot;&gt;10. Schedule “Productivity Maintenance”&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;The Problem:&lt;/strong&gt; Your workflow gets bloated unless you prune and refine.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The Habit:&lt;/strong&gt; Once a week, spend 15 minutes maintaining:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Delete unused snippets.&lt;/li&gt;
-  &lt;li&gt;Improve one template.&lt;/li&gt;
-  &lt;li&gt;Learn a new shortcut.&lt;/li&gt;
-  &lt;li&gt;Clean up your workspace.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Think of it as “spring cleaning” for your dev environment.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;Saving time as a developer comes down to habits you repeat daily:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Build a snippet library&lt;/li&gt;
-  &lt;li&gt;Standardize with templates&lt;/li&gt;
-  &lt;li&gt;Automate setup&lt;/li&gt;
-  &lt;li&gt;Document as you go&lt;/li&gt;
-  &lt;li&gt;Learn shortcuts&lt;/li&gt;
-  &lt;li&gt;Reuse solutions&lt;/li&gt;
-  &lt;li&gt;Stay organized&lt;/li&gt;
-  &lt;li&gt;Batch tasks&lt;/li&gt;
-  &lt;li&gt;Version snippets&lt;/li&gt;
-  &lt;li&gt;Maintain weekly&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;👉 Start with 2 habits this week. Once they’re second nature, add more. Small improvements compound into hours saved every month.&lt;/p&gt;
-
-&lt;p&gt;If you’re looking for a tool to make snippets and templates painless, give &lt;a href=&quot;https://extiri.com/codemenu.html&quot;&gt;&lt;strong&gt;CodeMenu&lt;/strong&gt;&lt;/a&gt; a try—it turns many of these habits into effortless defaults.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;7-day-starter-checklist-do-one-per-day&quot;&gt;7-day starter checklist (do one per day)&lt;/h2&gt;
-
-&lt;p&gt;Day 1: Save three snippets you use daily into your snippet manager and tag them.&lt;/p&gt;
-
-&lt;p&gt;Day 2: Create one template for a common file type (React component, test file, or module).&lt;/p&gt;
-
-&lt;p&gt;Day 3: Add a keyboard shortcut for your snippet manager to insert snippets without leaving the editor.&lt;/p&gt;
-
-&lt;p&gt;Day 4: Batch three small tasks and handle them in one focused block.&lt;/p&gt;
-
-&lt;p&gt;Day 5: Audit your snippet library for duplicates and rename unclear items.&lt;/p&gt;
-
-&lt;p&gt;Day 6: Version one snippet in Git (or export your snippet tool library) so it’s tracked.&lt;/p&gt;
-
-&lt;p&gt;Day 7: Teach a teammate one shortcut or snippet workflow (sharing solidifies habit).&lt;/p&gt;
-
-&lt;p&gt;Note on tooling: the suggestions above work with many snippet tools; CodeMenu is one example that supports quick insertion and tagging—feel free to substitute your preferred tool.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 17 Oct 2025 00:00:00 +0200</pubDate>
-        <link>https://extiri.com/blog/posts/ten-developer-habits</link>
-        <guid isPermaLink="true">https://extiri.com/blog/posts/ten-developer-habits</guid>
-        
-        <category>productivity</category>
-        
-        <category>snippets</category>
-        
-        <category>programming</category>
         
         
       </item>
