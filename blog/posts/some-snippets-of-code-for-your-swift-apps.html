@@ -29,64 +29,25 @@
 <meta property="og:site_name" content="Extiri Blog">
 <link rel="stylesheet" href="/blog/assets/vendor/normalize-css/normalize.css">
 <link rel="stylesheet" href="/blog/assets/css/main.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/blog/assets/css/bf.css">
    <body>
        <div class="wrapper" id="blep">
           <header class="site-header">
  <div class="site-header__inner">
-    <a class="site-header__brand" href="/blog/index.html">
-      <span class="site-header__logo">
-        <object type="image/svg+xml" data="/blog/assets/img/guy.svg" class="logosvg">Your browser does not support svg images</object>
-      </span>
-      <span class="site-header__title">Extiri Blog</span>
-    </a>
-    <button
-      class="site-nav__toggle"
-      type="button"
-      aria-label="Toggle navigation"
-      aria-expanded="false"
-      aria-controls="site-nav"
-      data-nav-toggle
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-   <nav class="site-nav" id="site-nav" data-site-nav>
-     <ul class="site-nav__list">
-       <li><a href="/blog/about/index.html">About</a>
-       <li><a href="/blog/archive/index.html">Archive</a>
-       <li><a href="https://extiri.com">Apps</a>
-     </ul>
-     <div class="site-nav__secondary">
-       <ul class="site-nav__social">
-         <li>
-            <a href="https://youtube.com/@wiktorwojcik3678" target="_blank" rel="noopener">
-              <span class="icon-youtube"></span>
-              <span class="sr-only">YouTube</span>
-            </a>
-         <li>
-            <a href="https://twitter.com/WiktorW2" target="_blank" rel="noopener">
-              <span class="icon-twitter"></span>
-              <span class="sr-only">Twitter</span>
-            </a>
-         <li>
-            <a href="https://github.com/Extiri" target="_blank" rel="noopener">
-              <span class="icon-github"></span>
-              <span class="sr-only">GitHub</span>
-            </a>
-         <li>
-            <a href="mailto:wiktor.wojcik@extiri.com">
-              <span class="icon-mail_outline"></span>
-              <span class="sr-only">Email</span>
-            </a>
-         <li>
-            <a href="/blog/feed.xml">
-              <span class="icon-rss_feed"></span>
-              <span class="sr-only">RSS feed</span>
-            </a>
-       </ul>
-     </div>
+   <div class="site-header__breadcrumbs">
+        <a href="https://extiri.com">Extiri</a>
+        <span>/</span>
+        <a href="https://extiri.com/blog/index.html">Blog</a>
+        <span>/</span>
+        <span>Some snippets of code for y...</span>
+   </div>
+   <nav class="site-header__nav">
+        <a href="/blog/about/index.html">About</a>
+        <a href="/blog/archive/index.html">Archive</a>
+        <a href="https://extiri.com">Apps</a>
    </nav>
  </div>
 </header>
@@ -101,24 +62,15 @@
 </div>
 <article class="post">
 <header class="post-hero">
-   <p class="post-hero__eyebrow">Extiri Blog
+   <div class="tag">snippets</div>
    <h1 class="post-hero__title">Some snippets of code for your Swift apps</h1>
-   <div class="post-hero__meta">
-      <span class="post-hero__date">
-        October 3, 2024
-      </span>
-      <span class="post-hero__divider">•</span>
-      <span class="post-hero__author">
-        Wiktor Wójcik
-      </span>
-      <span class="post-hero__divider">•</span>
-      <span class="post-hero__tags">
-          <a href="/blog/tag/snippets/index.html">#snippets</a>
-          <a href="/blog/tag/programming/index.html">#programming</a>
-      </span>
+   <div class="byline">
+      <span>Wiktor Wójcik</span>
+        <span>9 min read</span>
+      <span>October 3, 2024</span>
    </div>
  </header>
- <div class="post-content">
+ <div class="post-content article-body">
    <p class="lead">Hi! While programming in Swift I have accumulated many code snippets. Some of them are mine and some of them come from the internet. Here I’m sharing 5 tiny quality-of-life snippets. Hopefully you will find them useful.
 <h3 id="1-cocoa-accessing-nswindow-from-nsviewcontroller">1. (Cocoa) Accessing NSWindow from NSViewController</h3>
 <div class="language-swift highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
@@ -417,16 +369,12 @@
 </aside>
            <footer class="site-footer">
  <div class="site-footer__inner">
-   <div class="site-footer__primary">
-     <h2>Extiri Blog</h2>
-     <p>blog about Extiri, programming and cybersecurity
-   </div>
-   <nav class="site-footer__links" aria-label="Footer navigation">
+   <div class="site-footer__links">
       <a href="/blog/about/index.html">About</a>
       <a href="/blog/archive/index.html">Archive</a>
       <a href="https://extiri.com">Apps</a>
       <a href="/blog/feed.xml">RSS</a>
-   </nav>
+   </div>
    <div class="site-footer__meta">
       <span>Crafted by Wiktor Wójcik</span>
       <span>&copy; 2026 Extiri</span>

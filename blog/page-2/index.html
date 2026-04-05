@@ -25,64 +25,23 @@
 <meta property="og:site_name" content="Extiri Blog">
 <link rel="stylesheet" href="/blog/assets/vendor/normalize-css/normalize.css">
 <link rel="stylesheet" href="/blog/assets/css/main.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/blog/assets/css/bf.css">
    <body>
        <div class="wrapper" id="blep">
           <header class="site-header">
  <div class="site-header__inner">
-    <a class="site-header__brand" href="/blog/index.html">
-      <span class="site-header__logo">
-        <object type="image/svg+xml" data="/blog/assets/img/guy.svg" class="logosvg">Your browser does not support svg images</object>
-      </span>
-      <span class="site-header__title">Extiri Blog</span>
-    </a>
-    <button
-      class="site-nav__toggle"
-      type="button"
-      aria-label="Toggle navigation"
-      aria-expanded="false"
-      aria-controls="site-nav"
-      data-nav-toggle
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-   <nav class="site-nav" id="site-nav" data-site-nav>
-     <ul class="site-nav__list">
-       <li><a href="/blog/about/index.html">About</a>
-       <li><a href="/blog/archive/index.html">Archive</a>
-       <li><a href="https://extiri.com">Apps</a>
-     </ul>
-     <div class="site-nav__secondary">
-       <ul class="site-nav__social">
-         <li>
-            <a href="https://youtube.com/@wiktorwojcik3678" target="_blank" rel="noopener">
-              <span class="icon-youtube"></span>
-              <span class="sr-only">YouTube</span>
-            </a>
-         <li>
-            <a href="https://twitter.com/WiktorW2" target="_blank" rel="noopener">
-              <span class="icon-twitter"></span>
-              <span class="sr-only">Twitter</span>
-            </a>
-         <li>
-            <a href="https://github.com/Extiri" target="_blank" rel="noopener">
-              <span class="icon-github"></span>
-              <span class="sr-only">GitHub</span>
-            </a>
-         <li>
-            <a href="mailto:wiktor.wojcik@extiri.com">
-              <span class="icon-mail_outline"></span>
-              <span class="sr-only">Email</span>
-            </a>
-         <li>
-            <a href="/blog/feed.xml">
-              <span class="icon-rss_feed"></span>
-              <span class="sr-only">RSS feed</span>
-            </a>
-       </ul>
-     </div>
+   <div class="site-header__breadcrumbs">
+        <a href="https://extiri.com">Extiri</a>
+        <span>/</span>
+        <a href="https://extiri.com/blog/index.html">Blog</a>
+   </div>
+   <nav class="site-header__nav">
+        <a href="/blog/about/index.html">About</a>
+        <a href="/blog/archive/index.html">Archive</a>
+        <a href="https://extiri.com">Apps</a>
    </nav>
  </div>
 </header>
@@ -95,120 +54,107 @@
    </div>
  </div>
 </div>
-           <section class="page-hero">
- <p class="page-hero__eyebrow">Extiri Blog
- <h1 class="page-hero__title">Purposeful notes from the studio</h1>
- <p class="page-hero__subtitle">
+           <section class="home-hero">
+ <div class="tag">Editorial</div>
+ <h1 class="home-hero__title">Purposeful notes from the studio</h1>
+ <p class="home-hero__subtitle">
     blog about Extiri, programming and cybersecurity
 </section>
-<div class="post-grid">
-<article class="post-card">
+<div class="home-grid">
+ <main class="home-main">
+<article class="post-card ">
  <div class="post-card__meta">
-    <span class="post-card__date">Oct 29, 2025</span>
-    <span class="post-card__tags">
-      <a href="/blog/tag/extiri/index.html">#extiri</a>
-      <a href="/blog/tag/codemenu-guide/index.html">#codemenu-guide</a>
-    </span>
+    <span class="tag" style="margin-bottom: 0; padding: 0.15rem 0.6rem; font-size: 0.65rem;">extiri</span>
+    <span class="post-card__date">January 16, 2026</span>
  </div>
  <h2 class="post-card__title">
-    <a href="/blog/posts/how-to-run-code-snippets-mac.html" target="_self" rel="noopener">How to Use Code Snippets on Your Mac</a>
+    <a href="/blog/posts/codemenu-as-a-filesystem-ai-agent.html">CodeMenu as a File System for Your AI Agents</a>
  </h2>
-     <p class="post-card__excerpt">
-        You found a piece of code online-maybe in Python, Bash, JavaScript, Ruby, or even C-and you’re wondering how to actually run it on your Mac.You’re in the right place. I’ll walk you through how to run snippets in both ...
- <div class="post-card__actions">
-    <a class="button-primary" href="/blog/posts/how-to-run-code-snippets-mac.html" target="_self" rel="noopener">Read article</a>
- </div>
+ <p class="post-card__excerpt">
+     <p>In the evolving world of AI development, there’s a growing buzz around “filesystems for AI”—essentially, structured ways to organize and access data that empower AI agents to work more intelligently and autonomously. Think of it as giving your AI a well-organized filing cabinet where it can pull out exactly what it needs without rummaging through chaos. This trend is picking up steam because AI agents aren’t just chatbots anymore; they’re becoming active participants in coding, research, and problem-solving workflows. They need reliable, queryable repositories to fetch context, code patterns, or prompts on demand.
 </article>
-<article class="post-card">
+<article class="post-card ">
  <div class="post-card__meta">
-    <span class="post-card__date">Oct 28, 2025</span>
-    <span class="post-card__tags">
-      <a href="/blog/tag/extiri/index.html">#extiri</a>
-      <a href="/blog/tag/study-guide/index.html">#study-guide</a>
-      <a href="/blog/tag/app-showcase/index.html">#app-showcase</a>
-    </span>
+    <span class="tag" style="margin-bottom: 0; padding: 0.15rem 0.6rem; font-size: 0.65rem;">extiri</span>
+    <span class="post-card__date">January 13, 2026</span>
  </div>
  <h2 class="post-card__title">
-    <a href="/blog/posts/how-to-study-read-aloud-pdf.html" target="_self" rel="noopener">How to Study Faster with Read-Aloud PDF Apps</a>
+    <a href="/blog/posts/the-year-of-local-software.html">Why 2026 Is the Year of Local-First Productivity Tools (and How CodeMenu Fits In)</a>
  </h2>
-     <p class="post-card__excerpt">
-        Studying isn’t just about logging hours - it’s about how effectively you absorb and retain information. Yet, reading through stacks of PDF textbooks, research papers, and study guides can be time-consuming, mentally d...
- <div class="post-card__actions">
-    <a class="button-primary" href="/blog/posts/how-to-study-read-aloud-pdf.html" target="_self" rel="noopener">Read article</a>
- </div>
+ <p class="post-card__excerpt">
+     <p>We’re copying API keys into ChatGPT prompts, uploading proprietary code to cloud snippet managers, and syncing our entire knowledge bases through servers we don’t control. Somewhere along the way, we normalized sending our most valuable work artifacts through someone else’s infrastructure.
+<p>That’s changing in 2026 — and it’s about time.
 </article>
-<article class="post-card">
+<article class="post-card ">
  <div class="post-card__meta">
-    <span class="post-card__date">Oct 28, 2025</span>
-    <span class="post-card__tags">
-      <a href="/blog/tag/extiri/index.html">#extiri</a>
-      <a href="/blog/tag/codemenu-guide/index.html">#codemenu-guide</a>
-    </span>
+    <span class="tag" style="margin-bottom: 0; padding: 0.15rem 0.6rem; font-size: 0.65rem;">extiri</span>
+    <span class="post-card__date">October 29, 2025</span>
  </div>
  <h2 class="post-card__title">
-    <a href="/blog/posts/codemenu-guide-add-programming-language.html" target="_self" rel="noopener">Guide to CodeMenu: How to add a programming language for running?</a>
+    <a href="/blog/posts/how-to-run-code-snippets-mac.html">How to Use Code Snippets on Your Mac</a>
  </h2>
-     <p class="post-card__excerpt">
-        CodeMenu is a handy snippet manager for macOS - and one of its neat features is the ability to run snippets. Out of the box it runs JavaScript, but it’s flexible: you can teach CodeMenu to run almost any language by p...
- <div class="post-card__actions">
-    <a class="button-primary" href="/blog/posts/codemenu-guide-add-programming-language.html" target="_self" rel="noopener">Read article</a>
- </div>
+ <p class="post-card__excerpt">
+     <p class="lead">You found a piece of code online-maybe in Python, Bash, JavaScript, Ruby, or even C-and you’re wondering how to actually run it on your Mac.<br />
+You’re in the right place. I’ll walk you through how to run snippets in both interpreted <em>and</em> compiled languages, explain what’s happening behind the scenes, and keep it simple.
 </article>
-<article class="post-card">
+<article class="post-card ">
  <div class="post-card__meta">
-    <span class="post-card__date">Oct 26, 2025</span>
-    <span class="post-card__tags">
-      <a href="/blog/tag/extiri/index.html">#extiri</a>
-      <a href="/blog/tag/app-showcase/index.html">#app-showcase</a>
-    </span>
+    <span class="tag" style="margin-bottom: 0; padding: 0.15rem 0.6rem; font-size: 0.65rem;">extiri</span>
+    <span class="post-card__date">October 28, 2025</span>
  </div>
  <h2 class="post-card__title">
-    <a href="/blog/posts/the-best-snippet-manager.html" target="_self" rel="noopener">Ranking of The Best Snippet Managers for Mac 2025</a>
+    <a href="/blog/posts/how-to-study-read-aloud-pdf.html">How to Study Faster with Read-Aloud PDF Apps</a>
  </h2>
-     <p class="post-card__excerpt">
-        As developers, we all face the same problem: brilliant ideas scattered across chat logs, forgotten code experiments buried in old projects, and that perfect solution you swear you wrote last month but can’t find anywh...
- <div class="post-card__actions">
-    <a class="button-primary" href="/blog/posts/the-best-snippet-manager.html" target="_self" rel="noopener">Read article</a>
- </div>
+ <p class="post-card__excerpt">
+     <p class="lead">Studying isn’t just about logging hours - it’s about how effectively you absorb and retain information. Yet, reading through stacks of PDF textbooks, research papers, and study guides can be time-consuming, mentally draining, and difficult to maintain consistently.
 </article>
-<article class="post-card">
+<article class="post-card ">
  <div class="post-card__meta">
-    <span class="post-card__date">Oct 18, 2025</span>
-    <span class="post-card__tags">
-      <a href="/blog/tag/extiri/index.html">#extiri</a>
-      <a href="/blog/tag/app-showcase/index.html">#app-showcase</a>
-    </span>
+    <span class="tag" style="margin-bottom: 0; padding: 0.15rem 0.6rem; font-size: 0.65rem;">extiri</span>
+    <span class="post-card__date">October 28, 2025</span>
  </div>
  <h2 class="post-card__title">
-    <a href="/blog/posts/introducing-clipguru.html" target="_self" rel="noopener">Introducing ClipGuru — a lightweight clipboard manager</a>
+    <a href="/blog/posts/codemenu-guide-add-programming-language.html">Guide to CodeMenu: How to add a programming language for running?</a>
  </h2>
-     <p class="post-card__excerpt">
-        ClipGuru is a small, mobile-first clipboard manager built for iPhone and iPad. It solves a simple problem: when you copy something important on your device, you should be able to save it and find it again. Add clips q...
- <div class="post-card__actions">
-    <a class="button-primary" href="/blog/posts/introducing-clipguru.html" target="_self" rel="noopener">Read article</a>
- </div>
+ <p class="post-card__excerpt">
+     <p class="lead">CodeMenu is a handy snippet manager for macOS - and one of its neat features is the ability to run snippets. Out of the box it runs JavaScript, but it’s flexible: you can teach CodeMenu to run almost any language by pointing it at the right command-line utility or script. This short guide shows two simple examples (Python and C) so you can add languages quickly.
 </article>
-</div>
-<nav class="posts-pagination" role="navigation" aria-label="Blog pagination">
+   <nav class="posts-pagination" role="navigation" aria-label="Blog pagination">
  <ul class="pagination">
-   <li class="pagination-item pagination-item-prev">
-          <a rel="prev" href="/blog/index.html">&laquo; Previous</a>
-   <li class="pagination-item pagination-item-next">
-        <a rel="next" href="/blog/page-3/index.html">Next &raquo;</a>
+   <li class="pagination-item">
+      <a rel="prev" href="/blog/index.html">&larr; Previous Page</a>
+   <li class="pagination-item">
+      <a rel="next" href="/blog/page-3/index.html">Next Page &rarr;</a>
  </ul>
 </nav>
+ </main>
+ <aside class="home-sidebar">
+   <div class="sidebar-section">
+     <h3 class="sidebar-title">Categories</h3>
+     <ul class="sidebar-tags">
+         <li><a href="/blog/tag/app-showcase/index.html">App Showcase</a>
+         <li><a href="/blog/tag/extiri/index.html">extiri</a>
+         <li><a href="/blog/tag/guide/index.html">guide</a>
+         <li><a href="/blog/tag/productivity/index.html">productivity</a>
+         <li><a href="/blog/tag/programming/index.html">programming</a>
+         <li><a href="/blog/tag/snippets/index.html">snippets</a>
+         <li><a href="/blog/tag/tutorial/index.html">tutorial</a>
+     </ul>
+   </div>
+   <div class="sidebar-section">
+     <h3 class="sidebar-title">About the Blog</h3>
+     <p class="sidebar-text">Insights from the Extiri team on software design, cybersecurity, and productivity.
+   </div>
+ </aside>
+</div>
            <footer class="site-footer">
  <div class="site-footer__inner">
-   <div class="site-footer__primary">
-     <h2>Extiri Blog</h2>
-     <p>blog about Extiri, programming and cybersecurity
-   </div>
-   <nav class="site-footer__links" aria-label="Footer navigation">
+   <div class="site-footer__links">
       <a href="/blog/about/index.html">About</a>
       <a href="/blog/archive/index.html">Archive</a>
       <a href="https://extiri.com">Apps</a>
       <a href="/blog/feed.xml">RSS</a>
-   </nav>
+   </div>
    <div class="site-footer__meta">
       <span>Crafted by Wiktor Wójcik</span>
       <span>&copy; 2026 Extiri</span>

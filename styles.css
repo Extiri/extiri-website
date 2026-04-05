@@ -35,6 +35,8 @@
   --color-slowko-rgb: 33, 74, 60;
   --color-spacetrain: #66eeff;
   --color-spacetrain-rgb: 102, 238, 255;
+  --color-resso: #21A9CF;
+  --color-resso-rgb: 33, 169, 207;
 
   /* --- Typography --- */
   --font-sans: 'JetBrains Mono', monospace;
@@ -255,6 +257,30 @@ svg {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+/* Common Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.text-brand-orange {
+  color: var(--brand-primary);
+}
+
+.drop-shadow {
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.12));
 }
 
 a {
@@ -581,6 +607,33 @@ p {
   flex-wrap: wrap;
 }
 
+.hero-resso {
+  background: linear-gradient(135deg, #9FD7FF 0%, #2D9CE1 100%);
+  position: relative;
+  overflow: hidden;
+  color: #050505;
+}
+
+.hero-resso .hero-title, 
+.hero-resso .hero-subtitle {
+  color: #050505;
+}
+
+.hero-resso .badge {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #050505;
+}
+
+.hero-resso .btn-outline {
+  border-color: #050505;
+  color: #050505;
+}
+
+.hero-resso .btn-primary {
+  box-shadow: none;
+}
+
 /* --- App Showcase --- */
 .app-showcase {
   display: grid;
@@ -591,7 +644,7 @@ p {
 /* Featured Apps Grid */
 .featured-apps {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--space-6);
 }
 

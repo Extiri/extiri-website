@@ -6,9 +6,192 @@
 </description>
     <link>https://extiri.com/blog/</link>
     <atom:link href="https://extiri.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 08 Mar 2026 14:52:28 +0100</pubDate>
-    <lastBuildDate>Sun, 08 Mar 2026 14:52:28 +0100</lastBuildDate>
+    <pubDate>Sun, 05 Apr 2026 17:31:12 +0200</pubDate>
+    <lastBuildDate>Sun, 05 Apr 2026 17:31:12 +0200</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
+    
+      <item>
+        <title>How to Read Notes Aloud (Physical, Handwritten, or Digital)</title>
+        <description>&lt;p class=&quot;lead&quot;&gt;
+    Yes, even your handwritten notebook. Here’s how to get any notes — paper, PDF, or digital — read aloud on your iPhone, hands-free.
+&lt;/p&gt;
+
+&lt;p&gt;Most people searching for how to read notes aloud are thinking of one of two scenarios. Either they have digital files they want to listen to while doing something else, or they have physical notes — a notebook, printed handouts, lecture slides on paper — and they want a way to convert those into audio too. Both are very solvable on iPhone, and the best tool for the job handles both without needing to switch between apps.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;reading-physical-and-handwritten-notes-aloud&quot;&gt;Reading physical and handwritten notes aloud&lt;/h2&gt;
+
+&lt;p&gt;If your notes are on paper, the workflow is simple: photograph the page, let the app convert it to text with OCR, then hit play. &lt;a href=&quot;https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870&quot;&gt;Chitneek&lt;/a&gt; has a built-in camera scanner that handles this entire chain in one place. You don’t need a separate scanning app, a cloud upload, or any extra steps.&lt;/p&gt;
+
+&lt;div class=&quot;steps&quot;&gt;
+    &lt;div class=&quot;step&quot;&gt;
+        &lt;div class=&quot;step-num&quot;&gt;1&lt;/div&gt;
+        &lt;div class=&quot;step-body&quot;&gt;
+            &lt;strong&gt;Open Chitneek and tap the scan button&lt;/strong&gt;
+            &lt;p&gt;The built-in scanner opens your camera. Hold it over a page of notes — the app detects edges and captures a clean, deskewed image automatically.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;step&quot;&gt;
+        &lt;div class=&quot;step-num&quot;&gt;2&lt;/div&gt;
+        &lt;div class=&quot;step-body&quot;&gt;
+            &lt;strong&gt;Let OCR convert the page to text&lt;/strong&gt;
+            &lt;p&gt;The app runs optical character recognition on the image. This works well for printed notes and reasonably neat handwriting.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;https://extiri.com/images/czytnik/scanner-feature-screenshot.webp&quot; alt=&quot;Scanner Feature&quot; style=&quot;height: 500px; width: auto; object-fit: contain; margin: 2rem auto; display: block; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);&quot; /&gt;
+  &lt;figcaption&gt;Chitneek&apos;s built-in scanner handles OCR automatically.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;div class=&quot;steps&quot;&gt;
+    &lt;div class=&quot;step&quot;&gt;
+        &lt;div class=&quot;step-num&quot;&gt;3&lt;/div&gt;
+        &lt;div class=&quot;step-body&quot;&gt;
+            &lt;strong&gt;Scan additional pages if needed&lt;/strong&gt;
+            &lt;p&gt;You can scan multiple pages into a single document, so a whole section of a notebook becomes one continuous listening session rather than a pile of separate files.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;step&quot;&gt;
+        &lt;div class=&quot;step-num&quot;&gt;4&lt;/div&gt;
+        &lt;div class=&quot;step-body&quot;&gt;
+            &lt;strong&gt;Tap play&lt;/strong&gt;
+            &lt;p&gt;Chitneek reads the extracted text aloud using Apple’s natural-sounding TTS voices. Adjust the speed, lock your screen, and listen while you do something else.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;callout&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Tip on handwriting quality:&lt;/strong&gt; OCR accuracy depends on how legible the writing is. Print-style handwriting converts well; very cursive or compressed handwriting can produce errors.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;reading-digital-notes-aloud-pdf-epub-and-more&quot;&gt;Reading digital notes aloud (PDF, EPUB, and more)&lt;/h2&gt;
+
+&lt;p&gt;For notes that already exist as files — PDFs exported from Notion, lecture slides saved as PDFs, ebook chapters, Word documents — Chitneek imports and reads them directly, with no scanning needed.&lt;/p&gt;
+
+&lt;p&gt;You can import files from the Files app, share a PDF into Chitneek from any other app using the iOS Share Sheet, or use the in-app browser to download documents directly from the web. Once a file is in your library, it’s available for offline listening any time, with no internet connection required.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-the-playback-experience-looks-like&quot;&gt;What the playback experience looks like&lt;/h3&gt;
+
+&lt;p&gt;Chitneek reads your documents with synchronized text tracking — the current sentence is highlighted as it’s spoken, which helps if you want to follow along visually. Background playback keeps the audio going when you lock your screen or switch apps, so you can commute, walk, or cook without touching your phone again.&lt;/p&gt;
+
+&lt;p&gt;Speed and pitch are both adjustable. Most people doing review listening settle somewhere between 1.2x and 1.5x for comfortable comprehension without mental fatigue.&lt;/p&gt;
+
+&lt;div class=&quot;feature-grid&quot;&gt;
+    &lt;div class=&quot;feature-card&quot;&gt;
+        &lt;span class=&quot;icon&quot;&gt;🌍&lt;/span&gt;
+        &lt;strong&gt;In-app translation&lt;/strong&gt;
+        &lt;p&gt;Translate a PDF into another language before listening — useful for language learners or anyone working with foreign documents.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;feature-card&quot;&gt;
+        &lt;span class=&quot;icon&quot;&gt;👥&lt;/span&gt;
+        &lt;strong&gt;Shared groups&lt;/strong&gt;
+        &lt;p&gt;Create a shared library with classmates or study partners. Everyone can upload documents and listen; individual progress stays private.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;cta-box&quot;&gt;
+    &lt;h2&gt;Try Chitneek free for 7 days&lt;/h2&gt;
+    &lt;p&gt;Scan physical notes, import PDFs, listen offline. Works on iPhone with iOS 16.6 or later.&lt;/p&gt;
+    &lt;a href=&quot;https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870&quot; class=&quot;cta-btn&quot;&gt;Download on the App Store&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;tips-that-actually-improve-how-much-you-retain&quot;&gt;Tips that actually improve how much you retain&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Review material you’ve already seen once&lt;/strong&gt;: Listening is most effective as a second pass, not a first encounter.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Clean up notes briefly before scanning&lt;/strong&gt;: A quick check of OCR results ensures a coherent audio experience.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Stay between 1.2x and 1.5x speed&lt;/strong&gt;: Speed is good, but comprehension is better.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Walk while you listen&lt;/strong&gt;: Light movement has been shown to improve focus and memory recall during auditory learning.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;callout-neutral&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Voice quality matters.&lt;/strong&gt; Go to Settings → Accessibility → Spoken Content → Voices and download an Enhanced or Premium voice for a much more natural-sounding experience.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sun, 05 Apr 2026 00:00:00 +0200</pubDate>
+        <link>https://extiri.com/blog/posts/how-to-read-notes-aloud</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/how-to-read-notes-aloud</guid>
+        
+        <category>productivity</category>
+        
+        <category>chitneek</category>
+        
+        <category>extiri</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>CodeMenu 1.7 makes your snippet library more useful</title>
+        <description>&lt;p&gt;CodeMenu 1.7 is a release about getting more value out of the snippets you already have. Storing code is only half of the job. The harder part is finding the right thing at the right moment, reusing it in a way that fits your current work, and connecting your library to the rest of your workflow. This update pushes that side of the app forward with snippet-aware AI, better automation hooks, iCloud sync, and more integration features across macOS.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;chat-with-your-snippet-library&quot;&gt;Chat with your snippet library&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/img/ai-demo-codemenu.png&quot; alt=&quot;Demo of AI chat in CodeMenu&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;One of the biggest changes in CodeMenu 1.7 is the new snippet-aware AI workflow. In the side window, AI mode can now search through your library while it responds. There is also a dedicated AI view in the Dashboard, so these conversations no longer have to feel like a small side feature tucked away in another panel.&lt;/p&gt;
+
+&lt;p&gt;What makes this useful is not just that there is an AI prompt inside the app. The AI can actively pull snippets into the conversation, keep track of what it is currently using as context, and surface snippets it found during the chat. That turns CodeMenu into something closer to a searchable working memory for your code.&lt;/p&gt;
+
+&lt;p&gt;The practical use cases are easy to imagine. You might remember that you solved a tricky API problem a few months ago, but not what you called the snippet or where you filed it. You can describe the behavior instead of guessing keywords. You can ask the AI to compare two saved approaches before you reuse one. You can start from an old snippet and ask for a refactor, a cleaner version, or an explanation of how it works. You can also use it when you know you have solved something before, but the details are gone from your head.&lt;/p&gt;
+
+&lt;h2 id=&quot;ollama-support-for-integrated-ai&quot;&gt;Ollama support for integrated AI&lt;/h2&gt;
+
+&lt;p&gt;CodeMenu 1.7 also expands the local AI story by adding Ollama as an integrated provider. In settings, local AI is no longer limited to the built-in path. You can choose between the built-in local model and Ollama, point CodeMenu at an Ollama endpoint, pick an installed model, or enter a model manually.&lt;/p&gt;
+
+&lt;p&gt;That matters because local AI setups are not one-size-fits-all. Some people want the simplest built-in experience. Others already run Ollama and want their existing models to do the work. With this release, CodeMenu is more flexible about that choice while keeping the experience inside the app.&lt;/p&gt;
+
+&lt;p&gt;In practice, this means you can keep snippet-aware AI closer to your own machine and your own stack. If you already use Ollama for development work, you do not have to treat CodeMenu as a separate island. If you prefer a specific local model for speed or style, CodeMenu can fit into that setup instead of forcing you into a single path.&lt;/p&gt;
+
+&lt;h2 id=&quot;shortcuts-app-support&quot;&gt;Shortcuts app support&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/img/shortcuts-codemenu.png&quot; alt=&quot;Shortcuts supported by CodeMenu&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;CodeMenu 1.7 now supports the Shortcuts app through App Shortcuts and App Intents for snippets, tags, and groups. That includes actions for creating snippets, searching snippets, listing snippets, creating tags, creating groups, and moving snippets into groups.&lt;/p&gt;
+
+&lt;p&gt;This is an important step because snippet management becomes much more powerful once it can participate in system automation. A snippet manager should not only wait for you to open it. It should also be able to respond to the way you already work on macOS.&lt;/p&gt;
+
+&lt;p&gt;There are a lot of practical directions this can go. You can capture a snippet from a Shortcut built around selected text, browser content, or clipboard data. You can create voice-driven or menu bar flows for organizing your library. You can build personal automations that drop incoming material into the right group or tag structure. For people who like connecting apps together, CodeMenu is now a much better citizen of the broader macOS workflow.&lt;/p&gt;
+
+&lt;h2 id=&quot;icloud-synchronization&quot;&gt;iCloud synchronization&lt;/h2&gt;
+
+&lt;p&gt;Another major addition in 1.7 is iCloud synchronization. CodeMenu now includes iCloud-based sync infrastructure.&lt;/p&gt;
+
+&lt;p&gt;This is the kind of feature that disappears when it works well, which is usually a good sign. If you use CodeMenu on more than one Mac, the value is immediate. Your snippets and related library data are no longer tied to one machine and one local state. You can move from a work Mac to a personal Mac, or from a desktop setup to a laptop, without treating export and import as part of the routine.&lt;/p&gt;
+
+&lt;p&gt;For a tool that is meant to act like an external memory, that matters a lot. The less friction there is between your machines, the easier it is to trust the library as the place where things live.&lt;/p&gt;
+
+&lt;h2 id=&quot;better-http-server-integrations&quot;&gt;Better HTTP server integrations&lt;/h2&gt;
+
+&lt;p&gt;CodeMenu 1.7 also improves the built-in HTTP server with new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1/snippet&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;POST /v1/snippet&lt;/code&gt; endpoints. That sounds small on paper, but it makes integrations much more practical when another tool only needs to work with one specific snippet at a time or wants to create a new one directly.&lt;/p&gt;
+
+&lt;p&gt;The value here is simplicity. Companion tools, editor helpers, and lightweight scripts usually do not want to pull an entire list and filter it themselves when all they need is one result. They also benefit from being able to create a snippet in a single request when something useful appears elsewhere in your workflow.&lt;/p&gt;
+
+&lt;p&gt;That opens up cleaner ways to wire CodeMenu into other developer tools. A helper can fetch one exact snippet by ID. A script can create a new snippet from generated output, captured text, or another app’s result. The HTTP server becomes a little more composable, which usually means it becomes a lot more usable.&lt;/p&gt;
+
+&lt;h2 id=&quot;smaller-improvements&quot;&gt;Smaller improvements&lt;/h2&gt;
+
+&lt;p&gt;There are a few smaller changes worth mentioning too. Deleting a parent group now removes its subgroups as well, which makes nested organization behave much more predictably. The preferences window resizing behavior has been cleaned up so it stays anchored more naturally. The side window header has also received polish for light mode, which helps one of CodeMenu’s most frequently used surfaces feel more consistent.&lt;/p&gt;
+
+&lt;p&gt;This release also continues the move away from the older utilities window. That part of the app is being deprecated and is no longer where the product direction is headed. The emphasis is now much more clearly on the main snippet workflows, integrated AI, automation, and the surfaces people use every day.&lt;/p&gt;
+
+&lt;p&gt;CodeMenu 1.7 is a focused release, but it moves the app in an important direction. If you already have a library of snippets inside CodeMenu, this is a good time to revisit it. The app is getting better at helping you search it, talk to it, automate around it, and carry it with you across the rest of your setup.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 05 Apr 2026 00:00:00 +0200</pubDate>
+        <link>https://extiri.com/blog/posts/codemenu-1-7-release</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/codemenu-1-7-release</guid>
+        
+        <category>codemenu</category>
+        
+        <category>extiri</category>
+        
+        
+      </item>
     
       <item>
         <title>Building an Image Compressor with the Discrete Fourier Transform</title>
@@ -1484,358 +1667,6 @@ rm /var/tmp/compiled_app
         <category>extiri</category>
         
         <category>codemenu-guide</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Ranking of The Best Snippet Managers for Mac 2025</title>
-        <description>&lt;p class=&quot;lead&quot;&gt;As developers, we all face the same problem: brilliant ideas scattered across chat logs, forgotten code experiments buried in old projects, and that perfect solution you swear you wrote last month but can’t find anywhere. Your code snippets deserve better than living in chaos.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;p&gt;The Mac ecosystem offers several solid snippet managers, each with its own philosophy. Let’s look at what’s out there and help you find the right fit for your workflow.&lt;/p&gt;
-
-&lt;h2 id=&quot;the-contenders&quot;&gt;The Contenders&lt;/h2&gt;
-
-&lt;h3 id=&quot;codemenu-your-augmented-memory&quot;&gt;CodeMenu: Your Augmented Memory&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/assets/codemenu-screenshot.png&quot; alt=&quot;CodeMenu Interface&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;CodeMenu is a standout in this space — more than a snippet manager, it’s a local-first personal knowledge system that blends code, visual references, and on-device intelligence into a single, extensible workspace.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Why it matters:&lt;/strong&gt; CodeMenu doesn’t just store snippets; it remembers context. Store color palettes, design notes, AI prompts, screenshots, research, and visual references alongside code. Everything gets rich descriptions with Markdown, LaTeX, images, and diagrams, and on-device AI (generation, chat, semantic search) helps you find and adapt content without sending data off your machine.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Where it shines:&lt;/strong&gt; With parameterized templates, JavaScript automation, an HTTP API, and built-in utilities (converters, mock data, RegEx tester), CodeMenu reduces context switching and scales from a single-user sandbox to team workflows via optional sync and the Snippets Store.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Best for:&lt;/strong&gt; Professionals who want a single, private, and extensible place for code, design, and research — a tool that helps you remember, adapt, and ship faster.&lt;/p&gt;
-
-&lt;h3 id=&quot;snippetslab-the-traditional-choice&quot;&gt;SnippetsLab: The Traditional Choice&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://www.renfei.org/snippets-lab/images/Landing/hero2.webp&quot; alt=&quot;SnippetsLab Interface&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;SnippetsLab has been around since 2015 and became completely free in November 2024. It’s a polished, Mac-native snippet manager that does one thing well: organizing code snippets.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;What it gets right:&lt;/strong&gt; The interface is clean and developer-focused. With support for over 580 languages, multi-level folders, tags, and smart groups, it offers solid organizational tools. The menubar assistant gives you quick access without opening the main window, and iCloud sync works reliably across Macs. The Markdown support is comprehensive, including Mermaid diagrams and LaTeX formulas.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Where it’s limited:&lt;/strong&gt; SnippetsLab is strictly a snippet organizer - nothing more. There’s no iOS version, no AI features, no automation beyond basic organization. If you need parameterized templates or want to inject dynamic data into your snippets, you’ll need to look elsewhere. It’s Mac-only, and while the GitHub Gist integration exists, it’s one-way for exports.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Best for:&lt;/strong&gt; Developers who want a straightforward, free snippet library without bells and whistles.&lt;/p&gt;
-
-&lt;h3 id=&quot;snippety-the-text-expansion-specialist&quot;&gt;Snippety: The Text Expansion Specialist&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://snippety.app/images/app-main-screen-new.png&quot; alt=&quot;Snippety App&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Snippety ($24.99 one-time purchase) positions itself as a productivity tool with a focus on text expansion and automation across macOS, iOS, and iPadOS.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;What it gets right:&lt;/strong&gt; The snippet expander feature is excellent - type your keyword and your snippet appears instantly without opening the app. It supports 50+ languages with syntax highlighting, nearly 250 themes, and includes 19 smart placeholders for dynamic content like dates, AI-assisted text (via OpenAI API or custom providers), and command-line scripts. The iOS and iPadOS companion app with a custom keyboard is genuinely useful, and iCloud sync keeps everything synchronized across Apple devices.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Where it’s limited:&lt;/strong&gt; While Snippety excels at text expansion and has AI integration through OpenAI’s API, it’s primarily designed for rapid text insertion rather than building a comprehensive knowledge base. The organizational structure is simpler compared to dedicated snippet managers. It’s also Apple-exclusive - no Windows or Linux support if you work across platforms.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Best for:&lt;/strong&gt; Apple users who want fast text expansion with cross-device access and don’t mind a one-time purchase.&lt;/p&gt;
-
-&lt;h3 id=&quot;snipperapp-2-the-github-gist-integration-champion&quot;&gt;SnipperApp 2: The GitHub Gist Integration Champion&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://snipperapp.com/static/add34ebf75c8b45d46ca17d2d94df70f/337b1/app-v211-light.webp&quot; alt=&quot;SnipperApp 2 Interface&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;SnipperApp 2 (free with subscription options) is a native Swift-based snippet manager designed specifically for developers who live in the GitHub ecosystem.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;What it gets right:&lt;/strong&gt; Full GitHub Gist integration is the standout feature - sync, edit, and manage your gists directly from the app. With 120+ programming languages supported, the editor includes all the essentials: syntax highlighting, line numbers, invisible character display, and tab size customization. It supports multiple storage options (local, iCloud, GitHub), works offline-first, and includes Markdown preview mode. The ability to share snippets via secret links is handy for quick collaboration. Image attachments, tags, folders with drag-and-drop, and backup/restore functionality round out a solid feature set.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Where it’s limited:&lt;/strong&gt; It’s Mac-only with no iOS companion app. The subscription model ($3.99 monthly, $19.99 annual, or $39.99 lifetime) may not appeal to everyone, especially with free alternatives available. While feature-rich for code management, it lacks advanced automation, AI features, or dynamic templates. The interface, while functional, is more utilitarian than modern.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Best for:&lt;/strong&gt; Developers heavily invested in GitHub Gist who want a dedicated Mac app for managing their gists with proper organization and offline support.&lt;/p&gt;
-
-&lt;h3 id=&quot;masscode-the-open-source-alternative&quot;&gt;massCode: The Open-Source Alternative&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://masscode.io/preview.png&quot; alt=&quot;massCode Interface&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;massCode is completely free and open-source, built with Electron, Vue, and CodeMirror for cross-platform compatibility.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;What it gets right:&lt;/strong&gt; It’s free, period. Multi-level folders, tags, and fragments (tabs within snippets) provide decent organization. CodeMirror powers the editor with support for 160+ grammars out of the box (600+ available through .tmLanguage files). The HTML/CSS preview feature is handy for front-end work, Markdown support includes Mermaid diagrams, and there’s even a presentation mode for turning snippets into slideshows. It works on Windows, Linux, and macOS, and being open-source means community contributions drive development.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Where it’s limited:&lt;/strong&gt; No built-in sync - you’ll need to manually set up a cloud folder if you want cross-device access. The Electron foundation means it’s heavier on system resources than native apps. While feature-rich, the interface can feel less polished than commercial alternatives. AI features and advanced automation are absent, and being community-driven means feature development can be unpredictable.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Best for:&lt;/strong&gt; Developers who value open-source software and need cross-platform support without spending money.&lt;/p&gt;
-
-&lt;h3 id=&quot;clipguru-the-lightweight-mobile-first-choice&quot;&gt;ClipGuru: The Lightweight Mobile-First Choice&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/assets/clipguru-screenshots/main-screen-screenshot.png&quot; alt=&quot;ClipGuru Interface&quot; height=&quot;900&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;ClipGuru is a lightweight clipboard manager that works seamlessly across iOS, iPadOS, and macOS, designed for quick capture and easy retrieval.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;What it gets right:&lt;/strong&gt; The interface is beautifully simple and native to Apple platforms. Save text, links, and images with one tap, and the smart search makes finding anything instant. The custom keyboard extension lets you access your clips from any app without switching contexts - perfect for rapid workflows. The share extension works from Safari and other apps, making it effortless to collect research, quotes, and URLs. With support for Apple Vision Pro and requiring only iOS 17.6+, it’s built for modern Apple devices.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Where it’s limited:&lt;/strong&gt; ClipGuru is intentionally lightweight, which means it lacks advanced features like syntax highlighting for code, dynamic templates, or automation. The free version saves only 4 clips (unlimited with Pro upgrade for ~$1.25). There’s no AI features, no parameterized templates, and no advanced organizational structures beyond tags. It’s Apple ecosystem only - no Windows or Linux support.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Best for:&lt;/strong&gt; Apple users who want a simple, fast, mobile-friendly clipboard manager that syncs across devices without complexity. Ideal for non-developers or those who prioritize simplicity over power features.&lt;/p&gt;
-
-&lt;h2 id=&quot;feature-comparison&quot;&gt;Feature Comparison&lt;/h2&gt;
-
-&lt;p&gt;Here’s how these tools stack up across key capabilities:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Feature&lt;/th&gt;
-      &lt;th&gt;CodeMenu&lt;/th&gt;
-      &lt;th&gt;ClipGuru&lt;/th&gt;
-      &lt;th&gt;SnippetsLab&lt;/th&gt;
-      &lt;th&gt;Snippety&lt;/th&gt;
-      &lt;th&gt;SnipperApp 2&lt;/th&gt;
-      &lt;th&gt;massCode&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Syntax Highlighting&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;60+ languages&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;580+ languages&lt;/td&gt;
-      &lt;td&gt;50+ languages&lt;/td&gt;
-      &lt;td&gt;120+ languages&lt;/td&gt;
-      &lt;td&gt;160+ (600+ available)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Cross-Platform&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Mac only&lt;/td&gt;
-      &lt;td&gt;macOS, iOS, iPadOS, Vision&lt;/td&gt;
-      &lt;td&gt;Mac only&lt;/td&gt;
-      &lt;td&gt;macOS, iOS, iPadOS&lt;/td&gt;
-      &lt;td&gt;Mac only&lt;/td&gt;
-      &lt;td&gt;Mac, Windows, Linux&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;AI&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;✓ (on-device: generation, chat, search)&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✓ (OpenAI/Ollama API)&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Dynamic Templates&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;✓ (parameterized)&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✓ (19 placeholders)&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Visual Content&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;✓ (images, colors, screenshots)&lt;/td&gt;
-      &lt;td&gt;✓ (images, links)&lt;/td&gt;
-      &lt;td&gt;✓ (images, files)&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✓ (images)&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Offline-First&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;✓ (fully local)&lt;/td&gt;
-      &lt;td&gt;✓ (optional iCloud)&lt;/td&gt;
-      &lt;td&gt;✓ (optional iCloud)&lt;/td&gt;
-      &lt;td&gt;✓ (iCloud sync)&lt;/td&gt;
-      &lt;td&gt;✓ (offline-first)&lt;/td&gt;
-      &lt;td&gt;✓ (no built-in sync)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Text Expansion&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;✓ (abbreviations)&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✓ (menubar)&lt;/td&gt;
-      &lt;td&gt;✓ (primary feature)&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Built-in Utilities&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;✓ (editors, converters, RegEx)&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✓ (HTML preview, slides)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;GitHub Integration&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✓ (Gist export)&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✓ (full Gist sync)&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Keyboard Extension&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✓&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✓&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Share Extension&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✓&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Automation&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;✓ (JS + HTTP server)&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✓ (scripts)&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Collaboration&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;✓ (sync + Store)&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✓ (iCloud)&lt;/td&gt;
-      &lt;td&gt;✓ (secret links)&lt;/td&gt;
-      &lt;td&gt;Manual sharing&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Markdown + LaTeX&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;✓&lt;/td&gt;
-      &lt;td&gt;✗&lt;/td&gt;
-      &lt;td&gt;✓ (+ Mermaid)&lt;/td&gt;
-      &lt;td&gt;✓&lt;/td&gt;
-      &lt;td&gt;✓ (preview)&lt;/td&gt;
-      &lt;td&gt;✓ (+ Mermaid)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Pricing&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;$29.99 one-time / $3.99 monthly (7-day free trial)&lt;/td&gt;
-      &lt;td&gt;Free (4 clips) / ~$1.25 Pro&lt;/td&gt;
-      &lt;td&gt;Free&lt;/td&gt;
-      &lt;td&gt;$24.99 one-time&lt;/td&gt;
-      &lt;td&gt;Free / $3.99 monthly / $19.99 annual / $39.99 lifetime&lt;/td&gt;
-      &lt;td&gt;Free (open-source)&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Pricing for United States (ClipGuru Pro in PLN ≈ $1.25 USD)&lt;/p&gt;
-
-&lt;h2 id=&quot;the-bottom-line&quot;&gt;The Bottom Line&lt;/h2&gt;
-
-&lt;p&gt;Choosing a snippet manager depends on what you actually need:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;CodeMenu&lt;/strong&gt; if you want an intelligent, extensible personal knowledge system that handles everything from code to design to research&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;ClipGuru&lt;/strong&gt; if you want a simple, mobile-first clipboard manager that works beautifully across Apple devices&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;SnippetsLab&lt;/strong&gt; if you want a free, focused code snippet organizer with no frills&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Snippety&lt;/strong&gt; if text expansion speed across Apple devices is your priority&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;SnipperApp 2&lt;/strong&gt; if you live in GitHub Gists and want native Mac management with offline support&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;massCode&lt;/strong&gt; if you need free, open-source, cross-platform compatibility&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The best snippet manager isn’t about feature checklists - it’s about matching your workflow. Traditional snippet managers organize what you’ve saved. ClipGuru keeps your clipboard accessible across devices. SnipperApp bridges your local work with GitHub. CodeMenu becomes the thinking partner that helps you remember, discover, and ship better work.&lt;/p&gt;
-
-&lt;p&gt;Your ideas deserve a home that works as hard as you do.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;em&gt;Ready to try our apps?&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;ClipGuru&lt;/strong&gt;: Available on the &lt;a href=&quot;https://apps.apple.com/pl/app/clipguru/id6753787446&quot;&gt;App Store&lt;/a&gt; for iOS, iPadOS, and macOS. Free with optional Pro upgrade. Learn more about our &lt;a href=&quot;/clipguru.html&quot;&gt;clipboard manager for iOS&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;CodeMenu&lt;/strong&gt;: Available on the &lt;a href=&quot;https://apps.apple.com/us/app/codemenu-snippet-manager/id1583463781?mt=12&quot;&gt;Mac App Store&lt;/a&gt; with a 7-day free trial, or purchase a one-time license. Learn more about our &lt;a href=&quot;/codemenu.html&quot;&gt;snippet manager for macOS&lt;/a&gt;.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 26 Oct 2025 00:00:00 +0200</pubDate>
-        <link>https://extiri.com/blog/posts/the-best-snippet-manager</link>
-        <guid isPermaLink="true">https://extiri.com/blog/posts/the-best-snippet-manager</guid>
-        
-        <category>extiri</category>
-        
-        <category>app-showcase</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Introducing ClipGuru — a lightweight clipboard manager</title>
-        <description>&lt;p class=&quot;lead&quot;&gt;ClipGuru is a small, mobile-first clipboard manager built for iPhone and iPad. It solves a simple problem: when you copy something important on your device, you should be able to save it and find it again. Add clips quickly by tapping Paste inside the app or by typing a new clip — saved items are then easy to search and reuse. The macOS app complements the mobile experience for when you’re on a desktop.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;p&gt;We’ve all been there — on your phone or tablet you copy a quick link or quote, then later it’s gone because you copied something else. ClipGuru gives you a simple place to save those items: tap Paste in the app (or enter the content) to add it to your ClipGuru history. Once saved, clips are searchable and ready to reuse across your devices.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/assets/clipguru-screenshots/main-screen-screenshot.png&quot; alt=&quot;Main screen&quot; height=&quot;900&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;who-is-clipguru-for&quot;&gt;Who is ClipGuru for?&lt;/h3&gt;
-
-&lt;p&gt;ClipGuru is for anyone who copies things a lot: writers, developers, designers, students, researchers, and people who simply like to keep small pieces of information handy.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Researching an article: copy quotes, links, facts, and find them later without opening dozens of tabs.&lt;/li&gt;
-  &lt;li&gt;Design work: copy screenshots or small assets to reuse in presentations and mockups.&lt;/li&gt;
-  &lt;li&gt;Multi-device workflow: copy on iPad, paste on Mac, continue your work uninterrupted.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;what-makes-clipguru-different&quot;&gt;What makes ClipGuru different?&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/assets/clipguru-screenshots/keyboard-in-messages-screenshot.png&quot; alt=&quot;Keyboard in messages&quot; height=&quot;900&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Lightweight and focused: it does one job well — store and retrieve clipboard items.&lt;/li&gt;
-  &lt;li&gt;Fast search: find past clips by keyword in seconds.&lt;/li&gt;
-  &lt;li&gt;Multi-device friendly: saved clips sync across your devices via iCloud — add a clip on your iPhone or iPad and it will appear on your other devices (macOS included) shortly after.&lt;/li&gt;
-  &lt;li&gt;Special keyboard: thanks to a custom keyboard you can access snippets anywhere you need.&lt;/li&gt;
-  &lt;li&gt;Quick review: review your snippets and decide whether you want to keep or delete them without distractions&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;find-snippets-quicker&quot;&gt;Find snippets quicker&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/assets/clipguru-screenshots/semantic-search-screenshot.png&quot; alt=&quot;Semantic search&quot; height=&quot;900&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Ever copied five different things in a row and needed the third one? ClipGuru helps you avoid clipboard roulette: paste items into the app as you go, then search by keyword to find them instantly. Results are fast and support simple filters so you can narrow results quickly.&lt;/p&gt;
-
-&lt;h3 id=&quot;keep-your-favorites-close&quot;&gt;Keep your favorites close&lt;/h3&gt;
-
-&lt;p&gt;Some clips matter more than others — a signature line, a frequently shared link, or a small image you reuse. Pin those items to keep them at the top of your list so they’re one tap away when you need them.&lt;/p&gt;
-
-&lt;h3 id=&quot;lightweight-by-design&quot;&gt;Lightweight by design&lt;/h3&gt;
-
-&lt;p&gt;ClipGuru intentionally avoids feature bloat. No complex tagging systems or heavy UIs — just a clean history, favorites, and fast search. It’s designed to help without getting in the way.&lt;/p&gt;
-
-&lt;h3 id=&quot;room-to-grow&quot;&gt;Room to grow&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/assets/clipguru-screenshots/review-screenshot.png&quot; alt=&quot;Review&quot; height=&quot;900&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The initial release focuses on the essentials. We’ll add features based on feedback, but the core promise remains: a small, reliable place to save and find the clips you care about.&lt;/p&gt;
-
-&lt;p&gt;ClipGuru offers a simple, no-fuss approach to clipboard management. If you often copy things and want a reliable way to save and reuse them across devices, ClipGuru is built for that. Try it on your phone or tablet and see how it fits into your workflow.&lt;/p&gt;
-
-&lt;p&gt;We’re keeping the initial release simple and iterating based on feedback. If you have ideas or workflows you’d love ClipGuru to support, tell us — we’re listening.&lt;/p&gt;
-
-&lt;p&gt;ClipGuru is available on iPhone, iPad, and Mac. Try it and let your clipboard finally work for you.&lt;/p&gt;
-
-&lt;p&gt;For now, give it a try on your phone or tablet — see how it fits into your mobile workflow and let your clips work for you. ClipGuru stores &lt;strong&gt;text&lt;/strong&gt;, &lt;strong&gt;links&lt;/strong&gt;, and &lt;strong&gt;images&lt;/strong&gt; that you add. Paste into the app (tap Paste) on iPhone or iPad to add a clip; saved clips sync via iCloud and will be available on your other devices, including the macOS companion app.&lt;/p&gt;
-
-&lt;p&gt;Because honestly, we’ve all got better things to do than hunt for that thing we copied five minutes ago.&lt;/p&gt;
-
-&lt;h3 id=&quot;lets-get-started&quot;&gt;Lets get started&lt;/h3&gt;
-
-&lt;p&gt;Download ClipGuru from the &lt;a href=&quot;https://apps.apple.com/pl/app/clipguru/id6753787446&quot;&gt;App Store&lt;/a&gt;. The app is mobile-first (iPhone and iPad) but it’s also available on macOS. Learn more &lt;a href=&quot;https://extiri.com/clipguru.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-</description>
-        <pubDate>Sat, 18 Oct 2025 00:00:00 +0200</pubDate>
-        <link>https://extiri.com/blog/posts/introducing-clipguru</link>
-        <guid isPermaLink="true">https://extiri.com/blog/posts/introducing-clipguru</guid>
-        
-        <category>extiri</category>
-        
-        <category>app-showcase</category>
         
         
       </item>

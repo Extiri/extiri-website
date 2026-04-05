@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<title>CodeMenu 1.7 makes your snippet library more useful &#9642; Extiri Blog</title>
+<!--
+<meta name="description" content="CodeMenu 1.7 is a release about getting more value out of the snippets you already have. Storing code is only half of the job. The harder part is finding the right thing at the right moment, reusing it in a way that fits your current work, and connecting your library...">
+-->
+<meta name="description" content="blog about Extiri, programming and cybersecurity
+">
+<meta name="keywords" content="codemenu, extiri">
+<link rel="canonical" href="https://extiri.com/posts/codemenu-1-7-release">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="CodeMenu 1.7 makes your snippet library more useful" />
+<meta name="twitter:description" content="blog about Extiri, programming and cybersecurity
+" />
+<meta name="twitter:image" content="https://extiri.com" />
+<meta name="author" content="">
+<link rel="author" href="">
+<meta property="og:locale" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CodeMenu 1.7 makes your snippet library more useful">
+<meta property="og:description" content="blog about Extiri, programming and cybersecurity
+">
+<meta property="og:url" content="https://extiri.com/posts/codemenu-1-7-release">
+<meta property="og:site_name" content="Extiri Blog">
+<link rel="stylesheet" href="/blog/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="/blog/assets/css/main.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/assets/css/bf.css">
+   <body>
+       <div class="wrapper" id="blep">
+          <header class="site-header">
+ <div class="site-header__inner">
+   <div class="site-header__breadcrumbs">
+        <a href="https://extiri.com">Extiri</a>
+        <span>/</span>
+        <a href="https://extiri.com/blog/index.html">Blog</a>
+        <span>/</span>
+        <span>CodeMenu 1.7 makes your sni...</span>
+   </div>
+   <nav class="site-header__nav">
+        <a href="/blog/about/index.html">About</a>
+        <a href="/blog/archive/index.html">Archive</a>
+        <a href="https://extiri.com">Apps</a>
+   </nav>
+ </div>
+</header>
+<div id="cookie-consent-banner" class="cookie-consent-banner" aria-live="polite" hidden>
+ <div class="cookie-consent-content">
+   <p>We use cookies and analytics to improve this site. You can accept or decline analytics tracking. Read our <a href="/blog/privacy_policy.html">Privacy Policy</a>.
+   <div class="cookie-consent-buttons">
+      <button id="consent-accept" class="button-primary">Accept</button>
+      <button id="consent-decline" class="button-secondary">Decline</button>
+   </div>
+ </div>
+</div>
+<article class="post">
+<header class="post-hero">
+   <div class="tag">codemenu</div>
+   <h1 class="post-hero__title">CodeMenu 1.7 makes your snippet library more useful</h1>
+   <div class="byline">
+      <span>Wiktor Wójcik</span>
+        <span>6 min read</span>
+      <span>April 5, 2026</span>
+   </div>
+ </header>
+ <div class="post-content article-body">
+   <p>CodeMenu 1.7 is a release about getting more value out of the snippets you already have. Storing code is only half of the job. The harder part is finding the right thing at the right moment, reusing it in a way that fits your current work, and connecting your library to the rest of your workflow. This update pushes that side of the app forward with snippet-aware AI, better automation hooks, iCloud sync, and more integration features across macOS.
+<h2 id="chat-with-your-snippet-library">Chat with your snippet library</h2>
+<p><img src="/blog/assets/img/ai-demo-codemenu.png" alt="Demo of AI chat in CodeMenu" />
+<p>One of the biggest changes in CodeMenu 1.7 is the new snippet-aware AI workflow. In the side window, AI mode can now search through your library while it responds. There is also a dedicated AI view in the Dashboard, so these conversations no longer have to feel like a small side feature tucked away in another panel.
+<p>What makes this useful is not just that there is an AI prompt inside the app. The AI can actively pull snippets into the conversation, keep track of what it is currently using as context, and surface snippets it found during the chat. That turns CodeMenu into something closer to a searchable working memory for your code.
+<p>The practical use cases are easy to imagine. You might remember that you solved a tricky API problem a few months ago, but not what you called the snippet or where you filed it. You can describe the behavior instead of guessing keywords. You can ask the AI to compare two saved approaches before you reuse one. You can start from an old snippet and ask for a refactor, a cleaner version, or an explanation of how it works. You can also use it when you know you have solved something before, but the details are gone from your head.
+<h2 id="ollama-support-for-integrated-ai">Ollama support for integrated AI</h2>
+<p>CodeMenu 1.7 also expands the local AI story by adding Ollama as an integrated provider. In settings, local AI is no longer limited to the built-in path. You can choose between the built-in local model and Ollama, point CodeMenu at an Ollama endpoint, pick an installed model, or enter a model manually.
+<p>That matters because local AI setups are not one-size-fits-all. Some people want the simplest built-in experience. Others already run Ollama and want their existing models to do the work. With this release, CodeMenu is more flexible about that choice while keeping the experience inside the app.
+<p>In practice, this means you can keep snippet-aware AI closer to your own machine and your own stack. If you already use Ollama for development work, you do not have to treat CodeMenu as a separate island. If you prefer a specific local model for speed or style, CodeMenu can fit into that setup instead of forcing you into a single path.
+<h2 id="shortcuts-app-support">Shortcuts app support</h2>
+<p><img src="/blog/assets/img/shortcuts-codemenu.png" alt="Shortcuts supported by CodeMenu" />
+<p>CodeMenu 1.7 now supports the Shortcuts app through App Shortcuts and App Intents for snippets, tags, and groups. That includes actions for creating snippets, searching snippets, listing snippets, creating tags, creating groups, and moving snippets into groups.
+<p>This is an important step because snippet management becomes much more powerful once it can participate in system automation. A snippet manager should not only wait for you to open it. It should also be able to respond to the way you already work on macOS.
+<p>There are a lot of practical directions this can go. You can capture a snippet from a Shortcut built around selected text, browser content, or clipboard data. You can create voice-driven or menu bar flows for organizing your library. You can build personal automations that drop incoming material into the right group or tag structure. For people who like connecting apps together, CodeMenu is now a much better citizen of the broader macOS workflow.
+<h2 id="icloud-synchronization">iCloud synchronization</h2>
+<p>Another major addition in 1.7 is iCloud synchronization. CodeMenu now includes iCloud-based sync infrastructure.
+<p>This is the kind of feature that disappears when it works well, which is usually a good sign. If you use CodeMenu on more than one Mac, the value is immediate. Your snippets and related library data are no longer tied to one machine and one local state. You can move from a work Mac to a personal Mac, or from a desktop setup to a laptop, without treating export and import as part of the routine.
+<p>For a tool that is meant to act like an external memory, that matters a lot. The less friction there is between your machines, the easier it is to trust the library as the place where things live.
+<h2 id="better-http-server-integrations">Better HTTP server integrations</h2>
+<p>CodeMenu 1.7 also improves the built-in HTTP server with new <code class="language-plaintext highlighter-rouge">GET /v1/snippet</code> and <code class="language-plaintext highlighter-rouge">POST /v1/snippet</code> endpoints. That sounds small on paper, but it makes integrations much more practical when another tool only needs to work with one specific snippet at a time or wants to create a new one directly.
+<p>The value here is simplicity. Companion tools, editor helpers, and lightweight scripts usually do not want to pull an entire list and filter it themselves when all they need is one result. They also benefit from being able to create a snippet in a single request when something useful appears elsewhere in your workflow.
+<p>That opens up cleaner ways to wire CodeMenu into other developer tools. A helper can fetch one exact snippet by ID. A script can create a new snippet from generated output, captured text, or another app’s result. The HTTP server becomes a little more composable, which usually means it becomes a lot more usable.
+<h2 id="smaller-improvements">Smaller improvements</h2>
+<p>There are a few smaller changes worth mentioning too. Deleting a parent group now removes its subgroups as well, which makes nested organization behave much more predictably. The preferences window resizing behavior has been cleaned up so it stays anchored more naturally. The side window header has also received polish for light mode, which helps one of CodeMenu’s most frequently used surfaces feel more consistent.
+<p>This release also continues the move away from the older utilities window. That part of the app is being deprecated and is no longer where the product direction is headed. The emphasis is now much more clearly on the main snippet workflows, integrated AI, automation, and the surfaces people use every day.
+<p>CodeMenu 1.7 is a focused release, but it moves the app in an important direction. If you already have a library of snippets inside CodeMenu, this is a good time to revisit it. The app is getting better at helping you search it, talk to it, automate around it, and carry it with you across the rest of your setup.
+ </div>
+</article>
+<aside class="related">
+<h2>Related posts</h2>
+<ul class="related-posts">
+   <li>
+    <a href="/blog/posts/codemenu-as-a-filesystem-ai-agent.html">
+        <span>CodeMenu as a File System for Your AI Agents</span>
+        <small>16/01</small>
+    </a>
+</aside>
+           <footer class="site-footer">
+ <div class="site-footer__inner">
+   <div class="site-footer__links">
+      <a href="/blog/about/index.html">About</a>
+      <a href="/blog/archive/index.html">Archive</a>
+      <a href="https://extiri.com">Apps</a>
+      <a href="/blog/feed.xml">RSS</a>
+   </div>
+   <div class="site-footer__meta">
+      <span>Crafted by Wiktor Wójcik</span>
+      <span>&copy; 2026 Extiri</span>
+   </div>
+ </div>
+</footer>
+       </div>
+<script type="text/javascript" src="/blog/assets/js/nav.js"></script>
+<script type="text/javascript" src="/blog/assets/js/theme.js"></script>
+<script type="text/javascript" src="/blog/assets/js/barefoot.js"></script>
+<script type="text/javascript" src="/blog/assets/js/consent.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    // Default to denied until the user accepts
+    gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    gtag('js', new Date());
+    gtag('config', 'G-HLY6ZZMNBQ', { 'anonymize_ip': true });
+    // Listen for our custom consent event to enable analytics
+    window.addEventListener('extiri:consent', function (e) {
+      if (e && e.detail && e.detail.analytics) {
+        // Grant analytics consent
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      } else {
+        // Revoke analytics consent
+        gtag('consent', 'update', { 'analytics_storage': 'denied' });
+      }
+    });
+  </script>
+    

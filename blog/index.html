@@ -25,64 +25,23 @@
 <meta property="og:site_name" content="Extiri Blog">
 <link rel="stylesheet" href="/blog/assets/vendor/normalize-css/normalize.css">
 <link rel="stylesheet" href="/blog/assets/css/main.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/blog/assets/css/bf.css">
    <body>
        <div class="wrapper" id="blep">
           <header class="site-header">
  <div class="site-header__inner">
-    <a class="site-header__brand" href="/blog/index.html">
-      <span class="site-header__logo">
-        <object type="image/svg+xml" data="/blog/assets/img/guy.svg" class="logosvg">Your browser does not support svg images</object>
-      </span>
-      <span class="site-header__title">Extiri Blog</span>
-    </a>
-    <button
-      class="site-nav__toggle"
-      type="button"
-      aria-label="Toggle navigation"
-      aria-expanded="false"
-      aria-controls="site-nav"
-      data-nav-toggle
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-   <nav class="site-nav" id="site-nav" data-site-nav>
-     <ul class="site-nav__list">
-       <li><a href="/blog/about/index.html">About</a>
-       <li><a href="/blog/archive/index.html">Archive</a>
-       <li><a href="https://extiri.com">Apps</a>
-     </ul>
-     <div class="site-nav__secondary">
-       <ul class="site-nav__social">
-         <li>
-            <a href="https://youtube.com/@wiktorwojcik3678" target="_blank" rel="noopener">
-              <span class="icon-youtube"></span>
-              <span class="sr-only">YouTube</span>
-            </a>
-         <li>
-            <a href="https://twitter.com/WiktorW2" target="_blank" rel="noopener">
-              <span class="icon-twitter"></span>
-              <span class="sr-only">Twitter</span>
-            </a>
-         <li>
-            <a href="https://github.com/Extiri" target="_blank" rel="noopener">
-              <span class="icon-github"></span>
-              <span class="sr-only">GitHub</span>
-            </a>
-         <li>
-            <a href="mailto:wiktor.wojcik@extiri.com">
-              <span class="icon-mail_outline"></span>
-              <span class="sr-only">Email</span>
-            </a>
-         <li>
-            <a href="/blog/feed.xml">
-              <span class="icon-rss_feed"></span>
-              <span class="sr-only">RSS feed</span>
-            </a>
-       </ul>
-     </div>
+   <div class="site-header__breadcrumbs">
+        <a href="https://extiri.com">Extiri</a>
+        <span>/</span>
+        <a href="https://extiri.com/blog/index.html">Blog</a>
+   </div>
+   <nav class="site-header__nav">
+        <a href="/blog/about/index.html">About</a>
+        <a href="/blog/archive/index.html">Archive</a>
+        <a href="https://extiri.com">Apps</a>
    </nav>
  </div>
 </header>
@@ -95,118 +54,112 @@
    </div>
  </div>
 </div>
-           <section class="page-hero">
- <p class="page-hero__eyebrow">Extiri Blog
- <h1 class="page-hero__title">Purposeful notes from the studio</h1>
- <p class="page-hero__subtitle">
+           <section class="home-hero">
+ <div class="tag">Editorial</div>
+ <h1 class="home-hero__title">Purposeful notes from the studio</h1>
+ <p class="home-hero__subtitle">
     blog about Extiri, programming and cybersecurity
 </section>
-<div class="post-grid">
-<article class="post-card">
+<div class="home-grid">
+ <main class="home-main">
+       <section class="featured-post">
+<article class="post-card post-card--featured">
  <div class="post-card__meta">
-    <span class="post-card__date">Mar 8, 2026</span>
-    <span class="post-card__tags">
-      <a href="/blog/tag/experiments/index.html">#experiments</a>
-      <a href="/blog/tag/projects/index.html">#projects</a>
-    </span>
+    <span class="tag" style="margin-bottom: 0; padding: 0.15rem 0.6rem; font-size: 0.65rem;">productivity</span>
+    <span class="post-card__date">April 5, 2026</span>
  </div>
  <h2 class="post-card__title">
-    <a href="/blog/posts/experiment-compressing-images-with-dft.html" target="_self" rel="noopener">Building an Image Compressor with the Discrete Fourier Transform</a>
+    <a href="/blog/posts/how-to-read-notes-aloud.html">How to Read Notes Aloud (Physical, Handwritten, or Digital)</a>
  </h2>
-     <p class="post-card__excerpt">
-        A few weeks ago, I was flipping through one of my old programming magazines when I stumbled across an interesting claim: you can compress images using the Discrete Fourier Transform. The idea seemed almost too elegant...
- <div class="post-card__actions">
-    <a class="button-primary" href="/blog/posts/experiment-compressing-images-with-dft.html" target="_self" rel="noopener">Read article</a>
- </div>
+ <p class="post-card__excerpt">
+     <p class="lead">
+    Yes, even your handwritten notebook. Here’s how to get any notes — paper, PDF, or digital — read aloud on your iPhone, hands-free.
+<p>Most people searching for how to read notes aloud are thinking of one of two scenarios. Either they have digital files they want to listen to while doing something else, or they have physical notes — a notebook, printed handouts, lecture slides on paper — and they want a way to convert those into audio too. Both are very solvable on iPhone, and the best tool for the job handles both without needing to switch between apps.
 </article>
-<article class="post-card">
+       </section>
+<article class="post-card ">
  <div class="post-card__meta">
-    <span class="post-card__date">Feb 8, 2026</span>
-    <span class="post-card__tags">
-      <a href="/blog/tag/machine-learning/index.html">#machine-learning</a>
-      <a href="/blog/tag/projects/index.html">#projects</a>
-    </span>
+    <span class="tag" style="margin-bottom: 0; padding: 0.15rem 0.6rem; font-size: 0.65rem;">codemenu</span>
+    <span class="post-card__date">April 5, 2026</span>
  </div>
  <h2 class="post-card__title">
-    <a href="/blog/posts/teaching-machines-to-smell-danger.html" target="_self" rel="noopener">Teaching Machines to Smell Danger: A Fun Dive Into ML-Powered Threat Detection</a>
+    <a href="/blog/posts/codemenu-1-7-release.html">CodeMenu 1.7 makes your snippet library more useful</a>
  </h2>
-     <p class="post-card__excerpt">
-        Every now and then at Extiri, between shipping apps and squashing bugs, I like to take a detour into a completely different corner of tech — just to see what happens. At my university there was a statistics project th...
- <div class="post-card__actions">
-    <a class="button-primary" href="/blog/posts/teaching-machines-to-smell-danger.html" target="_self" rel="noopener">Read article</a>
- </div>
+ <p class="post-card__excerpt">
+     <p>CodeMenu 1.7 is a release about getting more value out of the snippets you already have. Storing code is only half of the job. The harder part is finding the right thing at the right moment, reusing it in a way that fits your current work, and connecting your library to the rest of your workflow. This update pushes that side of the app forward with snippet-aware AI, better automation hooks, iCloud sync, and more integration features across macOS.
 </article>
-<article class="post-card">
+<article class="post-card ">
  <div class="post-card__meta">
-    <span class="post-card__date">Feb 8, 2026</span>
-    <span class="post-card__tags">
-      <a href="/blog/tag/fun-facts/index.html">#fun-facts</a>
-      <a href="/blog/tag/The Power of Elegant Simplicity/index.html">#The Power of Elegant Simplicity</a>
-    </span>
+    <span class="tag" style="margin-bottom: 0; padding: 0.15rem 0.6rem; font-size: 0.65rem;">experiments</span>
+    <span class="post-card__date">March 8, 2026</span>
  </div>
  <h2 class="post-card__title">
-    <a href="/blog/posts/elegant-simplicity-secret-sharing.html" target="_self" rel="noopener">The Power of Elegant Simplicity #1: Shamir's Secret Sharing - The Polynomial That Guards Your Secrets</a>
+    <a href="/blog/posts/experiment-compressing-images-with-dft.html">Building an Image Compressor with the Discrete Fourier Transform</a>
  </h2>
-     <p class="post-card__excerpt">
-        Part of the “The Power of Elegant Simplicity” series - algorithms that hide power in plain sightYou know what’s wild? One of the most elegant cryptographic algorithms ever invented uses nothing more than high school a...
- <div class="post-card__actions">
-    <a class="button-primary" href="/blog/posts/elegant-simplicity-secret-sharing.html" target="_self" rel="noopener">Read article</a>
- </div>
+ <p class="post-card__excerpt">
+     <p>A few weeks ago, I was flipping through one of my old programming magazines when I stumbled across an interesting claim: you can compress images using the Discrete Fourier Transform. The idea seemed almost too elegant to be true - transform an image into the frequency domain, throw away the small stuff, and reconstruct something that still looks decent. This is apparently one of the core mechanisms behind JPEG compression.
+<p>I had to try it myself.
 </article>
-<article class="post-card">
+<article class="post-card ">
  <div class="post-card__meta">
-    <span class="post-card__date">Jan 16, 2026</span>
-    <span class="post-card__tags">
-      <a href="/blog/tag/extiri/index.html">#extiri</a>
-      <a href="/blog/tag/codemenu/index.html">#codemenu</a>
-    </span>
+    <span class="tag" style="margin-bottom: 0; padding: 0.15rem 0.6rem; font-size: 0.65rem;">machine-learning</span>
+    <span class="post-card__date">February 8, 2026</span>
  </div>
  <h2 class="post-card__title">
-    <a href="/blog/posts/codemenu-as-a-filesystem-ai-agent.html" target="_self" rel="noopener">CodeMenu as a File System for Your AI Agents</a>
+    <a href="/blog/posts/teaching-machines-to-smell-danger.html">Teaching Machines to Smell Danger: A Fun Dive Into ML-Powered Threat Detection</a>
  </h2>
-     <p class="post-card__excerpt">
-        In the evolving world of AI development, there’s a growing buzz around “filesystems for AI”—essentially, structured ways to organize and access data that empower AI agents to work more intelligently and autonomously. ...
- <div class="post-card__actions">
-    <a class="button-primary" href="/blog/posts/codemenu-as-a-filesystem-ai-agent.html" target="_self" rel="noopener">Read article</a>
- </div>
+ <p class="post-card__excerpt">
+     <p>Every now and then at Extiri, between shipping apps and squashing bugs, I like to take a detour into a completely different corner of tech — just to see what happens. At my university there was a statistics project that could be made so it served as ane xcuse to work wht ML. So this time, the question was: <em>can I teach a machine learning model to sniff out network attacks?</em> Spoiler: I got it to 97% accuracy, learned a ton, and had a surprisingly good time doing it.
+<p>Here’s how this little research adventure played out.
 </article>
-<article class="post-card">
+<article class="post-card ">
  <div class="post-card__meta">
-    <span class="post-card__date">Jan 13, 2026</span>
-    <span class="post-card__tags">
-      <a href="/blog/tag/extiri/index.html">#extiri</a>
-    </span>
+    <span class="tag" style="margin-bottom: 0; padding: 0.15rem 0.6rem; font-size: 0.65rem;">fun-facts</span>
+    <span class="post-card__date">February 8, 2026</span>
  </div>
  <h2 class="post-card__title">
-    <a href="/blog/posts/the-year-of-local-software.html" target="_self" rel="noopener">Why 2026 Is the Year of Local-First Productivity Tools (and How CodeMenu Fits In)</a>
+    <a href="/blog/posts/elegant-simplicity-secret-sharing.html">The Power of Elegant Simplicity #1: Shamir's Secret Sharing - The Polynomial That Guards Your Secrets</a>
  </h2>
-     <p class="post-card__excerpt">
-        We’re copying API keys into ChatGPT prompts, uploading proprietary code to cloud snippet managers, and syncing our entire knowledge bases through servers we don’t control. Somewhere along the way, we normalized sendin...
- <div class="post-card__actions">
-    <a class="button-primary" href="/blog/posts/the-year-of-local-software.html" target="_self" rel="noopener">Read article</a>
- </div>
+ <p class="post-card__excerpt">
+     <p><em>Part of the “The Power of Elegant Simplicity” series - algorithms that hide power in plain sight</em>
+<hr />
+<p>You know what’s wild? One of the most elegant cryptographic algorithms ever invented uses nothing more than high school algebra. No complex number theory, no quantum mechanics, just polynomials. The kind you probably learned to hate in 9th grade.
+<p>Welcome to Shamir’s Secret Sharing, where a simple quadratic equation becomes the foundation for securing nuclear launch codes, cryptocurrency wallets, and anything else you really, <em>really</em> don’t want falling into the wrong hands.
 </article>
-</div>
-<nav class="posts-pagination" role="navigation" aria-label="Blog pagination">
+   <nav class="posts-pagination" role="navigation" aria-label="Blog pagination">
  <ul class="pagination">
-   <li class="pagination-item pagination-item-prev">
-        <span>&laquo; Previous</span>
-   <li class="pagination-item pagination-item-next">
-        <a rel="next" href="/blog/page-2/index.html">Next &raquo;</a>
+   <li class="pagination-item">
+      <a rel="next" href="/blog/page-2/index.html">Next Page &rarr;</a>
  </ul>
 </nav>
+ </main>
+ <aside class="home-sidebar">
+   <div class="sidebar-section">
+     <h3 class="sidebar-title">Categories</h3>
+     <ul class="sidebar-tags">
+         <li><a href="/blog/tag/app-showcase/index.html">App Showcase</a>
+         <li><a href="/blog/tag/extiri/index.html">extiri</a>
+         <li><a href="/blog/tag/guide/index.html">guide</a>
+         <li><a href="/blog/tag/productivity/index.html">productivity</a>
+         <li><a href="/blog/tag/programming/index.html">programming</a>
+         <li><a href="/blog/tag/snippets/index.html">snippets</a>
+         <li><a href="/blog/tag/tutorial/index.html">tutorial</a>
+     </ul>
+   </div>
+   <div class="sidebar-section">
+     <h3 class="sidebar-title">About the Blog</h3>
+     <p class="sidebar-text">Insights from the Extiri team on software design, cybersecurity, and productivity.
+   </div>
+ </aside>
+</div>
            <footer class="site-footer">
  <div class="site-footer__inner">
-   <div class="site-footer__primary">
-     <h2>Extiri Blog</h2>
-     <p>blog about Extiri, programming and cybersecurity
-   </div>
-   <nav class="site-footer__links" aria-label="Footer navigation">
+   <div class="site-footer__links">
       <a href="/blog/about/index.html">About</a>
       <a href="/blog/archive/index.html">Archive</a>
       <a href="https://extiri.com">Apps</a>
       <a href="/blog/feed.xml">RSS</a>
-   </nav>
+   </div>
    <div class="site-footer__meta">
       <span>Crafted by Wiktor Wójcik</span>
       <span>&copy; 2026 Extiri</span>

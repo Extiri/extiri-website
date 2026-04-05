@@ -3,6 +3,36 @@
   
     
     <url>
+      <loc>https://extiri.com/posts/how-to-read-notes-aloud.html</loc>
+      
+        <lastmod>2026-04-05T00:00:00+02:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.7</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://extiri.com/posts/codemenu-1-7-release.html</loc>
+      
+        <lastmod>2026-04-05T00:00:00+02:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.7</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>https://extiri.com/posts/experiment-compressing-images-with-dft.html</loc>
       
         <lastmod>2026-03-08T00:00:00+01:00</lastmod>
@@ -308,7 +338,7 @@
     <url>
       <loc>https://extiri.com/about/</loc>
       
-        <lastmod>2026-03-08T14:52:28+01:00</lastmod>
+        <lastmod>2026-04-05T17:31:12+02:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -323,7 +353,7 @@
     <url>
       <loc>https://extiri.com/archive/</loc>
       
-        <lastmod>2026-03-08T14:52:28+01:00</lastmod>
+        <lastmod>2026-04-05T17:31:12+02:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -342,7 +372,7 @@
     <url>
       <loc>https://extiri.com/</loc>
       
-        <lastmod>2026-03-08T14:52:28+01:00</lastmod>
+        <lastmod>2026-04-05T17:31:12+02:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -363,7 +393,7 @@
     <url>
       <loc>https://extiri.com/page-2/</loc>
       
-        <lastmod>2026-03-08T14:52:28+01:00</lastmod>
+        <lastmod>2026-04-05T17:31:12+02:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -378,7 +408,7 @@
     <url>
       <loc>https://extiri.com/page-3/</loc>
       
-        <lastmod>2026-03-08T14:52:28+01:00</lastmod>
+        <lastmod>2026-04-05T17:31:12+02:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -393,7 +423,22 @@
     <url>
       <loc>https://extiri.com/page-4/</loc>
       
-        <lastmod>2026-03-08T14:52:28+01:00</lastmod>
+        <lastmod>2026-04-05T17:31:12+02:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://extiri.com/page-5/</loc>
+      
+        <lastmod>2026-04-05T17:31:12+02:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
