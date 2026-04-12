@@ -32,7 +32,11 @@
   <style>
     /* Page-specific overrides */
     .hero-codemenu {
-      background: radial-gradient(circle at 50% 30%, rgba(255, 179, 0, 0.08) 0%, rgba(5, 5, 5, 0) 60%);
+      background: var(--bg-body);
+    }
+
+    .hero-codemenu .btn-primary {
+      box-shadow: none !important;
     }
 
     .feature-icon-box {
@@ -332,7 +336,7 @@
   <header class="hero hero-codemenu">
     <div class="container hero-content animate-fade-in">
       <img src="images/codemenu-icon.webp" alt="CodeMenu Icon"
-        style="width: 96px; height: 96px; border-radius: 22px; margin: 0 auto var(--space-6) auto; filter: drop-shadow(0 0 30px rgba(255, 179, 0, 0.3));">
+        style="width: 96px; height: 96px; border-radius: 22px; margin: 0 auto var(--space-6) auto;">
 
       <h2
         style="color: var(--color-codemenu); font-family: var(--font-sans); font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-3); letter-spacing: 0.05em; text-transform: uppercase;">
@@ -470,14 +474,14 @@
         <div class="bento-item bento-medium">
           <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;"><i
               class="fa-solid fa-brain"></i></div>
-          <h3>Context for your AI</h3>
-          <p>Stop pasting context manually. Use the <strong>MCP Server</strong> to let Claude/Cursor read your snippets
-            directly.</p>
+          <h3>AI-Powered</h3>
+          <p>Chat with your snippets using the <strong>built-in AI</strong>, or connect external agents via the
+            <strong>MCP Server</strong>. Your knowledge base becomes the context layer for every AI tool you use.
+          </p>
           <div class="terminal-window" style="margin-top: auto;">
-            <span class="code-line"><span class="code-keyword">User:</span> @CodeMenu fetch the 'stripe-webhook'
-              snippet</span>
-            <span class="code-line"><span class="code-keyword">AI:</span> Found it. Generating test cases based on your
-              saved webhook handler...</span>
+            <span class="code-line"><span class="code-keyword">You:</span> How do I use the CVE calculator?</span>
+            <span class="code-line"><span class="code-keyword">AI:</span> Based on your "CVSS v3.1 Base-Score
+              Calculator" snippet…</span>
           </div>
         </div>
 
@@ -604,7 +608,7 @@
         <!-- Step 1: Side Window -->
         <div class="workflow-step">
           <div class="workflow-number" style="border-radius: 8px; width: auto; padding: 0 12px;">Side Window</div>
-          <h3>Side Window</h3>
+          <h3>Side Window & Suggestions app</h3>
           <p>Keep CodeMenu pinned next to VS Code or Xcode. Drag and drop snippets, or use the
             <strong>Suggestions</strong> companion app to find relevant code without leaving your editor (type
             <code>§§</code>).
@@ -636,7 +640,9 @@
         <div class="workflow-step">
           <div class="workflow-number" style="border-radius: 8px; width: auto; padding: 0 12px;">AI</div>
           <h3>MCP Server</h3>
-          <p>Connect CodeMenu to Claude Desktop or Cursor. Give your AI agent read-access to your personal documentation
+          <p>Connect CodeMenu to Claude Code, OpenAI Codex, VS Code and any other app with support for MCP. Give your AI
+            agent read-access to your personal
+            documentation
             and verified code patterns.</p>
           <a href="https://github.com/Extiri/codemenu-mcp" class="btn btn-sm btn-outline-primary mt-2"
             style="display: inline-block; margin-top: 12px; padding: 6px 12px; border: 1px solid var(--color-codemenu); border-radius: 6px; color: var(--color-codemenu); text-decoration: none; font-size: 0.9rem;"><i
@@ -773,18 +779,48 @@
           </div>
         </article>
 
-        <!-- Feature 6: The Rest -->
+        <!-- Feature 6: Built-in AI Chat -->
+        <article class="app-card-large reversed">
+          <div class="app-card-content">
+            <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;"><i
+                class="fa-solid fa-comments"></i></div>
+            <h3>Built-in AI Chat</h3>
+            <p>Ask questions about your snippets, code patterns, APIs, or concepts — right inside CodeMenu. The AI
+              automatically finds relevant snippets from your library and uses them as context, so answers are grounded
+              in <em>your</em> code, not generic examples.</p>
+          </div>
+          <div class="app-card-media">
+            <img src="./images/codemenu/ai-demo-codemenu.png" alt="Built-in AI chat with snippet context">
+          </div>
+        </article>
+
+        <!-- Feature 7: Shortcuts App Support -->
+        <article class="app-card-large">
+          <div class="app-card-content">
+            <div class="feature-icon-box" style="background: rgba(255, 99, 71, 0.1); color: #ff6347;"><i
+                class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h3>Shortcuts Integration</h3>
+            <p>CodeMenu ships with 20+ Shortcuts actions — create, search, update, and organise snippets, groups, and
+              tags without ever opening the app. Build powerful automations that feed your knowledge base on
+              autopilot.</p>
+          </div>
+          <div class="app-card-media">
+            <img src="./images/codemenu/shortcuts-codemenu.png" alt="Shortcuts app actions for CodeMenu">
+          </div>
+        </article>
+
+        <!-- Feature 8: The Rest -->
         <article class="app-card-large reversed">
           <div class="app-card-content">
             <div class="feature-icon-box" style="background: rgba(255, 255, 255, 0.1); color: #fff;"><i
-                class="fa-solid fa-toolbox"></i></div>
-            <h3>Complete Developer Toolkit</h3>
-            <p>A Swiss Army knife for your daily tasks. Includes a code image generator, JSON formatter, UUID generator,
-              and
-              more. Everything you usually Google for, now offline and instant.</p>
+                class="fa-solid fa-star"></i></div>
+            <h3>And So Much More</h3>
+            <p>Generate shareable code images, recognise text from screenshots, encrypt sensitive snippets, sync via
+              iCloud, publish to GitHub Gists, or host your own Snippets Store. Every detail is designed to keep you
+              in the flow.</p>
           </div>
           <div class="app-card-media">
-            <img src="./images/codemenu/promo-images/Screenshot 9.png" alt="Utilities and extra features">
+            <img src="./images/codemenu/promo-images/Screenshot 9.png" alt="Additional CodeMenu features">
           </div>
         </article>
       </div>
@@ -862,11 +898,20 @@
           </div>
         </div>
         <div class="faq-item">
+          <button class="faq-question">Which models do integrated AI features support?<span class="faq-arrow"><i
+                class="fa-solid fa-chevron-right"></i></span></button>
+          <div class="faq-answer">
+            <p>CodeMenu supports two types of models for the AI chat and generation features. First is builtin which
+              allows you to use Mistral 7B and Gemma 2 2B. Second is Ollama app. If you download Ollama you can then
+              connect CodeMenu to it and use any model available through it.</p>
+          </div>
+        </div>
+        <div class="faq-item">
           <button class="faq-question">Where is my data stored?<span class="faq-arrow"><i
                 class="fa-solid fa-chevron-right"></i></span></button>
           <div class="faq-answer">
-            <p>Locally on your Mac in a standard SQLite database. CodeMenu is offline-first and privacy-focused. Your
-              code never leaves your machine unless you explicitly choose to share it.</p>
+            <p>CodeMenu is offline-first and privacy-focused. Your code never leaves your machine unless you explicitly
+              choose to share it.</p>
           </div>
         </div>
         <div class="faq-item">

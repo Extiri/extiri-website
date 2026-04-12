@@ -402,14 +402,10 @@ p {
 .btn-primary {
   background: var(--brand-gradient);
   color: #000;
-  /* Better contrast on orange */
-  --btn-shadow-rgb: var(--brand-primary-rgb);
-  box-shadow: 0 0 20px rgba(var(--btn-shadow-rgb), 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(var(--btn-shadow-rgb), 0.4);
 }
 
 .btn-secondary {
