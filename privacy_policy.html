@@ -5,9 +5,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Privacy Policy — Extiri</title>
-  <meta name="description" content="Extiri Privacy Policy — CodeMenu, ClipGuru, Chitneek and other Extiri products." />
+  <meta name="description"
+    content="Extiri Privacy Policy — CodeMenu, Snippex, Resso, ClipGuru, Chitneek and other Extiri products." />
   <meta property="og:title" content="Extiri — Privacy Policy" />
-  <meta property="og:description" content="How Extiri collects and processes data for its apps and services." />
+  <meta property="og:description" content="How Extiri collects and processes data across its apps and services." />
   <meta property="og:image" content="https://extiri.com/images/extiri-og-image.webp" />
   <link rel="icon" href="/images/favicon.webp" />
 
@@ -17,6 +18,116 @@
   <link rel="stylesheet" href="/styles.css">
   <script async src="/js/background-effect.js" defer></script>
   <script src="/scripts.js" defer></script>
+
+  <style>
+    .privacy-content {
+      max-width: 900px;
+    }
+
+    .privacy-content section {
+      margin-bottom: var(--space-12);
+    }
+
+    .privacy-content h2 {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--bg-glass-border);
+    }
+
+    .privacy-content h3 {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-4);
+      margin-top: var(--space-8);
+    }
+
+    .privacy-content p {
+      margin-bottom: var(--space-4);
+      line-height: 1.75;
+    }
+
+    .privacy-content ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: var(--space-6);
+    }
+
+    .privacy-content ul li {
+      position: relative;
+      padding-left: var(--space-6);
+      margin-bottom: var(--space-3);
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .privacy-content ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand-primary);
+    }
+
+    .privacy-content a {
+      color: var(--brand-primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .privacy-content a:hover {
+      color: var(--text-primary);
+    }
+
+    .product-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--bg-glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6) var(--space-8);
+      margin-bottom: var(--space-6);
+    }
+
+    .product-card h3 {
+      margin-top: 0;
+    }
+
+    .product-card p:last-child,
+    .product-card ul:last-child {
+      margin-bottom: 0;
+    }
+
+    .changelog {
+      background: var(--bg-surface);
+      border: 1px solid var(--bg-glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      margin-top: var(--space-12);
+    }
+
+    .changelog h2 {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: var(--space-4);
+    }
+
+    .changelog ul li::before {
+      background: var(--text-tertiary);
+    }
+
+    .version-badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      background: rgba(235, 114, 89, 0.15);
+      color: var(--brand-primary);
+      vertical-align: middle;
+      margin-left: var(--space-2);
+    }
+  </style>
 </head>
 
 <body>
@@ -30,65 +141,172 @@
         <a href="./index.html#apps" class="nav-link">Apps</a>
         <a href="./blog/index.html" class="nav-link">Blog</a>
       </div>
-      <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleMobileMenu()"><i class="fa-solid fa-bars"></i></button>
+      <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleMobileMenu()"><i
+          class="fa-solid fa-bars"></i></button>
     </div>
   </nav>
 
   <main class="section" style="padding-top: calc(var(--header-height) + var(--space-8));">
-    <div class="container" style="max-width: 900px;">
+    <div class="container privacy-content">
       <h1 style="margin-bottom: var(--space-6);">Privacy Policy</h1>
 
-      <p style="color:var(--text-secondary); margin-bottom: var(--space-6);">Version: 1.1 &middot; Last updated: 26 August 2025</p>
+      <p style="color:var(--text-secondary); margin-bottom: var(--space-6);">Version: 2.0 &middot; Last updated: 18
+        April 2026</p>
 
+      <!-- 1. Definitions -->
       <section>
         <h2>Definitions</h2>
-        <p>Extiri’s website includes everything served under the extiri.com domain and its subdomains. "Extiri product" refers to services or products provided by Extiri, including CodeMenu, Snippets Store, and Extiri’s website. "User" means an entity using Extiri products. "Personal information" means information that can be associated with a specific person (e.g., name, email).</p>
+        <p>Extiri's website includes everything served under the extiri.com domain and its subdomains. "Extiri product"
+          refers to services or products provided by Extiri, including CodeMenu, Snippex (formerly Snippets Store),
+          Resso, ClipGuru, Chitneek, and Extiri's website. "User" means an entity using Extiri products. "Personal
+          information" means information that can be associated with a specific person (e.g., name, email).</p>
       </section>
 
+      <!-- 2. Changes to terms -->
       <section>
         <h2>Changes to terms</h2>
-        <p>We may update this policy from time to time to improve clarity or reflect changes in our products. When we do, we will post the updated version here with the date it was last updated. Continued use of our services constitutes acceptance of the revised policy.</p>
+        <p>We may update this policy from time to time to improve clarity or reflect changes in our products. When we
+          do, we will post the updated version here with the date it was last updated. Continued use of our services
+          constitutes acceptance of the revised policy.</p>
       </section>
 
+      <!-- 3. Consent -->
       <section>
         <h2>Consent</h2>
-        <p>By downloading, installing, accessing, or using any Extiri product you consent to this Privacy Policy. If you do not agree, stop using the product and delete any data you have provided in accordance with the Data Deletion section.</p>
+        <p>By downloading, installing, accessing, or using any Extiri product you consent to this Privacy Policy. If you
+          do not agree, stop using the product and delete any data you have provided in accordance with the Data
+          Deletion section.</p>
       </section>
 
+      <!-- 4. Per-Product Data Practices -->
+      <section>
+        <h2>Data practices by product</h2>
+        <p>Different Extiri products collect and process different types of data. This section explains what applies to
+          each product.</p>
+
+        <!-- 4a. Website -->
+        <div class="product-card">
+          <h3>Extiri Website (extiri.com)</h3>
+          <p>The Extiri website uses Google Analytics for anonymous, aggregated usage statistics (e.g., country or
+            region, pages visited). Analytics is loaded <strong>only</strong> if you accept cookies via our consent
+            banner. No personally identifiable information is collected through analytics.</p>
+          <p>Google Analytics is used <strong>exclusively on the website</strong> and is not present in any Extiri app.
+          </p>
+        </div>
+
+        <!-- 4b. CodeMenu & Snippex -->
+        <div class="product-card">
+          <h3>CodeMenu &amp; Snippex (formerly Snippets Store)</h3>
+          <p>CodeMenu and the Snippex web app allow optional login to an Extiri account. When you create an account, we
+            collect your <strong>username</strong> and <strong>email address</strong>.</p>
+          <p>If you enable Gravatar integration, an MD5 hash of your email is sent directly to <a
+              href="https://gravatar.com/support/what-is-gravatar" target="_blank" rel="noopener">Gravatar</a> to
+            retrieve your avatar image. Extiri does not process or store this hash.</p>
+          <p><strong>No telemetry or analytics</strong> is collected by the CodeMenu app.</p>
+          <p><strong>AI features:</strong> All AI features in CodeMenu use local processing (built-in system frameworks
+            or <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a>). However, CodeMenu can run
+            snippets via ChatGPT and Claude by displaying their websites in a web view. In this case, data entered is
+            processed by <a href="https://openai.com/policies/privacy-policy/" target="_blank" rel="noopener">OpenAI</a>
+            and <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">Anthropic</a>, respectively,
+            under their own privacy policies.</p>
+        </div>
+
+        <!-- 4c. Resso, ClipGuru, Chitneek -->
+        <div class="product-card">
+          <h3>Resso, ClipGuru, Chitneek</h3>
+          <p>These apps <strong>do not contain any telemetry, analytics, or tracking</strong>. They do not collect or
+            transmit personal information. All user data is stored locally on the device.</p>
+        </div>
+
+        <!-- 4d. Other products -->
+        <div class="product-card">
+          <h3>Other products</h3>
+          <p>Some Extiri products have their own dedicated privacy policies:</p>
+          <ul>
+            <li><a href="/game-privacy.html">Space Train — Privacy Policy</a></li>
+            <li><a href="/slowko-privacy.html">Słówko — Privacy Policy</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 5. iCloud Synchronization -->
+      <section>
+        <h2>iCloud synchronization</h2>
+        <p>The following apps support optional iCloud synchronization: <strong>CodeMenu</strong>,
+          <strong>Resso</strong>, <strong>ClipGuru</strong>, and <strong>Chitneek</strong>.</p>
+        <p>When iCloud sync is enabled, your data (such as snippets, clips, or assets) is stored in Apple's iCloud
+          infrastructure. This data is processed under <a href="https://www.apple.com/legal/privacy/" target="_blank"
+            rel="noopener">Apple's Privacy Policy</a>. Extiri does not have access to data stored in iCloud; Apple
+          manages the encryption and storage.</p>
+      </section>
+
+      <!-- 6. Third-party service providers -->
       <section>
         <h2>Third-party service providers</h2>
-        <p>Extiri products may use third-party services whose privacy policies also apply. These may include Oracle Cloud Infrastructure, Cloudflare, SendGrid, Vercel, Apple App Store services, Gravatar, and Google Analytics.</p>
+        <p>Extiri products rely on the following third-party services, whose privacy policies also apply:</p>
+        <ul>
+          <li><strong>Website:</strong> Google Analytics, Vercel, Cloudflare</li>
+          <li><strong>CodeMenu / Snippex (account &amp; infrastructure):</strong> Oracle Cloud Infrastructure, SendGrid,
+            Gravatar (optional)</li>
+          <li><strong>CodeMenu (snippet running via web views):</strong> OpenAI (ChatGPT), Anthropic (Claude)</li>
+          <li><strong>All native apps:</strong> Apple App Store services, Apple iCloud (when sync is enabled)</li>
+        </ul>
       </section>
 
+      <!-- 7. Google Analytics and Cookies -->
       <section>
         <h2>Google Analytics and Cookies</h2>
-        <p>We use Google Analytics for anonymous usage statistics. Analytics will be loaded only if you accept cookies via our consent banner. No personally identifiable information is collected via analytics by default.</p>
+        <p>We use Google Analytics <strong>only on the Extiri website (extiri.com)</strong> for anonymous usage
+          statistics. It is not present in any Extiri app. Analytics will be loaded only if you accept cookies via our
+          consent banner. No personally identifiable information is collected via analytics by default.</p>
       </section>
 
+      <!-- 8. Extiri Account & Data Deletion -->
       <section>
-        <h2>Collected data</h2>
-        <p>The data collected depends on the product. For the website we may collect general data such as country or region. For CodeMenu we may collect device architecture, app version, build number, installation source (App Store/TestFlight), locale, OS version, device model, session identifiers, and a hashed (MD5) representation of an email where applicable.</p>
+        <h2>Extiri account &amp; data deletion</h2>
+        <p>The Extiri account is used only in <strong>CodeMenu</strong> and the <strong>Snippex</strong> web app. Users
+          may delete their Extiri account (including username and email) via CodeMenu preferences. Account deletion may
+          take up to 30 days to finalize.</p>
       </section>
 
+      <!-- 9. Contact & Disputes -->
       <section>
-        <h2>Data deletion</h2>
-        <p>Users may delete their Extiri account (including username and email) via CodeMenu preferences. Account deletion may take up to 30 days to finalize.</p>
+        <h2>Contact &amp; Disputes</h2>
+        <p>If you have concerns about your privacy, contact us at <a
+            href="mailto:wiktor.wojcik@extiri.com">wiktor.wojcik@extiri.com</a>.</p>
       </section>
 
-      <section>
-        <h2>Contact & Disputes</h2>
-        <p>If you have concerns about your privacy, contact us at <a href="mailto:wiktor.wojcik@extiri.com">wiktor.wojcik@extiri.com</a>.</p>
-      </section>
-
+      <!-- 10. Your Rights -->
       <section>
         <h2>Your Rights</h2>
-        <p>Depending on your jurisdiction (e.g., CCPA, GDPR) you may have rights to access, correct, delete, restrict processing of, or port your personal data. Submit requests by contacting us; we will respond within one month where required by law.</p>
+        <p>Depending on your jurisdiction (e.g., CCPA, GDPR) you may have rights to access, correct, delete, restrict
+          processing of, or port your personal data. Submit requests by contacting us; we will respond within one month
+          where required by law.</p>
       </section>
 
+      <!-- 11. Children -->
       <section>
         <h2>Children</h2>
-        <p>Extiri does not knowingly collect personal information from children under 13. If you believe a child has provided such information, contact us and we will remove it.</p>
+        <p>Extiri does not knowingly collect personal information from children under 13. If you believe a child has
+          provided such information, contact us and we will remove it.</p>
       </section>
+
+      <!-- 12. Changelog -->
+      <div class="changelog">
+        <h2>Changelog <span class="version-badge">v2.0</span></h2>
+        <p style="color: var(--text-tertiary); margin-bottom: var(--space-4);">Major changes from version 1.1 (26 August
+          2025):</p>
+        <ul>
+          <li>Differentiated data practices per product — each product now has its own section</li>
+          <li>Clarified that Google Analytics applies only to the extiri.com website, not to any app</li>
+          <li>Added iCloud synchronization disclosure for CodeMenu, Resso, ClipGuru, and Chitneek</li>
+          <li>Added AI features disclosure — local AI processing and ChatGPT/Claude web views in CodeMenu</li>
+          <li>Removed outdated TelemetryView data collection references</li>
+          <li>Renamed Snippets Store to Snippex (formerly Snippets Store)</li>
+          <li>Added Resso, ClipGuru, and Chitneek to the covered products</li>
+          <li>Clarified Gravatar integration — hash sent directly to Gravatar, not processed by Extiri</li>
+        </ul>
+      </div>
 
     </div>
   </main>
