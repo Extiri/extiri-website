@@ -6,9 +6,112 @@
 </description>
     <link>https://extiri.com/blog/</link>
     <atom:link href="https://extiri.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 12 Apr 2026 10:22:47 +0200</pubDate>
-    <lastBuildDate>Sun, 12 Apr 2026 10:22:47 +0200</lastBuildDate>
+    <pubDate>Sun, 03 May 2026 16:56:27 +0200</pubDate>
+    <lastBuildDate>Sun, 03 May 2026 16:56:27 +0200</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
+    
+      <item>
+        <title>Your Whole Stack, One Place: Introducing Resso</title>
+        <description>&lt;p&gt;At some point, managing your own infrastructure stops being a background task and starts being a part-time job.&lt;/p&gt;
+
+&lt;p&gt;For me, that point came somewhere around the third cloud VM. I had three servers, a handful of domains, over eight apps and projects across different environments, Vercel deployments, SaaS accounts with their own API keys and 2FA setups, and a growing list of things I was fairly sure I remembered, but was not entirely sure about. Which SSH key goes to which server? What registrar holds that domain, and when does it expire? Which environment variable in which project points to the staging database?&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;The answers were scattered. Some lived in a notes app, some in a password manager, some just in my head. None of those places talk to each other, and none of them give you a picture of how everything connects.&lt;/p&gt;
+
+&lt;p&gt;I built Resso to fix this.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/resso/screen1.png&quot; alt=&quot;Resso Overview&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;what-resso-does&quot;&gt;What Resso does&lt;/h2&gt;
+
+&lt;p&gt;Resso is a native macOS app for managing your infrastructure assets. Not just listing them, but actually organizing them in a way that reflects how they relate to each other.&lt;/p&gt;
+
+&lt;p&gt;The core idea is that everything in your stack is an asset. A server is an asset. A domain is an asset. An app, a cloud account, a SaaS subscription are all assets. Resso gives each of them a home, a structure, and a way to link to everything else it touches.&lt;/p&gt;
+
+&lt;p&gt;Once your assets are in, the app starts to do something genuinely useful: it shows you your infrastructure as a graph. You can see your staging environment linked to production, your payment processor connected to the apps that depend on it, your servers holding the deployments that run on them. The dependencies that were invisible before are now visible, and staying on top of them stops feeling like a memory exercise.&lt;/p&gt;
+
+&lt;h2 id=&quot;built-for-the-kind-of-setup-that-grows-sideways&quot;&gt;Built for the kind of setup that grows sideways&lt;/h2&gt;
+
+&lt;p&gt;Solo developers and small studios tend to accumulate infrastructure organically. You spin up a server here, register a domain there, add a Vercel project, hook in Stripe, maybe pick up a second server when the first one starts to feel crowded. Before long, you have a real stack, with real interdependencies, and almost nothing to help you reason about it as a whole.&lt;/p&gt;
+
+&lt;p&gt;Resso is designed for exactly this kind of setup. The focus is on giving you a clear mental model of what you have, so you can maintain it and build on it without constantly reconstructing that picture from scratch.&lt;/p&gt;
+
+&lt;p&gt;For solopreneurs specifically, Resso acts as a central knowledge base. You store server IPs, providers, monthly costs, and renewal dates. You track domain registrars, expiration dates, and auto-renewal status. You keep app bundle IDs, platforms, and repository URLs organized. You manage account usernames, emails, and service names. All in one place, all searchable, all structured consistently.&lt;/p&gt;
+
+&lt;h2 id=&quot;assets-with-real-structure&quot;&gt;Assets with real structure&lt;/h2&gt;
+
+&lt;p&gt;Resso ships with standard templates for the things most developers actually manage.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Servers&lt;/strong&gt; capture IP addresses, providers, monthly costs, and renewal dates. When you have three VMs across different providers, having this in one structured format instead of three different notes is already a meaningful upgrade.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Domains&lt;/strong&gt; track registrars, expiration dates, and auto-renewal status. Domain expiry is one of those things that will eventually catch you off-guard if you are not watching it somewhere intentional. Resso is intentional about it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Apps&lt;/strong&gt; store bundle IDs, platforms, and repository URLs. The full picture of how a project is identified and where its code lives, all in one structured view.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Accounts&lt;/strong&gt; track service names, usernames, and email addresses. Useful when you need to find which credentials belong to which service without opening five browser tabs.&lt;/p&gt;
+
+&lt;p&gt;Beyond these templates, Resso also supports custom entities. If your stack has something specific that does not fit a standard mold, you can define your own asset type with its own properties. The app does not assume it knows every shape infrastructure can take.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/resso/screen2.png&quot; alt=&quot;Creating Custom Assets in Resso&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-graph-view&quot;&gt;The graph view&lt;/h2&gt;
+
+&lt;p&gt;The visual dependency graph is one of the things that sets Resso apart from a well-organized notes app.&lt;/p&gt;
+
+&lt;p&gt;When you start linking assets together, the graph view turns those connections into something you can actually see and navigate. You get a spatial map of your infrastructure: which servers host which apps, which apps talk to which external services, which accounts own which resources. That kind of map is surprisingly hard to hold in your head, and extremely useful to have on screen.&lt;/p&gt;
+
+&lt;p&gt;The graph also makes gaps obvious. If a service is floating without documented connections, you notice it. If something is linked to a dependency that has not been fully set up yet, you can see that too. It becomes much easier to reason about the health of your setup when the setup has a shape.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/resso/screen3.png&quot; alt=&quot;Resso Asset Graph&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;filtering-that-actually-handles-complexity&quot;&gt;Filtering that actually handles complexity&lt;/h2&gt;
+
+&lt;p&gt;As the number of assets grows, search and filtering become essential. Resso has a filter engine that supports complex logic across different property types.&lt;/p&gt;
+
+&lt;p&gt;You can combine string, numeric, and date conditions. You can filter by whether a value contains something, falls below a threshold, or precedes a specific date. The idea is that when you have hundreds of assets across different categories, finding exactly what you need should not involve scrolling.&lt;/p&gt;
+
+&lt;p&gt;The filtering is fast enough that it does not slow you down. The goal is to make your asset library feel small even when it is not.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/resso/screen4.png&quot; alt=&quot;Resso Search and Filters&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;icloud-sync-and-offline-support&quot;&gt;iCloud sync and offline support&lt;/h2&gt;
+
+&lt;p&gt;Resso syncs via iCloud, which means your assets are available across your Macs without any extra setup. If you work across a laptop and a desktop, or want to access your infrastructure notes from a secondary machine, the library stays current.&lt;/p&gt;
+
+&lt;p&gt;The app also works fully offline. Infrastructure management is not always done in ideal network conditions, and Resso does not require connectivity to be useful.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/resso/screen5.png&quot; alt=&quot;Resso - more features&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;why-a-native-mac-app&quot;&gt;Why a native Mac app&lt;/h2&gt;
+
+&lt;p&gt;There are web-based tools for some of this. Spreadsheets, Notion databases, purpose-built SaaS products. Most of them are either too generic to be useful or too enterprise-focused to be practical for a solo developer who just wants to know when their domain expires and where to find the SSH key for their staging server.&lt;/p&gt;
+
+&lt;p&gt;A native Mac app that lives in your dock and opens instantly is a different kind of tool. It fits into the way you actually work instead of adding another browser tab to the pile. Resso requires macOS 26 or later and is available on the Mac App Store.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;If you manage your own infrastructure, Resso is worth a look. The first few hours of setting it up will pay back quickly the next time you need to find something you were certain you remembered.&lt;/p&gt;
+
+&lt;div class=&quot;cta-box&quot;&gt;
+    &lt;h2&gt;Try Resso for free on the Mac App Store&lt;/h2&gt;
+    &lt;p&gt;Manage your infrastructure assets with ease. Works on macOS 26 or later.&lt;/p&gt;
+    &lt;a href=&quot;https://apps.apple.com/pl/app/resso-asset-manager/id6761390161?mt=12&quot; class=&quot;cta-btn&quot;&gt;Download Resso on the App Store&lt;/a&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Thu, 30 Apr 2026 00:00:00 +0200</pubDate>
+        <link>https://extiri.com/blog/posts/introducing-resso</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/introducing-resso</guid>
+        
+        <category>product-launch</category>
+        
+        <category>devops</category>
+        
+        <category>extiri</category>
+        
+        
+      </item>
     
       <item>
         <title>The Power of Elegant Simplicity #2: Bloom Filters — The Data Structure That&apos;s Okay With Being Wrong</title>
@@ -2011,160 +2114,6 @@ And when you want to keep your snippets organized, manageable, and easy to run-C
         <category>extiri</category>
         
         <category>codemenu-guide</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>How to Study Faster with Read-Aloud PDF Apps</title>
-        <description>&lt;p class=&quot;lead&quot;&gt;Studying isn’t just about logging hours - it’s about how effectively you absorb and retain information. Yet, reading through stacks of PDF textbooks, research papers, and study guides can be time-consuming, mentally draining, and difficult to maintain consistently.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;p&gt;This is where &lt;strong&gt;text-to-speech (TTS) apps&lt;/strong&gt; transform your workflow. By converting written content into natural-sounding audio, they let you &lt;strong&gt;listen to PDFs and other study materials while commuting, exercising, or during your evening routine&lt;/strong&gt;. With the right approach, read-aloud technology can turn otherwise wasted time into productive study sessions.&lt;/p&gt;
-
-&lt;p&gt;In this guide, you’ll discover:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;How listening to PDFs supports faster learning&lt;/li&gt;
-  &lt;li&gt;Why offline, privacy-focused tools matter for students&lt;/li&gt;
-  &lt;li&gt;Practical strategies to integrate read-aloud PDFs into your study routine&lt;/li&gt;
-  &lt;li&gt;How &lt;strong&gt;Chitneek&lt;/strong&gt; helps you study from PDFs anywhere, without internet or privacy concerns&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;why-listening-to-your-study-materials-actually-works&quot;&gt;Why listening to your study materials actually works&lt;/h2&gt;
-
-&lt;p&gt;Traditional reading requires sustained visual focus, which leads to eye strain and makes it harder to study in non-ideal environments. Listening changes this dynamic completely:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Study anywhere:&lt;/strong&gt; Convert PDFs to audio and review material while walking to class, cooking dinner, or cleaning your room&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Better retention:&lt;/strong&gt; Research shows TTS improves comprehension by engaging multisensory learning - combining visual and auditory processing helps information stick&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flexible pacing:&lt;/strong&gt; Speed up playback to 1.5x or 2x when reviewing familiar material, or slow down for complex concepts&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Accessibility advantage:&lt;/strong&gt; For students with dyslexia, visual impairments, or reading challenges, TTS removes barriers that make dense PDFs inaccessible&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;A meta-analysis found that text-to-speech tools showed a meaningful positive effect on reading comprehension for students with reading difficulties, demonstrating this isn’t just a convenience feature - it’s a proven learning tool.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;what-formats-you-can-turn-into-audio&quot;&gt;What formats you can turn into audio&lt;/h2&gt;
-
-&lt;p&gt;PDFs are everywhere in academic life - textbooks, journal articles, lecture slides, assignment briefs. A good TTS app should handle:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;PDF documents&lt;/strong&gt; – your primary study material&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Web articles&lt;/strong&gt; – supplementary reading and research&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;EPUB files&lt;/strong&gt; – digital textbooks and study guides&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Plain text&lt;/strong&gt; – notes and pasted content&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The more formats your app supports, the less time you spend converting files or switching between different tools.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;why-privacy-matters-cloud-vs-offline-tts&quot;&gt;Why privacy matters: cloud vs. offline TTS&lt;/h2&gt;
-
-&lt;p&gt;Most mainstream TTS apps upload your documents to cloud servers for processing. This raises real concerns:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Your academic PDFs, research notes, and personal study materials pass through third-party servers&lt;/li&gt;
-  &lt;li&gt;You need constant internet access to use the app&lt;/li&gt;
-  &lt;li&gt;Your reading habits and document content may be tracked or analyzed&lt;/li&gt;
-  &lt;li&gt;Slow connections interrupt your study flow&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Offline TTS apps keep everything local.&lt;/strong&gt; Your PDFs never leave your device, you can study anywhere regardless of connectivity, and there’s zero tracking of what you read or when.&lt;/p&gt;
-
-&lt;p&gt;For students working with sensitive research, unpublished papers, or simply valuing privacy, offline processing isn’t just a feature - it’s essential.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;meet-chitneek-a-pdf-reader-built-for-learning&quot;&gt;Meet Chitneek: a PDF reader built for learning&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://extiri.com/chitneek.html&quot;&gt;Chitneek&lt;/a&gt; is designed specifically for students who want to &lt;strong&gt;read aloud PDF files efficiently and privately&lt;/strong&gt;. Unlike cloud-based alternatives, Chitneek processes everything on your device using iOS’s built-in voices.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Why students choose Chitneek:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;True offline functionality:&lt;/strong&gt; Read aloud PDF files with zero internet requirement once saved - perfect for commutes, flights, or anywhere connectivity is limited&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Privacy-first design:&lt;/strong&gt; Files are processed on-device, so your PDFs and reading habits stay completely private&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Natural iOS voices:&lt;/strong&gt; Uses Apple’s built-in voices for clear, consistent narration that sounds natural&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Adjustable playback:&lt;/strong&gt; Control speech rate and pitch to match your comprehension needs - slow down for difficult research papers, speed up for review&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Background listening:&lt;/strong&gt; Keep audio playing while you use other apps, take notes, or browse references&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Smart bookmarks:&lt;/strong&gt; Mark important sections to replay difficult material or jump straight to key passages during review&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Format flexibility:&lt;/strong&gt; Import PDFs and EPUBs from Files, share from other apps, paste text, or save web pages to PDF&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Stay organized:&lt;/strong&gt; Use named groups to keep your study materials tidy and easy to find&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Built-in discovery:&lt;/strong&gt; Find free books from Project Gutenberg and follow RSS feeds directly in the app&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Whether you’re working through a 50-page research paper or reviewing lecture notes before an exam, Chitneek lets you study on your terms. A 7-day free trial is available to test both monthly and yearly subscription plans.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;how-to-actually-study-faster-with-read-aloud-pdfs&quot;&gt;How to actually study faster with read-aloud PDFs&lt;/h2&gt;
-
-&lt;p&gt;Don’t just play audio passively. Here’s how to actually learn faster:&lt;/p&gt;
-
-&lt;h3 id=&quot;pre-read-then-listen&quot;&gt;Pre-read, then listen&lt;/h3&gt;
-&lt;p&gt;Skim the PDF first to understand structure and main arguments. Then listen to reinforce and fill gaps in understanding.&lt;/p&gt;
-
-&lt;h3 id=&quot;use-bookmarks-for-key-sections&quot;&gt;Use bookmarks for key sections&lt;/h3&gt;
-&lt;p&gt;Mark important passages with Chitneek’s bookmark feature. When reviewing for exams, you can jump straight to the most critical material without scrubbing through audio.&lt;/p&gt;
-
-&lt;h3 id=&quot;organize-with-named-groups&quot;&gt;Organize with named groups&lt;/h3&gt;
-&lt;p&gt;Separate content by subject, priority, or exam date using named groups. This makes finding specific material effortless during review sessions.&lt;/p&gt;
-
-&lt;h3 id=&quot;practice-active-recall-while-listening&quot;&gt;Practice active recall while listening&lt;/h3&gt;
-&lt;p&gt;Pause the audio regularly. Summarize what you just heard out loud or write a quick note. This forces your brain to process, not just passively consume.&lt;/p&gt;
-
-&lt;h3 id=&quot;layer-your-learning&quot;&gt;Layer your learning&lt;/h3&gt;
-&lt;p&gt;Listen to PDFs during commutes or exercise. Later, sit down and review the same material visually, adding annotations or creating study notes. This dual-mode approach strengthens memory.&lt;/p&gt;
-
-&lt;h3 id=&quot;adjust-speed-strategically&quot;&gt;Adjust speed strategically&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;First pass on new material: Normal or slightly slower speed&lt;/li&gt;
-  &lt;li&gt;Review sessions: 1.5x speed&lt;/li&gt;
-  &lt;li&gt;Final pre-exam cramming: 2x speed for familiar content only&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;7. Combine with traditional study&lt;/strong&gt;&lt;br /&gt;
-Read-aloud PDFs work best as part of a complete study system. Use them for initial exposure and review, but still engage visually with complex diagrams, equations, or tables that don’t convert well to audio.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;what-tts-cant-do-and-what-to-do-instead&quot;&gt;What TTS can’t do (and what to do instead)&lt;/h2&gt;
-
-&lt;p&gt;Be realistic about limitations:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Complex layouts suffer:&lt;/strong&gt; Tables, mathematical equations, and multi-column formats often read awkwardly. You’ll need to review these sections visually in the original PDF.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Diagrams and images:&lt;/strong&gt; TTS can’t describe figures. Keep the PDF open to glance at visual elements when referenced.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Organization matters:&lt;/strong&gt; Without using groups or clear naming, finding specific content later becomes frustrating. Spend a few minutes organizing files upfront.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt; Use TTS for prose-heavy content (textbook chapters, research papers, articles). Study graphs, charts, and equations separately with traditional reading.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;ready-to-turn-your-pdfs-into-audio&quot;&gt;Ready to turn your PDFs into audio?&lt;/h2&gt;
-
-&lt;p&gt;Text-to-speech apps transform how efficiently you can study by &lt;strong&gt;turning idle time into productive learning time&lt;/strong&gt;. By listening to read-aloud PDFs during your daily routine, you can cover more material, reinforce retention, and maintain momentum even when sitting down to read isn’t practical.&lt;/p&gt;
-
-&lt;p&gt;For a tool that reads PDFs aloud without compromising your privacy, &lt;strong&gt;Chitneek&lt;/strong&gt; delivers on-device processing, natural iOS voices, and the flexibility students need. No cloud uploads, no tracking, no accounts required - just your PDFs converted to audio, ready whenever you are.&lt;/p&gt;
-
-&lt;p&gt;Start studying smarter by making every moment count. Try Chitneek’s 7-day free trial and experience what it’s like to have your entire PDF library accessible as audio, anywhere you go. Learn more &lt;a href=&quot;https://extiri.com/chitneek.html&quot;&gt;here&lt;/a&gt; or &lt;a href=&quot;https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870&quot;&gt;download now&lt;/a&gt; from the App Store on iOS.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 28 Oct 2025 00:00:00 +0100</pubDate>
-        <link>https://extiri.com/blog/posts/how-to-study-read-aloud-pdf</link>
-        <guid isPermaLink="true">https://extiri.com/blog/posts/how-to-study-read-aloud-pdf</guid>
-        
-        <category>extiri</category>
-        
-        <category>study-guide</category>
-        
-        <category>app-showcase</category>
         
         
       </item>
