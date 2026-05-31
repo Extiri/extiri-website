@@ -535,6 +535,38 @@
                 transform: none;
             }
         }
+
+        /* === Pricing Table === */
+        .ck-pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--bg-glass-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .ck-pricing-table th,
+        .ck-pricing-table td {
+            padding: var(--space-4) var(--space-6);
+            text-align: left;
+            border-bottom: 1px solid var(--bg-glass-border);
+        }
+
+        .ck-pricing-table th {
+            background: rgba(0, 122, 255, 0.08);
+            font-weight: 600;
+        }
+
+        .ck-pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .ck-pricing-note {
+            color: var(--text-secondary);
+            margin-top: var(--space-4);
+            font-size: var(--text-sm);
+        }
     </style>
 
     <!-- Scripts -->
@@ -607,9 +639,8 @@
                     <i class="fa-brands fa-apple" style="margin-right: 8px;"></i>Download on App Store</a>
             </div>
 
-            <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: rgba(255, 255, 255, 0.8);">7-day
-                free
-                trial or one-time purchase · Works offline · iOS 16.6+</p>
+            <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: rgba(255, 255, 255, 0.8);">Free
+                plan available with limits · 7-day free trial or one-time purchase · Works offline · iOS 16.6+</p>
         </div>
     </header>
 
@@ -704,7 +735,8 @@
                     </div>
                     <h3>Natural TTS Voices</h3>
                     <p>Powered by Apple's built-in text-to-speech engine, Chitneek reads your documents aloud with
-                        natural-sounding voices. Adjust speed and pitch to your preference.</p>
+                        natural-sounding voices. Now includes high-quality offline voices for Polish, English, German,
+                        and French in the paid plan.</p>
                 </div>
 
                 <!-- Card 3: Shared Groups -->
@@ -846,6 +878,53 @@
         </div>
     </section>
 
+    <section class="section">
+        <div class="container" style="max-width: 900px;">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto var(--space-10) auto;">
+                <p
+                    style="color: var(--ck-blue); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">
+                    Plans</p>
+                <h2>Free vs Paid</h2>
+                <p>With a subscription (monthly or yearly, 7-day free trial) or a lifetime purchase, you unlock all
+                    Chitneek features. The free plan is limited but great for trying the basics.</p>
+            </div>
+
+            <div style="overflow-x: auto;">
+                <table class="ck-pricing-table" aria-label="Chitneek free and paid comparison">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Free Plan</th>
+                            <th>Paid Plan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Library size</td>
+                            <td>Up to 5 books at a time</td>
+                            <td>Unlimited library</td>
+                        </tr>
+                        <tr>
+                            <td>Offline high-quality voices (PL, EN, DE, FR)</td>
+                            <td>Not included</td>
+                            <td>Included</td>
+                        </tr>
+                        <tr>
+                            <td>Scan and Record</td>
+                            <td>Not included</td>
+                            <td>Included</td>
+                        </tr>
+                        <tr>
+                            <td>Shared Groups</td>
+                            <td>Not included</td>
+                            <td>Included</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
     <!-- ═══════════════════════════════════════ -->
     <!--         SUPPORTED LANGUAGES            -->
     <!-- ═══════════════════════════════════════ -->
@@ -857,8 +936,8 @@
                     style="color: var(--ck-purple); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">
                     Multilingual</p>
                 <h2>Speak every language</h2>
-                <p>Full interface and voice support for major languages. Many additional languages supported for voice
-                    playback.</p>
+                <p>Full interface and voice support for major languages. High-quality offline voices are now available
+                    for Polish, English, German, and French in the paid plan.</p>
             </div>
 
             <div class="lang-grid">
@@ -935,8 +1014,9 @@
                     <button class="faq-question">Is Chitneek free?<span class="faq-arrow"><i
                                 class="fa-solid fa-chevron-right"></i></span></button>
                     <div class="faq-answer">
-                        <p>Chitneek offers a 7-day free trial. After that, you can choose between a monthly or yearly
-                            subscription plan to access all features.</p>
+                        <p>Chitneek offers a limited free plan (up to 5 books, no offline high-quality voices, no Scan
+                            and Record, and no shared groups) plus a 7-day free trial. You can also choose monthly or
+                            yearly subscriptions or a lifetime purchase to unlock all features.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -968,9 +1048,9 @@
                     <button class="faq-question">Which voices does it use?<span class="faq-arrow"><i
                                 class="fa-solid fa-chevron-right"></i></span></button>
                     <div class="faq-answer">
-                        <p>Chitneek uses Apple's built-in iOS voices for text-to-speech. The quality depends on the
-                            voices you've downloaded on your device — enhanced and premium voices sound remarkably
-                            natural.</p>
+                        <p>Chitneek uses Apple's built-in iOS voices for text-to-speech. The paid plan now includes
+                            high-quality offline voices for Polish, English, German, and French, with additional iOS
+                            voices supported based on what you download.</p>
                     </div>
                 </div>
                 <div class="faq-item">
