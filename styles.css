@@ -37,6 +37,8 @@
   --color-spacetrain-rgb: 102, 238, 255;
   --color-resso: #21A9CF;
   --color-resso-rgb: 33, 169, 207;
+  --color-rapidool: #a855f7;
+  --color-rapidool-rgb: 168, 85, 247;
 
   /* --- Typography --- */
   --font-sans: 'JetBrains Mono', monospace;
@@ -672,7 +674,6 @@ p {
 
 .featured-app-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(var(--app-color-rgb), 0.3);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4),
     0 0 30px rgba(var(--app-color-rgb), 0.1);
 }
@@ -865,7 +866,6 @@ p {
 }
 
 .app-mini-card:hover {
-  border-color: rgba(255, 255, 255, 0.15);
   transform: translateY(-4px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
@@ -950,9 +950,11 @@ p {
 
 /* --- Footer --- */
 .footer {
+  position: relative;
+  z-index: 10;
   border-top: 1px solid var(--bg-glass-border);
   padding: var(--space-16) 0 var(--space-8);
-  background: var(--bg-surface);
+  background: #101010 !important;
 }
 
 .footer-grid {
@@ -998,6 +1000,40 @@ p {
   border-top: 1px solid var(--bg-glass-border);
   color: var(--text-tertiary);
   font-size: var(--text-sm);
+}
+
+/* --- Legal / Space Footer --- */
+.legal-footer {
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid var(--bg-glass-border);
+  padding: var(--space-12) var(--space-4);
+  background: #101010 !important;
+  text-align: center;
+}
+
+.space-footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+
+.space-footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  transition: color var(--transition-fast);
+}
+
+.space-footer-links a:hover {
+  color: var(--text-primary);
+}
+
+.space-footer-note {
+  color: var(--text-tertiary);
+  font-size: var(--text-xs);
+  margin: 0;
 }
 
 /* --- Recent Posts Section --- */

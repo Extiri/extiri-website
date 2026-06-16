@@ -367,7 +367,8 @@ function initDownloadTracking() {
   const mapping = [
     { name: 'cta-codemenu', selectors: ['a[href*="codemenu-snippets-manager"]', '.download-codemenu'] },
     { name: 'cta-chitneek', selectors: ['a[href*="chitneek-read-aloud"]', '.download-chitneek'] },
-    { name: 'cta-clipguru', selectors: ['a[href*="clipguru"]', '.download-clipguru'] }
+    { name: 'cta-clipguru', selectors: ['a[href*="clipguru"]', '.download-clipguru'] },
+    { name: 'cta-rapidool', selectors: ['a[href*="rapidool"]', '.download-rapidool'] }
   ];
 
   mapping.forEach(({ name, selectors }) => {
