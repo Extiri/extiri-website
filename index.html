@@ -42,6 +42,25 @@
             background: radial-gradient(circle at 30% 30%, rgba(235, 114, 89, 0.08) 0%, rgba(5, 5, 5, 0) 50%),
                 radial-gradient(circle at 70% 70%, rgba(38, 171, 236, 0.08) 0%, rgba(5, 5, 5, 0) 50%);
         }
+
+        .featured-app-card__media--netvis {
+            background:
+                radial-gradient(circle at 52% 44%, rgba(var(--color-netvis-rgb), 0.24), transparent 48%),
+                linear-gradient(135deg, rgba(var(--color-netvis-rgb), 0.16), rgba(130, 214, 255, 0.06));
+        }
+
+        .featured-app-card__media--netvis img {
+            object-fit: contain;
+            object-position: center;
+            padding: var(--space-4);
+            filter: drop-shadow(0 20px 38px rgba(0, 0, 0, 0.46));
+        }
+
+        @media (max-width: 1024px) {
+            .featured-apps .featured-app-card:last-child {
+                grid-column: span 1;
+            }
+        }
     </style>
 
     <!-- Icons -->
@@ -218,6 +237,41 @@
                     </div>
                 </article>
 
+                <!-- Netvis -->
+                <article class="featured-app-card"
+                    style="--app-color: var(--color-netvis); --app-color-rgb: var(--color-netvis-rgb);">
+                    <div class="featured-app-card__glow"></div>
+                    <div class="featured-app-card__media featured-app-card__media--netvis">
+                        <img src="images/netvis/whole-window-transparent.png"
+                            alt="Netvis network graph and packet playback window">
+                    </div>
+                    <div class="featured-app-card__content">
+                        <div class="featured-app-card__header">
+                            <img src="images/netvis/netvis-icon.png" alt="Netvis" class="featured-app-card__icon"
+                                style="filter: drop-shadow(0 4px 8px rgba(148, 85, 255, 0.35));">
+                            <div>
+                                <h3>Netvis</h3>
+                                <div class="featured-app-card__badges">
+                                    <span class="badge badge--small">macOS</span>
+                                    <span class="badge badge--small">Network</span>
+                                    <span class="badge badge--small">PCAP</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Visual packet analysis for macOS. Open PCAP and PCAPNG files, replay packet flow, inspect
+                            hosts, and spot suspicious network events.</p>
+                        <div class="featured-app-card__actions">
+                            <a href="./netvis.html" class="btn btn-primary btn--small"
+                                style="background: var(--color-netvis); color: #fff; --btn-shadow-rgb: var(--color-netvis-rgb);">
+                                Learn More
+                            </a>
+                            <span class="btn btn-secondary btn--small btn--disabled" aria-label="Coming Soon">
+                                Coming Soon
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
                 <!-- Chitneek -->
                 <article class="featured-app-card"
                     style="--app-color: var(--color-chitneek); --app-color-rgb: var(--color-chitneek-rgb);">
@@ -297,7 +351,8 @@
                     </div>
                     <div class="featured-app-card__content">
                         <div class="featured-app-card__header">
-                            <img src="images/rapidool/rapidool_icon.png" alt="Rapidool" class="featured-app-card__icon" style="filter: drop-shadow(0 4px 8px rgba(168, 85, 247, 0.35));">
+                            <img src="images/rapidool/rapidool_icon.png" alt="Rapidool" class="featured-app-card__icon"
+                                style="filter: drop-shadow(0 4px 8px rgba(168, 85, 247, 0.35));">
                             <div>
                                 <h3>Rapidool</h3>
                                 <div class="featured-app-card__badges">
@@ -307,16 +362,16 @@
                                 </div>
                             </div>
                         </div>
-                        <p>A native, local-first scratchpad for developer notes. Evaluate math, query mock APIs, decode formats, and run code blocks inline.</p>
+                        <p>A native, local-first scratchpad for developer notes. Evaluate math, query mock APIs, decode
+                            formats, and run code blocks inline.</p>
                         <div class="featured-app-card__actions">
                             <a href="./rapidool.html" class="btn btn-primary btn--small"
                                 style="background: var(--color-rapidool); color: #fff; --btn-shadow-rgb: var(--color-rapidool-rgb);">
                                 Learn More
                             </a>
-                            <a href="https://apps.apple.com/pl/app/rapidool"
-                                class="btn btn-secondary btn--small" aria-label="Download Rapidool">
-                                <i class="fa-brands fa-apple"></i> App Store
-                            </a>
+                            <span class="btn btn-secondary btn--small btn--disabled" aria-label="Coming Soon">
+                                Coming Soon
+                            </span>
                         </div>
                     </div>
                 </article>
@@ -458,7 +513,7 @@
     <!-- Cookie Consent -->
     <div id="cookie-consent-banner"
         style="position: fixed; bottom: 20px; right: 20px; max-width: 400px; background: var(--bg-surface); border: 1px solid var(--bg-glass-border); padding: 20px; border-radius: var(--radius-lg); z-index: 2000; display: none; box-shadow: var(--shadow-xl);">
-        <p style="margin-bottom: 15px;">We use cookies to improve your experience. By clicking "Accept All," you consent
+        <p style="margin-bottom: 15px;">We use cookies to improve your experience. By clicking "Accept All" you consent
             to our use of these technologies.</p>
         <div style="display: flex; gap: 10px;">
             <button id="accept-cookies" class="btn btn-primary" style="font-size: 0.8rem; padding: 8px 16px;">Accept

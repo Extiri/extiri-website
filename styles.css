@@ -39,6 +39,8 @@
   --color-resso-rgb: 33, 169, 207;
   --color-rapidool: #a855f7;
   --color-rapidool-rgb: 168, 85, 247;
+  --color-netvis: #9455FF;
+  --color-netvis-rgb: 148, 85, 255;
 
   /* --- Typography --- */
   --font-sans: 'JetBrains Mono', monospace;
@@ -435,6 +437,13 @@ p {
 .btn-icon {
   padding: var(--space-2);
   border-radius: var(--radius-full);
+}
+
+.btn--disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+  filter: grayscale(0.6);
 }
 
 /* Cards */

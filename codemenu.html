@@ -289,6 +289,197 @@
       color: #5c6370;
       font-style: italic;
     }
+
+    .focus-showcase {
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255, 179, 0, 0.08), transparent 28rem),
+        linear-gradient(180deg, rgba(255, 179, 0, 0.025) 0%, rgba(5, 5, 5, 0) 82%);
+    }
+
+    .focus-header {
+      max-width: 760px;
+      margin: 0 auto var(--space-16);
+      text-align: center;
+    }
+
+    .focus-header .eyebrow {
+      color: var(--color-codemenu);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      letter-spacing: 0;
+      margin-bottom: var(--space-3);
+      text-transform: uppercase;
+    }
+
+    .focus-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 520px);
+      gap: var(--space-16);
+      align-items: start;
+    }
+
+    .focus-stories {
+      display: grid;
+      gap: var(--space-10);
+    }
+
+    .focus-story {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: var(--space-6);
+      padding-bottom: var(--space-8);
+      border-bottom: 1px solid var(--bg-glass-border);
+    }
+
+    .focus-story:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .focus-story__icon {
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(var(--focus-rgb, 255, 179, 0), 0.22);
+      border-radius: var(--radius-md);
+      background: rgba(var(--focus-rgb, 255, 179, 0), 0.09);
+      color: var(--focus-color, var(--color-codemenu));
+      font-size: 1.35rem;
+    }
+
+    .focus-story h3 {
+      margin-bottom: var(--space-3);
+      font-size: var(--text-2xl);
+      line-height: 1.2;
+    }
+
+    .focus-story p {
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    .focus-visuals {
+      position: sticky;
+      top: 96px;
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .focus-visual-main,
+    .focus-visual-pair img,
+    .focus-visual-wide {
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: var(--radius-md);
+      background: #0d0d0d;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
+    }
+
+    .focus-visual-main {
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .focus-visual-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+
+    .focus-visual-pair img {
+      aspect-ratio: 1 / 0.78;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .focus-visual-wide {
+      aspect-ratio: 16 / 7;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .focus-toolbelt {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: var(--space-16);
+      border-top: 1px solid var(--bg-glass-border);
+      border-bottom: 1px solid var(--bg-glass-border);
+    }
+
+    .focus-tool {
+      padding: calc(var(--space-8) + var(--space-2)) var(--space-8);
+      border-right: 1px solid var(--bg-glass-border);
+    }
+
+    .focus-tool:last-child {
+      border-right: 0;
+    }
+
+    .focus-tool i {
+      color: var(--focus-color, var(--color-codemenu));
+      font-size: 1.45rem;
+      margin-bottom: var(--space-4);
+    }
+
+    .focus-tool h3 {
+      margin-bottom: var(--space-3);
+      font-size: var(--text-lg);
+      line-height: 1.25;
+    }
+
+    .focus-tool p {
+      color: var(--text-secondary);
+      font-size: var(--text-sm);
+      line-height: 1.65;
+    }
+
+    .focus-tool .terminal-window {
+      margin-top: var(--space-4);
+      font-size: 0.72rem;
+    }
+
+    @media (max-width: 980px) {
+      .focus-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .focus-visuals {
+        position: static;
+      }
+
+      .focus-toolbelt {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .focus-tool:nth-child(2) {
+        border-right: 0;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .focus-story {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+
+      .focus-visual-pair,
+      .focus-toolbelt {
+        grid-template-columns: 1fr;
+      }
+
+      .focus-tool,
+      .focus-tool:nth-child(2) {
+        border-right: 0;
+        border-bottom: 1px solid var(--bg-glass-border);
+      }
+
+      .focus-tool:last-child {
+        border-bottom: 0;
+      }
+    }
   </style>
 
   <!-- Scripts -->
@@ -691,137 +882,107 @@
 
 
   <!-- Deep Dive Sections -->
-  <section class="section">
+  <section class="section focus-showcase">
     <div class="container">
-      <h2 style="text-align: center; margin-bottom: var(--space-12);">Engineered for Focus</h2>
+      <div class="focus-header">
+        <p class="eyebrow">Engineered for Focus</p>
+        <h2>Keep the working context visible, searchable, and ready to reuse</h2>
+        <p style="color: var(--text-secondary); font-size: var(--text-lg); line-height: 1.7;">CodeMenu is built around
+          the pieces that make developer work repeatable: focused spaces, connected artifacts, quick previews, and
+          automation hooks that keep your library close to the tools you already use.</p>
+      </div>
 
-      <div class="grid">
-        <!-- Feature 1: Organization (Spaces/Stashes) -->
-        <article class="app-card-large">
-          <div class="app-card-content">
-            <div class="feature-icon-box" style="background: rgba(255, 179, 0, 0.1); color: var(--color-codemenu);"><i
-                class="fa-solid fa-layer-group"></i></div>
-            <h3>Structured for Focus</h3>
-            <p>Context switching kills flow. Use <strong>Spaces</strong> to isolate only the snippets relevant to your
-              current project. Dump temporary ideas into <strong>Stashes</strong> for quick access without the clutter.
-              Of course, standard Groups and Tags are there when you need them.</p>
-          </div>
-          <div class="app-card-media">
-            <img src="./images/codemenu/promo-images/Screenshot 4.png" alt="Organization with Spaces and Stashes">
-          </div>
-        </article>
+      <div class="focus-layout">
+        <div class="focus-stories">
+          <article class="focus-story">
+            <div class="focus-story__icon"><i class="fa-solid fa-layer-group"></i></div>
+            <div>
+              <h3>Structured for Focus</h3>
+              <p>Context switching kills flow. Use <strong>Spaces</strong> to isolate only the snippets relevant to
+                your current project. Drop temporary ideas into <strong>Stashes</strong> for quick access without the
+                clutter, while Groups and Tags remain available when a broader taxonomy helps.</p>
+            </div>
+          </article>
 
-        <!-- Feature 2: Graph View -->
-        <article class="app-card-large reversed">
-          <div class="app-card-content">
-            <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;"><i
-                class="fa-solid fa-diagram-project"></i></div>
-            <h3>Visual Knowledge Graph</h3>
-            <p>Knowledge doesn't live in isolation. Link an OSINT screenshot to your research notes, or a database
-              config to its migration script. Navigate your knowledge base visually to rediscover connections you forgot
-              you made.</p>
-          </div>
-          <div class="app-card-media">
+          <article class="focus-story" style="--focus-color: #82d6ff; --focus-rgb: 130, 214, 255;">
+            <div class="focus-story__icon"><i class="fa-solid fa-diagram-project"></i></div>
+            <div>
+              <h3>Visual Knowledge Graph</h3>
+              <p>Knowledge does not live in isolation. Link an OSINT screenshot to research notes, or connect a
+                database config to its migration script. Navigate your library visually and rediscover connections you
+                already made.</p>
+            </div>
+          </article>
+
+          <article class="focus-story" style="--focus-color: #3dd68c; --focus-rgb: 61, 214, 140;">
+            <div class="focus-story__icon"><i class="fa-solid fa-box-open"></i></div>
+            <div>
+              <h3>First-Class Artifacts</h3>
+              <p>It is not just a text bucket. CodeMenu renders Markdown with LaTeX support, previews images and
+                colors, and highlights syntax for 60+ languages. Store the entire context of your work, from PDFs to
+                shell scripts.</p>
+            </div>
+          </article>
+
+          <article class="focus-story" style="--focus-color: #ff6347; --focus-rgb: 255, 99, 71;">
+            <div class="focus-story__icon"><i class="fa-solid fa-play"></i></div>
+            <div>
+              <h3>Run & Preview</h3>
+              <p>Do not just store code. Execute shell scripts directly from the app, preview HTML and JavaScript in a
+                sandboxed web view, and test a regular expression before you commit it.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="focus-visuals" aria-label="CodeMenu focus feature screenshots">
+          <img src="./images/codemenu/promo-images/Screenshot 4.png" alt="Organization with Spaces and Stashes"
+            class="focus-visual-main">
+          <div class="focus-visual-pair">
             <img src="./images/codemenu/codemenu-graphs-screenshot.webp" alt="Graph View showing connected nodes">
-          </div>
-        </article>
-
-        <!-- Feature 3: Content Types -->
-        <article class="app-card-large">
-          <div class="app-card-content">
-            <div class="feature-icon-box" style="background: rgba(61, 214, 140, 0.1); color: #3dd68c;"><i
-                class="fa-solid fa-box-open"></i></div>
-            <h3>First-Class Artifacts</h3>
-            <p>It's not just a text bucket. CodeMenu renders Markdown with LaTeX support, previews images and colors,
-              and highlights syntax for 60+ languages. Store the <em>entire</em> context of your work, from PDFs to
-              shell scripts.</p>
-          </div>
-          <div class="app-card-media">
             <img src="./images/codemenu/promo-images/Screenshot 2.png"
               alt="Various content types including images and code">
           </div>
-        </article>
+          <img src="./images/codemenu/promo-images/Screenshot 7.png" alt="Running and previewing code snippets"
+            class="focus-visual-wide">
+        </div>
+      </div>
 
-        <!-- Feature 4: Execution & Preview -->
-        <article class="app-card-large reversed">
-          <div class="app-card-content">
-            <div class="feature-icon-box" style="background: rgba(255, 99, 71, 0.1); color: #ff6347;"><i
-                class="fa-solid fa-play"></i></div>
-            <h3>Run & Preview</h3>
-            <p>Don't just store code—execute it. Run shell scripts directly from the app, preview HTML/JS snippets in a
-              sandboxed web view, or test that Regex before you commit it.</p>
-          </div>
-          <div class="app-card-media">
-            <img src="./images/codemenu/promo-images/Screenshot 7.png" alt="Running and previewing code snippets">
-          </div>
-        </article>
-
-        <!-- Feature 5: Extensibility -->
-        <article class="app-card-large">
-          <div class="app-card-content">
-            <div class="feature-icon-box" style="background: rgba(255, 224, 130, 0.1); color: #ffe082;"><i
-                class="fa-solid fa-plug"></i></div>
-            <h3>Headless & Scriptable</h3>
-            <p>The built-in HTTP server exposes your library to your local network of tools. Fetch snippets via `curl`,
-              integrate with Raycast, or write JavaScript automations to transform content on paste.</p>
-            <div class="terminal-window">
-              <div class="terminal-header">
-                <div class="terminal-dot red"></div>
-                <div class="terminal-dot yellow"></div>
-                <div class="terminal-dot green"></div>
-              </div>
-              <span class="code-line"><span class="code-comment"># Access your snippets from anywhere</span></span>
-              <span class="code-line">$ curl localhost:1300/v1/snippets</span>
+      <div class="focus-toolbelt">
+        <article class="focus-tool" style="--focus-color: #ffe082;">
+          <i class="fa-solid fa-plug"></i>
+          <h3>Headless & Scriptable</h3>
+          <p>The built-in HTTP server exposes your library to local tools. Fetch snippets with <code>curl</code>,
+            integrate with Raycast, or write JavaScript automations that transform content on paste.</p>
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <div class="terminal-dot red"></div>
+              <div class="terminal-dot yellow"></div>
+              <div class="terminal-dot green"></div>
             </div>
-          </div>
-          <div class="app-card-media">
-            <img src="./images/codemenu/promo-images/Screenshot 8.png" alt="HTTP Server and Automation settings">
-          </div>
-        </article>
-
-        <!-- Feature 6: Built-in AI Chat -->
-        <article class="app-card-large reversed">
-          <div class="app-card-content">
-            <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;"><i
-                class="fa-solid fa-comments"></i></div>
-            <h3>Built-in AI Chat</h3>
-            <p>Ask questions about your snippets, code patterns, APIs, or concepts — right inside CodeMenu. The AI
-              automatically finds relevant snippets from your library and uses them as context, so answers are grounded
-              in <em>your</em> code, not generic examples.</p>
-          </div>
-          <div class="app-card-media">
-            <img src="./images/codemenu/ai-demo-codemenu.png" alt="Built-in AI chat with snippet context">
+            <span class="code-line"><span class="code-comment"># Access your snippets from anywhere</span></span>
+            <span class="code-line">$ curl localhost:1300/v1/snippets</span>
           </div>
         </article>
 
-        <!-- Feature 7: Shortcuts App Support -->
-        <article class="app-card-large">
-          <div class="app-card-content">
-            <div class="feature-icon-box" style="background: rgba(255, 99, 71, 0.1); color: #ff6347;"><i
-                class="fa-solid fa-wand-magic-sparkles"></i></div>
-            <h3>Shortcuts Integration</h3>
-            <p>CodeMenu ships with 20+ Shortcuts actions — create, search, update, and organise snippets, groups, and
-              tags without ever opening the app. Build powerful automations that feed your knowledge base on
-              autopilot.</p>
-          </div>
-          <div class="app-card-media">
-            <img src="./images/codemenu/shortcuts-codemenu.png" alt="Shortcuts app actions for CodeMenu">
-          </div>
+        <article class="focus-tool" style="--focus-color: #82d6ff;">
+          <i class="fa-solid fa-comments"></i>
+          <h3>Built-in AI Chat</h3>
+          <p>Ask about snippets, patterns, APIs, or concepts inside CodeMenu. AI retrieves relevant snippets from your
+            own library, so answers are grounded in your code instead of generic examples.</p>
         </article>
 
-        <!-- Feature 8: The Rest -->
-        <article class="app-card-large reversed">
-          <div class="app-card-content">
-            <div class="feature-icon-box" style="background: rgba(255, 255, 255, 0.1); color: #fff;"><i
-                class="fa-solid fa-star"></i></div>
-            <h3>And So Much More</h3>
-            <p>Generate shareable code images, recognise text from screenshots, encrypt sensitive snippets, sync via
-              iCloud, publish to GitHub Gists, or host your own Snippets Store. Every detail is designed to keep you
-              in the flow.</p>
-          </div>
-          <div class="app-card-media">
-            <img src="./images/codemenu/promo-images/Screenshot 9.png" alt="Additional CodeMenu features">
-          </div>
+        <article class="focus-tool" style="--focus-color: #ff6347;">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <h3>Shortcuts Integration</h3>
+          <p>CodeMenu ships with Shortcuts actions to create, search, update, and organise snippets, groups, and tags
+            without opening the app.</p>
+        </article>
+
+        <article class="focus-tool" style="--focus-color: #ffffff;">
+          <i class="fa-solid fa-star"></i>
+          <h3>And So Much More</h3>
+          <p>Generate shareable code images, recognise text from screenshots, encrypt sensitive snippets, sync via
+            iCloud, publish to GitHub Gists, or host your own Snippets Store.</p>
         </article>
       </div>
     </div>
