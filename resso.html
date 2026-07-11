@@ -27,18 +27,26 @@
     :root {
       --resso-blue-light: #9FD7FF;
       --resso-blue-dark: #2D9CE1;
+      --resso-ink: #050505;
+    }
+
+    .resso-page {
+      background: var(--bg-body);
     }
 
     .hero-resso-v2 {
       position: relative;
-      background: linear-gradient(135deg, var(--resso-blue-light) 0%, var(--resso-blue-dark) 100%);
+      background:
+        radial-gradient(circle at 28% 22%, rgba(255, 255, 255, 0.42), transparent 18rem),
+        linear-gradient(135deg, var(--resso-blue-light) 0%, var(--resso-blue-dark) 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #050505;
+      color: var(--resso-ink);
       overflow: hidden;
       padding: 200px 0 var(--space-32) 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
     }
 
     .hero-resso-v2::before {
@@ -48,6 +56,15 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
       opacity: 0.05;
       mix-blend-mode: overlay;
+    }
+
+    .hero-resso-v2::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 34%;
+      background: linear-gradient(0deg, rgba(5, 5, 5, 0.18), transparent);
+      pointer-events: none;
     }
 
     .hero-content-v2 {
@@ -60,19 +77,36 @@
 
     .hero-title-v2 {
       font-family: var(--font-serif);
-      font-size: clamp(3.5rem, 8vw, 5.5rem);
+      font-size: 5.5rem;
       line-height: 0.95;
       margin-bottom: var(--space-4);
-      letter-spacing: -0.02em;
+      letter-spacing: 0;
     }
 
     .hero-subtitle-v2 {
       font-family: var(--font-sans);
       font-weight: 700;
-      font-size: clamp(3.5rem, 8vw, 5.5rem);
+      font-size: 5.5rem;
       line-height: 0.95;
-      letter-spacing: -0.02em;
-      color: #050505;
+      letter-spacing: 0;
+      color: var(--resso-ink);
+    }
+
+    .hero-title-v2.is-compact,
+    .hero-subtitle-v2.is-compact {
+      font-size: 4.5rem;
+    }
+
+    .hero-resso-actions {
+      margin-top: var(--space-8);
+    }
+
+    .hero-resso-meta {
+      margin-top: var(--space-8);
+      color: var(--resso-ink);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      opacity: 0.8;
     }
 
     .floating-icons-container {
@@ -85,7 +119,7 @@
     .floating-icon {
       position: absolute;
       font-size: 3.5rem;
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.32);
       animation: float 6s infinite ease-in-out;
       opacity: 0.6;
     }
@@ -94,10 +128,6 @@
       top: 15%;
       left: 10%;
       animation-delay: 0s;
-    }
-
-    .app-card-media {
-      box-shadow: none !important;
     }
 
     .icon-database {
@@ -166,28 +196,23 @@
       font-family: var(--font-sans);
       font-weight: 700;
       font-size: var(--text-sm);
-      letter-spacing: 0.2em;
+      letter-spacing: 0;
       text-transform: uppercase;
-      color: #050505;
+      color: var(--resso-ink);
     }
 
+    .resso-eyebrow,
     .text-brand-orange {
       color: var(--color-resso) !important;
-    }
-
-    .asset-type-card:hover {
-      border-color: var(--color-resso);
-      transform: translateY(-4px);
-    }
-
-    .asset-type-icon {
-      font-size: 2.5rem;
-      margin-bottom: var(--space-4);
-      color: var(--color-resso);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      margin-bottom: var(--space-3);
+      text-transform: uppercase;
+      letter-spacing: 0;
     }
 
     .hero-resso-v2 .btn-primary {
-      background: #050505;
+      background: var(--resso-ink);
       color: #fff;
       box-shadow: none !important;
       padding: 1rem 2.8rem;
@@ -198,12 +223,12 @@
 
     .hero-resso-v2 .btn-primary:hover {
       background: var(--color-resso);
-      color: #050505;
+      color: var(--resso-ink);
     }
 
     .hero-resso-v2 .btn-outline {
-      border-color: #050505;
-      color: #050505;
+      border-color: var(--resso-ink);
+      color: var(--resso-ink);
       padding: 1rem 2.8rem;
       border-radius: 100px;
       font-weight: 600;
@@ -212,98 +237,102 @@
     }
 
     .hero-resso-v2 .btn-outline:hover {
-      background: #050505;
+      background: var(--resso-ink);
       color: #fff;
     }
 
-    .split-reveal {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-16);
-      align-items: center;
-      padding: var(--space-20) 0;
+    .resso-section-header {
+      max-width: 780px;
+      margin: 0 auto var(--space-12);
+      text-align: center;
     }
 
-    @media (max-width: 960px) {
-      .split-reveal {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .split-reveal.reversed {
-        direction: ltr;
-      }
-    }
-
-    .reveal-content h2 {
-      font-size: var(--text-4xl);
-      margin-bottom: var(--space-6);
+    .resso-section-header h2,
+    .resso-cta h2 {
+      margin-bottom: var(--space-4);
       font-family: var(--font-serif);
+      font-size: var(--text-4xl);
+      font-weight: 400;
+      line-height: 1.08;
     }
 
-    .reveal-content p {
+    .resso-section-header p,
+    .resso-cta p {
+      color: var(--text-secondary);
       font-size: var(--text-lg);
+      line-height: 1.7;
+    }
+
+    .resso-section-header.is-left {
+      margin: 0 0 var(--space-8);
+      text-align: left;
+    }
+
+    .resso-showcase {
+      border-bottom: 1px solid var(--bg-glass-border);
+    }
+
+    .resso-showcase-grid {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.75fr) minmax(0, 1.25fr);
+      gap: var(--space-12);
+      align-items: center;
+    }
+
+    .resso-showcase-copy h2 {
+      margin-bottom: var(--space-5);
+      font-family: var(--font-serif);
+      font-size: var(--text-4xl);
+      font-weight: 400;
+      line-height: 1.05;
+    }
+
+    .resso-showcase-copy p {
+      color: var(--text-secondary);
+      font-size: var(--text-lg);
+      line-height: 1.7;
+    }
+
+    .resso-proof-list {
+      display: grid;
+      gap: var(--space-4);
+      margin-top: var(--space-8);
+    }
+
+    .resso-proof-item {
+      display: flex;
+      gap: var(--space-3);
+      align-items: flex-start;
       color: var(--text-secondary);
       line-height: 1.6;
     }
 
-    .screenshot-clean {
-      width: 100%;
-      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
-      border-radius: 10px;
-    }
-
-    .asset-type-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--space-6);
-      margin-top: var(--space-12);
-    }
-
-    .asset-type-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--bg-glass-border);
-      padding: var(--space-8);
-      border-radius: var(--radius-lg);
-      text-align: center;
-      transition: var(--transition-normal);
-    }
-
-    .asset-type-card:hover {
-      border-color: var(--color-resso);
-      transform: translateY(-4px);
-    }
-
-    .asset-type-icon {
-      font-size: 2.5rem;
-      margin-bottom: var(--space-4);
+    .resso-proof-item i {
+      margin-top: 5px;
       color: var(--color-resso);
     }
 
-    .section-header {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto var(--space-16) auto;
-    }
-
-    .section-header h2 {
-      font-size: var(--text-4xl);
-      font-family: var(--font-serif);
-    }
-
-    /* Slideshow Styles */
-    .slideshow-section {
+    .resso-media-frame {
       position: relative;
-      width: 100%;
       overflow: hidden;
-      padding: var(--space-12) 0;
+      border: 0;
+      border-radius: var(--radius-xl);
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .resso-media-frame img {
+      display: block;
+      width: 100%;
+    }
+
+    .slideshow-section {
+      padding: 0;
     }
 
     .slideshow-container {
       position: relative;
       width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
       aspect-ratio: 2880/1800;
     }
 
@@ -316,78 +345,648 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      border-radius: var(--radius-lg);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+      border-radius: var(--radius-xl);
       display: none;
       background: #0d0d0d;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
+    }
+
+    .slideshow-img.is-active {
+      display: block;
     }
 
     .slideshow-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(20, 20, 20, 0.85);
-      color: var(--color-resso);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      font-size: 2rem;
+      background: rgba(5, 5, 5, 0.72);
+      color: var(--color-resso);
       cursor: pointer;
       z-index: 10;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.2s ease;
-      backdrop-filter: blur(10px);
+      font-size: 1.4rem;
+      transition: var(--transition-normal);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
 
     .slideshow-btn:hover {
-      background: rgba(159, 215, 255, 0.1);
-      border-color: var(--color-resso);
+      border-color: rgba(var(--color-resso-rgb), 0.6);
+      background: rgba(var(--color-resso-rgb), 0.14);
     }
 
     .slideshow-prev {
-      left: 20px;
+      left: var(--space-4);
     }
 
     .slideshow-next {
-      right: 20px;
+      right: var(--space-4);
     }
 
     .slideshow-dots {
+      position: absolute;
+      left: 50%;
+      bottom: var(--space-4);
       display: flex;
-      justify-content: center;
       gap: 8px;
-      margin-top: var(--space-6);
+      transform: translateX(-50%);
+      padding: 8px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-full);
+      background: rgba(5, 5, 5, 0.58);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
 
     .slideshow-dot {
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.22);
       cursor: pointer;
       transition: all 0.2s ease;
     }
 
     .slideshow-dot.active {
       background: var(--color-resso);
-      transform: scale(1.2);
+      transform: scale(1.24);
     }
 
-    /* Side-by-side images */
-    .side-by-side-images {
+    .resso-workflows {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-4);
-      width: 100%;
+      gap: var(--space-12);
     }
-    
-    .side-by-side-images img {
+
+    .resso-feature-row {
+      display: grid;
+      grid-template-columns: minmax(340px, 0.86fr) minmax(0, 1fr);
+      gap: var(--space-20);
+      align-items: center;
+      padding: var(--space-16) 0;
+      border-top: 1px solid var(--bg-glass-border);
+    }
+
+    .resso-feature-row:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .resso-feature-row.reversed {
+      grid-template-columns: minmax(0, 0.95fr) minmax(380px, 0.82fr);
+    }
+
+    .resso-feature-row.is-attention {
+      grid-template-columns: minmax(0, 520px) minmax(420px, 0.92fr);
+      gap: var(--space-24);
+    }
+
+    .resso-feature-row.reversed .resso-feature-copy {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .resso-feature-row.reversed .resso-feature-media {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .resso-feature-copy h3 {
+      margin-bottom: var(--space-4);
+      font-family: var(--font-serif);
+      font-size: var(--text-3xl);
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    .resso-feature-copy p {
+      color: var(--text-secondary);
+      font-size: var(--text-base);
+      line-height: 1.7;
+    }
+
+    .resso-feature-copy {
+      min-width: 0;
+      max-width: 560px;
+    }
+
+    .resso-feature-list {
+      display: grid;
+      gap: var(--space-3);
+      margin-top: var(--space-6);
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    .resso-feature-list div {
+      display: flex;
+      gap: var(--space-3);
+      align-items: flex-start;
+    }
+
+    .resso-feature-list i {
+      margin-top: 5px;
+      color: var(--color-resso);
+    }
+
+    .resso-feature-media {
+      min-width: 0;
+      max-width: 840px;
+      border-radius: var(--radius-xl);
+      background: transparent;
+      overflow: visible;
+      box-shadow: none;
+    }
+
+    .resso-feature-media img {
+      display: block;
       width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      max-width: 100%;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 22px 52px rgba(0, 0, 0, 0.3);
+    }
+
+    .resso-media-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-6);
+      padding: 0;
+    }
+
+    .resso-media-pair img {
+      border-radius: var(--radius-md);
+      background: rgba(0, 0, 0, 0.18);
+    }
+
+    .resso-alert-panel {
+      width: 100%;
+      box-sizing: border-box;
+      max-width: 520px;
+      padding: var(--space-8);
+      border: 1px solid rgba(var(--color-resso-rgb), 0.18);
+      background: var(--bg-surface);
+      box-shadow: 0 22px 52px rgba(0, 0, 0, 0.28);
+      justify-self: end;
+      overflow: hidden;
+    }
+
+    .resso-alert-panel__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--space-1);
+      margin-bottom: var(--space-5);
+      color: var(--text-secondary);
+      font-size: var(--text-sm);
+    }
+
+    .resso-alert-panel__rows {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .resso-alert-row {
+      display: grid;
+      grid-template-columns: 38px 1fr auto;
+      gap: var(--space-4);
+      align-items: center;
+      padding: var(--space-4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .resso-alert-row i {
+      color: var(--color-resso);
+      font-size: 1.25rem;
+    }
+
+    .resso-alert-row strong {
+      display: block;
+      color: var(--text-primary);
+      font-size: var(--text-sm);
+    }
+
+    .resso-alert-row span {
+      color: var(--text-secondary);
+      font-size: var(--text-xs);
+    }
+
+    .resso-alert-row em {
+      color: var(--color-resso);
+      font-style: normal;
+      font-size: var(--text-xs);
+      white-space: nowrap;
+    }
+
+    .resso-asset-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-8) var(--space-12);
+      margin-top: var(--space-12);
+      padding-top: var(--space-8);
+      border-top: 1px solid var(--bg-glass-border);
+      border-bottom: 1px solid var(--bg-glass-border);
+    }
+
+    .resso-card {
+      min-width: 0;
+      background: var(--bg-surface);
+      border: 1px solid var(--bg-glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-7);
+      transition: var(--transition-normal);
+    }
+
+    .resso-asset-grid .resso-card {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr);
+      column-gap: var(--space-5);
+      row-gap: var(--space-2);
+      padding: 0 0 var(--space-8);
+      border: 0;
+      border-bottom: 1px solid var(--bg-glass-border);
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .resso-asset-grid .resso-card:hover {
+      border-color: var(--bg-glass-border);
+      transform: none;
+    }
+
+    .resso-card:hover {
+      border-color: var(--color-resso);
+      transform: translateY(-4px);
+    }
+
+    .resso-card h3 {
+      margin-bottom: var(--space-2);
+      font-family: var(--font-sans);
+      font-size: var(--text-lg);
+      font-weight: 600;
+    }
+
+    .resso-card p {
+      color: var(--text-secondary);
+      font-size: var(--text-sm);
+      line-height: 1.6;
+      overflow-wrap: break-word;
+    }
+
+    .resso-card-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-4);
+      border-radius: var(--radius-md);
+      background: rgba(var(--color-resso-rgb), 0.12);
+      color: var(--color-resso);
+      font-size: 1.45rem;
+    }
+
+    .resso-asset-grid .resso-card-icon {
+      grid-row: 1 / span 2;
+      margin-bottom: 0;
+    }
+
+    .resso-asset-grid .resso-card h3,
+    .resso-asset-grid .resso-card p {
+      grid-column: 2;
+    }
+
+    .resso-technical-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.75fr);
+      gap: var(--space-8);
+      align-items: stretch;
+    }
+
+    .resso-technical-screens {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    .screenshot-clean {
+      display: block;
+      width: 100%;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+    }
+
+    .resso-database-grid {
+      display: grid;
+      grid-template-columns: minmax(320px, 0.82fr) minmax(0, 1fr);
+      gap: var(--space-16);
+      align-items: center;
+    }
+
+    .resso-database-panel {
+      min-width: 0;
+      border-top: 1px solid var(--bg-glass-border);
+      border-bottom: 1px solid var(--bg-glass-border);
+      padding: var(--space-8) 0;
+    }
+
+    .resso-database-node {
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr);
+      gap: var(--space-5);
+      padding: var(--space-6) 0;
+      border-bottom: 1px solid var(--bg-glass-border);
+    }
+
+    .resso-database-node:last-child {
+      border-bottom: 0;
+    }
+
+    .resso-database-node i {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-md);
+      background: rgba(var(--color-resso-rgb), 0.12);
+      color: var(--color-resso);
+      font-size: 1.3rem;
+    }
+
+    .resso-database-node strong {
+      display: block;
+      margin-bottom: var(--space-1);
+      color: var(--text-primary);
+      font-size: var(--text-lg);
+    }
+
+    .resso-database-node span {
+      color: var(--text-secondary);
+      font-size: var(--text-sm);
+      line-height: 1.6;
+    }
+
+    .resso-link {
+      color: var(--color-resso);
+      text-decoration: none;
+    }
+
+    .resso-link:hover {
+      text-decoration: underline;
+    }
+
+    .resso-provider-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: var(--space-6);
+      margin-top: var(--space-12);
+      padding: var(--space-8) 0;
+      border-top: 1px solid var(--bg-glass-border);
+      border-bottom: 1px solid var(--bg-glass-border);
+    }
+
+    .resso-provider {
+      display: flex;
+      min-height: 96px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      color: var(--text-secondary);
+      text-align: center;
+      font-size: var(--text-sm);
+    }
+
+    .resso-provider img {
+      height: 42px;
+      max-width: 72px;
+      object-fit: contain;
+    }
+
+    .resso-provider.is-inverted img {
+      filter: invert(1);
+    }
+
+    .resso-tool-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: var(--space-14);
+      border-top: 1px solid var(--bg-glass-border);
+      border-bottom: 1px solid var(--bg-glass-border);
+    }
+
+    .resso-tool-grid .resso-card {
+      border: 0;
+      border-right: 1px solid var(--bg-glass-border);
+      border-radius: 0;
+      background: transparent;
+      padding: calc(var(--space-8) + var(--space-2)) var(--space-8);
+    }
+
+    .resso-tool-grid .resso-card:hover {
+      border-color: var(--bg-glass-border);
+      transform: none;
+    }
+
+    .resso-tool-grid .resso-card:last-child {
+      border-right: 0;
+    }
+
+    .resso-faq {
+      display: block;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .resso-faq details {
+      border: 0;
+      border-bottom: 1px solid var(--bg-glass-border);
+      border-radius: 0;
+      background: transparent;
+      padding: 0;
+    }
+
+    .resso-faq summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-6);
+      cursor: pointer;
+      color: var(--text-primary);
+      font-size: var(--text-lg);
+      font-weight: 500;
+      list-style: none;
+      padding: var(--space-6) 0;
+    }
+
+    .resso-faq summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .resso-faq summary::after {
+      content: "›";
+      color: var(--color-resso);
+      font-size: 1.5rem;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+
+    .resso-faq details[open] summary::after {
+      transform: rotate(90deg);
+    }
+
+    .resso-faq p {
+      max-width: 720px;
+      margin: 0;
+      padding-bottom: var(--space-6);
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .resso-cta {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .resso-cta .hero-actions {
+      margin-top: var(--space-8);
+    }
+
+    .resso-page .section .btn-primary {
+      background: var(--color-resso);
+      color: #050505;
+      --btn-shadow-rgb: var(--color-resso-rgb);
+    }
+
+    .surface-band {
+      border-top: 1px solid var(--bg-glass-border);
+      border-bottom: 1px solid var(--bg-glass-border);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .resso-page .footer-brand img {
+      opacity: 0.8;
+    }
+
+    @media (max-width: 1080px) {
+      .resso-showcase-grid,
+      .resso-feature-row,
+      .resso-feature-row.reversed,
+      .resso-technical-grid,
+      .resso-database-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .resso-feature-row.reversed .resso-feature-copy,
+      .resso-feature-row.reversed .resso-feature-media {
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      .resso-feature-copy,
+      .resso-feature-media,
+      .resso-alert-panel {
+        max-width: 100%;
+      }
+
+      .resso-alert-panel {
+        justify-self: stretch;
+      }
+
+      .resso-asset-grid,
+      .resso-provider-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .resso-tool-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .resso-tool-grid .resso-card {
+        border-right: 1px solid var(--bg-glass-border);
+        border-bottom: 1px solid var(--bg-glass-border);
+      }
+
+      .resso-tool-grid .resso-card:nth-child(2n) {
+        border-right: 0;
+      }
+
+      .resso-tool-grid .resso-card:nth-last-child(-n + 2) {
+        border-bottom: 0;
+      }
+
+      .hero-title-v2,
+      .hero-subtitle-v2,
+      .hero-title-v2.is-compact,
+      .hero-subtitle-v2.is-compact {
+        font-size: 3.6rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-resso-v2 {
+        padding-top: calc(var(--header-height) + var(--space-16));
+      }
+
+      .resso-asset-grid,
+      .resso-provider-grid,
+      .resso-faq,
+      .resso-media-pair {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title-v2.is-compact,
+      .hero-subtitle-v2.is-compact {
+        font-size: 2.8rem;
+      }
+
+      .slideshow-btn {
+        width: 38px;
+        height: 38px;
+      }
+
+      .resso-asset-grid .resso-card {
+        grid-template-columns: 48px 1fr;
+        gap: var(--space-4);
+      }
+
+      .resso-alert-row {
+        grid-template-columns: 32px 1fr;
+      }
+
+      .resso-alert-row em {
+        grid-column: 2;
+        justify-self: start;
+      }
+
+      .resso-tool-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .resso-tool-grid .resso-card,
+      .resso-tool-grid .resso-card:nth-child(2n) {
+        border-right: 0;
+      }
+
+      .resso-tool-grid .resso-card:nth-last-child(-n + 2) {
+        border-bottom: 1px solid var(--bg-glass-border);
+      }
+
+      .resso-tool-grid .resso-card:last-child {
+        border-bottom: 0;
+      }
     }
   </style>
 
@@ -402,7 +1001,7 @@
   <script src="scripts.js" defer></script>
 </head>
 
-<body>
+<body class="resso-page">
   <nav class="navbar">
     <div class="container navbar-inner">
       <a href="./index.html" class="nav-logo">
@@ -434,10 +1033,10 @@
         <img src="images/resso/resso-icon.webp" alt="Resso Icon" class="hero-brand-icon">
         <span class="hero-brand-name">RESSO</span>
       </div>
-      <div class="hero-title-v2">Manage your assets.</div>
-      <div class="hero-subtitle-v2">Effortlessly.</div>
+      <div class="hero-title-v2 is-compact">An infrastructure inventory & asset manager.</div>
+      <div class="hero-subtitle-v2 is-compact">For developers and indie hackers.</div>
 
-      <div class="hero-actions flex-center delay-100" style="margin-top: var(--space-8);">
+      <div class="hero-actions hero-resso-actions flex-center delay-100">
         <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161" class="btn btn-primary"><i
             class="fa-brands fa-apple"></i> App Store</a>
         <a href="#features" class="btn btn-outline">Explore Features</a>
@@ -448,91 +1047,149 @@
           class="dashboard-img" fetchpriority="high">
       </div>
 
-      <p style="margin-top: var(--space-8); font-size: var(--text-sm); font-weight: 600; color: #050505; opacity: 0.8;">
+      <p class="hero-resso-meta">
         iCloud Sync · Works Offline · macOS & iOS
       </p>
     </div>
   </header>
 
-  <!-- Interactive Slideshow Section -->
-  <section class="section slideshow-section" id="screenshots">
-    <div class="container" style="max-width: 1200px;">
-      <h2 style="text-align: center; margin-bottom: var(--space-8); font-family: var(--font-serif); font-size: var(--text-4xl);">Inside the workspace</h2>
-      <div class="slideshow-container">
-        <div class="slideshow-images">
-          <img src="images/resso/app-store/Resso - Screenshot 1.webp" alt="Resso Screenshot 1" class="slideshow-img" style="display: block;">
-          <img data-src="images/resso/app-store/Resso - Screenshot 2.webp" alt="Resso Screenshot 2" class="slideshow-img">
-          <img data-src="images/resso/app-store/Resso - Screenshot 3.webp" alt="Resso Screenshot 3" class="slideshow-img">
-          <img data-src="images/resso/app-store/Resso - Screenshot 4.webp" alt="Resso Screenshot 4" class="slideshow-img">
-          <img data-src="images/resso/app-store/Resso - Screenshot 5.webp" alt="Resso Screenshot 5" class="slideshow-img">
-          <img data-src="images/resso/app-store/Resso - Screenshot 6.webp" alt="Resso Screenshot 6" class="slideshow-img">
-          <img data-src="images/resso/app-store/Resso - Screenshot 7.webp" alt="Resso Screenshot 7" class="slideshow-img">
+  <section class="section resso-showcase" id="screenshots">
+    <div class="container">
+      <div class="resso-showcase-grid">
+        <div class="resso-showcase-copy">
+          <p class="resso-eyebrow">Workspace</p>
+          <h2>See your stack as a system, not a pile of notes</h2>
+          <p>Resso keeps apps, servers, domains, accounts, certificates, and cloud resources in one searchable
+            workspace. The goal is simple: know what exists, where it lives, and how it connects.</p>
+          <div class="resso-proof-list">
+            <div class="resso-proof-item">
+              <i class="fa-solid fa-circle-nodes"></i>
+              <span>Map relationships between assets so a domain, VPS, database, and app stop feeling disconnected.</span>
+            </div>
+            <div class="resso-proof-item">
+              <i class="fa-solid fa-cloud-arrow-down"></i>
+              <span>Sync external provider data from services such as App Store Connect, Oracle Cloud, Vercel, GitHub,
+                Google Cloud, and Cloudflare.</span>
+            </div>
+            <div class="resso-proof-item">
+              <i class="fa-solid fa-lock"></i>
+              <span>Work locally and offline, with iCloud sync available across macOS and iOS.</span>
+            </div>
+          </div>
         </div>
-        <button class="slideshow-btn slideshow-prev" aria-label="Previous Slide">&#8592;</button>
-        <button class="slideshow-btn slideshow-next" aria-label="Next Slide">&#8594;</button>
-        <div class="slideshow-dots">
-          <!-- Dots injected by JS -->
+
+        <div class="resso-media-frame slideshow-section">
+          <div class="slideshow-container">
+            <div class="slideshow-images">
+              <img src="images/resso/app-store/Resso - Screenshot 1.webp" alt="Resso dashboard screenshot"
+                class="slideshow-img is-active">
+              <img data-src="images/resso/app-store/Resso - Screenshot 2.webp" alt="Resso asset list screenshot"
+                class="slideshow-img">
+              <img data-src="images/resso/app-store/Resso - Screenshot 3.webp" alt="Resso asset details screenshot"
+                class="slideshow-img">
+              <img data-src="images/resso/app-store/Resso - Screenshot 4.webp" alt="Resso relationship graph screenshot"
+                class="slideshow-img">
+              <img data-src="images/resso/app-store/Resso - Screenshot 5.webp" alt="Resso template editor screenshot"
+                class="slideshow-img">
+              <img data-src="images/resso/app-store/Resso - Screenshot 6.webp" alt="Resso filter screenshot"
+                class="slideshow-img">
+              <img data-src="images/resso/app-store/Resso - Screenshot 7.webp" alt="Resso provider sync screenshot"
+                class="slideshow-img">
+            </div>
+            <button class="slideshow-btn slideshow-prev" aria-label="Previous Slide">&#8592;</button>
+            <button class="slideshow-btn slideshow-next" aria-label="Next Slide">&#8594;</button>
+            <div class="slideshow-dots"></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Real-Life Scenarios Section -->
   <section id="features" class="section">
     <div class="container">
-      <div class="section-header">
-        <p class="text-brand-orange"
-          style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm); margin-bottom: var(--space-2);">
-          Purposeful Utility</p>
+      <div class="resso-section-header">
+        <p class="resso-eyebrow">Purposeful utility</p>
         <h2>Built for high-velocity shipping</h2>
-        <p>Resso maps your configuration so you can maintain a clear mental model and start shipping with clarity.</p>
+        <p>Resso is for people who run multiple projects and need infrastructure context quickly: what is deployed,
+          which account owns it, and what might need attention next.</p>
       </div>
 
-      <div class="grid">
-        <!-- Scenario 1: Track everything -->
-        <article class="app-card-large">
-          <div class="app-card-content">
-            <h3 class="text-brand-orange">Track every moving part in your stack</h3>
-            <p>Managing multiple projects? Keep all your server IPs, domain registrars, SaaS credentials, and deployment URLs in a single, visually organized workspace. Stop searching through emails and notes for important access details.</p>
+      <div class="resso-workflows">
+        <article class="resso-feature-row">
+          <div class="resso-feature-copy">
+            <p class="resso-eyebrow">Inventory</p>
+            <h3>Know which domain points to which VPS</h3>
+            <p>Keep server IPs, domain registrars, SaaS credentials, deployment URLs, and account notes in a single
+              visual inventory instead of scattering them across emails and documents.</p>
+            <div class="resso-feature-list">
+              <div><i class="fa-solid fa-check"></i><span>Group assets by project, provider, tag, or lifecycle.</span></div>
+              <div><i class="fa-solid fa-check"></i><span>Open the exact detail you need without re-building context.</span></div>
+            </div>
           </div>
-          <div class="app-card-media">
-            <img src="./images/resso/new-resso/dashboard-with-assets-no-alert.webp" alt="Dashboard with per-tag grouping" loading="lazy">
-          </div>
-        </article>
-
-        <!-- Scenario 2: SSH / SFTP -->
-        <article class="app-card-large reversed">
-          <div class="app-card-content">
-            <h3 class="text-brand-orange">Connect directly to your servers</h3>
-            <p>Resso isn't just a read-only database. By defining a <code>connection</code> property with your SSH credentials, you can open secure terminal sessions or browse and manage files via SFTP—without ever leaving the app.</p>
-          </div>
-          <div class="app-card-media side-by-side-images" style="box-shadow: none; display: flex; gap: var(--space-4);">
-            <img src="./images/resso/new-resso/ssh-console.webp" alt="SSH Console inside Resso" style="flex: 1; min-width: 0;" loading="lazy">
-            <img src="./images/resso/new-resso/file-viewer.webp" alt="SFTP File Browser inside Resso" style="flex: 1; min-width: 0;" loading="lazy">
-          </div>
-        </article>
-        
-        <!-- Scenario 3: Asset Graph -->
-        <article class="app-card-large">
-          <div class="app-card-content">
-            <h3 class="text-brand-orange">See how everything connects</h3>
-            <p>Understand your infrastructure dependencies visually. Link your staging environments to production, and map domains to their corresponding servers. Filter the rich graph to pinpoint exactly what you're looking for.</p>
-          </div>
-          <div class="app-card-media">
-            <img src="./images/resso/new-resso/rich-graph.webp" alt="Resso Asset Graph Visualization" loading="lazy">
+          <div class="resso-feature-media">
+            <img src="./images/resso/new-resso/dashboard-with-assets-no-alert.webp"
+              alt="Resso dashboard with grouped infrastructure assets" loading="lazy">
           </div>
         </article>
 
-        <!-- Scenario 4: Alerts -->
-        <article class="app-card-large reversed" style="align-items: center;">
-          <div class="app-card-content">
-            <h3 class="text-brand-orange">Stay on top of what needs attention</h3>
-            <p>Never let a domain expire or a certificate lapse again. Resso's built-in system monitors your assets and surfaces critical "Needs Attention" alerts directly in the app, keeping your infrastructure healthy.</p>
+        <article class="resso-feature-row reversed">
+          <div class="resso-feature-copy">
+            <p class="resso-eyebrow">Connections</p>
+            <h3>Manage VPS details without leaving your inventory</h3>
+            <p>Define a <code>connection</code> property with SSH credentials, then document server details and open
+              secure terminal sessions or browse files via SFTP from the same asset record.</p>
+            <div class="resso-feature-list">
+              <div><i class="fa-solid fa-terminal"></i><span>Built-in SSH console for servers you already documented.</span></div>
+              <div><i class="fa-solid fa-folder-tree"></i><span>SFTP file browsing for operational checks.</span></div>
+            </div>
           </div>
-          <div class="app-card-media" style="display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.02); min-height: 250px; border-radius: var(--radius-lg);">
-            <div style="text-align: center; color: var(--color-resso);">
-              <i class="fa-solid fa-bell" style="font-size: 4rem; margin-bottom: 1rem; filter: drop-shadow(0 0 20px rgba(159, 215, 255, 0.4));"></i>
-              <div style="font-weight: 600; font-size: 1.2rem;">Proactive Alerts</div>
+          <div class="resso-feature-media resso-media-pair">
+            <img src="./images/resso/new-resso/ssh-console.webp" alt="SSH console inside Resso" loading="lazy">
+            <img src="./images/resso/new-resso/file-viewer.webp" alt="SFTP file browser inside Resso" loading="lazy">
+          </div>
+        </article>
+
+        <article class="resso-feature-row">
+          <div class="resso-feature-copy">
+            <p class="resso-eyebrow">Graph</p>
+            <h3>Remember which project uses which database</h3>
+            <p>Link staging environments to production databases, map domains to servers, and filter the relationship
+              graph to pinpoint the part of your stack you are trying to understand.</p>
+          </div>
+          <div class="resso-feature-media">
+            <img src="./images/resso/new-resso/rich-graph.webp" alt="Resso relationship graph visualization"
+              loading="lazy">
+          </div>
+        </article>
+
+        <article class="resso-feature-row reversed is-attention">
+          <div class="resso-feature-copy">
+            <p class="resso-eyebrow">Attention</p>
+            <h3>Know when certificates and domains expire</h3>
+            <p>Resso surfaces infrastructure items that need attention, so renewals and expiring certificates are part
+              of your daily dashboard instead of a surprise.</p>
+          </div>
+          <div class="resso-feature-media resso-alert-panel">
+            <div class="resso-alert-panel__header">
+              <span>Needs Attention</span>
+              <span>Today</span>
+            </div>
+            <div class="resso-alert-panel__rows">
+              <div class="resso-alert-row">
+                <i class="fa-solid fa-certificate"></i>
+                <div><strong>api.example.com</strong><span>SSL certificate renewal</span></div>
+                <em>12 days</em>
+              </div>
+              <div class="resso-alert-row">
+                <i class="fa-solid fa-globe"></i>
+                <div><strong>launch-site.io</strong><span>Domain registrar renewal</span></div>
+                <em>23 days</em>
+              </div>
+              <div class="resso-alert-row">
+                <i class="fa-solid fa-server"></i>
+                <div><strong>oracle-prod-01</strong><span>Provider metadata changed</span></div>
+                <em>Review</em>
+              </div>
             </div>
           </div>
         </article>
@@ -540,42 +1197,40 @@
     </div>
   </section>
 
-  <section class="section" style="background: rgba(255,255,255,0.02);">
+  <section class="section surface-band">
     <div class="container">
-      <div class="section-header">
-        <p class="text-brand-orange"
-          style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm); margin-bottom: var(--space-2);">
-          Full Ecosystem</p>
-        <h2>Everything is an asset</h2>
-        <p>Resso supports your entire infrastructure architecture. You can use standard templates or define your own
-          custom entities with precise properties.</p>
+      <div class="resso-section-header">
+        <p class="resso-eyebrow">Full ecosystem</p>
+        <h2>Document your entire infrastructure</h2>
+        <p>Track servers, domains, databases, cloud services, certificates, accounts, and infrastructure notes in one
+          unified asset manager.</p>
       </div>
 
-      <div class="asset-type-grid">
-        <div class="asset-type-card">
-          <div class="asset-type-icon"><i class="fa-solid fa-server"></i></div>
+      <div class="resso-asset-grid">
+        <div class="resso-card">
+          <div class="resso-card-icon"><i class="fa-solid fa-server"></i></div>
           <h3>Servers</h3>
-          <p style="font-size: var(--text-sm); color: var(--text-secondary);">IPs, Providers, SSH Keys, Details.</p>
+          <p>IPs, providers, SSH keys, connection details, and operational notes.</p>
         </div>
-        <div class="asset-type-card">
-          <div class="asset-type-icon"><i class="fa-solid fa-globe"></i></div>
+        <div class="resso-card">
+          <div class="resso-card-icon"><i class="fa-solid fa-globe"></i></div>
           <h3>Domains</h3>
-          <p style="font-size: var(--text-sm); color: var(--text-secondary);">Registrars, SSL, Expiry, DNS Status.</p>
+          <p>Registrars, DNS state, SSL details, expiry dates, and renewal context.</p>
         </div>
-        <div class="asset-type-card">
-          <div class="asset-type-icon"><i class="fa-solid fa-laptop-code"></i></div>
+        <div class="resso-card">
+          <div class="resso-card-icon"><i class="fa-solid fa-laptop-code"></i></div>
           <h3>Apps</h3>
-          <p style="font-size: var(--text-sm); color: var(--text-secondary);">Envs, Repos, CI/CD, Deployment URLs.</p>
+          <p>Environments, repositories, CI/CD links, deployment URLs, and owners.</p>
         </div>
-        <div class="asset-type-card">
-          <div class="asset-type-icon"><i class="fa-solid fa-key"></i></div>
+        <div class="resso-card">
+          <div class="resso-card-icon"><i class="fa-solid fa-key"></i></div>
           <h3>Accounts</h3>
-          <p style="font-size: var(--text-sm); color: var(--text-secondary);">Cloud, SaaS, 2FA pointers, Subscriptions.</p>
+          <p>Cloud accounts, SaaS references, 2FA pointers, and subscriptions.</p>
         </div>
-        <div class="asset-type-card" style="border-color: rgba(159, 215, 255, 0.3);">
-          <div class="asset-type-icon"><i class="fa-solid fa-shapes"></i></div>
+        <div class="resso-card">
+          <div class="resso-card-icon"><i class="fa-solid fa-shapes"></i></div>
           <h3>Custom</h3>
-          <p style="font-size: var(--text-sm); color: var(--text-secondary);">Define your own templates with new field types like files, encrypted files, connections, and raw notes.</p>
+          <p>Define templates with files, encrypted files, connections, and raw notes.</p>
         </div>
       </div>
     </div>
@@ -583,121 +1238,194 @@
 
   <section class="section">
     <div class="container">
-      <div class="split-reveal">
-        <div class="reveal-content">
-          <p class="text-brand-orange"
-            style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">The
-            Search</p>
-          <h2>Find everything with pinpoint accuracy</h2>
-          <p>Find what you need instantly. Resso's filter engine supports complex logic tailored to property types.
-            Combine string, numeric, and date conditions to filter thousands of assets in milliseconds.</p>
-          <div style="margin-top: var(--space-6); display: flex; flex-wrap: wrap; gap: 8px;">
-            <span class="badge" style="border-color: var(--color-resso); color: var(--color-resso);">Contains</span>
-            <span class="badge" style="border-color: var(--color-resso); color: var(--color-resso);">Less than</span>
-            <span class="badge" style="border-color: var(--color-resso); color: var(--color-resso);">Before</span>
-            <span class="badge" style="border-color: var(--color-resso); color: var(--color-resso);">Match</span>
+      <div class="resso-technical-grid">
+        <div class="resso-technical-screens">
+          <img src="images/resso/filters-example-screenshot.webp" alt="Resso precise filtering"
+            class="screenshot-clean" loading="lazy">
+          <img src="images/resso/list-of-templates-screenshot.webp" alt="Resso template library"
+            class="screenshot-clean" loading="lazy">
+        </div>
+        <div>
+          <p class="resso-eyebrow">Search and standards</p>
+          <div class="resso-section-header is-left">
+            <h2>Find the exact thing. Store it the same way every time.</h2>
+            <p>Resso's filter engine supports complex logic tailored to property types. Templates keep repeated asset
+              types consistent, so a server or domain follows the same structure across projects.</p>
+          </div>
+          <div class="resso-proof-list">
+            <div class="resso-proof-item"><i class="fa-solid fa-filter"></i><span>Combine string, numeric, date, and
+                relationship filters.</span></div>
+            <div class="resso-proof-item"><i class="fa-solid fa-table-cells-large"></i><span>Standardize asset records
+                with reusable blueprints.</span></div>
+            <div class="resso-proof-item"><i class="fa-solid fa-magnifying-glass"></i><span>Search thousands of assets
+                without losing the surrounding context.</span></div>
           </div>
         </div>
-        <div class="reveal-media">
-          <img src="images/resso/filters-example-screenshot.webp" alt="Resso Precise Filtering" class="screenshot-clean" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="section surface-band">
+    <div class="container">
+      <div class="resso-database-grid">
+        <div>
+          <p class="resso-eyebrow">Remote database</p>
+          <div class="resso-section-header is-left">
+            <h2>Share one Resso inventory with your team</h2>
+            <p>Use a remote server as Resso's backing storage when infrastructure knowledge should be shared instead of
+              living on one Mac. Another Resso app or any compatible API can provide the database endpoint, including
+              the official self-hosted server.</p>
+          </div>
+          <div class="resso-proof-list">
+            <div class="resso-proof-item"><i class="fa-solid fa-users"></i><span>Give teammates a shared source of
+                truth for servers, domains, apps, accounts, and operational notes.</span></div>
+            <div class="resso-proof-item"><i class="fa-solid fa-server"></i><span>Self-host the official
+                <a class="resso-link" href="https://github.com/Extiri/resso-database-server" target="_blank"
+                  rel="noopener noreferrer">resso-database-server</a> or connect a compatible API.</span></div>
+            <div class="resso-proof-item"><i class="fa-solid fa-code-branch"></i><span>Keep local-first workflows for
+                solo work, then configure a shared remote backing store when a project becomes collaborative.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="resso-database-panel" aria-label="Resso remote database options">
+          <div class="resso-database-node">
+            <i class="fa-solid fa-laptop"></i>
+            <div>
+              <strong>Resso client</strong>
+              <span>Use the Mac app as the interface for browsing, editing, and linking infrastructure assets.</span>
+            </div>
+          </div>
+          <div class="resso-database-node">
+            <i class="fa-solid fa-cloud"></i>
+            <div>
+              <strong>Remote backing store</strong>
+              <span>Point Resso at another Resso app or a compatible server API running on your own infrastructure.</span>
+            </div>
+          </div>
+          <div class="resso-database-node">
+            <i class="fa-solid fa-people-group"></i>
+            <div>
+              <strong>Team inventory</strong>
+              <span>Share the same asset graph across the people who maintain deployments, DNS, providers, and access.</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="background: rgba(255,255,255,0.02);">
+  <section class="section surface-band">
     <div class="container">
-      <div class="split-reveal reversed">
-        <div class="reveal-content">
-          <p class="text-brand-orange"
-            style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">The
-            Standard</p>
-          <h2>Standard blueprints for your infrastructure</h2>
-          <p>Stop duplicating data and use templates to standardize how you store information. Defining a server or
-            domain once ensures every asset follows the same structure.</p>
-        </div>
-        <div class="reveal-media">
-          <img src="images/resso/list-of-templates-screenshot.webp" alt="Template Library" class="screenshot-clean" loading="lazy">
-        </div>
+      <div class="resso-section-header">
+        <p class="resso-eyebrow">Sync and automation</p>
+        <h2>Bring provider data in, then use it from your tools</h2>
+        <p>Sync directly from online providers, and use Resso's automation surfaces when your scripts, pipelines, or AI
+          agents need infrastructure data.</p>
       </div>
-    </div>
-  </section>
 
-  <!-- Providers Section -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <p class="text-brand-orange" style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm); margin-bottom: var(--space-2);">Cloud Sync</p>
-        <h2>Providers</h2>
-        <p>Sync your assets directly from online providers like App Store Connect, Oracle Cloud, Vercel, Google Cloud, GitHub, and Cloudflare. Resso continuously updates your local database with external data.</p>
-      </div>
-      <div style="display: flex; justify-content: center; gap: var(--space-12); flex-wrap: wrap; margin-top: var(--space-8);">
-        <div style="text-align: center; color: var(--text-secondary); display: flex; flex-direction: column; align-items: center;">
-          <img src="images/resso/providers/appstore.svg" alt="App Store" style="height: 3rem; margin-bottom: var(--space-2);" loading="lazy">
-          <div>App Store</div>
+      <div class="resso-provider-grid">
+        <div class="resso-provider">
+          <img src="images/resso/providers/appstore.svg" alt="App Store" loading="lazy">
+          <span>App Store</span>
         </div>
-        <div style="text-align: center; color: var(--text-secondary); display: flex; flex-direction: column; align-items: center;">
-          <img src="images/resso/providers/oracle.svg" alt="Oracle Cloud" style="height: 3rem; margin-bottom: var(--space-2);" loading="lazy">
-          <div>Oracle Cloud</div>
+        <div class="resso-provider">
+          <img src="images/resso/providers/oracle.svg" alt="Oracle Cloud" loading="lazy">
+          <span>Oracle Cloud</span>
         </div>
-        <div style="text-align: center; color: var(--text-secondary); display: flex; flex-direction: column; align-items: center;">
-          <img src="images/resso/providers/vercel.svg" alt="Vercel" style="height: 3rem; margin-bottom: var(--space-2); filter: invert(1);" loading="lazy">
-          <div>Vercel</div>
+        <div class="resso-provider is-inverted">
+          <img src="images/resso/providers/vercel.svg" alt="Vercel" loading="lazy">
+          <span>Vercel</span>
         </div>
-        <div style="text-align: center; color: var(--text-secondary); display: flex; flex-direction: column; align-items: center;">
-          <img src="images/resso/providers/googlecloud.svg" alt="Google Cloud" style="height: 3rem; margin-bottom: var(--space-2);" loading="lazy">
-          <div>Google Cloud</div>
+        <div class="resso-provider">
+          <img src="images/resso/providers/googlecloud.svg" alt="Google Cloud" loading="lazy">
+          <span>Google Cloud</span>
         </div>
-        <div style="text-align: center; color: var(--text-secondary); display: flex; flex-direction: column; align-items: center;">
-          <img src="images/resso/providers/github.svg" alt="GitHub" style="height: 3rem; margin-bottom: var(--space-2); filter: invert(1);" loading="lazy">
-          <div>GitHub</div>
+        <div class="resso-provider is-inverted">
+          <img src="images/resso/providers/github.svg" alt="GitHub" loading="lazy">
+          <span>GitHub</span>
         </div>
-        <div style="text-align: center; color: var(--text-secondary); display: flex; flex-direction: column; align-items: center;">
-          <img src="images/resso/providers/cloudflare.svg" alt="Cloudflare" style="height: 3rem; margin-bottom: var(--space-2);" loading="lazy">
-          <div>Cloudflare</div>
+        <div class="resso-provider">
+          <img src="images/resso/providers/cloudflare.svg" alt="Cloudflare" loading="lazy">
+          <span>Cloudflare</span>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Automate & Integrate Section -->
-  <section class="section" style="background: rgba(255,255,255,0.02);">
-    <div class="container">
-      <div class="section-header">
-        <p class="text-brand-orange" style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm); margin-bottom: var(--space-2);">Extensibility</p>
-        <h2>Automate & Integrate</h2>
-        <p>Resso goes beyond a GUI. We provide powerful tools to let your scripts, pipelines, and AI agents interact with your infrastructure data.</p>
-      </div>
-      <div class="asset-type-grid">
-        <div class="asset-type-card">
-          <div class="asset-type-icon"><i class="fa-solid fa-network-wired"></i></div>
+      <div class="resso-tool-grid">
+        <div class="resso-card">
+          <div class="resso-card-icon"><i class="fa-solid fa-network-wired"></i></div>
           <h3>API Server</h3>
-          <p style="font-size: var(--text-sm); color: var(--text-secondary);">A local API server to automate tasks and fetch Resso data programmatically.</p>
+          <p>A local API server to automate tasks and fetch Resso data programmatically.</p>
         </div>
-        <div class="asset-type-card">
-          <div class="asset-type-icon"><i class="fa-solid fa-terminal"></i></div>
+        <div class="resso-card">
+          <div class="resso-card-icon"><i class="fa-solid fa-terminal"></i></div>
           <h3>ressoc CLI</h3>
-          <p style="font-size: var(--text-sm); color: var(--text-secondary);">Use Resso's database right from your terminal or CI/CD scripts.</p>
+          <p>Use Resso's database from your terminal, CI/CD scripts, or repeatable workflows.</p>
         </div>
-        <div class="asset-type-card">
-          <div class="asset-type-icon"><i class="fa-solid fa-microchip"></i></div>
+        <div class="resso-card">
+          <div class="resso-card-icon"><i class="fa-solid fa-microchip"></i></div>
           <h3>MCP Server</h3>
-          <p style="font-size: var(--text-sm); color: var(--text-secondary);">Allow AI agents to securely access and modify your Resso database via <code>ressoc mcp</code>.</p>
+          <p>Allow AI agents to securely access and modify your Resso database via <code>ressoc mcp</code>.</p>
+        </div>
+        <div class="resso-card">
+          <div class="resso-card-icon"><i class="fa-solid fa-gears"></i></div>
+          <h3>Ansible Inventory</h3>
+          <p>Use Resso as inventory in playbooks with the
+            <a class="resso-link" href="https://github.com/Extiri/resso-ansible" target="_blank"
+              rel="noopener noreferrer">resso-ansible</a> plugin.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="resso-section-header">
+        <p class="resso-eyebrow">Questions</p>
+        <h2>Clear expectations before you map your stack</h2>
+      </div>
+      <div class="resso-faq">
+        <details>
+          <summary>What is infrastructure inventory?</summary>
+          <p>Infrastructure inventory is the process of mapping and documenting the hardware, software, network
+            configurations, and services that make up an environment. Resso makes that inventory visual, searchable, and
+            relationship-aware.</p>
+        </details>
+        <details>
+          <summary>Can I document cloud infrastructure?</summary>
+          <p>Yes. Resso connects to providers like Oracle Cloud, Google Cloud, and other provider data sources to
+            sync cloud assets into a unified asset manager.</p>
+        </details>
+        <details>
+          <summary>Can I track domains?</summary>
+          <p>Yes. You can track domain registrars, DNS records, SSL certificates, and renewal dates.</p>
+        </details>
+        <details>
+          <summary>Can I manage VPS servers?</summary>
+          <p>Yes. Resso lets you document server IPs, providers, and SSH credentials, then use the built-in terminal and
+            SFTP browser for direct server work.</p>
+        </details>
+        <details>
+          <summary>Can I store infrastructure notes?</summary>
+          <p>Yes. Custom asset types let you define note formats, relationships, tags, files, encrypted files, and raw
+            notes for the way your projects are architected.</p>
+        </details>
+        <details>
+          <summary>Does Resso work offline?</summary>
+          <p>Yes. Resso is built as a local workspace and supports iCloud sync across macOS and iOS.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
-    <div class="container" style="text-align: center;">
-      <h2 style="font-family: var(--font-serif); font-size: var(--text-4xl); margin-bottom: var(--space-4);">Ready to
-        visualize your stack?</h2>
-      <p style="margin-bottom: var(--space-8); color: var(--text-secondary);">Join the professionals using Resso for
-        their daily infrastructure management.</p>
+    <div class="container resso-cta">
+      <h2>Ready to visualize your stack?</h2>
+      <p>Use Resso when your projects, providers, and deployment details have outgrown scattered notes.</p>
       <div class="hero-actions flex-center">
-        <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161" class="btn btn-primary"
-          style="background: var(--color-resso); color: #050505; font-weight: 600;"><i class="fa-brands fa-apple"></i>
-          App Store</a>
+        <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161" class="btn btn-primary">
+          <i class="fa-brands fa-apple"></i> App Store
+        </a>
       </div>
     </div>
   </section>
@@ -706,7 +1434,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/logo.webp" alt="Extiri" width="100" style="opacity: 0.8;" loading="lazy">
+          <img src="images/logo.webp" alt="Extiri" width="100" loading="lazy">
           <p>Extiri is an independent software studio crafting simple, well‑crafted apps for macOS, iOS, and web.</p>
         </div>
         <div class="footer-links">
