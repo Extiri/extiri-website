@@ -351,9 +351,9 @@
         style="color: var(--color-rapidool); font-family: var(--font-sans); font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-3); letter-spacing: 0.05em; text-transform: uppercase;">
         Rapidool</h2>
 
-      <h1 class="hero-title">The native workspace<br>for developer text</h1>
+      <h1 class="hero-title">A native developer toolbox with dozens of everyday utilities in one fast workspace</h1>
 
-      <p class="hero-subtitle delay-100">An offline computational scratchpad for macOS. Write notes, execute code, run mock API servers, and evaluate math in one private surface—without the bloat.</p>
+      <p class="hero-subtitle delay-100">An offline developer scratchpad for macOS. Stop pasting sensitive JSON, JWTs, and regex into random websites. Format, decode, and test APIs locally.</p>
 
       <div class="flex-center delay-200" style="flex-wrap: wrap; margin-bottom: var(--space-8);">
         <span class="badge">macOS Native</span>
@@ -389,18 +389,18 @@
     <div class="container">
       <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
         <p class="text-gradient" style="background: linear-gradient(135deg, #a855f7 0%, #d8b4fe 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">
-          Core Concepts
+          Everyday Utilities
         </p>
-        <h2>A canvas that understands data. <span style="font-family: var(--font-sans); font-size: 0.8em; background: rgba(255,255,255,0.06); padding: 4px 10px; border-radius: 6px;">100% local</span></h2>
-        <p>Rapidool isn't just a text editor. It's built around four native concepts that bring your text to life, securely and instantly.</p>
+        <h2>Stop switching between utility websites. <span style="font-family: var(--font-sans); font-size: 0.8em; background: rgba(255,255,255,0.06); padding: 4px 10px; border-radius: 6px;">100% local</span></h2>
+        <p>Rapidool replaces your browser tabs with native tools that keep your data private and process text instantly.</p>
       </div>
 
       <div class="bento-grid">
         <!-- Large Item: Sections -->
         <div class="bento-item bento-large">
           <div class="feature-icon-box" style="background: rgba(168, 85, 247, 0.1); color: var(--color-rapidool);"><i class="fa-solid fa-layer-group"></i></div>
-          <h3>Sections (<code>@</code>)</h3>
-          <p style="margin-bottom: var(--space-4);">Prepend a block of text with <code>@</code> to transform it into a dedicated, interactive environment right inside your document.</p>
+          <h3>Working with APIs, Regex & Code</h3>
+          <p style="margin-bottom: var(--space-4);">Instead of opening a slow web tool, prepend a block of text with <code>@</code> to transform it into a dedicated environment.</p>
 
           <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); margin-top: var(--space-4); flex: 1;">
             <div style="background: rgba(168, 85, 247, 0.04); border: 1px solid rgba(168, 85, 247, 0.15); border-radius: var(--radius-md); padding: var(--space-4); text-align: left; transition: var(--transition-fast);"
@@ -432,22 +432,22 @@
         <!-- Medium Item: Ghost Gutter -->
         <div class="bento-item bento-medium">
           <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;"><i class="fa-solid fa-ghost"></i></div>
-          <h3>Ghost Gutter</h3>
-          <p>The gutter isn't just for line numbers. It actively scans your text to detect and evaluate math equations, epoch timestamps, dates, hex colors, JWT tokens, and Base64 strings, rendering the results instantly.</p>
+          <h3>Working with Dates & Math</h3>
+          <p>Developers constantly evaluate timestamps and quick math. The gutter actively scans your text to evaluate equations, epoch timestamps, dates, and Base64 strings, rendering the results instantly without an external calculator.</p>
         </div>
 
         <!-- Medium Item: Inspectors -->
         <div class="bento-item bento-medium">
           <div class="feature-icon-box" style="background: rgba(61, 214, 140, 0.1); color: #3dd68c;"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-          <h3>Inspectors</h3>
-          <p>Selecting text opens dedicated popover tools. Pick a color to see its hex/RGB/HSL values, select a date to open a calendar view, inspect a JWT's decoded payload, or view step-by-step math solutions.</p>
+          <h3>Working with Colors & Encoding</h3>
+          <p>Selecting text opens dedicated popover tools. Pick a color to see its hex/RGB/HSL values, select a date to open a calendar view, or inspect a JWT's decoded payload safely on your machine.</p>
         </div>
         
         <!-- Medium Item: Commands -->
         <div class="bento-item bento-medium" style="grid-column: span 12;">
           <div class="feature-icon-box" style="background: rgba(255, 99, 71, 0.1); color: #ff6347;"><i class="fa-solid fa-terminal"></i></div>
-          <h3>Commands (<code>/</code>) & Rapidool Bar</h3>
-          <p>Type <code>/</code> inline to summon generators (like <code>/uuid</code> or <code>/gen</code> for local AI). Or press <code>Cmd+Shift+Space</code> anywhere in macOS to drop down the floating Rapidool Bar and run commands on copied text instantly.</p>
+          <h3>Working with JSON & UUIDs</h3>
+          <p>Format JSON instantly without pasting your payload into a random ad-supported formatter website. Press <code>Cmd+Shift+Space</code> anywhere in macOS to drop down the Rapidool Bar and run generators like <code>/uuid</code> or JSON formatters on your clipboard.</p>
         </div>
       </div>
     </div>
@@ -603,15 +603,33 @@
       <h2 style="text-align: center; margin-bottom: var(--space-12);">Frequently Asked Questions</h2>
       <div class="faq-list">
         <div class="faq-item">
-          <button class="faq-question">Is Rapidool fully offline? <span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
+          <button class="faq-question">Why use a local developer toolbox? <span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
           <div class="faq-answer">
-            <p>Yes. Rapidool is designed local-first. Text scanning, math evaluation, JS runtimes, formatting, and mock HTTP routing run 100% on your local macOS machine. No server syncing or telemetry is used (unless you point it to a remote Ollama server for AI prompts).</p>
+            <p>A local developer toolbox keeps your sensitive data (like API keys, customer JSON payloads, and proprietary code) off third-party servers. It's also much faster than opening a browser tab, finding a site, and dealing with ads or latency.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">How does the background Mock HTTP Server operate? <span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
+          <button class="faq-question">Can Rapidool replace online utilities? <span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
           <div class="faq-answer">
-            <p>You can define mock endpoints using supported HTTP methods (GET and POST) and custom route paths (e.g., <code>@GET /api/v1/users</code> or <code>@POST /auth/login</code>) directly inside your document. Simply paste or write your mock JSON response (or HTML, XML, etc.) immediately below the route line. Rapidool serves these endpoints locally on port 9090, meaning your active web browser, curl command, or mobile client can query <code>http://localhost:9090/api/v1/users</code> instantly. Toggling the local server takes just one click in the editor HUD.</p>
+            <p>Yes. Rapidool replaces dozens of single-purpose websites for JSON formatting, JWT decoding, Base64 encoding, epoch time conversion, and regex testing by bringing them all into one native macOS app.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Does it send data to servers? <span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
+          <div class="faq-answer">
+            <p>No. Rapidool is designed local-first. Text scanning, math evaluation, JS runtimes, formatting, and mock HTTP routing run 100% on your local macOS machine. No server syncing or telemetry is used (unless you point it to a remote Ollama server for AI prompts).</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Can I mock APIs? <span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
+          <div class="faq-answer">
+            <p>Yes. You can define mock endpoints using supported HTTP methods and custom route paths (e.g., <code>@GET /api/v1/users</code>) directly inside your document. Rapidool serves these endpoints locally on port 9090, meaning your active web browser, curl command, or mobile client can query them instantly without spinning up a real backend.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Can I test regex? <span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
+          <div class="faq-answer">
+            <p>Yes. By creating an <code>@regex</code> section, you can test regular expressions with real-time match highlighting against your sample text directly in the editor.</p>
           </div>
         </div>
         <div class="faq-item">
