@@ -736,6 +736,76 @@
             background: #257560;
             transform: translateY(0);
         }
+
+        /* === Android announcement banner === */
+        .android-announce-banner {
+            background: linear-gradient(90deg, rgba(33, 74, 60, 0.6) 0%, rgba(78, 204, 163, 0.15) 100%);
+            border: 1px solid rgba(78, 204, 163, 0.35);
+            border-radius: var(--radius-lg);
+            padding: 12px 20px;
+            margin-top: var(--space-8);
+            margin-bottom: var(--space-6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            backdrop-filter: blur(10px);
+        }
+
+        .android-announce-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(78, 204, 163, 0.2);
+            color: #4ecca3;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            border: 1px solid rgba(78, 204, 163, 0.3);
+        }
+
+        .android-announce-text {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        .android-announce-link {
+            color: #4ecca3;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: underline;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .android-announce-link:hover {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        /* === Słówko Android button === */
+        .btn-slowko-android {
+            background: rgba(78, 204, 163, 0.12);
+            border: 1px solid rgba(78, 204, 163, 0.4);
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .btn-slowko-android:hover {
+            background: rgba(78, 204, 163, 0.25);
+            border-color: #4ecca3;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .btn-slowko-android:active {
+            background: rgba(78, 204, 163, 0.35);
+            transform: translateY(0);
+        }
     </style>
 
     <!-- Scripts -->
@@ -838,6 +908,14 @@
                     <span class="floating-word" style="left: 90%; animation-delay: 15s;">efemeryczny</span>
                 </div>
                 <div class="container hero-content animate-fade-in" style="position: relative; z-index: 1;">
+                    <div class="android-announce-banner">
+                        <span class="android-announce-badge"><i class="fa-brands fa-android"></i> Android</span>
+                        <span class="android-announce-text">Rozpoczęły się testy aplikacji na Androida! Dołącz do grupy, aby wziąć udział.</span>
+                        <a href="https://groups.google.com/g/swko-na-android/about" target="_blank" rel="noopener noreferrer" class="android-announce-link">
+                            Dołącz do testów <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+
                     <div class="hero-icon-wrapper">
                         <img src="images/slowko/slowko-icon.gif?v=2" alt="Słówko – animowana ikona" fetchpriority="high">
                     </div>
@@ -854,6 +932,7 @@
 
                     <div class="flex-center delay-200" style="flex-wrap: wrap; margin-bottom: var(--space-8);">
                         <span class="badge">iOS</span>
+                        <span class="badge">Android</span>
                         <span class="badge">Widgety</span>
                         <span class="badge">Fiszki</span>
                         <span class="badge">Krzyżówki</span>
@@ -863,7 +942,9 @@
                         <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko/id6738549428"
                             class="btn btn-slowko-primary">
                             <i class="fa-brands fa-apple" style="margin-right: 8px;"></i> Pobierz z App Store</a>
-                        <a href="slowko-support.html" class="btn btn-outline">Wsparcie</a>
+                        <a href="https://groups.google.com/g/swko-na-android/about" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-slowko-android">
+                            <i class="fa-brands fa-android" style="margin-right: 8px;"></i> Dołącz do testów Android</a>
                     </div>
 
                     <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--text-tertiary);">
@@ -915,30 +996,7 @@
 
 
 
-            <!-- Stats -->
-            <section class="section"
-                style="background: linear-gradient(180deg, rgba(33,74,60,0.04) 0%, rgba(0,0,0,0) 100%);">
-                <div class="container">
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-number">60+</div>
-                            <div class="stat-label">Słów w bazie</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">24h</div>
-                            <div class="stat-label">Nowe słowo codziennie</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">∞</div>
-                            <div class="stat-label">Ulubionych</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">2</div>
-                            <div class="stat-label">Rozmiary widgetów</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
 
             <!-- Features Bento Grid -->
             <section class="section">
@@ -1243,6 +1301,14 @@
                     <span class="floating-word" style="left: 90%; animation-delay: 15s;">ephemeral</span>
                 </div>
                 <div class="container hero-content animate-fade-in" style="position: relative; z-index: 1;">
+                    <div class="android-announce-banner">
+                        <span class="android-announce-badge"><i class="fa-brands fa-android"></i> Android</span>
+                        <span class="android-announce-text">Słówko for Android beta testing has started! Join the group to participate.</span>
+                        <a href="https://groups.google.com/g/swko-na-android/about" target="_blank" rel="noopener noreferrer" class="android-announce-link">
+                            Join Android Beta <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+
                     <div class="hero-icon-wrapper">
                         <img src="images/slowko/slowko-icon.gif?v=2" alt="Słówko – animated icon" fetchpriority="high">
                     </div>
@@ -1259,6 +1325,7 @@
 
                     <div class="flex-center delay-200" style="flex-wrap: wrap; margin-bottom: var(--space-8);">
                         <span class="badge">iOS</span>
+                        <span class="badge">Android</span>
                         <span class="badge">Widgets</span>
                         <span class="badge">Flashcards</span>
                         <span class="badge">Crossword</span>
@@ -1268,7 +1335,9 @@
                         <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko/id6738549428"
                             class="btn btn-slowko-primary">
                             <i class="fa-brands fa-apple" style="margin-right: 8px;"></i> Download on App Store</a>
-                        <a href="slowko-support.html" class="btn btn-outline">Support</a>
+                        <a href="https://groups.google.com/g/swko-na-android/about" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-slowko-android">
+                            <i class="fa-brands fa-android" style="margin-right: 8px;"></i> Join Android Beta</a>
                     </div>
 
                     <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--text-tertiary);">
@@ -1306,30 +1375,7 @@
                 </div>
             </section>
 
-            <!-- Stats -->
-            <section class="section"
-                style="background: linear-gradient(180deg, rgba(33,74,60,0.04) 0%, rgba(0,0,0,0) 100%);">
-                <div class="container">
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-number">60+</div>
-                            <div class="stat-label">Words in database</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">24h</div>
-                            <div class="stat-label">New word daily</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">∞</div>
-                            <div class="stat-label">Favorites</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">2</div>
-                            <div class="stat-label">Widget sizes</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
 
             <!-- Features Bento Grid -->
             <section class="section">
