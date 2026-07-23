@@ -42,10 +42,9 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      justify-content: center;
       color: var(--resso-ink);
       overflow: hidden;
-      padding: 200px 0 var(--space-32) 0;
+      padding: calc(var(--header-height) + var(--space-12)) 0 var(--space-16) 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.16);
     }
 
@@ -70,43 +69,53 @@
     .hero-content-v2 {
       position: relative;
       z-index: 10;
-      max-width: 1000px;
+      display: grid;
+      grid-template-columns: minmax(380px, 0.85fr) minmax(0, 1.15fr);
+      gap: var(--space-16);
+      align-items: center;
+      width: 100%;
+      max-width: 1400px;
       margin: 0 auto;
-      text-align: center;
+    }
+
+    .hero-copy-col {
+      text-align: left;
     }
 
     .hero-title-v2 {
       font-family: var(--font-serif);
-      font-size: 5.5rem;
-      line-height: 0.95;
-      margin-bottom: var(--space-4);
-      letter-spacing: 0;
+      font-size: 4.8rem;
+      line-height: 1.02;
+      margin-bottom: var(--space-5);
+      letter-spacing: -0.02em;
+      color: #000;
     }
 
     .hero-subtitle-v2 {
       font-family: var(--font-sans);
-      font-weight: 700;
-      font-size: 5.5rem;
-      line-height: 0.95;
+      font-weight: 400;
+      font-size: var(--text-lg);
+      line-height: 1.6;
       letter-spacing: 0;
       color: var(--resso-ink);
-    }
-
-    .hero-title-v2.is-compact,
-    .hero-subtitle-v2.is-compact {
-      font-size: 4.5rem;
+      opacity: 0.78;
+      max-width: 520px;
     }
 
     .hero-resso-actions {
       margin-top: var(--space-8);
     }
 
+    .hero-copy-col .hero-resso-actions {
+      justify-content: flex-start;
+    }
+
     .hero-resso-meta {
-      margin-top: var(--space-8);
+      margin-top: var(--space-6);
       color: var(--resso-ink);
-      font-size: var(--text-sm);
+      font-size: var(--text-xs);
       font-weight: 600;
-      opacity: 0.8;
+      opacity: 0.6;
     }
 
     .floating-icons-container {
@@ -163,42 +172,75 @@
       font-size: 2.8rem;
     }
 
-    .dashboard-capture {
-      margin-top: var(--space-12);
-      width: 100%;
-      max-width: 860px;
-      margin-left: auto;
-      margin-right: auto;
+    /* Hero images — graph on top, dashboard below */
+    .hero-media-col {
+      position: relative;
     }
 
-    .dashboard-img {
+    .hero-media-stack {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
       width: 100%;
-      filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.2));
+    }
+
+    .hero-img-graph,
+    .hero-img-dashboard {
+      width: 100%;
       border-radius: 12px;
+      filter: drop-shadow(0 24px 52px rgba(0, 0, 0, 0.26));
+    }
+
+    .hero-resso-textlink {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4em;
+      color: var(--resso-ink);
+      font-weight: 600;
+      font-size: var(--text-base);
+      text-decoration: none;
+      border-bottom: 1.5px solid rgba(5, 5, 5, 0.35);
+      padding-bottom: 2px;
+      transition: var(--transition-normal);
+    }
+
+    .hero-resso-textlink:hover {
+      border-color: var(--resso-ink);
+    }
+
+    .hero-resso-textlink i {
+      font-size: 0.8em;
+      transition: transform 0.2s ease;
+    }
+
+    .hero-resso-textlink:hover i {
+      transform: translateX(3px);
     }
 
     .hero-brand {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: var(--space-3);
+      justify-content: flex-start;
+      gap: var(--space-4);
       margin-bottom: var(--space-6);
-      opacity: 0.9;
+      opacity: 0.95;
     }
 
     .hero-brand-icon {
-      width: 42px;
-      height: 42px;
-      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+      width: 64px;
+      height: 64px;
+      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.15));
     }
 
     .hero-brand-name {
       font-family: var(--font-sans);
-      font-weight: 700;
-      font-size: var(--text-sm);
-      letter-spacing: 0;
+      font-weight: 800;
+      font-size: 64px;
+      line-height: 1;
+      letter-spacing: -0.02em;
       text-transform: uppercase;
       color: var(--resso-ink);
+      opacity: 0.50;
     }
 
     .resso-eyebrow,
@@ -880,7 +922,87 @@
       opacity: 0.8;
     }
 
+    /* iOS section */
+    .resso-ios-section {
+      border-top: 1px solid var(--bg-glass-border);
+    }
+
+    .resso-ios-grid {
+      display: grid;
+      grid-template-columns: minmax(300px, 0.8fr) minmax(0, 1.2fr);
+      gap: var(--space-16);
+      align-items: center;
+    }
+
+    .resso-ios-copy h2 {
+      margin-bottom: var(--space-4);
+      font-family: var(--font-serif);
+      font-size: var(--text-4xl);
+      font-weight: 400;
+      line-height: 1.08;
+    }
+
+    .resso-ios-copy > p {
+      color: var(--text-secondary);
+      font-size: var(--text-lg);
+      line-height: 1.7;
+    }
+
+    .resso-ios-features {
+      display: grid;
+      gap: var(--space-4);
+      margin-top: var(--space-8);
+    }
+
+    .resso-ios-media {
+      min-width: 0;
+    }
+
+    .resso-ios-media img {
+      display: block;
+      width: 100%;
+      border-radius: var(--radius-lg);
+      filter: drop-shadow(0 24px 56px rgba(0, 0, 0, 0.3));
+    }
+
     @media (max-width: 1080px) {
+      .hero-resso-v2 {
+        min-height: auto;
+        padding-top: calc(var(--header-height) + var(--space-10));
+        padding-bottom: var(--space-12);
+        align-items: flex-start;
+      }
+
+      .hero-content-v2 {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+        text-align: center;
+      }
+
+      .hero-copy-col {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-brand {
+        justify-content: center;
+      }
+
+      .hero-copy-col .hero-resso-actions {
+        justify-content: center;
+      }
+
+      .hero-subtitle-v2 {
+        max-width: 540px;
+      }
+
+      .hero-media-col {
+        max-width: 680px;
+        margin: 0 auto;
+      }
+
       .resso-showcase-grid,
       .resso-feature-row,
       .resso-feature-row.reversed,
@@ -927,17 +1049,47 @@
         border-bottom: 0;
       }
 
-      .hero-title-v2,
-      .hero-subtitle-v2,
-      .hero-title-v2.is-compact,
-      .hero-subtitle-v2.is-compact {
-        font-size: 3.6rem;
+      .hero-title-v2 {
+        font-size: 3.2rem;
+      }
+
+      .resso-ios-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-10);
       }
     }
 
     @media (max-width: 640px) {
       .hero-resso-v2 {
-        padding-top: calc(var(--header-height) + var(--space-16));
+        padding-top: calc(var(--header-height) + var(--space-6));
+        padding-bottom: var(--space-8);
+        min-height: auto;
+      }
+
+      .hero-brand {
+        margin-bottom: var(--space-3);
+      }
+
+      .hero-brand-icon {
+        width: 36px;
+        height: 36px;
+      }
+
+      .hero-brand-name {
+        font-size: 36px;
+      }
+
+      .hero-title-v2 {
+        font-size: 2.2rem;
+      }
+
+      .hero-subtitle-v2 {
+        font-size: var(--text-base);
+      }
+
+      .hero-img-graph,
+      .hero-img-dashboard {
+        border-radius: 8px;
       }
 
       .resso-asset-grid,
@@ -945,11 +1097,6 @@
       .resso-faq,
       .resso-media-pair {
         grid-template-columns: 1fr;
-      }
-
-      .hero-title-v2.is-compact,
-      .hero-subtitle-v2.is-compact {
-        font-size: 2.8rem;
       }
 
       .slideshow-btn {
@@ -1029,27 +1176,33 @@
     </div>
 
     <div class="container hero-content-v2 animate-fade-in">
-      <div class="hero-brand">
-        <img src="images/resso/resso-icon.webp" alt="Resso Icon" class="hero-brand-icon">
-        <span class="hero-brand-name">RESSO</span>
-      </div>
-      <div class="hero-title-v2 is-compact">An infrastructure inventory & asset manager.</div>
-      <div class="hero-subtitle-v2 is-compact">For developers and indie hackers.</div>
+      <div class="hero-copy-col">
+        <div class="hero-brand">
+          <img src="images/resso/resso-icon.webp" alt="Resso Icon" class="hero-brand-icon">
+          <span class="hero-brand-name">RESSO</span>
+        </div>
+        <h1 class="hero-title-v2">Know exactly what runs&nbsp;where.</h1>
+        <p class="hero-subtitle-v2">Resso turns your servers, domains, repositories, deployments and databases into a connected visual graph that stays synchronized with your infrastructure.</p>
 
-      <div class="hero-actions hero-resso-actions flex-center delay-100">
-        <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161" class="btn btn-primary"><i
-            class="fa-brands fa-apple"></i> App Store</a>
-        <a href="#features" class="btn btn-outline">Explore Features</a>
+        <div class="hero-actions hero-resso-actions flex-center delay-100">
+          <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161" class="btn btn-primary"><i
+              class="fa-brands fa-apple"></i> App Store</a>
+          <a href="#features" class="hero-resso-textlink">See features <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <p class="hero-resso-meta">
+          iCloud Sync · Works Offline · macOS &amp; iOS
+        </p>
       </div>
 
-      <div class="dashboard-capture delay-200">
-        <img src="images/resso/new-resso/dashboard-with-assets-no-alert.webp" alt="Resso Dashboard"
-          class="dashboard-img" fetchpriority="high">
+      <div class="hero-media-col delay-200">
+        <div class="hero-media-stack">
+          <img src="images/resso/new-resso/rich-graph.webp" alt="Resso relationship graph showing connected infrastructure assets"
+            class="hero-img-graph" fetchpriority="high">
+          <img src="images/resso/new-resso/dashboard-with-assets-no-alert.webp" alt="Resso Dashboard"
+            class="hero-img-dashboard" loading="eager">
+        </div>
       </div>
-
-      <p class="hero-resso-meta">
-        iCloud Sync · Works Offline · macOS & iOS
-      </p>
     </div>
   </header>
 
@@ -1378,6 +1531,40 @@
     </div>
   </section>
 
+  <section class="section resso-ios-section" id="ios">
+    <div class="container">
+      <div class="resso-ios-grid">
+        <div class="resso-ios-copy">
+          <p class="resso-eyebrow">iPhone</p>
+          <h2>Your infrastructure,<br>always in your pocket.</h2>
+          <p>Resso runs natively on iPhone with full feature parity — browse assets, open SSH sessions, view the relationship graph, and check what needs attention from anywhere. iCloud keeps everything in sync.</p>
+          <div class="resso-ios-features">
+            <div class="resso-proof-item">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+              <span>Native iPhone app designed for on-the-go infrastructure checks.</span>
+            </div>
+            <div class="resso-proof-item">
+              <i class="fa-solid fa-terminal"></i>
+              <span>SSH console and SFTP file browser on the go.</span>
+            </div>
+            <div class="resso-proof-item">
+              <i class="fa-solid fa-arrows-rotate"></i>
+              <span>Real-time iCloud sync — changes appear instantly across all devices.</span>
+            </div>
+          </div>
+          <div class="hero-actions" style="margin-top: var(--space-8);">
+            <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161" class="btn btn-primary">
+              <i class="fa-brands fa-apple"></i> Download for iPhone
+            </a>
+          </div>
+        </div>
+        <div class="resso-ios-media">
+          <img src="images/resso/resso-mobile.webp" alt="Resso running on iPhone — dashboard, file browser, SSH console, and asset graph" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="use-cases" class="section" style="padding-bottom: var(--space-12)">
     <div class="container">
       <div class="flex-between" style="margin-bottom: var(--space-8); align-items: flex-end;">
@@ -1464,6 +1651,8 @@
       </div>
     </div>
   </section>
+
+
 
   <footer class="footer">
     <div class="container">
