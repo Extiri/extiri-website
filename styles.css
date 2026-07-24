@@ -265,14 +265,29 @@ svg {
 
 /* Common Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 .animate-fade-in {
@@ -284,7 +299,7 @@ svg {
 }
 
 .drop-shadow {
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.12));
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.12));
 }
 
 a {
@@ -621,7 +636,7 @@ p {
   color: #050505;
 }
 
-.hero-resso .hero-title, 
+.hero-resso .hero-title,
 .hero-resso .hero-subtitle {
   color: #050505;
 }

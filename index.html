@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Extiri — Purposeful apps. Fluent workflows.</title>
+    <title>Extiri — Native tools for Mac &amp; iOS</title>
     <meta name="description"
         content="Simply useful and cool apps. From augmented memory to mindful entertainment, every product is designed to keep you organized, inspired, and in control.">
     <meta name="theme-color" content="#050505">
     <meta name="keywords"
-        content="macOS apps, iOS apps, productivity tools, developer tools, CodeMenu, Chitneek, ClipGuru, Slowko, Space Train, Extiri">
+        content="macOS apps, iOS apps, productivity tools, developer tools, CodeMenu, Resso, Netvis, Rapidool, Chitneek, ClipGuru, Slowko, Extiri">
     <link rel="canonical" href="https://extiri.com/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://extiri.com/">
-    <meta property="og:title" content="Extiri — Purposeful apps. Fluent workflows.">
+    <meta property="og:title" content="Extiri — Native tools for Mac &amp; iOS">
     <meta property="og:description"
         content="Simply useful and cool apps. From augmented memory to mindful entertainment, every product is designed to keep you organized, inspired, and in control.">
     <meta property="og:image" content="https://extiri.com/images/extiri-og-image.webp">
@@ -24,7 +24,7 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://extiri.com/">
-    <meta property="twitter:title" content="Extiri — Purposeful apps. Fluent workflows.">
+    <meta property="twitter:title" content="Extiri — Native tools for Mac &amp; iOS">
     <meta property="twitter:description"
         content="Simply useful and cool apps. From augmented memory to mindful entertainment, every product is designed to keep you organized, inspired, and in control.">
     <meta property="twitter:image" content="https://extiri.com/images/extiri-og-image.webp">
@@ -38,27 +38,457 @@
     <link rel="stylesheet" href="styles.css?v=3">
     <style>
         /* Page-specific overrides */
-        .hero-home {
-            background: radial-gradient(circle at 30% 30%, rgba(235, 114, 89, 0.08) 0%, rgba(5, 5, 5, 0) 50%),
-                radial-gradient(circle at 70% 70%, rgba(38, 171, 236, 0.08) 0%, rgba(5, 5, 5, 0) 50%);
+        .hero-slideshow-section {
+            background:
+                radial-gradient(circle at 50% 15%, rgba(159, 215, 255, 0.14) 0%, transparent 45%),
+                radial-gradient(circle at 75% 75%, rgba(235, 114, 89, 0.08) 0%, transparent 50%),
+                var(--bg-body);
+            position: relative;
+            padding-top: var(--header-height);
+            padding-bottom: var(--space-20);
+            overflow: hidden;
+            border-bottom: 1px solid var(--bg-glass-border);
+        }
+
+        .hero-slideshow-container {
+            max-width: 1480px;
+            margin: 0 auto;
+            padding: 0 var(--space-6);
+        }
+
+        .hero-studio-header {
+            text-align: center;
+            padding-top: var(--space-6);
+            padding-bottom: var(--space-6);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-studio-logo {
+            width: 180px;
+            margin: 0 auto var(--space-2) auto;
+            opacity: 0.95;
+            display: block;
+        }
+
+        .hero-studio-tagline {
+            font-family: var(--font-sans);
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            letter-spacing: 0.05em;
+            text-align: center;
+        }
+
+        .hero-slides-wrapper {
+            position: relative;
+            min-height: 580px;
+        }
+
+        .hero-slide {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.45s ease, transform 0.45s ease;
+            transform: translateY(8px);
+        }
+
+        .hero-slide.is-active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-slide-grid {
+            display: grid;
+            grid-template-columns: minmax(360px, 0.85fr) 880px;
+            gap: var(--space-12);
+            align-items: center;
+        }
+
+        .hero-slide-copy {
+            text-align: left;
+        }
+
+        .hero-slide-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-4);
+            justify-content: flex-start;
+        }
+
+        .hero-slide-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            filter: none;
+        }
+
+        .hero-slide-name {
+            font-family: var(--font-sans);
+            font-weight: 800;
+            font-size: var(--text-2xl);
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+        }
+
+        .hero-slide-badges {
+            display: flex;
+            gap: var(--space-2);
+            margin-top: var(--space-1);
+            justify-content: flex-start;
+        }
+
+        .hero-slide-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            margin-bottom: var(--space-4);
+            color: #ffffff;
+            font-weight: 400;
+            text-align: left;
+        }
+
+        .hero-slide-desc {
+            font-family: var(--font-sans);
+            font-size: var(--text-lg);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--space-6);
+            max-width: 560px;
+            text-align: left;
+        }
+
+        .hero-slide-actions {
+            display: flex;
+            gap: var(--space-4);
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .hero-slide-media {
+            position: relative;
+            width: 880px;
+            max-width: 100%;
+            max-height: 480px;
+            margin: 0 auto;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: none;
+            background: transparent;
+            box-shadow: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-slide-media img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 480px;
+            object-fit: contain;
+            display: block;
+            border-radius: var(--radius-xl);
+            filter: none !important;
+            box-shadow: none !important;
+        }
+
+        .hero-slide-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: var(--space-16);
+            padding-top: var(--space-8);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-slide-dots {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .hero-slide-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.18);
+            border: 0;
+            cursor: pointer;
+            transition: width 0.35s ease, border-radius 0.35s ease, background 0.35s ease;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-slide-dot.is-active {
+            width: 36px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.22);
+        }
+
+        .hero-slide-dot::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            background: var(--brand-primary);
+            border-radius: 100px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .hero-slide-dot.is-active::after {
+            opacity: 1;
+            animation: slidePillProgress 5s linear forwards;
+        }
+
+        .hero-slideshow-section.is-paused .hero-slide-dot.is-active::after {
+            animation-play-state: paused;
+        }
+
+        @keyframes slidePillProgress {
+            0% {
+                width: 0%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        .hero-slide-arrows {
+            display: flex;
+            gap: var(--space-3);
+        }
+
+        .hero-slide-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.05rem;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-slide-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-scroll-down {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: var(--space-8);
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.25s ease, transform 0.25s ease;
+            cursor: pointer;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-scroll-down:hover {
+            color: var(--text-primary);
+            transform: translateY(2px);
+        }
+
+        .hero-scroll-down__text {
+            font-family: var(--font-sans);
+            font-size: var(--text-xs);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            transition: color 0.25s ease;
+        }
+
+        .hero-scroll-down:hover .hero-scroll-down__text,
+        .hero-scroll-down:hover .hero-scroll-down__icon {
+            color: var(--text-primary);
+        }
+
+        .hero-scroll-down__icon {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            transition: color 0.25s ease;
+            animation: heroBounce 2.4s infinite ease-in-out;
+        }
+
+        @keyframes heroBounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(7px);
+            }
+            60% {
+                transform: translateY(3px);
+            }
         }
 
         .featured-app-card__media--netvis {
-            background:
-                radial-gradient(circle at 52% 44%, rgba(var(--color-netvis-rgb), 0.24), transparent 48%),
-                linear-gradient(135deg, rgba(var(--color-netvis-rgb), 0.16), rgba(130, 214, 255, 0.06));
+            background: transparent;
         }
 
         .featured-app-card__media--netvis img {
             object-fit: contain;
             object-position: center;
             padding: var(--space-4);
-            filter: drop-shadow(0 20px 38px rgba(0, 0, 0, 0.46));
+            filter: none !important;
+            box-shadow: none !important;
+            border-radius: var(--radius-xl);
+        }
+
+        .hero-slide-media--portrait {
+            height: 560px;
+            max-height: 560px;
+            background: transparent;
+        }
+
+        .hero-slide-media--portrait img {
+            width: auto;
+            max-width: 100%;
+            height: 100%;
+            max-height: 560px;
+            object-fit: contain;
+            padding: 0;
+            filter: none !important;
+            box-shadow: none !important;
+            border-radius: var(--radius-xl);
+        }
+
+        @media (max-width: 1380px) {
+            .hero-slide-grid {
+                grid-template-columns: minmax(320px, 0.9fr) 680px;
+            }
+
+            .hero-slide-media {
+                width: 680px;
+                max-height: 460px;
+            }
+
+            .hero-slide-media img {
+                max-height: 460px;
+            }
+
+            .hero-slide-media--portrait {
+                height: 520px;
+                max-height: 520px;
+            }
+
+            .hero-slide-media--portrait img {
+                max-height: 520px;
+                padding: 0;
+            }
         }
 
         @media (max-width: 1024px) {
+            .hero-slides-wrapper {
+                min-height: auto;
+            }
+
+            .hero-slide-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-8);
+                text-align: left;
+            }
+
+            .hero-slide-copy {
+                text-align: left;
+            }
+
+            .hero-slide-brand {
+                justify-content: flex-start;
+            }
+
+            .hero-slide-badges {
+                justify-content: flex-start;
+            }
+
+            .hero-slide-desc {
+                max-width: 100%;
+                text-align: left;
+                font-size: var(--text-base);
+            }
+
+            .hero-slide-actions {
+                justify-content: flex-start;
+            }
+
+            .hero-slide-media {
+                width: 100%;
+                max-width: 680px;
+                max-height: 380px;
+                margin: 0;
+            }
+
+            .hero-slide-media img {
+                max-height: 380px;
+            }
+
+            .hero-slide-media--portrait {
+                height: 450px;
+                max-height: 450px;
+            }
+
+            .hero-slide-media--portrait img {
+                max-height: 450px;
+                padding: 0;
+            }
+
             .featured-apps .featured-app-card:last-child {
                 grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-slide-title {
+                font-size: clamp(1.8rem, 6.5vw, 2.3rem);
+            }
+
+            .hero-slide-icon {
+                width: 46px;
+                height: 46px;
+            }
+
+            .hero-slide-name {
+                font-size: 1.2rem;
+            }
+
+            .hero-slide-media {
+                width: 100%;
+                max-height: 280px;
+            }
+
+            .hero-slide-media img {
+                max-height: 280px;
+            }
+
+            .hero-slide-media--portrait {
+                height: 340px;
+                max-height: 340px;
+            }
+
+            .hero-slide-media--portrait img {
+                max-height: 340px;
+                padding: 0;
             }
         }
     </style>
@@ -123,41 +553,235 @@
         <a href="./about.html" class="nav-link" onclick="toggleMobileMenu()">About</a>
     </div>
 
-    <!-- Hero Section -->
-    <header id="home" class="hero hero-home">
-        <div class="hero-content animate-fade-in">
-            <img src="images/extiri-text-only-white-light.webp" alt="Extiri" fetchpriority="high"
-                style="width: 200px; margin: 0 auto 2rem auto; opacity: 0.9;">
-            <h1 class="hero-title">Purposeful apps.<br><span class="text-gradient">Fluent workflows.</span></h1>
-            <p class="hero-subtitle delay-100">From augmented memory to mindful entertainment, every product is designed
-                to keep you organized, inspired, and in control.</p>
-            <div class="hero-actions delay-200">
-                <a href="#apps" class="btn btn-primary" style="--btn-shadow-rgb: var(--brand-primary-rgb);">Explore
-                    Apps</a>
-                <a href="blog/index.html" class="btn btn-secondary">Read Blog</a>
+    <!-- Hero Section (Apps Slideshow) -->
+    <header id="home" class="hero hero-slideshow-section">
+        <div class="container hero-slideshow-container animate-fade-in">
+            <!-- Studio Brand Badge -->
+            <div class="hero-studio-header">
+                <img src="images/extiri-text-only-white-light.webp" alt="Extiri Studio" class="hero-studio-logo">
+                <p class="hero-studio-tagline">Native tools for Mac &amp; iOS — built for privacy, speed, and focus.</p>
             </div>
+
+            <!-- Slideshow Container -->
+            <div class="hero-slides-wrapper">
+                <!-- Slide 1: Resso -->
+                <div class="hero-slide is-active">
+                    <div class="hero-slide-grid">
+                        <div class="hero-slide-copy">
+                            <div class="hero-slide-brand">
+                                <img src="images/resso/resso-icon.webp" alt="Resso Icon" class="hero-slide-icon">
+                                <div>
+                                    <span class="hero-slide-name">Resso</span>
+                                    <div class="hero-slide-badges">
+                                        <span class="badge badge--small">macOS</span>
+                                        <span class="badge badge--small">iOS</span>
+                                        <span class="badge badge--small">Infrastructure</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2 class="hero-slide-title">Know exactly what runs&nbsp;where.</h2>
+                            <p class="hero-slide-desc">Turn servers, domains, repositories, deployments and databases into a connected visual graph that stays synchronized with your infrastructure.</p>
+                            <div class="hero-slide-actions">
+                                <a href="./resso.html" class="btn btn-primary" style="background: var(--color-resso); color: #000; --btn-shadow-rgb: var(--color-resso-rgb);">
+                                    Explore Resso
+                                </a>
+                                <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161?mt=12" class="btn btn-secondary" aria-label="Download Resso">
+                                    <i class="fa-brands fa-apple"></i> App Store
+                                </a>
+                            </div>
+                        </div>
+                        <div class="hero-slide-media">
+                            <img src="images/resso/new-resso/rich-graph.webp" alt="Resso Relationship Graph" fetchpriority="high">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2: CodeMenu -->
+                <div class="hero-slide">
+                    <div class="hero-slide-grid">
+                        <div class="hero-slide-copy">
+                            <div class="hero-slide-brand">
+                                <img src="images/codemenu-icon.webp" alt="CodeMenu Icon" class="hero-slide-icon">
+                                <div>
+                                    <span class="hero-slide-name">CodeMenu</span>
+                                    <div class="hero-slide-badges">
+                                        <span class="badge badge--small">macOS</span>
+                                        <span class="badge badge--small">Productivity</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2 class="hero-slide-title">Capture every snippet, prompt &amp; note.</h2>
+                            <p class="hero-slide-desc">Augmented memory for creators. An instant content library built into your Mac menu bar for high-velocity shipping.</p>
+                            <div class="hero-slide-actions">
+                                <a href="./codemenu.html" class="btn btn-primary" style="background: var(--color-codemenu); color: #000; --btn-shadow-rgb: var(--color-codemenu-rgb);">
+                                    Explore CodeMenu
+                                </a>
+                                <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781" class="btn btn-secondary" aria-label="Download CodeMenu">
+                                    <i class="fa-brands fa-apple"></i> App Store
+                                </a>
+                            </div>
+                        </div>
+                        <div class="hero-slide-media">
+                            <img src="images/codemenu/promo-images/Screenshot 1.webp" alt="CodeMenu Dashboard" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Rapidool -->
+                <div class="hero-slide">
+                    <div class="hero-slide-grid">
+                        <div class="hero-slide-copy">
+                            <div class="hero-slide-brand">
+                                <img src="images/rapidool/rapidool_icon.webp" alt="Rapidool Icon" class="hero-slide-icon">
+                                <div>
+                                    <span class="hero-slide-name">Rapidool</span>
+                                    <div class="hero-slide-badges">
+                                        <span class="badge badge--small">macOS</span>
+                                        <span class="badge badge--small">Productivity</span>
+                                        <span class="badge badge--small">Offline</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2 class="hero-slide-title">Dozens of developer tools in one fast workspace.</h2>
+                            <p class="hero-slide-desc">A native, local-first scratchpad for developer notes. Format JSON, decode JWTs, test regex, and query mock APIs 100% offline.</p>
+                            <div class="hero-slide-actions">
+                                <a href="./rapidool.html" class="btn btn-primary" style="background: var(--color-rapidool); color: #fff; --btn-shadow-rgb: var(--color-rapidool-rgb);">
+                                    Explore Rapidool
+                                </a>
+                                <a href="https://apps.apple.com/pl/app/rapidool-offline-scratchpad/id6761327472?mt=12" class="btn btn-secondary" aria-label="Download Rapidool">
+                                    <i class="fa-brands fa-apple"></i> App Store
+                                </a>
+                            </div>
+                        </div>
+                        <div class="hero-slide-media">
+                            <img src="images/rapidool/09_Editor_RichContent.webp" alt="Rapidool Workspace" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Netvis -->
+                <div class="hero-slide">
+                    <div class="hero-slide-grid">
+                        <div class="hero-slide-copy">
+                            <div class="hero-slide-brand">
+                                <img src="images/netvis/netvis-icon.webp" alt="Netvis Icon" class="hero-slide-icon">
+                                <div>
+                                    <span class="hero-slide-name">Netvis</span>
+                                    <div class="hero-slide-badges">
+                                        <span class="badge badge--small">macOS</span>
+                                        <span class="badge badge--small">Network</span>
+                                        <span class="badge badge--small">PCAP</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2 class="hero-slide-title">Visual packet analysis for macOS.</h2>
+                            <p class="hero-slide-desc">Open PCAP and PCAPNG files, replay packet flow, inspect host relationships, and spot suspicious network events in real time.</p>
+                            <div class="hero-slide-actions">
+                                <a href="./netvis.html" class="btn btn-primary" style="background: var(--color-netvis); color: #fff; --btn-shadow-rgb: var(--color-netvis-rgb);">
+                                    Explore Netvis
+                                </a>
+                                <a href="https://apps.apple.com/pl/app/netvis-visual-packet-map/id6786680288?mt=12" class="btn btn-secondary" aria-label="Download Netvis">
+                                    <i class="fa-brands fa-apple"></i> App Store
+                                </a>
+                            </div>
+                        </div>
+                        <div class="hero-slide-media featured-app-card__media--netvis">
+                            <img src="images/netvis/whole-window-transparent.webp" alt="Netvis Network Map" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 5: Chitneek -->
+                <div class="hero-slide">
+                    <div class="hero-slide-grid">
+                        <div class="hero-slide-copy">
+                            <div class="hero-slide-brand">
+                                <img src="images/czytnik/chitneek-icon.webp" alt="Chitneek Icon" class="hero-slide-icon">
+                                <div>
+                                    <span class="hero-slide-name">Chitneek</span>
+                                    <div class="hero-slide-badges">
+                                        <span class="badge badge--small">iOS</span>
+                                        <span class="badge badge--small">Audio</span>
+                                        <span class="badge badge--small">TTS</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2 class="hero-slide-title">Give your books &amp; documents a voice.</h2>
+                            <p class="hero-slide-desc">Turn PDFs, EPUBs, and audio files into a personal listening experience with natural text-to-speech rendering.</p>
+                            <div class="hero-slide-actions">
+                                <a href="./chitneek.html" class="btn btn-primary" style="background: var(--color-chitneek); color: #000; --btn-shadow-rgb: var(--color-chitneek-rgb);">
+                                    Explore Chitneek
+                                </a>
+                                <a href="https://apps.apple.com/pl/app/chitneek-read-aloud/id6749827870" class="btn btn-secondary" aria-label="Download Chitneek">
+                                    <i class="fa-brands fa-apple"></i> App Store
+                                </a>
+                            </div>
+                        </div>
+                        <div class="hero-slide-media hero-slide-media--portrait">
+                            <img src="images/czytnik/library-screenshot.webp" alt="Chitneek Library" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 6: ClipGuru -->
+                <div class="hero-slide">
+                    <div class="hero-slide-grid">
+                        <div class="hero-slide-copy">
+                            <div class="hero-slide-brand">
+                                <img src="images/clipguru/ClipGuru-icon.webp" alt="ClipGuru Icon" class="hero-slide-icon">
+                                <div>
+                                    <span class="hero-slide-name">ClipGuru</span>
+                                    <div class="hero-slide-badges">
+                                        <span class="badge badge--small">macOS</span>
+                                        <span class="badge badge--small">iOS</span>
+                                        <span class="badge badge--small">Semantic</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2 class="hero-slide-title">Never lose text, links or code snippets.</h2>
+                            <p class="hero-slide-desc">A lightweight clipboard manager that saves text, links, and images — instantly searchable with custom semantic context.</p>
+                            <div class="hero-slide-actions">
+                                <a href="./clipguru.html" class="btn btn-primary" style="background: var(--color-clipguru); color: #fff; --btn-shadow-rgb: var(--color-clipguru-rgb);">
+                                    Explore ClipGuru
+                                </a>
+                                <a href="https://apps.apple.com/pl/app/clipguru/id6753787446" class="btn btn-secondary" aria-label="Download ClipGuru">
+                                    <i class="fa-brands fa-apple"></i> App Store
+                                </a>
+                            </div>
+                        </div>
+                        <div class="hero-slide-media hero-slide-media--portrait">
+                            <img src="images/clipguru/main-screen-screenshot.webp" alt="ClipGuru Screen" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slideshow Controls -->
+            <div class="hero-slide-controls">
+                <div class="hero-slide-dots">
+                    <button class="hero-slide-dot is-active" aria-label="Go to slide 1 (Resso)"></button>
+                    <button class="hero-slide-dot" aria-label="Go to slide 2 (CodeMenu)"></button>
+                    <button class="hero-slide-dot" aria-label="Go to slide 3 (Rapidool)"></button>
+                    <button class="hero-slide-dot" aria-label="Go to slide 4 (Netvis)"></button>
+                    <button class="hero-slide-dot" aria-label="Go to slide 5 (Chitneek)"></button>
+                    <button class="hero-slide-dot" aria-label="Go to slide 6 (ClipGuru)"></button>
+                </div>
+                <div class="hero-slide-arrows">
+                    <button class="hero-slide-btn hero-slide-prev" aria-label="Previous slide">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <button class="hero-slide-btn hero-slide-next" aria-label="Next slide">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Scroll Down Indicator -->
+            <a href="#apps" class="hero-scroll-down" aria-label="Learn more about our apps">
+                <span class="hero-scroll-down__text">Learn more</span>
+                <i class="fa-solid fa-chevron-down hero-scroll-down__icon"></i>
+            </a>
         </div>
     </header>
-
-    <!-- Recent Posts Section -->
-    <section id="recent-posts" class="section" style="padding-bottom: var(--space-12)">
-        <div class="container">
-            <div class="flex-between" style="margin-bottom: var(--space-8); align-items: flex-end;">
-                <div>
-                    <span class="badge" style="margin-bottom: var(--space-4);">From the Blog</span>
-                    <h2>Recent <span class="text-gradient">Posts</span></h2>
-                </div>
-                <a href="blog/index.html" class="btn btn-outline" style="flex-shrink: 0;">View All Posts</a>
-            </div>
-
-            <div id="recent-posts-container" class="recent-posts-grid">
-                <!-- Posts will be loaded dynamically via JavaScript -->
-                <div class="recent-posts-loading">
-                    <p style="color: var(--text-tertiary); text-align: center;">Loading recent posts...</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Apps Section -->
     <main id="apps" class="section">
@@ -247,8 +871,7 @@
                     </div>
                     <div class="featured-app-card__content">
                         <div class="featured-app-card__header">
-                            <img src="images/netvis/netvis-icon.webp" alt="Netvis" class="featured-app-card__icon"
-                                style="filter: drop-shadow(0 4px 8px rgba(148, 85, 255, 0.35));" loading="lazy">
+                            <img src="images/netvis/netvis-icon.webp" alt="Netvis" class="featured-app-card__icon" loading="lazy">
                             <div>
                                 <h3>Netvis</h3>
                                 <div class="featured-app-card__badges">
@@ -351,8 +974,7 @@
                     </div>
                     <div class="featured-app-card__content">
                         <div class="featured-app-card__header">
-                            <img src="images/rapidool/rapidool_icon.webp" alt="Rapidool" class="featured-app-card__icon"
-                                style="filter: drop-shadow(0 4px 8px rgba(168, 85, 247, 0.35));" loading="lazy">
+                            <img src="images/rapidool/rapidool_icon.webp" alt="Rapidool" class="featured-app-card__icon" loading="lazy">
                             <div>
                                 <h3>Rapidool</h3>
                                 <div class="featured-app-card__badges">
@@ -461,7 +1083,27 @@
         </div>
     </main>
 
-    <!-- Newsletter -->
+    <!-- Recent Posts Section (Moved before Newsletter) -->
+    <section id="recent-posts" class="section" style="padding-bottom: var(--space-12)">
+        <div class="container">
+            <div class="flex-between" style="margin-bottom: var(--space-8); align-items: flex-end;">
+                <div>
+                    <span class="badge" style="margin-bottom: var(--space-4);">From the Blog</span>
+                    <h2>Recent <span class="text-gradient">Posts</span></h2>
+                </div>
+                <a href="blog/index.html" class="btn btn-outline" style="flex-shrink: 0;">View All Posts</a>
+            </div>
+
+            <div id="recent-posts-container" class="recent-posts-grid">
+                <!-- Posts will be loaded dynamically via JavaScript -->
+                <div class="recent-posts-loading">
+                    <p style="color: var(--text-tertiary); text-align: center;">Loading recent posts...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
     <section class="section">
         <div class="container" style="max-width: 700px; text-align: center;">
             <h2 style="margin-bottom: var(--space-4);">Extiri Newsletter</h2>
@@ -524,6 +1166,129 @@
         </div>
     </div>
 
+    <!-- Page Specific Scripts -->
+    <script>
+        // Bulletproof Hero Slideshow Controller
+        (function () {
+            const slides = Array.from(document.querySelectorAll('.hero-slide'));
+            const dots = Array.from(document.querySelectorAll('.hero-slide-dot'));
+            const nextBtn = document.querySelector('.hero-slide-next');
+            const prevBtn = document.querySelector('.hero-slide-prev');
+            const container = document.querySelector('.hero-slideshow-section');
+
+            if (slides.length === 0) return;
+
+            let idx = 0;
+            let autoTimer = null;
+            const delay = 5000;
+            let isHovered = false;
+
+            function showSlide(i) {
+                i = ((i % slides.length) + slides.length) % slides.length;
+                slides.forEach((slide, j) => {
+                    slide.classList.toggle('is-active', j === i);
+                });
+                dots.forEach((dot, j) => {
+                    const isActive = (j === i);
+                    dot.classList.remove('is-active');
+                    if (isActive) {
+                        void dot.offsetWidth; // Force DOM reflow to restart CSS keyframe progress fill cleanly
+                        dot.classList.add('is-active');
+                    }
+                });
+                idx = i;
+                restartAutoTimer();
+            }
+
+            function nextSlide() {
+                showSlide(idx + 1);
+            }
+
+            function prevSlide() {
+                showSlide(idx - 1);
+            }
+
+            function restartAutoTimer() {
+                stopAutoTimer();
+                if (!isHovered && !document.hidden) {
+                    autoTimer = setTimeout(nextSlide, delay);
+                }
+            }
+
+            function stopAutoTimer() {
+                if (autoTimer) {
+                    clearTimeout(autoTimer);
+                    autoTimer = null;
+                }
+            }
+
+            // Click Handlers (reset auto-timer cleanly so user interaction never breaks auto-play)
+            if (nextBtn) {
+                nextBtn.onclick = (e) => {
+                    e.preventDefault();
+                    nextSlide();
+                };
+            }
+            if (prevBtn) {
+                prevBtn.onclick = (e) => {
+                    e.preventDefault();
+                    prevSlide();
+                };
+            }
+
+            dots.forEach((dot, i) => {
+                dot.onclick = (e) => {
+                    e.preventDefault();
+                    showSlide(i);
+                };
+            });
+
+            // Hover Pause / Resume
+            if (container) {
+                container.addEventListener('mouseenter', () => {
+                    isHovered = true;
+                    container.classList.add('is-paused');
+                    stopAutoTimer();
+                });
+                container.addEventListener('mouseleave', () => {
+                    isHovered = false;
+                    container.classList.remove('is-paused');
+                    restartAutoTimer();
+                });
+            }
+
+            // Tab Visibility Sync (prevents background tab state desync or animation freezes)
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    if (container) container.classList.add('is-paused');
+                    stopAutoTimer();
+                } else {
+                    if (container && !isHovered) container.classList.remove('is-paused');
+                    showSlide(idx);
+                }
+            });
+
+            // Mobile Touch Swipe Support
+            let startX = 0;
+            if (container) {
+                container.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                }, { passive: true });
+
+                container.addEventListener('touchend', (e) => {
+                    const endX = e.changedTouches[0].clientX;
+                    const diff = startX - endX;
+                    if (Math.abs(diff) > 40) {
+                        if (diff > 0) nextSlide();
+                        else prevSlide();
+                    }
+                }, { passive: true });
+            }
+
+            // Init
+            showSlide(0);
+        })();
+    </script>
 </body>
 
 </html>
