@@ -41,6 +41,8 @@
   --color-rapidool-rgb: 168, 85, 247;
   --color-netvis: #9455FF;
   --color-netvis-rgb: 148, 85, 255;
+  --color-airstrip: #e2e8f0;
+  --color-airstrip-rgb: 226, 232, 240;
 
   /* --- Typography --- */
   --font-sans: 'JetBrains Mono', monospace;
