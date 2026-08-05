@@ -5,7 +5,8 @@ function toggleMobileMenu() {
   document.body.classList.toggle('menu-open');
 }
 
-// Function to handle user consent
+/*
+// Function to handle user consent (Commented out for Umami port)
 function handleConsent() {
   const banner = document.getElementById('cookie-consent-banner');
   const acceptBtn = document.getElementById('accept-cookies');
@@ -16,37 +17,48 @@ function handleConsent() {
 
   if (consent === 'accepted') {
     // If consent was previously accepted, update gtag
-    gtag('consent', 'update', {
-      'analytics_storage': 'granted'
-    });
-  } else if (consent === 'declined') {
-    // If consent was previously declined, update gtag
-    gtag('consent', 'update', {
-      'analytics_storage': 'denied'
-    });
-  } else {
-    // No consent yet, show the banner
-    banner.style.display = 'block';
-
-    acceptBtn.addEventListener('click', () => {
-      localStorage.setItem('cookie_consent', 'accepted');
-      banner.style.display = 'none';
-      // Update consent status to granted
+    if (typeof gtag === 'function') {
       gtag('consent', 'update', {
         'analytics_storage': 'granted'
       });
-    });
-
-    declineBtn.addEventListener('click', () => {
-      localStorage.setItem('cookie_consent', 'declined');
-      banner.style.display = 'none';
-      // Update consent status to denied
+    }
+  } else if (consent === 'declined') {
+    // If consent was previously declined, update gtag
+    if (typeof gtag === 'function') {
       gtag('consent', 'update', {
         'analytics_storage': 'denied'
       });
-    });
+    }
+  } else {
+    // No consent yet, show the banner
+    if (banner) banner.style.display = 'block';
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', () => {
+        localStorage.setItem('cookie_consent', 'accepted');
+        if (banner) banner.style.display = 'none';
+        if (typeof gtag === 'function') {
+          gtag('consent', 'update', {
+            'analytics_storage': 'granted'
+          });
+        }
+      });
+    }
+
+    if (declineBtn) {
+      declineBtn.addEventListener('click', () => {
+        localStorage.setItem('cookie_consent', 'declined');
+        if (banner) banner.style.display = 'none';
+        if (typeof gtag === 'function') {
+          gtag('consent', 'update', {
+            'analytics_storage': 'denied'
+          });
+        }
+      });
+    }
   }
 }
+*/
 
 // Accessible app-card expand/collapse behavior
 function initCardExpanders() {
@@ -236,9 +248,9 @@ function initAppFilters() {
   });
 }
 
-// Run the consent handler when the page loads and initialize card expanders
+// Run initialization when page loads
 document.addEventListener('DOMContentLoaded', function () {
-  handleConsent();
+  // handleConsent(); // Commented out for cookie-less Umami port
   initCardExpanders();
   initScrollReveal();
   initAppFilters();

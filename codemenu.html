@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+  <!-- Umami Analytics -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="ca1be9c5-e744-4d04-966a-8f18f94e8e61"></script>
+  <script defer src="js/umami-tracking.js"></script>
+  <link rel="icon" type="image/webp" href="images/codemenu-icon.webp">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -31,12 +35,291 @@
   <link rel="stylesheet" href="styles.css?v=3">
   <style>
     /* Page-specific overrides */
-    .hero-codemenu {
-      background: var(--bg-body);
+    .hero-codemenu-v2 {
+      position: relative;
+      background:
+        radial-gradient(circle at 75% 30%, rgba(255, 179, 0, 0.14) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(255, 179, 0, 0.06) 0%, transparent 45%),
+        transparent;
+      padding-top: calc(var(--header-height) + var(--space-8));
+      padding-bottom: var(--space-16);
+      overflow: hidden;
+      border-bottom: 1px solid var(--bg-glass-border);
     }
 
-    .hero-codemenu .btn-primary {
+    .hero-content-codemenu {
+      position: relative;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: minmax(360px, 0.85fr) minmax(0, 1.15fr);
+      gap: var(--space-12);
+      align-items: center;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    .hero-copy-col {
+      text-align: left;
+    }
+
+    .hero-brand-codemenu {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-brand-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 15px;
+      filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.35));
+    }
+
+    .hero-brand-name {
+      font-family: var(--font-sans);
+      font-weight: 800;
+      font-size: var(--text-2xl);
+      letter-spacing: -0.01em;
+      color: var(--color-codemenu);
+      text-transform: uppercase;
+    }
+
+    .hero-title-codemenu {
+      font-family: var(--font-serif);
+      font-size: clamp(2.6rem, 4.2vw, 4.2rem);
+      line-height: 1.04;
+      margin-bottom: var(--space-5);
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      font-weight: 400;
+    }
+
+    .hero-subtitle-codemenu {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: var(--text-lg);
+      line-height: 1.6;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin-bottom: var(--space-6);
+    }
+
+    .hero-badges-codemenu {
+      display: flex;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-8);
+    }
+
+    .hero-actions-codemenu {
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+      margin-top: var(--space-2);
+    }
+
+    .hero-textlink-codemenu {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      color: var(--color-codemenu);
+      font-weight: 600;
+      font-size: var(--text-base);
+      text-decoration: none;
+      border-bottom: 1.5px solid rgba(255, 179, 0, 0.4);
+      padding: 6px 4px;
+      transition: var(--transition-normal);
+    }
+
+    .hero-textlink-codemenu:hover {
+      border-color: var(--color-codemenu);
+      color: #ffffff;
+    }
+
+    .hero-textlink-codemenu i {
+      font-size: 0.8em;
+      transition: transform 0.2s ease;
+    }
+
+    .hero-textlink-codemenu:hover i {
+      transform: translateX(3px);
+    }
+
+    .hero-meta-codemenu {
+      margin-top: var(--space-5);
+      color: var(--text-tertiary);
+      font-size: var(--text-xs);
+      font-weight: 500;
+    }
+
+    /* Hero Media Stack with Dashboard and Side Window */
+    .hero-media-codemenu {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-codemenu-window-stack {
+      position: relative;
+      width: 100%;
+      max-width: 780px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-img-dashboard-window {
+      width: 84%;
+      max-width: 620px;
+      height: auto;
+      display: block;
+      position: relative;
+      z-index: 1;
+      border: none !important;
+      border-radius: 0 !important;
       box-shadow: none !important;
+      filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.65));
+    }
+
+    .hero-img-side-window {
+      width: 25%;
+      max-width: 185px;
+      height: auto;
+      display: block;
+      position: absolute;
+      right: -1%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      border: none !important;
+      border-radius: 14px !important;
+      box-shadow: none !important;
+      filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.75));
+    }
+
+    @media (max-width: 1200px) {
+      .hero-content-codemenu {
+        gap: var(--space-8);
+      }
+
+      .hero-title-codemenu {
+        font-size: clamp(2.4rem, 3.8vw, 3.6rem);
+      }
+
+      .hero-img-dashboard-window {
+        width: 80%;
+      }
+
+      .hero-img-side-window {
+        width: 26%;
+        right: 0%;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-codemenu-v2 {
+        padding-top: calc(var(--header-height) + var(--space-4));
+        padding-bottom: var(--space-12);
+      }
+
+      .hero-content-codemenu {
+        grid-template-columns: 1fr;
+        gap: var(--space-10);
+        text-align: left;
+      }
+
+      .hero-title-codemenu {
+        font-size: clamp(2.2rem, 6.5vw, 3.4rem);
+      }
+
+      .hero-subtitle-codemenu {
+        max-width: 100%;
+      }
+
+      .hero-codemenu-window-stack {
+        max-width: 640px;
+        margin: 0 auto;
+      }
+
+      .hero-img-dashboard-window {
+        width: 82%;
+      }
+
+      .hero-img-side-window {
+        width: 26%;
+        right: 1%;
+        border-radius: 12px !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-content-codemenu {
+        padding: 0 var(--space-4);
+        gap: var(--space-8);
+      }
+
+      .hero-brand-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 12px;
+      }
+
+      .hero-brand-name {
+        font-size: var(--text-xl);
+      }
+
+      .hero-title-codemenu {
+        font-size: clamp(1.9rem, 7.5vw, 2.6rem);
+        margin-bottom: var(--space-4);
+      }
+
+      .hero-subtitle-codemenu {
+        font-size: var(--text-base);
+        margin-bottom: var(--space-5);
+      }
+
+      .hero-actions-codemenu {
+        gap: var(--space-4);
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-actions-codemenu .btn-primary {
+        text-align: center;
+        width: 100%;
+      }
+
+      .hero-textlink-codemenu {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .hero-img-dashboard-window {
+        width: 80%;
+      }
+
+      .hero-img-side-window {
+        width: 28%;
+        right: 0%;
+        border-radius: 10px !important;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero-img-dashboard-window {
+        width: 78%;
+      }
+
+      .hero-img-side-window {
+        width: 30%;
+        right: -2%;
+      }
     }
 
     .feature-icon-box {
@@ -483,7 +766,8 @@
   </style>
 
   <!-- Scripts -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
+  <!-- Google Analytics (Commented out for Umami port)
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
@@ -491,6 +775,7 @@
     gtag('js', new Date());
     gtag('config', 'G-HLY6ZZMNBQ');
   </script>
+-->
   <script src="js/three.min.js" defer></script>
   <script src="js/background-effect.js" defer></script>
   <script src="scripts.js" defer></script>
@@ -524,41 +809,52 @@
   </div>
 
   <!-- Hero Section -->
-  <header class="hero hero-codemenu">
-    <div class="container hero-content animate-fade-in">
-      <img src="images/codemenu-icon.webp" alt="CodeMenu Icon" fetchpriority="high"
-        style="width: 96px; height: 96px; border-radius: 22px; margin: 0 auto var(--space-6) auto;">
+  <header class="hero hero-codemenu-v2">
+    <div class="container hero-content-codemenu animate-fade-in">
+      <!-- Left Copy Column -->
+      <div class="hero-copy-col">
+        <div class="hero-brand-codemenu">
+          <img src="images/codemenu-icon.webp" alt="CodeMenu Icon" class="hero-brand-icon" fetchpriority="high">
+          <span class="hero-brand-name">CodeMenu</span>
+        </div>
 
-      <h2
-        style="color: var(--color-codemenu); font-family: var(--font-sans); font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-3); letter-spacing: 0.05em; text-transform: uppercase;">
-        CodeMenu</h2>
+        <h1 class="hero-title-codemenu">Store code snippets, AI prompts, and research.</h1>
 
-      <h1 class="hero-title">Store code snippets, AI prompts, documentation and research</h1>
+        <p class="hero-subtitle-codemenu">One local-first developer knowledge base. Replace scattered Markdown files,
+          Apple Notes, and text files with a fast, searchable, AI-friendly macOS workspace.</p>
 
-      <p class="hero-subtitle delay-100">One local-first developer knowledge base. Replace scattered Markdown files, Apple Notes, and text files with a searchable, AI-friendly, macOS native workspace.</p>
+        <div class="hero-badges-codemenu">
+          <span class="badge">Local-first</span>
+          <span class="badge">Semantic Search</span>
+          <span class="badge">MCP Server</span>
+          <span class="badge">Scriptable</span>
+        </div>
 
-      <div class="flex-center delay-200" style="flex-wrap: wrap; margin-bottom: var(--space-8);">
-        <span class="badge">Local-first</span>
-        <span class="badge">Semantic Search</span>
-        <span class="badge">MCP Server</span>
-        <span class="badge">Scriptable</span>
+        <div class="hero-actions-codemenu">
+          <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781" class="btn btn-primary"
+            style="background: var(--color-codemenu); color: #000; --btn-shadow-rgb: var(--color-codemenu-rgb);">Download
+            for Mac</a>
+          <a href="https://extiri.com/blog/posts/ultimate-guide-to-snippet-management-with-codemenu.html"
+            class="hero-textlink-codemenu">Read the Guide <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <p class="hero-meta-codemenu">lifetime or monthly · 7-day free trial · Works offline · macOS 13+</p>
       </div>
 
-      <div class="hero-actions delay-300">
-        <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781" class="btn btn-primary"
-          style="background: var(--color-codemenu); color: #000; --btn-shadow-rgb: var(--color-codemenu-rgb);">Download
-          for Mac</a>
-        <a href="https://extiri.com/blog/posts/ultimate-guide-to-snippet-management-with-codemenu.html"
-          class="btn btn-outline">Read the Guide</a>
+      <!-- Right Media Column: Dashboard & Side Window -->
+      <div class="hero-media-codemenu">
+        <div class="hero-codemenu-window-stack">
+          <img src="images/codemenu/codemenu-dashboard-window.webp" alt="CodeMenu Main Dashboard Window"
+            class="hero-img-dashboard-window">
+          <img src="images/codemenu/codemenu-side-window.webp" alt="CodeMenu Quick Side Panel Window"
+            class="hero-img-side-window">
+        </div>
       </div>
-
-      <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--text-tertiary);">7-day free trial ·
-        Works offline · macOS 12+</p>
     </div>
   </header>
 
   <!-- Video Section -->
-  <section class="section" style="padding-top: 0;">
+  <section class="section" style="padding-top: var(--space-16);">
     <div class="container">
       <div
         style="position: relative; width: 100%; padding-bottom: 56.25%; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-xl); border: 1px solid var(--bg-glass-border);">
@@ -830,7 +1126,8 @@
         <div class="workflow-step">
           <div class="workflow-number" style="border-radius: 8px; width: auto; padding: 0 12px;">AI</div>
           <h3>Give Claude or Cursor access to your personal knowledge base.</h3>
-          <p>Connect CodeMenu to Claude Code, Cursor, or VS Code using the MCP server. Give your AI assistant secure, local access to your personal documentation, prompt documents, and verified code patterns.</p>
+          <p>Connect CodeMenu to Claude Code, Cursor, or VS Code using the MCP server. Give your AI assistant secure,
+            local access to your personal documentation, prompt documents, and verified code patterns.</p>
           <a href="https://github.com/Extiri/codemenu-mcp" class="btn btn-sm btn-outline-primary mt-2"
             style="display: inline-block; margin-top: 12px; padding: 6px 12px; border: 1px solid var(--color-codemenu); border-radius: 6px; color: var(--color-codemenu); text-decoration: none; font-size: 0.9rem;"><i
               class="fa-brands fa-github"></i> MCP Server</a>
@@ -934,7 +1231,8 @@
           <img src="./images/codemenu/promo-images/Screenshot 4.webp" alt="Organization with Spaces and Stashes"
             class="focus-visual-main" loading="lazy">
           <div class="focus-visual-pair">
-            <img src="./images/codemenu/codemenu-graphs-screenshot.webp" alt="Graph View showing connected nodes" loading="lazy">
+            <img src="./images/codemenu/codemenu-graphs-screenshot.webp" alt="Graph View showing connected nodes"
+              loading="lazy">
             <img src="./images/codemenu/promo-images/Screenshot 2.webp"
               alt="Various content types including images and code" loading="lazy">
           </div>
@@ -963,7 +1261,8 @@
         <article class="focus-tool" style="--focus-color: #82d6ff;">
           <i class="fa-solid fa-magnifying-glass"></i>
           <h3>Find snippets even when you don't remember the exact words.</h3>
-          <p>Semantic search retrieves relevant code from your own library based on meaning. Ask questions naturally to find that reusable shell command or API example you saved months ago.</p>
+          <p>Semantic search retrieves relevant code from your own library based on meaning. Ask questions naturally to
+            find that reusable shell command or API example you saved months ago.</p>
         </article>
 
         <article class="focus-tool" style="--focus-color: #ff6347;">
@@ -1075,35 +1374,42 @@
           <button class="faq-question">What is a code snippet manager?<span class="faq-arrow"><i
                 class="fa-solid fa-chevron-right"></i></span></button>
           <div class="faq-answer">
-            <p>A code snippet manager is a tool that allows developers to save, organize, and quickly retrieve reusable blocks of code. CodeMenu goes beyond this by also acting as a developer knowledge base for storing documentation, API examples, and visual assets.</p>
+            <p>A code snippet manager is a tool that allows developers to save, organize, and quickly retrieve reusable
+              blocks of code. CodeMenu goes beyond this by also acting as a developer knowledge base for storing
+              documentation, API examples, and visual assets.</p>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question">How do developers organize snippets?<span class="faq-arrow"><i
                 class="fa-solid fa-chevron-right"></i></span></button>
           <div class="faq-answer">
-            <p>Developers typically organize snippets using tags, folders (Spaces), and sometimes visual graphs to link related items. With CodeMenu, you can categorize your reusable shell commands, SQL queries, and project architecture notes to keep your workspace clutter-free.</p>
+            <p>Developers typically organize snippets using tags, folders (Spaces), and sometimes visual graphs to link
+              related items. With CodeMenu, you can categorize your reusable shell commands, SQL queries, and project
+              architecture notes to keep your workspace clutter-free.</p>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question">Can I store AI prompts?<span class="faq-arrow"><i
                 class="fa-solid fa-chevron-right"></i></span></button>
           <div class="faq-answer">
-            <p>Yes. CodeMenu acts as an AI prompt manager, letting you store, version, and organize system templates or complex instructions for LLMs, replacing scattered text files.</p>
+            <p>Yes. CodeMenu acts as an AI prompt manager, letting you store, version, and organize system templates or
+              complex instructions for LLMs, replacing scattered text files.</p>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question">Can I search by meaning instead of keywords?<span class="faq-arrow"><i
                 class="fa-solid fa-chevron-right"></i></span></button>
           <div class="faq-answer">
-            <p>Yes, CodeMenu features semantic search, allowing you to find snippets and notes based on the intent of your query even if you don't remember the exact function name or syntax.</p>
+            <p>Yes, CodeMenu features semantic search, allowing you to find snippets and notes based on the intent of
+              your query even if you don't remember the exact function name or syntax.</p>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question">Can AI assistants read my snippets?<span class="faq-arrow"><i
                 class="fa-solid fa-chevron-right"></i></span></button>
           <div class="faq-answer">
-            <p>Yes. Using the built-in MCP server, you can give AI assistants like Claude or Cursor secure access to read your personal knowledge base, grounding their answers in your verified code.</p>
+            <p>Yes. Using the built-in MCP server, you can give AI assistants like Claude or Cursor secure access to
+              read your personal knowledge base, grounding their answers in your verified code.</p>
           </div>
         </div>
         <div class="faq-item">
