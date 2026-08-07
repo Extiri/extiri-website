@@ -1,7 +1,8 @@
 /**
  * Umami Analytics Tracking Suite
  * Extiri Web Application
- * Provides robust tracking for CTA Click events and Scroll Depth Milestones (0%, 25%, 50%, 75%, 100%).
+ * Provides precise tracking for Download CTA Buttons (with App Name in event title)
+ * and Scroll Depth Milestones (0%, 25%, 50%, 75%, 100%).
  */
 (function () {
     'use strict';
@@ -10,7 +11,7 @@
     function trackEvent(eventName, eventData) {
         if (window.umami && typeof window.umami.track === 'function') {
             try {
-                window.umami.track(eventName, eventData);
+                window.umami.track(eventName, eventData || {});
             } catch (e) {
                 // Ignore ad-blocker errors
             }
@@ -21,7 +22,7 @@
                 attempts++;
                 if (window.umami && typeof window.umami.track === 'function') {
                     try {
-                        window.umami.track(eventName, eventData);
+                        window.umami.track(eventName, eventData || {});
                     } catch (e) {}
                     clearInterval(interval);
                 } else if (attempts >= 10) {
@@ -63,71 +64,108 @@
         });
     }
 
-    // --- 2. CTA Click Event Tracking ---
-    function getCtaLabel(el) {
-        if (el.getAttribute('data-umami-event-label')) return el.getAttribute('data-umami-event-label');
-        if (el.getAttribute('aria-label')) return el.getAttribute('aria-label');
-        if (el.getAttribute('title')) return el.getAttribute('title');
-
-        const text = el.textContent ? el.textContent.trim().replace(/\s+/g, ' ') : '';
-        if (text && text.length > 0) return text.slice(0, 60);
-
-        const img = el.querySelector('img');
-        if (img && img.alt) return img.alt.trim();
-
-        if (el.href) {
-            try {
-                const urlObj = new URL(el.href, window.location.href);
-                return urlObj.pathname + urlObj.search;
-            } catch (e) {}
+    // --- 2. App Name & Download CTA Detection ---
+    function getAppNameForElement(target) {
+        // 1. Check parent card or container attributes / headings (especially for index.html)
+        const card = target.closest('[data-app-name], .featured-app-card, .app-card, .hero-slide');
+        if (card) {
+            if (card.getAttribute('data-app-name')) return card.getAttribute('data-app-name').trim();
+            const heading = card.querySelector('h2, h3, .featured-app-card__name');
+            if (heading) {
+                const headingText = heading.textContent.trim();
+                if (headingText) return headingText;
+            }
         }
 
-        return 'CTA Action';
+        // 2. Check URL or path hints
+        const href = (target.href || '').toLowerCase();
+        if (href.includes('codemenu')) return 'CodeMenu';
+        if (href.includes('resso')) return 'Resso';
+        if (href.includes('rapidool')) return 'Rapidool';
+        if (href.includes('netvis')) return 'Netvis';
+        if (href.includes('chitneek') || href.includes('czytnik')) return 'Chitneek';
+        if (href.includes('clipguru')) return 'ClipGuru';
+        if (href.includes('slowko')) return 'Słówko';
+        if (href.includes('airstrip')) return 'Airstrip';
+        if (href.includes('space-train') || href.includes('space_train')) return 'Space Train';
+
+        // 3. Check page pathname & title
+        const path = window.location.pathname.toLowerCase();
+        if (path.includes('codemenu')) return 'CodeMenu';
+        if (path.includes('resso')) return 'Resso';
+        if (path.includes('rapidool')) return 'Rapidool';
+        if (path.includes('netvis')) return 'Netvis';
+        if (path.includes('chitneek')) return 'Chitneek';
+        if (path.includes('clipguru')) return 'ClipGuru';
+        if (path.includes('slowko')) return 'Słówko';
+        if (path.includes('airstrip')) return 'Airstrip';
+        if (path.includes('space-train')) return 'Space Train';
+
+        const pageTitle = document.title || '';
+        const titlePart = pageTitle.split('—')[0].split('|')[0].split('–')[0].trim();
+        if (titlePart && titlePart.toLowerCase() !== 'extiri') return titlePart;
+
+        return 'Extiri App';
+    }
+
+    function isDownloadCta(target) {
+        if (!target) return false;
+
+        const tagName = target.tagName;
+        if (tagName !== 'A' && tagName !== 'BUTTON') return false;
+
+        const href = (target.href || '').toLowerCase();
+        const text = (target.textContent || '').toLowerCase().trim();
+        const aria = (target.getAttribute('aria-label') || '').toLowerCase();
+
+        // Direct App Store or installer binary link
+        const isAppStoreUrl = href.includes('apps.apple.com') ||
+                              href.endsWith('.dmg') ||
+                              href.endsWith('.pkg') ||
+                              href.endsWith('.zip');
+
+        // Explicit Download / App Store keywords in text or aria-label
+        const downloadKeywords = [
+            'download', 'app store', 'mac app store', 'get on mac', 'get for mac',
+            'free trial', 'try free', 'buy license', 'buy now', 'install'
+        ];
+
+        const hasKeyword = downloadKeywords.some(function (kw) {
+            return text.includes(kw) || aria.includes(kw);
+        });
+
+        if (!isAppStoreUrl && !hasKeyword) return false;
+
+        // Exclude navigation bars, footer links, filter tabs, slideshow navigation, mobile menu
+        if (target.closest('.nav-links, .site-header__nav, .footer-links, .apps-filter-bar, .slideshow-viewport, .slideshow-nav, .mobile-menu-btn, .faq-question')) {
+            return false;
+        }
+
+        return true;
     }
 
     function initCtaTracking() {
         document.addEventListener('click', function (e) {
-            const target = e.target.closest('a, button, input[type="submit"], .btn, [data-umami-event]');
+            const target = e.target.closest('a, button');
             if (!target) return;
 
-            const isCta =
-                target.hasAttribute('data-umami-event') ||
-                target.classList.contains('btn') ||
-                target.classList.contains('cta-btn') ||
-                target.classList.contains('hero-textlink-codemenu') ||
-                target.classList.contains('hero-resso-textlink') ||
-                target.classList.contains('hero-scroll-down') ||
-                target.closest('.hero-actions') ||
-                target.closest('.hero-actions-codemenu') ||
-                target.closest('.hero-slide-actions') ||
-                target.closest('.hero-resso-actions') ||
-                target.closest('.featured-app-card__actions') ||
-                target.closest('.navbar-inner') ||
-                target.closest('.footer') ||
-                (target.href && (
-                    target.href.includes('apps.apple.com') ||
-                    target.href.includes('extiri.kit.com') ||
-                    target.href.includes('github.com') ||
-                    target.href.includes('status.extiri.com') ||
-                    target.href.includes('mailto:')
-                ));
+            if (isDownloadCta(target)) {
+                const appName = getAppNameForElement(target);
+                const eventTitle = 'Download ' + appName;
+                const url = target.href || window.location.pathname;
 
-            if (isCta) {
-                const label = getCtaLabel(target);
-                const url = target.href || target.getAttribute('data-url') || window.location.pathname;
-                const pageTitle = document.title || window.location.pathname;
-
-                // Track main aggregated cta_click event with metadata
-                trackEvent('cta_click', {
-                    label: label,
+                // Track specific event title with App Name (e.g., "Download CodeMenu", "Download Resso")
+                trackEvent(eventTitle, {
+                    app: appName,
                     url: url,
-                    page: pageTitle
+                    page: window.location.pathname
                 });
 
-                // Track named CTA event for direct visibility in Umami Events Dashboard
-                trackEvent('CTA: ' + label, {
+                // Also track aggregate download event
+                trackEvent('download_click', {
+                    app: appName,
                     url: url,
-                    page: pageTitle
+                    page: window.location.pathname
                 });
             }
         }, { passive: true });

@@ -81,17 +81,18 @@
     .hero-brand-name {
       font-family: var(--font-sans);
       font-weight: 800;
-      font-size: var(--text-2xl);
-      letter-spacing: -0.01em;
+      font-size: 64px;
+      line-height: 1;
+      letter-spacing: -0.02em;
       color: var(--color-codemenu);
       text-transform: uppercase;
     }
 
     .hero-title-codemenu {
       font-family: var(--font-serif);
-      font-size: clamp(2.6rem, 4.2vw, 4.2rem);
-      line-height: 1.04;
-      margin-bottom: var(--space-5);
+      font-size: clamp(1.8rem, 2.7vw, 2.7rem);
+      line-height: 1.15;
+      margin-bottom: var(--space-8);
       letter-spacing: -0.02em;
       color: #ffffff;
       font-weight: 400;
@@ -150,7 +151,7 @@
     }
 
     .hero-meta-codemenu {
-      margin-top: var(--space-5);
+      margin-top: var(--space-8);
       color: var(--text-tertiary);
       font-size: var(--text-xs);
       font-weight: 500;
@@ -209,7 +210,7 @@
       }
 
       .hero-title-codemenu {
-        font-size: clamp(2.4rem, 3.8vw, 3.6rem);
+        font-size: clamp(1.75rem, 2.5vw, 2.5rem);
       }
 
       .hero-img-dashboard-window {
@@ -235,7 +236,7 @@
       }
 
       .hero-title-codemenu {
-        font-size: clamp(2.2rem, 6.5vw, 3.4rem);
+        font-size: clamp(1.7rem, 4.2vw, 2.3rem);
       }
 
       .hero-subtitle-codemenu {
@@ -281,11 +282,12 @@
       }
 
       .hero-brand-name {
-        font-size: var(--text-lg);
+        font-size: 48px;
+        line-height: 1;
       }
 
       .hero-title-codemenu {
-        font-size: clamp(1.85rem, 7.5vw, 2.5rem);
+        font-size: clamp(1.5rem, 5.5vw, 1.95rem);
         line-height: 1.08;
         margin-bottom: var(--space-3);
       }
@@ -845,6 +847,9 @@
         <a href="./index.html#home" class="nav-link">Home</a>
         <a href="./index.html#apps" class="nav-link">Apps</a>
         <a href="./blog/index.html" class="nav-link">Blog</a>
+        <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781" class="btn btn-primary btn--small" style="background: var(--color-codemenu); color: #000; --btn-shadow-rgb: var(--color-codemenu-rgb);">
+          <i class="fa-brands fa-apple"></i> Download
+        </a>
       </div>
 
       <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
@@ -858,6 +863,9 @@
     <a href="./index.html#home" class="nav-link" onclick="toggleMobileMenu()">Home</a>
     <a href="./index.html#apps" class="nav-link" onclick="toggleMobileMenu()">Apps</a>
     <a href="./blog/index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a>
+    <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781" class="btn btn-primary btn--small" style="background: var(--color-codemenu); color: #000;" onclick="toggleMobileMenu()">
+      <i class="fa-brands fa-apple"></i> Download
+    </a>
   </div>
 
   <!-- Hero Section -->
@@ -883,9 +891,10 @@
         </div>
 
         <div class="hero-actions-codemenu">
-          <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781" class="btn btn-primary"
-            style="background: var(--color-codemenu); color: #000; --btn-shadow-rgb: var(--color-codemenu-rgb);">Download
-            for Mac</a>
+          <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781" class="app-store-badge-link"
+            aria-label="Download CodeMenu on the Mac App Store">
+            <img src="images/download_on_the_mac_app_store_white_button.svg" alt="Download on the Mac App Store" class="app-store-badge-img">
+          </a>
           <a href="https://extiri.com/blog/posts/ultimate-guide-to-snippet-management-with-codemenu.html"
             class="hero-textlink-codemenu">Read the Guide <i class="fa-solid fa-arrow-right"></i></a>
         </div>
@@ -1382,7 +1391,22 @@
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- Pre-Use-Cases CTA Section -->
+  <section class="section">
+    <div class="container" style="max-width: 840px; text-align: center; background: var(--bg-surface); border: 1px solid var(--bg-glass-border); padding: calc(var(--space-12) + var(--space-2)) var(--space-8); border-radius: var(--radius-xl); box-shadow: var(--shadow-xl);">
+      <h2 style="font-size: clamp(1.85rem, 3.5vw, 2.75rem); margin-bottom: var(--space-4);">Ready to upgrade your developer knowledge base?</h2>
+      <p style="color: var(--text-secondary); margin-bottom: var(--space-8); font-size: 1.1rem; line-height: 1.6; max-width: 620px; margin-left: auto; margin-right: auto;">
+        Experience local-first snippet management with instant semantic search, AI prompt tools, and seamless workflow integrations.
+      </p>
+      <div class="hero-actions flex-center">
+        <a href="https://apps.apple.com/pl/app/codemenu-snippets-manager/id1583463781" class="app-store-badge-link" aria-label="Download CodeMenu on the Mac App Store">
+          <img src="images/download_on_the_mac_app_store_white_button.svg" alt="Download on the Mac App Store" class="app-store-badge-img">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
   <section id="use-cases" class="section" style="padding-bottom: var(--space-12)">
     <div class="container">
       <div class="flex-between" style="margin-bottom: var(--space-8); align-items: flex-end;">

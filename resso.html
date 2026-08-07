@@ -1163,12 +1163,25 @@
         <a href="./index.html#home" class="nav-link">Home</a>
         <a href="./index.html#apps" class="nav-link">Apps</a>
         <a href="./blog/index.html" class="nav-link">Blog</a>
+        <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161" class="btn btn-primary btn--small" style="background: var(--color-resso); color: #fff;">
+          <i class="fa-brands fa-apple"></i> Download
+        </a>
       </div>
       <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
         <i class="fa-solid fa-bars"></i>
       </button>
     </div>
   </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu">
+    <a href="./index.html#home" class="nav-link" onclick="toggleMobileMenu()">Home</a>
+    <a href="./index.html#apps" class="nav-link" onclick="toggleMobileMenu()">Apps</a>
+    <a href="./blog/index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a>
+    <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161" class="btn btn-primary btn--small" style="background: var(--color-resso); color: #fff;" onclick="toggleMobileMenu()">
+      <i class="fa-brands fa-apple"></i> Download
+    </a>
+  </div>
 
   <header class="hero-resso-v2">
     <div class="floating-icons-container">
@@ -1190,8 +1203,9 @@
         <p class="hero-subtitle-v2">Resso turns your servers, domains, repositories, deployments and databases into a connected visual graph that stays synchronized with your infrastructure.</p>
 
         <div class="hero-actions hero-resso-actions flex-center delay-100">
-          <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161" class="btn btn-primary"><i
-              class="fa-brands fa-apple"></i> App Store</a>
+          <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161" class="app-store-badge-link" aria-label="Download Resso on the Mac App Store">
+            <img src="images/download_on_the_mac_app_store_button.svg" alt="Download on the Mac App Store" class="app-store-badge-img">
+          </a>
           <a href="#features" class="hero-resso-textlink">See features <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
@@ -1558,14 +1572,26 @@
             </div>
           </div>
           <div class="hero-actions" style="margin-top: var(--space-8);">
-            <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161" class="btn btn-primary">
-              <i class="fa-brands fa-apple"></i> Download for iPhone
+            <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161" class="app-store-badge-link" aria-label="Download Resso on the App Store">
+              <img src="images/download_on_the_mac_app_store_button.svg" alt="Download on the Mac App Store" class="app-store-badge-img">
             </a>
           </div>
         </div>
         <div class="resso-ios-media">
           <img src="images/resso/resso-mobile.webp" alt="Resso running on iPhone — dashboard, file browser, SSH console, and asset graph" loading="lazy">
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container resso-cta">
+      <h2>Ready to visualize your stack?</h2>
+      <p>Use Resso when your projects, providers, and deployment details have outgrown scattered notes.</p>
+      <div class="hero-actions flex-center">
+        <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161" class="app-store-badge-link" aria-label="Download Resso on the Mac App Store">
+          <img src="images/download_on_the_mac_app_store_button.svg" alt="Download on the Mac App Store" class="app-store-badge-img">
+        </a>
       </div>
     </div>
   </section>
@@ -1645,17 +1671,7 @@
     </div>
   </section>
 
-  <section class="section">
-    <div class="container resso-cta">
-      <h2>Ready to visualize your stack?</h2>
-      <p>Use Resso when your projects, providers, and deployment details have outgrown scattered notes.</p>
-      <div class="hero-actions flex-center">
-        <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161" class="btn btn-primary">
-          <i class="fa-brands fa-apple"></i> App Store
-        </a>
-      </div>
-    </div>
-  </section>
+
 
 
 
