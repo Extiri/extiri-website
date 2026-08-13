@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-  <link rel="icon" type="image/png" href="../../favicon.png">
        <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
@@ -52,15 +51,6 @@
    </nav>
  </div>
 </header>
-<div id="cookie-consent-banner" class="cookie-consent-banner" aria-live="polite" hidden>
- <div class="cookie-consent-content">
-   <p>We use cookies and analytics to improve this site. You can accept or decline analytics tracking. Read our <a href="/blog/privacy_policy.html">Privacy Policy</a>.
-   <div class="cookie-consent-buttons">
-      <button id="consent-accept" class="button-primary">Accept</button>
-      <button id="consent-decline" class="button-secondary">Decline</button>
-   </div>
- </div>
-</div>
 <article class="post">
 <header class="post-hero">
    <div class="tag">programming</div>
@@ -132,24 +122,6 @@
 <script type="text/javascript" src="/blog/assets/js/nav.js"></script>
 <script type="text/javascript" src="/blog/assets/js/theme.js"></script>
 <script type="text/javascript" src="/blog/assets/js/barefoot.js"></script>
-<script type="text/javascript" src="/blog/assets/js/consent.js"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);} 
-    // Default to denied until the user accepts
-    gtag('consent', 'default', { 'analytics_storage': 'denied' });
-    gtag('js', new Date());
-    gtag('config', 'G-HLY6ZZMNBQ', { 'anonymize_ip': true });
-    // Listen for our custom consent event to enable analytics
-    window.addEventListener('extiri:consent', function (e) {
-      if (e && e.detail && e.detail.analytics) {
-        // Grant analytics consent
-        gtag('consent', 'update', { 'analytics_storage': 'granted' });
-      } else {
-        // Revoke analytics consent
-        gtag('consent', 'update', { 'analytics_storage': 'denied' });
-      }
-    });
-  </script>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="ca1be9c5-e744-4d04-966a-8f18f94e8e61"></script>
+  <script defer src="/blog/assets/js/umami-tracking.js"></script>
     
