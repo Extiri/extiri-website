@@ -2,10 +2,11 @@
 <html lang="pl">
 
 <head>
-  <!-- Umami Analytics -->
-  <script defer src="https://cloud.umami.is/script.js" data-website-id="ca1be9c5-e744-4d04-966a-8f18f94e8e61"></script>
-  <script defer src="js/umami-tracking.js"></script>
-  <link rel="icon" type="image/webp" href="images/slowko/slowko-icon.webp">
+    <!-- Umami Analytics -->
+    <script defer src="https://cloud.umami.is/script.js"
+        data-website-id="ca1be9c5-e744-4d04-966a-8f18f94e8e61"></script>
+    <script defer src="js/umami-tracking.js"></script>
+    <link rel="icon" type="image/webp" href="images/slowko/slowko-icon.webp">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -810,6 +811,113 @@
             background: rgba(78, 204, 163, 0.35);
             transform: translateY(0);
         }
+
+        /* === Slowko Side-by-Side Workflows === */
+        .slowko-workflows {
+            display: grid;
+            gap: var(--space-20);
+            margin-top: var(--space-8);
+        }
+
+        .slowko-feature-row {
+            display: grid;
+            grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+            gap: var(--space-12);
+            align-items: center;
+        }
+
+        .slowko-feature-row.reversed {
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        }
+
+        .slowko-feature-row.reversed .slowko-feature-copy {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .slowko-feature-row.reversed .slowko-feature-media {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .slowko-feature-copy h3 {
+            margin-bottom: var(--space-4);
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 3.2vw, 2.6rem);
+            font-weight: 400;
+            line-height: 1.15;
+            color: var(--text-primary);
+        }
+
+        .slowko-feature-copy p {
+            color: var(--text-secondary);
+            font-size: var(--text-base);
+            line-height: 1.7;
+        }
+
+        .slowko-feature-list {
+            display: grid;
+            gap: var(--space-3);
+            margin-top: var(--space-6);
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        .slowko-feature-list div {
+            display: flex;
+            gap: var(--space-3);
+            align-items: flex-start;
+        }
+
+        .slowko-feature-list i {
+            margin-top: 5px;
+            color: #4ecca3;
+        }
+
+        .slowko-feature-media {
+            min-width: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slowko-feature-media img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--bg-glass-border);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+        }
+
+        .slowko-feature-media img.is-portrait {
+            max-width: 320px;
+        }
+
+        @media (max-width: 900px) {
+
+            .slowko-feature-row,
+            .slowko-feature-row.reversed {
+                grid-template-columns: 1fr;
+                gap: var(--space-8);
+            }
+
+            .slowko-feature-row.reversed .slowko-feature-copy {
+                grid-column: 1;
+            }
+
+            .slowko-feature-row.reversed .slowko-feature-media {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            .slowko-feature-media img {
+                max-width: 100%;
+            }
+        }
     </style>
 
     <!-- Scripts -->
@@ -823,8 +931,6 @@
         gtag('config', 'G-HLY6ZZMNBQ');
     </script>
 -->
-    <script src="js/three.min.js" defer></script>
-    <script src="js/background-effect.js" defer></script>
     <script src="scripts.js" defer></script>
     <script>
         function switchLanguage(lang) {
@@ -874,7 +980,8 @@
                         <img src="https://flagcdn.com/w40/gb.png" alt="English"> EN
                     </a>
                 </div>
-                <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko-word-of-the-day/id6754086353" class="btn btn-primary btn--small" style="background: var(--color-slowko); color: #fff;">
+                <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko-word-of-the-day/id6754086353"
+                    class="btn btn-primary btn--small" style="background: var(--color-slowko); color: #fff;">
                     <i class="fa-brands fa-apple"></i> Download
                 </a>
             </div>
@@ -889,7 +996,9 @@
         <a href="./index.html#home" class="nav-link" onclick="toggleMobileMenu()">Home</a>
         <a href="./index.html#apps" class="nav-link" onclick="toggleMobileMenu()">Apps</a>
         <a href="./blog/index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a>
-        <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko-word-of-the-day/id6754086353" class="btn btn-primary btn--small" style="background: var(--color-slowko); color: #fff; margin-top: 0.5rem;" onclick="toggleMobileMenu()">
+        <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko-word-of-the-day/id6754086353"
+            class="btn btn-primary btn--small" style="background: var(--color-slowko); color: #fff; margin-top: 0.5rem;"
+            onclick="toggleMobileMenu()">
             <i class="fa-brands fa-apple"></i> Download
         </a>
         <div class="language-picker" style="justify-content: center; margin-top: 1rem;">
@@ -955,8 +1064,8 @@
 
                     <div class="hero-actions delay-300">
                         <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko-word-of-the-day/id6754086353"
-                            class="app-store-badge-link" aria-label="Pobierz Słówko z App Store">
-                            <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Pobierz z App Store" class="app-store-badge-img">
+                            class="btn-app-store" aria-label="Pobierz Słówko z App Store">
+                            <i class="fa-brands fa-apple" style="font-size: 1.2rem;"></i> App Store
                         </a>
                         <a href="https://groups.google.com/g/swko-na-android/about" target="_blank"
                             rel="noopener noreferrer" class="btn btn-slowko-android">
@@ -1014,8 +1123,8 @@
 
 
 
-            <!-- Features Bento Grid -->
-            <section class="section">
+            <!-- Features Side-by-Side Workflows (PL) -->
+            <section class="section" id="features">
                 <div class="container">
                     <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
                         <p class="slowko-gradient-text"
@@ -1026,66 +1135,72 @@
                             polskiego.</p>
                     </div>
 
-                    <div class="bento-grid">
-                        <!-- Large: Widgets -->
-                        <div class="bento-item bento-large">
-                            <div class="feature-icon-box" style="background: rgba(78, 204, 163, 0.1); color: #4ecca3;">
-                                <i class="fa-solid fa-table-cells-large"></i>
+                    <div class="slowko-workflows">
+                        <!-- Workflow 1: Słowo Dnia -->
+                        <article class="slowko-feature-row">
+                            <div class="slowko-feature-copy">
+                                <p
+                                    style="color: #4ecca3; font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--space-2);">
+                                    Odkrycie</p>
+                                <h3>Codziennie nowe polskie słowo</h3>
+                                <p>Odkrywaj bogactwo języka polskiego każdego dnia. Poznaj definicję, część mowy,
+                                    przykład użycia w zdaniu oraz odsłuchaj prawidłową wymowę na głos.</p>
+                                <div class="slowko-feature-list">
+                                    <div><i class="fa-solid fa-check"></i><span>Starannie dobrane słowa z opisem i
+                                            przykładami.</span></div>
+                                    <div><i class="fa-solid fa-check"></i><span>Wymowa audio w jakości HD jednym
+                                            stuknięciem.</span></div>
+                                </div>
                             </div>
-                            <h3>Widgety na ekranie głównym</h3>
-                            <p style="margin-bottom: var(--space-4);">Zobacz słowo dnia na ekranie głównym. Widgety
-                                aktualizują się po otwarciu aplikacji. Dwa rozmiary — mały i średni — które perfekcyjnie
-                                pasują do Twojego stylu ekranu głównego.</p>
-                            <div
-                                style="margin-top: auto; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-xl);">
-                                <img src="images/slowko/widgets+home-with-background.webp"
-                                    alt="Widgety Słówka na ekranie głównym iPhone'a"
-                                    style="width: 100%; display: block;" loading="lazy">
+                            <div class="slowko-feature-media">
+                                <img src="images/slowko/Screenshot 1 - S.webp" alt="Ekran słowa dnia w Słówku"
+                                    class="is-portrait" loading="lazy">
                             </div>
-                        </div>
+                        </article>
 
-                        <!-- Medium: Fiszki / Quiz -->
-                        <div class="bento-item bento-medium">
-                            <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;">
-                                <i class="fa-solid fa-brain"></i>
+                        <!-- Workflow 2: Fiszki i Quiz (Reversed) -->
+                        <article class="slowko-feature-row reversed">
+                            <div class="slowko-feature-copy">
+                                <p
+                                    style="color: #82d6ff; font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--space-2);">
+                                    Nauka &amp; Utrwalanie</p>
+                                <h3>Fiszki i interaktywne quizy</h3>
+                                <p>Nie wystarczy przeczytać — trzeba zapamiętać. Tryb fiszek pozwala powtarzać zapisane
+                                    słowa, a quizy i krzyżówki wciągają w aktywną naukę i sprawdzają Twoją wiedzę.</p>
+                                <div class="slowko-feature-list">
+                                    <div><i class="fa-solid fa-brain" style="color: #82d6ff;"></i><span>Inteligentny
+                                            algorytm powtórek fiszek.</span></div>
+                                    <div><i class="fa-solid fa-gamepad" style="color: #82d6ff;"></i><span>Krzyżówki i
+                                            quizy dla utrwalenia pisowni i znaczeń.</span></div>
+                                </div>
                             </div>
-                            <h3>Fiszki i Quiz</h3>
-                            <p>Tryb powtórek, który pomaga naprawdę zapamiętać słowa. Testuj się z definicjami i
-                                sprawdzaj postępy. Dodatkowo dostępny jest tryb krzyżówek.</p>
-                            <div
-                                style="margin-top: auto; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-xl); height: 280px;">
+                            <div class="slowko-feature-media">
                                 <img src="images/slowko/quiz+fiszki.webp" alt="Tryb fiszek i quizu w Słówku"
-                                    style="width: 100%; height: 130%; display: block; object-fit: cover; object-position: 50% 50%; transform: translateY(-10%);"
                                     loading="lazy">
                             </div>
-                        </div>
+                        </article>
 
-                        <!-- Medium: Favorites & History -->
-                        <div class="bento-item bento-medium">
-                            <div class="feature-icon-box" style="background: rgba(255, 179, 0, 0.1); color: #ffb300;"><i
-                                    class="fa-solid fa-clock-rotate-left"></i></div>
-                            <h3>Historia i ulubione</h3>
-                            <p>Przeglądaj wszystkie wcześniejsze słowa. Zaznacz ulubione gwiazdką i wracaj do nich
-                                kiedykolwiek chcesz. Możesz też sprawdzić, które słowo pojawiło się w wybranym dniu.</p>
-                            <div style="display: flex; gap: 12px; margin-top: auto;">
-                                <div
-                                    style="flex: 1 1 0; background: rgba(255, 179, 0, 0.05); border: 1px solid rgba(255, 179, 0, 0.2); border-radius: var(--radius-md); padding: var(--space-4); text-align: center;">
-                                    <i class="fa-solid fa-star"
-                                        style="font-size: 1.5rem; color: #ffb300; margin-bottom: 8px; display: block;"></i>
-                                    <div
-                                        style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">
-                                        Ulubione</div>
-                                </div>
-                                <div
-                                    style="flex: 1 1 0; background: rgba(130, 214, 255, 0.05); border: 1px solid rgba(130, 214, 255, 0.2); border-radius: var(--radius-md); padding: var(--space-4); text-align: center;">
-                                    <i class="fa-solid fa-list"
-                                        style="font-size: 1.5rem; color: #82d6ff; margin-bottom: 8px; display: block;"></i>
-                                    <div
-                                        style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">
-                                        Historia</div>
+                        <!-- Workflow 3: Widgety -->
+                        <article class="slowko-feature-row">
+                            <div class="slowko-feature-copy">
+                                <p
+                                    style="color: #ffb300; font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--space-2);">
+                                    Pulpit</p>
+                                <h3>Widgety na ekranie głównym</h3>
+                                <p>Zobacz słowo dnia prosto na swoim ekranie bez otwierania aplikacji. Widgety
+                                    aktualizują się automatycznie i idealnie pasują do Twojego ekranu głównego.</p>
+                                <div class="slowko-feature-list">
+                                    <div><i class="fa-solid fa-table-cells-large" style="color: #ffb300;"></i><span>Mały
+                                            i średni rozmiar widgetu do wyboru.</span></div>
+                                    <div><i class="fa-solid fa-moon" style="color: #ffb300;"></i><span>Wsparcie dla
+                                            jasnego oraz ciemnego motywu systemowego.</span></div>
                                 </div>
                             </div>
-                        </div>
+                            <div class="slowko-feature-media">
+                                <img src="images/slowko/widgets+home-with-background.webp"
+                                    alt="Widgety Słówka na ekranie głównym" loading="lazy">
+                            </div>
+                        </article>
                     </div>
                 </div>
             </section>
@@ -1121,80 +1236,7 @@
                 </div>
             </section>
 
-            <!-- Deep Dive Sections -->
-            <section class="section">
-                <div class="container">
-                    <h2 style="text-align: center; margin-bottom: var(--space-12);">Zaprojektowane z pasją</h2>
 
-                    <div class="grid">
-                        <!-- Feature: Word of the Day -->
-                        <article class="app-card-large">
-                            <div class="app-card-content">
-                                <div class="feature-icon-box"
-                                    style="background: rgba(78, 204, 163, 0.1); color: #4ecca3;"><i
-                                        class="fa-solid fa-calendar-day"></i></div>
-                                <h3>Słowo dnia</h3>
-                                <p>Każdego dnia o wybranej godzinie otrzymujesz jedno starannie dobrane polskie słowo.
-                                    Definicja, część mowy, przykład użycia — i przycisk do odtworzenia wymowy na głos.
-                                    Proste, piękne i skuteczne.</p>
-                            </div>
-                            <div class="app-card-media">
-                                <img src="images/slowko/Screenshot 1 - S.webp" alt="Ekran słowa dnia w Słówku"
-                                    loading="lazy">
-                            </div>
-                        </article>
-
-                        <!-- Feature: Widgets -->
-                        <article class="app-card-large reversed">
-                            <div class="app-card-content">
-                                <div class="feature-icon-box"
-                                    style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;"><i
-                                        class="fa-solid fa-table-cells-large"></i></div>
-                                <h3>Widgety, które inspirują</h3>
-                                <p>Dodaj Słówko. do ekranu głównego. Trzy warianty widgetów — mały, średni i duży —
-                                    pokazują słowo dnia. Widget aktualizuje się automatycznie gdy otworzysz aplikację.
-                                    Perfekcyjnie wpasowują się w Twój ekran.</p>
-                            </div>
-                            <div class="app-card-media">
-                                <img src="images/slowko/widgets+home-with-background.webp"
-                                    alt="Widgety na ekranie głównym" loading="lazy">
-                            </div>
-                        </article>
-
-                        <!-- Feature: Quiz & Flashcards -->
-                        <article class="app-card-large">
-                            <div class="app-card-content">
-                                <div class="feature-icon-box"
-                                    style="background: rgba(255, 99, 71, 0.1); color: #ff6347;"><i
-                                        class="fa-solid fa-brain"></i></div>
-                                <h3>Fiszki i quiz</h3>
-                                <p>Nie wystarczy przeczytać — trzeba zapamiętać. Tryb fiszek pozwala powtarzać ulubione
-                                    słowa, a quiz sprawdza Twoją wiedzę z ostatnich odkryć. Poznawanie języka jeszcze
-                                    nigdy nie było tak wciągające.</p>
-                            </div>
-                            <div class="app-card-media" style="overflow: hidden; max-height: 500px;">
-                                <img src="images/slowko/quiz+fiszki.webp" alt="Fiszki i quiz w Słówku"
-                                    style="width: 100%; height: 130%; object-fit: cover; object-position: 50% 50%; transform: translateY(-12%);"
-                                    loading="lazy">
-                            </div>
-                        </article>
-
-                        <!-- Feature: TTS & Pronunciation -->
-                        <article class="app-card-large"
-                            style="text-align: center; display: flex; align-items: center; justify-content: center; min-height: 400px;">
-                            <div class="app-card-content" style="max-width: 600px; margin: 0 auto;">
-                                <div class="feature-icon-box"
-                                    style="background: rgba(255, 224, 130, 0.1); color: #ffe082; margin: 0 auto;"><i
-                                        class="fa-solid fa-volume-high"></i></div>
-                                <h3>Słuchaj i wymawiaj</h3>
-                                <p>Każde słowo możesz odsłuchać dzięki technologii text-to-speech. Nauka wymowy nigdy
-                                    nie była prostsza — wystarczy jedno stuknięcie, aby usłyszeć prawidłową wymowę
-                                    polskiego słowa.</p>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </section>
 
             <!-- Theme Showcase -->
             <section class="section">
@@ -1224,8 +1266,8 @@
                         style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7; margin-bottom: var(--space-6);">
                         Słówko. odblokowuje pełny dostęp do słowa dnia, historii, ulubionych, widgetów, powiadomień,
                         fiszek i quizu.
-                        Możesz wybrać wygodną subskrypcję z 7-dniowym okresem próbnym lub jednorazowy zakup na zawsze
-                        (Lifetime).</p>
+                        Możesz wybrać wygodną subskrypcję z 7-dniowym okresem próbnym lub jednorazowy zakup na zawsze.
+                    </p>
                     <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">Jeśli posiadasz
                         status Pioniera, masz nielimitowany dostęp bez opłat na wszystkich urządzeniach połączonych z
                         tym samym Apple ID.</p>
@@ -1358,8 +1400,8 @@
 
                     <div class="hero-actions delay-300">
                         <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko-word-of-the-day/id6754086353"
-                            class="app-store-badge-link" aria-label="Download Słówko on the App Store">
-                            <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_white.svg" alt="Download on the App Store" class="app-store-badge-img">
+                            class="btn-app-store" aria-label="Download Słówko on the App Store">
+                            <i class="fa-brands fa-apple" style="font-size: 1.2rem;"></i> App Store
                         </a>
                         <a href="https://groups.google.com/g/swko-na-android/about" target="_blank"
                             rel="noopener noreferrer" class="btn btn-slowko-android">
@@ -1403,8 +1445,8 @@
 
 
 
-            <!-- Features Bento Grid -->
-            <section class="section">
+            <!-- Features Side-by-Side Workflows (EN) -->
+            <section class="section" id="features-en">
                 <div class="container">
                     <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
                         <p class="slowko-gradient-text"
@@ -1415,66 +1457,73 @@
                         </p>
                     </div>
 
-                    <div class="bento-grid">
-                        <!-- Large: Widgets -->
-                        <div class="bento-item bento-large">
-                            <div class="feature-icon-box" style="background: rgba(78, 204, 163, 0.1); color: #4ecca3;">
-                                <i class="fa-solid fa-table-cells-large"></i>
+                    <div class="slowko-workflows">
+                        <!-- Workflow 1: Word of the Day -->
+                        <article class="slowko-feature-row">
+                            <div class="slowko-feature-copy">
+                                <p
+                                    style="color: #4ecca3; font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--space-2);">
+                                    Discovery</p>
+                                <h3>A new word delivered every day</h3>
+                                <p>Discover the beauty of the Polish language every day. Learn definitions, parts of
+                                    speech, usage examples, and hear natural audio pronunciation.</p>
+                                <div class="slowko-feature-list">
+                                    <div><i class="fa-solid fa-check"></i><span>Carefully curated words with full
+                                            definitions.</span></div>
+                                    <div><i class="fa-solid fa-check"></i><span>One-tap native text-to-speech
+                                            audio.</span></div>
+                                </div>
                             </div>
-                            <h3>Home screen widgets</h3>
-                            <p style="margin-bottom: var(--space-4);">See the word of the day on your home screen.
-                                Widgets update when you open the app. Two sizes — small and medium — that perfectly fit
-                                your iPhone home screen style.</p>
-                            <div
-                                style="margin-top: auto; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-xl);">
-                                <img src="images/slowko/widgets+home-with-background.webp"
-                                    alt="Słówko widgets on iPhone home screen" style="width: 100%; display: block;"
-                                    loading="lazy">
+                            <div class="slowko-feature-media">
+                                <img src="images/slowko/Screenshot 1 - S.webp" alt="Word of the Day screen in Słówko"
+                                    class="is-portrait" loading="lazy">
                             </div>
-                        </div>
+                        </article>
 
-                        <!-- Medium: Flashcards / Quiz -->
-                        <div class="bento-item bento-medium">
-                            <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;">
-                                <i class="fa-solid fa-brain"></i>
+                        <!-- Workflow 2: Flashcards & Quiz (Reversed) -->
+                        <article class="slowko-feature-row reversed">
+                            <div class="slowko-feature-copy">
+                                <p
+                                    style="color: #82d6ff; font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--space-2);">
+                                    Practice &amp; Recall</p>
+                                <h3>Interactive flashcards &amp; quizzes</h3>
+                                <p>Reading isn't enough — you need to remember. Flashcard mode lets you review favorite
+                                    words, while quizzes and crosswords test your knowledge in a playful way.</p>
+                                <div class="slowko-feature-list">
+                                    <div><i class="fa-solid fa-brain" style="color: #82d6ff;"></i><span>Smart spaced
+                                            repetition for flashcards.</span></div>
+                                    <div><i class="fa-solid fa-gamepad" style="color: #82d6ff;"></i><span>Quiz &amp;
+                                            crossword modes to reinforce recall.</span></div>
+                                </div>
                             </div>
-                            <h3>Flashcards & Quiz</h3>
-                            <p>A review mode that helps you truly memorize words. Test yourself with definitions and
-                                track your progress. Plus a crossword mode for playful practice.</p>
-                            <div
-                                style="margin-top: auto; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-xl); height: 280px;">
+                            <div class="slowko-feature-media">
                                 <img src="images/slowko/quiz+fiszki.webp" alt="Flashcard and quiz mode in Słówko"
-                                    style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 25%;"
                                     loading="lazy">
                             </div>
-                        </div>
+                        </article>
 
-                        <!-- Medium: Favorites & History -->
-                        <div class="bento-item bento-medium">
-                            <div class="feature-icon-box" style="background: rgba(255, 179, 0, 0.1); color: #ffb300;"><i
-                                    class="fa-solid fa-clock-rotate-left"></i></div>
-                            <h3>History & Favorites</h3>
-                            <p>Browse all previous words. Star your favorites and return to them whenever you want. You
-                                can also check which word appeared on a selected date.</p>
-                            <div style="display: flex; gap: 12px; margin-top: auto;">
-                                <div
-                                    style="flex: 1 1 0; background: rgba(255, 179, 0, 0.05); border: 1px solid rgba(255, 179, 0, 0.2); border-radius: var(--radius-md); padding: var(--space-4); text-align: center;">
-                                    <i class="fa-solid fa-star"
-                                        style="font-size: 1.5rem; color: #ffb300; margin-bottom: 8px; display: block;"></i>
-                                    <div
-                                        style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">
-                                        Favorites</div>
-                                </div>
-                                <div
-                                    style="flex: 1 1 0; background: rgba(130, 214, 255, 0.05); border: 1px solid rgba(130, 214, 255, 0.2); border-radius: var(--radius-md); padding: var(--space-4); text-align: center;">
-                                    <i class="fa-solid fa-list"
-                                        style="font-size: 1.5rem; color: #82d6ff; margin-bottom: 8px; display: block;"></i>
-                                    <div
-                                        style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">
-                                        History</div>
+                        <!-- Workflow 3: Widgets -->
+                        <article class="slowko-feature-row">
+                            <div class="slowko-feature-copy">
+                                <p
+                                    style="color: #ffb300; font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--space-2);">
+                                    Home Screen</p>
+                                <h3>Widgets that inspire daily</h3>
+                                <p>See the word of the day right on your home screen without opening the app. Widgets
+                                    update automatically and fit your style in two sizes.</p>
+                                <div class="slowko-feature-list">
+                                    <div><i class="fa-solid fa-table-cells-large"
+                                            style="color: #ffb300;"></i><span>Small &amp; medium widget variants.</span>
+                                    </div>
+                                    <div><i class="fa-solid fa-moon" style="color: #ffb300;"></i><span>Seamless light
+                                            &amp; dark system theme support.</span></div>
                                 </div>
                             </div>
-                        </div>
+                            <div class="slowko-feature-media">
+                                <img src="images/slowko/widgets+home-with-background.webp"
+                                    alt="Słówko widgets on iPhone home screen" loading="lazy">
+                            </div>
+                        </article>
                     </div>
                 </div>
             </section>
@@ -1512,79 +1561,7 @@
                 </div>
             </section>
 
-            <!-- Deep Dive Sections -->
-            <section class="section">
-                <div class="container">
-                    <h2 style="text-align: center; margin-bottom: var(--space-12);">Designed with passion</h2>
 
-                    <div class="grid">
-                        <!-- Feature: Word of the Day -->
-                        <article class="app-card-large">
-                            <div class="app-card-content">
-                                <div class="feature-icon-box"
-                                    style="background: rgba(78, 204, 163, 0.1); color: #4ecca3;"><i
-                                        class="fa-solid fa-calendar-day"></i></div>
-                                <h3>Word of the Day</h3>
-                                <p>Every day at your chosen time you receive one carefully selected Polish word.
-                                    Definition, part of speech, usage example — and a button to hear it pronounced
-                                    aloud. Simple, beautiful, and effective.</p>
-                            </div>
-                            <div class="app-card-media">
-                                <img src="images/slowko/Screenshot 1 - S.webp" alt="Word of the Day screen in Słówko"
-                                    loading="lazy">
-                            </div>
-                        </article>
-
-                        <!-- Feature: Widgets -->
-                        <article class="app-card-large reversed">
-                            <div class="app-card-content">
-                                <div class="feature-icon-box"
-                                    style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;"><i
-                                        class="fa-solid fa-table-cells-large"></i></div>
-                                <h3>Widgets that inspire</h3>
-                                <p>Add Słówko. to your home screen. Three widget variants — small, medium, and large —
-                                    display the word of the day. The widget updates automatically when you open the app.
-                                    They fit perfectly into your screen.</p>
-                            </div>
-                            <div class="app-card-media">
-                                <img src="images/slowko/widgets+home-with-background.webp" alt="Widgets on home screen"
-                                    loading="lazy">
-                            </div>
-                        </article>
-
-                        <!-- Feature: Quiz & Flashcards -->
-                        <article class="app-card-large">
-                            <div class="app-card-content">
-                                <div class="feature-icon-box"
-                                    style="background: rgba(255, 99, 71, 0.1); color: #ff6347;"><i
-                                        class="fa-solid fa-brain"></i></div>
-                                <h3>Flashcards & Quiz</h3>
-                                <p>Reading isn't enough — you need to remember. Flashcard mode lets you review favorite
-                                    words, and the quiz tests your knowledge of recent discoveries. Learning Polish has
-                                    never been this engaging.</p>
-                            </div>
-                            <div class="app-card-media" style="overflow: hidden; max-height: 500px;">
-                                <img src="images/slowko/quiz+fiszki.webp" alt="Flashcards and quiz in Słówko"
-                                    style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%;"
-                                    loading="lazy">
-                            </div>
-                        </article>
-
-                        <!-- Feature: TTS & Pronunciation -->
-                        <article class="app-card-large"
-                            style="text-align: center; display: flex; align-items: center; justify-content: center; min-height: 400px;">
-                            <div class="app-card-content" style="max-width: 600px; margin: 0 auto;">
-                                <div class="feature-icon-box"
-                                    style="background: rgba(255, 224, 130, 0.1); color: #ffe082; margin: 0 auto;"><i
-                                        class="fa-solid fa-volume-high"></i></div>
-                                <h3>Listen & pronounce</h3>
-                                <p>Every word can be played aloud with text-to-speech technology. Learning pronunciation
-                                    has never been simpler — just one tap to hear the correct Polish pronunciation.</p>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </section>
 
             <!-- Theme Showcase -->
             <section class="section">
@@ -1613,8 +1590,8 @@
                         style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7; margin-bottom: var(--space-6);">
                         Słówko. unlocks full access to the word of the day, history, favorites, widgets, notifications,
                         flashcards, and quiz.
-                        Choose between a flexible subscription with a 7-day free trial or a single one-time purchase
-                        (Lifetime).</p>
+                        Choose between a flexible subscription with a 7-day free trial or a single one-time purchase.
+                    </p>
                     <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">If you have Pioneer
                         status, you get unlimited free access on every device connected to the same Apple ID.</p>
                 </div>
@@ -1623,7 +1600,7 @@
             <!-- FAQ -->
             <section class="section" id="faq-en">
                 <div class="container" style="max-width: 800px;">
-                    <h2 style="text-align: center; margin-bottom: var(--space-8);">Frequently Asked Questions</h2>
+                    <h2 style="text-align: center; margin-bottom: var(--space-8);">FAQ</h2>
                     <div class="faq-list">
                         <div class="faq-item">
                             <button class="faq-question">What purchasing options are available for Słówko.?<span

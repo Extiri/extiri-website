@@ -315,8 +315,6 @@
     gtag('config', 'G-HLY6ZZMNBQ');
   </script>
 -->
-  <script src="js/three.min.js" defer></script>
-  <script src="js/background-effect.js" defer></script>
   <script src="scripts.js" defer></script>
 </head>
 
@@ -374,9 +372,9 @@
       </div>
 
       <div class="hero-actions delay-300">
-        <a href="https://apps.apple.com/pl/app/rapidool-offline-scratchpad/id6761327472?mt=12" class="app-store-badge-link"
+        <a href="https://apps.apple.com/pl/app/rapidool-offline-scratchpad/id6761327472?mt=12" class="btn-app-store"
           aria-label="Download Rapidool on the Mac App Store">
-          <img src="images/download_on_the_mac_app_store_white_button.svg" alt="Download on the Mac App Store" class="app-store-badge-img">
+          <i class="fa-brands fa-apple" style="font-size: 1.2rem;"></i> Mac App Store
         </a>
         <a href="#features" class="btn btn-outline">Explore Features</a>
       </div>
@@ -514,71 +512,103 @@
   </section>
 
   <!-- Deep Dive Sections -->
-  <!-- Real-Life Examples Sections -->
+  <!-- Real-Life Examples Sections (Split Editorial Layout) -->
   <section class="section">
     <div class="container">
-      <h2 style="text-align: center; margin-bottom: var(--space-12);">Built for Developer Workflows</h2>
-
-      <div class="grid">
-        <!-- Scenario 1: Process Data -->
-        <article class="app-card-large">
-          <div class="app-card-content">
-            <div class="feature-icon-box" style="background: rgba(168, 85, 247, 0.1); color: var(--color-rapidool);"><i class="fa-solid fa-code"></i></div>
-            <h3>Process Data Instantly</h3>
-            <p>Paste a raw JSON payload from your API. Instantly decode any JWT tokens using the Inspector, auto-format the JSON with a quick Command Bar action, and write a quick <code>@code</code> JS block to extract specific fields—all without leaving the editor or opening a browser tab.</p>
-          </div>
-          <div class="app-card-media" style="border: 1px solid rgba(255,255,255,0.08);">
-            <img src="./images/rapidool/09_Editor_RichContent.webp" alt="Formatting JSON and decoding JWTs inline" loading="lazy">
-          </div>
-        </article>
-
-        <!-- Scenario 2: UI Feedback -->
-        <article class="app-card-large reversed">
-          <div class="app-card-content">
-            <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;"><i class="fa-solid fa-palette"></i></div>
-            <h3>Build UIs with Live Feedback</h3>
-            <p>Drafting a UI component? Drop your HTML and CSS into an <code>@html</code> section and preview it immediately in the side panel. Spot a color you want to change? Click the hex code to open the Color Inspector, visually pick a new hue, and copy its HSL value.</p>
-          </div>
-          <div class="app-card-media" style="border: 1px solid rgba(255,255,255,0.08);">
-            <img src="./images/rapidool/04_Editor_HTMLStudio.webp" alt="Visual color inspector and HTML sandbox preview" loading="lazy">
-          </div>
-        </article>
-
-        <!-- Scenario 3: Mock APIs -->
-        <article class="app-card-large">
-          <div class="app-card-content">
-            <div class="feature-icon-box" style="background: rgba(61, 214, 140, 0.1); color: #3dd68c;"><i class="fa-solid fa-server"></i></div>
-            <h3>Mock APIs for Frontend Dev</h3>
-            <p>Testing a mobile app's fetch logic but the backend isn't ready? Paste your desired JSON response, prepend it with <code>@GET /api/users</code>, and Rapidool instantly spins up a local server on port 9090 serving that data. No deployment required.</p>
-          </div>
-          <div class="app-card-media" style="border: 1px solid rgba(255,255,255,0.08);">
-            <img src="./images/rapidool/05_Editor_MockAPI.webp" alt="Mocking an API endpoint locally" loading="lazy">
-          </div>
-        </article>
-
-        <!-- Scenario 4: Local AI -->
-        <article class="app-card-large reversed">
-          <div class="app-card-content">
-            <div class="feature-icon-box" style="background: rgba(255, 99, 71, 0.1); color: #ff6347;"><i class="fa-solid fa-robot"></i></div>
-            <h3>Write Code with Local AI</h3>
-            <p>Need to generate boilerplate or transform unstructured data? Type <code>/gen</code> to stream AI code writing directly into your active scratchpad character-by-character. Powered by your local Ollama instance, meaning your proprietary code and API keys never leave your machine.</p>
-          </div>
-          <div class="app-card-media" style="border: 1px solid rgba(255,255,255,0.08);">
-            <img src="./images/rapidool/06_Editor_AIAgent.webp" alt="AI text generation powered by local Ollama server" loading="lazy">
-          </div>
-        </article>
+      <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
+        <span class="badge" style="margin-bottom: var(--space-3); background: rgba(168, 85, 247, 0.15); color: #d8b4fe;">Practical Automation</span>
+        <h2>Built for High-Velocity Developer Workflows</h2>
+        <p>Rapidool connects code runtimes, inspectors, and mock servers into side-by-side editing workflows.</p>
       </div>
+
+      <!-- Workflow Row 1 -->
+      <article class="rapidool-workflow-row">
+        <div class="rapidool-workflow-copy">
+          <div class="feature-icon-box" style="background: rgba(168, 85, 247, 0.12); color: var(--color-rapidool); margin-bottom: var(--space-4);"><i class="fa-solid fa-code"></i></div>
+          <span class="badge" style="background: rgba(168, 85, 247, 0.15); color: #d8b4fe; margin-bottom: var(--space-3);">Data Processing</span>
+          <h3>Process JSON &amp; Code Instantly</h3>
+          <p>Paste raw JSON payloads, decode JWT tokens using the Inspector, and auto-format payloads with a quick Command Bar action. Write a quick <code>@code</code> JS block to extract specific fields—all without leaving your editor or opening browser tabs.</p>
+          <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-4);">
+            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 6px;"></i> Auto-Format JSON</span>
+            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 6px;"></i> Inline JWT Decoder</span>
+            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 6px;"></i> Native JS Runtime</span>
+          </div>
+        </div>
+        <div class="rapidool-workflow-media">
+          <img src="./images/rapidool/09_Editor_RichContent.webp" alt="Formatting JSON and decoding JWTs inline" loading="lazy">
+        </div>
+      </article>
+
+      <!-- Workflow Row 2 (Reversed) -->
+      <article class="rapidool-workflow-row reversed">
+        <div class="rapidool-workflow-copy">
+          <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.12); color: #82d6ff; margin-bottom: var(--space-4);"><i class="fa-solid fa-palette"></i></div>
+          <span class="badge" style="background: rgba(130, 214, 255, 0.15); color: #82d6ff; margin-bottom: var(--space-3);">UI Design Sandbox</span>
+          <h3>Build UIs with Live Visual Feedback</h3>
+          <p>Drafting a UI component or layout? Drop your HTML and CSS into an <code>@html</code> block and render it live in the side panel. Click any hex code to launch the Color Inspector, visually pick colors, and copy HSL/RGB values instantly.</p>
+          <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-4);">
+            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: #82d6ff; margin-right: 6px;"></i> Live HTML Render</span>
+            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: #82d6ff; margin-right: 6px;"></i> Visual Color Inspector</span>
+            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: #82d6ff; margin-right: 6px;"></i> Hex/RGB/HSL Conversions</span>
+          </div>
+        </div>
+        <div class="rapidool-workflow-media">
+          <img src="./images/rapidool/04_Editor_HTMLStudio.webp" alt="Visual color inspector and HTML sandbox preview" loading="lazy">
+        </div>
+      </article>
+
+      <!-- Workflow Row 3 -->
+      <article class="rapidool-workflow-row">
+        <div class="rapidool-workflow-copy">
+          <div class="feature-icon-box" style="background: rgba(61, 214, 140, 0.12); color: #3dd68c; margin-bottom: var(--space-4);"><i class="fa-solid fa-server"></i></div>
+          <span class="badge" style="background: rgba(61, 214, 140, 0.15); color: #3dd68c; margin-bottom: var(--space-3);">Local Servers</span>
+          <h3>Mock APIs for Frontend Development</h3>
+          <p>Need to test frontend or mobile app fetch logic before backend routes are ready? Paste desired JSON payloads, prepend <code>@GET /api/v1/users</code>, and Rapidool spins up a local server on port 9090 serving data instantly.</p>
+          <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-4);">
+            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: #3dd68c; margin-right: 6px;"></i> Local HTTP Server</span>
+            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: #3dd68c; margin-right: 6px;"></i> Custom Endpoint Routes</span>
+            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: #3dd68c; margin-right: 6px;"></i> Zero Cloud Deployment</span>
+          </div>
+        </div>
+        <div class="rapidool-workflow-media">
+          <img src="./images/rapidool/05_Editor_MockAPI.webp" alt="Mocking an API endpoint locally" loading="lazy">
+        </div>
+      </article>
+
+      <!-- Workflow Row 4 (Reversed) -->
+      <article class="rapidool-workflow-row reversed" style="margin-bottom: 0;">
+        <div class="rapidool-workflow-copy">
+          <div class="feature-icon-box" style="background: rgba(255, 99, 71, 0.12); color: #ff6347; margin-bottom: var(--space-4);"><i class="fa-solid fa-robot"></i></div>
+          <span class="badge" style="background: rgba(255, 99, 71, 0.15); color: #ff6347; margin-bottom: var(--space-3);">Privacy AI</span>
+          <h3>Stream Code Generation with Local AI</h3>
+          <p>Generate boilerplate code or transform unstructured data safely. Execute <code>/gen</code> to stream AI code writing character-by-character directly inside your active document, powered by your local Ollama instance with zero telemetry.</p>
+          <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-4);">
+            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: #ff6347; margin-right: 6px;"></i> Local Ollama Engine</span>
+            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: #ff6347; margin-right: 6px;"></i> Private API Keys</span>
+            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: #ff6347; margin-right: 6px;"></i> Real-Time Code Stream</span>
+          </div>
+        </div>
+        <div class="rapidool-workflow-media">
+          <img src="./images/rapidool/06_Editor_AIAgent.webp" alt="AI text generation powered by local Ollama server" loading="lazy">
+        </div>
+      </article>
     </div>
   </section>
 
-  <!-- Comprehensive Feature List -->
-  <section class="section" style="background: rgba(255, 255, 255, 0.02); border-top: 1px solid var(--bg-glass-border); border-bottom: 1px solid var(--bg-glass-border);">
+  <!-- Comprehensive Feature Specification Grid Block -->
+  <section class="section" style="background: #09090c; border-top: 1px solid var(--bg-glass-border); border-bottom: 1px solid var(--bg-glass-border);">
     <div class="container">
-      <h2 style="text-align: center; margin-bottom: var(--space-8);">All Features at a Glance</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-8);">
-        <div>
-          <h4 style="margin-bottom: var(--space-4); color: var(--text-primary);">Sections (<code>@</code>)</h4>
-          <ul style="list-style: none; padding: 0; color: var(--text-secondary); line-height: 1.8; font-size: var(--text-sm);">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto var(--space-12) auto;">
+        <span class="badge" style="margin-bottom: var(--space-3);">Specifications</span>
+        <h2>All Features at a Glance</h2>
+        <p>Comprehensive offline capabilities built natively into macOS.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6);">
+        <div style="background: #0e0e12; border: 1px solid var(--bg-glass-border); padding: var(--space-6); border-radius: var(--radius-md);">
+          <div class="feature-icon-box" style="background: rgba(168, 85, 247, 0.12); color: var(--color-rapidool); margin-bottom: var(--space-4);"><i class="fa-solid fa-at"></i></div>
+          <h4 style="margin-bottom: var(--space-4); color: var(--text-primary); font-size: var(--text-lg);">Sections (<code>@</code>)</h4>
+          <ul style="list-style: none; padding: 0; color: var(--text-secondary); line-height: 2; font-size: var(--text-sm);">
             <li><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 8px;"></i> <code>@code</code> for native JS execution</li>
             <li><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 8px;"></i> <code>@html</code> for live UI previews</li>
             <li><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 8px;"></i> <code>@regex</code> with match highlighting</li>
@@ -586,24 +616,28 @@
             <li><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 8px;"></i> <code>@GET / POST</code> for Mock API servers</li>
           </ul>
         </div>
-        <div>
-          <h4 style="margin-bottom: var(--space-4); color: var(--text-primary);">Inspectors & Gutter</h4>
-          <ul style="list-style: none; padding: 0; color: var(--text-secondary); line-height: 1.8; font-size: var(--text-sm);">
-            <li><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 8px;"></i> Visual Color Picker & Conversions</li>
-            <li><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 8px;"></i> JWT Token Decoder</li>
-            <li><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 8px;"></i> Epoch Date Calendar Explorer</li>
-            <li><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 8px;"></i> Math Step-by-Step Solver</li>
-            <li><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 8px;"></i> Base64 Decode & File Preview</li>
+
+        <div style="background: #0e0e12; border: 1px solid var(--bg-glass-border); padding: var(--space-6); border-radius: var(--radius-md);">
+          <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.12); color: #82d6ff; margin-bottom: var(--space-4);"><i class="fa-solid fa-sliders"></i></div>
+          <h4 style="margin-bottom: var(--space-4); color: var(--text-primary); font-size: var(--text-lg);">Inspectors &amp; Gutter</h4>
+          <ul style="list-style: none; padding: 0; color: var(--text-secondary); line-height: 2; font-size: var(--text-sm);">
+            <li><i class="fa-solid fa-check" style="color: #82d6ff; margin-right: 8px;"></i> Visual Color Picker &amp; Conversions</li>
+            <li><i class="fa-solid fa-check" style="color: #82d6ff; margin-right: 8px;"></i> JWT Token Decoder</li>
+            <li><i class="fa-solid fa-check" style="color: #82d6ff; margin-right: 8px;"></i> Epoch Date Calendar Explorer</li>
+            <li><i class="fa-solid fa-check" style="color: #82d6ff; margin-right: 8px;"></i> Math Step-by-Step Solver</li>
+            <li><i class="fa-solid fa-check" style="color: #82d6ff; margin-right: 8px;"></i> Base64 Decode &amp; File Preview</li>
           </ul>
         </div>
-        <div>
-          <h4 style="margin-bottom: var(--space-4); color: var(--text-primary);">System & Architecture</h4>
-          <ul style="list-style: none; padding: 0; color: var(--text-secondary); line-height: 1.8; font-size: var(--text-sm);">
-            <li><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 8px;"></i> 100% Offline, Local-First Engine</li>
-            <li><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 8px;"></i> Global Floating Rapidool Bar</li>
-            <li><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 8px;"></i> Local Ollama AI Integration</li>
-            <li><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 8px;"></i> Custom Script/Command Support</li>
-            <li><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 8px;"></i> Native macOS UI</li>
+
+        <div style="background: #0e0e12; border: 1px solid var(--bg-glass-border); padding: var(--space-6); border-radius: var(--radius-md);">
+          <div class="feature-icon-box" style="background: rgba(61, 214, 140, 0.12); color: #3dd68c; margin-bottom: var(--space-4);"><i class="fa-solid fa-microchip"></i></div>
+          <h4 style="margin-bottom: var(--space-4); color: var(--text-primary); font-size: var(--text-lg);">System &amp; Engine</h4>
+          <ul style="list-style: none; padding: 0; color: var(--text-secondary); line-height: 2; font-size: var(--text-sm);">
+            <li><i class="fa-solid fa-check" style="color: #3dd68c; margin-right: 8px;"></i> 100% Offline, Local-First Engine</li>
+            <li><i class="fa-solid fa-check" style="color: #3dd68c; margin-right: 8px;"></i> Global Floating Rapidool Bar</li>
+            <li><i class="fa-solid fa-check" style="color: #3dd68c; margin-right: 8px;"></i> Local Ollama AI Integration</li>
+            <li><i class="fa-solid fa-check" style="color: #3dd68c; margin-right: 8px;"></i> Custom Script/Command Support</li>
+            <li><i class="fa-solid fa-check" style="color: #3dd68c; margin-right: 8px;"></i> Native macOS App Interface</li>
           </ul>
         </div>
       </div>
@@ -648,7 +682,7 @@
   <!-- FAQ Accordion -->
   <section class="section" id="faq">
     <div class="container" style="max-width: 800px;">
-      <h2 style="text-align: center; margin-bottom: var(--space-12);">Frequently Asked Questions</h2>
+      <h2 style="text-align: center; margin-bottom: var(--space-12);">FAQ</h2>
       <div class="faq-list">
         <div class="faq-item">
           <button class="faq-question">Why use a local developer toolbox? <span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>

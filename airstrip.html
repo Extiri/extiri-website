@@ -9,16 +9,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Airstrip | Standard Operating Procedures &amp; Runbook Manager for Mac</title>
+  <title>Airstrip | Executable Runbooks for Mac Developers &amp; DevOps</title>
   <meta name="description"
-    content="The dedicated Runbook and SOP manager for Mac developers, IT pros, and creators. Turn static procedure docs into interactive workflows with Focus Mode and contextual observers.">
+    content="Airstrip is the native macOS execution layer for technical runbooks. Turn operational knowledge into interactive procedures with Focus Mode, Context Observers, and MCP AI agent integration.">
   <meta name="keywords"
-    content="Airstrip, runbook manager, SOP app mac, standard operating procedures, devops runbook, macOS developer tool, focus mode checklist, contextual reminders">
+    content="Airstrip, runbook execution, macOS developer tool, executable runbooks, Focus Mode, Model Context Protocol, MCP AI runbook, DevOps runbooks, production deployments">
   <meta name="theme-color" content="#060606">
 
-  <meta property="og:title" content="Airstrip | SOP &amp; Runbook Manager for Mac" />
+  <meta property="og:title" content="Airstrip | The Execution Layer for Technical Runbooks" />
   <meta property="og:description"
-    content="Execute every procedure with surgical precision. Interactive checklists, Focus Mode, and automatic app/website observers." />
+    content="Turn operational knowledge into executable procedures. Focus Mode overlay, Context Observers, immutable run history, and MCP AI agent integration for Mac." />
   <meta property="og:image"
     content="https://extiri.com/images/airstrip/in-work-procedure-bottom-rich-app-launch-transparent-background.webp" />
   <meta name="twitter:card" content="summary_large_image">
@@ -69,7 +69,7 @@
       z-index: 2;
     }
 
-    /* Multi-layered Heavy Spread Text Shadows for High Contrast Legibility */
+    /* Text Shadows for Contrast */
     .text-has-shadow,
     .hero-airstrip-title,
     .hero-airstrip-subtitle,
@@ -130,8 +130,8 @@
 
     .hero-airstrip-grid {
       display: grid;
-      grid-template-columns: minmax(380px, 0.85fr) minmax(0, 1.15fr);
-      gap: var(--space-16);
+      grid-template-columns: minmax(420px, 1fr) minmax(0, 1.05fr);
+      gap: var(--space-12);
       align-items: center;
     }
 
@@ -140,7 +140,7 @@
       align-items: center;
       justify-content: flex-start;
       gap: var(--space-4);
-      margin-bottom: var(--space-6);
+      margin-bottom: var(--space-10);
       opacity: 0.95;
     }
 
@@ -175,8 +175,8 @@
 
     .hero-airstrip-title {
       font-family: var(--font-serif);
-      font-size: clamp(3.2rem, 5.5vw, 5.2rem);
-      line-height: 1.02;
+      font-size: clamp(2.5rem, 3.8vw, 3.8rem);
+      line-height: 1.08;
       margin-bottom: var(--space-6);
       letter-spacing: -0.02em;
       color: var(--airstrip-text-primary);
@@ -188,7 +188,7 @@
       font-size: var(--text-lg);
       line-height: 1.65;
       color: var(--airstrip-text-secondary);
-      max-width: 540px;
+      max-width: 560px;
       margin-bottom: var(--space-8);
     }
 
@@ -234,7 +234,7 @@
       transform: translateY(-2px);
     }
 
-    /* Media Containers - Transparent Backgrounds (No Borders) */
+    /* Media Containers */
     .hero-airstrip-media,
     .airstrip-feature-media {
       position: relative;
@@ -246,7 +246,6 @@
       -webkit-backdrop-filter: none !important;
     }
 
-    /* Images with Backgrounds (Rounded Corners & Shadow) */
     .airstrip-feature-media img[src*="with-wallpaper"],
     .airstrip-feature-media img[src*="with-background"],
     .img-has-background {
@@ -263,7 +262,7 @@
       filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
     }
 
-    /* Sections Frame */
+    /* Sections */
     .airstrip-section {
       position: relative;
       padding: var(--space-24) 0;
@@ -289,6 +288,146 @@
       font-size: var(--text-lg);
       color: var(--airstrip-text-secondary);
       line-height: 1.7;
+    }
+
+    /* Problem Grid / Visual Contrast */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+      margin-top: var(--space-10);
+    }
+
+    .problem-card {
+      background: var(--airstrip-glass-card);
+      border: 1px solid var(--airstrip-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .problem-card h4 {
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: var(--space-3);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .problem-card h4 i {
+      color: var(--airstrip-text-secondary);
+    }
+
+    .problem-card p {
+      font-size: var(--text-sm);
+      color: var(--airstrip-text-secondary);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* Concrete Runbook Stepper Demo */
+    .runbook-demo-box {
+      background: var(--airstrip-glass-card);
+      border: 1px solid var(--airstrip-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-12) var(--space-12);
+      margin-top: var(--space-12);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+
+    .runbook-demo-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--airstrip-border);
+      padding-bottom: var(--space-6);
+      margin-bottom: var(--space-8);
+    }
+
+    .runbook-demo-title {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: var(--text-lg);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .runbook-demo-tag {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      color: var(--airstrip-text-secondary);
+    }
+
+    .runbook-stepper {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+
+    .stepper-item {
+      display: grid;
+      grid-template-columns: 36px 1fr auto;
+      gap: var(--space-6);
+      align-items: center;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-md);
+      padding: var(--space-6) var(--space-8);
+    }
+
+    .stepper-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--airstrip-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .stepper-item.is-done .stepper-num {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+    }
+
+    .stepper-content strong {
+      display: block;
+      font-size: var(--text-sm);
+      color: #ffffff;
+      margin-bottom: 3px;
+    }
+
+    .stepper-content span {
+      font-size: var(--text-xs);
+      color: var(--airstrip-text-secondary);
+    }
+
+    .stepper-action-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--airstrip-border);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-family: var(--font-sans);
+      color: var(--airstrip-text-secondary);
     }
 
     /* Feature Breakdown Rows */
@@ -401,7 +540,7 @@
       margin: 0;
     }
 
-    /* Stylized AI Agent Chat Showcase */
+    /* AI Agent Chat Showcase */
     .airstrip-chat-card {
       background: rgba(14, 14, 18, 0.85);
       border: 1px solid var(--airstrip-border);
@@ -539,7 +678,7 @@
       color: var(--airstrip-text-secondary);
     }
 
-    /* FAQ Styling (Matching Resso Standard) */
+    /* FAQ Styling */
     .resso-faq {
       display: block;
       max-width: 800px;
@@ -655,7 +794,8 @@
         grid-row: auto;
       }
 
-      .arch-grid {
+      .arch-grid,
+      .problem-grid {
         grid-template-columns: 1fr;
       }
 
@@ -692,7 +832,6 @@
     <svg id="runway-svg" class="runway-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800"
       preserveAspectRatio="xMidYMax slice">
       <defs>
-        <!-- Gradients -->
         <linearGradient id="runwayGradient" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12" />
           <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0" />
@@ -704,7 +843,6 @@
           <stop offset="100%" stop-color="#94a3b8" stop-opacity="0" />
         </linearGradient>
 
-        <!-- Landing Gear Retraction Clip Path (Clips anything above y=24 so gear vanishes cleanly into belly) -->
         <clipPath id="gearBayClip">
           <rect x="-150" y="24" width="320" height="60" />
         </clipPath>
@@ -717,12 +855,9 @@
 
       <!-- Fixed Runway Base Lines at Bottom -->
       <g id="runway-ground">
-        <!-- Runway Tarmac Base Line -->
         <line x1="0" y1="760" x2="1400" y2="760" stroke="#ffffff" stroke-opacity="0.15" stroke-width="2" />
-        <!-- Runway Center Dash Markers -->
         <line x1="0" y1="760" x2="1400" y2="760" stroke="#ffffff" stroke-opacity="0.35" stroke-width="3"
           stroke-dasharray="30 25" />
-        <!-- Runway Threshold Markings -->
         <g opacity="0.4">
           <line x1="40" y1="745" x2="40" y2="775" stroke="#fff" stroke-width="2" />
           <line x1="50" y1="745" x2="50" y2="775" stroke="#fff" stroke-width="2" />
@@ -730,7 +865,6 @@
           <line x1="70" y1="745" x2="70" y2="775" stroke="#fff" stroke-width="2" />
           <line x1="80" y1="745" x2="80" y2="775" stroke="#fff" stroke-width="2" />
         </g>
-        <!-- Runway Edge Lights -->
         <circle cx="120" cy="760" r="3" fill="#ffffff" opacity="0.6" filter="url(#glowEffect)" />
         <circle cx="360" cy="760" r="3" fill="#ffffff" opacity="0.6" filter="url(#glowEffect)" />
         <circle cx="600" cy="760" r="3" fill="#ffffff" opacity="0.6" filter="url(#glowEffect)" />
@@ -741,22 +875,16 @@
 
       <!-- Animated Plane Group -->
       <g id="plane-transform-group" transform="translate(100, 700) rotate(0)">
-        <!-- Jet Engine Exhaust Trail -->
         <polygon id="jet-trail" points="-220,12 -10,8 -10,16" fill="url(#jetTrailGradient)" opacity="0" />
 
-        <!-- Airplane Side Profile Vector Silhouette -->
         <g id="airplane-body">
-          <!-- Retractable Gear Struts (Clipped to belly bay below y=24) -->
           <g id="landing-gear" opacity="1" transform="translate(0, 0)" clip-path="url(#gearBayClip)">
-            <!-- Front Gear -->
             <line x1="90" y1="28" x2="90" y2="44" stroke="#ffffff" stroke-width="2" />
             <circle cx="90" cy="46" r="3.5" fill="#cbd5e1" stroke="#000" stroke-width="1" />
-            <!-- Rear Gear -->
             <line x1="-30" y1="28" x2="-30" y2="44" stroke="#ffffff" stroke-width="2" />
             <circle cx="-30" cy="46" r="4" fill="#cbd5e1" stroke="#000" stroke-width="1" />
           </g>
 
-          <!-- Main Fuselage -->
           <path d="M 110,10 
                    C 130,10 145,15 150,20 
                    C 145,25 130,28 100,28 
@@ -765,23 +893,14 @@
                    C -115,10 -95,10 -60,10 
                    Z" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
 
-          <!-- Cockpit Window Outline -->
           <path d="M 125,12 C 135,13 140,17 142,19 L 125,19 Z" fill="#060606" opacity="0.85" />
-
-          <!-- Main Wing -->
           <path d="M 30,22 L -35,55 L -55,55 L -10,22 Z" fill="#cbd5e1" stroke="#ffffff" stroke-width="1" />
-
-          <!-- Tail Fin -->
           <path d="M -85,10 L -115,-32 L -95,-32 L -65,10 Z" fill="#e2e8f0" stroke="#ffffff" stroke-width="1" />
-
-          <!-- Tail Stripe -->
           <path d="M -102,-15 L -96,-15 L -84,0 L -90,0 Z" fill="#060606" />
 
-          <!-- Jet Engine Under Wing -->
           <rect x="-5" y="26" width="38" height="13" rx="6.5" fill="#1e293b" stroke="#ffffff" stroke-width="1.2" />
           <circle cx="-5" cy="32.5" r="5" fill="#e2e8f0" />
 
-          <!-- Cabin Windows Row -->
           <circle cx="85" cy="18" r="2" fill="#060606" opacity="0.6" />
           <circle cx="70" cy="18" r="2" fill="#060606" opacity="0.6" />
           <circle cx="55" cy="18" r="2" fill="#060606" opacity="0.6" />
@@ -797,7 +916,7 @@
   </div>
 
   <div class="airstrip-content-wrapper">
-    <!-- Navbar (Standard Extiri Page Nav) -->
+    <!-- Navbar -->
     <nav class="navbar">
       <div class="container navbar-inner">
         <a href="./index.html" class="nav-logo">
@@ -831,7 +950,7 @@
       </a>
     </div>
 
-    <!-- Hero Section -->
+    <!-- 1. HERO SECTION -->
     <header class="hero-airstrip">
       <div class="hero-airstrip-container">
         <div class="hero-airstrip-grid">
@@ -841,18 +960,17 @@
               <span class="hero-brand-name">Airstrip</span>
             </div>
 
-            <h1 class="hero-airstrip-title">Execute procedures with surgical precision.</h1>
+            <h1 class="hero-airstrip-title">Turn operational knowledge into executable procedures.</h1>
 
             <p class="hero-airstrip-subtitle">
-              Transform static release notes, server deployments, and ops checklists into interactive workflows that
-              trigger right when and where you need them on macOS.
+              Airstrip is the native macOS execution layer for technical runbooks. Stop context-switching and relying
+              on memory during deployments, migrations, and server maintenance.
             </p>
 
             <div class="hero-airstrip-actions">
-              <a href="https://apps.apple.com/pl/app/airstrip-runbook-manager/id6794710703" class="app-store-badge-link"
+              <a href="https://apps.apple.com/pl/app/airstrip-runbook-manager/id6794710703" class="btn-app-store"
                 aria-label="Download Airstrip on the Mac App Store">
-                <img src="images/download_on_the_mac_app_store_white_button.svg" alt="Download on the Mac App Store"
-                  class="app-store-badge-img">
+                <i class="fa-brands fa-apple" style="font-size: 1.2rem;"></i> Mac App Store
               </a>
               <a href="#features" class="btn btn-outline">
                 Explore Features <i class="fa-solid fa-arrow-down" style="margin-left: 6px;"></i>
@@ -861,7 +979,7 @@
 
             <p class="hero-airstrip-meta"
               style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--airstrip-text-secondary);">
-              14-day free trial · iCloud Sync · Works offline · macOS 14+
+              14-day free trial · Works offline · iCloud Sync · macOS 14+
             </p>
           </div>
 
@@ -873,98 +991,168 @@
       </div>
     </header>
 
-    <!-- Core Architecture Section: Templates vs Runs -->
+    <!-- 2. THE PROBLEM SECTION -->
+    <section class="airstrip-section">
+      <div class="container">
+        <div class="airstrip-section-header">
+          <span class="airstrip-eyebrow">THE CONTEXT SWITCHING CHAOS</span>
+          <h2>"I know how to do this. I just don't want to miss a step."</h2>
+          <p>
+            When performing a production deployment or database migration for the tenth time, your mental energy
+            should be on execution, not hunting through browser tabs or trying to remember what you already ran.
+          </p>
+        </div>
+
+        <div class="problem-grid">
+          <div class="problem-card">
+            <h4><i class="fa-solid fa-triangle-exclamation"></i> Fragmented Workspace</h4>
+            <p>
+              Constantly alt-tabbing between documentation in Notion, terminal windows, staging dashboards, and Xcode
+              breaks focus right when accuracy matters most.
+            </p>
+          </div>
+
+          <div class="problem-card">
+            <h4><i class="fa-solid fa-clock-rotate-left"></i> Stale &amp; Overwritten Docs</h4>
+            <p>
+              Standard wiki pages get edited after the fact. When something breaks, your documentation reflects what
+              the procedure says today, not what was actually executed.
+            </p>
+          </div>
+
+          <div class="problem-card">
+            <h4><i class="fa-solid fa-brain"></i> Memory Reliance Under Pressure</h4>
+            <p>
+              Routine technical operations fail not from lack of expertise, but from skipping a pre-flight check or a
+              verification step during midnight maintenance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FROM RUNBOOK TO EXECUTION -->
     <section id="features" class="airstrip-section">
       <div class="container">
         <div class="airstrip-section-header">
-          <span class="airstrip-eyebrow">DEEP COPY ARCHITECTURE</span>
-          <h2>Blueprints &amp; Executions. Built to never break history.</h2>
+          <span class="airstrip-eyebrow">EXECUTABLE RUNBOOKS</span>
+          <h2>Don't just document the procedure. Execute it.</h2>
           <p>
-            Traditional documentation gets overwritten. Airstrip separates the template blueprint from execution
-            history, ensuring past runbooks stay 100% immutable.
+            A conventional document tells you what you should do. Airstrip guides you step-by-step through the actual
+            work, enforces strict sequence when required, and captures an exact audit trail of the run.
+          </p>
+        </div>
+
+        <!-- Concrete Production Release Example -->
+        <div class="runbook-demo-box">
+          <div class="runbook-demo-header">
+            <div class="runbook-demo-title">
+              <i class="fa-solid fa-rocket"></i> Production Release v2.4
+            </div>
+            <span class="runbook-demo-tag">Execution #142 · Active Run</span>
+          </div>
+
+          <div class="runbook-stepper">
+            <div class="stepper-item is-done">
+              <div class="stepper-num"><i class="fa-solid fa-check"></i></div>
+              <div class="stepper-content">
+                <strong>1. Pre-flight Checks &amp; Staging Verification</strong>
+                <span>Inspect build health, SSL certificate expiration, and staging test suite.</span>
+              </div>
+              <div class="stepper-action-badge"><i class="fa-brands fa-safari"></i> Open Staging Dashboard</div>
+            </div>
+
+            <div class="stepper-item is-done">
+              <div class="stepper-num"><i class="fa-solid fa-check"></i></div>
+              <div class="stepper-content">
+                <strong>2. Database Schema Migration</strong>
+                <span>Run migration scripts against target database cluster with safety checks.</span>
+              </div>
+              <div class="stepper-action-badge"><i class="fa-solid fa-copy"></i> Copy CLI Command</div>
+            </div>
+
+            <div class="stepper-item">
+              <div class="stepper-num">3</div>
+              <div class="stepper-content">
+                <strong>3. Deployment Rollout</strong>
+                <span>Trigger production container deployment pipeline and monitor traffic routing.</span>
+              </div>
+              <div class="stepper-action-badge"><i class="fa-brands fa-aws"></i> Open AWS Console</div>
+            </div>
+
+            <div class="stepper-item">
+              <div class="stepper-num">4</div>
+              <div class="stepper-content">
+                <strong>4. Post-Deployment Verification &amp; Cache Warmup</strong>
+                <span>Enforce 5-minute soak period and verify key API response latency.</span>
+              </div>
+              <div class="stepper-action-badge"><i class="fa-solid fa-stopwatch"></i> 05:00 Timer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. BLUEPRINTS VS EXECUTIONS -->
+    <section class="airstrip-section">
+      <div class="container">
+        <div class="airstrip-section-header">
+          <span class="airstrip-eyebrow">DEEP COPY ARCHITECTURE</span>
+          <h2>Blueprints vs. Executions. Immutable historical records.</h2>
+          <p>
+            When you instantiate a procedure, Airstrip creates a deep-copy snapshot of the master blueprint.
+            Modifying the blueprint later never retroactively alters your execution history.
           </p>
         </div>
 
         <div class="arch-grid">
           <div class="arch-card">
             <div class="arch-icon"><i class="fa-solid fa-drafting-compass"></i></div>
-            <h4>Master Templates</h4>
-            <p>Define master blueprints with sequential or non-sequential steps, estimated durations, and markdown
-              instructions.</p>
+            <h4>Master Blueprints</h4>
+            <p>Define reusable procedure templates with step sequences, Markdown instructions, interactive payload
+              actions, and estimated durations.</p>
           </div>
 
           <div class="arch-card">
             <div class="arch-icon"><i class="fa-solid fa-copy"></i></div>
-            <h4>Deep Copy Runs</h4>
-            <p>Instantiating a procedure copies all steps into a standalone run history. Modifying the template later
-              never alters past run records.</p>
+            <h4>Deep-Copy Execution Runs</h4>
+            <p>Launching a run creates an isolated snapshot. You always know: <em>"What procedure did I actually
+                execute?"</em> rather than what the doc says today.</p>
           </div>
 
           <div class="arch-card">
             <div class="arch-icon"><i class="fa-solid fa-sliders"></i></div>
-            <h4>Dynamic Variables</h4>
-            <p>Inject dynamic variables like <code>{{version}}</code> or <code>{{environment}}</code> at launch time for
-              tailored execution blocks.</p>
+            <h4>Dynamic Launch Variables</h4>
+            <p>Inject variables such as <code>{{version}}</code> or <code>{{environment}}</code> at launch time to
+              customize your runbook for every release.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Interactive Step Action Types -->
-    <section class="airstrip-section">
-      <div class="container">
-        <div class="airstrip-section-header">
-          <span class="airstrip-eyebrow">INTERACTIVE ACTIONS</span>
-          <h2>Actions attached right to the step.</h2>
-          <p>Don't context-switch between terminal tabs and documentation. Execute actions directly from your checklist.
-          </p>
-        </div>
-
-        <div class="action-types-grid">
-          <div class="action-type-item">
-            <i class="fa-brands fa-safari"></i>
-            <strong>Open URL</strong>
-            <span>Launch dashboard or docs</span>
-          </div>
-
-          <div class="action-type-item">
-            <i class="fa-solid fa-copy"></i>
-            <strong>Copy Text</strong>
-            <span>One-tap command copy</span>
-          </div>
-
-          <div class="action-type-item">
-            <i class="fa-solid fa-stopwatch"></i>
-            <strong>Duration Timer</strong>
-            <span>Enforce wait intervals</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Feature Showcase 1: Focus Mode -->
+    <!-- 5. FOCUS MODE OVERLAY -->
     <section id="focus-mode" class="airstrip-section">
       <div class="container">
         <div class="airstrip-feature-row">
           <div class="airstrip-feature-copy">
-            <span class="airstrip-eyebrow">ALWAYS ON TOP</span>
-            <h3>Focus Mode floating overlay.</h3>
+            <span class="airstrip-eyebrow">FOCUS MODE OVERLAY</span>
+            <h3>Stay in the work. Floating overlay above IDE &amp; terminal.</h3>
             <p>
-              Step out of the main window. Focus Mode renders a compact, borderless floating window on top of Xcode, VS
-              Code, or your terminal window.
+              Step out of the main application. Focus Mode displays a compact, borderless floating window that stays
+              pinned above Xcode, VS Code, or your terminal.
             </p>
             <div class="airstrip-feature-list">
               <div class="airstrip-feature-item">
                 <i class="fa-solid fa-check"></i>
-                <span>Tri-state step controls: Done, Skip, or Fail with single keystrokes</span>
+                <span>Tri-state step execution controls: Done, Skip, or Fail with fast keyboard shortcuts</span>
               </div>
               <div class="airstrip-feature-item">
                 <i class="fa-solid fa-check"></i>
-                <span>Displays full Markdown instructions, notes, and attached payload actions</span>
+                <span>Displays Markdown instructions, step notes, and attached one-tap actions</span>
               </div>
               <div class="airstrip-feature-item">
                 <i class="fa-solid fa-check"></i>
-                <span>Smooth animated step transitions with zero desktop clutter</span>
+                <span>Zero window clutter so you never lose your place during complex technical procedures</span>
               </div>
             </div>
           </div>
@@ -977,29 +1165,29 @@
       </div>
     </section>
 
-    <!-- Feature Showcase 2: Contextual Reminders -->
+    <!-- 6. CONTEXT OBSERVERS -->
     <section id="observers" class="airstrip-section">
       <div class="container">
         <div class="airstrip-feature-row reversed">
           <div class="airstrip-feature-copy">
             <span class="airstrip-eyebrow">CONTEXT OBSERVERS</span>
-            <h3>The right runbook, right on cue.</h3>
+            <h3>The right runbook, right when you need it.</h3>
             <p>
-              Airstrip actively monitors focused applications and active web domains to recommend appropriate procedures
-              automatically.
+              Airstrip can monitor active application focus and browser domains to discreetly recommend the appropriate
+              runbook the moment you open a relevant tool.
             </p>
             <div class="airstrip-feature-list">
               <div class="airstrip-feature-item">
                 <i class="fa-solid fa-check"></i>
-                <span>Automatic trigger banners when opening staging dashboards or Xcode</span>
+                <span>Opening Xcode surfaces your App Store release &amp; privacy manifest checklist</span>
               </div>
               <div class="airstrip-feature-item">
                 <i class="fa-solid fa-check"></i>
-                <span>Attach multiple observer rules per template blueprint</span>
+                <span>Navigating to a staging dashboard surfaces your deployment verification runbook</span>
               </div>
               <div class="airstrip-feature-item">
                 <i class="fa-solid fa-check"></i>
-                <span>Non-intrusive top-of-screen banner with one-click run launcher</span>
+                <span>Discreet top-of-screen banner with one-tap run launcher—100% local, no surveillance</span>
               </div>
             </div>
           </div>
@@ -1012,60 +1200,65 @@
       </div>
     </section>
 
-    <!-- Feature Showcase 3: Blueprint Library -->
+    <!-- 7. INTERACTIVE STEP ACTIONS -->
     <section class="airstrip-section">
       <div class="container">
-        <div class="airstrip-feature-row">
-          <div class="airstrip-feature-copy">
-            <span class="airstrip-eyebrow">ORGANIZATION &amp; BLUEPRINTS</span>
-            <h3>Tags, search &amp; template variables.</h3>
-            <p>
-              Keep dozens of procedures categorized with custom tags, quick search, and pinned favorites in a clean
-              sidebar interface.
-            </p>
-            <div class="airstrip-feature-list">
-              <div class="airstrip-feature-item">
-                <i class="fa-solid fa-check"></i>
-                <span>Strict sequencing enforcement option for high-stakes procedures</span>
-              </div>
-              <div class="airstrip-feature-item">
-                <i class="fa-solid fa-check"></i>
-                <span>Instant Command Palette (⌘K) to start runs or jump to templates</span>
-              </div>
-            </div>
+        <div class="airstrip-section-header">
+          <span class="airstrip-eyebrow">INTERACTIVE ACTIONS</span>
+          <h2>Steps with built-in execution actions.</h2>
+          <p>
+            Runbook steps are not just static text. Attach interactive actions to steps to eliminate manual copying and
+            browser navigation.
+          </p>
+        </div>
+
+        <div class="action-types-grid">
+          <div class="action-type-item">
+            <i class="fa-brands fa-safari"></i>
+            <strong>Open URL</strong>
+            <span>Launch deployment dashboards, docs, or status pages</span>
           </div>
 
-          <div class="airstrip-feature-media">
-            <img src="images/airstrip/template-with-tags-in-sidebar-transparent-background.webp"
-              alt="Airstrip Sidebar Template Library with Tags" loading="lazy">
+          <div class="action-type-item">
+            <i class="fa-solid fa-copy"></i>
+            <strong>Copy Text</strong>
+            <span>One-tap copy for shell commands, API paths, and payloads</span>
+          </div>
+
+          <div class="action-type-item">
+            <i class="fa-solid fa-stopwatch"></i>
+            <strong>Duration Timer</strong>
+            <span>Enforce soak periods and verification wait intervals</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Feature Showcase 4: Model Context Protocol (MCP) Integration -->
+    <!-- 8. AI AGENTS / MODEL CONTEXT PROTOCOL (MCP) -->
     <section id="mcp" class="airstrip-section">
       <div class="container">
         <div class="airstrip-feature-row">
           <div class="airstrip-feature-copy">
-            <span class="airstrip-eyebrow">AI AGENT AUTOMATION</span>
-            <h3>Model Context Protocol (MCP) integration.</h3>
+            <span class="airstrip-eyebrow">AI AGENT INTEGRATION</span>
+            <h3>Your procedures, in your AI agent's environment.</h3>
             <p>
-              Give AI agents direct access to your runbook procedures. With native MCP support, AI coding assistants can
-              query Airstrip templates and execute strict, repeatable SOPs without missing a step.
+              Airstrip exposes procedures directly to AI coding assistants via Model Context Protocol (MCP).
+              Your carefully defined human runbooks become part of your AI agent's operating environment with full
+              human-in-the-loop oversight.
             </p>
             <div class="airstrip-feature-list">
               <div class="airstrip-feature-item">
                 <i class="fa-solid fa-check"></i>
-                <span>Model Context Protocol (MCP) integration for AI tools and coding agents</span>
+                <span>Model Context Protocol (MCP) server integration for Claude Desktop, Cursor, and AI agents</span>
               </div>
               <div class="airstrip-feature-item">
                 <i class="fa-solid fa-check"></i>
-                <span>Define strict, repeatable procedures for AI agents to inspect and follow</span>
+                <span>AI agents can query Airstrip runbooks, start runs, and inspect procedure steps</span>
               </div>
               <div class="airstrip-feature-item">
                 <i class="fa-solid fa-check"></i>
-                <span>Enforce step-by-step compliance while maintaining full human-in-the-loop oversight</span>
+                <span>Ensure AI assistants follow strict, repeatable procedures while keeping human oversight in the
+                  loop</span>
               </div>
             </div>
           </div>
@@ -1091,7 +1284,7 @@
                 </div>
 
                 <p style="margin: 4px 0 0 0; color: #e2e8f0;">
-                  Starting <strong>Production Release</strong> runbook in Airstrip. Executing strict procedure steps.
+                  Starting <strong>Production Release</strong> runbook in Airstrip via MCP. Following procedure steps.
                 </p>
 
                 <div class="chat-step-pill">
@@ -1104,28 +1297,64 @@
       </div>
     </section>
 
-    <!-- Feature Showcase 5: macOS Integrations -->
-    <section id="ecosystem" class="airstrip-section">
+    <!-- 9. POST-MORTEMS & PROCEDURE HISTORY -->
+    <section id="reporting" class="airstrip-section">
       <div class="container">
         <div class="airstrip-feature-row reversed">
           <div class="airstrip-feature-copy">
-            <span class="airstrip-eyebrow">macOS ECOSYSTEM</span>
-            <h3>Widgets &amp; MenuBar integration.</h3>
+            <span class="airstrip-eyebrow">ACCOUNTABILITY &amp; POST-MORTEMS</span>
+            <h3>Record what actually happened. Export anywhere.</h3>
             <p>
-              Access pinned templates instantly from your Mac menu bar or desktop widgets for effortless execution.
+              Every execution run preserves a complete historical record: step statuses, exact timestamps, duration
+              information, step notes, and post-mortem observations.
             </p>
             <div class="airstrip-feature-list">
               <div class="airstrip-feature-item">
                 <i class="fa-solid fa-check"></i>
-                <span>Status bar menu for one-click access to your favorite runbook blueprints</span>
+                <span>Capture incident notes, reflections, and anomalies directly on completed runs</span>
               </div>
               <div class="airstrip-feature-item">
                 <i class="fa-solid fa-check"></i>
-                <span>macOS Widget support to monitor active procedures right from your desktop</span>
+                <span>Export clean Markdown reports to attach directly to GitHub issues or Jira tickets</span>
               </div>
               <div class="airstrip-feature-item">
                 <i class="fa-solid fa-check"></i>
-                <span>Seamless iCloud sync across your Mac devices</span>
+                <span>Generate audit-ready PDF reports complete with duration metrics and timestamp logs</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="airstrip-feature-media">
+            <img src="images/airstrip/pdf-report.webp" alt="Airstrip Formatted PDF Report Export"
+              class="img-has-background" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. MAC-NATIVE EXPERIENCE -->
+    <section id="ecosystem" class="airstrip-section">
+      <div class="container">
+        <div class="airstrip-feature-row">
+          <div class="airstrip-feature-copy">
+            <span class="airstrip-eyebrow">macOS NATIVE ARCHITECTURE</span>
+            <h3>Crafted specifically for macOS.</h3>
+            <p>
+              Airstrip is built natively for Mac users, integrating seamlessly into your desktop environment with zero
+              unnecessary web app overhead.
+            </p>
+            <div class="airstrip-feature-list">
+              <div class="airstrip-feature-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Menu bar status item for instant access to pinned procedures</span>
+              </div>
+              <div class="airstrip-feature-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Desktop Widgets to monitor active procedure runs directly on your Mac desktop</span>
+              </div>
+              <div class="airstrip-feature-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Native iCloud Sync across your Mac devices and 100% offline operation</span>
               </div>
             </div>
           </div>
@@ -1136,149 +1365,198 @@
           </div>
         </div>
       </div>
-      <!-- Feature Showcase 5: Reporting & Post-Mortem Notes -->
-      <section id="reporting" class="airstrip-section">
-        <div class="container">
-          <div class="airstrip-feature-row">
-            <div class="airstrip-feature-copy">
-              <span class="airstrip-eyebrow">ACCOUNTABILITY &amp; REPORTING</span>
-              <h3>Post-mortem notes &amp; PDF generation.</h3>
-              <p>
-                Document critical reflections upon completing a runbook and generate audit-ready PDF or Markdown reports
-                complete with step duration logs and timestamps.
-              </p>
-              <div class="airstrip-feature-list">
-                <div class="airstrip-feature-item">
-                  <i class="fa-solid fa-check"></i>
-                  <span>Enter post-mortem notes and incident observations directly on completed runs</span>
-                </div>
-                <div class="airstrip-feature-item">
-                  <i class="fa-solid fa-check"></i>
-                  <span>One-tap formatted PDF export featuring timestamps, step statuses, and notes</span>
-                </div>
-                <div class="airstrip-feature-item">
-                  <i class="fa-solid fa-check"></i>
-                  <span>Markdown report export for easy attachment to GitHub issues or Incident tickets</span>
-                </div>
-              </div>
-            </div>
+    </section>
 
-            <div class="airstrip-feature-media">
-              <img src="images/airstrip/pdf-report.webp" alt="Airstrip Formatted PDF Report Export"
-                class="img-has-background" loading="lazy">
-            </div>
-          </div>
+    <!-- 11. WHO IS IT FOR? -->
+    <section class="airstrip-section">
+      <div class="container">
+        <div class="airstrip-section-header">
+          <span class="airstrip-eyebrow">BUILT FOR TECHNICAL OPERATIONS</span>
+          <h2>For procedures you perform repeatedly but can't afford to get wrong.</h2>
+          <p>
+            Airstrip is designed for solo developers, DevOps engineers, technical founders, and small engineering
+            teams maintaining production software on Mac.
+          </p>
         </div>
-      </section>
 
-      <!-- FAQ Section -->
-      <section id="faq" class="airstrip-section">
-        <div class="container">
-          <div class="airstrip-section-header">
-            <span class="airstrip-eyebrow">FREQUENTLY ASKED QUESTIONS</span>
-            <h2>Everything you need to know.</h2>
+        <div class="arch-grid">
+          <div class="arch-card">
+            <div class="arch-icon"><i class="fa-solid fa-server"></i></div>
+            <h4>Deployments &amp; Releases</h4>
+            <p>Production rollouts, staging verifications, database schema migrations, and canary release checks.</p>
           </div>
 
-          <div class="resso-faq">
-            <details>
-              <summary>Is there a free trial?</summary>
-              <p>
-                Yes, Airstrip is available on the Mac App Store with a 14-day free trial. You can test all SOP and
-                runbook management features before deciding on a subscription or purchase.
-              </p>
-            </details>
-            <details>
-              <summary>What makes Airstrip different from standard document tools?</summary>
-              <p>
-                Standard docs get overwritten. Airstrip creates a deep-copy execution snapshot for every run, keeping
-                precise timestamps, step notes, and post-mortem logs without breaking historical records.
-              </p>
-            </details>
-
-            <details>
-              <summary>How do Context Observers work on Mac?</summary>
-              <p>
-                Airstrip uses automatic Mac system observers to detect active application focus and browser domains.
-                When a matching app or site is focused, Airstrip presents a discreet recommendation banner.
-              </p>
-            </details>
-
-            <details>
-              <summary>Does Airstrip support iCloud Sync?</summary>
-              <p>
-                Yes. Built for macOS, all your templates, active runs, and contextual triggers automatically sync across
-                your devices via iCloud.
-              </p>
-            </details>
-
-            <details>
-              <summary>Can I export completed runs for audits?</summary>
-              <p>
-                Absolutely. Completed runs generate downloadable PDF and Markdown reports including duration metrics,
-                individual step timestamps, and post-mortem notes.
-              </p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA Section -->
-      <section id="download" class="airstrip-section">
-        <div class="container">
-          <div class="airstrip-cta-box">
-            <h2>Ready to clear the runway?</h2>
-            <p>
-              Join developers, DevOps engineers, and creators who ship faster with interactive SOPs on Mac.
+          <div class="arch-card">
+            <div class="arch-icon"><i class="fa-brands fa-apple"></i></div>
+            <h4>App Store Submissions</h4>
+            <p>Privacy manifest audits, version tagging, provisioning checks, screenshot builds, and submission flows.
             </p>
-            <div class="hero-airstrip-actions" style="justify-content: center;">
-              <a href="https://apps.apple.com/pl/app/airstrip-runbook-manager/id6794710703" class="app-store-badge-link"
-                aria-label="Download Airstrip on the Mac App Store">
-                <img src="images/download_on_the_mac_app_store_white_button.svg" alt="Download on the Mac App Store"
-                  class="app-store-badge-img">
-              </a>
-            </div>
           </div>
-        </div>
-      </section>
 
-      <!-- Footer (Standard Extiri Page Footer) -->
-      <footer class="footer">
-        <div class="container">
-          <div class="footer-grid">
-            <div class="footer-brand">
-              <img src="images/logo.webp" alt="Extiri" width="100" loading="lazy">
-              <p>Extiri is an independent software studio crafting simple, well‑crafted apps for macOS, iOS, and web.
-              </p>
-            </div>
-            <div class="footer-links">
-              <h4>Products</h4>
-              <ul>
-                <li><a href="./codemenu.html">CodeMenu</a></li>
-                <li><a href="./resso.html">Resso</a></li>
-                <li><a href="./airstrip.html">Airstrip</a></li>
-                <li><a href="./chitneek.html">Chitneek</a></li>
-                <li><a href="./clipguru.html">ClipGuru</a></li>
-                <li><a href="./rapidool.html">Rapidool</a></li>
-                <li><a href="./slowko.html">Słówko</a></li>
-              </ul>
-            </div>
-            <div class="footer-links">
-              <h4>Company</h4>
-              <ul>
-                <li><a href="./index.html#about">About</a></li>
-                <li><a href="./blog/index.html">Blog</a></li>
-                <li><a href="privacy_policy.html">Privacy Policy</a></li>
-                <li><a href="mailto:wiktor.wojcik@extiri.com">Contact</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="footer-bottom">
-            <p>&copy; 2026 Extiri. All rights reserved.</p>
-            <p><a href="https://status.extiri.com" target="_blank" rel="noopener noreferrer">System Status</a></p>
-            <p>Mac, iPhone, and iPad are trademarks of Apple Inc. macOS required.</p>
+          <div class="arch-card">
+            <div class="arch-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h4>Infrastructure &amp; Security</h4>
+            <p>Server maintenance, SSL certificate renewals, database backup/restores, and incident response runbooks.
+            </p>
           </div>
         </div>
-      </footer>
+      </div>
+    </section>
+
+    <!-- 12. FAQ SECTION -->
+    <section id="faq" class="airstrip-section">
+      <div class="container">
+        <div class="airstrip-section-header">
+          <h2>FAQ</h2>
+        </div>
+
+        <div class="resso-faq">
+          <details>
+            <summary>How is Airstrip different from Notion or Confluence?</summary>
+            <p>
+              Documentation tools store static knowledge that gets edited over time. Airstrip is the execution layer:
+              it turns procedures into interactive runs, keeps you focused with a floating overlay, surfaces context
+              automatically, and creates immutable execution logs for every run.
+            </p>
+          </details>
+
+          <details>
+            <summary>Is Airstrip an enterprise automation or incident platform?</summary>
+            <p>
+              No. Enterprise platforms like PagerDuty or Rootly focus on organizational incident routing and cloud
+              orchestration. Airstrip is a lightweight, personal, local Mac tool built for the person actually
+              executing the procedure on their machine.
+            </p>
+          </details>
+
+          <details>
+            <summary>Does Airstrip execute arbitrary shell commands automatically?</summary>
+            <p>
+              No. Airstrip does not autonomously alter your infrastructure without your knowledge. Steps contain
+              interactive actions like <em>Copy Text</em>, <em>Open URL</em>, and <em>Duration Timers</em> so you can
+              execute steps with full human-in-the-loop control.
+            </p>
+          </details>
+
+          <details>
+            <summary>How does Focus Mode work?</summary>
+            <p>
+              Focus Mode opens a compact, borderless floating window that stays pinned above applications like Xcode,
+              VS Code, or terminal. You can mark steps as Done, Skip, or Fail using keyboard shortcuts without
+              switching back to a documentation app.
+            </p>
+          </details>
+
+          <details>
+            <summary>What are Context Observers?</summary>
+            <p>
+              Airstrip monitors active window focus and browser domain names locally. When it detects a matching app
+              (e.g., Xcode) or web domain (e.g., your staging environment), it displays a discreet banner offering to
+              launch the relevant runbook.
+            </p>
+          </details>
+
+          <details>
+            <summary>What happens to past execution records when I modify a blueprint?</summary>
+            <p>
+              Nothing. Airstrip uses a deep-copy snapshot architecture. When a run is initiated, the blueprint is
+              copied into an independent execution record. Updating the master template later will never alter past run
+              history.
+            </p>
+          </details>
+
+          <details>
+            <summary>How do AI agents use Airstrip via Model Context Protocol (MCP)?</summary>
+            <p>
+              Airstrip exposes an MCP interface that AI coding tools (such as Claude Desktop or Cursor) can query.
+              Your AI agent can inspect procedure steps, initiate runs, and follow defined runbook steps with full
+              human oversight.
+            </p>
+          </details>
+
+          <details>
+            <summary>Does Airstrip work offline?</summary>
+            <p>
+              Yes. Airstrip is a native macOS application that operates 100% offline. Your runbooks and execution
+              history reside on your Mac.
+            </p>
+          </details>
+
+          <details>
+            <summary>Does it sync across Macs via iCloud?</summary>
+            <p>
+              Yes. Built natively for Apple platforms, Airstrip syncs your blueprints, active runs, and contextual
+              observer rules seamlessly via iCloud.
+            </p>
+          </details>
+
+          <details>
+            <summary>Is there a free trial?</summary>
+            <p>
+              Yes. Airstrip is available on the Mac App Store with a 14-day free trial so you can test executable
+              runbooks before subscribing.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. FINAL CTA SECTION -->
+    <section id="download" class="airstrip-section">
+      <div class="container">
+        <div class="airstrip-cta-box">
+          <h2>Stop relying on memory. Run the procedure.</h2>
+          <p>
+            Ship software reliably with native executable runbooks on macOS.
+          </p>
+          <div class="hero-airstrip-actions" style="justify-content: center;">
+            <a href="https://apps.apple.com/pl/app/airstrip-runbook-manager/id6794710703" class="btn-app-store"
+              aria-label="Download Airstrip on the Mac App Store">
+              <i class="fa-brands fa-apple" style="font-size: 1.2rem;"></i> Mac App Store
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <img src="images/logo.webp" alt="Extiri" width="100" loading="lazy">
+            <p>Extiri is an independent software studio crafting simple, well‑crafted apps for macOS, iOS, and web.
+            </p>
+          </div>
+          <div class="footer-links">
+            <h4>Products</h4>
+            <ul>
+              <li><a href="./codemenu.html">CodeMenu</a></li>
+              <li><a href="./resso.html">Resso</a></li>
+              <li><a href="./airstrip.html">Airstrip</a></li>
+              <li><a href="./chitneek.html">Chitneek</a></li>
+              <li><a href="./clipguru.html">ClipGuru</a></li>
+              <li><a href="./rapidool.html">Rapidool</a></li>
+              <li><a href="./slowko.html">Słówko</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="./index.html#about">About</a></li>
+              <li><a href="./blog/index.html">Blog</a></li>
+              <li><a href="privacy_policy.html">Privacy Policy</a></li>
+              <li><a href="mailto:wiktor.wojcik@extiri.com">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Extiri. All rights reserved.</p>
+          <p><a href="https://status.extiri.com" target="_blank" rel="noopener noreferrer">System Status</a></p>
+          <p>Mac, iPhone, and iPad are trademarks of Apple Inc. macOS required.</p>
+        </div>
+      </div>
+    </footer>
   </div>
 
   <!-- Scroll Animation Script for Airplane Takeoff -->
@@ -1296,60 +1574,48 @@
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
         const viewportHeight = window.innerHeight;
 
-        // Unpin fixed airstrip at the divider line after Focus Mode section
         if (focusModeSection && runwayViewport) {
           const focusRect = focusModeSection.getBoundingClientRect();
           const focusBottomDocY = focusRect.top + scrollTop + focusRect.height;
 
           if (scrollTop + viewportHeight >= focusBottomDocY) {
-            // Scrolled past Focus Mode divider: lock position to scroll away with Focus Mode section
             runwayViewport.style.position = 'absolute';
             runwayViewport.style.top = (focusBottomDocY - viewportHeight) + 'px';
             runwayViewport.style.bottom = 'auto';
           } else {
-            // Fixed pinned viewport overlay
             runwayViewport.style.position = 'fixed';
             runwayViewport.style.top = '0';
             runwayViewport.style.bottom = '0';
           }
         }
 
-        // Normalize scroll ratio (0.0 at top of hero to 1.0 down page)
         const scrollRatio = Math.min(Math.max(scrollTop / (window.innerHeight * 1.8), 0), 1);
-
-        // Easing function for realistic acceleration
         const easeRatio = Math.pow(scrollRatio, 0.85);
 
-        // X movement: Starts at 80, accelerates across viewport to 1450
         const currentX = 80 + (easeRatio * 1370);
-
-        // Y movement: Starts at 710 (runway ground), ascends to -80 (sky top right)
         const currentY = 710 - (Math.pow(scrollRatio, 1.1) * 790);
 
-        // Pitch Rotation angle: 0deg on runway -> rotates up to -24deg takeoff pitch -> levels to -15deg
         let currentRotation = 0;
         if (scrollRatio < 0.15) {
-          currentRotation = 0; // Accelerating on ground
+          currentRotation = 0;
         } else if (scrollRatio < 0.7) {
           const rotationProgress = (scrollRatio - 0.15) / 0.55;
-          currentRotation = - (rotationProgress * 24); // Pitch up
+          currentRotation = - (rotationProgress * 24);
         } else {
           const levelProgress = (scrollRatio - 0.7) / 0.3;
-          currentRotation = -24 + (levelProgress * 8); // Slightly level off in high climb
+          currentRotation = -24 + (levelProgress * 8);
         }
 
-        // Landing gear retraction: As plane lifts off, wheels retract UPWARDS into fuselage belly
         let gearOffsetY = 0;
         let gearOpacity = 1;
         let gearScaleY = 1;
         if (scrollRatio > 0.08) {
-          const retractProgress = Math.min(1, (scrollRatio - 0.08) * 6); // 0 to 1 as scrollRatio goes 0.08 -> 0.25
-          gearOffsetY = -retractProgress * 14; // Translates UP into fuselage belly bay!
+          const retractProgress = Math.min(1, (scrollRatio - 0.08) * 6);
+          gearOffsetY = -retractProgress * 14;
           gearScaleY = Math.max(0.1, 1 - retractProgress * 0.9);
           gearOpacity = Math.max(0, 1 - retractProgress * 1.5);
         }
 
-        // Jet Engine Trail expansion
         let trailOpacity = 0;
         let trailScale = 1;
         if (scrollRatio > 0.05) {
@@ -1357,13 +1623,11 @@
           trailScale = 0.5 + (scrollRatio * 1.2);
         }
 
-        // Overall Plane Opacity: Fades out smoothly as it exits top right
         let planeOpacity = 1;
         if (scrollRatio > 0.82) {
           planeOpacity = Math.max(0, 1 - (scrollRatio - 0.82) * 5.5);
         }
 
-        // Apply SVG Transformations
         transformGroup.setAttribute(
           'transform',
           `translate(${currentX.toFixed(1)}, ${currentY.toFixed(1)}) rotate(${currentRotation.toFixed(1)})`
@@ -1392,7 +1656,6 @@
         }
       }, { passive: true });
 
-      // Initial call
       updatePlane();
     })();
   </script>

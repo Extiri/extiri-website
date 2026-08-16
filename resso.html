@@ -574,9 +574,9 @@
       box-sizing: border-box;
       max-width: 520px;
       padding: var(--space-8);
-      border: 1px solid rgba(var(--color-resso-rgb), 0.18);
+      border: 0 !important;
       background: var(--bg-surface);
-      box-shadow: 0 22px 52px rgba(0, 0, 0, 0.28);
+      box-shadow: none !important;
       justify-self: end;
       overflow: hidden;
     }
@@ -602,7 +602,7 @@
       gap: var(--space-4);
       align-items: center;
       padding: var(--space-4);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 0 !important;
       border-radius: var(--radius-md);
       background: rgba(255, 255, 255, 0.035);
     }
@@ -788,18 +788,46 @@
     }
 
     .resso-provider-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: var(--space-6);
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
       margin-top: var(--space-12);
-      padding: var(--space-8) 0;
+      padding: var(--space-8) max(var(--space-6), calc((100vw - 1100px) / 2));
+      overflow-x: auto;
+      overflow-y: hidden;
+      box-sizing: border-box;
+      gap: clamp(var(--space-6), 4.5vw, var(--space-16));
       border-top: 1px solid var(--bg-glass-border);
       border-bottom: 1px solid var(--bg-glass-border);
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+    }
+
+    .resso-provider-grid::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .resso-provider-grid::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .resso-provider-grid::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
     }
 
     .resso-provider {
+      flex: 0 0 auto;
+      min-width: 110px;
       display: flex;
-      min-height: 96px;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -1030,8 +1058,7 @@
         justify-self: stretch;
       }
 
-      .resso-asset-grid,
-      .resso-provider-grid {
+      .resso-asset-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -1096,7 +1123,6 @@
       }
 
       .resso-asset-grid,
-      .resso-provider-grid,
       .resso-faq,
       .resso-media-pair {
         grid-template-columns: 1fr;
@@ -1206,10 +1232,9 @@
           connected visual graph that stays synchronized with your infrastructure.</p>
 
         <div class="hero-actions hero-resso-actions flex-center delay-100">
-          <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161" class="app-store-badge-link"
+          <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161" class="btn-app-store"
             aria-label="Download Resso on the Mac App Store">
-            <img src="images/download_on_the_mac_app_store_button.svg" alt="Download on the Mac App Store"
-              class="app-store-badge-img">
+            <i class="fa-brands fa-apple" style="font-size: 1.2rem;"></i> App Store
           </a>
           <a href="#features" class="hero-resso-textlink">See features <i class="fa-solid fa-arrow-right"></i></a>
         </div>
@@ -1514,6 +1539,10 @@
           <span>App Store</span>
         </div>
         <div class="resso-provider">
+          <img src="images/resso/providers/aws.svg" alt="AWS" loading="lazy">
+          <span>AWS</span>
+        </div>
+        <div class="resso-provider">
           <img src="images/resso/providers/oracle.svg" alt="Oracle Cloud" loading="lazy">
           <span>Oracle Cloud</span>
         </div>
@@ -1524,6 +1553,10 @@
         <div class="resso-provider">
           <img src="images/resso/providers/googlecloud.svg" alt="Google Cloud" loading="lazy">
           <span>Google Cloud</span>
+        </div>
+        <div class="resso-provider">
+          <img src="images/resso/providers/upcloud.svg" alt="UpCloud" loading="lazy">
+          <span>UpCloud</span>
         </div>
         <div class="resso-provider is-inverted">
           <img src="images/resso/providers/github.svg" alt="GitHub" loading="lazy">
@@ -1586,10 +1619,9 @@
             </div>
           </div>
           <div class="hero-actions" style="margin-top: var(--space-8);">
-            <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161" class="app-store-badge-link"
+            <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161" class="btn-app-store"
               aria-label="Download Resso on the App Store">
-              <img src="images/download_on_the_mac_app_store_button.svg" alt="Download on the Mac App Store"
-                class="app-store-badge-img">
+              <i class="fa-brands fa-apple" style="font-size: 1.2rem;"></i> App Store
             </a>
           </div>
         </div>
@@ -1606,10 +1638,9 @@
       <h2>Ready to visualize your stack?</h2>
       <p>Use Resso when your projects, providers, and deployment details have outgrown scattered notes.</p>
       <div class="hero-actions flex-center">
-        <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161" class="app-store-badge-link"
+        <a href="https://apps.apple.com/pl/app/resso-asset-manager/id6761390161" class="btn-app-store"
           aria-label="Download Resso on the Mac App Store">
-          <img src="images/download_on_the_mac_app_store_button.svg" alt="Download on the Mac App Store"
-            class="app-store-badge-img">
+          <i class="fa-brands fa-apple" style="font-size: 1.2rem;"></i> App Store
         </a>
       </div>
     </div>
@@ -1653,8 +1684,7 @@
   <section class="section" id="faq">
     <div class="container">
       <div class="resso-section-header">
-        <p class="resso-eyebrow">Questions</p>
-        <h2>Clear expectations before you map your stack</h2>
+        <h2>FAQ</h2>
       </div>
       <div class="resso-faq">
         <details>

@@ -1,197 +1,284 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+
+<head>
   <!-- Umami Analytics -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="ca1be9c5-e744-4d04-966a-8f18f94e8e61"></script>
   <script defer src="../js/umami-tracking.js"></script>
   <link rel="icon" type="image/webp" href="../images/codemenu-icon.webp">
-    <title>Terms of Services - CodeMenu and Snippets Store - Extiri</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="description" content="Home page of Extiri">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles.css">
-    <style>
-      body {
-        color: white;
-        background-color: black;
-      }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terms of Service — CodeMenu — Extiri</title>
+  <meta name="description"
+    content="CodeMenu & Snippex Terms of Service and End User License Agreement (EULA) — Extiri." />
+  <meta property="og:title" content="CodeMenu Terms of Service — Extiri" />
+  <meta property="og:description" content="Terms of Service and EULA for CodeMenu and Snippex community services." />
+  <meta property="og:image" content="https://extiri.com/images/extiri-og-image.webp" />
 
-      .main {
-        display: block;
-        height: 130vh;
-        width: 100%;
-        top: 70px;
-        z-index: 2;
-      }
+  <script src="https://kit.fontawesome.com/cbd5f7f345.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="preload" href="../fonts/InstrumentSerif-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="../fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="../scripts.js" defer></script>
 
-      .section {
-        display: block;
-        width: 100%;
-        z-index: 3;
-      }
+  <style>
+    .privacy-content {
+      max-width: 900px;
+    }
 
-      .action-button {
-        width: 223px;
-        height: 52px;
-        text-align: center;
-        line-height: 50px;
+    .privacy-content section {
+      margin-bottom: var(--space-12);
+    }
 
-        font-style: normal;
-        font-weight: 600;
-        font-size: 24px;
+    .privacy-content h2 {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--bg-glass-border);
+    }
 
-        background: linear-gradient(180deg, #FEBF1F 0%, #FE9C28 100%);
-        border-radius: 100px;
-      }
+    .privacy-content h3 {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-3);
+      margin-top: var(--space-6);
+    }
 
-      h1 {
-        font-style: normal;
-        font-weight: 600;
-        font-size: 48px;
-        line-height: 52px;
-      }
+    .privacy-content p {
+      margin-bottom: var(--space-4);
+      line-height: 1.75;
+      color: var(--text-secondary);
+    }
 
-      .paragraph {
-        font-style: normal;
-        font-weight: 400;
-        font-size: 30px;
-        line-height: 39px;
-        text-align: justify;
-      }
+    .privacy-content ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: var(--space-6);
+    }
 
-      .left {
-        position: relative;
-        left: 50px;
-        flex: left;
-        width: 45%;
-      }
+    .privacy-content ul li {
+      position: relative;
+      padding-left: var(--space-6);
+      margin-bottom: var(--space-3);
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
 
-      .right {
-        position: relative;
-        right: 10px;
-        flex: right;
-        width: 45%;
-      }
+    .privacy-content ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-codemenu);
+    }
 
-      .paragraph-small {
-        font-style: normal;
-        font-weight: 400;
-        font-size: 27px;
-        line-height: 39px;
-        text-align: justify;
-      }
+    .privacy-content a {
+      color: var(--color-codemenu);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
 
-      .utilities_grid {
-        display: grid;
-        margin-left: auto;
-        margin-right: auto;
-        justify-content: center;
-        width: 90%;
-        grid-template-columns: repeat(auto-fit, 800px);
-	      grid-template-rows: repeat(auto-fit, minmax(400px, 1fr));
-	      grid-auto-flow: row dense;
-	      gap: 30px;
-        justify-items: center;
-      }
+    .privacy-content a:hover {
+      color: var(--text-primary);
+    }
 
-      .utility_element {
-        width: 800px;
-      }
-    </style>
-    <script>
-      function goToHome() {
-        window.open("../index.html#home")
-      }
+    .product-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--bg-glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6) var(--space-8);
+      margin-bottom: var(--space-6);
+    }
 
-      function goToApps() {
-        window.open("../index.html#apps")
-      }
+    .product-card h3 {
+      margin-top: 0;
+      color: var(--text-primary);
+    }
 
-      function goToBlog() {
-        window.open("../blog/index.html")
-      }
-    </script>
-    <script src="../scripts.js"></script>
-  </head>
-  <body>
-    <div class="navbar">
-        <div class="navbar-content">
-          <a href="../index.html"><img src="../images/extiri-white-logo.webp" width="110px" class="navbar-logo"></img></a>
-  
-          <span class="big_screen">
-            <p class="navbar-item" onclick="goToHome()">Home</p>
-            <p class="navbar-item" onclick="goToApps()">Apps</p>
-            <p class="navbar-item" onclick="goToBlog()">Blog</p>
-          </span>
+    .legal-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      background: rgba(254, 156, 40, 0.15);
+      color: var(--color-codemenu);
+      margin-left: var(--space-3);
+      vertical-align: middle;
+    }
+  </style>
+</head>
 
-          <span class="small_screen">
-            <img src="../images/hamburger-icon.webp" class="navbar-item" style="position: absolute; top: 11px; width: 30px !important;" onclick="toggleHamburger()">
+<body>
 
-            <div id="hamburger_menu" class="hamburger_menu">
-              <div class="hamburger_menu_content">
-                <p class="navbar-item" onclick="goToHome()">Home</p>
-                <p class="navbar-item" onclick="goToApps()">Apps</p>
-                <p class="navbar-item" onclick="goToBlog()">Blog</p>
-                </div>
-            </div>
-          </span>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="../index.html" class="nav-logo"><img src="../images/logo.webp" alt="Extiri Logo"></a>
+      <div class="nav-links">
+        <a href="../index.html#home" class="nav-link">Home</a>
+        <a href="../index.html#apps" class="nav-link">Apps</a>
+        <a href="../blog/index.html" class="nav-link">Blog</a>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleMobileMenu()"><i
+          class="fa-solid fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu">
+    <a href="../index.html#home" class="nav-link" onclick="toggleMobileMenu()">Home</a>
+    <a href="../index.html#apps" class="nav-link" onclick="toggleMobileMenu()">Apps</a>
+    <a href="../blog/index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a>
+    <a href="../about.html" class="nav-link" onclick="toggleMobileMenu()">About</a>
+  </div>
+
+  <main class="section" style="padding-top: calc(var(--header-height) + var(--space-8));">
+    <div class="container privacy-content">
+      <div style="margin-bottom: var(--space-8);">
+        <span class="badge badge--small"
+          style="background: rgba(254, 156, 40, 0.15); color: var(--color-codemenu); margin-bottom: var(--space-2);">CodeMenu
+          &amp; Snippex</span>
+        <h1>Terms of Service</h1>
+        <p style="color:var(--text-tertiary); margin-top: var(--space-2);">Last updated: 29 August 2023</p>
+      </div>
+
+      <!-- Overview -->
+      <section>
+        <h2>1. Agreement to Terms</h2>
+        <p>By downloading, installing, accessing, or using CodeMenu software or the Snippex (formerly Snippets Store)
+          platform, you agree to be bound by these Terms of Service and End User License Agreement ("EULA"). If you do
+          not agree to these terms, do not download, install, or use CodeMenu.</p>
+        <p>We reserve the right to update or modify these Terms at any time to improve clarity or reflect product
+          updates. Updated versions will be published on this page with an updated revision date.</p>
+      </section>
+
+      <!-- Terms of Service & Snippex Community Guidelines -->
+      <section>
+        <h2>2. CodeMenu &amp; Snippex Terms of Service</h2>
+
+        <div class="product-card">
+          <h3>Acceptable Use &amp; Community Guidelines</h3>
+          <p>When sharing code snippets or interacting on Snippex / Snippets Store, you agree to maintain a respectful
+            and constructive dialog. Snippex is exclusively a platform for sharing useful developer code snippets, AI
+            prompts, and technical documentation.</p>
+          <ul>
+            <li><strong>Content Scope:</strong> Shared snippets must be directly related to programming, markup
+              languages, configuration files, or AI prompts. Advertising or off-topic posts are strictly prohibited.
+            </li>
+            <li><strong>Prohibited Conduct:</strong> Death threats, harassment, stalking, hate speech, pornography, NSFW
+              material, gore, or planning illegal activities are strictly disallowed.</li>
+            <li><strong>Security &amp; Safety:</strong> Snippets must not contain malicious code, viruses, background
+              data collection scripts, or unauthorized file access instructions.</li>
+          </ul>
         </div>
+
+        <div class="product-card">
+          <h3>Licensing &amp; Public Domain (CC0)</h3>
+          <p>All code snippets uploaded to Snippex are shared under the <a
+              href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">Creative Commons
+              CC0 1.0 Universal (Public Domain)</a> license.</p>
+          <p>By uploading a snippet, you represent and warrant that you own or have the necessary rights to the content,
+            and you consent to dedicate all copyright and related rights in that snippet to the public domain worldwide.
+            Extiri assumes no liability for any code uploaded by users or third-party usage thereof.</p>
+        </div>
+
+        <div class="product-card">
+          <h3>Enforcement &amp; Penalties</h3>
+          <p>Failure to comply with community guidelines may result in penalties depending on severity, including:</p>
+          <ul>
+            <li><strong>Snippet Deletion:</strong> Removal of snippets that violate rules or terms.</li>
+            <li><strong>Warnings &amp; Strikes:</strong> Account warnings or strikes. Receiving 5 strikes results in
+              losing access to Snippex.</li>
+            <li><strong>Account Blockade:</strong> Temporary or permanent ban from Snippex and removal of all uploaded
+              snippets.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- End User License Agreement (Standard EULA) -->
+      <section>
+        <h2>3. Licensed Application End User License Agreement (EULA)</h2>
+        <p>CodeMenu applications distributed through the Apple App Store are licensed, not sold, to you. Your license is
+          governed by Apple's Standard EULA terms outlined below:</p>
+
+        <div class="product-card">
+          <h3>a. Scope of License</h3>
+          <p>Licensor grants you a non-transferable license to use CodeMenu on any Apple-branded products that you own
+            or control as permitted by the Apple Media Services Terms and Conditions. You may not distribute,
+            sub-license, reverse-engineer, disassemble, or attempt to derive the source code of the application.</p>
+        </div>
+
+        <div class="product-card">
+          <h3>b. Consent to Use of Data</h3>
+          <p>You agree that Licensor may collect and use technical data and related information—including device
+            specifications and system software data—to facilitate software updates, product support, and anonymous
+            performance optimization. Please refer to our <a href="../privacy_policy.html">Privacy Policy</a> for
+            detailed data handling practices.</p>
+        </div>
+
+        <div class="product-card">
+          <h3>c. Termination</h3>
+          <p>This EULA is effective until terminated by you or Licensor. Your rights under this license will terminate
+            automatically without notice if you fail to comply with any terms.</p>
+        </div>
+
+        <div class="product-card">
+          <h3>d. Disclaimer of Warranties &amp; Limitation of Liability</h3>
+          <p>YOU EXPRESSLY ACKNOWLEDGE AND AGREE THAT USE OF THE APPLICATION IS AT YOUR SOLE RISK. THE APPLICATION IS
+            PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND.</p>
+          <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL LICENSOR BE LIABLE FOR PERSONAL INJURY OR ANY
+            INCIDENTAL, SPECIAL, INDIRECT, OR CONSEQUENTIAL DAMAGES (INCLUDING LOSS OF PROFITS, DATA, OR BUSINESS
+            INTERRUPTION) ARISING OUT OF YOUR USE OR INABILITY TO USE THE APPLICATION.</p>
+        </div>
+
+        <div class="product-card">
+          <h3>e. Governing Law</h3>
+          <p>Except as expressly provided in consumer protection laws of your jurisdiction, this EULA is governed by the
+            laws of the State of California, excluding its conflicts of law provisions.</p>
+        </div>
+      </section>
     </div>
-    
-    <br>
-    <br>
-    <br>
-    <br>
+  </main>
 
-    <div class="section" style="width: 70%; margin-left: auto; margin-right: auto; font-size: 1.5em;">
-			<p>
-        Version: 3 | Last change date: 29.08.2023
-        <br><br><br>
-        <h1>EULA</h1>
-        Apps made available through the App Store are licensed, not sold, to you. Your license to each App is subject to your prior acceptance of either this Licensed Application End User License Agreement (“Standard EULA”), or a custom end user license agreement between you and the Application Provider (“Custom EULA”), if one is provided. Your license to any Apple App under this Standard EULA or Custom EULA is granted by Apple, and your license to any Third Party App under this Standard EULA or Custom EULA is granted by the Application Provider of that Third Party App. Any App that is subject to this Standard EULA is referred to herein as the “Licensed Application.” The Application Provider or Apple as applicable (“Licensor”) reserves all rights in and to the Licensed Application not expressly granted to you under this Standard EULA.
-        <br><br> 
-        a. Scope of License: Licensor grants to you a nontransferable license to use the Licensed Application on any Apple-branded products that you own or control and as permitted by the Usage Rules. The terms of this Standard EULA will govern any content, materials, or services accessible from or purchased within the Licensed Application as well as upgrades provided by Licensor that replace or supplement the original Licensed Application, unless such upgrade is accompanied by a Custom EULA. Except as provided in the Usage Rules, you may not distribute or make the Licensed Application available over a network where it could be used by multiple devices at the same time. You may not transfer, redistribute or sublicense the Licensed Application and, if you sell your Apple Device to a third party, you must remove the Licensed Application from the Apple Device before doing so. You may not copy (except as permitted by this license and the Usage Rules), reverse-engineer, disassemble, attempt to derive the source code of, modify, or create derivative works of the Licensed Application, any updates, or any part thereof (except as and only to the extent that any foregoing restriction is prohibited by applicable law or to the extent as may be permitted by the licensing terms governing use of any open-sourced components included with the Licensed Application).
-        <br><br> 
-        b. Consent to Use of Data: You agree that Licensor may collect and use technical data and related information—including but not limited to technical information about your device, system and application software, and peripherals—that is gathered periodically to facilitate the provision of software updates, product support, and other services to you (if any) related to the Licensed Application. Licensor may use this information, as long as it is in a form that does not personally identify you, to improve its products or to provide services or technologies to you.
-        <br><br> 
-        c. Termination. This Standard EULA is effective until terminated by you or Licensor. Your rights under this Standard EULA will terminate automatically if you fail to comply with any of its terms. 
-        <br><br> 
-        d. External Services. The Licensed Application may enable access to Licensor’s and/or third-party services and websites (collectively and individually, "External Services"). You agree to use the External Services at your sole risk. Licensor is not responsible for examining or evaluating the content or accuracy of any third-party External Services, and shall not be liable for any such third-party External Services. Data displayed by any Licensed Application or External Service, including but not limited to financial, medical and location information, is for general informational purposes only and is not guaranteed by Licensor or its agents. You will not use the External Services in any manner that is inconsistent with the terms of this Standard EULA or that infringes the intellectual property rights of Licensor or any third party. You agree not to use the External Services to harass, abuse, stalk, threaten or defame any person or entity, and that Licensor is not responsible for any such use. External Services may not be available in all languages or in your Home Country, and may not be appropriate or available for use in any particular location. To the extent you choose to use such External Services, you are solely responsible for compliance with any applicable laws. Licensor reserves the right to change, suspend, remove, disable or impose access restrictions or limits on any External Services at any time without notice or liability to you. 
-        <br><br> 
-        e. NO WARRANTY: YOU EXPRESSLY ACKNOWLEDGE AND AGREE THAT USE OF THE LICENSED APPLICATION IS AT YOUR SOLE RISK. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE LICENSED APPLICATION AND ANY SERVICES PERFORMED OR PROVIDED BY THE LICENSED APPLICATION ARE PROVIDED "AS IS" AND “AS AVAILABLE,” WITH ALL FAULTS AND WITHOUT WARRANTY OF ANY KIND, AND LICENSOR HEREBY DISCLAIMS ALL WARRANTIES AND CONDITIONS WITH RESPECT TO THE LICENSED APPLICATION AND ANY SERVICES, EITHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES AND/OR CONDITIONS OF MERCHANTABILITY, OF SATISFACTORY QUALITY, OF FITNESS FOR A PARTICULAR PURPOSE, OF ACCURACY, OF QUIET ENJOYMENT, AND OF NONINFRINGEMENT OF THIRD-PARTY RIGHTS. NO ORAL OR WRITTEN INFORMATION OR ADVICE GIVEN BY LICENSOR OR ITS AUTHORIZED REPRESENTATIVE SHALL CREATE A WARRANTY. SHOULD THE LICENSED APPLICATION OR SERVICES PROVE DEFECTIVE, YOU ASSUME THE ENTIRE COST OF ALL NECESSARY SERVICING, REPAIR, OR CORRECTION. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES OR LIMITATIONS ON APPLICABLE STATUTORY RIGHTS OF A CONSUMER, SO THE ABOVE EXCLUSION AND LIMITATIONS MAY NOT APPLY TO YOU.
-        <br><br> 
-        f. Limitation of Liability. TO THE EXTENT NOT PROHIBITED BY LAW, IN NO EVENT SHALL LICENSOR BE LIABLE FOR PERSONAL INJURY OR ANY INCIDENTAL, SPECIAL, INDIRECT, OR CONSEQUENTIAL DAMAGES WHATSOEVER, INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF PROFITS, LOSS OF DATA, BUSINESS INTERRUPTION, OR ANY OTHER COMMERCIAL DAMAGES OR LOSSES, ARISING OUT OF OR RELATED TO YOUR USE OF OR INABILITY TO USE THE LICENSED APPLICATION, HOWEVER CAUSED, REGARDLESS OF THE THEORY OF LIABILITY (CONTRACT, TORT, OR OTHERWISE) AND EVEN IF LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. SOME JURISDICTIONS DO NOT ALLOW THE LIMITATION OF LIABILITY FOR PERSONAL INJURY, OR OF INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THIS LIMITATION MAY NOT APPLY TO YOU. In no event shall Licensor’s total liability to you for all damages (other than as may be required by applicable law in cases involving personal injury) exceed the amount of fifty dollars ($50.00). The foregoing limitations will apply even if the above stated remedy fails of its essential purpose.
-        <br><br> 
-        g. You may not use or otherwise export or re-export the Licensed Application except as authorized by United States law and the laws of the jurisdiction in which the Licensed Application was obtained. In particular, but without limitation, the Licensed Application may not be exported or re-exported (a) into any U.S.-embargoed countries or (b) to anyone on the U.S. Treasury Department's Specially Designated Nationals List or the U.S. Department of Commerce Denied Persons List or Entity List. By using the Licensed Application, you represent and warrant that you are not located in any such country or on any such list. You also agree that you will not use these products for any purposes prohibited by United States law, including, without limitation, the development, design, manufacture, or production of nuclear, missile, or chemical or biological weapons.
-        <br><br> 
-        h. The Licensed Application and related documentation are "Commercial Items", as that term is defined at 48 C.F.R. §2.101, consisting of "Commercial Computer Software" and "Commercial Computer Software Documentation", as such terms are used in 48 C.F.R. §12.212 or 48 C.F.R. §227.7202, as applicable. Consistent with 48 C.F.R. §12.212 or 48 C.F.R. §227.7202-1 through 227.7202-4, as applicable, the Commercial Computer Software and Commercial Computer Software Documentation are being licensed to U.S. Government end users (a) only as Commercial Items and (b) with only those rights as are granted to all other end users pursuant to the terms and conditions herein. Unpublished-rights reserved under the copyright laws of the United States.
-        <br><br> 
-        i. Except to the extent expressly provided in the following paragraph, this Agreement and the relationship between you and Apple shall be governed by the laws of the State of California, excluding its conflicts of law provisions. You and Apple agree to submit to the personal and exclusive jurisdiction of the courts located within the county of Santa Clara, California, to resolve any dispute or claim arising from this Agreement. If (a) you are not a U.S. citizen; (b) you do not reside in the U.S.; (c) you are not accessing the Service from the U.S.; and (d) you are a citizen of one of the countries identified below, you hereby agree that any dispute or claim arising from this Agreement shall be governed by the applicable law set forth below, without regard to any conflict of law provisions, and you hereby irrevocably submit to the non-exclusive jurisdiction of the courts located in the state, province or country identified below whose law governs:
-        <br><br> 
-        If you are a citizen of any European Union country or Switzerland, Norway or Iceland, the governing law and forum shall be the laws and courts of your usual place of residence.
-        <br><br> 
-        Specifically excluded from application to this Agreement is that law known as the United Nations Convention on the International Sale of Goods.
-        <br><br> 
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="footer-logo"><img src="../images/logo.webp" alt="Extiri Logo"></a>
+        <p class="footer-tagline">Native tools for Mac &amp; iOS.</p>
+      </div>
 
-        <h1>Terms of Services</h1>
-        <br><br>
-        Terms of Service may change from time to time. We reserve the right to change these Terms at any time, to improve clarity or to reflect changes in our product or business. When we do, we will post an updated version on our website, including the date that these Terms were last updated. By continuing to use our Services, you consent to the revised Terms.
-        Consent
-        <br><br> 
-        Terms apply to usage of Services. You agree to Terms of Services by downloading, installing, accessing and using CodeMenu and/or Snippets Store. This consent is required for usage of Services.
-        Termination
-        <br><br> 
-        You agree to behave in a respectful way on Snippets Store (this won’t be penalised, unless associated with violation of penalised rule, but you are expected). Even if you argue with someone, do it in a respectful way. The person arguing with you is also expected to be respectful. Keep a constructive dialog with others so you can find a solution or a compromise to a disagreement. Remember that there is a person like you on the other side of the screen. You can present your opinion (although avoid controversial ones, like politics, and use different communicators and social media to discuss them to avoid unneeded issues) although you are expected to respect (but not required to agree) someone others opinion. If you want to discuss such an opinion, please, contact each other directly instead of doing it on Snippets Store. Remember, Snippets Store is a place only for sharing useful snippets of code and is not supposed to be a place for anything else. All discussions are expected to be about code. All snippets are shared under CC0 license (https://creativecommons.org/share-your-work/public-domain/cc0/, copy at the end of Terms of Service) and their sharers acknowledge that they solely own the rights to snippets and consent to wave all these rights to snippets by sharing them (although sharer of the snippet that violates the rules can be penalised). Extiri takes no responsibility for any damage caused by snippets to the fullest extend allowed by law. These are the rules that will be penalised. You consent to follow them. Share only code in a programming language, markup language or an AI prompt. Snippets must be directly related to programming. Death threats, blackmailing, stalking and abuse are disallowed. Things such as nudity and pornography are disallowed. Gore and drastic things are disallowed. NSFW are disallowed. Planning or doing illegal activities and crimes such as, but not limited to, pedophilia, pirating and murder are disallowed. Topics related to alcohol, drugs, cigarettes are disallowed. No spamming. Snippets must not do any malicious activities such as, but not limited to, accessing data without snippet's user knowledge, being/installing a virus, creating/deleting files without snippets user knowledge. All snippets must be under CC0 license. Snippets must not be copyrighted before sharing. Snippets with sole purpose of advertising are disallowed. You agree and know the risk that if you break any of these rules, you may face penalties, which depend on severity of broken rule. You will be informed of any effective reports and their reasons and you will be able to object to the report and penalty. These are all the possible penalties: Snippet deletion - all penalties include deletion of snippet that violated the rule. A warning - your account will receive a warning. This has no effect on your usage, except deletion of snippet, which violated a rule. A strike - your account will receive a strike. 5 strikes mean losing access to Snippets Store, but not deletion of Extiri account. Snippets Store blockade - your account will lose access to Snippets Store and all your snippets will be deleted, if blocked permamently. This can be permanent or temporary. You can and should report any occurrences of violation of rules. Extiri reserves all rights to penalise any violation in a way that it decides to be valid.
-      </p>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="../resso.html">Resso</a>
+          <a href="../codemenu.html">CodeMenu</a>
+          <a href="../airstrip.html">Airstrip</a>
+          <a href="../rapidool.html">Rapidool</a>
+          <a href="../netvis.html">Netvis</a>
+          <a href="../chitneek.html">Chitneek</a>
+          <a href="../clipguru.html">ClipGuru</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="../about.html">About</a>
+          <a href="../blog/index.html">Blog</a>
+          <a href="../privacy_policy.html">Privacy Policy</a>
+          <a href="./terms_of_services.html">Terms of Service</a>
+        </div>
+      </div>
     </div>
+    <div class="footer-bottom text-center">
+      <div class="container">
+        <p>&copy; 2026 Extiri. All rights reserved. Mac is a trademark of Apple Inc., registered in the U.S. and other
+          countries.</p>
+      </div>
+    </div>
+  </footer>
+</body>
 
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <p style="color: white; padding-bottom: 10px; text-align: center;"><a href="../privacy_policy.html" class="secondary_link">Privacy Policy</a> | <a href="#" class="secondary_link">Terms of Services</a></p>
-    <p style="color: #505050; padding-bottom: 50px; text-align: center;">Mac is a trademark of Apple Inc., registered in the U.S. and other countries and regions.</p>
-  </body>
 </html>
