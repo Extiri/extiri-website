@@ -421,9 +421,16 @@ function initRecentPosts() {
     }
   }
 
-  // Fix link URLs (the RSS has /blog/blog/ which needs to be corrected)
+  // Fix link URLs (convert absolute URLs to relative paths with .html extension)
   function fixLink(url) {
-    return url.replace('/blog/blog/', '/blog/');
+    let path = url.replace(/^https?:\/\/[^\/]+\/blog\//, 'blog/').replace('/blog/blog/', '/blog/');
+    if (!path.startsWith('blog/')) {
+      path = 'blog/' + path.replace(/^\//, '');
+    }
+    if (!path.endsWith('.html') && !path.endsWith('/')) {
+      path += '.html';
+    }
+    return path;
   }
 
   // Create a post card element
