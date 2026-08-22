@@ -334,10 +334,12 @@ h1 {
 h2 {
   font-size: var(--text-4xl);
   letter-spacing: -0.01em;
+  margin-bottom: var(--space-5);
 }
 
 h3 {
   font-size: var(--text-3xl);
+  margin-bottom: var(--space-3);
 }
 
 h4 {
@@ -1010,6 +1012,20 @@ p {
 }
 .bento-card--suggestions {
   background: #241b0b;
+}
+
+/* Added spacing above Słówko row */
+.bento-card--slowko,
+.bento-card--games,
+.bento-card--suggestions {
+  margin-top: var(--space-10);
+}
+
+@media (max-width: 1024px) {
+  .bento-card--games,
+  .bento-card--suggestions {
+    margin-top: 0;
+  }
 }
 
 .bento-card-header {

@@ -6,9 +6,186 @@
 </description>
     <link>https://extiri.com/blog/</link>
     <atom:link href="https://extiri.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 10 Aug 2026 16:11:06 +0200</pubDate>
-    <lastBuildDate>Mon, 10 Aug 2026 16:11:06 +0200</lastBuildDate>
+    <pubDate>Sat, 22 Aug 2026 16:39:57 +0200</pubDate>
+    <lastBuildDate>Sat, 22 Aug 2026 16:39:57 +0200</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
+    
+      <item>
+        <title>A Pragmatic Pre-Flight Checklist for App Store Submissions</title>
+        <description>&lt;p&gt;Last month I submitted a new version of one of my apps and it sailed through App Review without issues. Great, except I had forgotten to attach the new auto-renewable subscription product to the build in App Store Connect. The app went live with a hard paywall and no way for users to actually purchase anything behind it. Every screen that prompted a subscription just did nothing. I was losing sales for every hour the broken build was in production, and fixing it meant preparing another release, submitting it, and waiting for another full review cycle. The whole thing took days to resolve, all because of a single button I forgot to click before submitting.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;If you have shipped more than a few iOS or Mac apps, you have a version of this story. Maybe you left TestFlight internal testing notes in your release description. Maybe you shipped a build with a staging API base URL still hardcoded behind a debug flag you forgot to flip. Maybe your App Review demo account credentials had expired and nobody noticed until the reviewer did. These are not complex engineering problems. They are process problems and they are embarrassing precisely because they are so avoidable.&lt;/p&gt;
+
+&lt;p&gt;After burning through enough of these mistakes, I sat down and wrote a strict pre-flight checklist that I now run before every single App Store submission. It covers the gaps that tend to slip through when you are rushing to ship, which is exactly when gaps slip through most easily.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-checklist&quot;&gt;The checklist&lt;/h2&gt;
+
+&lt;p&gt;The checklist has three phases: what you do before you archive in Xcode, what you verify in App Store Connect, and the submission itself. I have kept it deliberately concise so it stays scannable under pressure.&lt;/p&gt;
+
+&lt;h3 id=&quot;pre-archive-xcode&quot;&gt;Pre-Archive (Xcode)&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Step&lt;/th&gt;
+      &lt;th&gt;Details&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Bump version numbers&lt;/td&gt;
+      &lt;td&gt;Set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MARKETING_VERSION&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CURRENT_PROJECT_VERSION&lt;/code&gt; in your build settings or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.xcconfig&lt;/code&gt;. Verify they are correct in the General tab.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Verify production endpoints&lt;/td&gt;
+      &lt;td&gt;Confirm API base URLs, feature flags, and environment variables point to production, not staging or local.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Strip debug tools&lt;/td&gt;
+      &lt;td&gt;Remove or gate any debug menus, test overlays, console logging frameworks, or developer-only UI behind compiler flags (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#if DEBUG&lt;/code&gt;).&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Check Privacy Manifest&lt;/td&gt;
+      &lt;td&gt;If you updated SDKs or added new frameworks, verify your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PrivacyInfo.xcprivacy&lt;/code&gt; declares the correct API reasons and tracking domains.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Run UI tests&lt;/td&gt;
+      &lt;td&gt;Confirm your UI test suite passes on the target device class. Even a quick smoke test on the critical purchase and onboarding flows saves pain later.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Archive on Release config&lt;/td&gt;
+      &lt;td&gt;Make sure you are archiving with the Release build configuration, not Debug. Check your scheme settings.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;app-store-connect&quot;&gt;App Store Connect&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Step&lt;/th&gt;
+      &lt;th&gt;Details&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Update release notes&lt;/td&gt;
+      &lt;td&gt;Write the “What’s New” text for this version. Keep it factual and specific.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Update Privacy Nutrition Labels&lt;/td&gt;
+      &lt;td&gt;If you added new SDKs, analytics, or data collection since the last submission, update the App Privacy section to match.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Verify review credentials&lt;/td&gt;
+      &lt;td&gt;Confirm the demo account username and password in App Review Information actually work. Log in yourself and check. If the account requires 2FA, document the flow for the reviewer.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Attach IAPs and subscriptions&lt;/td&gt;
+      &lt;td&gt;If this build introduces new In-App Purchases or auto-renewable subscriptions, make sure they are created, priced, and attached to this version. This is the one I forget most often.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Check screenshots and previews&lt;/td&gt;
+      &lt;td&gt;Verify that screenshots are current and match what the reviewer will see. Outdated UI in screenshots can trigger a rejection.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Confirm age rating&lt;/td&gt;
+      &lt;td&gt;If new content or features affect the age rating questionnaire, update it.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;submission&quot;&gt;Submission&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Step&lt;/th&gt;
+      &lt;th&gt;Details&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Select the processed build&lt;/td&gt;
+      &lt;td&gt;Wait for the build to finish processing and then select it in the version page. Do not submit before processing completes.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Configure phased release&lt;/td&gt;
+      &lt;td&gt;Decide whether to use phased release (gradual rollout over 7 days) or release immediately. For anything beyond a trivial patch, phased release gives you time to catch issues.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Review the submission summary&lt;/td&gt;
+      &lt;td&gt;Read through everything one more time on the summary screen. This is your last chance to catch something before it goes to review.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Submit&lt;/td&gt;
+      &lt;td&gt;Submit for review.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;That is the entire app store submission checklist. It takes about ten minutes to walk through if everything is already in order, which is a small price compared to losing a day or two to a rejection you could have caught.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-problem-with-static-checklists&quot;&gt;The problem with static checklists&lt;/h2&gt;
+
+&lt;p&gt;Here is where I should be honest about the flaw in what I just described. A checklist in a Notion doc or an Apple Note works perfectly well, right up until the moment you are scrambling to push a hotfix at 11 PM and you simply forget to open it. You skip straight to Xcode, archive, upload, submit, and then remember the checklist exists about four hours later when the rejection email arrives.&lt;/p&gt;
+
+&lt;p&gt;The checklist itself is not the problem. The problem is that nothing reminds you to use it at the exact moment you need it. It sits in a document somewhere, inert, waiting for you to remember it exists. And when you are in a rush, you will not remember, because that is how rushing works.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-i-actually-use-this-checklist&quot;&gt;How I actually use this checklist&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/airstrip/airstrip-screenshot.png&quot; alt=&quot;The App Store Release template open in Airstrip, showing sequential steps with variables and context observers configured.&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I built a Mac app called &lt;a href=&quot;https://extiri.com/airstrip.html&quot;&gt;Airstrip&lt;/a&gt; to solve this specific workflow gap. The reason I built it was precisely because I kept running into this problem and nothing else solved it the way I needed.&lt;/p&gt;
+
+&lt;p&gt;Airstrip is a native Mac procedure manager. You create runbook templates with sequential steps, attach actions to each step (like “open this URL” or “copy this command to clipboard”), and then execute them as interactive runs. Each run is a deep copy of the template, so your execution history stays intact even if you update the template later. It is a structured way to follow the same iOS app release steps every time without relying on memory or discipline.&lt;/p&gt;
+
+&lt;p&gt;The feature that makes this actually useful for the App Store Connect runbook problem, though, is what Airstrip calls Context Observers. You can attach observer rules to any template that monitor which application or website domain you currently have in focus. So I have my App Store Release template configured with two observers: one watches for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;appstoreconnect.apple.com&lt;/code&gt; in my browser, and another watches for Xcode becoming the active application. The moment either of those conditions is met, Airstrip shows a quiet, non-intrusive banner at the top of the screen recommending I start the release checklist. I do not have to remember to open it. The checklist surfaces itself when the context is right.&lt;/p&gt;
+
+&lt;p&gt;Once I start the run, the procedure opens in Focus Mode, which is a compact borderless floating window that sits on top of whatever else I am working in. It stays visible alongside my browser or Xcode without taking over the screen. I work through each step, marking them done as I go. If a step has an attached URL action (like a link to the App Review Information page in App Store Connect), I can open it directly from the step. If a step has a command to copy, one click puts it on my clipboard.&lt;/p&gt;
+
+&lt;p&gt;When the run is finished, Airstrip keeps the completed execution in my history with timestamps for each step. If something goes wrong with a release later and I need to check whether I actually verified the demo credentials or confirmed the subscription was attached, the record is there.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-template&quot;&gt;The template&lt;/h2&gt;
+
+&lt;p&gt;Rather than just describing the process, I have exported the exact Airstrip procedure template I use for my own releases as a downloadable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.airp&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;The template includes all three phases from the checklist above — Pre-Archive, App Store Connect, and Submission — broken into individual steps with attached actions. Steps that involve opening a specific page in App Store Connect have URL actions pre-configured so you can jump straight there. Steps that involve running a terminal command have the command attached for one-click clipboard copy. There are variables like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{{version_number}}&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{{build_number}}&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{{scheme_name}}&lt;/code&gt; so you fill them in once at the start of each run and they propagate through every step that references them.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;To use the template:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/assets/airstrip/App%20Store%20Release.airp&quot;&gt;Download the App Store Release template&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Double-click the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.airp&lt;/code&gt; file to import it into Airstrip.&lt;/li&gt;
+  &lt;li&gt;Add a Context Observer for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;appstoreconnect.apple.com&lt;/code&gt; so the template surfaces itself when you are in App Store Connect.&lt;/li&gt;
+  &lt;li&gt;When it is time to submit, start a run, fill in your version and build numbers, and work through each step.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;cta-box&quot;&gt;
+&lt;h2&gt;Get Airstrip for Mac&lt;/h2&gt;
+&lt;p&gt;A native procedure manager for runbooks, release checklists, and operational workflows. Requires macOS 26 or later.&lt;/p&gt;
+&lt;div&gt;
+&lt;a href=&quot;https://apps.apple.com/pl/app/airstrip-runbook-manager/id6794710703&quot; class=&quot;cta-btn&quot;&gt;Download on the App Store&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Mon, 10 Aug 2026 00:00:00 +0200</pubDate>
+        <link>https://extiri.com/blog/posts/preflight-checklist-app-store-submissions</link>
+        <guid isPermaLink="true">https://extiri.com/blog/posts/preflight-checklist-app-store-submissions</guid>
+        
+        <category>guide</category>
+        
+        <category>productivity</category>
+        
+        <category>extiri</category>
+        
+        
+      </item>
     
       <item>
         <title>Your Whole Stack, One Place: Introducing Resso</title>
@@ -1750,370 +1927,6 @@ having nearly identical spikes at the low end of the distribution. In those smal
         <guid isPermaLink="true">https://extiri.com/blog/posts/the-year-of-local-software</guid>
         
         <category>extiri</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>How to Use Code Snippets on Your Mac</title>
-        <description>&lt;p class=&quot;lead&quot;&gt;You found a piece of code online-maybe in Python, Bash, JavaScript, Ruby, or even C-and you’re wondering how to actually run it on your Mac.&lt;br /&gt;
-You’re in the right place. I’ll walk you through how to run snippets in both interpreted &lt;em&gt;and&lt;/em&gt; compiled languages, explain what’s happening behind the scenes, and keep it simple.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;whats-going-on-interpreted-vs-compiled-languages&quot;&gt;What’s going on: interpreted vs compiled languages&lt;/h2&gt;
-
-&lt;p&gt;Before we dive into examples, here’s a quick overview.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Interpreted languages&lt;/strong&gt; (like Python, Bash scripts, JavaScript via Node.js, Ruby) are executed by a program (an interpreter) line by line. You paste code and it runs.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Compiled languages&lt;/strong&gt; (such as C, C++ and others) require a &lt;em&gt;compiler&lt;/em&gt;. The compiler transforms your source code into a binary executable that your Mac can run directly. That means a few extra steps: install the compiler → compile the code → run the executable.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Why does this matter to you? Because when you pick up a snippet, you’ll want to know whether you can paste it and run it immediately (interpreted), or if you need a toolchain set up (compiled).&lt;br /&gt;
-Let’s go through both.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;option-1-running-interpreted-languages&quot;&gt;Option 1: Running Interpreted Languages&lt;/h2&gt;
-
-&lt;h3 id=&quot;python&quot;&gt;Python&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Check if Python is installed:
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;  python3 --version
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;If you see something like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Python 3.9.x&lt;/code&gt;, you’re ready.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Run code interactively:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;python3
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;p&gt;Now you’re at the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt; prompt. Paste:&lt;/p&gt;
-
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello from Python!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;p&gt;Press Enter → you’ll see the output. To exit, type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;exit()&lt;/code&gt; or press &lt;strong&gt;Ctrl + D&lt;/strong&gt;.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Run a script from a file:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Open a text editor, paste your snippet.&lt;/li&gt;
-      &lt;li&gt;Save it as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myscript.py&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;In Terminal, navigate to its folder.&lt;/p&gt;
-
-        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/Desktop     &lt;span class=&quot;c&quot;&gt;# adjust path as needed&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Run:&lt;/p&gt;
-
-        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;python3 myscript.py
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;bash--shell&quot;&gt;Bash / Shell&lt;/h3&gt;
-
-&lt;p&gt;If the snippet looks like:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello from the shell!&quot;&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;You can simply paste it into Terminal and hit Enter-done.&lt;/p&gt;
-
-&lt;p&gt;For a multi-line script:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;nano myscript.sh         &lt;span class=&quot;c&quot;&gt;# open a simple editor&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# paste code&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# save with Ctrl + O, enter; exit with Ctrl + X&lt;/span&gt;
-chmod +x myscript.sh     &lt;span class=&quot;c&quot;&gt;# make it executable&lt;/span&gt;
-./myscript.sh            &lt;span class=&quot;c&quot;&gt;# run it&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;javascript-with-nodejs&quot;&gt;JavaScript with Node.js&lt;/h3&gt;
-
-&lt;p&gt;To use JavaScript outside of a browser you’ll generally install &lt;strong&gt;Node.js&lt;/strong&gt;. I’ll cover installation in the next section. Once installed:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Interactive mode:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;node
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;p&gt;You’ll see a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;gt;&lt;/code&gt; prompt. Then:&lt;/p&gt;
-
-    &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello from Node.js!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;p&gt;Press Enter → output appears. Exit with Ctrl + C.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Running from file:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;nano app.js           &lt;span class=&quot;c&quot;&gt;# create/edit file&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# paste:&lt;/span&gt;
-console.log&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;This runs using Node.js&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
-&lt;span class=&quot;c&quot;&gt;# save &amp;amp; exit&lt;/span&gt;
-node app.js
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;ruby&quot;&gt;Ruby&lt;/h3&gt;
-
-&lt;p&gt;Check:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;ruby -v
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Then create a file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;script.rb&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello from Ruby!&quot;&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Save, then run:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;ruby script.rb
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;installing-nodejs-so-you-can-run-js&quot;&gt;Installing Node.js (so you can run JS)&lt;/h2&gt;
-
-&lt;p&gt;Here’s how to get Node.js running on your Mac:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Visit the official Node.js site and download the &lt;strong&gt;LTS&lt;/strong&gt; version (https://nodejs.org).&lt;/li&gt;
-  &lt;li&gt;Open the downloaded &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.pkg&lt;/code&gt; installer and follow the on-screen steps.&lt;/li&gt;
-  &lt;li&gt;After installation, open Terminal and type:&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;  node -v
-  npm -v
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;You should see version numbers, indicating successful installation.&lt;/p&gt;
-
-&lt;p&gt;Optionally, you can use the Homebrew package manager:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;brew update
-brew install node
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Then verify as before.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;option-2-running-compiled-languages---example-with-c&quot;&gt;Option 2: Running Compiled Languages - Example with C&lt;/h2&gt;
-
-&lt;p&gt;Using compiled languages means one extra step: building (compiling) the code before you run it. Let’s walk through C on Mac.&lt;/p&gt;
-
-&lt;h3 id=&quot;installing-the-compiler&quot;&gt;Installing the compiler&lt;/h3&gt;
-
-&lt;p&gt;Your Mac can use Apple’s built-in toolchain (Clang) or you can install GNU GCC. Here’s how to set up the basic tools:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Run:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;xcode-select --install
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;p&gt;This installs Apple’s Command Line Tools (which include Clang) without needing the full Xcode app.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;If you prefer GNU GCC:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;brew install gcc
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;p&gt;And verify:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;gcc --version
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;p&gt;(verify the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gcc&lt;/code&gt; output shows a version string)&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;write-a-simple-c-snippet&quot;&gt;Write a simple C snippet&lt;/h3&gt;
-
-&lt;p&gt;Create a file named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hello.c&lt;/code&gt; with content:&lt;/p&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
-&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello, C world!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;compile--run&quot;&gt;Compile &amp;amp; Run&lt;/h3&gt;
-
-&lt;p&gt;In Terminal, navigate to the folder:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /path/to/folder
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Then compile:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;clang hello.c -o hello
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;or if using GCC:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;gcc-13 hello.c -o hello
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Now run:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;./hello
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;You should see:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;Hello, C world!
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;using-vs-code-for-c-optional&quot;&gt;Using VS Code for C (optional)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Install VS Code&lt;/li&gt;
-  &lt;li&gt;Install the C/C++ extension&lt;/li&gt;
-  &lt;li&gt;Open &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hello.c&lt;/code&gt;, then use the built-in terminal (Ctrl + ~) to compile and run as above.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;a-quick-peek-at-other-languages-you-might-encounter&quot;&gt;A Quick Peek at Other Languages You Might Encounter&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;C++&lt;/strong&gt; - Very similar to C; you’ll use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;clang++&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g++&lt;/code&gt; to compile.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Go&lt;/strong&gt; - Install via &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;brew install go&lt;/code&gt; or official site; run a file with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;go run file.go&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Rust&lt;/strong&gt; - Install using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rustup&lt;/code&gt;, compile with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cargo build&lt;/code&gt;, run with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cargo run&lt;/code&gt;.
-The pattern stays: install toolchain → compile/build (if needed) → run.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;option-3-run--manage-snippets-effortlessly-with-codemenu&quot;&gt;Option 3: Run &amp;amp; Manage Snippets Effortlessly with CodeMenu&lt;/h2&gt;
-
-&lt;p&gt;If you’re testing a variety of snippets across languages, switching between terminals, editors and computing steps can get tedious. That’s why I built &lt;strong&gt;&lt;a href=&quot;https://extiri.com/codemenu.html&quot;&gt;CodeMenu&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;With CodeMenu you can:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Save and organize snippets (Python, Bash, Ruby, JavaScript, C, and more).&lt;/li&gt;
-  &lt;li&gt;Run them instantly without manually opening Terminal each time.&lt;/li&gt;
-  &lt;li&gt;Keep everything in one place so you don’t lose track of “one that worked” or “the version I saved”.
-Treat it as a snippet sandbox + launcher-it simplifies your workflow so you can focus on experiments instead of setup.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;👉 Try it here: &lt;a href=&quot;https://extiri.com/codemenu.html&quot;&gt;CodeMenu for Mac&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;tldr-summary&quot;&gt;TL;DR (summary)&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Interpreted languages (Python, Bash, JS, Ruby) = paste &amp;amp; run almost immediately.&lt;/li&gt;
-  &lt;li&gt;Compiled languages (C, C++, Go, etc.) = install compiler → compile → run the executable.&lt;/li&gt;
-  &lt;li&gt;On Mac you’ll often use Terminal to run commands; editors like VS Code add comfort.&lt;/li&gt;
-  &lt;li&gt;If you’re working with lots of snippets or switching languages, CodeMenu gives you structure.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;final-thoughts&quot;&gt;Final Thoughts&lt;/h2&gt;
-
-&lt;p&gt;You don’t have to be a “developer” to try running code. You just need curiosity and a few practical steps. Start with a simple snippet, run it, see what happens, tweak it. The “typing commands” part might look intimidating-but once you’ve done it once, it becomes second nature.
-And when you want to keep your snippets organized, manageable, and easy to run-CodeMenu is there to make life simpler.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 29 Oct 2025 00:00:00 +0100</pubDate>
-        <link>https://extiri.com/blog/posts/how-to-run-code-snippets-mac</link>
-        <guid isPermaLink="true">https://extiri.com/blog/posts/how-to-run-code-snippets-mac</guid>
-        
-        <category>extiri</category>
-        
-        <category>codemenu-guide</category>
         
         
       </item>

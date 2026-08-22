@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<title>A Pragmatic Pre-Flight Checklist for App Store Submissions &#9642; Extiri Blog</title>
+<!--
+<meta name="description" content="Last month I submitted a new version of one of my apps and it sailed through App Review without issues. Great, except I had forgotten to attach the new auto-renewable subscription product to the build in App Store Connect. The app went live with a hard paywall and no way...">
+-->
+<meta name="description" content="blog about Extiri, programming and cybersecurity
+">
+<meta name="keywords" content="guide, productivity, extiri">
+<link rel="canonical" href="https://extiri.com/posts/preflight-checklist-app-store-submissions">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="A Pragmatic Pre-Flight Checklist for App Store Submissions" />
+<meta name="twitter:description" content="blog about Extiri, programming and cybersecurity
+" />
+<meta name="twitter:image" content="https://extiri.com" />
+<meta name="author" content="">
+<link rel="author" href="">
+<meta property="og:locale" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A Pragmatic Pre-Flight Checklist for App Store Submissions">
+<meta property="og:description" content="blog about Extiri, programming and cybersecurity
+">
+<meta property="og:url" content="https://extiri.com/posts/preflight-checklist-app-store-submissions">
+<meta property="og:site_name" content="Extiri Blog">
+<link rel="stylesheet" href="/blog/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="/blog/assets/css/main.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/assets/css/bf.css">
+   <body>
+       <div class="wrapper" id="blep">
+          <header class="site-header">
+ <div class="site-header__inner">
+   <div class="site-header__breadcrumbs">
+        <a href="https://extiri.com">Extiri</a>
+        <span>/</span>
+        <a href="https://extiri.com/blog/index.html">Blog</a>
+        <span>/</span>
+        <span>A Pragmatic Pre-Flight Chec...</span>
+   </div>
+   <nav class="site-header__nav">
+        <a href="/blog/about/index.html">About</a>
+        <a href="/blog/archive/index.html">Archive</a>
+        <a href="https://extiri.com">Apps</a>
+   </nav>
+ </div>
+</header>
+<article class="post">
+<header class="post-hero">
+   <div class="tag">guide</div>
+   <h1 class="post-hero__title">A Pragmatic Pre-Flight Checklist for App Store Submissions</h1>
+   <div class="byline">
+      <span>Wiktor Wójcik</span>
+        <span>8 min read</span>
+      <span>August 10, 2026</span>
+   </div>
+ </header>
+ <div class="post-content article-body">
+   <p>Last month I submitted a new version of one of my apps and it sailed through App Review without issues. Great, except I had forgotten to attach the new auto-renewable subscription product to the build in App Store Connect. The app went live with a hard paywall and no way for users to actually purchase anything behind it. Every screen that prompted a subscription just did nothing. I was losing sales for every hour the broken build was in production, and fixing it meant preparing another release, submitting it, and waiting for another full review cycle. The whole thing took days to resolve, all because of a single button I forgot to click before submitting.
+<p>If you have shipped more than a few iOS or Mac apps, you have a version of this story. Maybe you left TestFlight internal testing notes in your release description. Maybe you shipped a build with a staging API base URL still hardcoded behind a debug flag you forgot to flip. Maybe your App Review demo account credentials had expired and nobody noticed until the reviewer did. These are not complex engineering problems. They are process problems and they are embarrassing precisely because they are so avoidable.
+<p>After burning through enough of these mistakes, I sat down and wrote a strict pre-flight checklist that I now run before every single App Store submission. It covers the gaps that tend to slip through when you are rushing to ship, which is exactly when gaps slip through most easily.
+<h2 id="the-checklist">The checklist</h2>
+<p>The checklist has three phases: what you do before you archive in Xcode, what you verify in App Store Connect, and the submission itself. I have kept it deliberately concise so it stays scannable under pressure.
+<h3 id="pre-archive-xcode">Pre-Archive (Xcode)</h3>
+<table>
+<thead>
+   <tr>
+     <th>Step
+     <th>Details
+ <tbody>
+   <tr>
+     <td>Bump version numbers
+     <td>Set <code class="language-plaintext highlighter-rouge">MARKETING_VERSION</code> and <code class="language-plaintext highlighter-rouge">CURRENT_PROJECT_VERSION</code> in your build settings or <code class="language-plaintext highlighter-rouge">.xcconfig</code>. Verify they are correct in the General tab.
+   <tr>
+     <td>Verify production endpoints
+     <td>Confirm API base URLs, feature flags, and environment variables point to production, not staging or local.
+   <tr>
+     <td>Strip debug tools
+     <td>Remove or gate any debug menus, test overlays, console logging frameworks, or developer-only UI behind compiler flags (<code class="language-plaintext highlighter-rouge">#if DEBUG</code>).
+   <tr>
+     <td>Check Privacy Manifest
+     <td>If you updated SDKs or added new frameworks, verify your <code class="language-plaintext highlighter-rouge">PrivacyInfo.xcprivacy</code> declares the correct API reasons and tracking domains.
+   <tr>
+     <td>Run UI tests
+     <td>Confirm your UI test suite passes on the target device class. Even a quick smoke test on the critical purchase and onboarding flows saves pain later.
+   <tr>
+     <td>Archive on Release config
+     <td>Make sure you are archiving with the Release build configuration, not Debug. Check your scheme settings.
+</table>
+<h3 id="app-store-connect">App Store Connect</h3>
+<table>
+<thead>
+   <tr>
+     <th>Step
+     <th>Details
+ <tbody>
+   <tr>
+     <td>Update release notes
+     <td>Write the “What’s New” text for this version. Keep it factual and specific.
+   <tr>
+     <td>Update Privacy Nutrition Labels
+     <td>If you added new SDKs, analytics, or data collection since the last submission, update the App Privacy section to match.
+   <tr>
+     <td>Verify review credentials
+     <td>Confirm the demo account username and password in App Review Information actually work. Log in yourself and check. If the account requires 2FA, document the flow for the reviewer.
+   <tr>
+     <td>Attach IAPs and subscriptions
+     <td>If this build introduces new In-App Purchases or auto-renewable subscriptions, make sure they are created, priced, and attached to this version. This is the one I forget most often.
+   <tr>
+     <td>Check screenshots and previews
+     <td>Verify that screenshots are current and match what the reviewer will see. Outdated UI in screenshots can trigger a rejection.
+   <tr>
+     <td>Confirm age rating
+     <td>If new content or features affect the age rating questionnaire, update it.
+</table>
+<h3 id="submission">Submission</h3>
+<table>
+<thead>
+   <tr>
+     <th>Step
+     <th>Details
+ <tbody>
+   <tr>
+     <td>Select the processed build
+     <td>Wait for the build to finish processing and then select it in the version page. Do not submit before processing completes.
+   <tr>
+     <td>Configure phased release
+     <td>Decide whether to use phased release (gradual rollout over 7 days) or release immediately. For anything beyond a trivial patch, phased release gives you time to catch issues.
+   <tr>
+     <td>Review the submission summary
+     <td>Read through everything one more time on the summary screen. This is your last chance to catch something before it goes to review.
+   <tr>
+     <td>Submit
+     <td>Submit for review.
+</table>
+<p>That is the entire app store submission checklist. It takes about ten minutes to walk through if everything is already in order, which is a small price compared to losing a day or two to a rejection you could have caught.
+<h2 id="the-problem-with-static-checklists">The problem with static checklists</h2>
+<p>Here is where I should be honest about the flaw in what I just described. A checklist in a Notion doc or an Apple Note works perfectly well, right up until the moment you are scrambling to push a hotfix at 11 PM and you simply forget to open it. You skip straight to Xcode, archive, upload, submit, and then remember the checklist exists about four hours later when the rejection email arrives.
+<p>The checklist itself is not the problem. The problem is that nothing reminds you to use it at the exact moment you need it. It sits in a document somewhere, inert, waiting for you to remember it exists. And when you are in a rush, you will not remember, because that is how rushing works.
+<h2 id="how-i-actually-use-this-checklist">How I actually use this checklist</h2>
+<p><img src="/blog/assets/airstrip/airstrip-screenshot.png" alt="The App Store Release template open in Airstrip, showing sequential steps with variables and context observers configured." />
+<p>I built a Mac app called <a href="https://extiri.com/airstrip.html">Airstrip</a> to solve this specific workflow gap. The reason I built it was precisely because I kept running into this problem and nothing else solved it the way I needed.
+<p>Airstrip is a native Mac procedure manager. You create runbook templates with sequential steps, attach actions to each step (like “open this URL” or “copy this command to clipboard”), and then execute them as interactive runs. Each run is a deep copy of the template, so your execution history stays intact even if you update the template later. It is a structured way to follow the same iOS app release steps every time without relying on memory or discipline.
+<p>The feature that makes this actually useful for the App Store Connect runbook problem, though, is what Airstrip calls Context Observers. You can attach observer rules to any template that monitor which application or website domain you currently have in focus. So I have my App Store Release template configured with two observers: one watches for <code class="language-plaintext highlighter-rouge">appstoreconnect.apple.com</code> in my browser, and another watches for Xcode becoming the active application. The moment either of those conditions is met, Airstrip shows a quiet, non-intrusive banner at the top of the screen recommending I start the release checklist. I do not have to remember to open it. The checklist surfaces itself when the context is right.
+<p>Once I start the run, the procedure opens in Focus Mode, which is a compact borderless floating window that sits on top of whatever else I am working in. It stays visible alongside my browser or Xcode without taking over the screen. I work through each step, marking them done as I go. If a step has an attached URL action (like a link to the App Review Information page in App Store Connect), I can open it directly from the step. If a step has a command to copy, one click puts it on my clipboard.
+<p>When the run is finished, Airstrip keeps the completed execution in my history with timestamps for each step. If something goes wrong with a release later and I need to check whether I actually verified the demo credentials or confirmed the subscription was attached, the record is there.
+<h2 id="the-template">The template</h2>
+<p>Rather than just describing the process, I have exported the exact Airstrip procedure template I use for my own releases as a downloadable <code class="language-plaintext highlighter-rouge">.airp</code> file.
+<p>The template includes all three phases from the checklist above — Pre-Archive, App Store Connect, and Submission — broken into individual steps with attached actions. Steps that involve opening a specific page in App Store Connect have URL actions pre-configured so you can jump straight there. Steps that involve running a terminal command have the command attached for one-click clipboard copy. There are variables like <code class="language-plaintext highlighter-rouge">{{version_number}}</code>, <code class="language-plaintext highlighter-rouge">{{build_number}}</code>, and <code class="language-plaintext highlighter-rouge">{{scheme_name}}</code> so you fill them in once at the start of each run and they propagate through every step that references them.
+<p><strong>To use the template:</strong>
+<ol>
+ <li><a href="/blog/assets/airstrip/App%20Store%20Release.airp">Download the App Store Release template</a>.
+ <li>Double-click the <code class="language-plaintext highlighter-rouge">.airp</code> file to import it into Airstrip.
+ <li>Add a Context Observer for <code class="language-plaintext highlighter-rouge">appstoreconnect.apple.com</code> so the template surfaces itself when you are in App Store Connect.
+ <li>When it is time to submit, start a run, fill in your version and build numbers, and work through each step.
+</ol>
+<hr />
+<div class="cta-box">
+<h2>Get Airstrip for Mac</h2>
+<p>A native procedure manager for runbooks, release checklists, and operational workflows. Requires macOS 26 or later.
+<div>
+<a href="https://apps.apple.com/pl/app/airstrip-runbook-manager/id6794710703" class="cta-btn">Download on the App Store</a>
+</div>
+</div>
+ </div>
+</article>
+<aside class="related">
+<h2>Related posts</h2>
+<ul class="related-posts">
+   <li>
+    <a href="/blog/posts/how-to-read-notes-aloud.html">
+        <span>How to Read Notes Aloud (Physical, Handwritten, or Digital)</span>
+        <small>05/04</small>
+    </a>
+   <li>
+    <a href="/blog/posts/ultimate-guide-to-snippet-management-with-codemenu.html">
+        <span>The Ultimate Guide to Snippet Management with CodeMenu</span>
+        <small>10/01</small>
+    </a>
+</aside>
+           <footer class="site-footer">
+ <div class="site-footer__inner">
+   <div class="site-footer__links">
+      <a href="/blog/about/index.html">About</a>
+      <a href="/blog/archive/index.html">Archive</a>
+      <a href="https://extiri.com">Apps</a>
+      <a href="/blog/feed.xml">RSS</a>
+   </div>
+   <div class="site-footer__meta">
+      <span>Crafted by Wiktor Wójcik</span>
+      <span>&copy; 2026 Extiri</span>
+   </div>
+ </div>
+</footer>
+       </div>
+<script type="text/javascript" src="/blog/assets/js/nav.js"></script>
+<script type="text/javascript" src="/blog/assets/js/theme.js"></script>
+<script type="text/javascript" src="/blog/assets/js/barefoot.js"></script>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="ca1be9c5-e744-4d04-966a-8f18f94e8e61"></script>
+  <script defer src="/blog/assets/js/umami-tracking.js"></script>
+    

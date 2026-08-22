@@ -11,9 +11,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>CodeMenu — Developer Knowledge Base for Mac</title>
   <meta name="description"
-    content="CodeMenu is the developer knowledge base and snippet manager for macOS. Capture code, AI prompts, screenshots, palettes, and product research in one private, searchable workspace.">
+    content="CodeMenu is the developer knowledge base and snippet manager for macOS. Capture code, prompts, screenshots, palettes, and product research in one private, searchable workspace.">
   <meta name="keywords"
-    content="developer knowledge base, code notebook mac, artifact manager alternative, Obsidian for developers, mac knowledge base, AI prompts library, semantic search workspace, developer workflow hub, snippet manager, mac app, code snippets, developer productivity">
+    content="developer knowledge base, code notebook mac, artifact manager alternative, Obsidian for developers, mac knowledge base, prompts library, semantic search workspace, developer workflow hub, snippet manager, mac app, code snippets, developer productivity">
   <meta name="theme-color" content="#050505">
   <meta name="apple-itunes-app" content="app-id=1583463781">
 
@@ -37,10 +37,7 @@
     /* Page-specific overrides */
     .hero-codemenu-v2 {
       position: relative;
-      background:
-        radial-gradient(circle at 75% 30%, rgba(255, 179, 0, 0.14) 0%, transparent 50%),
-        radial-gradient(circle at 20% 80%, rgba(255, 179, 0, 0.06) 0%, transparent 45%),
-        transparent;
+      background: #000000;
       padding-top: calc(var(--header-height) + var(--space-8));
       padding-bottom: var(--space-16);
       overflow: hidden;
@@ -51,11 +48,11 @@
       position: relative;
       z-index: 10;
       display: grid;
-      grid-template-columns: minmax(360px, 0.85fr) minmax(0, 1.15fr);
-      gap: var(--space-12);
+      grid-template-columns: minmax(360px, 0.75fr) minmax(0, 1.25fr);
+      gap: var(--space-10);
       align-items: center;
       width: 100%;
-      max-width: 1400px;
+      max-width: 1600px;
       margin: 0 auto;
       padding: 0 var(--space-6);
     }
@@ -169,7 +166,7 @@
     .hero-codemenu-window-stack {
       position: relative;
       width: 100%;
-      max-width: 780px;
+      max-width: 1450px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -177,7 +174,7 @@
 
     .hero-img-dashboard-window {
       width: 84%;
-      max-width: 620px;
+      max-width: 1200px;
       height: auto;
       display: block;
       position: relative;
@@ -190,7 +187,7 @@
 
     .hero-img-side-window {
       width: 25%;
-      max-width: 185px;
+      max-width: 360px;
       height: auto;
       display: block;
       position: absolute;
@@ -628,9 +625,7 @@
     }
 
     .focus-showcase {
-      background:
-        radial-gradient(circle at 12% 18%, rgba(255, 179, 0, 0.08), transparent 28rem),
-        linear-gradient(180deg, rgba(255, 179, 0, 0.025) 0%, rgba(5, 5, 5, 0) 82%);
+      background: #000000;
     }
 
     .focus-header {
@@ -656,16 +651,22 @@
     }
 
     .focus-stories {
-      display: grid;
-      gap: var(--space-10);
+      display: flex;
+      flex-direction: column;
+      gap: 0;
     }
 
     .focus-story {
       display: grid;
       grid-template-columns: 58px 1fr;
       gap: var(--space-6);
+      padding-top: var(--space-8);
       padding-bottom: var(--space-8);
       border-bottom: 1px solid var(--bg-glass-border);
+    }
+
+    .focus-story:first-child {
+      padding-top: 0;
     }
 
     .focus-story:last-child {
@@ -879,7 +880,7 @@
           <span class="hero-brand-name">CodeMenu</span>
         </div>
 
-        <h1 class="hero-title-codemenu">Store code snippets, AI prompts, and research.</h1>
+        <h1 class="hero-title-codemenu">Store code snippets, prompts, and research.</h1>
 
         <p class="hero-subtitle-codemenu">One local-first developer knowledge base. Replace scattered Markdown files,
           Apple Notes, and text files with a fast, searchable, AI-friendly macOS workspace.</p>
@@ -933,7 +934,7 @@
     <div class="container">
       <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
         <p class="text-gradient"
-          style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">
+          style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm); margin-bottom: var(--space-4);">
           Capabilities</p>
         <h2>Your second brain, <span
             style="font-family: var(--font-sans); font-size: 0.8em; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 6px;">--offline</span>
@@ -961,7 +962,7 @@
               <i class="fa-solid fa-code"
                 style="font-size: 2rem; color: var(--color-codemenu); margin-bottom: var(--space-3);"></i>
               <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">Code</div>
-              <div style="font-size: var(--text-xs); color: var(--text-tertiary);">60+ languages</div>
+              <div style="font-size: var(--text-xs); color: var(--text-tertiary);">61 languages</div>
             </div>
 
             <!-- Prompts -->
@@ -970,7 +971,7 @@
               onmouseover="this.style.background='rgba(130, 214, 255, 0.1)'; this.style.borderColor='rgba(130, 214, 255, 0.4)';"
               onmouseout="this.style.background='rgba(130, 214, 255, 0.05)'; this.style.borderColor='rgba(130, 214, 255, 0.2)';">
               <i class="fa-solid fa-brain" style="font-size: 2rem; color: #82d6ff; margin-bottom: var(--space-3);"></i>
-              <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">AI Prompts</div>
+              <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">Prompts</div>
               <div style="font-size: var(--text-xs); color: var(--text-tertiary);">System templates</div>
             </div>
 
@@ -1065,17 +1066,31 @@
     </div>
   </section>
 
-  <!-- Tech Stack Section -->
+  <!-- Tech Stack & Snippet Types Section -->
   <section class="section">
     <div class="container">
       <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-8) auto;">
-        <h2>Syntax highlighting for 60+ languages</h2>
-        <p>Your snippets stay readable with proper highlighting.</p>
+        <h2>Built for prompts, images, and 61 languages</h2>
+        <p>CodeMenu goes beyond plain code. Store prompts, design tokens, notes, images, and bookmarks alongside native
+          syntax
+          highlighting for 61 programming languages.</p>
       </div>
       <div class="stack-grid">
-        <div class="stack-item" style="color: var(--text-primary); border-color: var(--color-codemenu);">Prompt</div>
-        <div class="stack-item" style="color: var(--text-primary); border-color: var(--color-codemenu);">Image</div>
-        <div class="stack-item" style="color: var(--text-primary); border-color: var(--color-codemenu);">Color</div>
+        <div class="stack-item"
+          style="color: var(--text-primary); border-color: var(--color-codemenu); background: rgba(255, 179, 0, 0.1);">
+          Code</div>
+        <div class="stack-item"
+          style="color: var(--text-primary); border-color: var(--color-codemenu); background: rgba(255, 179, 0, 0.1);">
+          Prompt</div>
+        <div class="stack-item"
+          style="color: var(--text-primary); border-color: var(--color-codemenu); background: rgba(255, 179, 0, 0.1);">
+          Image</div>
+        <div class="stack-item"
+          style="color: var(--text-primary); border-color: var(--color-codemenu); background: rgba(255, 179, 0, 0.1);">
+          Color</div>
+        <div class="stack-item"
+          style="color: var(--text-primary); border-color: var(--color-codemenu); background: rgba(255, 179, 0, 0.1);">
+          Link</div>
         <div class="stack-item">APL</div>
         <div class="stack-item">PGP</div>
         <div class="stack-item">ASN.1</div>
@@ -1142,11 +1157,11 @@
   </section>
 
   <!-- Integration Stack Section -->
-  <section class="section" style="background: linear-gradient(180deg, rgba(255,179,0,0.02) 0%, rgba(0,0,0,0) 100%);">
+  <section class="section" style="background: #000000;">
     <div class="container">
       <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
         <p class="text-gradient"
-          style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">
+          style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm); margin-bottom: var(--space-4);">
           Integration</p>
         <h2>The missing layer in your stack</h2>
         <p>CodeMenu sits between your editor, your terminal, and your AI tools.</p>
@@ -1274,7 +1289,7 @@
             <div>
               <h3>First-Class Artifacts</h3>
               <p>It is not just a text bucket. CodeMenu renders Markdown with LaTeX support, previews images and
-                colors, and highlights syntax for 60+ languages. Store the entire context of your work, from PDFs to
+                colors, and highlights syntax for 61 languages. Store the entire context of your work, from PDFs to
                 shell scripts.</p>
             </div>
           </article>
@@ -1396,7 +1411,7 @@
   <section class="section">
     <div class="container"
       style="max-width: 840px; text-align: center; background: var(--bg-surface); border: 1px solid var(--bg-glass-border); padding: calc(var(--space-12) + var(--space-2)) var(--space-8); border-radius: var(--radius-xl); box-shadow: var(--shadow-xl);">
-      <h2 style="font-size: clamp(1.85rem, 3.5vw, 2.75rem); margin-bottom: var(--space-4);">Ready to upgrade your
+      <h2 style="font-size: clamp(1.85rem, 3.5vw, 2.75rem); margin-bottom: var(--space-5);">Ready to upgrade your
         developer knowledge base?</h2>
       <p
         style="color: var(--text-secondary); margin-bottom: var(--space-8); font-size: 1.1rem; line-height: 1.6; max-width: 620px; margin-left: auto; margin-right: auto;">
@@ -1417,7 +1432,7 @@
     <div class="container">
       <div class="flex-between" style="margin-bottom: var(--space-8); align-items: flex-end;">
         <div>
-          <span class="badge" style="margin-bottom: var(--space-4);">Use Cases</span>
+          <span class="badge" style="margin-bottom: var(--space-4); display: inline-block;">Use Cases</span>
           <h2>Developer <span class="text-gradient">Workflows</span></h2>
         </div>
       </div>
@@ -1553,7 +1568,7 @@
   <!-- Newsletter -->
   <section class="section">
     <div class="container" style="max-width: 700px; text-align: center;">
-      <h2 style="margin-bottom: var(--space-4);">The CodeMenu Newsletter</h2>
+      <h2 style="margin-bottom: var(--space-5);">The CodeMenu Newsletter</h2>
       <p style="margin-bottom: var(--space-8); color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">Join
         the community. Get tips on building your personal knowledge base, advanced workflows with AI, and updates on new
         CodeMenu features.</p>

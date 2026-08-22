@@ -1,0 +1,162 @@
+{
+  "exportedAt": "2026-08-10T09:00:00Z",
+  "template": {
+    "icon": "shippingbox",
+    "isStrictSequencing": true,
+    "steps": [
+      {
+        "actionPayload": "",
+        "actionType": "none",
+        "details": "Set **MARKETING_VERSION** to **{{version_number}}** and **CURRENT_PROJECT_VERSION** to **{{build_number}}** in the target's Build Settings, then verify both in the **General** tab.\n\n- **Marketing version** — the user-facing version on the App Store (e.g. `1.4.0`).\n- **Build number** — must be higher than the last submitted build.",
+        "isRequired": true,
+        "orderIndex": 0,
+        "timerDuration": null,
+        "title": "Bump version numbers"
+      },
+      {
+        "actionPayload": "",
+        "actionType": "none",
+        "details": "Confirm every dependency points at **production** — not staging or local:\n\n- [ ] API base URLs\n- [ ] Feature flags\n- [ ] Environment variables\n- [ ] Analytics / crash-reporting keys\n\nCheck the app's configuration for any staging or local values.",
+        "isRequired": true,
+        "orderIndex": 1,
+        "timerDuration": null,
+        "title": "Verify production endpoints"
+      },
+      {
+        "actionPayload": "",
+        "actionType": "none",
+        "details": "Remove or gate anything that must not ship:\n\n- [ ] Debug menus and developer-only UI\n- [ ] Test overlays and mock-data injection\n- [ ] Console logging frameworks and verbose `print` statements\n\nGate dev-only code behind compiler flags:\n\n```swift\n#if DEBUG\n    showDebugMenu()\n#endif\n```\n\nSearch the project for `#if DEBUG`, `print(`, `TODO`, and `FIXME`, and confirm each occurrence is intentional.",
+        "isRequired": true,
+        "orderIndex": 2,
+        "timerDuration": null,
+        "title": "Strip debug tools"
+      },
+      {
+        "actionPayload": "https://developer.apple.com/documentation/bundleresources/privacy_manifest_files",
+        "actionType": "url",
+        "details": "If you updated SDKs or added new frameworks since the last release, verify `PrivacyInfo.xcprivacy` is accurate:\n\n- [ ] Required Reason APIs and their reasons\n- [ ] Tracking domains\n- [ ] Collected data types\n\nUnbundled frameworks may ship their own privacy manifests — confirm they land in the app bundle.",
+        "isRequired": true,
+        "orderIndex": 3,
+        "timerDuration": null,
+        "title": "Check Privacy Manifest"
+      },
+      {
+        "actionPayload": "xcodebuild test -scheme {{scheme_name}} -destination '{{test_destination}}'",
+        "actionType": "copyText",
+        "details": "Run the UI test suite against the target device class before archiving. At minimum, smoke-test the critical **purchase** and **onboarding** flows.\n\n```bash\nxcodebuild test -scheme {{scheme_name}} -destination '{{test_destination}}'\n```\n\nFix every failure before archiving.",
+        "isRequired": true,
+        "orderIndex": 4,
+        "timerDuration": null,
+        "title": "Run UI tests"
+      },
+      {
+        "actionPayload": "xcodebuild archive -scheme {{scheme_name}} -configuration Release",
+        "actionType": "copyText",
+        "details": "Archive with the **Release** build configuration — never Debug:\n\n- [ ] The scheme's Archive action uses **Release**\n- [ ] Distribution signing is selected\n- [ ] Version and build number match the first step\n\nFrom the terminal:\n\n```bash\nxcodebuild archive -scheme {{scheme_name}} -configuration Release\n```\n\nIn the Organizer, confirm the archived build's `MARKETING_VERSION` and `CURRENT_PROJECT_VERSION`, then distribute it to App Store Connect (**Distribute App** → **App Store Connect** → **Upload**).",
+        "isRequired": true,
+        "orderIndex": 5,
+        "timerDuration": null,
+        "title": "Archive on Release config"
+      },
+      {
+        "actionPayload": "https://appstoreconnect.apple.com",
+        "actionType": "url",
+        "details": "Write the **What's New** text for this version in App Store Connect. Keep it factual and specific:\n\n- Lead with the headline improvement\n- List notable fixes\n- Avoid vague marketing fluff and unverifiable claims",
+        "isRequired": true,
+        "orderIndex": 6,
+        "timerDuration": null,
+        "title": "Update release notes"
+      },
+      {
+        "actionPayload": "",
+        "actionType": "none",
+        "details": "If you added SDKs, analytics, or any new data collection since the last submission, update the **App Privacy** section to match:\n\n- [ ] Data types collected\n- [ ] Whether data is linked to the user\n- [ ] Whether data is used for tracking",
+        "isRequired": true,
+        "orderIndex": 7,
+        "timerDuration": null,
+        "title": "Update Privacy Nutrition Labels"
+      },
+      {
+        "actionPayload": "",
+        "actionType": "none",
+        "details": "Log in to the **demo account** you provide in App Review Information and confirm it works:\n\n- [ ] Username and password are current\n- [ ] The account reaches the content the reviewer needs\n- [ ] 2FA flow is documented for the reviewer\n\nAdd the credentials and any notes in App Review Information. If the account requires 2FA, document the flow so the reviewer can sign in.",
+        "isRequired": true,
+        "orderIndex": 8,
+        "timerDuration": null,
+        "title": "Verify review credentials"
+      },
+      {
+        "actionPayload": "https://appstoreconnect.apple.com/apps",
+        "actionType": "url",
+        "details": "If this build introduces new In-App Purchases or auto-renewable subscriptions:\n\n- [ ] Products are created in App Store Connect\n- [ ] They are priced and localised\n- [ ] They are attached to this version\n- [ ] The app handles them correctly",
+        "isRequired": true,
+        "orderIndex": 9,
+        "timerDuration": null,
+        "title": "Attach IAPs and subscriptions"
+      },
+      {
+        "actionPayload": "",
+        "actionType": "none",
+        "details": "Verify screenshots and previews match what the reviewer will see in this build:\n\n- [ ] All required device sizes are uploaded\n- [ ] The UI shown reflects the current design\n- [ ] No outdated or placeholder imagery",
+        "isRequired": true,
+        "orderIndex": 10,
+        "timerDuration": null,
+        "title": "Check screenshots and previews"
+      },
+      {
+        "actionPayload": "",
+        "actionType": "none",
+        "details": "If new content or features affect the age rating questionnaire, re-run it:\n\n- [ ] Questionnaire answers are current\n- [ ] They match the new features",
+        "isRequired": true,
+        "orderIndex": 11,
+        "timerDuration": null,
+        "title": "Confirm age rating"
+      },
+      {
+        "actionPayload": "https://appstoreconnect.apple.com",
+        "actionType": "url",
+        "details": "After uploading, wait for the build to finish **processing** before selecting it:\n\n- [ ] Status moves from *Processing* to *Ready to Submit*\n- [ ] The processed build is selected on this version's page\n\nDo not submit before processing completes — an unprocessed build cannot be selected.",
+        "isRequired": true,
+        "orderIndex": 12,
+        "timerDuration": null,
+        "title": "Select the processed build"
+      },
+      {
+        "actionPayload": "",
+        "actionType": "none",
+        "details": "Decide how the release rolls out:\n\n- **Phased release** — gradual rollout over 7 days. Recommended for anything beyond a trivial patch; it gives you time to catch issues.\n- **Immediate release** — everyone gets the update at once.\n\nYou can pause or accelerate a phased release after approval.",
+        "isRequired": true,
+        "orderIndex": 13,
+        "timerDuration": null,
+        "title": "Configure phased release"
+      },
+      {
+        "actionPayload": "",
+        "actionType": "none",
+        "details": "Read the summary screen one final time:\n\n- [ ] Version and build number match\n- [ ] What's New text is correct\n- [ ] App Privacy labels are accurate\n- [ ] Review credentials and notes are in place",
+        "isRequired": true,
+        "orderIndex": 14,
+        "timerDuration": null,
+        "title": "Review the submission summary"
+      },
+      {
+        "actionPayload": "https://appstoreconnect.apple.com",
+        "actionType": "url",
+        "details": "Submit for review. Afterwards:\n\n- Status moves to **Waiting for Review**\n- Watch for **In Review**, then **Approved** or **Rejected**\n- If rejected, read the resolution-center notes, fix the issue, bump the build number, and resubmit",
+        "isRequired": true,
+        "orderIndex": 15,
+        "timerDuration": null,
+        "title": "Submit"
+      }
+    ],
+    "templateDescription": "Give yourself a couple of days before the target release date — build processing and App Review rarely finish on your schedule.",
+    "title": "App Store Release",
+    "triggers": [
+      {
+        "target": "appstoreconnect.apple.com",
+        "type": "website"
+      }
+    ]
+  },
+  "version": 1
+}
