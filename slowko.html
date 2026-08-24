@@ -6,7 +6,10 @@
     <script defer src="https://cloud.umami.is/script.js"
         data-website-id="ca1be9c5-e744-4d04-966a-8f18f94e8e61"></script>
     <script defer src="js/umami-tracking.js"></script>
+    <link rel="icon" type="image/png" href="images/slowko/slowko-favicon-192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="images/slowko/slowko-favicon.png" sizes="512x512">
     <link rel="icon" type="image/webp" href="images/slowko/slowko-icon.webp">
+    <link rel="apple-touch-icon" href="images/slowko/slowko-favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -37,15 +40,70 @@
 
     <!-- Fonts -->
     <script src="https://kit.fontawesome.com/cbd5f7f345.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
     <link rel="preload" href="/fonts/InstrumentSerif-Regular.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css?v=3">
     <style>
-        /* === Page-specific overrides === */
+        @font-face {
+            font-family: 'Instrument Serif';
+            src: url('fonts/InstrumentSerif-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* === Page-specific font overrides === */
+        body {
+            font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif !important;
+        }
+
+        p,
+        li,
+        blockquote,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .hero-title,
+        .hero-subtitle,
+        .wotd-card,
+        .wotd-word,
+        .wotd-pos,
+        .wotd-definition,
+        .wotd-example,
+        .slowko-feature-copy,
+        .slowko-feature-copy h3,
+        .slowko-feature-copy p,
+        .bento-item,
+        .bento-item h3,
+        .bento-item p,
+        .faq-item,
+        .faq-question,
+        .faq-answer {
+            font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif !important;
+        }
+
+        /* Keep navbar font intact (mono font like every other page) */
+        .navbar,
+        .navbar *,
+        .mobile-menu,
+        .mobile-menu * {
+            font-family: 'JetBrains Mono', monospace !important;
+        }
+
         .hero-slowko {
             background: var(--bg-body);
+            padding-bottom: var(--space-24);
+            margin-bottom: var(--space-12);
         }
 
         .feature-icon-box {
@@ -93,6 +151,7 @@
             height: 15px;
             margin-right: 6px;
             border-radius: 2px;
+            pointer-events: none;
         }
 
         /* === Lang sections === */
@@ -398,7 +457,7 @@
             left: 16.66%;
             right: 16.66%;
             height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(78, 204, 163, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, var(--bg-glass-border), transparent);
             z-index: 0;
         }
 
@@ -414,7 +473,7 @@
         }
 
         .step-card:hover {
-            border-color: rgba(78, 204, 163, 0.3);
+            border-color: rgba(255, 255, 255, 0.15);
             transform: translateY(-4px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
@@ -426,7 +485,7 @@
             width: 48px;
             height: 48px;
             background: linear-gradient(135deg, #214A3C, #1a3d30);
-            border: 2px solid #4ecca3;
+            border: none;
             border-radius: 50%;
             font-family: var(--font-sans);
             font-weight: 700;
@@ -744,12 +803,12 @@
 
         /* === Android announcement banner === */
         .android-announce-banner {
-            background: linear-gradient(90deg, rgba(33, 74, 60, 0.6) 0%, rgba(78, 204, 163, 0.15) 100%);
-            border: 1px solid rgba(78, 204, 163, 0.35);
+            background: rgba(33, 74, 60, 0.35);
+            border: none;
             border-radius: var(--radius-lg);
             padding: 12px 20px;
             margin-top: var(--space-8);
-            margin-bottom: var(--space-6);
+            margin-bottom: var(--space-2);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -768,7 +827,7 @@
             border-radius: 20px;
             font-weight: 600;
             font-size: 0.8rem;
-            border: 1px solid rgba(78, 204, 163, 0.3);
+            border: none;
         }
 
         .android-announce-text {
@@ -795,7 +854,7 @@
         /* === Słówko Android button === */
         .btn-slowko-android {
             background: rgba(78, 204, 163, 0.12);
-            border: 1px solid rgba(78, 204, 163, 0.4);
+            border: none;
             color: #ffffff;
             transition: all 0.3s ease;
         }
@@ -942,6 +1001,9 @@
                 section.classList.remove('active');
                 if (section.dataset.lang === lang) section.classList.add('active');
             });
+            document.querySelectorAll('.nav-download-text').forEach(el => {
+                el.textContent = lang === 'pl' ? 'Pobierz' : 'Download';
+            });
             document.documentElement.lang = lang;
             if (lang === 'pl') {
                 document.title = 'Słówko – Codzienne polskie słowo';
@@ -982,7 +1044,7 @@
                 </div>
                 <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko-word-of-the-day/id6754086353"
                     class="btn btn-primary btn--small" style="background: var(--color-slowko); color: #fff;">
-                    <i class="fa-brands fa-apple"></i> Download
+                    <i class="fa-brands fa-apple"></i> <span class="nav-download-text">Pobierz</span>
                 </a>
             </div>
             <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
@@ -999,7 +1061,7 @@
         <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko-word-of-the-day/id6754086353"
             class="btn btn-primary btn--small" style="background: var(--color-slowko); color: #fff; margin-top: 0.5rem;"
             onclick="toggleMobileMenu()">
-            <i class="fa-brands fa-apple"></i> Download
+            <i class="fa-brands fa-apple"></i> <span class="nav-download-text">Pobierz</span>
         </a>
         <div class="language-picker" style="justify-content: center; margin-top: 1rem;">
             <a href="#" data-lang="pl" onclick="switchLanguage('pl'); toggleMobileMenu(); return false;">
@@ -1148,7 +1210,7 @@
                                 <div class="slowko-feature-list">
                                     <div><i class="fa-solid fa-check"></i><span>Starannie dobrane słowa z opisem i
                                             przykładami.</span></div>
-                                    <div><i class="fa-solid fa-check"></i><span>Wymowa audio w jakości HD jednym
+                                    <div><i class="fa-solid fa-check"></i><span>Wymowa audio jednym
                                             stuknięciem.</span></div>
                                 </div>
                             </div>

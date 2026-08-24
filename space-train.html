@@ -6,401 +6,587 @@
   <script defer src="https://cloud.umami.is/script.js" data-website-id="ca1be9c5-e744-4d04-966a-8f18f94e8e61"></script>
   <script defer src="js/umami-tracking.js"></script>
   <link rel="icon" type="image/webp" href="images/space_train/space-train-icon.webp">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Space Train — Runs that match your skill</title>
-    <meta name="description"
-        content="Space Train — runs that match your skill. Pilot a compact space-train across a scrolling field. Available on iPhone, iPad, and Mac.">
-    <meta name="theme-color" content="#050505">
-    <meta name="keywords"
-        content="space train game, arcade runner, skill based game, offline ios game, space runner, indie game, Space Train, cosmic adventure">
-    <link rel="canonical" href="https://extiri.com/space-train.html">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://extiri.com/space-train.html">
-    <meta property="og:title" content="Space Train — Runs that match your skill">
-    <meta property="og:description"
-        content="Space Train — runs that match your skill. Pilot a compact space-train across a scrolling field. Available on iPhone, iPad, and Mac.">
-    <meta property="og:image" content="https://extiri.com/images/space_train/phone-screenshot-1.webp">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Space Train — Arcade Runner by Extiri</title>
+  <meta name="description"
+    content="Space Train — pilot a compact space-train across a scrolling field. Available on iPhone, iPad, and Mac.">
+  <meta name="theme-color" content="#050505">
+  <meta name="keywords"
+    content="space train game, arcade runner, skill based game, offline ios game, space runner, indie game, Space Train, cosmic adventure">
+  <link rel="canonical" href="https://extiri.com/space-train.html">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://extiri.com/space-train.html">
-    <meta property="twitter:title" content="Space Train — Runs that match your skill">
-    <meta property="twitter:description"
-        content="Space Train — runs that match your skill. Pilot a compact space-train across a scrolling field. Available on iPhone, iPad, and Mac.">
-    <meta property="twitter:image" content="https://extiri.com/images/space_train/phone-screenshot-1.webp">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://extiri.com/space-train.html">
+  <meta property="og:title" content="Space Train — Arcade Runner by Extiri">
+  <meta property="og:description"
+    content="Pilot a compact space-train across a scrolling field. Available on iPhone, iPad, and Mac.">
+  <meta property="og:image" content="https://extiri.com/images/space_train/phone-screenshot-1.webp">
 
-    <!-- Fonts -->
-    <script src="https://kit.fontawesome.com/cbd5f7f345.js" crossorigin="anonymous"></script>
-    <link rel="preload" href="/fonts/InstrumentSerif-Regular.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/Megrim-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://extiri.com/space-train.html">
+  <meta property="twitter:title" content="Space Train — Arcade Runner by Extiri">
+  <meta property="twitter:description"
+    content="Pilot a compact space-train across a scrolling field. Available on iPhone, iPad, and Mac.">
+  <meta property="twitter:image" content="https://extiri.com/images/space_train/phone-screenshot-1.webp">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles.css?v=3">
-    <style>
-        @font-face {
-            font-family: 'Megrim';
-            src: url('fonts/Megrim-Regular.ttf') format('truetype');
-            font-weight: 400;
-            font-style: normal;
-            font-display: swap;
-        }
+  <!-- Fonts -->
+  <script src="https://kit.fontawesome.com/cbd5f7f345.js" crossorigin="anonymous"></script>
+  <link rel="preload" href="fonts/InstrumentSerif-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Megrim-Regular.ttf" as="font" type="font/ttf" crossorigin>
 
-        /* Page-specific overrides */
-        .hero-spacetrain {
-            background: radial-gradient(circle at 50% 30%, rgba(100, 200, 255, 0.08) 0%, rgba(5, 5, 5, 0) 60%);
-        }
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css?v=3">
+  <style>
+    @font-face {
+      font-family: 'Megrim';
+      src: url('fonts/Megrim-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
 
-        .hero-title-spacetrain {
-            font-family: 'Megrim', sans-serif;
-            letter-spacing: -0.02em;
-        }
+    /* Game Landing Page Aesthetics */
+    .hero-spacetrain {
+      background: radial-gradient(circle at 50% 25%, rgba(102, 238, 255, 0.12) 0%, rgba(5, 5, 5, 0) 70%);
+      padding-top: calc(var(--header-height) + var(--space-8));
+      padding-bottom: var(--space-8);
+      text-align: center;
+    }
 
-        .feature-icon-box {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: var(--space-4);
-            font-size: 1.5rem;
-        }
+    .spacetrain-title {
+      font-family: 'Megrim', sans-serif;
+      font-size: clamp(3.2rem, 7vw, 5.5rem);
+      letter-spacing: -0.02em;
+      color: #fff;
+      text-shadow: 0 0 40px rgba(102, 238, 255, 0.35);
+      margin-bottom: var(--space-2);
+      line-height: 1.05;
+    }
 
-        /* FAQ */
-        .faq-item {
-            border-bottom: 1px solid var(--bg-glass-border);
-        }
+    /* Video Frame */
+    .video-showcase {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(102, 238, 255, 0.25);
+      box-shadow: 0 20px 60px rgba(102, 238, 255, 0.15), 0 0 80px rgba(0, 0, 0, 0.9);
+      background: #000;
+      transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    }
 
-        .faq-question {
-            width: 100%;
-            text-align: left;
-            padding: var(--space-6) 0;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: var(--text-lg);
-            font-weight: 500;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .video-showcase:hover {
+      border-color: rgba(102, 238, 255, 0.5);
+      box-shadow: 0 25px 70px rgba(102, 238, 255, 0.25), 0 0 100px rgba(0, 0, 0, 0.95);
+    }
 
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, opacity 0.3s ease;
-            opacity: 0;
-            color: var(--text-secondary);
-        }
+    .video-showcase video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-        .faq-question.open .faq-arrow {
-            transform: rotate(90deg);
-        }
+    /* Phone Screenshots Grid */
+    .game-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-6);
+      margin-top: var(--space-6);
+    }
 
-        .faq-answer.open {
-            opacity: 1;
-            padding-bottom: var(--space-6);
-        }
-    </style>
+    .game-card-img {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid var(--bg-glass-border);
+      background: var(--bg-surface);
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+    }
 
-    <!-- Scripts -->
-    <!-- Google Analytics (Commented out for Umami port)
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('consent', 'default', { 'analytics_storage': 'denied' });
-        gtag('js', new Date());
-        gtag('config', 'G-HLY6ZZMNBQ');
-    </script>
--->
-    <script src="scripts.js" defer></script>
+    .game-card-img:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: rgba(102, 238, 255, 0.4);
+      box-shadow: 0 16px 40px rgba(102, 238, 255, 0.2);
+    }
+
+    .game-card-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .game-card-img:hover img {
+      transform: scale(1.03);
+    }
+
+    .game-card-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: var(--space-4) var(--space-4);
+      background: linear-gradient(to top, rgba(5, 5, 5, 0.92) 0%, rgba(5, 5, 5, 0) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .game-card-tag {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: #6ef;
+      text-transform: uppercase;
+      background: rgba(102, 238, 255, 0.12);
+      padding: 4px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(102, 238, 255, 0.25);
+    }
+
+    /* Wide Tablet Screenshots Grid */
+    .wide-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-6);
+      margin-top: var(--space-6);
+    }
+
+    .wide-card-img {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--bg-glass-border);
+      background: var(--bg-surface);
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .wide-card-img:hover {
+      transform: translateY(-6px);
+      border-color: rgba(102, 238, 255, 0.4);
+      box-shadow: 0 20px 45px rgba(102, 238, 255, 0.18);
+    }
+
+    .wide-card-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Informational Specs Bar */
+    .game-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+    }
+
+    .spec-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--bg-glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      text-align: center;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .spec-item:hover {
+      border-color: rgba(102, 238, 255, 0.35);
+      transform: translateY(-3px);
+    }
+
+    .spec-icon {
+      font-size: 1.6rem;
+      color: #6ef;
+      margin-bottom: var(--space-3);
+    }
+
+    .spec-title {
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: var(--space-1);
+    }
+
+    .spec-desc {
+      font-size: var(--text-xs);
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Section Typography */
+    .game-section-title {
+      text-align: center;
+      font-family: 'Megrim', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+      margin-bottom: var(--space-1);
+    }
+
+    .game-section-subtitle {
+      text-align: center;
+      color: #6ef;
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-6);
+    }
+
+    /* FAQ Accordion */
+    .faq-item {
+      border-bottom: 1px solid var(--bg-glass-border);
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: var(--space-6) 0;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: var(--text-lg);
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+      opacity: 0;
+      color: var(--text-secondary);
+    }
+
+    .faq-question.open .faq-arrow {
+      transform: rotate(90deg);
+    }
+
+    .faq-answer.open {
+      opacity: 1;
+      padding-bottom: var(--space-6);
+    }
+  </style>
+
+  <script src="scripts.js" defer></script>
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container navbar-inner">
-            <a href="./index.html" class="nav-logo">
-                <img src="images/logo.webp" alt="Extiri Logo">
-            </a>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="./index.html" class="nav-logo">
+        <img src="images/logo.webp" alt="Extiri Logo">
+      </a>
 
-            <div class="nav-links">
-                <a href="./index.html#home" class="nav-link">Home</a>
-                <a href="./index.html#apps" class="nav-link">Apps</a>
-                <a href="./blog/index.html" class="nav-link">Blog</a>
-                <a href="https://apps.apple.com/app/space-train" class="btn btn-primary btn--small" style="background: var(--color-spacetrain); color: #000;">
-                    <i class="fa-brands fa-apple"></i> Download
-                </a>
-            </div>
-
-            <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="mobile-menu">
-        <a href="./index.html#home" class="nav-link" onclick="toggleMobileMenu()">Home</a>
-        <a href="./index.html#apps" class="nav-link" onclick="toggleMobileMenu()">Apps</a>
-        <a href="./blog/index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a>
-        <a href="https://apps.apple.com/app/space-train" class="btn btn-primary btn--small" style="background: var(--color-spacetrain); color: #000;" onclick="toggleMobileMenu()">
-            <i class="fa-brands fa-apple"></i> Download
+      <div class="nav-links">
+        <a href="./index.html#home" class="nav-link">Home</a>
+        <a href="./index.html#apps" class="nav-link">Apps</a>
+        <a href="./blog/index.html" class="nav-link">Blog</a>
+        <a href="https://apps.apple.com/app/space-train" class="btn btn-primary btn--small"
+          style="background: var(--color-spacetrain); color: #000;">
+          <i class="fa-brands fa-apple"></i> Download
         </a>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </div>
+  </nav>
 
-    <!-- Hero Section -->
-    <header class="hero hero-spacetrain">
-        <div class="container hero-content animate-fade-in">
-            <img src="images/space_train/space-train-icon.webp" alt="Space Train Icon" fetchpriority="high"
-                style="width: 96px; height: 96px; border-radius: 22px; margin: 0 auto var(--space-6) auto; filter: drop-shadow(0 0 30px rgba(100, 200, 255, 0.3));">
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu">
+    <a href="./index.html#home" class="nav-link" onclick="toggleMobileMenu()">Home</a>
+    <a href="./index.html#apps" class="nav-link" onclick="toggleMobileMenu()">Apps</a>
+    <a href="./blog/index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a>
+    <a href="https://apps.apple.com/app/space-train" class="btn btn-primary btn--small"
+      style="background: var(--color-spacetrain); color: #000;" onclick="toggleMobileMenu()">
+      <i class="fa-brands fa-apple"></i> Download
+    </a>
+  </div>
 
-            <h2
-                style="color: #6ef; font-family: var(--font-sans); font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-2); letter-spacing: 0.05em; text-transform: uppercase;">
-                Space Train</h2>
+  <!-- Hero Section -->
+  <header class="hero hero-spacetrain">
+    <div class="container hero-content animate-fade-in">
+      <img src="images/space_train/space-train-icon.webp" alt="Space Train Icon" fetchpriority="high"
+        style="width: 96px; height: 96px; border-radius: 22px; margin: 0 auto var(--space-4) auto;">
 
-            <h1 class="hero-title hero-title-spacetrain">Runs that match<br>your skill</h1>
+      <h1 class="spacetrain-title">SPACE TRAIN</h1>
 
-            <p class="hero-subtitle delay-100">Pilot a compact space-train across a scrolling field. Each journey is a
-                cosmic adventure—keep your cargo safe and race through the galaxy.</p>
+      <p style="color: #6ef; font-weight: 600; font-size: var(--text-lg); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: var(--space-4);">
+        Runs that match your skill
+      </p>
 
-            <div class="flex-center delay-200" style="flex-wrap: wrap; margin-bottom: var(--space-8);">
-                <span class="badge">iPhone</span>
-                <span class="badge">iPad</span>
-                <span class="badge">Mac</span>
-                <span class="badge">Offline</span>
-            </div>
+      <div class="flex-center delay-100" style="flex-wrap: wrap; margin-bottom: var(--space-6);">
+        <span class="badge">iPhone</span>
+        <span class="badge">iPad</span>
+        <span class="badge">Mac</span>
+        <span class="badge">Offline</span>
+        <span class="badge">Touch &amp; Keyboard</span>
+      </div>
 
-            <div class="hero-actions delay-300">
-                <a href="https://apps.apple.com/app/space-train" class="btn-app-store"
-                    aria-label="Download Space Train on the App Store">
-                    <i class="fa-brands fa-apple" style="font-size: 1.2rem;"></i> App Store
-                </a>
-            </div>
+      <div class="hero-actions delay-200">
+        <a href="https://apps.apple.com/app/space-train" class="btn-app-store"
+          aria-label="Download Space Train on the App Store">
+          <i class="fa-brands fa-apple" style="font-size: 1.2rem;"></i> App Store
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Video Trailer Section -->
+  <section class="section" style="padding-top: var(--space-4);">
+    <div class="container">
+      <div class="video-showcase">
+        <video autoplay muted loop playsinline>
+          <source src="images/space_train/ipad-gameplay.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile Screenshots Showcase -->
+  <section class="section">
+    <div class="container">
+      <p class="game-section-subtitle">Mobile Gameplay</p>
+      <h2 class="game-section-title">Cosmic Hazards &amp; Stations</h2>
+
+      <div class="game-gallery-grid">
+        <div class="game-card-img">
+          <img src="images/space_train/phone-screenshot-1.webp" alt="Dynamic Field" loading="lazy">
+          <div class="game-card-overlay">
+            <span class="game-card-tag">Dynamic Field</span>
+          </div>
         </div>
-    </header>
 
-    <!-- Video Section -->
-    <section class="section" style="padding-top: 0;">
-        <div class="container">
-            <div
-                style="position: relative; width: 100%; padding-bottom: 56.25%; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-xl); border: 1px solid var(--bg-glass-border);">
-                <video autoplay muted loop playsinline
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
-                    <source src="images/space_train/ipad-gameplay.mp4" type="video/mp4">
-                </video>
-            </div>
+        <div class="game-card-img">
+          <img src="images/space_train/phone-screenshot-2.webp" alt="Precision Steering" loading="lazy">
+          <div class="game-card-overlay">
+            <span class="game-card-tag">Precision Steering</span>
+          </div>
         </div>
-    </section>
 
-    <!-- Features Grid -->
-    <section class="section">
-        <div class="container">
-            <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
-                <p class="text-gradient"
-                    style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">
-                    Gameplay</p>
-                <h2>Deliver cargo across the stars</h2>
-                <p>Pilot your space-train through drifting obstacles. Move freely across the play area — you're not
-                    locked to tracks.</p>
-            </div>
-
-            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-                <div class="card card-glass">
-                    <div class="feature-icon-box" style="background: rgba(100, 200, 255, 0.1); color: #6ef;"><i
-                            class="fa-solid fa-rocket"></i></div>
-                    <h4>Navigate the Field</h4>
-                    <p>Move freely across the play area. Every run is about survival and precision.</p>
-                </div>
-                <div class="card card-glass">
-                    <div class="feature-icon-box" style="background: rgba(100, 200, 255, 0.1); color: #6ef;"><i
-                            class="fa-solid fa-train-subway"></i></div>
-                    <h4>Reach Stations</h4>
-                    <p>Each successful delivery extends your journey. Stations restore your cargo and mark your
-                        progress.</p>
-                </div>
-                <div class="card card-glass">
-                    <div class="feature-icon-box" style="background: rgba(100, 200, 255, 0.1); color: #6ef;"><i
-                            class="fa-solid fa-gamepad"></i></div>
-                    <h4>Play Anywhere</h4>
-                    <p>Available on iPhone, iPad, and Mac with support for touch and keyboard controls.</p>
-                </div>
-                <div class="card card-glass">
-                    <div class="feature-icon-box" style="background: rgba(100, 200, 255, 0.1); color: #6ef;"><i
-                            class="fa-solid fa-ban"></i></div>
-                    <h4>No Pay-to-Win</h4>
-                    <p>Pure skill-based gameplay. Optional one-time purchase to remove ads.</p>
-                </div>
-            </div>
+        <div class="game-card-img">
+          <img src="images/space_train/phone-screenshot-3.webp" alt="Cargo Protection" loading="lazy">
+          <div class="game-card-overlay">
+            <span class="game-card-tag">Cargo Protection</span>
+          </div>
         </div>
-    </section>
 
-    <!-- Screenshots -->
-    <section class="section">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: var(--space-12);">Screenshots</h2>
-            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                <div style="text-align: center;">
-                    <img src="images/space_train/phone-screenshot-1.webp" alt="Gameplay 1"
-                        style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);" loading="lazy">
-                </div>
-                <div style="text-align: center;">
-                    <img src="images/space_train/phone-screenshot-2.webp" alt="Gameplay 2"
-                        style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);" loading="lazy">
-                </div>
-                <div style="text-align: center;">
-                    <img src="images/space_train/phone-screenshot-3.webp" alt="Gameplay 3"
-                        style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);" loading="lazy">
-                </div>
-                <div style="text-align: center;">
-                    <img src="images/space_train/phone-screenshot-4.webp" alt="Gameplay 4"
-                        style="border-radius: 24px; box-shadow: var(--shadow-xl); margin-bottom: var(--space-4);" loading="lazy">
-                </div>
-            </div>
+        <div class="game-card-img">
+          <img src="images/space_train/phone-screenshot-4.webp" alt="Space Stations" loading="lazy">
+          <div class="game-card-overlay">
+            <span class="game-card-tag">Space Stations</span>
+          </div>
         </div>
-    </section>
 
-    <!-- Controls -->
-    <section class="section">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: var(--space-12);">Designed for Every Device</h2>
-            <div class="grid">
-                <article class="app-card-large">
-                    <div class="app-card-content">
-                        <h3>Touch Controls</h3>
-                        <p>Intuitive drag controls. Vertical for positioning, horizontal for fine adjustments. Tap to
-                            fire and shield.</p>
-                    </div>
-                    <div class="app-card-media">
-                        <img src="images/space_train/phone-screenshot-2.webp" alt="Touch Controls" loading="lazy">
-                    </div>
-                </article>
-
-                <article class="app-card-large reversed">
-                    <div class="app-card-content">
-                        <h3>Keyboard (iPad/Mac)</h3>
-                        <p>Keyboard controls. WASD for movement, K for missiles, H for shields. Perfect for extended
-                            play sessions.</p>
-                    </div>
-                    <div class="app-card-media">
-                        <img src="images/space_train/tablet-screenshot-3.webp" alt="Keyboard Controls" loading="lazy">
-                    </div>
-                </article>
-            </div>
+        <div class="game-card-img">
+          <img src="images/space_train/phone-screenshot-5.webp" alt="Cosmic Hazards" loading="lazy">
+          <div class="game-card-overlay">
+            <span class="game-card-tag">Cosmic Hazards</span>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- FAQ -->
-    <section class="section" id="faq">
-        <div class="container" style="max-width: 800px;">
-            <h2 style="text-align: center; margin-bottom: var(--space-8);">FAQ</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-question">How long does a run last?<span class="faq-arrow"><i
-                                class="fa-solid fa-chevron-right"></i></span></button>
-                    <div class="faq-answer">
-                        <p>A run continues until you lose all cargo. You may play quick attempts or sustain much longer
-                            runs depending on how well you navigate hazards and use resources.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">What platforms is it available on?<span class="faq-arrow"><i
-                                class="fa-solid fa-chevron-right"></i></span></button>
-                    <div class="faq-answer">
-                        <p>Space Train is available on iPhone, iPad, and Mac. It works offline and supports both touch
-                            controls on mobile and keyboard controls on iPad/Mac.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">Are there in-app purchases?<span class="faq-arrow">▶</span></button>
-                    <div class="faq-answer">
-                        <p>There are no pay-to-win mechanics. Ads will appear between runs and on the main screen; a
-                            one-time purchase removes them permanently.</p>
-                    </div>
-                </div>
-            </div>
+  <!-- iPad & Mac Showcase -->
+  <section class="section">
+    <div class="container">
+      <p class="game-section-subtitle">Big Screen Experience</p>
+      <h2 class="game-section-title">iPad &amp; Mac Gameplay</h2>
+
+      <div class="wide-gallery-grid">
+        <div class="wide-card-img">
+          <img src="images/space_train/tablet-screenshot-1.webp" alt="Expansive Play Area" loading="lazy">
+          <div class="game-card-overlay">
+            <span class="game-card-tag">Expansive Play Area</span>
+          </div>
         </div>
-    </section>
 
-    <!-- Newsletter -->
-    <section class="section">
-        <div class="container" style="max-width: 700px; text-align: center;">
-            <h2 style="margin-bottom: var(--space-4);">Stay on Track</h2>
-            <p
-                style="margin-bottom: var(--space-8); color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">
-                Get updates on Space Train, new level modes, and other arcade experiences from Extiri.</p>
-            <script async data-uid="72455a1b9f" src="https://extiri.kit.com/72455a1b9f/index.js"></script>
+        <div class="wide-card-img">
+          <img src="images/space_train/tablet-screenshot-2.webp" alt="High Score Run" loading="lazy">
+          <div class="game-card-overlay">
+            <span class="game-card-tag">High Score Run</span>
+          </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <img src="images/logo.webp" alt="Extiri" width="100" style="opacity: 0.8;" loading="lazy">
-                    <p>Extiri is an independent software studio crafting simple, well‑crafted apps for macOS, iOS, and
-                        web.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Products</h4>
-                    <ul>
-                        <li><a href="./codemenu.html">CodeMenu</a></li>
-                        <li><a href="./resso.html">Resso</a></li>
-                        <li><a href="./chitneek.html">Chitneek</a></li>
-                        <li><a href="./clipguru.html">ClipGuru</a></li>
-                        <li><a href="./rapidool.html">Rapidool</a></li>
-                        <li><a href="./slowko.html">Słówko</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="./blog/index.html">Blog</a></li>
-                        <li><a href="privacy_policy.html">Privacy Policy</a></li>
-                        <li><a href="mailto:wiktor.wojcik@extiri.com">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Extiri. All rights reserved.</p>
-                <p><a href="https://status.extiri.com" target="_blank" rel="noopener noreferrer">System Status</a></p>
-                <p>Made for iOS, iPadOS & macOS.</p>
-            </div>
+        <div class="wide-card-img">
+          <img src="images/space_train/tablet-screenshot-3.webp" alt="Keyboard Controls: WASD + K/H" loading="lazy">
+          <div class="game-card-overlay">
+            <span class="game-card-tag">Keyboard Controls (WASD + K/H)</span>
+          </div>
         </div>
-    </footer>
 
-    <!-- FAQ Script -->
-    <script>
-        document.querySelectorAll('.faq-question').forEach(btn => {
-            btn.onclick = function () {
-                const answer = this.nextElementSibling;
-                const isOpen = this.classList.contains('open');
+        <div class="wide-card-img">
+          <img src="images/space_train/tablet-screenshot-4.webp" alt="Multi-Station Deliveries" loading="lazy">
+          <div class="game-card-overlay">
+            <span class="game-card-tag">Station Deliveries</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                // Close all
-                document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('open'));
-                document.querySelectorAll('.faq-answer').forEach(a => {
-                    a.style.maxHeight = null;
-                    a.classList.remove('open');
-                });
+  <!-- Key Specs / Info Bar -->
+  <section class="section">
+    <div class="container">
+      <p class="game-section-subtitle">At a Glance</p>
+      <h2 class="game-section-title">Game Features</h2>
 
-                if (!isOpen) {
-                    this.classList.add('open');
-                    answer.classList.add('open');
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
-                }
-            };
+      <div class="game-specs-grid">
+        <div class="spec-item">
+          <div class="spec-icon"><i class="fa-solid fa-rocket"></i></div>
+          <div class="spec-title">Free Movement</div>
+          <div class="spec-desc">No locked tracks. Steer freely across the scrolling space field.</div>
+        </div>
+
+        <div class="spec-item">
+          <div class="spec-icon"><i class="fa-solid fa-train-subway"></i></div>
+          <div class="spec-title">Station Deliveries</div>
+          <div class="spec-desc">Reach space stations to restore cargo and extend your run.</div>
+        </div>
+
+        <div class="spec-item">
+          <div class="spec-icon"><i class="fa-solid fa-gamepad"></i></div>
+          <div class="spec-title">Universal Controls</div>
+          <div class="spec-desc">Intuitive touch on iOS. Full keyboard controls (WASD) on iPad &amp; Mac.</div>
+        </div>
+
+        <div class="spec-item">
+          <div class="spec-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="spec-title">Pure Skill &amp; Offline</div>
+          <div class="spec-desc">Zero pay-to-win. Plays 100% offline anywhere.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container" style="max-width: 800px;">
+      <p class="game-section-subtitle">Information</p>
+      <h2 class="game-section-title">FAQ</h2>
+      <div class="faq-list" style="margin-top: var(--space-6);">
+        <div class="faq-item">
+          <button class="faq-question">How long does a run last?<span class="faq-arrow"><i
+                class="fa-solid fa-chevron-right"></i></span></button>
+          <div class="faq-answer">
+            <p>A run continues until you lose all cargo. Runs can range from quick attempts to extended high-score journeys depending on your navigation skills.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What platforms is Space Train available on?<span class="faq-arrow"><i
+                class="fa-solid fa-chevron-right"></i></span></button>
+          <div class="faq-answer">
+            <p>Available on iPhone, iPad, and Mac. It functions offline and supports touch controls on iOS and keyboard controls on iPad/Mac.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Are there in-app purchases?<span class="faq-arrow"><i
+                class="fa-solid fa-chevron-right"></i></span></button>
+          <div class="faq-answer">
+            <p>There are no pay-to-win mechanics. Space Train is free to play with ads, and an optional one-time purchase removes ads permanently.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final Call to Action -->
+  <section class="section" style="padding-bottom: var(--space-16);">
+    <div class="container" style="max-width: 700px; text-align: center;">
+      <img src="images/space_train/space-train-icon.webp" alt="Space Train Icon"
+        style="width: 80px; height: 80px; border-radius: 18px; margin: 0 auto var(--space-4) auto;" loading="lazy">
+      <h2 style="font-family: 'Megrim', sans-serif; font-size: 3rem; margin-bottom: var(--space-2); color: #fff;">SPACE TRAIN</h2>
+      <p style="color: var(--text-secondary); margin-bottom: var(--space-6); font-size: var(--text-base);">
+        Ready for launch? Download Space Train on the App Store.
+      </p>
+      <a href="https://apps.apple.com/app/space-train" class="btn-app-store"
+        aria-label="Download Space Train on the App Store" style="display: inline-flex;">
+        <i class="fa-brands fa-apple" style="font-size: 1.2rem;"></i> App Store
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo.webp" alt="Extiri" width="100" style="opacity: 0.8;" loading="lazy">
+          <p>Extiri is an independent software studio crafting simple, well‑crafted apps for macOS, iOS, and web.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="./codemenu.html">CodeMenu</a></li>
+            <li><a href="./resso.html">Resso</a></li>
+            <li><a href="./chitneek.html">Chitneek</a></li>
+            <li><a href="./clipguru.html">ClipGuru</a></li>
+            <li><a href="./rapidool.html">Rapidool</a></li>
+            <li><a href="./slowko.html">Słówko</a></li>
+            <li><a href="./space-train.html">Space Train</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="./blog/index.html">Blog</a></li>
+            <li><a href="privacy_policy.html">Privacy Policy</a></li>
+            <li><a href="mailto:wiktor.wojcik@extiri.com">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Extiri. All rights reserved.</p>
+        <p><a href="https://status.extiri.com" target="_blank" rel="noopener noreferrer">System Status</a></p>
+        <p>Made for iOS, iPadOS &amp; macOS.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FAQ Script -->
+  <script>
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.onclick = function () {
+        const answer = this.nextElementSibling;
+        const isOpen = this.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('open'));
+        document.querySelectorAll('.faq-answer').forEach(a => {
+          a.style.maxHeight = null;
+          a.classList.remove('open');
         });
-    </script>
+
+        if (!isOpen) {
+          this.classList.add('open');
+          answer.classList.add('open');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      };
+    });
+  </script>
 </body>
 
 </html>

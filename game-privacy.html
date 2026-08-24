@@ -6,197 +6,282 @@
   <script defer src="https://cloud.umami.is/script.js" data-website-id="ca1be9c5-e744-4d04-966a-8f18f94e8e61"></script>
   <script defer src="js/umami-tracking.js"></script>
   <link rel="icon" type="image/webp" href="images/space_train/space-train-icon.webp">
-    <!-- Google Analytics (Commented out for Umami port)
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
 
-        gtag('consent', 'default', {
-            'analytics_storage': 'denied'
-        });
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Privacy Policy for Space Train, the fast-paced arcade runner by Extiri.">
+  <meta name="robots" content="index, follow">
 
-        gtag('js', new Date());
-        gtag('config', 'G-HLY6ZZMNBQ');
-    </script>
--->
+  <title>Space Train — Privacy Policy</title>
+  <link rel="stylesheet" href="styles.css?v=3">
 
-    <meta charset="UTF-8">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Privacy Policy for Space Train, the fast-paced arcade runner by Extiri.">
-    <meta name="robots" content="index, follow">
+  <script src="https://kit.fontawesome.com/cbd5f7f345.js" crossorigin="anonymous"></script>
+  <link rel="preload" href="fonts/InstrumentSerif-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Megrim-Regular.ttf" as="font" type="font/ttf" crossorigin>
 
-    <title>Space Train — Privacy Policy</title>
-    <link rel="stylesheet" href="styles.css?v=3">
-    <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/Megrim-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <style>
+    @font-face {
+      font-family: 'Megrim';
+      src: url('fonts/Megrim-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
 
-    <script>
-        function goToHome() {
-            location.href = "./index.html#home";
-        }
+    .hero-spacetrain-privacy {
+      background: var(--bg-body);
+      border-bottom: 1px solid var(--bg-glass-border);
+      padding-top: calc(var(--header-height) + var(--space-8));
+      padding-bottom: var(--space-10);
+      text-align: center;
+    }
 
-        function goToApps() {
-            location.href = "./index.html#apps";
-        }
+    .spacetrain-title {
+      font-family: 'Megrim', sans-serif;
+      letter-spacing: -0.02em;
+    }
 
-        function goToBlog() {
-            location.href = "./blog/index.html";
-        }
-    </script>
-    <script src="scripts.js" defer></script>
+    .privacy-container {
+      max-width: 840px;
+      margin: 0 auto;
+    }
+
+    .legal-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--bg-glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      margin-bottom: var(--space-6);
+      transition: border-color var(--transition-normal);
+    }
+
+    .legal-card:hover {
+      border-color: rgba(102, 238, 255, 0.25);
+    }
+
+    .legal-card h2 {
+      font-size: var(--text-xl);
+      color: var(--text-primary);
+      margin-bottom: var(--space-4);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .legal-card h2 i {
+      color: var(--color-spacetrain);
+      font-size: 1.1rem;
+    }
+
+    .legal-card p {
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: var(--space-4);
+    }
+
+    .legal-card p:last-child,
+    .legal-card ul:last-child {
+      margin-bottom: 0;
+    }
+
+    .legal-card ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: var(--space-4);
+    }
+
+    .legal-card ul li {
+      position: relative;
+      padding-left: var(--space-6);
+      margin-bottom: var(--space-3);
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .legal-card ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-spacetrain);
+    }
+
+    .legal-card a {
+      color: var(--color-spacetrain);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color var(--transition-fast);
+    }
+
+    .legal-card a:hover {
+      color: var(--text-primary);
+    }
+  </style>
+
+  <script src="scripts.js" defer></script>
 </head>
 
-<body class="space-train-page space-privacy-page">
-    <a href="#main" class="skip-link">Skip to content</a>
+<body>
 
-    <!-- Cookie Consent Banner (Commented out for Umami port)
-<div id="cookie-consent-banner" class="cookie-consent-banner">
-        <div class="cookie-consent-content">
-            <p>We use cookies and other tracking technologies to improve your browsing experience. By clicking "Accept
-                All" you consent to our use of these technologies. You can learn more in our <a href="game-privacy.html"
-                    target="_blank" rel="noopener">Privacy Policy</a>.</p>
-            <div class="cookie-consent-buttons">
-                <button id="accept-cookies" class="button-primary">Accept All</button>
-                <button id="decline-cookies" class="button-secondary">Decline</button>
-            </div>
-        </div>
--->
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="./index.html" class="nav-logo">
+        <img src="images/logo.webp" alt="Extiri Logo">
+      </a>
+
+      <div class="nav-links">
+        <a href="./index.html#home" class="nav-link">Home</a>
+        <a href="./index.html#apps" class="nav-link">Apps</a>
+        <a href="./blog/index.html" class="nav-link">Blog</a>
+        <a href="space-train.html" class="btn btn-secondary btn--small" style="border-color: rgba(102, 238, 255, 0.3); color: var(--color-spacetrain);">
+          Space Train
+        </a>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </div>
+  </nav>
 
-    <div class="navbar" role="navigation" aria-label="Primary">
-        <div class="navbar-content">
-            <a href="./index.html"><img src="images/logo.webp" width="110" class="navbar-logo" alt="Extiri"></a>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu">
+    <a href="./index.html#home" class="nav-link" onclick="toggleMobileMenu()">Home</a>
+    <a href="./index.html#apps" class="nav-link" onclick="toggleMobileMenu()">Apps</a>
+    <a href="./blog/index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a>
+    <a href="space-train.html" class="btn btn-secondary btn--small" style="border-color: rgba(102, 238, 255, 0.3); color: var(--color-spacetrain);" onclick="toggleMobileMenu()">
+      Space Train
+    </a>
+  </div>
 
-            <span class="big_screen">
-                <p class="navbar-item" onclick="goToHome()">Home</p>
-                <p class="navbar-item" onclick="goToApps()">Apps</p>
-                <p class="navbar-item" onclick="goToBlog()">Blog</p>
-            </span>
+  <!-- Hero Header -->
+  <header class="section hero-spacetrain-privacy">
+    <div class="container animate-fade-in">
+      <img src="images/space_train/space-train-icon.webp" alt="Space Train Icon" fetchpriority="high"
+        style="width: 96px; height: 96px; border-radius: 22px; margin: 0 auto var(--space-4) auto;">
 
-            <span class="small_screen">
-                <img src="images/hamburger-icon.webp" class="navbar-item"
-                    style="position: absolute; top: 11px; width: 30px !important;" onclick="toggleHamburger()"
-                    alt="Menu button">
+      <h2 style="color: var(--color-spacetrain); font-family: var(--font-sans); font-size: var(--text-sm); font-weight: 600; margin-bottom: var(--space-2); letter-spacing: 0.08em; text-transform: uppercase;">
+        Space Train
+      </h2>
 
-                <div id="hamburger_menu" class="hamburger_menu">
-                    <div class="hamburger_menu_content">
-                        <p class="navbar-item" onclick="goToHome()">Home</p>
-                        <p class="navbar-item" onclick="goToApps()">Apps</p>
-                        <p class="navbar-item" onclick="goToBlog()">Blog</p>
-                    </div>
-                </div>
-            </span>
-        </div>
+      <h1 class="spacetrain-title" style="font-size: var(--text-4xl); margin-bottom: var(--space-3); color: var(--text-primary);">
+        Privacy Policy
+      </h1>
+
+      <p style="color: var(--text-tertiary); font-size: var(--text-sm); margin-bottom: var(--space-4);">
+        Version 1.0 &middot; Effective 2 October 2025
+      </p>
+
+      <p style="color: var(--text-secondary); max-width: 640px; margin: 0 auto; line-height: 1.7; font-size: var(--text-base);">
+        Your privacy matters. This document explains how Space Train uses data, which third-party partners are involved, and the choices you have.
+      </p>
     </div>
+  </header>
 
-    <main id="main" tabindex="-1">
-        <header class="legal-hero" aria-labelledby="legal-hero-heading">
-            <div class="legal-hero-inner">
-                <img src="images/space_train/space-train-icon.webp" alt="Space Train icon" width="160" height="160"
-                    loading="eager" decoding="async">
-                <p class="legal-kicker">Space Train</p>
-                <h1 id="legal-hero-heading">Privacy Policy</h1>
-                <p class="legal-meta">Version 1.0 &mdash; Effective 02 Oct 2025</p>
-                <p class="legal-summary">Your privacy matters. This document explains how Space Train uses data, which
-                    partners are involved, and the choices you have.</p>
-            </div>
-        </header>
+  <!-- Content -->
+  <main class="section" style="padding-top: var(--space-12); padding-bottom: var(--space-16);">
+    <div class="container privacy-container">
 
-        <section class="section-card legal-section" aria-labelledby="legal-collect">
-            <h2 id="legal-collect">1. Information we collect</h2>
-            <p>Space Train does not collect personal information directly. The game integrates Google AdMob to serve
-                ads, which may automatically collect:</p>
-            <ul>
-                <li>Device information such as model, operating system, and identifiers</li>
-                <li>IP address</li>
-                <li>Engagement data about your interactions with ads</li>
-            </ul>
-            <p>AdMob processes this information under Google&rsquo;s privacy policies. Learn more at <a
-                    href="https://policies.google.com/privacy" rel="noopener"
-                    target="_blank">policies.google.com/privacy</a>.</p>
-        </section>
+      <section class="legal-card">
+        <h2><i class="fa-solid fa-database"></i> 1. Information we collect</h2>
+        <p>Space Train does not collect personal information directly. The game integrates Google AdMob to serve ads, which may automatically collect:</p>
+        <ul>
+          <li>Device information such as model, operating system, and identifiers</li>
+          <li>IP address</li>
+          <li>Engagement data about your interactions with ads</li>
+        </ul>
+        <p>AdMob processes this information under Google’s privacy policies. Learn more at <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">policies.google.com/privacy</a>.</p>
+      </section>
 
-        <section class="section-card legal-section" aria-labelledby="legal-use">
-            <h2 id="legal-use">2. How we use information</h2>
-            <p>We rely on AdMob to keep the game free to play and to show relevant ads. The data collected is used
-                solely to deliver and improve advertising. We do not sell or otherwise use this data for additional
-                purposes.</p>
-        </section>
+      <section class="legal-card">
+        <h2><i class="fa-solid fa-bullhorn"></i> 2. How we use information</h2>
+        <p>We rely on AdMob to keep the game free to play and to show relevant ads. The data collected is used solely to deliver and improve advertising. We do not sell or otherwise use this data for additional purposes.</p>
+      </section>
 
-        <section class="section-card legal-section" aria-labelledby="legal-third">
-            <h2 id="legal-third">3. Third-party services</h2>
-            <p>Space Train partners with Google AdMob. Google determines how advertising data is processed. Review their
-                policies for additional details:</p>
-            <ul>
-                <li><a href="https://policies.google.com/privacy" rel="noopener" target="_blank">Google Privacy
-                        Policy</a></li>
-                <li><a href="https://support.google.com/admob/answer/6128543" rel="noopener" target="_blank">Google
-                        AdMob &amp; Advertising</a></li>
-            </ul>
-        </section>
+      <section class="legal-card">
+        <h2><i class="fa-solid fa-handshake"></i> 3. Third-party services</h2>
+        <p>Space Train partners with Google AdMob. Google determines how advertising data is processed. Review their policies for additional details:</p>
+        <ul>
+          <li><a href="https://policies.google.com/privacy" rel="noopener" target="_blank">Google Privacy Policy</a></li>
+          <li><a href="https://support.google.com/admob/answer/6128543" rel="noopener" target="_blank">Google AdMob &amp; Advertising</a></li>
+        </ul>
+      </section>
 
-        <section class="section-card legal-section" aria-labelledby="legal-children">
-            <h2 id="legal-children">4. Children&rsquo;s privacy</h2>
-            <p>Space Train is intended for a general audience. We do not knowingly collect data from children under 13
-                (or under the age defined by local law). Ads are provided by AdMob with content guidelines for general
-                audiences. If you believe a child provided personal information, contact us and we will take action to
-                remove it.</p>
-        </section>
+      <section class="legal-card">
+        <h2><i class="fa-solid fa-child"></i> 4. Children’s privacy</h2>
+        <p>Space Train is intended for a general audience. We do not knowingly collect data from children under 13 (or under the age defined by local law). Ads are provided by AdMob with content guidelines for general audiences. If you believe a child provided personal information, contact us and we will take action to remove it.</p>
+      </section>
 
-        <section class="section-card legal-section" aria-labelledby="legal-security">
-            <h2 id="legal-security">5. Data security</h2>
-            <p>Space Train does not store personal data on Extiri servers. AdMob manages any collected information in
-                line with industry security standards.</p>
-        </section>
+      <section class="legal-card">
+        <h2><i class="fa-solid fa-shield-halved"></i> 5. Data security</h2>
+        <p>Space Train does not store personal data on Extiri servers. AdMob manages any collected information in line with industry security standards.</p>
+      </section>
 
-        <section class="section-card legal-section" aria-labelledby="legal-choice">
-            <h2 id="legal-choice">6. Your choices</h2>
-            <p>You can manage ad preferences through your device settings:</p>
-            <ul>
-                <li>iOS: <strong>Settings &gt; Privacy &amp; Security &gt; Tracking</strong> or <strong>Settings &gt;
-                        Google &gt; Ads</strong></li>
-            </ul>
-            <p>Google also provides controls for personalized ads at <a
-                    href="https://support.google.com/ads/answer/2662922" rel="noopener"
-                    target="_blank">support.google.com/ads/answer/2662922</a>.</p>
-        </section>
+      <section class="legal-card">
+        <h2><i class="fa-solid fa-sliders"></i> 6. Your choices</h2>
+        <p>You can manage ad preferences through your device settings:</p>
+        <ul>
+          <li>iOS: <strong>Settings &gt; Privacy &amp; Security &gt; Tracking</strong> or <strong>Settings &gt; Google &gt; Ads</strong></li>
+        </ul>
+        <p>Google also provides controls for personalized ads at <a href="https://support.google.com/ads/answer/2662922" rel="noopener" target="_blank">support.google.com/ads/answer/2662922</a>.</p>
+      </section>
 
-        <section class="section-card legal-section" aria-labelledby="legal-changes">
-            <h2 id="legal-changes">7. Changes to this policy</h2>
-            <p>We may update this Privacy Policy to reflect product or legal changes. The updated policy will be posted
-                here with a new effective date. Continuing to use the game after updates means you accept the revised
-                policy.</p>
-        </section>
+      <section class="legal-card">
+        <h2><i class="fa-solid fa-file-pen"></i> 7. Changes to this policy</h2>
+        <p>We may update this Privacy Policy to reflect product or legal changes. The updated policy will be posted here with a new effective date. Continuing to use the game after updates means you accept the revised policy.</p>
+      </section>
 
-        <section class="section-card legal-section" aria-labelledby="legal-contact">
-            <h2 id="legal-contact">8. Contact</h2>
-            <p>If you have questions about this policy or our privacy practices, reach out to us:</p>
-            <ul>
-                <li>Email: <a href="mailto:wiktor.wojcik@extiri.com">wiktor.wojcik@extiri.com</a></li>
-                <li>Support: <a href="mailto:support@extiri.com">support@extiri.com</a></li>
-            </ul>
-        </section>
-    </main>
+      <section class="legal-card">
+        <h2><i class="fa-solid fa-envelope"></i> 8. Contact</h2>
+        <p>If you have questions about this policy or our privacy practices, reach out to us at <a href="mailto:wiktor.wojcik@extiri.com">wiktor.wojcik@extiri.com</a>.</p>
+      </section>
 
-    <footer class="space-footer legal-footer" aria-label="Privacy footer">
-        <div class="space-footer-links">
-            <a href="space-train.html">Back to Space Train</a>
-            <a href="mailto:support@extiri.com">Support</a>
-            <a href="game-privacy.html" aria-current="page">Privacy Policy</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo.webp" alt="Extiri" width="100" style="opacity: 0.8;">
+          <p>Extiri is an independent software studio crafting simple, well‑crafted apps for macOS, iOS, and web.</p>
         </div>
-        <p class="space-footer-note">© <span id="privacy-year"></span> Extiri. All rights reserved.</p>
-    </footer>
+        <div class="footer-links">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="./codemenu.html">CodeMenu</a></li>
+            <li><a href="./resso.html">Resso</a></li>
+            <li><a href="./chitneek.html">Chitneek</a></li>
+            <li><a href="./clipguru.html">ClipGuru</a></li>
+            <li><a href="./rapidool.html">Rapidool</a></li>
+            <li><a href="./slowko.html">Słówko</a></li>
+            <li><a href="./space-train.html">Space Train</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="./blog/index.html">Blog</a></li>
+            <li><a href="privacy_policy.html">Privacy Policy</a></li>
+            <li><a href="mailto:wiktor.wojcik@extiri.com">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Extiri. All rights reserved.</p>
+        <p><a href="https://status.extiri.com" target="_blank" rel="noopener noreferrer">System Status</a></p>
+        <p>Made for iOS, iPadOS &amp; macOS.</p>
+      </div>
+    </div>
+  </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const yearNode = document.getElementById('privacy-year');
-            if (yearNode) {
-                yearNode.textContent = new Date().getFullYear();
-            }
-        });
-    </script>
 </body>
 
 </html>
