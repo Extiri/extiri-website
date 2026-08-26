@@ -90,7 +90,7 @@
 
         .hero-slides-wrapper {
             position: relative;
-            min-height: 440px;
+            height: 440px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -109,6 +109,7 @@
             justify-content: center;
             opacity: 1;
             width: 100%;
+            height: 100%;
         }
 
         .hero-slide-grid {
@@ -299,10 +300,12 @@
             }
 
             .hero-slides-wrapper {
+                height: auto;
                 min-height: auto;
             }
 
             .hero-slide.is-active {
+                height: auto;
                 min-height: auto;
             }
 
