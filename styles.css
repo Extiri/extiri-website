@@ -1123,7 +1123,7 @@ p {
 
 /* Dashboard Window Image */
 .hero-codemenu-window-stack .hero-img-dashboard-window {
-  width: 58% !important;
+  width: 74% !important;
   height: auto !important;
   max-height: none !important;
   display: block !important;
@@ -1135,23 +1135,22 @@ p {
   filter: none !important;
 }
 
-/* Side Window Image: Bigger than Dashboard Window */
+/* Side Window Image: Clean & Rounded, No Box-Shadow */
 .hero-codemenu-window-stack .hero-img-side-window {
-  width: 40% !important;
-  max-width: 44% !important;
+  width: 27% !important;
+  max-width: 360px !important;
   height: auto !important;
-  max-height: 140% !important;
   object-fit: contain !important;
   display: block !important;
   position: absolute !important;
-  right: 2% !important;
+  right: 0% !important;
   top: 50% !important;
   transform: translateY(-50%) !important;
   z-index: 2 !important;
   border: none !important;
   border-radius: 14px !important;
   overflow: hidden !important;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important;
+  box-shadow: none !important;
   filter: none !important;
 }
 
