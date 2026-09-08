@@ -469,7 +469,8 @@ p {
   border-color: rgba(255, 255, 255, 0.3);
 }
 
-.btn-app-store {
+.btn-app-store,
+.btn-google-play {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -487,7 +488,8 @@ p {
   line-height: 1;
 }
 
-.btn-app-store:hover {
+.btn-app-store:hover,
+.btn-google-play:hover {
   background: #e5e5e8;
   color: #000000;
   transform: translateY(-1px);
@@ -1218,6 +1220,7 @@ p {
 
 .bento-card-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-3);
   margin-top: var(--space-6);
   z-index: 2;

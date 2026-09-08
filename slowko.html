@@ -801,73 +801,36 @@
             transform: translateY(0);
         }
 
-        /* === Android announcement banner === */
-        .android-announce-banner {
-            background: rgba(33, 74, 60, 0.35);
-            border: none;
-            border-radius: var(--radius-lg);
-            padding: 12px 20px;
-            margin-top: var(--space-8);
-            margin-bottom: var(--space-2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            backdrop-filter: blur(10px);
-        }
-
-        .android-announce-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(78, 204, 163, 0.2);
-            color: #4ecca3;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            border: none;
-        }
-
-        .android-announce-text {
-            font-size: 0.9rem;
-            color: var(--text-primary);
-        }
-
-        .android-announce-link {
-            color: #4ecca3;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-decoration: underline;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .android-announce-link:hover {
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-        /* === Słówko Android button === */
+        /* === Google Play & App Store buttons === */
+        .btn-google-play,
         .btn-slowko-android {
-            background: rgba(78, 204, 163, 0.12);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 22px;
+            border-radius: var(--radius-full);
+            background: #ffffff;
+            color: #000000;
+            font-family: var(--font-sans);
+            font-size: var(--text-sm);
+            font-weight: 700;
+            text-decoration: none;
+            transition: background-color var(--transition-fast), transform var(--transition-fast);
             border: none;
-            color: #ffffff;
-            transition: all 0.3s ease;
+            box-shadow: none !important;
+            line-height: 1;
         }
 
+        .btn-google-play:hover,
         .btn-slowko-android:hover {
-            background: rgba(78, 204, 163, 0.25);
-            border-color: #4ecca3;
-            color: #ffffff;
-            transform: translateY(-2px);
+            background: #e5e5e8;
+            color: #000000;
+            transform: translateY(-1px);
         }
 
+        .btn-google-play:active,
         .btn-slowko-android:active {
-            background: rgba(78, 204, 163, 0.35);
+            background: #dcdce0;
             transform: translateY(0);
         }
 
@@ -1091,16 +1054,6 @@
                     <span class="floating-word" style="left: 90%; animation-delay: 15s;">efemeryczny</span>
                 </div>
                 <div class="container hero-content animate-fade-in" style="position: relative; z-index: 1;">
-                    <div class="android-announce-banner">
-                        <span class="android-announce-badge"><i class="fa-brands fa-android"></i> Android</span>
-                        <span class="android-announce-text">Rozpoczęły się testy aplikacji na Androida! Dołącz do grupy,
-                            aby wziąć udział.</span>
-                        <a href="https://groups.google.com/g/swko-na-android/about" target="_blank"
-                            rel="noopener noreferrer" class="android-announce-link">
-                            Dołącz do testów <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-
                     <div class="hero-icon-wrapper">
                         <img src="images/slowko/slowko-icon.gif?v=2" alt="Słówko – animowana ikona"
                             fetchpriority="high">
@@ -1117,8 +1070,6 @@
                         głównym.</p>
 
                     <div class="flex-center delay-200" style="flex-wrap: wrap; margin-bottom: var(--space-8);">
-                        <span class="badge">iOS</span>
-                        <span class="badge">Android</span>
                         <span class="badge">Widgety</span>
                         <span class="badge">Fiszki</span>
                         <span class="badge">Krzyżówki</span>
@@ -1126,16 +1077,17 @@
 
                     <div class="hero-actions delay-300">
                         <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko-word-of-the-day/id6754086353"
-                            class="btn-app-store" aria-label="Pobierz Słówko z App Store">
+                            class="btn-app-store" aria-label="Pobierz Słówko z App Store" target="_blank"
+                            rel="noopener noreferrer">
                             <i class="fa-brands fa-apple" style="font-size: 1.2rem;"></i> App Store
                         </a>
-                        <a href="https://groups.google.com/g/swko-na-android/about" target="_blank"
-                            rel="noopener noreferrer" class="btn btn-slowko-android">
-                            <i class="fa-brands fa-android" style="margin-right: 8px;"></i> Dołącz do testów Android</a>
+                        <a href="https://play.google.com/store/apps/details?id=com.extiri.slowko_app" target="_blank"
+                            rel="noopener noreferrer" class="btn-google-play" aria-label="Pobierz Słówko z Google Play">
+                            <i class="fa-brands fa-android" style="font-size: 1.2rem;"></i> Google Play</a>
                     </div>
 
                     <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--text-tertiary);">
-                        Subskrypcja lub zakup jednorazowy · 7-dniowy okres próbny · Bez konta · iOS 17+</p>
+                        Subskrypcja lub zakup jednorazowy · 7-dniowy okres próbny · Bez konta · iOS i Android</p>
                 </div>
             </header>
 
@@ -1428,16 +1380,6 @@
                     <span class="floating-word" style="left: 90%; animation-delay: 15s;">ephemeral</span>
                 </div>
                 <div class="container hero-content animate-fade-in" style="position: relative; z-index: 1;">
-                    <div class="android-announce-banner">
-                        <span class="android-announce-badge"><i class="fa-brands fa-android"></i> Android</span>
-                        <span class="android-announce-text">Słówko for Android beta testing has started! Join the group
-                            to participate.</span>
-                        <a href="https://groups.google.com/g/swko-na-android/about" target="_blank"
-                            rel="noopener noreferrer" class="android-announce-link">
-                            Join Android Beta <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-
                     <div class="hero-icon-wrapper">
                         <img src="images/slowko/slowko-icon.gif?v=2" alt="Słówko – animated icon" fetchpriority="high">
                     </div>
@@ -1453,8 +1395,6 @@
                         widgets on your home screen.</p>
 
                     <div class="flex-center delay-200" style="flex-wrap: wrap; margin-bottom: var(--space-8);">
-                        <span class="badge">iOS</span>
-                        <span class="badge">Android</span>
                         <span class="badge">Widgets</span>
                         <span class="badge">Flashcards</span>
                         <span class="badge">Crossword</span>
@@ -1462,16 +1402,17 @@
 
                     <div class="hero-actions delay-300">
                         <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko-word-of-the-day/id6754086353"
-                            class="btn-app-store" aria-label="Download Słówko on the App Store">
+                            class="btn-app-store" aria-label="Download Słówko on the App Store" target="_blank"
+                            rel="noopener noreferrer">
                             <i class="fa-brands fa-apple" style="font-size: 1.2rem;"></i> App Store
                         </a>
-                        <a href="https://groups.google.com/g/swko-na-android/about" target="_blank"
-                            rel="noopener noreferrer" class="btn btn-slowko-android">
-                            <i class="fa-brands fa-android" style="margin-right: 8px;"></i> Join Android Beta</a>
+                        <a href="https://play.google.com/store/apps/details?id=com.extiri.slowko_app" target="_blank"
+                            rel="noopener noreferrer" class="btn-google-play" aria-label="Get Słówko on Google Play">
+                            <i class="fa-brands fa-android" style="font-size: 1.2rem;"></i> Google Play</a>
                     </div>
 
                     <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--text-tertiary);">
-                        Subscription or one-time purchase · 7-day free trial · No account needed · iOS 17+</p>
+                        Subscription or one-time purchase · 7-day free trial · No account needed · iOS &amp; Android</p>
                 </div>
             </header>
 
@@ -1767,7 +1708,7 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 Extiri. All rights reserved.</p>
                 <p><a href="https://status.extiri.com" target="_blank" rel="noopener noreferrer">System Status</a></p>
-                <p>Made for iOS.</p>
+                <p>Made for iOS &amp; Android.</p>
             </div>
         </div>
     </footer>
