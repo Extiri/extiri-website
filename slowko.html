@@ -92,12 +92,51 @@
             font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif !important;
         }
 
-        /* Keep navbar font intact (mono font like every other page) */
+        /* Keep navbar font intact (mono font like every other page) while preserving FontAwesome icons */
         .navbar,
-        .navbar *,
+        .navbar a,
+        .navbar span:not([class*="fa-"]),
+        .navbar button,
         .mobile-menu,
-        .mobile-menu * {
+        .mobile-menu a,
+        .mobile-menu span:not([class*="fa-"]),
+        .mobile-menu button {
             font-family: 'JetBrains Mono', monospace !important;
+        }
+
+        .navbar i.fa-brands,
+        .mobile-menu i.fa-brands {
+            font-family: "Font Awesome 7 Brands", "Font Awesome 5 Brands", FontAwesome !important;
+            font-weight: 400 !important;
+            font-style: normal !important;
+            display: inline-block;
+        }
+
+        .navbar i.fa-solid,
+        .mobile-menu i.fa-solid {
+            font-family: "Font Awesome 7 Free", "Font Awesome 5 Free", FontAwesome !important;
+            font-weight: 900 !important;
+            font-style: normal !important;
+            display: inline-block;
+        }
+
+        .nav-download-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #mobile-menu .nav-download-container {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+        }
+
+        #mobile-menu .nav-download-container .btn {
+            flex: 1;
+            max-width: 160px;
+            justify-content: center;
         }
 
         .hero-slowko {
@@ -955,33 +994,101 @@
 -->
     <script src="scripts.js" defer></script>
     <script>
-        function switchLanguage(lang) {
-            document.querySelectorAll('.language-picker a').forEach(a => {
-                a.classList.remove('active');
-                if (a.dataset.lang === lang) a.classList.add('active');
-            });
-            document.querySelectorAll('.lang-section').forEach(section => {
-                section.classList.remove('active');
-                if (section.dataset.lang === lang) section.classList.add('active');
-            });
-            document.querySelectorAll('.nav-download-text').forEach(el => {
-                el.textContent = lang === 'pl' ? 'Pobierz' : 'Download';
-            });
-            document.documentElement.lang = lang;
-            if (lang === 'pl') {
-                document.title = 'Słówko – Codzienne polskie słowo';
-                document.querySelector('meta[name="description"]').content = 'Słówko – minimalistyczna aplikacja z codziennym polskim słowem. Odkrywaj bogactwo języka polskiego każdego dnia z eleganckimi definicjami i przykładami użycia.';
-            } else {
-                document.title = 'Słówko – Daily Polish Word';
-                document.querySelector('meta[name="description"]').content = 'Słówko – a minimalist app featuring a daily Polish word. Discover the richness of the Polish language every day with elegant definitions and usage examples.';
-            }
-            localStorage.setItem('slowko-lang', lang);
+        function getSavedLanguage() {
+            try {
+                const params = new URLSearchParams(window.location.search);
+                const urlLang = params.get('lang');
+                if (urlLang === 'pl' || urlLang === 'en') return urlLang;
+            } catch (e) {}
+
+            try {
+                const stored = localStorage.getItem('slowko-lang');
+                if (stored === 'pl' || stored === 'en') return stored;
+            } catch (e) {}
+
+            return 'pl';
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('slowko-lang') || 'pl';
-            switchLanguage(savedLang);
-        });
+        function switchLanguage(lang) {
+            if (lang !== 'pl' && lang !== 'en') {
+                lang = 'pl';
+            }
+
+            document.querySelectorAll('.language-picker a').forEach(a => {
+                a.classList.toggle('active', a.dataset.lang === lang);
+            });
+            document.querySelectorAll('.lang-section').forEach(section => {
+                section.classList.toggle('active', section.dataset.lang === lang);
+            });
+            document.documentElement.lang = lang;
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (lang === 'pl') {
+                document.title = 'Słówko – Codzienne polskie słowo';
+                if (metaDesc) metaDesc.content = 'Słówko – minimalistyczna aplikacja z codziennym polskim słowem. Odkrywaj bogactwo języka polskiego każdego dnia z eleganckimi definicjami i przykładami użycia.';
+            } else {
+                document.title = 'Słówko – Daily Polish Word';
+                if (metaDesc) metaDesc.content = 'Słówko – a minimalist app featuring a daily Polish word. Discover the richness of the Polish language every day with elegant definitions and usage examples.';
+            }
+
+            try {
+                localStorage.setItem('slowko-lang', lang);
+            } catch (e) {}
+        }
+
+        function updateNavDownloadButtons(forcedPlatform) {
+            let platform = forcedPlatform;
+            if (!platform) {
+                try {
+                    const params = new URLSearchParams(window.location.search);
+                    platform = params.get('platform');
+                } catch (e) {}
+            }
+            if (!platform) {
+                if (navigator.userAgentData && navigator.userAgentData.platform) {
+                    const p = navigator.userAgentData.platform.toLowerCase();
+                    if (p === 'android') platform = 'android';
+                    else if (p === 'ios') platform = 'ios';
+                }
+                if (!platform) {
+                    const ua = (navigator.userAgent || navigator.vendor || window.opera || '').toLowerCase();
+                    if (/android/.test(ua)) {
+                        platform = 'android';
+                    } else if (/ipad|iphone|ipod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+                        platform = 'ios';
+                    } else {
+                        platform = 'other';
+                    }
+                }
+            }
+
+            document.querySelectorAll('.nav-download-container').forEach(container => {
+                const appStoreBtn = container.querySelector('.nav-btn-appstore');
+                const googlePlayBtn = container.querySelector('.nav-btn-googleplay');
+                if (platform === 'android') {
+                    if (appStoreBtn) appStoreBtn.style.display = 'none';
+                    if (googlePlayBtn) googlePlayBtn.style.display = 'inline-flex';
+                } else if (platform === 'ios') {
+                    if (appStoreBtn) appStoreBtn.style.display = 'inline-flex';
+                    if (googlePlayBtn) googlePlayBtn.style.display = 'none';
+                } else {
+                    // Everywhere else: fallback to showing both
+                    if (appStoreBtn) appStoreBtn.style.display = 'inline-flex';
+                    if (googlePlayBtn) googlePlayBtn.style.display = 'inline-flex';
+                }
+            });
+        }
+
+        function initSlowkoPage() {
+            const initialLang = getSavedLanguage();
+            switchLanguage(initialLang);
+            updateNavDownloadButtons();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initSlowkoPage);
+        } else {
+            initSlowkoPage();
+        }
     </script>
 </head>
 
@@ -1005,10 +1112,20 @@
                         <img src="https://flagcdn.com/w40/gb.png" alt="English"> EN
                     </a>
                 </div>
-                <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko-word-of-the-day/id6754086353"
-                    class="btn btn-primary btn--small" style="background: var(--color-slowko); color: #fff;">
-                    <i class="fa-brands fa-apple"></i> <span class="nav-download-text">Pobierz</span>
-                </a>
+                <div class="nav-download-container" id="nav-download-desktop">
+                    <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko-word-of-the-day/id6754086353"
+                        class="btn btn-primary btn--small nav-btn-appstore"
+                        style="background: var(--color-slowko); color: #fff;" target="_blank"
+                        rel="noopener noreferrer" aria-label="App Store">
+                        <i class="fa-brands fa-apple"></i> <span>App Store</span>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.extiri.slowko_app"
+                        class="btn btn-primary btn--small nav-btn-googleplay"
+                        style="background: var(--color-slowko); color: #fff;" target="_blank"
+                        rel="noopener noreferrer" aria-label="Google Play">
+                        <i class="fa-brands fa-android"></i> <span>Google Play</span>
+                    </a>
+                </div>
             </div>
             <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
                 <i class="fa-solid fa-bars"></i>
@@ -1021,13 +1138,22 @@
         <a href="./index.html#home" class="nav-link" onclick="toggleMobileMenu()">Home</a>
         <a href="./index.html#apps" class="nav-link" onclick="toggleMobileMenu()">Apps</a>
         <a href="./blog/index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a>
-        <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko-word-of-the-day/id6754086353"
-            class="btn btn-primary btn--small" style="background: var(--color-slowko); color: #fff; margin-top: 0.5rem;"
-            onclick="toggleMobileMenu()">
-            <i class="fa-brands fa-apple"></i> <span class="nav-download-text">Pobierz</span>
-        </a>
+        <div class="nav-download-container" id="nav-download-mobile" style="margin-top: 0.5rem;">
+            <a href="https://apps.apple.com/pl/app/s%C5%82%C3%B3wko-word-of-the-day/id6754086353"
+                class="btn btn-primary btn--small nav-btn-appstore"
+                style="background: var(--color-slowko); color: #fff;" target="_blank"
+                rel="noopener noreferrer" onclick="toggleMobileMenu()" aria-label="App Store">
+                <i class="fa-brands fa-apple"></i> <span>App Store</span>
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.extiri.slowko_app"
+                class="btn btn-primary btn--small nav-btn-googleplay"
+                style="background: var(--color-slowko); color: #fff;" target="_blank"
+                rel="noopener noreferrer" onclick="toggleMobileMenu()" aria-label="Google Play">
+                <i class="fa-brands fa-android"></i> <span>Google Play</span>
+            </a>
+        </div>
         <div class="language-picker" style="justify-content: center; margin-top: 1rem;">
-            <a href="#" data-lang="pl" onclick="switchLanguage('pl'); toggleMobileMenu(); return false;">
+            <a href="#" data-lang="pl" onclick="switchLanguage('pl'); toggleMobileMenu(); return false;" class="active">
                 <img src="https://flagcdn.com/w40/pl.png" alt="Polski"> PL
             </a>
             <a href="#" data-lang="en" onclick="switchLanguage('en'); toggleMobileMenu(); return false;">
@@ -1041,7 +1167,7 @@
         <!-- ╔══════════════════════════════════════╗ -->
         <!-- ║          POLISH CONTENT              ║ -->
         <!-- ╚══════════════════════════════════════╝ -->
-        <div class="lang-section" data-lang="pl">
+        <div class="lang-section active" data-lang="pl">
 
             <!-- Hero -->
             <header class="hero hero-slowko" style="position: relative; overflow: hidden;">
