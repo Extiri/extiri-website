@@ -7,6 +7,18 @@
 (function () {
     'use strict';
 
+    const hostname = window.location.hostname.toLowerCase().replace(/\.$/, '');
+    const isExtiriDomain = hostname === 'extiri.com' || hostname.endsWith('.extiri.com');
+
+    // Never load or dispatch analytics outside Extiri-owned domains.
+    if (!isExtiriDomain) return;
+
+    const analyticsScript = document.createElement('script');
+    analyticsScript.async = true;
+    analyticsScript.src = 'https://cloud.umami.is/script.js';
+    analyticsScript.dataset.websiteId = 'ca1be9c5-e744-4d04-966a-8f18f94e8e61';
+    document.head.appendChild(analyticsScript);
+
     // --- Safe Umami Event Dispatcher (with async queue fallback) ---
     function trackEvent(eventName, eventData) {
         if (window.umami && typeof window.umami.track === 'function') {

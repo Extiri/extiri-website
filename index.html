@@ -3,8 +3,6 @@
 
 <head>
     <!-- Umami Analytics -->
-    <script defer src="https://cloud.umami.is/script.js"
-        data-website-id="ca1be9c5-e744-4d04-966a-8f18f94e8e61"></script>
     <script defer src="js/umami-tracking.js"></script>
     <link rel="icon" type="image/png" href="favicon.png">
     <meta charset="UTF-8">
@@ -40,7 +38,7 @@
     <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="styles.css?v=5">
+    <link rel="stylesheet" href="styles.css?v=7">
     <style>
         /* Refined Section & Card Paddings */
         .hero-slideshow-section {
@@ -159,7 +157,7 @@
         }
 
         .hero-slide-desc {
-            font-family: var(--font-serif);
+            font-family: var(--font-sans);
             font-size: var(--text-base);
             color: var(--text-secondary);
             line-height: 1.55;
@@ -416,6 +414,7 @@
                 <a href="#home" class="nav-link active">Home</a>
                 <a href="#apps" class="nav-link">Apps</a>
                 <a href="blog/index.html" class="nav-link">Blog</a>
+                <a href="./services.html" class="nav-link">Services</a>
                 <a href="./about.html" class="nav-link">About</a>
             </div>
 
@@ -430,6 +429,7 @@
         <a href="#home" class="nav-link" onclick="toggleMobileMenu()">Home</a>
         <a href="#apps" class="nav-link" onclick="toggleMobileMenu()">Apps</a>
         <a href="blog/index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a>
+        <a href="./services.html" class="nav-link" onclick="toggleMobileMenu()">Services</a>
         <a href="./about.html" class="nav-link" onclick="toggleMobileMenu()">About</a>
     </div>
 
@@ -974,9 +974,9 @@
                 <article class="bento-card bento-card--third bento-card--slowko">
                     <div>
                         <div class="bento-card-brand" style="margin-bottom: var(--space-3);">
-                            <img src="images/slowko/slowko-icon.webp" alt="Słówko Icon" class="bento-card-icon">
+                            <img src="images/slowko/slowko-icon.webp" alt="Słówko. icon" class="bento-card-icon">
                             <div>
-                                <h3 class="bento-card-title" style="font-size: var(--text-xl); margin: 0;">Słówko</h3>
+                                <h3 class="bento-card-title" style="font-size: var(--text-xl); margin: 0;">Słówko.</h3>
                                 <span class="badge badge--small"
                                     style="background: rgba(255,255,255,0.12); color: #fff;">iOS &bull; Android</span>
                             </div>
@@ -1048,6 +1048,22 @@
         </div>
     </main>
 
+    <section class="home-services-callout" aria-labelledby="home-services-title">
+        <div class="container home-services-callout__inner">
+            <div>
+                <p class="home-services-callout__label">App design and development</p>
+                <h2 id="home-services-title">Have an app in mind?</h2>
+            </div>
+            <div class="home-services-callout__copy">
+                <p>The products above show the level of care I bring to client work. I help founders and small businesses turn an early idea, or an existing product, into an app people can confidently use.</p>
+                <div class="home-services-callout__actions">
+                    <a href="./services.html" class="btn btn-primary">Explore app development services</a>
+                    <a href="./about.html" class="home-services-callout__link">Meet the person behind Extiri <span aria-hidden="true">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Recent Posts Section -->
     <section id="recent-posts" class="section" style="background: #0b0b0d; padding: var(--space-12) 0;">
         <div class="container">
@@ -1098,7 +1114,7 @@
                         <li><a href="./chitneek.html">Chitneek</a></li>
                         <li><a href="./clipguru.html">ClipGuru</a></li>
                         <li><a href="./rapidool.html">Rapidool</a></li>
-                        <li><a href="./slowko.html">Słówko</a></li>
+                        <li><a href="./slowko.html">Słówko.</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
