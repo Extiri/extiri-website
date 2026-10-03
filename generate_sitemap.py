@@ -17,32 +17,29 @@ def generate_sitemap():
         dirs[:] = [d for d in dirs if d not in ignored_folders and not d.startswith(".")]
         
         for file in files:
-            if file.endswith(".html"):
+            if file.lower().endswith(".html"):
                 full_path = os.path.join(root, file)
+
+                # Do not publish empty placeholders or error pages in the sitemap.
+                if os.path.getsize(full_path) == 0 or file.lower() == "404.html":
+                    continue
+
                 rel_path = os.path.relpath(full_path, project_dir)
-                
-                # Standardize slashes
+
+                # Use extensionless URLs to match the site's redirects. Preserve
+                # directory URLs for index pages (for example /airstrip/).
                 clean_rel = rel_path.replace(os.path.sep, "/")
-                
-                # Remove .html extension
                 clean_rel = os.path.splitext(clean_rel)[0]
-                
-                # Clean up index files
                 if clean_rel == "index":
                     clean_rel = ""
                 elif clean_rel.endswith("/index"):
-                    clean_rel = clean_rel[:-6]  # strip '/index'
-                
-                # Build final URL
-                if clean_rel:
-                    url = f"{root_domain}/{clean_rel}"
-                else:
-                    url = f"{root_domain}/"
-                    
+                    clean_rel = clean_rel[:-len("index")]
+
+                url = f"{root_domain}/{clean_rel}" if clean_rel else f"{root_domain}/"
                 urls.append(url)
-                
+
     # Sort urls alphabetically for cleaner layout
-    urls.sort()
+    urls = sorted(set(urls))
     
     # Build XML tree
     urlset = ET.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
