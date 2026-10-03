@@ -10,6 +10,33 @@
     <loc>https://extiri.com/airstrip</loc>
   </url>
   <url>
+    <loc>https://extiri.com/airstrip/</loc>
+  </url>
+  <url>
+    <loc>https://extiri.com/airstrip/annual-security-audit</loc>
+  </url>
+  <url>
+    <loc>https://extiri.com/airstrip/app-store-release</loc>
+  </url>
+  <url>
+    <loc>https://extiri.com/airstrip/credential-rotation</loc>
+  </url>
+  <url>
+    <loc>https://extiri.com/airstrip/engineering-onboarding</loc>
+  </url>
+  <url>
+    <loc>https://extiri.com/airstrip/incident-response</loc>
+  </url>
+  <url>
+    <loc>https://extiri.com/airstrip/monthly-financial-reconciliation</loc>
+  </url>
+  <url>
+    <loc>https://extiri.com/airstrip/newsletter-dispatch</loc>
+  </url>
+  <url>
+    <loc>https://extiri.com/airstrip/production-rollback</loc>
+  </url>
+  <url>
     <loc>https://extiri.com/chitneek</loc>
   </url>
   <url>
@@ -22,7 +49,7 @@
     <loc>https://extiri.com/codemenu/terms_of_services</loc>
   </url>
   <url>
-    <loc>https://extiri.com/dashbrand</loc>
+    <loc>https://extiri.com/en/slowko</loc>
   </url>
   <url>
     <loc>https://extiri.com/game-privacy</loc>
@@ -40,19 +67,16 @@
     <loc>https://extiri.com/resso</loc>
   </url>
   <url>
-    <loc>https://extiri.com/slowko</loc>
+    <loc>https://extiri.com/services</loc>
   </url>
   <url>
-    <loc>https://extiri.com/en/slowko</loc>
+    <loc>https://extiri.com/slowko</loc>
   </url>
   <url>
     <loc>https://extiri.com/slowko-privacy</loc>
   </url>
   <url>
     <loc>https://extiri.com/slowko-support</loc>
-  </url>
-  <url>
-    <loc>https://extiri.com/snippets-store</loc>
   </url>
   <url>
     <loc>https://extiri.com/space-train</loc>
