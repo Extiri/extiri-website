@@ -1,0 +1,75 @@
+{
+  "exportedAt" : "2026-09-28T09:39:12Z",
+  "template" : {
+    "icon" : "exclamationmark.triangle.fill",
+    "isStrictSequencing" : true,
+    "steps" : [
+      {
+        "actionPayload" : "https:\/\/app.pagerduty.com",
+        "actionType" : "url",
+        "details" : "Acknowledge the PagerDuty alert so another responder is not paged for the same incident.",
+        "isRequired" : true,
+        "orderIndex" : 0,
+        "title" : "Acknowledge the PagerDuty Alert"
+      },
+      {
+        "actionPayload" : "https:\/\/app.slack.com",
+        "actionType" : "url",
+        "details" : "Join the dedicated Slack incident channel to coordinate with the on-call team.",
+        "isRequired" : true,
+        "orderIndex" : 1,
+        "title" : "Join the Incident Channel"
+      },
+      {
+        "actionPayload" : "https:\/\/statuspage.io",
+        "actionType" : "url",
+        "details" : "Post an initial 'Investigating' update on the public status page.",
+        "isRequired" : true,
+        "orderIndex" : 2,
+        "title" : "Update Status Page to 'Investigating'"
+      },
+      {
+        "actionPayload" : "https:\/\/app.datadoghq.com",
+        "actionType" : "url",
+        "details" : "Check the Datadog dashboards for error spikes, database CPU usage, or memory leaks to isolate the root cause.",
+        "isRequired" : true,
+        "orderIndex" : 3,
+        "title" : "Identify Failing Component via Datadog"
+      },
+      {
+        "actionPayload" : "",
+        "actionType" : "none",
+        "details" : "Execute the mitigation: roll back to the previous stable release or scale up database read replicas.",
+        "isRequired" : true,
+        "orderIndex" : 4,
+        "title" : "Mitigate Impact (Rollback or Scale Up)"
+      },
+      {
+        "actionPayload" : "https:\/\/statuspage.io",
+        "actionType" : "url",
+        "details" : "Once metrics have been stable for 15 minutes, mark the incident as resolved.",
+        "isRequired" : true,
+        "orderIndex" : 5,
+        "timerDuration" : 900,
+        "title" : "Update Status Page to 'Resolved'"
+      },
+      {
+        "actionPayload" : "",
+        "actionType" : "none",
+        "details" : "Schedule the post-mortem review and notify the on-call team.",
+        "isRequired" : true,
+        "orderIndex" : 6,
+        "title" : "Schedule Post-Mortem Review"
+      }
+    ],
+    "templateDescription" : "Mitigation comes before understanding — stabilize first, analyze in the post-mortem. An early 'we're investigating' beats a thorough update sent too late.",
+    "title" : "Incident Response & Outage Mitigation",
+    "triggers" : [
+      {
+        "target" : "pagerduty.com",
+        "type" : "website"
+      }
+    ]
+  },
+  "version" : 1
+}

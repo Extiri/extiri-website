@@ -1,0 +1,72 @@
+{
+  "exportedAt" : "2026-09-28T09:39:30Z",
+  "template" : {
+    "icon" : "arrow.uturn.backward",
+    "isStrictSequencing" : true,
+    "steps" : [
+      {
+        "actionPayload" : "",
+        "actionType" : "none",
+        "details" : "Stop automated deployments and rollouts so a partial release cannot keep progressing.",
+        "isRequired" : true,
+        "orderIndex" : 0,
+        "title" : "Pause the deploy pipeline"
+      },
+      {
+        "actionPayload" : "git tag --sort=-creatordate | head -5",
+        "actionType" : "copyText",
+        "details" : "Confirm the release tag or commit currently deployed and note which change introduced the regression.",
+        "isRequired" : true,
+        "orderIndex" : 1,
+        "title" : "Identify the bad release"
+      },
+      {
+        "actionPayload" : "git checkout {{good_release_tag}}",
+        "actionType" : "copyText",
+        "details" : "Check out the last stable release tag.",
+        "isRequired" : true,
+        "orderIndex" : 2,
+        "title" : "Check out last known-good"
+      },
+      {
+        "actionPayload" : "docker build -t {{image_repo}}:{{good_release_tag}} . && docker push {{image_repo}}:{{good_release_tag}}",
+        "actionType" : "copyText",
+        "details" : "Rebuild the container image for the known-good version and deploy it through the normal pipeline.",
+        "isRequired" : true,
+        "orderIndex" : 3,
+        "title" : "Rebuild & redeploy"
+      },
+      {
+        "actionPayload" : "curl -sf https:\/\/{{api_domain}}\/health -o \/dev\/null && echo \"OK\"",
+        "actionType" : "copyText",
+        "details" : "Confirm HTTP 200 health checks and error rates return to baseline.",
+        "isRequired" : true,
+        "orderIndex" : 4,
+        "timerDuration" : 60,
+        "title" : "Verify health & metrics"
+      },
+      {
+        "actionPayload" : "https:\/\/statuspage.io",
+        "actionType" : "url",
+        "details" : "Post the rollback confirmation in the team channel and update the status page if customers were impacted.",
+        "isRequired" : true,
+        "orderIndex" : 5,
+        "title" : "Notify & update the status page"
+      },
+      {
+        "actionPayload" : "",
+        "actionType" : "none",
+        "details" : "Book the post-mortem review and record the bad release details for follow-up.",
+        "isRequired" : true,
+        "orderIndex" : 6,
+        "title" : "Schedule root-cause review"
+      }
+    ],
+    "templateDescription" : "Restore service first, diagnose later — the post-mortem can wait until users are back on a working version. Assumes containerized deploys behind a health endpoint.",
+    "title" : "Production Rollback",
+    "triggers" : [
+
+    ]
+  },
+  "version" : 1
+}

@@ -1,0 +1,47 @@
+{
+  "exportedAt" : "2026-09-28T09:39:26Z",
+  "template" : {
+    "icon" : "lock.trianglebadge.exclamationmark",
+    "isStrictSequencing" : false,
+    "steps" : [
+      {
+        "actionPayload" : "",
+        "actionType" : "none",
+        "details" : "Review active IAM policies and remove any access that exceeds least-privilege.",
+        "isRequired" : true,
+        "orderIndex" : 0,
+        "title" : "Audit IAM Role Privileges"
+      },
+      {
+        "actionPayload" : "",
+        "actionType" : "none",
+        "details" : "Revoke SSH keys for former team members and inactive accounts.",
+        "isRequired" : true,
+        "orderIndex" : 1,
+        "title" : "Revoke Stale SSH Keys"
+      },
+      {
+        "actionPayload" : "https:\/\/console.aws.amazon.com\/s3",
+        "actionType" : "url",
+        "details" : "Confirm all production S3 buckets have **Block Public Access** enabled and database clusters are bound to VPC private subnets.",
+        "isRequired" : true,
+        "orderIndex" : 2,
+        "title" : "Verify S3 & Database Public Access Blocks"
+      },
+      {
+        "actionPayload" : "openssl s_client -connect {{api_domain}}:443 -servername {{api_domain}} | openssl x509 -noout -dates",
+        "actionType" : "copyText",
+        "details" : "Verify all production SSL\/TLS certificates expire more than 30 days from now.",
+        "isRequired" : true,
+        "orderIndex" : 3,
+        "title" : "Inspect TLS Certificate Expiration Dates"
+      }
+    ],
+    "templateDescription" : "Access, keys, storage settings and certificates all drift over time — this pulls everything back to baseline. Finish it in one sitting; a half-done audit tends to stay half-done.",
+    "title" : "Annual Production Security Audit",
+    "triggers" : [
+
+    ]
+  },
+  "version" : 1
+}

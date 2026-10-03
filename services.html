@@ -272,69 +272,48 @@
         }
 
         .svc-hero-showcase {
-            position: relative;
             margin: 0;
             min-width: 0;
-            isolation: isolate;
         }
 
         .svc-hero-devices {
-            position: relative;
-            height: 660px;
+            display: grid;
+            grid-template-columns: minmax(132px, .9fr) minmax(0, 1fr) minmax(0, 1fr);
+            grid-template-areas:
+                "phone primary primary"
+                "phone airstrip resso";
+            gap: clamp(12px, 1.5vw, 22px);
+            align-items: end;
         }
 
         .svc-hero-device {
-            position: absolute;
-            overflow: hidden;
+            min-width: 0;
         }
 
         .svc-hero-device img {
-            width: 100%;
-            height: 100%;
             display: block;
-            object-fit: cover;
+            width: 100%;
+            height: auto;
         }
 
-        .svc-hero-device--desktop {
-            top: 4%;
-            right: -4%;
-            z-index: 1;
-            width: min(104%, 780px);
-            aspect-ratio: 1.64;
-            border-radius: 14px;
-            box-shadow: 0 8px 8px rgba(0, 0, 0, 0.28);
-        }
-
-        .svc-hero-device--desktop img {
-            object-position: top left;
+        .svc-hero-device--primary {
+            grid-area: primary;
         }
 
         .svc-hero-device--phone {
-            bottom: 2%;
-            left: -2%;
-            z-index: 3;
-            width: min(30%, 205px);
-            aspect-ratio: 0.463;
-            border: 6px solid #1b1b1f;
-            border-radius: 26px;
+            grid-area: phone;
         }
 
         .svc-hero-device--phone img {
-            object-position: top center;
+            border-radius: clamp(18px, 2.3vw, 30px);
+        }
+
+        .svc-hero-device--airstrip {
+            grid-area: airstrip;
         }
 
         .svc-hero-device--resso {
-            right: -3%;
-            bottom: 4%;
-            z-index: 2;
-            width: min(72%, 510px);
-            aspect-ratio: 1.44;
-            border-radius: 12px;
-        }
-
-        .svc-hero-device--resso img {
-            object-fit: contain;
-            object-position: center;
+            grid-area: resso;
         }
 
         /* Work */
@@ -637,40 +616,121 @@
             margin: 0 0 3px;
         }
 
+        .svc-platform-picker {
+            width: fit-content;
+            margin-top: clamp(36px, 5vw, 56px);
+            padding: 5px;
+            display: flex;
+            gap: 4px;
+            border: 1px solid var(--svc-line-strong);
+            border-radius: 14px;
+            background: var(--svc-raised);
+        }
+
+        .svc-platform-option {
+            min-height: 46px;
+            padding: 0 18px;
+            border: 0;
+            border-radius: 9px;
+            background: transparent;
+            color: var(--svc-muted);
+            font: inherit;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: color 160ms ease, background 160ms ease;
+        }
+
+        .svc-platform-option:hover {
+            color: var(--svc-ink);
+        }
+
+        .svc-platform-option[aria-selected="true"] {
+            background: #f1c7bc;
+            color: #1b0b07;
+            box-shadow: 0 0 0 1px rgba(235, 114, 89, 0.78), 0 4px 12px rgba(0, 0, 0, 0.24);
+        }
+
+        .svc-platform-panel {
+            margin-top: 26px;
+        }
+
+        .svc-platform-panel[hidden] {
+            display: none;
+        }
+
+        .svc-platform-context {
+            padding: 0 2px;
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 28px;
+        }
+
+        .svc-platform-context p {
+            max-width: 670px;
+            margin: 0;
+            color: var(--svc-muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        .svc-platform-context strong {
+            color: var(--svc-ink);
+            font-weight: 650;
+        }
+
         .svc-pricing-grid {
-            margin-top: clamp(58px, 7vw, 88px);
+            margin-top: 28px;
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1px;
-            background: var(--svc-line-strong);
-            border: 1px solid var(--svc-line-strong);
-            border-radius: var(--svc-radius);
-            overflow: hidden;
+            gap: 14px;
         }
 
         .svc-price-tier {
-            padding: clamp(34px, 4vw, 54px);
+            min-height: 100%;
+            padding: clamp(28px, 3.2vw, 40px);
             display: flex;
             flex-direction: column;
+            border: 1px solid var(--svc-line-strong);
+            border-radius: 18px;
             background: var(--svc-surface);
         }
 
-        .svc-price-tier h3 {
+        .svc-tier-kicker {
             margin: 0;
+            color: var(--svc-coral);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .svc-price-tier h3 {
+            margin: 14px 0 0;
             color: var(--svc-ink);
-            font-size: 1.18rem;
-            font-weight: 650;
-            letter-spacing: -0.02em;
-            line-height: 1.3;
+            font-size: clamp(1.35rem, 2vw, 1.7rem);
+            font-weight: 550;
+            letter-spacing: -0.035em;
+            line-height: 1.12;
         }
 
         .svc-price {
-            margin: 12px 0 30px;
+            margin: 16px 0 0;
             color: var(--svc-ink);
-            font-size: clamp(2.5rem, 4.5vw, 4rem);
+            font-size: clamp(2.2rem, 3.5vw, 3.25rem);
             font-weight: 500;
             letter-spacing: -0.04em;
             line-height: 1;
+        }
+
+        .svc-tier-description {
+            min-height: 4.8em;
+            margin: 20px 0 22px;
+            color: var(--svc-muted);
+            font-size: 0.93rem;
+            line-height: 1.62;
         }
 
         .svc-price-details {
@@ -678,7 +738,7 @@
         }
 
         .svc-price-details div {
-            padding: 16px 0;
+            padding: 12px 0;
             display: flex;
             justify-content: space-between;
             gap: 20px;
@@ -703,20 +763,15 @@
         }
 
         .svc-pricing-footer {
-            padding: clamp(30px, 4vw, 48px);
+            margin-top: 14px;
+            padding: clamp(26px, 3vw, 36px);
             display: grid;
             grid-template-columns: minmax(0, 1fr) auto;
             gap: 34px;
             align-items: center;
             border: 1px solid var(--svc-line-strong);
-            border-top: 0;
-            border-radius: 0 0 var(--svc-radius) var(--svc-radius);
+            border-radius: 18px;
             background: var(--svc-raised);
-        }
-
-        .svc-pricing-grid + .svc-pricing-footer {
-            margin-top: calc(-1 * var(--svc-radius));
-            padding-top: calc(clamp(30px, 4vw, 48px) + var(--svc-radius));
         }
 
         .svc-pricing-footer h3 {
@@ -756,6 +811,14 @@
         .svc-addons dd {
             font-weight: 700;
             white-space: nowrap;
+        }
+
+        .svc-platform-link {
+            margin-top: 24px;
+        }
+
+        .svc-platform-link .svc-button {
+            width: fit-content;
         }
 
         .svc-upwork-action {
@@ -984,7 +1047,7 @@
             }
 
             .svc-pricing-grid {
-                gap: 1px;
+                gap: 12px;
             }
 
             .svc-pricing-footer {
@@ -994,6 +1057,10 @@
             .svc-hourly {
                 grid-template-columns: 1fr;
                 gap: 28px;
+            }
+
+            .svc-platform-context {
+                display: block;
             }
 
             .svc-faq-layout {
@@ -1043,27 +1110,12 @@
             }
 
             .svc-hero-devices {
-                height: 390px;
+                grid-template-columns: minmax(96px, .78fr) minmax(0, 1fr) minmax(0, 1fr);
+                gap: 9px;
             }
 
-            .svc-hero-device--desktop {
-                top: 4%;
-                right: -8%;
-                width: 96%;
-            }
-
-            .svc-hero-device--phone {
-                bottom: 4%;
-                left: 0;
-                width: 29%;
-                border-width: 4px;
-                border-radius: 19px;
-            }
-
-            .svc-hero-device--resso {
-                right: -5%;
-                bottom: 7%;
-                width: 71%;
+            .svc-hero-device--phone img {
+                border-radius: clamp(14px, 5vw, 20px);
             }
 
             .svc-work-visual,
@@ -1191,21 +1243,26 @@
                     </a>
                 </div>
 
-                <figure class="svc-hero-showcase" aria-label="Mac and iPhone products designed and built by Extiri">
+                <figure class="svc-hero-showcase" aria-label="Native Mac and iPhone apps designed and built by Extiri">
                     <div class="svc-hero-devices">
-                        <div class="svc-hero-device svc-hero-device--desktop">
-                            <img src="images/codemenu/codemenu-dashboard-window.webp"
-                                alt="CodeMenu workspace on a Mac" fetchpriority="high">
+                        <div class="svc-hero-device svc-hero-device--primary">
+                            <img src="images/services/codemenu.png"
+                                alt="CodeMenu editing a code snippet and its flow diagram on Mac" fetchpriority="high">
+                        </div>
+
+                        <div class="svc-hero-device svc-hero-device--airstrip">
+                            <img src="images/services/airstrip.png"
+                                alt="Airstrip showing a structured App Store release workflow on Mac" fetchpriority="high">
                         </div>
 
                         <div class="svc-hero-device svc-hero-device--phone">
-                            <img src="images/czytnik/library-screenshot.webp"
-                                alt="Chitneek library with reading progress and saved books on an iPhone" fetchpriority="high">
+                            <img src="images/services/chitneek.png"
+                                alt="Chitneek library on iPhone" fetchpriority="high">
                         </div>
 
                         <div class="svc-hero-device svc-hero-device--resso">
-                            <img src="images/resso/new-resso/rich-graph.webp"
-                                alt="Resso for Mac mapping connected cloud resources" fetchpriority="high">
+                            <img src="images/services/resso.png"
+                                alt="Resso dashboard for connected cloud assets on Mac" fetchpriority="high">
                         </div>
                     </div>
 
@@ -1386,41 +1443,99 @@
                 <div class="svc-pricing-intro">
                     <h2 class="svc-heading" id="pricing-title">A clear price for defined work, flexibility when you need it.</h2>
                     <p class="svc-intro">
-                        Choose a fixed-price package for a clearly defined new build. Existing apps, evolving features,
-                        and work that needs investigation are available at an hourly rate.
+                        Choose a fixed-price package for a focused native app. Select a platform to see the relevant
+                        scope and Upwork listing. Existing apps and evolving work are available at an hourly rate.
                     </p>
                 </div>
 
-                <div class="svc-pricing-grid">
-                    <article class="svc-price-tier">
-                        <h3>Starter</h3>
-                        <p class="svc-price">$400</p>
-                        <dl class="svc-price-details">
-                            <div><dt>Delivery</dt><dd>7 days</dd></div>
-                            <div><dt>Revisions</dt><dd>1</dd></div>
-                            <div><dt>Source code</dt><dd>Included</dd></div>
-                        </dl>
-                    </article>
+                <div class="svc-platform-picker" role="tablist" aria-label="Choose a platform">
+                    <button class="svc-platform-option" type="button" role="tab" id="ios-pricing-tab"
+                        aria-selected="true" aria-controls="ios-pricing" data-pricing-platform="ios">iOS</button>
+                    <button class="svc-platform-option" type="button" role="tab" id="macos-pricing-tab"
+                        aria-selected="false" aria-controls="macos-pricing" data-pricing-platform="macos"
+                        tabindex="-1">macOS</button>
+                </div>
 
-                    <article class="svc-price-tier">
-                        <h3>Standard</h3>
-                        <p class="svc-price">$1,200</p>
-                        <dl class="svc-price-details">
-                            <div><dt>Delivery</dt><dd>14 days</dd></div>
-                            <div><dt>Revisions</dt><dd>2</dd></div>
-                            <div><dt>Source code</dt><dd>Included</dd></div>
-                        </dl>
-                    </article>
+                <div class="svc-platform-panel" id="ios-pricing" role="tabpanel" aria-labelledby="ios-pricing-tab">
+                    <div class="svc-platform-context">
+                        <p><strong>For iPhone and iPad.</strong> Every package includes one mobile platform, a splash screen, and the source code.</p>
+                    </div>
+                    <div class="svc-pricing-grid">
+                        <article class="svc-price-tier">
+                            <p class="svc-tier-kicker">Starter</p>
+                            <h3>iOS app prototype</h3>
+                            <p class="svc-price">$150</p>
+                            <p class="svc-tier-description">A focused app or prototype with core functionality and a clean interface.</p>
+                            <dl class="svc-price-details">
+                                <div><dt>Delivery</dt><dd>7 days</dd></div>
+                                <div><dt>Revisions</dt><dd>1</dd></div>
+                            </dl>
+                        </article>
+                        <article class="svc-price-tier">
+                            <p class="svc-tier-kicker">Standard</p>
+                            <h3>Complete iOS app</h3>
+                            <p class="svc-price">$350</p>
+                            <p class="svc-tier-description">A multi-screen app with app logic and either local data or an API integration.</p>
+                            <dl class="svc-price-details">
+                                <div><dt>Delivery</dt><dd>14 days</dd></div>
+                                <div><dt>Revisions</dt><dd>2</dd></div>
+                            </dl>
+                        </article>
+                        <article class="svc-price-tier">
+                            <p class="svc-tier-kicker">Advanced</p>
+                            <h3>Advanced iOS app</h3>
+                            <p class="svc-price">$700</p>
+                            <p class="svc-tier-description">A more substantial iOS app with advanced features, integrations, and polished UI.</p>
+                            <dl class="svc-price-details">
+                                <div><dt>Delivery</dt><dd>21 days</dd></div>
+                                <div><dt>Revisions</dt><dd>3</dd></div>
+                            </dl>
+                        </article>
+                    </div>
+                    <div class="svc-platform-link">
+                        <a class="svc-button svc-button--primary" href="https://www.upwork.com/services/product/development-it-a-custom-ios-app-for-iphone-and-ipad-2103939976930969698" target="_blank" rel="noopener noreferrer">View iOS service on Upwork <span aria-hidden="true">↗</span></a>
+                    </div>
+                </div>
 
-                    <article class="svc-price-tier">
-                        <h3>Advanced</h3>
-                        <p class="svc-price">$3,500</p>
-                        <dl class="svc-price-details">
-                            <div><dt>Delivery</dt><dd>30 days</dd></div>
-                            <div><dt>Revisions</dt><dd>3</dd></div>
-                            <div><dt>Source code</dt><dd>Included</dd></div>
-                        </dl>
-                    </article>
+                <div class="svc-platform-panel" id="macos-pricing" role="tabpanel" aria-labelledby="macos-pricing-tab" hidden>
+                    <div class="svc-platform-context">
+                        <p><strong>For Mac.</strong> Every package includes the source code and is designed as a native macOS experience.</p>
+                    </div>
+                    <div class="svc-pricing-grid">
+                        <article class="svc-price-tier">
+                            <p class="svc-tier-kicker">Starter</p>
+                            <h3>Native macOS utility</h3>
+                            <p class="svc-price">$150</p>
+                            <p class="svc-tier-description">A small native macOS utility or prototype with a focused feature set and clean UI.</p>
+                            <dl class="svc-price-details">
+                                <div><dt>Delivery</dt><dd>7 days</dd></div>
+                                <div><dt>Revisions</dt><dd>1</dd></div>
+                            </dl>
+                        </article>
+                        <article class="svc-price-tier">
+                            <p class="svc-tier-kicker">Standard</p>
+                            <h3>Native macOS app</h3>
+                            <p class="svc-price">$350</p>
+                            <p class="svc-tier-description">A robust native app with storage, API integration, and a calm, minimalist interface.</p>
+                            <dl class="svc-price-details">
+                                <div><dt>Delivery</dt><dd>14 days</dd></div>
+                                <div><dt>Revisions</dt><dd>2</dd></div>
+                            </dl>
+                        </article>
+                        <article class="svc-price-tier">
+                            <p class="svc-tier-kicker">Advanced</p>
+                            <h3>Production macOS app</h3>
+                            <p class="svc-price">$700</p>
+                            <p class="svc-tier-description">A substantial native app with advanced features and production-ready architecture.</p>
+                            <dl class="svc-price-details">
+                                <div><dt>Delivery</dt><dd>21 days</dd></div>
+                                <div><dt>Revisions</dt><dd>3</dd></div>
+                            </dl>
+                        </article>
+                    </div>
+                    <div class="svc-platform-link">
+                        <a class="svc-button svc-button--primary" href="https://www.upwork.com/services/product/development-it-an-elegant-and-high-quality-macos-and-0r-ios-app-2084967797452961288" target="_blank" rel="noopener noreferrer">View macOS service on Upwork <span aria-hidden="true">↗</span></a>
+                    </div>
                 </div>
 
                 <div class="svc-pricing-footer">
@@ -1445,15 +1560,7 @@
                 </article>
 
                 <div class="svc-upwork-action">
-                    <a class="svc-button svc-button--primary"
-                        href="https://www.upwork.com/freelancers/~01b5a5b514b8a2130e" target="_blank"
-                        rel="noopener noreferrer">
-                        Discuss your project on Upwork
-                        <span aria-hidden="true">↗</span>
-                    </a>
-                    <p>Tell me what you are building or share the current state of your app. I will suggest a package
-                        or an hourly engagement before work begins. Upwork keeps the brief, milestones, files, time,
-                        and payments together.</p>
+                    <p>Not sure which package fits? Send a short brief on Upwork or by email. I will help you choose a sensible first scope before work begins.</p>
                 </div>
             </div>
         </section>
@@ -1583,6 +1690,33 @@
             menu.setAttribute('aria-hidden', String(!isOpen));
             menu.inert = !isOpen;
         }
+
+        (() => {
+            const tabs = Array.from(document.querySelectorAll('[data-pricing-platform]'));
+            const panels = Array.from(document.querySelectorAll('.svc-platform-panel'));
+
+            const selectPlatform = (platform) => {
+                tabs.forEach((tab) => {
+                    const selected = tab.dataset.pricingPlatform === platform;
+                    tab.setAttribute('aria-selected', String(selected));
+                    tab.tabIndex = selected ? 0 : -1;
+                });
+                panels.forEach((panel) => {
+                    panel.hidden = panel.id !== `${platform}-pricing`;
+                });
+            };
+
+            tabs.forEach((tab, index) => {
+                tab.addEventListener('click', () => selectPlatform(tab.dataset.pricingPlatform));
+                tab.addEventListener('keydown', (event) => {
+                    if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+                    event.preventDefault();
+                    const nextTab = tabs[(index + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length];
+                    nextTab.focus();
+                    selectPlatform(nextTab.dataset.pricingPlatform);
+                });
+            });
+        })();
     </script>
 </body>
 

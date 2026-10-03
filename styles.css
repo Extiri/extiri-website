@@ -1016,6 +1016,21 @@ p {
   background: #241b0b;
 }
 
+/* Keep the original bento cadence: a wide pair, a three-up row, then a
+   second wide pair. Netvis takes ClipGuru's former feature-size position. */
+@media (min-width: 1025px) {
+  .bento-card--resso { order: 1; }
+  .bento-card--codemenu { order: 2; }
+  .bento-card--rapidool { order: 3; }
+  .bento-card--clipguru { order: 4; }
+  .bento-card--chitneek { order: 5; }
+  .bento-card--netvis { order: 6; }
+  .bento-card--airstrip { order: 7; }
+  .bento-card--slowko { order: 8; }
+  .bento-card--games { order: 9; }
+  .bento-card--suggestions { order: 10; }
+}
+
 /* Added spacing above Słówko row */
 .bento-card--slowko,
 .bento-card--games,
@@ -1094,6 +1109,16 @@ p {
   object-fit: contain;
   border-radius: var(--radius-md);
   box-shadow: none !important;
+}
+
+/* The swapped cards keep imagery scaled for their new roles instead of
+   inheriting the same small utility-card limit. */
+.bento-card--netvis .bento-card-media img {
+  max-height: 300px;
+}
+
+.bento-card--clipguru .bento-card-media img {
+  max-height: 280px;
 }
 
 /* CodeMenu Media Wrapper Overrides (Prevent container from rounding dashboard or clipping side window) */
@@ -1600,7 +1625,7 @@ p {
 
 .home-services-callout__inner {
   display: grid;
-  grid-template-columns: minmax(260px, .75fr) minmax(420px, 1.25fr);
+  grid-template-columns: minmax(320px, 1fr) minmax(420px, 1fr);
   gap: clamp(3rem, 8vw, 8rem);
   align-items: start;
 }
@@ -1616,10 +1641,10 @@ p {
 }
 
 .home-services-callout h2 {
-  max-width: 8ch;
+  max-width: 12ch;
   margin: 0;
   color: #090909;
-  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  font-size: clamp(2.6rem, 4vw, 4.25rem);
   line-height: .98;
   letter-spacing: -.035em;
 }

@@ -192,6 +192,45 @@
             border-radius: var(--radius-lg);
         }
 
+        .chitneek-index-shot {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: inherit !important;
+        }
+
+        .hero-slide-media--chitneek {
+            border-radius: clamp(18px, 2.4vw, 28px) !important;
+            overflow: hidden !important;
+        }
+
+        /* The raw Chitneek capture has a square canvas, so the image itself
+           needs its own clipping surface rather than relying on the card. */
+        .bento-card--chitneek .bento-card-media--chitneek {
+            overflow: visible !important;
+        }
+
+        .bento-card--chitneek .chitneek-card-shot {
+            width: min(100%, 186px);
+            margin-inline: auto;
+            border-radius: 24px;
+            overflow: hidden;
+            isolation: isolate;
+            clip-path: inset(0 round 24px);
+        }
+
+        .bento-card--chitneek .chitneek-card-shot .chitneek-index-shot {
+            max-height: none !important;
+            object-fit: initial;
+        }
+
+        @media (max-width: 680px) {
+            .bento-card--chitneek .chitneek-card-shot {
+                border-radius: 18px;
+                clip-path: inset(0 round 18px);
+            }
+        }
+
         .hero-slide-controls {
             display: flex;
             align-items: center;
@@ -653,8 +692,8 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="hero-slide-media">
-                                <img src="images/czytnik/library-screenshot.webp" alt="Chitneek Library" loading="lazy">
+                            <div class="hero-slide-media hero-slide-media--chitneek">
+                                <img class="chitneek-index-shot" src="images/services/chitneek.png" alt="Chitneek library on iPhone" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -844,21 +883,21 @@
                     </div>
                 </article>
 
-                <!-- Bento Card 4: Netvis (Third Span 4) -->
-                <article id="netvis" class="bento-card bento-card--third bento-card--netvis">
+                <!-- Bento Card 4: Netvis (Half Span 6) -->
+                <article id="netvis" class="bento-card bento-card--half bento-card--netvis">
                     <div>
                         <div class="bento-card-brand" style="margin-bottom: var(--space-3);">
                             <img src="images/netvis/netvis-icon.webp" alt="Netvis Icon" class="bento-card-icon">
                             <div>
-                                <h3 class="bento-card-title" style="font-size: var(--text-xl); margin: 0;">Netvis</h3>
+                                <h3 class="bento-card-title" style="font-size: var(--text-2xl); margin: 0;">Netvis</h3>
                                 <span class="badge badge--small"
                                     style="background: rgba(255,255,255,0.12); color: #fff;">macOS &bull; PCAP</span>
                             </div>
                         </div>
                         <h4
-                            style="font-size: 1.15rem; font-family: var(--font-serif); margin-bottom: var(--space-2); font-weight: 600;">
+                            style="font-size: 1.3rem; font-family: var(--font-serif); margin-bottom: var(--space-2); font-weight: 600;">
                             Visual packet analysis for macOS.</h4>
-                        <p class="bento-card-desc" style="font-size: var(--text-xs);">Open PCAP files, replay packet
+                        <p class="bento-card-desc">Open PCAP files, replay packet
                             flows, and inspect network events visually.</p>
                     </div>
 
@@ -893,9 +932,11 @@
                             spoken audio on your iOS device.</p>
                     </div>
 
-                    <div class="bento-card-media">
-                        <img src="images/czytnik/library-screenshot.webp" alt="Chitneek Library Screenshot"
-                            loading="lazy" style="border-radius: 14px !important;">
+                    <div class="bento-card-media bento-card-media--chitneek">
+                        <div class="chitneek-card-shot">
+                            <img class="chitneek-index-shot" src="images/services/chitneek.png" alt="Chitneek library on iPhone"
+                                loading="lazy">
+                        </div>
                     </div>
 
                     <div class="bento-card-actions">
@@ -906,22 +947,22 @@
                     </div>
                 </article>
 
-                <!-- Bento Card 6: ClipGuru (Half Span 6) -->
-                <article id="clipguru" class="bento-card bento-card--half bento-card--clipguru">
+                <!-- Bento Card 6: ClipGuru (Third Span 4) -->
+                <article id="clipguru" class="bento-card bento-card--third bento-card--clipguru">
                     <div>
                         <div class="bento-card-brand" style="margin-bottom: var(--space-3);">
                             <img src="images/clipguru/ClipGuru-icon.webp" alt="ClipGuru Icon" class="bento-card-icon">
                             <div>
-                                <h3 class="bento-card-title" style="font-size: var(--text-2xl); margin: 0;">ClipGuru
+                                <h3 class="bento-card-title" style="font-size: var(--text-xl); margin: 0;">ClipGuru
                                 </h3>
                                 <span class="badge badge--small"
                                     style="background: rgba(255,255,255,0.12); color: #fff;">macOS &bull; iOS</span>
                             </div>
                         </div>
                         <h4
-                            style="font-size: 1.3rem; font-family: var(--font-serif); margin-bottom: var(--space-2); font-weight: 600;">
+                            style="font-size: 1.15rem; font-family: var(--font-serif); margin-bottom: var(--space-2); font-weight: 600;">
                             Never lose text, links or code snippets.</h4>
-                        <p class="bento-card-desc">A lightweight clipboard manager that saves text, links, and images —
+                        <p class="bento-card-desc" style="font-size: var(--text-xs);">A lightweight clipboard manager that saves text, links, and images —
                             instantly searchable with custom semantic context.</p>
                     </div>
 

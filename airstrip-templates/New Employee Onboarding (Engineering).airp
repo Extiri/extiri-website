@@ -1,0 +1,55 @@
+{
+  "exportedAt" : "2026-09-28T09:39:07Z",
+  "template" : {
+    "icon" : "person.crop.circle.badge.plus",
+    "isStrictSequencing" : true,
+    "steps" : [
+      {
+        "actionPayload" : "",
+        "actionType" : "none",
+        "details" : "Log into the company portal to register the work laptop in the Mobile Device Management system.",
+        "isRequired" : true,
+        "orderIndex" : 0,
+        "title" : "Enroll Device in MDM"
+      },
+      {
+        "actionPayload" : "https:\/\/github.com\/orgs",
+        "actionType" : "url",
+        "details" : "Join the company GitHub organization and request access to the primary monolithic repository.",
+        "isRequired" : true,
+        "orderIndex" : 1,
+        "title" : "Request GitHub Organization Access"
+      },
+      {
+        "actionPayload" : "brew bundle",
+        "actionType" : "copyText",
+        "details" : "Install Homebrew, Node.js, Ruby, and Postgres using the provided Brewfile.",
+        "isRequired" : true,
+        "orderIndex" : 2,
+        "title" : "Install Homebrew & Dev Dependencies"
+      },
+      {
+        "actionPayload" : "git clone git@github.com:{{git_org}}\/{{repo_name}}.git",
+        "actionType" : "copyText",
+        "details" : "Clone the backend and frontend monolithic repository to the local machine.",
+        "isRequired" : true,
+        "orderIndex" : 3,
+        "title" : "Clone Main Monorepo"
+      },
+      {
+        "actionPayload" : "make dev",
+        "actionType" : "copyText",
+        "details" : "Start the Docker containers and background workers for local development.",
+        "isRequired" : true,
+        "orderIndex" : 4,
+        "title" : "Boot Local Environment"
+      }
+    ],
+    "templateDescription" : "Worth walking through together — several steps need account approvals that only an existing team member can grant.",
+    "title" : "New Employee Onboarding (Engineering)",
+    "triggers" : [
+
+    ]
+  },
+  "version" : 1
+}

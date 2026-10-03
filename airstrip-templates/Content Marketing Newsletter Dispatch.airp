@@ -1,0 +1,50 @@
+{
+  "exportedAt" : "2026-09-28T09:39:02Z",
+  "template" : {
+    "icon" : "envelope.badge.fill",
+    "isStrictSequencing" : true,
+    "steps" : [
+      {
+        "actionPayload" : "?utm_source=newsletter&utm_medium=email&utm_campaign={{campaign_name}}",
+        "actionType" : "copyText",
+        "details" : "Confirm every call-to-action link carries the correct tracking parameters:\n\n```\n?utm_source=newsletter&utm_medium=email&utm_campaign={{campaign_name}}\n```",
+        "isRequired" : true,
+        "orderIndex" : 0,
+        "title" : "Verify UTM Tags on All CTA Links"
+      },
+      {
+        "actionPayload" : "",
+        "actionType" : "none",
+        "details" : "Dispatch a test preview to the internal marketing team and verify rendering on mobile and desktop.",
+        "isRequired" : true,
+        "orderIndex" : 1,
+        "title" : "Send Test Email to Review Group"
+      },
+      {
+        "actionPayload" : "",
+        "actionType" : "none",
+        "details" : "Confirm the recipient list excludes customers who opted out in the last 7 days.",
+        "isRequired" : true,
+        "orderIndex" : 2,
+        "title" : "Confirm Audience Segmentation"
+      },
+      {
+        "actionPayload" : "https:\/\/mailchimp.com",
+        "actionType" : "url",
+        "details" : "Set the campaign to deliver at **{{send_time}}**.",
+        "isRequired" : true,
+        "orderIndex" : 3,
+        "title" : "Schedule Send in Mailchimp"
+      }
+    ],
+    "templateDescription" : "Run just before scheduling the send — a few minutes here saves the correction email nobody wants to write.",
+    "title" : "Content Marketing Newsletter Dispatch",
+    "triggers" : [
+      {
+        "target" : "mailchimp.com",
+        "type" : "website"
+      }
+    ]
+  },
+  "version" : 1
+}

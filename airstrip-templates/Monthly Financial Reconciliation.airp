@@ -1,0 +1,47 @@
+{
+  "exportedAt" : "2026-09-28T09:38:53Z",
+  "template" : {
+    "icon" : "dollarsign.arrow.circlepath",
+    "isStrictSequencing" : false,
+    "steps" : [
+      {
+        "actionPayload" : "https:\/\/dashboard.stripe.com\/payouts",
+        "actionType" : "url",
+        "details" : "Download the CSV report of all Stripe payouts for the previous month.",
+        "isRequired" : true,
+        "orderIndex" : 0,
+        "title" : "Export Stripe Monthly Payout Report"
+      },
+      {
+        "actionPayload" : "https:\/\/console.aws.amazon.com\/billing",
+        "actionType" : "url",
+        "details" : "Retrieve the finalized AWS infrastructure invoice from the Billing Dashboard.",
+        "isRequired" : true,
+        "orderIndex" : 1,
+        "title" : "Download AWS Billing Invoice"
+      },
+      {
+        "actionPayload" : "https:\/\/app.gusto.com",
+        "actionType" : "url",
+        "details" : "Verify the total payroll debits match the internal HR ledger records.",
+        "isRequired" : true,
+        "orderIndex" : 2,
+        "title" : "Cross-check Gusto Payroll Totals"
+      },
+      {
+        "actionPayload" : "https:\/\/qbo.intuit.com",
+        "actionType" : "url",
+        "details" : "Attach the CSVs and invoices to the respective expense categories in QuickBooks Online.",
+        "isRequired" : true,
+        "orderIndex" : 3,
+        "title" : "Upload Reports to QuickBooks"
+      }
+    ],
+    "templateDescription" : "Best done in the first days of the month, while last month's reports are still complete and clean.",
+    "title" : "Monthly Financial Reconciliation",
+    "triggers" : [
+
+    ]
+  },
+  "version" : 1
+}
