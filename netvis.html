@@ -10,7 +10,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Netvis - Visual Packet Analysis for macOS</title>
   <meta name="description"
-    content="Netvis turns PCAP and PCAPNG captures into an interactive network graph, timeline playback, packet inspector, and event log for macOS.">
+    content="Netvis turns PCAP and PCAPNG captures into an interactive network graph with timeline playback, packet inspection, event detection, and timestamped annotations on macOS.">
   <meta name="keywords"
     content="pcap viewer mac, pcapng viewer mac, network graph, packet analyzer mac, packet visualization, network traffic visualization, Netvis, Extiri">
   <meta name="theme-color" content="#9455FF">
@@ -75,73 +75,6 @@
       flex-direction: column;
       align-items: flex-end;
       pointer-events: auto;
-    }
-
-    .netvis-app-mark {
-      width: 96px;
-      height: 96px;
-      border-radius: 22px;
-      margin-bottom: var(--space-6);
-      border: 1px solid #2e2646;
-      background: #110d1c;
-    }
-
-    .netvis-kicker {
-      color: var(--netvis-accent);
-      font-family: var(--font-sans);
-      font-size: var(--text-lg);
-      font-weight: 700;
-      margin-bottom: var(--space-3);
-      text-transform: uppercase;
-      letter-spacing: 0;
-    }
-
-    .netvis-title {
-      max-width: 640px;
-      margin-bottom: var(--space-6);
-      font-family: var(--font-serif);
-      font-size: 4.85rem;
-      font-weight: 400;
-      line-height: 0.95;
-      letter-spacing: 0;
-    }
-
-    .netvis-subtitle {
-      max-width: 590px;
-      margin-bottom: var(--space-8);
-      color: var(--text-secondary);
-      font-size: var(--text-xl);
-      line-height: 1.55;
-    }
-
-    .netvis-badges {
-      display: flex;
-      justify-content: flex-end;
-      gap: var(--space-2);
-      flex-wrap: wrap;
-      margin-bottom: var(--space-8);
-    }
-
-    .netvis-badges .badge {
-      border: 1px solid #3b2b5c;
-      background: #19122a;
-      color: #d8c6ff;
-    }
-
-    .netvis-actions {
-      justify-content: flex-end;
-    }
-
-    .netvis-page .btn-primary {
-      background: var(--netvis-accent);
-      color: #fff;
-      --btn-shadow-rgb: var(--netvis-accent-rgb);
-    }
-
-    .netvis-availability {
-      margin-top: var(--space-4);
-      color: var(--text-tertiary);
-      font-size: var(--text-sm);
     }
 
     /* Stationary Graph Orb - Solid Colors */
@@ -585,390 +518,6 @@
       top: 18%;
     }
 
-    .netvis-section-header {
-      max-width: 800px;
-      margin: 0 auto var(--space-12);
-      text-align: center;
-    }
-
-    .netvis-eyebrow {
-      color: var(--netvis-accent);
-      font-size: var(--text-sm);
-      font-weight: 700;
-      margin-bottom: var(--space-3);
-      text-transform: uppercase;
-      letter-spacing: 0;
-    }
-
-    .netvis-section-header h2,
-    .netvis-cta h2 {
-      margin-bottom: var(--space-4);
-      font-family: var(--font-serif);
-      font-size: var(--text-4xl);
-      font-weight: 400;
-      line-height: 1.05;
-    }
-
-    .netvis-section-header p,
-    .netvis-cta p {
-      color: var(--text-secondary);
-      font-size: var(--text-lg);
-      line-height: 1.7;
-    }
-
-    .netvis-flow {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-6);
-    }
-
-    .netvis-flow-step,
-    .netvis-feature,
-    .netvis-event,
-    .netvis-faq-item {
-      border: 1px solid var(--bg-glass-border);
-      border-radius: var(--radius-lg);
-      background: var(--bg-surface);
-    }
-
-    .netvis-flow-step {
-      padding: var(--space-8);
-      position: relative;
-      min-height: 250px;
-      overflow: hidden;
-    }
-
-    .netvis-flow-step::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 3px;
-      background: var(--step-color, var(--netvis-accent));
-    }
-
-    .netvis-flow-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      margin-bottom: var(--space-6);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: var(--radius-md);
-      color: var(--step-color, var(--netvis-accent));
-      font-weight: 700;
-    }
-
-    .netvis-flow-step h3,
-    .netvis-feature h3,
-    .netvis-event h3,
-    .netvis-faq-item h3 {
-      margin-bottom: var(--space-3);
-      font-size: var(--text-xl);
-      line-height: 1.25;
-    }
-
-    .netvis-flow-step p,
-    .netvis-feature p,
-    .netvis-event p,
-    .netvis-faq-item p {
-      color: var(--text-secondary);
-      font-size: var(--text-sm);
-      line-height: 1.7;
-    }
-
-    .netvis-screenshot-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: var(--space-6);
-      align-items: center;
-    }
-
-    .netvis-screenshot-stack {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-6);
-    }
-
-    .netvis-shot {
-      position: relative;
-      margin: 0;
-      border: 1px solid #231c38;
-      border-radius: var(--radius-xl);
-      background: #0d0b14;
-      overflow: hidden;
-      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
-    }
-
-    .netvis-shot img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .netvis-shot--window {
-      padding: clamp(14px, 2vw, 28px);
-    }
-
-    .netvis-shot--window img {
-      filter: drop-shadow(0 24px 54px rgba(0, 0, 0, 0.46));
-    }
-
-    .netvis-shot--compact {
-      padding: 0;
-    }
-
-    .netvis-screenshot-pair {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: var(--space-6);
-      align-items: start;
-    }
-
-    .netvis-screenshot-pair .netvis-shot {
-      padding: 0;
-    }
-
-    .netvis-features {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: var(--space-6);
-    }
-
-    .netvis-feature {
-      grid-column: span 4;
-      min-height: 260px;
-      padding: var(--space-8);
-      overflow: hidden;
-    }
-
-    .netvis-feature.wide {
-      grid-column: span 8;
-    }
-
-    .netvis-feature-icon,
-    .netvis-event-icon {
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: var(--space-6);
-      border-radius: var(--radius-md);
-      background: rgba(var(--icon-rgb, var(--netvis-accent-rgb)), 0.12);
-      color: var(--icon-color, var(--netvis-accent));
-      font-size: 1.45rem;
-    }
-
-    .netvis-mini-log {
-      margin-top: var(--space-6);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      font-size: var(--text-xs);
-      color: var(--text-secondary);
-    }
-
-    .netvis-mini-log div {
-      display: grid;
-      grid-template-columns: 72px 1fr 70px;
-      gap: var(--space-4);
-      padding: 10px 12px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .netvis-mini-log div:last-child {
-      border-bottom: 0;
-    }
-
-    .netvis-mini-log span:first-child {
-      color: var(--netvis-accent);
-    }
-
-    .netvis-events {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-6);
-    }
-
-    .netvis-event {
-      padding: var(--space-6);
-      min-height: 210px;
-    }
-
-    .netvis-trust-band {
-      border-top: 1px solid var(--bg-glass-border);
-      border-bottom: 1px solid var(--bg-glass-border);
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    .netvis-trust-band .container {
-      max-width: 1420px;
-    }
-
-    .netvis-trust {
-      display: grid;
-      grid-template-columns: minmax(280px, 0.52fr) minmax(780px, 1.48fr);
-      gap: var(--space-12);
-      align-items: center;
-    }
-
-    .netvis-trust-list {
-      display: grid;
-      gap: var(--space-4);
-    }
-
-    .netvis-trust-item {
-      display: flex;
-      align-items: flex-start;
-      gap: var(--space-4);
-      color: var(--text-secondary);
-      line-height: 1.65;
-    }
-
-    .netvis-trust-item i {
-      color: var(--netvis-accent);
-      margin-top: 5px;
-    }
-
-    .netvis-faq {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-6);
-    }
-
-    .netvis-faq-item {
-      padding: var(--space-8);
-    }
-
-    .netvis-cta {
-      max-width: 760px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .netvis-cta .hero-actions {
-      margin-top: var(--space-8);
-    }
-
-    @keyframes packetPulse {
-
-      0%,
-      100% {
-        opacity: 0.34;
-        transform: scale(0.82);
-      }
-
-      50% {
-        opacity: 1;
-        transform: scale(1.12);
-      }
-    }
-
-    @media (max-width: 1100px) {
-      .netvis-title {
-        font-size: 4.1rem;
-      }
-
-      .netvis-hero-inner {
-        grid-template-columns: minmax(420px, 1fr) minmax(460px, 600px);
-      }
-
-      .netvis-events {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .netvis-trust {
-        grid-template-columns: 0.68fr 1.32fr;
-      }
-    }
-
-    @media (max-width: 860px) {
-      .netvis-hero {
-        padding-top: calc(var(--header-height) + var(--space-16));
-      }
-
-      .netvis-hero-inner {
-        display: flex;
-        min-height: 760px;
-        align-items: flex-end;
-      }
-
-      .netvis-hero-copy {
-        width: 100%;
-        text-align: right;
-        align-items: flex-end;
-      }
-
-      .netvis-title {
-        font-size: 3.2rem;
-      }
-
-      .netvis-subtitle {
-        font-size: var(--text-lg);
-      }
-
-      .netvis-badges,
-      .netvis-actions {
-        justify-content: flex-end;
-      }
-
-      .netvis-graph-orb {
-        top: 35%;
-        left: -190px;
-        width: 760px;
-        height: 760px;
-        opacity: 0.78;
-      }
-
-      .netvis-flow,
-      .netvis-screenshot-grid,
-      .netvis-screenshot-pair,
-      .netvis-trust,
-      .netvis-faq {
-        grid-template-columns: 1fr;
-      }
-
-      .netvis-features {
-        display: flex;
-        flex-direction: column;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .netvis-title {
-        font-size: 2.55rem;
-      }
-
-      .netvis-app-mark {
-        width: 80px;
-        height: 80px;
-      }
-
-      .netvis-graph-orb {
-        left: -260px;
-      }
-
-      .host-node {
-        width: 62px;
-        height: 62px;
-        font-size: 1.25rem;
-      }
-
-      .host-node.is-primary {
-        width: 74px;
-        height: 74px;
-      }
-
-      .netvis-events {
-        grid-template-columns: 1fr;
-      }
-
-      .netvis-shot--window {
-        padding: var(--space-3);
-      }
-    }
-
     @media (prefers-reduced-motion: reduce) {
 
       .netvis-graph-orb,
@@ -985,6 +534,7 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="netvis-redesign.css">
 </head>
 
 <body class="netvis-page">
@@ -1023,7 +573,8 @@
     </a>
   </div>
 
-  <header class="netvis-hero">
+  <main class="nv">
+    <header class="netvis-hero">
     <div class="netvis-graph-orb" id="netvisGraphOrb">
       <div class="netvis-graph-network">
         <svg class="netvis-graph-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -1212,280 +763,114 @@
     </div>
 
     <div class="container netvis-hero-inner">
-      <div class="netvis-hero-copy animate-fade-in">
-        <img src="images/netvis/netvis-icon.webp" alt="Netvis Icon" class="netvis-app-mark" fetchpriority="high">
-        <div class="netvis-kicker">Netvis</div>
-        <h1 class="netvis-title">Visual packet analysis for macOS</h1>
-        <p class="netvis-subtitle">Open a PCAP or PCAPNG file and watch hosts, conversations, packets, and suspicious
-          events unfold on an interactive timeline. No terminal required.</p>
-        <div class="netvis-badges">
-          <span class="badge">PCAP / PCAPNG</span>
-          <span class="badge">Timeline playback</span>
-          <span class="badge">Deep packet inspector</span>
-          <span class="badge">macOS 26+</span>
+      <div class="netvis-hero-copy">
+        <div class="nv-brand"><img src="images/netvis/netvis-icon.webp" alt="" width="44" height="44"> Netvis</div>
+        <h1 class="netvis-title">See what happened on the network.</h1>
+        <p class="netvis-subtitle">Turn a packet capture into an interactive map. Replay the traffic, inspect the packets behind it, and annotate the moments you want to explain.</p>
+        <div class="nv-hero-actions">
+          <a href="https://apps.apple.com/pl/app/netvis-visual-packet-map/id6786680288?mt=12" class="nv-button">Try Netvis free</a>
+          <a href="#features" class="nv-link">See how it works <span aria-hidden="true">↓</span></a>
         </div>
-        <div class="hero-actions netvis-actions">
-          <a href="https://apps.apple.com/pl/app/netvis-visual-packet-map/id6786680288?mt=12" class="btn-app-store"
-            aria-label="Download Netvis on the Mac App Store">
-            <i class="fa-brands fa-apple" style="font-size: 1.2rem;"></i> Mac App Store
-          </a>
-          <a href="#features" class="btn btn-outline">Explore Features</a>
-        </div>
-        <p class="netvis-availability">7-day free trial - $9.99 lifetime license - built for saved capture files</p>
+        <p class="nv-meta">7-day free trial · macOS 26 or later</p>
       </div>
     </div>
   </header>
 
-  <section class="section">
-    <div class="container">
-      <div class="netvis-section-header">
-        <p class="netvis-eyebrow">From capture to clarity</p>
-        <h2>Understand a packet capture without living in a packet list</h2>
-        <p>Netvis keeps the raw details available, but starts with the mental model people actually need: who is
-          talking, when traffic happens, what protocol is involved, and which moments deserve attention.</p>
+    <section id="features" class="nv-wrap nv-section nv-replay">
+      <div class="nv-intro">
+        <h2>Watch the capture unfold.</h2>
+        <p>Open a PCAP or PCAPNG file and Netvis builds a map of the hosts in it. Play back the traffic to see who talked to whom, or scrub to the moment you care about.</p>
       </div>
+      <figure class="nv-replay-image">
+        <img src="images/netvis/network-traffic-with-playback.webp" width="2890" height="1436" alt="A Netvis capture playing back with packets moving across the host graph and playback controls below" loading="lazy">
+        <figcaption>The timeline and graph show the same moment in the capture.</figcaption>
+      </figure>
+    </section>
 
-      <div class="netvis-flow">
-        <article class="netvis-flow-step" style="--step-color: var(--netvis-accent);">
-          <div class="netvis-flow-number">01</div>
-          <h3>Open a capture</h3>
-          <p>Load <code>.pcap</code> or <code>.pcapng</code> files from the Welcome window, Finder, or the standard
-            macOS Open flow. Netvis parses Ethernet IPv4 traffic locally and builds the first topology automatically.
-          </p>
-        </article>
-
-        <article class="netvis-flow-step" style="--step-color: #82d6ff;">
-          <div class="netvis-flow-number">02</div>
-          <h3>Watch the network move</h3>
-          <p>Hosts appear as draggable nodes, connections become edges, and packets animate through the graph as the
-            timeline plays. Scrub, pause, jump, and inspect the capture as a sequence of events.</p>
-        </article>
-
-        <article class="netvis-flow-step" style="--step-color: #3dd68c;">
-          <div class="netvis-flow-number">03</div>
-          <h3>Inspect what matters</h3>
-          <p>Select hosts, packets, conversations, or detected events to reveal protocol layers, endpoint details,
-            payload hex, host activity, and the surrounding network context.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top: 0;">
-    <div class="container">
-      <div class="netvis-screenshot-grid">
-        <figure class="netvis-shot netvis-shot--window netvis-shot--wide">
-          <img src="images/netvis/whole-window-transparent.webp"
-            alt="Netvis showing a PCAP network graph, packet playback timeline, and packet log." loading="lazy">
-        </figure>
-
-        <div class="netvis-screenshot-stack">
-          <figure class="netvis-shot netvis-shot--compact">
-            <img src="images/netvis/network-traffic-with-playback.webp"
-              alt="Netvis network traffic graph with animated packet playback controls." loading="lazy">
-          </figure>
-
-          <figure class="netvis-shot netvis-shot--compact netvis-shot--inspector">
-            <img src="images/netvis/packet-inspector.webp"
-              alt="Netvis packet inspector showing protocol hierarchy details." loading="lazy">
+    <section class="nv-investigate">
+      <div class="nv-wrap nv-section">
+        <div class="nv-intro">
+          <h2>Find a lead. Follow it to the packet.</h2>
+          <p>Start with an event or a pair of hosts. Netvis keeps the graph in view as you narrow the capture.</p>
+        </div>
+        <div class="nv-investigation-layout">
+          <fieldset class="nv-views">
+            <legend>Select a view</legend>
+            <input type="radio" name="capture-view" id="nv-events" checked>
+            <input type="radio" name="capture-view" id="nv-conversations">
+            <div class="nv-view-controls">
+              <label for="nv-events">Events</label>
+              <label for="nv-conversations">Conversations</label>
+            </div>
+            <figure class="nv-events-view">
+              <img src="images/netvis/events-view.webp" width="2904" height="1112" alt="The chronological event list in Netvis" loading="lazy">
+              <figcaption>Look for port scans, DNS bursts, large downloads, and TLS activity. Select an event in Netvis to jump to its timestamp and highlight the hosts involved.</figcaption>
+            </figure>
+            <figure class="nv-conversations-view">
+              <img src="images/netvis/conversations-view.webp" width="2908" height="1106" alt="Netvis conversations view listing the endpoints and protocols of network exchanges" loading="lazy">
+              <figcaption>Start with the hosts you recognize. Use the conversation list to find their exchanges and see which protocols they used.</figcaption>
+            </figure>
+          </fieldset>
+          <figure class="nv-inspector">
+            <img src="images/netvis/packet-inspector.webp" width="1114" height="1724" alt="The Netvis packet inspector expanded to show protocol fields and packet details" loading="lazy">
+            <figcaption>Open the packet inspector to check the fields behind what you’re seeing on the map.</figcaption>
           </figure>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section" id="features">
-    <div class="container">
-      <div class="netvis-section-header">
-        <p class="netvis-eyebrow">Core capabilities</p>
-        <h2>The fastest way to explain what happened in a capture</h2>
-        <p>Netvis is designed for students, beginners, and network practitioners who need to move from raw packets to a
-          clear story without giving up detail.</p>
-      </div>
-
-      <div class="netvis-features">
-        <article class="netvis-feature wide">
-          <div class="netvis-feature-icon" style="--icon-color: var(--netvis-accent);">
-            <i class="fa-solid fa-diagram-project"></i>
-          </div>
-          <h3>Auto-generated topology graph</h3>
-          <p>Hosts are discovered from capture data, grouped into conversations, and arranged around the most connected
-            node. Rename devices, tag their type, drag them into place, and search by IP, MAC, name, or manufacturer.
-          </p>
-          <div class="netvis-mini-log" aria-hidden="true">
-            <div><span>TCP</span><span>192.168.1.42 -> 17.253.144.10</span><span>443</span></div>
-            <div><span>DNS</span><span>phone.local -> gateway</span><span>53</span></div>
-            <div><span>UDP</span><span>printer.local -> workstation</span><span>5353</span></div>
-          </div>
-        </article>
-
-        <article class="netvis-feature" style="--icon-color: #82d6ff; --icon-rgb: 130, 214, 255;">
-          <div class="netvis-feature-icon">
-            <i class="fa-solid fa-play"></i>
-          </div>
-          <h3>Timeline playback</h3>
-          <p>Scrub across the capture, step backward or forward, change speed, and show only hosts active around the
-            current moment. Packet motion gives timing and direction an immediate visual shape.</p>
-        </article>
-
-        <article class="netvis-feature" style="--icon-color: #3dd68c; --icon-rgb: 61, 214, 140;">
-          <div class="netvis-feature-icon">
-            <i class="fa-solid fa-layer-group"></i>
-          </div>
-          <h3>Deep packet inspection</h3>
-          <p>Inspect frame metadata, Ethernet, IPv4, TCP, UDP, ICMP, ARP, DNS, DHCP, HTTP, TLS, endpoints, and payload
-            hex in a readable hierarchy.</p>
-        </article>
-
-        <article class="netvis-feature" style="--icon-color: #ffb56b; --icon-rgb: 255, 181, 107;">
-          <div class="netvis-feature-icon">
-            <i class="fa-solid fa-magnifying-glass-chart"></i>
-          </div>
-          <h3>Host intelligence</h3>
-          <p>Netvis enriches hosts with DHCP names, mDNS <code>.local</code> names, MAC OUI hints, byte totals, top
-            peers, protocol summaries, and an activity sparkline.</p>
-        </article>
-
-        <article class="netvis-feature" style="--icon-color: #ff6b8a; --icon-rgb: 255, 107, 138;">
-          <div class="netvis-feature-icon">
-            <i class="fa-solid fa-filter"></i>
-          </div>
-          <h3>Search and focus</h3>
-          <p>Filter hosts, focus active traffic, jump from events to involved nodes, and highlight conversations so the
-            important path stays visible.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section netvis-trust-band">
-    <div class="container">
-      <div class="netvis-trust">
-        <div>
-          <p class="netvis-eyebrow">Security-relevant events</p>
-          <h2
-            style="font-family: var(--font-serif); font-size: var(--text-4xl); font-weight: 400; line-height: 1.05; margin-bottom: var(--space-6);">
-            Spot the moments worth investigating</h2>
-          <p style="color: var(--text-secondary); font-size: var(--text-lg); line-height: 1.7;">After import, Netvis
-            scans
-            the full capture and builds a chronological event list. Click an event to pause playback, jump to that
-            timestamp, highlight the involved hosts, and center the graph on the relevant traffic.</p>
+    <section id="annotations" class="nv-annotations">
+      <div class="nv-wrap nv-section">
+        <div class="nv-intro">
+          <h2>Leave the explanation on the capture.</h2>
+          <p>Add a timestamped text box when something changes. Draw an arrow to the host that matters, or outline the machines you’re comparing. The next person can see where to look and when.</p>
         </div>
-
-        <div class="netvis-events">
-          <article class="netvis-event" style="--icon-color: #82d6ff; --icon-rgb: 130, 214, 255;">
-            <div class="netvis-event-icon"><i class="fa-solid fa-route"></i></div>
-            <h3>Port scans</h3>
-            <p>Detect one host connecting to many ports on a single peer.</p>
-          </article>
-          <article class="netvis-event" style="--icon-color: var(--netvis-accent);">
-            <div class="netvis-event-icon"><i class="fa-solid fa-server"></i></div>
-            <h3>DNS bursts</h3>
-            <p>Surface dense bursts of DNS queries from one source.</p>
-          </article>
-          <article class="netvis-event" style="--icon-color: #3dd68c; --icon-rgb: 61, 214, 140;">
-            <div class="netvis-event-icon"><i class="fa-solid fa-download"></i></div>
-            <h3>Large downloads</h3>
-            <p>Flag high inbound byte volume within a short window.</p>
-          </article>
-          <article class="netvis-event" style="--icon-color: #ffb56b; --icon-rgb: 255, 181, 107;">
-            <div class="netvis-event-icon"><i class="fa-solid fa-lock"></i></div>
-            <h3>TLS activity</h3>
-            <p>Extract TLS Client Hello and SNI details where available.</p>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="netvis-section-header">
-        <p class="netvis-eyebrow">Native and local</p>
-        <h2>A graphical packet lab that stays on your Mac</h2>
-        <p>Netvis is a document-based macOS app built for local capture files. It reads user-selected files
-          and does not require elevated permissions or shell workflows.</p>
-      </div>
-
-      <div class="netvis-trust-list" style="max-width: 820px; margin: 0 auto;">
-        <div class="netvis-trust-item">
-          <i class="fa-solid fa-shield-halved"></i>
-          <p><strong style="color: var(--text-primary);">Secure by design.</strong> Netvis uses read-only access to
-            user-selected capture files and keeps license state in local storage.</p>
-        </div>
-        <div class="netvis-trust-item">
-          <i class="fa-solid fa-desktop"></i>
-          <p><strong style="color: var(--text-primary);">Native macOS interface.</strong> Floating panels, resizable
-            inspectors, timeline controls, and host drawers are built around a focused graphical workflow.</p>
-        </div>
-        <div class="netvis-trust-item">
-          <i class="fa-solid fa-circle-nodes"></i>
-          <p><strong style="color: var(--text-primary);">Made for saved captures.</strong> Netvis analyzes PCAP and
-            PCAPNG files. It is not a live packet capture tool.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top: 0;">
-    <div class="container">
-      <div class="netvis-screenshot-pair">
-        <figure class="netvis-shot netvis-shot--wide">
-          <img src="images/netvis/events-view.webp"
-            alt="Netvis events view with flagged activity from a packet capture." loading="lazy">
-        </figure>
-        <figure class="netvis-shot netvis-shot--wide">
-          <img src="images/netvis/conversations-view.webp"
-            alt="Netvis conversations view listing network endpoints and traffic volume." loading="lazy">
+        <figure class="nv-annotation-figure">
+          <img src="images/netvis/annotated-failover.webp" width="1774" height="887" alt="Illustrated Netvis graph with Office Mac, DNS, edge, and app hosts. A violet box groups APP-01 and APP-02, an arrow points to EDGE-01, and notes mark the DNS reply at 00:12 and the traffic shift at 00:18." loading="lazy">
+          <figcaption><strong>Example: checking an app failover.</strong> Mark when the DNS reply arrives, group the two app hosts, and flag the moment traffic shifts to the second host.</figcaption>
         </figure>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="netvis-section-header">
-        <h2>FAQ</h2>
+    <section class="nv-wrap nv-section nv-local">
+      <div>
+        <h2>Analyze the capture on your Mac.</h2>
+        <p>Netvis opens saved captures locally with read-only access to the file you select. Use host details, search, and filters to focus on the traffic you need, then return to the full map for context.</p>
+        <a class="nv-link" href="#faq">See supported capture formats <span aria-hidden="true">↓</span></a>
       </div>
+      <img src="images/netvis/whole-window-transparent.webp" width="2978" height="2312" alt="The full Netvis workspace with a host graph, playback timeline, and packet list" loading="lazy">
+    </section>
 
-      <div class="netvis-faq">
-        <article class="netvis-faq-item">
-          <h3>Which files does Netvis support?</h3>
-          <p>Netvis supports classic <code>.pcap</code> files and <code>.pcapng</code> files. It focuses on Ethernet
-            IPv4 traffic with TCP and UDP parsing, plus selected application-layer enrichment.</p>
-        </article>
-        <article class="netvis-faq-item">
-          <h3>Is this a Wireshark replacement?</h3>
-          <p>It is a different kind of tool. Netvis is built for visual explanation, teaching, replay, topology, and
-            guided inspection. Raw protocol detail is still available when you need to drill down.</p>
-        </article>
-        <article class="netvis-faq-item">
-          <h3>Does Netvis capture live traffic?</h3>
-          <p>No. Netvis analyzes saved capture files. This avoids requiring elevated permissions or packet capture
-            extensions.</p>
-        </article>
-        <article class="netvis-faq-item">
-          <h3>How will licensing work?</h3>
-          <p>Netvis includes a 7-day free trial with a one-time $9.99 lifetime license for continued use.</p>
-        </article>
+    <section id="faq" class="nv-wrap nv-section nv-faq">
+      <h2>Common questions</h2>
+      <div>
+        <details>
+          <summary>Which capture formats can I open?</summary>
+          <p>Netvis reads <code>.pcap</code> and <code>.pcapng</code> files. It focuses on Ethernet IPv4 traffic with TCP and UDP parsing, plus selected application protocol details.</p>
+        </details>
+        <details>
+          <summary>Can I use Netvis alongside Wireshark?</summary>
+          <p>Yes. Open the saved capture in Netvis to see the topology, replay traffic, and annotate the moments you want to explain.</p>
+        </details>
+        <details>
+          <summary>Does Netvis capture live traffic?</summary>
+          <p>Netvis analyzes saved captures. You can open files from your existing capture tools without installing a packet capture extension.</p>
+        </details>
+        <details>
+          <summary>How does the trial work?</summary>
+          <p>Try Netvis for seven days. The App Store lists the current price for a one-time purchase.</p>
+        </details>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section">
-    <div class="container netvis-cta">
-      <h2>Turn your next packet capture into a map</h2>
-      <p>Use Netvis when a packet list is too dense, a diagram would explain the capture faster, or you need to teach
-        what actually moved across a network.</p>
-      <div class="hero-actions flex-center">
-        <a href="https://apps.apple.com/pl/app/netvis-visual-packet-map/id6786680288?mt=12" class="btn-app-store"
-          aria-label="Download Netvis on the Mac App Store">
-          <i class="fa-brands fa-apple" style="font-size: 1.2rem;"></i> Mac App Store
-        </a>
-        <a href="#features" class="btn btn-outline">Explore Features</a>
-      </div>
-    </div>
-  </section>
+    <section class="nv-wrap nv-section nv-trial">
+      <img src="images/netvis/netvis-icon.webp" width="64" height="64" alt="" loading="lazy">
+      <h2>Open a capture you already know.</h2>
+      <p>Replay it, find a conversation, and mark the moment you’d want to show someone else.</p>
+      <a class="nv-button" href="https://apps.apple.com/pl/app/netvis-visual-packet-map/id6786680288?mt=12">Try Netvis free</a>
+      <p class="nv-meta">7-day free trial · macOS 26 or later</p>
+    </section>
+  </main>
 
   <footer class="footer">
     <div class="container">

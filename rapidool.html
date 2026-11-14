@@ -8,21 +8,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Rapidool — Native macOS Computational Scratchpad & Smart Developer Workspace</title>
+  <title>Rapidool — The Developer Scratchpad and Pipeline Editor for Mac</title>
   <meta name="description"
-    content="Rapidool is an offline-first, native macOS smart workspace and computational scratchpad. Run JS sandboxes, query mock APIs, decode formats, and evaluate math in real-time.">
+    content="Rapidool is a local-first developer scratchpad for Mac. Run tools from the Command Gallery, build reusable visual pipelines, and prototype with JavaScript, HTML, and local mock APIs.">
   <meta name="keywords"
     content="developer scratchpad mac, macOS developer tools, native mac scratchpad, math evaluation text editor, offline developer tools, JS sandbox mac, mock API server local, regex tester app, mac app, Extiri">
-  <meta name="theme-color" content="#050505">
+  <meta name="theme-color" content="#111017">
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Rapidool — Native macOS Computational Scratchpad" />
+  <meta property="og:title" content="Rapidool — Developer Scratchpad and Pipeline Editor for Mac" />
   <meta property="og:description"
-    content="Write notes, execute code, run mock API servers, and evaluate math inline. The premium local-first scratchpad for macOS." />
-  <meta property="og:image" content="https://extiri.com/images/rapidool/09_Editor_RichContent.png" />
-  <meta name="twitter:title" content="Rapidool — Native macOS Computational Scratchpad" />
+    content="Inspect, transform, and test data in a local-first Mac scratchpad. Save repeat tasks as visual pipelines." />
+  <meta property="og:image" content="https://extiri.com/images/rapidool/ip-inspector.webp" />
+  <meta name="twitter:title" content="Rapidool — Developer Scratchpad and Pipeline Editor for Mac" />
   <meta name="twitter:description"
-    content="An offline-first macOS scratchpad for JS sandboxing, local mock servers, and automated code formatting." />
+    content="A local-first Mac scratchpad with a Command Gallery, visual pipelines, and inline developer tools." />
 
   <!-- Fonts -->
   <script src="https://kit.fontawesome.com/cbd5f7f345.js" crossorigin="anonymous"></script>
@@ -31,278 +31,7 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css?v=3">
-  <style>
-    /* Page-specific overrides */
-    .hero-rapidool {
-      background: var(--bg-body);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-rapidool::before {
-      content: '';
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 800px;
-      height: 800px;
-      background: radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, transparent 70%);
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .hero-rapidool .btn-primary {
-      box-shadow: none !important;
-      background: var(--color-rapidool);
-      color: #fff;
-      --btn-shadow-rgb: var(--color-rapidool-rgb);
-    }
-
-    .hero-rapidool .btn-primary:hover {
-      box-shadow: 0 0 24px rgba(168, 85, 247, 0.4) !important;
-    }
-
-    .feature-icon-box {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: var(--space-4);
-      font-size: 2rem;
-    }
-
-    /* Slideshow Styles */
-    .slideshow-section {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      padding: var(--space-12) 0;
-    }
-
-    .slideshow-container {
-      position: relative;
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      aspect-ratio: 1800/1264;
-    }
-
-    .slideshow-images {
-      width: 100%;
-      height: 100%;
-    }
-
-    .slideshow-img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-xl);
-      display: none;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: #0d0d0d;
-    }
-
-    .slideshow-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(20, 20, 20, 0.85);
-      color: var(--color-rapidool);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
-      backdrop-filter: blur(10px);
-    }
-
-    .slideshow-btn:hover {
-      background: rgba(168, 85, 247, 0.1);
-      border-color: var(--color-rapidool);
-    }
-
-    .slideshow-prev {
-      left: 20px;
-    }
-
-    .slideshow-next {
-      right: 20px;
-    }
-
-    .slideshow-dots {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: var(--space-6);
-    }
-
-    .slideshow-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .slideshow-dot.active {
-      background: var(--color-rapidool);
-      transform: scale(1.2);
-    }
-
-    /* Comparison Table */
-    .comparison-table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid var(--bg-glass-border);
-      background: var(--bg-surface);
-    }
-
-    .comparison-table th,
-    .comparison-table td {
-      padding: var(--space-4) var(--space-6);
-      text-align: left;
-      border-bottom: 1px solid var(--bg-glass-border);
-    }
-
-    .comparison-table th {
-      background: rgba(255, 255, 255, 0.03);
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    .comparison-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    /* FAQ */
-    .faq-item {
-      border-bottom: 1px solid var(--bg-glass-border);
-    }
-
-    .faq-question {
-      width: 100%;
-      text-align: left;
-      padding: var(--space-6) 0;
-      background: none;
-      border: none;
-      color: var(--text-primary);
-      font-size: var(--text-lg);
-      font-weight: 500;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, opacity 0.3s ease;
-      opacity: 0;
-      color: var(--text-secondary);
-    }
-
-    .faq-question.open .faq-arrow {
-      transform: rotate(90deg);
-    }
-
-    .faq-answer.open {
-      opacity: 1;
-      padding-bottom: var(--space-6);
-    }
-
-    /* Bento Grid Styles */
-    .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: repeat(2, minmax(220px, auto));
-      gap: var(--space-6);
-    }
-
-    .bento-item {
-      background: var(--bg-surface);
-      border: 1px solid var(--bg-glass-border);
-      border-radius: var(--radius-lg);
-      padding: var(--space-8);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .bento-large {
-      grid-column: span 7;
-      grid-row: span 2;
-    }
-
-    .bento-medium {
-      grid-column: span 5;
-      grid-row: span 1;
-    }
-
-    @media (max-width: 900px) {
-      .bento-grid {
-        display: flex;
-        flex-direction: column;
-      }
-    }
-
-    /* Terminal/Code Block Visuals */
-    .terminal-window {
-      background: #151515;
-      border-radius: 8px;
-      border: 1px solid #282828;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
-      color: #d4d4d4;
-      padding: 14px;
-      margin-top: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    }
-
-    .terminal-header {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 12px;
-    }
-
-    .terminal-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #444;
-    }
-
-    .terminal-dot.red { background: #ff5f56; }
-    .terminal-dot.yellow { background: #ffbd2e; }
-    .terminal-dot.green { background: #27c93f; }
-
-    .code-line {
-      display: block;
-      line-height: 1.6;
-    }
-
-    .code-keyword { color: #c678dd; }
-    .code-string { color: #98c379; }
-    .code-func { color: #61afef; }
-    .code-comment { color: #5c6370; font-style: italic; }
-    .code-accent { color: var(--color-rapidool); }
-  </style>
-
+  <link rel="stylesheet" href="rapidool-redesign.css?v=3">
   <!-- Scripts -->
   <!-- Google Analytics (Commented out for Umami port)
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLY6ZZMNBQ"></script>
@@ -315,6 +44,7 @@
   </script>
 -->
   <script src="scripts.js" defer></script>
+  <script src="js/rapidool-page.js" defer></script>
 </head>
 
 <body>
@@ -352,399 +82,273 @@
     </a>
   </div>
 
-  <!-- Hero Section -->
-  <header class="hero hero-rapidool">
-    <div class="container hero-content animate-fade-in">
-      <img src="images/rapidool/rapidool_icon.webp" alt="Rapidool Icon" fetchpriority="high"
-        style="width: 96px; height: 96px; border-radius: 22px; margin: 0 auto var(--space-6) auto; filter: drop-shadow(0 15px 30px rgba(168, 85, 247, 0.35));">
-
-      <h2
-        style="color: var(--color-rapidool); font-family: var(--font-sans); font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-3); letter-spacing: 0.05em; text-transform: uppercase;">
-        Rapidool</h2>
-
-      <h1 class="hero-title">Dozens of developer tools in one fast workspace.</h1>
-
-      <p class="hero-subtitle delay-100">An offline developer scratchpad for macOS. Stop pasting sensitive JSON, JWTs, and regex into random websites. Format, decode, and test APIs locally.</p>
-
-      <div class="flex-center delay-200" style="flex-wrap: wrap; margin-bottom: var(--space-8);">
-        <span class="badge">macOS 26+</span>
-        <span class="badge">Local-First</span>
-        <span class="badge">Zero Friction</span>
+  <main class="rd-page">
+    <header class="rd-hero">
+      <div class="rd-wrap">
+        <div class="rd-brand">
+          <img src="images/rapidool/rapidool_icon.webp" width="32" height="32" alt="">
+          <span>Rapidool for Mac</span>
+        </div>
+        <h1>A scratchpad that<br> <em>does the work.</em></h1>
+        <p class="rd-lede">Keep your notes, logs, and tests in one text editor. Inspect what you paste, run tools right where you write, and save recurring work as a pipeline.</p>
+        <div class="rd-actions">
+          <a class="rd-button" href="https://apps.apple.com/pl/app/rapidool-offline-scratchpad/id6761327472?mt=12">Try Rapidool free <span aria-hidden="true">↗</span></a>
+          <a class="rd-text-link" href="#pipelines">See how pipelines work <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="rd-small">Free trial on the App Store · macOS 14.6 or later</p>
+        <figure class="rd-hero-shot">
+          <img class="rd-shot" src="images/rapidool/ip-inspector.webp" width="1408" height="1148" fetchpriority="high"
+            alt="Rapidool scratchpad with an incident investigation, an IP subnet inspector, and results in the right gutter">
+          <figcaption>Inspect an address without leaving your investigation notes.</figcaption>
+        </figure>
+        <nav class="rd-jumps" aria-label="On this page">
+          <a href="#inspectors">The scratchpad <span aria-hidden="true">↓</span></a>
+          <a href="#gallery">Command Gallery <span aria-hidden="true">↓</span></a>
+          <a href="#pipelines">Pipeline Editor <span aria-hidden="true">↓</span></a>
+          <a href="#prototyping">Prototyping <span aria-hidden="true">↓</span></a>
+        </nav>
       </div>
+    </header>
 
-      <div class="hero-actions delay-300">
-        <a href="https://apps.apple.com/pl/app/rapidool-offline-scratchpad/id6761327472?mt=12" class="btn-app-store"
-          aria-label="Download Rapidool on the Mac App Store">
-          <i class="fa-brands fa-apple" style="font-size: 1.2rem;"></i> Mac App Store
-        </a>
-        <a href="#features" class="btn btn-outline">Explore Features</a>
-      </div>
+    <section id="inspectors" class="rd-chapter rd-inspect">
+      <div class="rd-wrap">
+        <p class="rd-kicker">Scratchpad · Inline tools</p>
+        <h2>Make sense of what you paste.</h2>
+        <p class="rd-inspect-lede">Paste a log, payload, or config into the same document where you’re taking notes. Rapidool recognizes values as you type or paste and puts previews and inspectors next to the text. Open one to read a JWT’s claims, decode Base64, explore an IP subnet, or check a timestamp. That’s a sample of the tools available right in the editor.</p>
 
-      <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--text-tertiary);">7-day free trial ·
-        100% offline privacy · macOS 26+</p>
-    </div>
-  </header>
-
-  <!-- Core App Showcase Mockup -->
-  <section class="section" style="padding-top: 0;" id="features">
-    <div class="container">
-      <div
-        style="position: relative; border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65); border: 1px solid rgba(255, 255, 255, 0.08); background: #0c0c0c;">
-        <img src="images/rapidool/09_Editor_RichContent.webp" alt="Rapidool Smart Editor Interface" fetchpriority="high"
-          style="width: 100%; height: auto; display: block;">
-      </div>
-    </div>
-  </section>
-
-  <!-- Core Concepts Bento Grid -->
-  <section class="section">
-    <div class="container">
-      <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
-        <p class="text-gradient" style="background: linear-gradient(135deg, #a855f7 0%, #d8b4fe 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--text-sm);">
-          Everyday Utilities
-        </p>
-        <h2>Stop switching between utility websites. <span style="font-family: var(--font-sans); font-size: 0.8em; background: rgba(255,255,255,0.06); padding: 4px 10px; border-radius: 6px;">100% local</span></h2>
-        <p>Rapidool replaces your browser tabs with native tools that keep your data private and process text instantly.</p>
-      </div>
-
-      <div class="bento-grid">
-        <!-- Large Item: Sections -->
-        <div class="bento-item bento-large">
-          <div class="feature-icon-box" style="background: rgba(168, 85, 247, 0.1); color: var(--color-rapidool);"><i class="fa-solid fa-layer-group"></i></div>
-          <h3>Working with APIs, Regex & Code</h3>
-          <p style="margin-bottom: var(--space-4);">Instead of opening a slow web tool, prepend a block of text with <code>@</code> to transform it into a dedicated environment.</p>
-
-          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); margin-top: var(--space-4); flex: 1;">
-            <div style="background: rgba(168, 85, 247, 0.04); border: 1px solid rgba(168, 85, 247, 0.15); border-radius: var(--radius-md); padding: var(--space-4); text-align: left; transition: var(--transition-fast);"
-                 onmouseover="this.style.background='rgba(168, 85, 247, 0.08)';" onmouseout="this.style.background='rgba(168, 85, 247, 0.04)';">
-              <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary); margin-bottom: 4px;"><code>@code</code> / <code>@html</code></div>
-              <div style="font-size: var(--text-xs); color: var(--text-tertiary);">Run JS scripts natively or render live HTML/CSS previews.</div>
-            </div>
-
-            <div style="background: rgba(130, 214, 255, 0.04); border: 1px solid rgba(130, 214, 255, 0.15); border-radius: var(--radius-md); padding: var(--space-4); text-align: left; transition: var(--transition-fast);"
-                 onmouseover="this.style.background='rgba(130, 214, 255, 0.08)';" onmouseout="this.style.background='rgba(130, 214, 255, 0.04)';">
-              <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary); margin-bottom: 4px;"><code>@diff</code></div>
-              <div style="font-size: var(--text-xs); color: var(--text-tertiary);">Compare any two diff sections within a file instantly.</div>
-            </div>
-
-            <div style="background: rgba(61, 214, 140, 0.04); border: 1px solid rgba(61, 214, 140, 0.15); border-radius: var(--radius-md); padding: var(--space-4); text-align: left; transition: var(--transition-fast);"
-                 onmouseover="this.style.background='rgba(61, 214, 140, 0.08)';" onmouseout="this.style.background='rgba(61, 214, 140, 0.04)';">
-              <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary); margin-bottom: 4px;"><code>@regex</code></div>
-              <div style="font-size: var(--text-xs); color: var(--text-tertiary);">Test regular expressions with real-time match highlighting.</div>
-            </div>
-
-            <div style="background: rgba(255, 99, 71, 0.04); border: 1px solid rgba(255, 99, 71, 0.15); border-radius: var(--radius-md); padding: var(--space-4); text-align: left; transition: var(--transition-fast);"
-                 onmouseover="this.style.background='rgba(255, 99, 71, 0.08)';" onmouseout="this.style.background='rgba(255, 99, 71, 0.04)';">
-              <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary); margin-bottom: 4px;"><code>@GET</code> / Mock APIs</div>
-              <div style="font-size: var(--text-xs); color: var(--text-tertiary);">Host local endpoints for your frontend to fetch data from.</div>
-            </div>
+        <div class="rd-inspect-layout" data-rd-inspect>
+          <div class="rd-inspect-controls" aria-label="Explore inline tools">
+            <button type="button" id="rd-select-regex" aria-controls="rd-regex" aria-pressed="true">
+              <strong>Verify a regex</strong>
+              <span>Highlight matches against sample data.</span>
+            </button>
+            <button type="button" id="rd-select-date" aria-controls="rd-date" aria-pressed="false">
+              <strong>Read a timestamp</strong>
+              <span>Turn an epoch value into a date and time.</span>
+            </button>
+            <button type="button" id="rd-select-color" aria-controls="rd-color" aria-pressed="false">
+              <strong>Adjust a color</strong>
+              <span>Preview a hex value and fine-tune it visually.</span>
+            </button>
+          </div>
+          <div>
+            <figure id="rd-regex" class="rd-inspect-panel" aria-labelledby="rd-select-regex">
+              <img class="rd-shot" src="images/rapidool/regex-editor.webp" width="1560" height="1102" loading="lazy"
+                alt="Regex section in the scratchpad with highlighted email addresses and a list of matches">
+            </figure>
+            <figure id="rd-date" class="rd-inspect-panel" aria-labelledby="rd-select-date">
+              <img class="rd-shot" src="images/rapidool/date-inspector.webp" width="1578" height="1108" loading="lazy"
+                alt="Timestamp inspector displaying a calendar and clock next to a detected value in a log">
+            </figure>
+            <figure id="rd-color" class="rd-inspect-panel" aria-labelledby="rd-select-color">
+              <img class="rd-shot" src="images/rapidool/color-inspector.webp" width="1594" height="1124" loading="lazy"
+                alt="Color picker adjusting a hex value from a theme configuration in the scratchpad">
+            </figure>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Medium Item: Ghost Gutter -->
-        <div class="bento-item bento-medium">
-          <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.1); color: #82d6ff;"><i class="fa-solid fa-ghost"></i></div>
-          <h3>Working with Dates & Math</h3>
-          <p>Developers constantly evaluate timestamps and quick math. The gutter actively scans your text to evaluate equations, epoch timestamps, dates, and Base64 strings, rendering the results instantly without an external calculator.</p>
+    <section id="editor-sections" class="rd-chapter rd-editor-sections">
+      <div class="rd-wrap">
+        <div class="rd-editor-heading">
+          <p class="rd-kicker">Scratchpad · Sections</p>
+          <h2>Give a block of text its own tool.</h2>
+          <p>Start a line with <code>@</code> to browse available sections. Put the tag and any arguments on the same line, then add the text to process below. Use <code>@text</code> to return to ordinary writing.</p>
         </div>
+        <div class="rd-section-example">
+          <figure>
+            <figcaption>A regex test inside an incident note</figcaption>
+            <pre><code>Checkout deploy · triage notes
 
-        <!-- Medium Item: Inspectors -->
-        <div class="bento-item bento-medium">
-          <div class="feature-icon-box" style="background: rgba(61, 214, 140, 0.1); color: #3dd68c;"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-          <h3>Working with Colors & Encoding</h3>
-          <p>Selecting text opens dedicated popover tools. Pick a color to see its hex/RGB/HSL values, select a date to open a calendar view, or inspect a JWT's decoded payload safely on your machine.</p>
-        </div>
-        
-        <!-- Medium Item: Commands -->
-        <div class="bento-item bento-medium" style="grid-column: span 12;">
-          <div class="feature-icon-box" style="background: rgba(255, 99, 71, 0.1); color: #ff6347;"><i class="fa-solid fa-terminal"></i></div>
-          <h3>Working with JSON & UUIDs</h3>
-          <p>Format JSON instantly without pasting your payload into a random ad-supported formatter website. Press <code>Cmd+Shift+Space</code> anywhere in macOS to drop down the Rapidool Bar and run generators like <code>/uuid</code> or JSON formatters on your clipboard.</p>
+<span>@regex</span> \bINC-\d{4}\b
+Gateway timed out. See <mark>INC-2042</mark>.
+Health checks recovered on retry.
+<span>@text</span>
+
+Follow up with the gateway team.</code></pre>
+          </figure>
+          <dl>
+            <div><dt><code>@regex [a-z]+</code></dt><dd>Write the pattern after the tag and put the test text below. See which parts match as you edit.</dd></div>
+            <div><dt><code>@lines dedupe</code></dt><dd>Paste lines below the tag to remove repeats while keeping the first occurrence of each line in its original order.</dd></div>
+            <div><dt><code>@log-viewer</code></dt><dd>Filter a pasted log by severity while keeping the original lines in your note.</dd></div>
+            <div><dt><code>@inspect messagepack</code></dt><dd>Open a structured view of MessagePack data. Use <code>@inspect websocket</code> to inspect WebSocket frames.</dd></div>
+          </dl>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Interactive Slideshow Section -->
-  <section class="section slideshow-section">
-    <div class="container">
-      <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-8) auto;">
-        <h2>Pragmatic Developer Sandbox</h2>
-        <p>No web latency. No cloud account requirements. Just a native, local-first workspace for raw text, formatting, and computational tools.</p>
-      </div>
-
-      <div class="slideshow-container">
-        <div class="slideshow-images">
-          <img data-src="./images/rapidool/09_Editor_RichContent.webp"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Smart surface with rich features"
-            class="slideshow-img">
-          <img data-src="./images/rapidool/08_Editor_DateDetector.webp"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Ghost Gutter evaluation displaying math and date parses"
-            class="slideshow-img">
-          <img data-src="./images/rapidool/07_Editor_CommandBar.webp"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Native Command Bar menu"
-            class="slideshow-img">
-          <img data-src="./images/rapidool/03_Editor_RegExTester.webp"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Inline Regular Expression parser"
-            class="slideshow-img">
-          <img data-src="./images/rapidool/04_Editor_HTMLStudio.webp"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="HTML Live Sandbox render side panel"
-            class="slideshow-img">
-          <img data-src="./images/rapidool/05_Editor_MockAPI.webp"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Background Mock HTTP API server host details"
-            class="slideshow-img">
-          <img data-src="./images/rapidool/02_Editor_ColorSelection.webp"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Gutter swatches and custom visual color selector"
-            class="slideshow-img">
-          <img data-src="./images/rapidool/10_Editor_SelectionPill.webp"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Floating Selection Pill UI details"
-            class="slideshow-img">
-          <img data-src="./images/rapidool/06_Editor_AIAgent.webp"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="AI Integration via local Ollama models"
-            class="slideshow-img">
-        </div>
-        <button class="slideshow-btn slideshow-prev" aria-label="Previous Slide">&#8592;</button>
-        <button class="slideshow-btn slideshow-next" aria-label="Next Slide">&#8594;</button>
-        <div class="slideshow-dots">
-          <!-- Dots injected by JS -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Deep Dive Sections -->
-  <!-- Real-Life Examples Sections (Split Editorial Layout) -->
-  <section class="section">
-    <div class="container">
-      <div style="text-align: center; max-width: 760px; margin: 0 auto var(--space-12) auto;">
-        <span class="badge" style="margin-bottom: var(--space-3); background: rgba(168, 85, 247, 0.15); color: #d8b4fe;">Practical Automation</span>
-        <h2>Built for High-Velocity Developer Workflows</h2>
-        <p>Rapidool connects code runtimes, inspectors, and mock servers into side-by-side editing workflows.</p>
-      </div>
-
-      <!-- Workflow Row 1 -->
-      <article class="rapidool-workflow-row">
-        <div class="rapidool-workflow-copy">
-          <div class="feature-icon-box" style="background: rgba(168, 85, 247, 0.12); color: var(--color-rapidool); margin-bottom: var(--space-4);"><i class="fa-solid fa-code"></i></div>
-          <span class="badge" style="background: rgba(168, 85, 247, 0.15); color: #d8b4fe; margin-bottom: var(--space-3);">Data Processing</span>
-          <h3>Process JSON &amp; Code Instantly</h3>
-          <p>Paste raw JSON payloads, decode JWT tokens using the Inspector, and auto-format payloads with a quick Command Bar action. Write a quick <code>@code</code> JS block to extract specific fields—all without leaving your editor or opening browser tabs.</p>
-          <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-4);">
-            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 6px;"></i> Auto-Format JSON</span>
-            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 6px;"></i> Inline JWT Decoder</span>
-            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 6px;"></i> Native JS Runtime</span>
-          </div>
-        </div>
-        <div class="rapidool-workflow-media">
-          <img src="./images/rapidool/09_Editor_RichContent.webp" alt="Formatting JSON and decoding JWTs inline" loading="lazy">
-        </div>
-      </article>
-
-      <!-- Workflow Row 2 (Reversed) -->
-      <article class="rapidool-workflow-row reversed">
-        <div class="rapidool-workflow-copy">
-          <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.12); color: #82d6ff; margin-bottom: var(--space-4);"><i class="fa-solid fa-palette"></i></div>
-          <span class="badge" style="background: rgba(130, 214, 255, 0.15); color: #82d6ff; margin-bottom: var(--space-3);">UI Design Sandbox</span>
-          <h3>Build UIs with Live Visual Feedback</h3>
-          <p>Drafting a UI component or layout? Drop your HTML and CSS into an <code>@html</code> block and render it live in the side panel. Click any hex code to launch the Color Inspector, visually pick colors, and copy HSL/RGB values instantly.</p>
-          <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-4);">
-            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: #82d6ff; margin-right: 6px;"></i> Live HTML Render</span>
-            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: #82d6ff; margin-right: 6px;"></i> Visual Color Inspector</span>
-            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: #82d6ff; margin-right: 6px;"></i> Hex/RGB/HSL Conversions</span>
-          </div>
-        </div>
-        <div class="rapidool-workflow-media">
-          <img src="./images/rapidool/04_Editor_HTMLStudio.webp" alt="Visual color inspector and HTML sandbox preview" loading="lazy">
-        </div>
-      </article>
-
-      <!-- Workflow Row 3 -->
-      <article class="rapidool-workflow-row">
-        <div class="rapidool-workflow-copy">
-          <div class="feature-icon-box" style="background: rgba(61, 214, 140, 0.12); color: #3dd68c; margin-bottom: var(--space-4);"><i class="fa-solid fa-server"></i></div>
-          <span class="badge" style="background: rgba(61, 214, 140, 0.15); color: #3dd68c; margin-bottom: var(--space-3);">Local Servers</span>
-          <h3>Mock APIs for Frontend Development</h3>
-          <p>Need to test frontend or mobile app fetch logic before backend routes are ready? Paste desired JSON payloads, prepend <code>@GET /api/v1/users</code>, and Rapidool spins up a local server on port 9090 serving data instantly.</p>
-          <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-4);">
-            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: #3dd68c; margin-right: 6px;"></i> Local HTTP Server</span>
-            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: #3dd68c; margin-right: 6px;"></i> Custom Endpoint Routes</span>
-            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: #3dd68c; margin-right: 6px;"></i> Zero Cloud Deployment</span>
-          </div>
-        </div>
-        <div class="rapidool-workflow-media">
-          <img src="./images/rapidool/05_Editor_MockAPI.webp" alt="Mocking an API endpoint locally" loading="lazy">
-        </div>
-      </article>
-
-      <!-- Workflow Row 4 (Reversed) -->
-      <article class="rapidool-workflow-row reversed" style="margin-bottom: 0;">
-        <div class="rapidool-workflow-copy">
-          <div class="feature-icon-box" style="background: rgba(255, 99, 71, 0.12); color: #ff6347; margin-bottom: var(--space-4);"><i class="fa-solid fa-robot"></i></div>
-          <span class="badge" style="background: rgba(255, 99, 71, 0.15); color: #ff6347; margin-bottom: var(--space-3);">Privacy AI</span>
-          <h3>Stream Code Generation with Local AI</h3>
-          <p>Generate boilerplate code or transform unstructured data safely. Execute <code>/gen</code> to stream AI code writing character-by-character directly inside your active document, powered by your local Ollama instance with zero telemetry.</p>
-          <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-4);">
-            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: #ff6347; margin-right: 6px;"></i> Local Ollama Engine</span>
-            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: #ff6347; margin-right: 6px;"></i> Private API Keys</span>
-            <span class="badge badge--small"><i class="fa-solid fa-check" style="color: #ff6347; margin-right: 6px;"></i> Real-Time Code Stream</span>
-          </div>
-        </div>
-        <div class="rapidool-workflow-media">
-          <img src="./images/rapidool/06_Editor_AIAgent.webp" alt="AI text generation powered by local Ollama server" loading="lazy">
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- Comprehensive Feature Specification Grid Block -->
-  <section class="section" style="background: #09090c; border-top: 1px solid var(--bg-glass-border); border-bottom: 1px solid var(--bg-glass-border);">
-    <div class="container">
-      <div style="text-align: center; max-width: 700px; margin: 0 auto var(--space-12) auto;">
-        <span class="badge" style="margin-bottom: var(--space-3);">Specifications</span>
-        <h2>All Features at a Glance</h2>
-        <p>Comprehensive offline capabilities built natively into macOS.</p>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6);">
-        <div style="background: #0e0e12; border: 1px solid var(--bg-glass-border); padding: var(--space-6); border-radius: var(--radius-md);">
-          <div class="feature-icon-box" style="background: rgba(168, 85, 247, 0.12); color: var(--color-rapidool); margin-bottom: var(--space-4);"><i class="fa-solid fa-at"></i></div>
-          <h4 style="margin-bottom: var(--space-4); color: var(--text-primary); font-size: var(--text-lg);">Sections (<code>@</code>)</h4>
-          <ul style="list-style: none; padding: 0; color: var(--text-secondary); line-height: 2; font-size: var(--text-sm);">
-            <li><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 8px;"></i> <code>@code</code> for native JS execution</li>
-            <li><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 8px;"></i> <code>@html</code> for live UI previews</li>
-            <li><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 8px;"></i> <code>@regex</code> with match highlighting</li>
-            <li><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 8px;"></i> <code>@diff</code> for comparing text blocks</li>
-            <li><i class="fa-solid fa-check" style="color: var(--color-rapidool); margin-right: 8px;"></i> <code>@GET / POST</code> for Mock API servers</li>
-          </ul>
-        </div>
-
-        <div style="background: #0e0e12; border: 1px solid var(--bg-glass-border); padding: var(--space-6); border-radius: var(--radius-md);">
-          <div class="feature-icon-box" style="background: rgba(130, 214, 255, 0.12); color: #82d6ff; margin-bottom: var(--space-4);"><i class="fa-solid fa-sliders"></i></div>
-          <h4 style="margin-bottom: var(--space-4); color: var(--text-primary); font-size: var(--text-lg);">Inspectors &amp; Gutter</h4>
-          <ul style="list-style: none; padding: 0; color: var(--text-secondary); line-height: 2; font-size: var(--text-sm);">
-            <li><i class="fa-solid fa-check" style="color: #82d6ff; margin-right: 8px;"></i> Visual Color Picker &amp; Conversions</li>
-            <li><i class="fa-solid fa-check" style="color: #82d6ff; margin-right: 8px;"></i> JWT Token Decoder</li>
-            <li><i class="fa-solid fa-check" style="color: #82d6ff; margin-right: 8px;"></i> Epoch Date Calendar Explorer</li>
-            <li><i class="fa-solid fa-check" style="color: #82d6ff; margin-right: 8px;"></i> Math Step-by-Step Solver</li>
-            <li><i class="fa-solid fa-check" style="color: #82d6ff; margin-right: 8px;"></i> Base64 Decode &amp; File Preview</li>
-          </ul>
-        </div>
-
-        <div style="background: #0e0e12; border: 1px solid var(--bg-glass-border); padding: var(--space-6); border-radius: var(--radius-md);">
-          <div class="feature-icon-box" style="background: rgba(61, 214, 140, 0.12); color: #3dd68c; margin-bottom: var(--space-4);"><i class="fa-solid fa-microchip"></i></div>
-          <h4 style="margin-bottom: var(--space-4); color: var(--text-primary); font-size: var(--text-lg);">System &amp; Engine</h4>
-          <ul style="list-style: none; padding: 0; color: var(--text-secondary); line-height: 2; font-size: var(--text-sm);">
-            <li><i class="fa-solid fa-check" style="color: #3dd68c; margin-right: 8px;"></i> 100% Offline, Local-First Engine</li>
-            <li><i class="fa-solid fa-check" style="color: #3dd68c; margin-right: 8px;"></i> Global Floating Rapidool Bar</li>
-            <li><i class="fa-solid fa-check" style="color: #3dd68c; margin-right: 8px;"></i> Local Ollama AI Integration</li>
-            <li><i class="fa-solid fa-check" style="color: #3dd68c; margin-right: 8px;"></i> Custom Script/Command Support</li>
-            <li><i class="fa-solid fa-check" style="color: #3dd68c; margin-right: 8px;"></i> Native macOS App Interface</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="use-cases" class="section" style="padding-bottom: var(--space-12)">
-    <div class="container">
-      <div class="flex-between" style="margin-bottom: var(--space-8); align-items: flex-end;">
+    <section id="editor-commands" class="rd-chapter rd-editor-commands">
+      <div class="rd-wrap rd-editor-command-layout">
+        <figure>
+          <img class="rd-shot" src="images/rapidool/07_Editor_CommandBar.webp" width="1800" height="1264" loading="lazy"
+            alt="Rapidool scratchpad with JavaScript above an open inline slash command menu showing UUID and Lorem Ipsum commands">
+          <figcaption>Type a slash on a new line to bring up the command menu inside the editor.</figcaption>
+        </figure>
         <div>
-          <span class="badge" style="margin-bottom: var(--space-4);">Use Cases</span>
-          <h2>Developer <span class="text-gradient">Workflows</span></h2>
+          <p class="rd-kicker">Scratchpad · Slash commands</p>
+          <h2>Insert results where you write.</h2>
+          <p>Type <code>/</code> on a new line, choose a command, and press Return to replace that line with the result. Generate a UUID for a fixture or stamp a note with the current Unix time without leaving the document.</p>
+          <dl class="rd-command-examples">
+            <div><dt><code>/ts</code></dt><dd>Insert the current Unix timestamp.</dd></div>
+            <div><dt><code>/uuid</code></dt><dd>Generate a UUID.</dd></div>
+            <div><dt><code>/date</code></dt><dd>Insert the current date and time.</dd></div>
+          </dl>
         </div>
       </div>
+    </section>
 
-      <div class="recent-posts-grid">
-        <a class="recent-post-card" href="use-cases/rapidool/offline-developer-tools.html">
-          <span class="recent-post-card__date">Use Case</span>
-          <h3 class="recent-post-card__title">Keeping Sensitive Developer Data Offline</h3>
-          <span class="recent-post-card__arrow">
-            Read article <i class="fa-solid fa-arrow-right" style="font-size: 0.75em;"></i>
-          </span>
-        </a>
-        <a class="recent-post-card" href="use-cases/rapidool/zero-latency-sandbox.html">
-          <span class="recent-post-card__date">Use Case</span>
-          <h3 class="recent-post-card__title">The Zero-Latency Developer Sandbox</h3>
-          <span class="recent-post-card__arrow">
-            Read article <i class="fa-solid fa-arrow-right" style="font-size: 0.75em;"></i>
-          </span>
-        </a>
-        <a class="recent-post-card" href="use-cases/rapidool/mock-api-server.html">
-          <span class="recent-post-card__date">Use Case</span>
-          <h3 class="recent-post-card__title">Mocking APIs for AI-Generated Frontends</h3>
-          <span class="recent-post-card__arrow">
-            Read article <i class="fa-solid fa-arrow-right" style="font-size: 0.75em;"></i>
-          </span>
-        </a>
+    <section id="features" class="rd-chapter">
+      <div id="gallery" class="rd-wrap rd-gallery">
+        <div>
+          <p class="rd-kicker">Command Gallery</p>
+          <h2>Find the tool while the problem is still in front of you.</h2>
+          <p>Search the gallery to run a quick command, transform a selection, or insert a working section into your scratchpad. Try a regex against sample text before taking it back to your code.</p>
+          <dl class="rd-tool-index">
+            <div><dt>Text &amp; logs</dt><dd>Regex Tester, Syslog Parser, Time Delta Calculator</dd></div>
+            <div><dt>Data</dt><dd>JSON to TypeScript, MessagePack Inspector, SHA-256</dd></div>
+            <div><dt>HTTP &amp; networking</dt><dd>HTTP Header Parser, WebSocket Frame Parser, IP Subnet Calculator</dd></div>
+          </dl>
+        </div>
+        <figure>
+          <img class="rd-shot" src="images/rapidool/command-gallery.webp" width="1574" height="1214" loading="lazy"
+            alt="Command Gallery with Regex Tester selected, showing its pattern, sample text, and matches">
+          <figcaption>Test a pattern and see its matches inside the Command Gallery.</figcaption>
+        </figure>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FAQ Accordion -->
-  <section class="section" id="faq">
-    <div class="container" style="max-width: 800px;">
-      <h2 style="text-align: center; margin-bottom: var(--space-12);">FAQ</h2>
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-question">Why use a local developer toolbox? <span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
-          <div class="faq-answer">
-            <p>A local developer toolbox keeps your sensitive data (like API keys, customer JSON payloads, and proprietary code) off third-party servers. It's also much faster than opening a browser tab, finding a site, and dealing with ads or latency.</p>
+    <section id="pipelines" class="rd-chapter rd-pipeline">
+      <div class="rd-wrap">
+        <div class="rd-pipeline-intro">
+          <div>
+            <p class="rd-kicker">Pipeline Editor</p>
+            <h2>Do it once.<br> Run it whenever.</h2>
+          </div>
+          <p>Connect operations on a canvas, branch when the data needs it, and see what comes out at each step. Save the pipeline and run it against the next batch instead of rebuilding the workflow.</p>
+        </div>
+
+        <div class="rd-pipeline-demo" data-rd-pipeline>
+          <div class="rd-demo-controls">
+            <div>
+              <h3>Clean up a deployment log</h3>
+              <p>Step through an example pipeline.</p>
+            </div>
+            <div class="rd-stepper" hidden role="group" aria-label="Example pipeline steps">
+              <button type="button" data-step="input" aria-pressed="true">Input</button>
+              <span aria-hidden="true">→</span>
+              <button type="button" data-step="filter" aria-pressed="false">Filter</button>
+              <span aria-hidden="true">→</span>
+              <button type="button" data-step="unique" aria-pressed="false">Remove duplicates</button>
+            </div>
+          </div>
+          <div class="rd-demo-result" aria-live="polite" aria-atomic="true">
+            <div><span data-step-label>Raw log</span><span data-step-count>5 lines</span></div>
+            <pre data-step-output>09:41 INFO  build complete
+09:42 ERROR verify: timeout
+09:42 ERROR verify: timeout
+09:43 INFO  retry started
+09:44 ERROR deploy: unavailable</pre>
           </div>
         </div>
-        <div class="faq-item">
-          <button class="faq-question">Can Rapidool replace online utilities? <span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
-          <div class="faq-answer">
-            <p>Yes. Rapidool replaces dozens of single-purpose websites for JSON formatting, JWT decoding, Base64 encoding, epoch time conversion, and regex testing by bringing them all into one native macOS app.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">Does it send data to servers? <span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
-          <div class="faq-answer">
-            <p>No. Rapidool is designed local-first. Text scanning, math evaluation, JS runtimes, formatting, and mock HTTP routing run 100% on your local macOS machine. No server syncing or telemetry is used (unless you point it to a remote Ollama server for AI prompts).</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">Can I mock APIs? <span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
-          <div class="faq-answer">
-            <p>Yes. You can define mock endpoints using supported HTTP methods and custom route paths (e.g., <code>@GET /api/v1/users</code>) directly inside your document. Rapidool serves these endpoints locally on port 9090, meaning your active web browser, curl command, or mobile client can query them instantly without spinning up a real backend.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">Can I test regex? <span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
-          <div class="faq-answer">
-            <p>Yes. By creating an <code>@regex</code> section, you can test regular expressions with real-time match highlighting against your sample text directly in the editor.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">Can I write custom extensions or command scripts? <span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
-          <div class="faq-answer">
-            <p>Yes. Rapidool scans the <code>~/.rapidool/scripts</code> folder for JS files. Any script added there automatically behaves as a command in the Command Bar (e.g. <code>/myCustomFormatter</code>), transforming document text and returning output directly inline.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">What options are available for AI models and integrations? <span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
-          <div class="faq-answer">
-            <p>Rapidool integrates exclusively with Ollama as the AI provider. You can point it to your local Ollama instance (or a custom Ollama endpoint) to run models like Llama, Mistral, or Gemma. Since Ollama runs models locally on your machine, your code prompts and text data remain 100% private and never leave your device.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">Is there a trial, and where can I buy? <span class="faq-arrow"><i class="fa-solid fa-chevron-right"></i></span></button>
-          <div class="faq-answer">
-            <p>Rapidool is available on the macOS App Store with a 7-day free trial. After the trial, you can choose between a monthly subscription or a lifetime purchase option. It requires macOS 26 or later.</p>
-          </div>
+        <figure class="rd-pipeline-shot">
+          <img class="rd-shot" src="images/rapidool/pipeline-editor.webp" width="1688" height="1076" loading="lazy"
+            alt="Rapidool Pipeline Editor showing a node palette and a connected workflow that splits into two branches and rejoins">
+          <figcaption>The Pipeline Editor can branch and merge paths on the same canvas.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="prototyping" class="rd-chapter rd-prototype">
+      <div class="rd-wrap">
+        <p class="rd-kicker">Prototyping</p>
+        <h2>Try the idea before you build the project.</h2>
+        <p class="rd-inspect-lede">Run a small JavaScript experiment, preview an HTML component, or give a frontend a local API to talk to.</p>
+        <div class="rd-prototype-pair">
+          <figure>
+            <img class="rd-shot" src="images/rapidool/html-studio.webp" width="1562" height="1102" loading="lazy"
+              alt="HTML and CSS source beside a live preview of a server status widget">
+            <figcaption><strong>Preview a component.</strong> Edit HTML and see the result beside the source.</figcaption>
+          </figure>
+          <figure>
+            <img class="rd-shot" src="images/rapidool/mock-api.webp" width="1624" height="1146" loading="lazy"
+              alt="Rapidool scratchpad defining two API routes and their example responses, with the local server running">
+            <figcaption><strong>Mock the response.</strong> Define routes and return sample payloads from your Mac while the backend is in progress.</figcaption>
+          </figure>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Newsletter -->
-  <section class="section">
-    <div class="container" style="max-width: 700px; text-align: center;">
-      <h2 style="margin-bottom: var(--space-4);">The Rapidool Newsletter</h2>
-      <p style="margin-bottom: var(--space-8); color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">Stay up to date. Get advanced scripting examples, productivity tips, and release notes for new Rapidool capabilities.</p>
-      <script async data-uid="72455a1b9f" src="https://extiri.kit.com/72455a1b9f/index.js"></script>
-    </div>
-  </section>
+    <section class="rd-chapter rd-local">
+      <div class="rd-wrap rd-local-layout">
+        <figure>
+          <img class="rd-shot" src="images/rapidool/ollama.webp" width="1842" height="1294" loading="lazy"
+            alt="Rapidool with an optional AI assistant in the left sidebar and JavaScript in the scratchpad">
+        </figure>
+        <div>
+          <p class="rd-kicker">Local-first</p>
+          <h2>Keep your work on your Mac.</h2>
+          <p>Format payloads, run scripts, and serve mock endpoints offline. Open the floating Rapidool Bar from any app with <kbd aria-label="Shift Command Space">⇧⌘ Space</kbd>.</p>
+          <p>Ask for help with a draft or a script using Rapidool’s downloadable on-device model, a local Ollama instance, or a remote API you configure.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="use-cases" class="rd-chapter rd-reading">
+      <div class="rd-wrap rd-reading-layout">
+        <h2>Put Rapidool to work.</h2>
+        <ul>
+          <li><a href="use-cases/rapidool/offline-developer-tools.html">Work with developer data offline <span aria-hidden="true">↗</span></a></li>
+          <li><a href="use-cases/rapidool/zero-latency-sandbox.html">Run a quick JavaScript experiment <span aria-hidden="true">↗</span></a></li>
+          <li><a href="use-cases/rapidool/mock-api-server.html">Build against a local mock API <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="faq" class="rd-chapter rd-faq">
+      <div class="rd-wrap rd-reading-layout">
+        <h2>Questions about Rapidool</h2>
+        <div>
+          <details>
+            <summary>Do I need an internet connection?</summary>
+            <p>The scratchpad, built-in text and data tools, JavaScript, pipelines, and mock HTTP server run locally. The built-in AI model runs on-device after its initial download. If you choose a remote AI endpoint, requests go to that endpoint.</p>
+          </details>
+          <details>
+            <summary>Can I reuse a pipeline with different input?</summary>
+            <p>Yes. Save the workflow, reopen it, and run it again with a fresh sample. You can inspect results along the way and export a pipeline as a <code>.rdpipe</code> file.</p>
+          </details>
+          <details>
+            <summary>Can I add my own commands?</summary>
+            <p>Yes. Add a JavaScript file to Rapidool’s <code>RapidoolScripts</code> folder in Documents and call it as a slash command in the editor.</p>
+          </details>
+          <details>
+            <summary>Is there a free trial?</summary>
+            <p>Eligible App Store users can start a free trial with the monthly plan. A one-time lifetime purchase is also available. It requires macOS 14.6 or later.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="rd-close">
+      <div class="rd-wrap">
+        <img src="images/rapidool/rapidool_icon.webp" width="64" height="64" alt="" loading="lazy">
+        <h2>Bring your next task to Rapidool.</h2>
+        <p>Start with the thing you were about to open another tab for.</p>
+        <a class="rd-button" href="https://apps.apple.com/pl/app/rapidool-offline-scratchpad/id6761327472?mt=12">Try Rapidool free <span aria-hidden="true">↗</span></a>
+        <p class="rd-small">Free trial on the App Store · macOS 14.6 or later</p>
+      </div>
+    </section>
+
+    <section class="rd-news">
+      <div class="rd-wrap">
+        <h2>The Rapidool newsletter</h2>
+        <p>Get scripting examples, workflow tips, and release notes.</p>
+        <div class="rd-news-form">
+          <script async data-uid="72455a1b9f" src="https://extiri.kit.com/72455a1b9f/index.js"></script>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
@@ -783,125 +387,6 @@
     </div>
   </footer>
 
-  <!-- Page Specific Scripts -->
-  <script>
-    // Slideshow Logic
-    (function () {
-      const imgs = Array.from(document.querySelectorAll('.slideshow-img'));
-      const dotsContainer = document.querySelector('.slideshow-dots');
-      const nextBtn = document.querySelector('.slideshow-next');
-      const prevBtn = document.querySelector('.slideshow-prev');
-      const container = document.querySelector('.slideshow-container');
-      let idx = 0;
-      let intervalId = null;
-      const delay = 4000;
-      let userInteracted = false;
-
-      // Create dots
-      imgs.forEach((_, i) => {
-        const dot = document.createElement('span');
-        dot.className = 'slideshow-dot';
-        dot.onclick = () => { showSlide(i); userInteracted = true; stopAuto(); };
-        dotsContainer.appendChild(dot);
-      });
-
-      const dots = Array.from(document.querySelectorAll('.slideshow-dot'));
-
-      function ensureLoaded(img) {
-        const dataSrc = img.dataset.src;
-        if (dataSrc && img.getAttribute('src') !== dataSrc) {
-          img.setAttribute('src', dataSrc);
-          img.loading = 'lazy';
-        }
-      }
-
-      function showSlide(i) {
-        i = ((i % imgs.length) + imgs.length) % imgs.length;
-        imgs.forEach((img, j) => {
-          if (j === i) {
-            ensureLoaded(img);
-            img.style.display = 'block';
-          } else {
-            img.style.display = 'none';
-          }
-        });
-        dots.forEach((dot, j) => dot.classList.toggle('active', j === i));
-        idx = i;
-
-        // Preload next
-        const nextIdx = (i + 1) % imgs.length;
-        if (imgs[nextIdx]) ensureLoaded(imgs[nextIdx]);
-      }
-
-      function nextSlide() { showSlide(idx + 1); }
-      function prevSlide() { showSlide(idx - 1); }
-
-      function startAuto() {
-        if (intervalId || userInteracted) return;
-        intervalId = setInterval(nextSlide, delay);
-      }
-
-      function stopAuto() {
-        if (!intervalId) return;
-        clearInterval(intervalId);
-        intervalId = null;
-      }
-
-      if (nextBtn) nextBtn.onclick = () => { nextSlide(); userInteracted = true; stopAuto(); };
-      if (prevBtn) prevBtn.onclick = () => { prevSlide(); userInteracted = true; stopAuto(); };
-
-      if (container) {
-        container.onmouseenter = stopAuto;
-        container.onmouseleave = () => { if (!userInteracted) startAuto(); };
-      }
-
-      // Init using IntersectionObserver
-      if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              showSlide(0);
-              startAuto();
-              io.disconnect();
-            }
-          });
-        });
-        io.observe(container);
-      } else {
-        showSlide(0);
-        startAuto();
-      }
-    })();
-
-    // FAQ Accordion Logic
-    document.querySelectorAll('.faq-question').forEach(btn => {
-      btn.onclick = function () {
-        const answer = this.nextElementSibling;
-        const isOpen = this.classList.contains('open');
-
-        // Close all other accordions
-        document.querySelectorAll('.faq-question').forEach(q => {
-          if (q !== this) q.classList.remove('open');
-        });
-        document.querySelectorAll('.faq-answer').forEach(a => {
-          if (a !== answer) {
-            a.style.maxHeight = null;
-            a.classList.remove('open');
-          }
-        });
-
-        if (!isOpen) {
-          this.classList.add('open');
-          answer.classList.add('open');
-          answer.style.maxHeight = answer.scrollHeight + 'px';
-        } else {
-          this.classList.remove('open');
-          answer.style.maxHeight = null;
-          answer.classList.remove('open');
-        }
-      };
-    });
-  </script>
 </body>
 
 </html>
