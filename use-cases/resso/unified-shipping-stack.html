@@ -16,10 +16,10 @@
   <link rel="preload" href="../../fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="../../styles.css?v=3">
+  <link rel="stylesheet" href="../../styles.css?v=9">
   <style>
     :root {
-      --page-theme: #2D9CE1;
+      --page-theme: #9ee8ff;
     }
     .post-hero {
       padding: 180px 0 var(--space-12) 0;
@@ -217,6 +217,7 @@
   <script>
     mermaid.initialize({ startOnLoad: true, theme: 'dark' });
   </script>
+  <link rel="stylesheet" href="../use-case-redesign.css?v=2">
 </head>
 <body>
   <!-- Navigation -->
@@ -232,7 +233,7 @@
         <a href="../../services.html" class="nav-link">Services</a>
         <a href="../../about.html" class="nav-link">About</a>
       </div>
-      <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="document.getElementById('mobile-menu').classList.toggle('active')">
+      <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
         <i class="fa-solid fa-bars"></i>
       </button>
     </div>
@@ -258,6 +259,10 @@
       <h1 class="post-hero-title">The Unified Dashboard for Your Shipping Stack</h1>
       <p class="post-hero-subtitle">Replace scattered spreadsheets with a shared infrastructure inventory for your team.</p>
     </div>
+    <div class="post-media">
+      <img src="../images/resso-app-details.webp" alt="Resso Unified Shipping Stack Dashboard" fetchpriority="high">
+      <p style="text-align: center; color: var(--text-tertiary); font-size: 0.9rem; padding: 12px;">Detailed view of a VPS server asset in Resso, complete with SSH connection buttons.</p>
+    </div>
   </header>
 
   <main class="post-content">
@@ -266,10 +271,7 @@
     <p>Many teams manage their shared infrastructure in Notion tables or Excel spreadsheets. But static text cannot alert you when a domain expires, nor can it open an SSH terminal to your server.</p>
     <p>Static documentation becomes outdated the minute it is written, leading to confusion and errors when team members rely on stale data.</p>
 
-    <div class="post-media">
-      <img src="../images/resso-app-details.webp" alt="Resso Unified Shipping Stack Dashboard" loading="lazy">
-      <p style="text-align: center; color: var(--text-tertiary); font-size: 0.9rem; padding: 12px;">Detailed view of a VPS server asset in Resso, complete with SSH connection buttons.</p>
-    </div>
+
 
     <h2>An Executable Team Inventory</h2>
     <p>Resso is a living dashboard. It doesn't just store an IP address; it understands that the IP belongs to a server. If you define a <code>connection</code> property with your SSH credentials, you can click a button in Resso to instantly launch a secure terminal or browse files via SFTP.</p>

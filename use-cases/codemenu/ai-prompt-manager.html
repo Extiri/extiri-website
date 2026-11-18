@@ -18,10 +18,10 @@
   <link rel="preload" href="../../fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="../../styles.css?v=3">
+  <link rel="stylesheet" href="../../styles.css?v=9">
   <style>
     :root {
-      --page-theme: #ffb300;
+      --page-theme: #ffc56a;
     }
 
     .post-hero {
@@ -248,6 +248,7 @@
   <script>
     mermaid.initialize({ startOnLoad: true, theme: 'dark' });
   </script>
+  <link rel="stylesheet" href="../use-case-redesign.css?v=2">
 </head>
 
 <body>
@@ -265,7 +266,7 @@
         <a href="../../about.html" class="nav-link">About</a>
       </div>
       <button class="mobile-menu-btn" aria-label="Toggle Menu"
-        onclick="document.getElementById('mobile-menu').classList.toggle('active')">
+        onclick="document.getElementById('mobile-menu').classList.toggle('open')">
         <i class="fa-solid fa-bars"></i>
       </button>
     </div>
@@ -293,6 +294,11 @@
       <p class="post-hero-subtitle">Store, version, and organize complex prompts and context files for Claude, Cursor,
         and ChatGPT.</p>
     </div>
+    <div class="post-media">
+      <img src="../images/codemenu-prompt.webp" alt="CodeMenu AI Prompt Manager" fetchpriority="high">
+      <p style="text-align: center; color: var(--text-tertiary); font-size: 0.9rem; padding: 12px;">CodeMenu managing
+        complex prompt templates and context files.</p>
+    </div>
   </header>
 
   <main class="post-content">
@@ -304,11 +310,7 @@
       history. Finding the right prompt for the right task is a massive friction point, leading to lost time and
       inconsistent AI results.</p>
 
-    <div class="post-media">
-      <img src="../images/codemenu-prompt.webp" alt="CodeMenu AI Prompt Manager" loading="lazy">
-      <p style="text-align: center; color: var(--text-tertiary); font-size: 0.9rem; padding: 12px;">CodeMenu managing
-        complex prompt templates and context files.</p>
-    </div>
+
 
     <h2>A Structured Prompt Library</h2>
     <p>CodeMenu is the perfect AI prompt manager. You can create a dedicated Space for your prompts and use Tags to

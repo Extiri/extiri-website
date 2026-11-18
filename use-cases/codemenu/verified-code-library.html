@@ -16,10 +16,10 @@
   <link rel="preload" href="../../fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="../../styles.css?v=3">
+  <link rel="stylesheet" href="../../styles.css?v=9">
   <style>
     :root {
-      --page-theme: #ffb300;
+      --page-theme: #ffc56a;
     }
     .post-hero {
       padding: 180px 0 var(--space-12) 0;
@@ -217,6 +217,7 @@
   <script>
     mermaid.initialize({ startOnLoad: true, theme: 'dark' });
   </script>
+  <link rel="stylesheet" href="../use-case-redesign.css?v=2">
 </head>
 <body>
   <!-- Navigation -->
@@ -232,7 +233,7 @@
         <a href="../../services.html" class="nav-link">Services</a>
         <a href="../../about.html" class="nav-link">About</a>
       </div>
-      <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="document.getElementById('mobile-menu').classList.toggle('active')">
+      <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
         <i class="fa-solid fa-bars"></i>
       </button>
     </div>
@@ -258,6 +259,10 @@
       <h1 class="post-hero-title">Building a Verified Code Library</h1>
       <p class="post-hero-subtitle">Stop relying on AI to regenerate the same boilerplate. Save the verified, working output to your local CodeMenu library.</p>
     </div>
+    <div class="post-media">
+      <img src="../images/codemenu-library.webp" alt="CodeMenu Verified Code Library" fetchpriority="high">
+      <p style="text-align: center; color: var(--text-tertiary); font-size: 0.9rem; padding: 12px;">The CodeMenu main interface showing snippet collections and organizational categories.</p>
+    </div>
   </header>
 
   <main class="post-content">
@@ -266,10 +271,7 @@
     <p>AI tools like ChatGPT and GitHub Copilot are incredible at generating boilerplate, but they are not perfect. We've all experienced the frustration of spending 20 minutes prompting an AI, fixing its mistakes, and finally getting a working component—only to need the exact same thing two weeks later.</p>
     <p>If you don't save that verified solution, you are forced to repeat the prompt-and-fix cycle. Developers need a single source of truth for code that they have personally tested and verified.</p>
 
-    <div class="post-media">
-      <img src="../images/codemenu-library.webp" alt="CodeMenu Verified Code Library" loading="lazy">
-      <p style="text-align: center; color: var(--text-tertiary); font-size: 0.9rem; padding: 12px;">The CodeMenu main interface showing snippet collections and organizational categories.</p>
-    </div>
+
 
     <h2>Local-First Curation</h2>
     <p>CodeMenu acts as your personal, curated library. When AI gives you an answer that works, you immediately save it to CodeMenu. It supports over 60 languages with full syntax highlighting. Because of the built-in semantic search, finding that verified snippet next time takes two seconds instead of twenty minutes.</p>
