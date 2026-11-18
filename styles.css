@@ -469,6 +469,48 @@ p {
   border-color: rgba(255, 255, 255, 0.3);
 }
 
+/* Match the product pages while retaining the navigation controls. */
+.btn:not(.navbar .btn):not(.mobile-menu .btn) {
+  min-height: 46px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 0.94rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.btn--small:not(.navbar .btn):not(.mobile-menu .btn) {
+  min-height: 40px;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+}
+
+.btn:not(.navbar .btn):not(.mobile-menu .btn):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+.btn-primary:not(.navbar .btn):not(.mobile-menu .btn):hover {
+  filter: brightness(1.12);
+  opacity: 1;
+}
+
+.navbar .btn--small,
+.mobile-menu .btn--small {
+  min-height: 40px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.navbar .btn--small:focus-visible,
+.mobile-menu .btn--small:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
 .btn-app-store,
 .btn-google-play {
   display: inline-flex;
